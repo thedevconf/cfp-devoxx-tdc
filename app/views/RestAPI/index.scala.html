@@ -1,0 +1,97 @@
+@()(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@api(Messages("shortName")+" API") {
+<div class="row">
+    <div class="col-md-12">
+    <h1>@Messages("shortName") API</h1>
+    <hr>
+    <h3>Welcome to @Messages("longName") REST API.</h3>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="icon-info-sign"></i> API is now stable and ready for @Messages("longName")</h4>
+        </div>
+        <div class="panel-body">
+            <p>Please, report issue with <a href="@routes.Application.bugReport()"><i class="icon-bug"></i> our bug tracker</a></p>
+            <p>I designed this API based on <a href="http://martinfowler.com/articles/richardsonMaturityModel.html">Richardson's
+                REST API maturity level3</a>, with hypermedia link between resources.</p>
+            <p>Nicolas Martignole (<a href="http://www.twitter.com/nmartignole">@@nmartignole</a>).</p>
+        </div>
+
+    </div>
+    <p><i class="icon-warning-sign"></i> The User-Agent HTTP field is mandatory.</p>
+    <p>Each Response contains:</p>
+     <ul>
+        <li>an ETag. Please, check and use <code>If-None-Match</code> to avoid too many calls to the server.</li>
+        <li>a Links HTTP Header (<a href="http://tools.ietf.org/html/rfc6906" rel="help" title="RFC 6906">RFC 6906</a>) with a short documentation about each resource.</li>
+     </ul>
+
+    <h3>Resources</h3>
+    <p>The API serves the following content:</p>
+        <ul>
+            <li><a href="@routes.RestAPI.profile("conferences")" rel="glossary">A collection of Conferences</a></li>
+            <li><a href="@routes.RestAPI.profile("conference")" rel="glossary">A conference</a></li>
+            <li><a href="@routes.RestAPI.profile("list-of-speakers")" rel="glossary">A list of speakers</a></li>
+            <li><a href="@routes.RestAPI.profile("speaker")" rel="glossary">A speaker</a></li>
+            <li><a href="@routes.RestAPI.profile("talk")" rel="glossary">A talk</a></li>
+            <li><a href="@routes.RestAPI.profile("schedules")" rel="glossary">A set of schedules</a></li>
+            <li><a href="@routes.RestAPI.profile("schedule")" rel="glossary">A schedule</a></li>
+            <li><a href="@routes.RestAPI.profile("link")" rel="glossary">A link</a></li>
+            <li><a href="@routes.RestAPI.profile("proposalType")" rel="glossary">The list of event's talks formats (conference, labs, keynote...)</a></li>
+            <li><a href="@routes.RestAPI.profile("track")" rel="glossary">The list of event's tracks</a></li>
+            <li><a href="@routes.RestAPI.profile("room")" rel="glossary">The list of Rooms</a></li>
+            <li><a href="@routes.RestAPI.profile("schedule")" rel="glossary">A schedule for a specific room and a specific day</a></li>
+        </ul>
+
+    <h4>See all conferences</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showAllConferences().absoluteURL()" rel="contents">@routes.RestAPI.showAllConferences().absoluteURL()</a>
+    </code>
+
+    <h4>See details for an event</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showConference(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showConference(Conference.currentConference.eventCode).absoluteURL()</a>
+    </code>
+
+    <h4>See all speakers for this event</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showSpeakers(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showSpeakers(Conference.currentConference.eventCode).absoluteURL()</a>
+    </code>
+
+    <h4>See details for a specific speaker</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showSpeaker(Conference.currentConference.eventCode, "25b6eeb75c18e3465d5cddf2be297b8863006551").absoluteURL()">@routes.RestAPI.showSpeaker(Conference.currentConference.eventCode, "25b6eeb75c18e3465d5cddf2be297b8863006551").absoluteURL()</a>
+    </code>
+
+    <h4>See details for a talk</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showTalk(Conference.currentConference.eventCode, "QDI-693").absoluteURL()">@routes.RestAPI.showTalk(Conference.currentConference.eventCode, "QDI-693").absoluteURL()</a>
+    </code>
+
+    <h4>See the list of Schedules</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showAllSchedules(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showAllSchedules(Conference.currentConference.eventCode).absoluteURL()</a>
+    </code>
+
+    <h4>See the schedule for Wednesday</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showScheduleFor(Conference.currentConference.eventCode,"wednesday").absoluteURL()">@routes.RestAPI.showScheduleFor(Conference.currentConference.eventCode,"wednesday").absoluteURL()</a>
+    </code>
+
+    <h4>Show the list of rooms</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showRooms(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showRooms(Conference.currentConference.eventCode).absoluteURL()</a>
+    </code>
+
+    <h4>See the schedule for Room8 for Thursday</h4>
+    <code>
+        curl -H "Accept: application/json" <a href="@routes.RestAPI.showScheduleForRoom(Conference.currentConference.eventCode,"room8","thursday").absoluteURL()">@routes.RestAPI.showScheduleForRoom(Conference.currentConference.eventCode,"room8","thursday").absoluteURL()</a>
+    </code>
+
+    <h4>French is also supported, use Accept-language header :</h4>
+    <code>
+        curl -H "Accept: application/json" -H "Accept-language: fr-FR" <a href="@routes.RestAPI.showSpeaker(Conference.currentConference.eventCode, "25b6eeb75c18e3465d5cddf2be297b8863006551").absoluteURL()">@routes.RestAPI.showSpeaker(Conference.currentConference.eventCode, "25b6eeb75c18e3465d5cddf2be297b8863006551").absoluteURL()</a>
+    </code>
+    </div>
+</div>
+
+}

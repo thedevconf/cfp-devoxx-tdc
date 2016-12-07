@@ -1,0 +1,19 @@
+@(validationLink:String, conferenceName:String)
+
+Bem-vindo(a) ao @conferenceName!
+
+Obrigado por se registrar no Web site do @conferenceName. Para validar seu endereço de email, por favor copie o link a seguir para o a barra de endereço do seu navegador:
+
+@validationLink
+
+Equipe @conferenceName
+
+---------------------------------------------------------------------
+
+Welcome to @conferenceName!
+
+Thanks for joining @conferenceName CFP Web site. To validate your email address, please copy the following link to your browser address bar:
+
+@validationLink
+
+The @conferenceName Team

@@ -1,0 +1,38 @@
+@(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
+
+Olá, @firstName,
+
+Agradecemos mais uma vez a submissão da sua palestra!
+Lamentamos informar que INFELIZMENTE a sua palestra foi REJEITADA:
+    Título: @proposal.title
+    Trilha: @Messages(proposal.track.label)
+
+Recebemos mais de 600 propostas e os slots disponíveis são limitados.
+
+Esperamos que não haja desapontamento com o evento e agradecemos seu investimento de tempo e energia para participar do
+Call4Papers. E também esperamos que participe da chamada de trabalhos das próximas edições do TheDevConf.
+
+Considerando a sua participação no Call4Papers, manteremos o preço promocional da fase 1 das inscrições, ou seja,
+apenas R$ 120 por trilha. Para isso, basta responder este e-mail, falando de quantas trilhas quer participar e receberá
+o código promocional válido até 11 de Setembro.
+
+Atenciosamente,
+
+Equipe @Messages("longYearlyName")
+
+----------------------------------------------------------------------------------------------------------------
+
+Hi, @firstName,
+
+We're sorry to inform you that your proposal was REFUSED,keep in mind that
+we received more than 600 proposals and the available slots are very limited.
+
+Proposition title : @proposal.title, Track: @Messages(proposal.track.label).
+
+We would like to thank you sincerely for your proposal.
+Hopefully we can still welcome you at the event, registration details
+
+@ConferenceDescriptor.current().conferenceUrls.registration
+
+Kind regards,
+The @Messages("longYearlyName") team

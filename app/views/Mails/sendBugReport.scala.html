@@ -1,0 +1,13 @@
+@(bugReport:models.Issue)
+
+<h3>New issue posted on Devoxx CFP Bug report</h3>
+<hr>
+
+<p>Reported by : @bugReport.reportedBy</p>
+<p>Message :
+<pre>@bugReport.msg</pre>
+</p>
+<p>Git version : @bugReport.gitHash</p>
+<p>Git branch : @bugReport.gitBranch</p>
+<hr>
+

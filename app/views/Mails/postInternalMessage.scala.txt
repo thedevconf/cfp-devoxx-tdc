@@ -1,0 +1,17 @@
+@(fromName:String, proposal:models.Proposal, msg:String)
+
+Novo comentário postado por @fromName para @proposal.title
+
+Mensagem:
+------------------------------------------------------------------------------
+@msg
+
+@fromName
+------------------------------------------------------------------------------
+
+Por favor, use este link para responder diretamente para a mensagem :
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)
+
+Obrigado,
+
+Equipe @Messages("longName")

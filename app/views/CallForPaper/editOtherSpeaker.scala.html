@@ -1,0 +1,123 @@
+@(currentUser: String, proposal:models.Proposal, speakerForm: Form[(Option[String],List[String])])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+@import org.apache.commons.lang3.StringUtils
+
+@main("Edit speaker") {
+    <link rel="stylesheet" href="/assets/js/select2-3.4.5/select2.css"/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>@Messages("other.speakers")</h3>
+@helper.form(action=routes.CallForPaper.saveOtherSpeakers(proposal.id)){
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th>@Messages("proposal.title")</th>
+                        <td>@proposal.title</td>
+                    </tr>
+                    <tr>
+                        <th>@Messages("proposal.id")</th>
+                        <td>@proposal.id</td>
+                    </tr>
+                    <tr>
+                        <th>@Messages("talkType")</th>
+                        <td>@Messages(proposal.talkType.label)</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+<!-- Removidas informações de free pass
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <th>@Messages("proposal.buyPass", ConferenceDescriptor.current().timing.speakersPassDuration)</th>
+                        </tr>
+                    </thead>
+-->
+                    <tbody>
+                    <tr>
+                        <td>
+                            @currentUser
+                        </td>
+<!-- Removidas informações de free pass
+                        <td>
+                        @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
+                            <span class="label label-success">@Messages("freepass")</span>
+                        } else {
+                            <span class="label label-warning">@Messages("no.freepass")</span>
+                        }
+                        </td>
+-->
+                    </tr>
+                    <tr>
+                        <td>
+                            @helper.select(field=speakerForm("secondarySpeaker"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control")
+                        </td>
+<!-- Removidas informações de free pass
+                        <td>
+                          @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
+                            <span class="label label-success">@Messages("freepass")</span>
+                          } else {
+                            <span class="label label-warning">@Messages("no.freepass")</span>
+                          }
+                        </td>
+-->
+                    </tr>
+                    <tr>
+                        <td>
+                            @helper.select(field=speakerForm("otherSpeakers"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control-cfp", 'multiple->"true" )
+                        </td>
+<!-- Removidas informações de free pass
+                        <td>
+                            <span class="label label-warning">@Messages("no.freepass")</span>
+                        </td>
+-->
+                    </tr>
+                </tbody>
+<!-- Removidas informações de free pass
+                    <tfoot>
+                        <tr>
+                            <td colspan="2"><small>@Messages("freepass.forIdiots")</small></td>
+                        </tr>
+                    </tfoot>
+-->
+            </table>
+
+            @if(flash.get("error").isDefined) {
+                <div class="alert alert-danger alert-dismissable">
+                    <strong>Error :</strong>
+                    @flash.get("error").get
+                </div>
+            }
+            @if(flash.get("success").isDefined) {
+                <div class="alert alert-success alert-dismissable">
+                @flash.get("success").get
+                </div>
+            }
+
+            <hr>
+            <button type="submit" class="btn btn-success"><i class="icon-arrow-right"></i> @Messages("btn.enregistrer")</button>&nbsp;
+}
+            <a href="@routes.CallForPaper.homeForSpeaker" class="btn btn-default">@Messages("cancel.goBackHome")</a>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(document).ready ( function ($) {
+
+    $("#secondarySpeaker").select2({
+        placeholder: "@Messages("select.secondarySpeaker")",
+        allowClear: true
+    });
+
+    $("#otherSpeakers").select2({
+        allowClear : true
+    } );
+
+}) ;
+</script>
+
+<script type="text/javascript" src="/assets/js/select2-3.4.5/select2.min.js"></script>
+}

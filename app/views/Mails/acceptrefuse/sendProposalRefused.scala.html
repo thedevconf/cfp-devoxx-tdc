@@ -1,0 +1,139 @@
+@(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
+
+<table cellpadding="0" cellspacing="0"
+       align="center"
+       style="width: 100%; max-width: 600px; margin: 0 auto; padding: 0; border: 0;">
+    <tr>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #eb0029; background-color: #eb0029;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ff5000; background-color: #ff5000;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ffb819; background-color: #ffb819;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009944; background-color: #009944;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #144733; background-color: #144733;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009bde; background-color: #009bde;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #004a97; background-color: #004a97;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #44273a; background-color: #44273a;">
+            &nbsp;
+        </td>
+    </tr>
+
+</table>
+
+<p>Olá, @firstName,</p>
+<p>Agradecemos mais uma vez a submissão da sua palestra!</p>
+<p>Lamentamos informar que INFELIZMENTE a sua palestra foi <strong>REJEITADA</strong>:<br/>
+    Título: <strong>@proposal.title</strong> <br/>
+    Trilha: <strong>@Messages(proposal.track.label)</strong>
+</p>
+<p>Recebemos mais de 600 propostas e os slots disponíveis são limitados.</p>
+<p>Esperamos que não haja desapontamento com o evento e agradecemos seu
+    investimento de tempo e energia para participar do Call4Papers.
+    E também esperamos que participe da chamada de trabalhos das próximas edições do TheDevConf.</p>
+<p>Considerando a sua participação no Call4Papers, manteremos o preço
+    promocional da fase 1 das inscrições, ou seja, apenas R$ 120 por trilha.
+    Para isso, basta responder este e-mail, falando de quantas trilhas quer participar
+    e receberá o código promocional válido <strong>até 11 de Setembro</strong>.</p>
+<p>Atenciosamente,</p>
+<p>Equipe @Messages("longYearlyName")</p>
+<table cellpadding="0" cellspacing="0"
+       align="center"
+       style="width: 100%; max-width: 600px; margin: 0 auto; padding: 0; border: 0;">
+    <tr>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #eb0029; background-color: #eb0029;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ff5000; background-color: #ff5000;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ffb819; background-color: #ffb819;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009944; background-color: #009944;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #144733; background-color: #144733;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009bde; background-color: #009bde;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #004a97; background-color: #004a97;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #44273a; background-color: #44273a;">
+            &nbsp;
+        </td>
+    </tr>
+
+</table>
+
+<p>Hi,</p>
+<p>We're sorry to inform you that your proposal was <strong>REFUSED</strong>,
+  keep in mind that we received more than 600 proposals and the available slots are very limited</p>
+<p>Proposition title: <strong>@proposal.title</strong>, Track: <strong>@Messages(proposal.track.label)</strong>.</p>
+<p>We would like to thank you sincerely for your proposal.</p>
+<p>Hopefully we can still welcome you at the event, registration details <a href="@ConferenceDescriptor.current().conferenceUrls.registration">@ConferenceDescriptor.current().conferenceUrls.registration</a>.</p>
+<p>Kind regards,</p>
+<p>The @Messages("longYearlyName") team</p>
+<p></p>

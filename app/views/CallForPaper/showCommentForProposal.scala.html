@@ -1,0 +1,62 @@
+@(proposal: Proposal, comments: List[Comment], msgToCommitte: Form[String])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+
+@import com.github.rjeschke.txtmark._
+
+@main("Comments for proposal " + proposal.id) {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><i class="icon-bullhorn"></i> @Messages("comment.proposal")</h3>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-bordered table-strippted">
+                        <thead>
+                            <tr>
+                                <th>@Messages("sw.proposal.title")</th>
+                                <th>@Messages("sw.proposal.track")</th>
+                                <th>@Messages("sw.proposal.talkType")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                @proposal.title
+                                </td>
+                                <td>
+                                @Messages(proposal.track.label)
+                                </td>
+                                <td>@Messages(proposal.talkType.id)</td>
+                            </tr>
+                            <tr>
+                                <th colspan="4">
+                                    @Messages("sw.proposal.summary")
+                                </th>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+                                    <div class="proposal">
+                                        @Html(proposal.summaryAsHtml)
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel-body">
+                @helper.form(action = routes.CallForPaper.sendMessageToCommitte(proposal.id)) {
+                    @helper.textarea(msgToCommitte("msg"), 'class -> "form-control input-xs")
+                    <button type="submit" class="btb btn-xs btn-primary">@Messages("sw.proposal.btn.sendmessage")</button>
+                }
+                </div>
+
+                <div class="panel-body">
+                @tags.renderComments(comments)
+                </div>
+            </div>
+        </div>
+    </div>
+}

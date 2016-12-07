@@ -1,0 +1,47 @@
+@(fromName:String, proposal:models.Proposal, msg:String)
+
+Olá,
+
+Você recebeu uma nova mensagem de (@fromName) a respeito da palestra "@proposal.title".
+
+Mensagem:
+------------------------------------------------------------------------------
+@msg
+
+@fromName
+------------------------------------------------------------------------------
+
+Como responder?
+
+Por favor, use este link para responder diretamente para a mensagem :
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
+
+Não responda este email, por favor use o web site do CFP.
+
+Obrigado,
+
+Equipe @Messages("longName")
+
+------------------------------------------------------------------------------
+
+Hi,
+
+You received a new message from (@fromName) regarding your talk "@proposal.title".
+
+Message:
+------------------------------------------------------------------------------
+@msg
+
+@fromName
+------------------------------------------------------------------------------
+
+How to respond?
+
+Please, use this link to respond directly to the message :
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
+
+Do not reply to this email, please use the CFP web site.
+
+Thanks
+
+The @Messages("longName") team.

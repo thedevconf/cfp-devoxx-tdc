@@ -1,0 +1,33 @@
+@(fromName:String, toName:String, proposal:models.Proposal, msg:String)
+
+Olá,
+
+Uma nova mensagem foi postada por @fromName para @toName a respeito da palestra "@proposal.title".
+
+------------------------------------------------------------------------------
+@msg
+
+@fromName
+------------------------------------------------------------------------------
+
+- Esta mensagem foi enviada por um membro da coordenação
+- Não responda este email
+- Revise esta proposta online:
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)
+
+------------------------------------------------------------------------------
+
+Hello,
+
+A new message was posted from @fromName to @toName regarding talk "@proposal.title".
+
+------------------------------------------------------------------------------
+@msg
+
+@fromName
+------------------------------------------------------------------------------
+
+- This message was sent by a Program Committee member
+- Do not reply to this email
+- Review this proposal online:
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)

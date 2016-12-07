@@ -1,0 +1,274 @@
+@(allVotes:List[(models.Proposal,(models.Review.Score, models.Review.TotalVoter, models.Review.TotalAbst, models.Review.AverageNote, models.Review.StandardDev), Double, Long)], totalApproved:Long, totalRemaining:Long, confType:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@import models.Review.Score
+@import models.Review.TotalVoter
+@import models.Review.TotalAbst
+@import models.Review.AverageNote
+@import models.Review.StandardDev
+
+@main(Messages("allVotes.tab")) {
+    <script type="text/javascript" charset="utf-8" language="javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+
+<div class="row">
+    <div class="col-md-12">
+                        <a href="@routes.CFPAdmin.allVotes("all", None)" class="btn btn-primary btn-sm"><i class="icon-adjust"></i> @Messages("allVotes.button.all") </a>
+                        @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
+                            <a href="@routes.CFPAdmin.allVotes(proposalType.id, None)" class="btn btn-primary btn-sm"><i class="@ProposalConfiguration.getHTMLClassFor(proposalType)"></i> @Messages(proposalType.label+".simple")</a>
+                        }
+                        | <a href="@routes.CFPAdmin.doComputeVotesTotal()" class="btn btn-success btn-sm"><i class="icon-compass"></i> @Messages("allVotes.button.recompute")</a>
+@if(SecureCFPController.hasAccessToAdmin(req)){
+                        <a href="@routes.CFPAdmin.allApprovedSpeakersByCompany(false)" class="btn btn-danger btn-sm"><i class="icon-double-angle-down"></i> @Messages("allVotes.button.byCompany")</a>
+}
+                        <br>
+
+                        @if(flash.get("error").isDefined) {
+                            <div class="alert alert-danger alert-dismissable">
+                                <strong>Error :</strong>
+                                @flash.get("error").get
+                            </div>
+                        }
+                        @if(flash.get("success").isDefined) {
+                            <div class="alert alert-success alert-dismissable">
+                                @flash.get("success").get
+                            </div>
+                        }
+                        <br>
+                        @defining(allVotes.count(_._1.state == ProposalState.DECLINED)){declinedTotal=>
+                        <span class="label label-success">@totalApproved @Messages("allVotes.label.approved")</span>
+                        <span class="label label-declined">- @declinedTotal @Messages("allVotes.label.declined")</span>
+                        <span class="label label-warning">= @(totalRemaining+declinedTotal) @Messages("allVotes.label.remaining")</span>
+                        }
+                        <br>
+                        <span class="label label-primary">@allVotes.map(_._1).count(_.lang == "pt") PT</span>
+                        <span class="label label-default">@allVotes.map(_._1).count(_.lang == "en") EN</span>
+
+                </div>
+
+        </div>
+<div class="row">
+
+ <div class="col-md-12">
+                    <br/>
+                    <small>@Messages("allVotes.warning1") @Messages("submitted.caps")/@Messages("approved.caps")/@Messages("accepted.caps")/@Messages("backup.caps")</small>
+                    <br/>
+                    <small>@Messages("allVotes.warning2")</small>
+                    <br/>
+
+                    <table id="allProposals" class="compact cell-border order-column">
+                        <thead>
+                            <tr>
+                                <th/>
+                                <th>@Messages("allVotes.columns.average")</th>
+<!-- comentada coluna de GoldenTicket
+                                <th>@Messages("allVotes.columns.gt")</th>
+-->
+                                <th>@Messages("allVotes.columns.votes")</th>
+                                <th>@Messages("allVotes.columns.abstention")</th>
+<!-- comentada coluna de media de votos do comite considerando GoldenTicket
+                                <th>@Messages("allVotes.columns.note")</th>
+-->
+                                <th>@Messages("allVotes.columns.title")</th>
+<!-- comentada coluna de id
+                                <th>@Messages("allVotes.columns.id")</th>
+-->
+                                <th>@Messages("allVotes.columns.speakers")</th>
+                                <th>@Messages("allVotes.columns.type")</th>
+                                <th>@Messages("allVotes.columns.track")</th>
+                                <th>@Messages("allVotes.columns.lang")</th>
+                                <th><i class="icon-thumbs-up"></i> / <i class="icon-thumbs-down"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @allVotes.map { case (proposal, voteAndTotalVotes, gtScore, gtVoteCast) =>
+                                @defining(ApprovedProposal.isRefused(proposal.id, proposal.talkType.id)){refused=>
+                                @defining(ApprovedProposal.isApproved(proposal.id, proposal.talkType.id)){approved=>
+                                <tr class="preselected_@approved refused_@refused">
+                                    <td class="number_table"/>
+                                    <td class="average_table">
+                                    @defining(voteAndTotalVotes._4) { average:AverageNote =>
+                                       @average.n
+                                    }
+                                    </td>
+<!-- comentada coluna de GoldenTicket
+                                    <td>
+                                        <small>@gtScore by @gtVoteCast <i class="icon-user"></i></small>
+                                    </td>
+-->
+                                    <td  class="number_table">
+                                    @defining(voteAndTotalVotes._2) { totalVoters:TotalVoter =>
+                                      @totalVoters.i
+                                    }
+                                    </td>
+                                    <td  class="number_table">
+                                    @defining(voteAndTotalVotes._3) { totalAbstentions:TotalAbst =>
+                                        @totalAbstentions.i
+                                    }
+                                    </td>
+<!-- comentada coluna de media de votos do comite considerando GoldenTicket
+                                    <td  class="number_table">
+                                   @library.Stats.average(List(gtScore,voteAndTotalVotes._4.n))
+                                    </td>
+-->
+                                    <td>
+                                        <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.title</small></a>
+					@if(proposal.sponsorTalk){
+                                        	&nbsp;<label class="label label-info"><i class="icon-dollar"></i> @Messages("tag.sponsor")</label>
+                                        }
+                                    </td>
+<!-- comentada coluna de media de votos do comite considerando GoldenTicket
+                                    <td><small>@proposal.id
+                                        @if(proposal.sponsorTalk){
+                                        &nbsp;<label class="label label-info"><i class="icon-dollar"></i> sponsor</label>
+                                        }
+                                    </small></td>
+-->
+                                    <td>
+                                        @proposal.allSpeakers.map { s: Speaker =>
+                                            @if(models.Invitation.isInvited(s.uuid)){
+                                              <span class="label label-warning"><i class="icon-glass"></i> @s.cleanName <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                                            }else{
+                                                <span class="label label-default">@s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        <small>@Messages(proposal.talkType.id)</small>
+                                    </td>
+                                    <td>
+                                        <small>@Messages(proposal.track.label)</small>
+                                    </td>
+                                    <td><img src="/assets/images/@(proposal.lang).png" alt="@proposal.lang" title="@proposal.lang"/></td>
+                                    <td>
+                                        @if(proposal.state==ProposalState.SUBMITTED || proposal.state==ProposalState.BACKUP){
+                                            @if(approved){
+                                                <a href="@routes.ApproveOrRefuse.cancelApprove(proposal.id)" class="cancelAcceptBtn btn btn-sm btn-danger">
+                                                    <i class="icon-remove"></i> @Messages("allVotes.button.cancel.approve")</a>
+                                            }else{
+                                                @if(refused){
+                                                    <a href="@routes.ApproveOrRefuse.cancelRefuse(proposal.id)" class="cancelRefuseBtn btn btn-sm btn-danger">
+                                                        <i class="icon-remove"></i> @Messages("allVotes.button.cancel.refuse")</a>
+                                                }else{
+                                                    @if(proposal.state==ProposalState.BACKUP){
+                                                        <i class="icon-exclamation-sign"></i> Backup
+                                                    }
+                                                    <a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
+                                                        <i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
+                                                    <a href="@routes.ApproveOrRefuse.doRefuse(proposal.id)" class="refuseBtn btn btn-sm btn-danger">
+                                                        <i class="icon-thumbs-down"></i> @Messages("allVotes.button.refuse")</a>
+                                                }
+                                            }
+                                        }
+                                        <br>
+                                        <span class="label label-@proposal.state.code">@Messages(proposal.state.code)</span>
+                                        @if(refused && proposal.state.code==ProposalState.ACCEPTED.code){
+                                           <a href="@routes.ApproveOrRefuse.cancelRefuse(proposal.id)" class="cancelRefuseBtn btn btn-sm btn-danger">
+                                               <i class="icon-check"></i> @Messages("allVotes.button.remove")</a>
+                                        }
+                                        @if(approved && proposal.state.code==ProposalState.REJECTED.code){
+                                          <a href="@routes.ApproveOrRefuse.cancelApprove(proposal.id)" class="cancelAcceptBtn btn btn-sm btn-danger">
+                                              <i class="icon-remove"></i> @Messages("allVotes.button.cancel.approve")</a>
+                                        }
+
+
+                                    </td>
+                                </tr>
+                                }
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+ </div>
+
+</div>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+    $.fn.dataTableExt.oStdClasses.sStripeOdd = '';
+    $.fn.dataTableExt.oStdClasses.sStripeEven = '';
+
+    $('#allProposals').DataTable({
+        "autoWidth": true,
+        "dom": 'lfirtp',
+    "aaSorting": [[ 1, "desc" ]],
+    "pageLength": 75,
+    "lengthMenu": [[5, 10, 25, 50, 75, 100, -1], [5,10,25, 50, 75,100, "All"]],
+    "stateSave": true,
+    "drawCallback": function ( oSettings ) {
+            /* Need to redo the counters if filtered or sorted */
+            if ( oSettings.bSorted || oSettings.bFiltered ) {
+                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ ) {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                }
+            }
+        },
+    "aoColumnsDef": [
+        { "bSortable" : "false", "bSearchable" : "false", "aTargets": 0 },
+        { "sType": "numeric", "aTargets": [1, 2, 3, 4]},
+        { "sType": "string", "aTargets": [5, 6, 7, 8, 9, 10, 11,12 ]}
+        ],
+    "stripeClasses": []
+    });
+
+     $('a.refuseBtn' ).click(function(e){
+         e.preventDefault();
+         var url = this.href;
+         var link=$(this);
+         var trTable = $(this).parent().parent();
+         link.addClass("loading");
+         $.get(url, function(){
+             link.removeClass("loading");
+             link.addClass("sent");
+             trTable.removeClass("preselected_false refused_false");
+             trTable.addClass("preselected_false refused_true");
+         }).fail(function() { alert( "error" ); });
+     });
+
+     $('a.approveBtn' ).click(function(e){
+         e.preventDefault();
+         var url = this.href;
+         var link=$(this);
+         var trTable = $(this).parent().parent();
+         link.addClass("loading");
+         $.get(url, function(){
+             link.removeClass("loading");
+             link.addClass("sent");
+             trTable.removeClass("preselected_false refused_false");
+             trTable.addClass("preselected_true refused_false");
+         }).fail(function() { alert( "error" ); });
+     });
+
+     $('a.cancelAcceptBtn').click(function(e){
+         e.preventDefault();
+         var url = this.href;
+         var link=$(this);
+         var trTable = $(this).parent().parent();
+         link.addClass("loading");
+         $.get(url, function(){
+             link.removeClass("loading");
+             link.addClass("sent");
+             trTable.removeClass("preselected_true refused_false");
+             trTable.addClass("preselected_false refused_false");
+         }).fail(function() { alert( "error" ); });
+     });
+
+     $('a.cancelRefuseBtn').click(function(e){
+         e.preventDefault();
+         var url = this.href;
+         var link=$(this);
+         link.addClass("loading");
+         var trTable = $(this).parent().parent();
+         $.get(url, function(){
+             link.removeClass("loading");
+             link.addClass("sent");
+             trTable.removeClass("preselected_false refused_true");
+             trTable.addClass("preselected_false refused_false");
+         }).fail(function() { alert( "error" ); });
+     });
+
+
+} );
+</script>
+
+}

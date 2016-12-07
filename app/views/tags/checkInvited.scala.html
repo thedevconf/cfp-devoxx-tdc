@@ -1,0 +1,7 @@
+@(speakerUUID:String)(implicit lang: Lang)
+
+@if(models.Invitation.isInvited(speakerUUID)){
+    <a href="#" class="btn btn-sm btn-warning ajax-cancelInvitation" data-speaker="@speakerUUID">@Messages("tag.invited")</a>
+}else{
+    <a href="#" class="btn btn-sm btn-primary ajax-invite" data-speaker="@speakerUUID">@Messages("tag.invite")</a>
+}

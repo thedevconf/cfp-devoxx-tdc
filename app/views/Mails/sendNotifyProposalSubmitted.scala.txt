@@ -1,0 +1,15 @@
+@(fromName:String, proposalId:String, title:String, track:String, talkType:String)
+
+Olá,
+
+Uma proposta foi submitida no CFP por @fromName.
+
+Título da palestra : @title
+Trilha : @track
+Tipo de palestra : @talkType
+
+Por favor, use este link para revisar e votar para esta palestra :
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposalId)
+
+Obrigado,
+Equipe @Messages("longName")

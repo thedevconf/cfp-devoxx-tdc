@@ -1,0 +1,40 @@
+@(message:String,requestId:String)
+
+--------------------------------------------------
+                TDC 2016
+--------------------------------------------------
+
+@message
+
+-------------------------
+Como responder?
+
+Se você ficou interessado e gostaria de propor uma palestra :
+
+- Sim, eu gostaria de propor uma palestra =>
+  Please visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerApproveRequest(requestId)
+
+- Não, desculpe, não estou disponível ou não estou interessado =>
+  Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
+
+Obrigado,
+Equipe TDC 2016 POA CFP.
+
+--------------------------------------------------
+
+@message
+
+-------------------------
+How to respond?
+
+If you are interested and you would like to propose a talk :
+
+- Yes, I'd like to propose a talk =>
+  Please visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerApproveRequest(requestId)
+
+- No, sorry, I am not available or not interested =>
+  Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
+
+Thanks,
+The TDC 2016 POA CFP team.
+

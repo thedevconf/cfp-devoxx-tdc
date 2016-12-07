@@ -1,0 +1,12 @@
+@(email:String)(implicit lang:Lang, req: RequestHeader)
+
+@main("Success"){
+<div class="row">
+    <div class="col-md-12">
+        <h1>@Messages("created.title")</h1>
+        <p>@Messages("created.text1")</p>
+        <p>@Messages("created.text2")</p>
+        <p>@Messages("created.text3", Messages("longName"))</p>
+    </div>
+</div>
+}

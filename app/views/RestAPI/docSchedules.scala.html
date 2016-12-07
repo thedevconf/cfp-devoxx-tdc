@@ -1,0 +1,57 @@
+@()(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@api("schedules") {
+<div class="row">
+    <div class="col-md-12">
+    <h1>@Messages("shortName") API</h1>
+    <hr>
+       <h3>Documentation for "schedules"</h3>
+
+        <p>Returns a JSON Array of <a href="@routes.RestAPI.profile("link")">Links</a> to each schedule.
+            Each conference has one schedule per day.</p>
+
+        <h4>Sample:</h4>
+    <code>
+curl -H "Accept: application/json" <a href="@routes.RestAPI.showAllSchedules(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showAllSchedules(Conference.currentConference.eventCode).absoluteURL()</a>
+    </code>
+
+        <h4>Result:</h4>
+            <code>
+                <pre>
+{
+    "links": [
+        {
+            "href": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/conferences/@ConferenceDescriptor.current().eventCode/schedules/monday/",
+            "rel": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/profile/schedule",
+            "title": "Schedule for Monday 10th November 2015"
+        },
+        {
+            "href": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/conferences/@ConferenceDescriptor.current().eventCode/schedules/tuesday/",
+            "rel": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/profile/schedule",
+            "title": "Schedule for Tuesday 11th November 2015"
+        },
+        {
+            "href": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/conferences/@ConferenceDescriptor.current().eventCode/schedules/wednesday/",
+            "rel": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/profile/schedule",
+            "title": "Schedule for Wednesday 12th November 2015"
+        },
+        {
+            "href": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/conferences/@ConferenceDescriptor.current().eventCode/schedules/thursday/",
+            "rel": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/profile/schedule",
+            "title": "Schedule for Thursday 13th November 2015"
+        },
+        {
+            "href": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/conferences/@ConferenceDescriptor.current().eventCode/schedules/friday/",
+            "rel": "@ConferenceDescriptor.current().conferenceUrls.cfpURL/api/profile/schedule",
+            "title": "Schedule for Friday 14th November 2015"
+        }
+    ]
+}
+   </pre>
+
+            </code>
+        </div>
+    </div>
+</div>
+
+}

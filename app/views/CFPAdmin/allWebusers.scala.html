@@ -1,0 +1,72 @@
+@(speakers:List[Webuser])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main("CFP Admin webuser") {
+<div class="row">
+    <div class="col-lg-offset-4 col-md-4">
+        <h2><i class="icon-thumbs-up-alt"></i> CFP Admin</h2>
+    </div>
+    <div class="clearfix"></div>
+
+    @if(flash.get("error").isDefined){
+        <div class="alert alert-danger alert-dismissable col-md-12">
+            <strong>Error :</strong>
+            @flash.get("error").get
+        </div>
+    }
+    @if(flash.get("success").isDefined){
+        <div class="alert alert-success alert-dismissable col-md-12">
+            @flash.get("success").get
+        </div>
+    }
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>@Messages("backoffice.allwebusers.subtitle")</h3>
+            <span class="label label-info">@speakers.size @Messages("backoffice.allwebusers.label.users")</span>
+            <span class="label label-info">@speakers.count(w => Webuser.hasAccessToCFP(w.uuid)) @Messages("backoffice.allwebusers.label.cfpusers")</span>
+        </div>
+        <div class="panel-body">
+            @if(speakers.nonEmpty){
+            <table class="table table-bordered table-strippted">
+                <thead>
+                    <tr>
+                        <th>@Messages("backoffice.allwebusers.columns.name")</th>
+                        <th>@Messages("backoffice.allwebusers.columns.email")</th>
+                        <th>@Messages("backoffice.allwebusers.columns.image")</th>
+                        <th>@Messages("backoffice.allwebusers.columns.action")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @speakers.sortBy(w=>Webuser.hasAccessToCFP(w.uuid)).reverse.map{ webuser: Webuser =>
+                    <tr>
+                        <td>
+                            @webuser.cleanName
+                        </td>
+                         <td>
+                            <small>@webuser.email</small>
+                        </td>
+                        <td>@tags.renderGravatar(webuser.uuid, showName=true, showPhoto=false)</td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="@routes.Backoffice.authenticateAs(webuser.uuid)"><i class="icon-lock"></i> @Messages("backoffice.allwebusers.btn.authenticate")</a>
+
+                           @if(SecureCFPController.hasAccessToAdmin(req)){
+                                @if(Webuser.hasAccessToCFP(webuser.uuid)){
+                                    <a class="btn btn-sm btn-danger" href="@routes.Backoffice.switchCFPAdmin(webuser.uuid)">@Messages("backoffice.allwebusers.btn.remove")</a>
+                                }else{
+                                    <a class="btn btn-sm btn-success" href="@routes.Backoffice.switchCFPAdmin(webuser.uuid)">@Messages("backoffice.allwebusers.btn.add")</a>
+                                }
+                           }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            }else{
+                <p>@Messages("backoffice.allwebusers.nouser")</p>
+            }
+        </div>
+        </div>
+    </div>
+</div>
+}

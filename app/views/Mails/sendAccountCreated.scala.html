@@ -1,0 +1,41 @@
+@(firstName:String, email:String, tempPassword:String)
+
+<h2>Caro(a) @firstName</h2>
+
+<p>Bem-vindo(a) ao @Messages("longName") CFP (Call4Papers)</p>
+
+<p>Para sua comodidade, criamos uma conta para você no @Messages("longName"). Esta conta permitirá que você acesse seu perfil e suas submissões.</p>
+<p>Para acessar seu painel de palestrante no @Messages("longName"), por favor clique no link abaixo.</p>
+
+<p><a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.index()">Access to @Messages("longName") CFP</a></p>
+
+<ul>
+    <li>- Seu username é <strong>@email</strong></li>
+    <li>- Sua password é <strong>@tempPassword</strong></li>
+</ul>
+
+<p>&nbsp;</p>
+<p>Um abraço,</p>
+<p>Equipe @Messages("longName")</p>
+<br/>
+<hr>
+<br/>
+<h2>Dear @firstName</h2>
+
+<p>Welcome to @Messages("longName") CFP (Call4Papers)</p>
+
+<p>As a convenience to you, we have created an account for you on @Messages("longName"). This account will enable to you access your profile and your submissions.</p>
+<p>To access your @Messages("longName") speaker dashboard, please click in the link below.</p>
+
+<p><a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.index()">Access to @Messages("longName") CFP</a></p>
+
+<ul>
+    <li>- Your username is <strong>@email</strong></li>
+    <li>- Your password is <strong>@tempPassword</strong></li>
+</ul>
+
+<br/>
+<p>Best regards</p>
+<p>The @Messages("longName") team</p>
+<br/>
+

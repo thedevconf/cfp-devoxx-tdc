@@ -1,0 +1,25 @@
+@(resetUrl:String)
+
+Você esqueceu seu access code do @Messages("longName")?
+-------------------------------------------
+Alguém pediu para regerar sua senha do @Messages("longName"). Se foi você, por favor leia as instruções abaixo. Se não foi, você pode desconsiderar este email e nada de ruim ocorrerá.
+
+Por favor, acesse este link = @Html(resetUrl)
+
+Não queremos guardar sua senha super secreta, que pode ser a mesma da sua conta no Google. 
+Preferimos gerar um access code randômico para você.  
+
+Equipe @Messages("longName")
+
+------------------------------------------------------------------------------
+
+Did you forget your @Messages("longName") access code?
+-------------------------------------------
+Someone asked to reset your @Messages("longName") password. If it was you, please read the instructions below. If it wasn't, you can disregard this emails and no evil will be done.
+
+Please visit this link = @Html(resetUrl)
+
+We don't want to store your super secret password, that might be the same one as your Google Account. We prefer to generate
+a random access code for your. 
+
+@Messages("longName") team

@@ -1,0 +1,67 @@
+@()(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main("Backoffice") {
+<div class="row">
+    <div class="col-lg-offset-4 col-md-4">
+        <h2><i class="icon-magnet"></i> Backoffice</h2>
+    </div>
+    <div class="clearfix"></div>
+
+    @if(flash.get("error").isDefined){
+        <div class="alert alert-danger alert-dismissable col-md-12">
+            <strong>Error :</strong>
+            @flash.get("error").get
+        </div>
+    }
+    @if(flash.get("success").isDefined){
+        <div class="alert alert-success alert-dismissable col-md-12">
+            @flash.get("success").get
+        </div>
+    }
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Home backoffice</h3>
+        </div>
+        <div class="panel-body">
+<!--
+            <h4>ElasticSearch</h4>
+                <a href="@routes.Backoffice.doResetAndConfigureElasticSearch()" class="btn btn-primary btn-sm"><i class="icon-search"></i> Delete speakers and proposals ES Indexes</a><br>
+                <a href="@routes.Backoffice.doIndexElasticSearch()" class="btn btn-primary btn-sm"><i class="icon-search"></i> Force indexation of speakers and proposals</a><br>
+-->
+            <h4>@Messages("backoffice.notification.accepted.title")</h4>
+            <p>@Messages("backoffice.notification.accepted.text")</p>
+            @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
+                <a href="@routes.ApproveOrRefuse.allApprovedByTalkType(proposalType.id)" class="btn btn-primary btn-sm"><i class="@ProposalConfiguration.getHTMLClassFor(proposalType)"></i> @Messages(proposalType.label+".simple")</a>
+            }
+            <h4>@Messages("backoffice.notification.refused.title")</h4>
+            @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
+                <a href="@routes.ApproveOrRefuse.allRefusedByTalkType(proposalType.id)" class="btn btn-danger btn-sm"><i class="@ProposalConfiguration.getHTMLClassFor(proposalType)"></i> @Messages(proposalType.label+".simple")</a>
+            }
+<!--
+            <h4>Mass refuse system</h4>
+            <a href="@routes.ApproveOrRefuse.prepareMassRefuse("tia")" class="btn btn-danger btn-sm"><i class="icon-warning-sign"></i> Mass Refuse system</a>
+
+            <h4><i class="icon-ticket"></i> Golden ticket </h4>
+            <a href="@routes.GoldenTicketAdminController.showAll()" class="btn btn-sm btn-primary">Show all Golden tickets</a>
+            <a href="@routes.GoldenTicketAdminController.newGoldenTicket()" class="btn btn-sm btn-primary">Create a new golden ticket</a>
+            <a href="@routes.GoldenTicketAdminController.showGoldenTicketVotes()" class="btn btn-sm btn-primary">All Votes</a>
+
+
+            <h4>Planner</h4>
+            <a href="/assets/angular/index.html" class="btn btn-success btn-sm"><i class="icon-adjust"></i> Angular Schedule application</a>
+            <a href="@routes.Backoffice.sanityCheckSchedule()"  class="btn btn-sm btn-primary"><i class="icon-medkit"></i> Sanity check for schedule</a>
+-->
+            <h4>Webusers</h4>
+            <a href="@routes.CFPAdmin.allWebusers()" class="btn btn-sm btn-primary"><i class="icon-user"></i> @Messages("admin.btn.webuser")</a>
+            <a href="@routes.CFPAdmin.allCFPWebusers()" class="btn btn-sm btn-primary"><i class="icon-user-md"></i> @Messages("admin.btn.tracklead")</a>
+<!--
+            <h4>Cron</h4>
+            <a href="@routes.Backoffice.sendDraftReminder()" class="btn btn-sm btn-primary"><i class="icon-refresh"></i> Send a reminder to speakers for DRAFT</a>
+-->
+        </div>
+        </div>
+    </div>
+</div>
+}

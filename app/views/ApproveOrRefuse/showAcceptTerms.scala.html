@@ -1,0 +1,93 @@
+@(formAccept: Form[Boolean])(implicit lang: Lang, flash: Flash, req: RequestHeader)
+
+@main("Accept or refuse "+ Messages("shortName")+" terms") {
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1><i class="icon-bullhorn"></i>@Messages("longName") : @Messages("showAcceptTerms.title")</h1>
+                </div>
+
+                <div class="panel-body">
+                    <div class="panel-body">
+
+                        @if(flash.get("error").isDefined) {
+                            <div class="col-md-12">
+                                <div class="alert alert-danger alert-dismissable">
+                                    <strong>Error :</strong>
+                                    @flash.get("error").get
+                                </div>
+                            </div>
+                        }
+                        @if(flash.get("success").isDefined) {
+                            <div class="col-md-12">
+                                <div class="alert alert-success alert-dismissable">
+                                @flash.get("success").get
+                                </div>
+                            </div>
+                        }
+
+                        <div class="col-md-8 col-lg-offset-2">
+
+                            <p>@Messages("showAcceptTerms.subtitle1") @Messages("longName") - @Messages("showAcceptTerms.subtitle2") :</p>
+
+                            <div class="input-group">
+<b>@Messages("showAcceptTerms.warning") :</b>
+<textarea class="form-control" cols="70" rows="15">
+
+    English version below
+
+    @Messages("longName") - Termos e Condições de participação
+
+------------------------------------------------------------------------------
+Em meu nome e de minha empresa/organização ("Organização"), e em consideração a minha participação no Evento, eu concedo ao TDC (e seus contratantes designados), e seus subsidiários e afiliados sobre comum controle ("TDC") as seguintes permissões em conexão com o TDC 2016 POA, que está agendado para acontecer de 5 a 8 de Outubro de 2016 (o "Evento"):
+
+- Permissão para usar meu nome, material biográfico, imagem, e retrato (doravante coletivamente referido como o meu "Imagem") com o propósito de divulgar minha apresentação e/ou participação no Evento (minha "Apresentação").
+- Permissão para fazer gravações de som e visuais da minha Apresentação (as "Gravações").
+- Permissão para usar, copiar, traduzir, reformatar, transmitir, publicar, e distribuir tudo ou partes da minha Apresentação, as Gravações, uma cópia das Gravações, e qualquer material da apresentação que eu providencio para o TDC e uso junto com minha Apresentação (os "Materiais de Apresentação"). Isto inclui, sem limitações, o direito para distribuir os Materiais de Apresentação via streaming e download do web site do TDC, e o direito para distribuir, transmitir and retransmitir minha Apresentação como parte dos procedimentos e arquivos do Evento que o TDC disponibiliza em seu web site. Qualquer um destes uso deve estar em conexão com o Evento, e não deve ser enganosa ou refletir negativamente em mim ou na minha Organização.
+
+Entendo que nem minha Organização nem eu receberei qualquer compensação por ter concedido estas permissões. TDC não tem qualquer outra  any other permissão ou direito com relação a minha Imagem, minha Apresentação, as Gravações, ou os Materiais de Apresentação.
+
+Comprometo-me em cada uma das minhas apresentações em cumprir rigorosamente os princípios da não discriminação, as opiniões de cada um, a diversidade de gênero, raça e religião, e não prejudicar a imagem dos outros. Entendo que qualquer violação dos princípios acima enunciados causará a minha exclusão da conferência, sem qualquer forma de compensação.
+
+(1) Eu sou a pessoa que está aceitando o convite para apresentar a sessão listada acima;
+(2) concedo essa permissão e concordo com os termos e condições estabelecidos acima, em meu próprio nome e da minha organização;
+(3) tenho autoridade para concordar com os termos e condições em nome da minha Organização ou do meu co-palestrante; e
+(4) confirmo que nenhum consentimento ou permissão mais são necessárias por parte do TDC para o uso dos Materiais de Apresentação.
+
+
+-------------------------------------------------------------------------------
+
+On behalf of myself and my company/organisation, ("Organisation") and in consideration of my participation in the Event, I grant TDC (and its designated contractors), and its subsidiaries and affiliates under common control ("TDC") the following permissions in connection with Devoxx France 2016, which are scheduled to take place 20th to 22nd of April, 2016 (the "Event"):
+
+- Permission to use my name, biographic material, likeness, and portrait (hereinafter collectively referred to as my "Likeness") for the purpose of publicising my presentation(s) at/participation in the Event (my "Presentation").
+- Permission to make sound and visual recordings of my Presentation (the "Recordings").
+- Permission to use, copy, translate, reformat, broadcast, publish, and distribute all or parts of my Presentation, the Recordings, a transcript of the Recordings, and any presentation materials that I provide to Devoxx and use in connection with my Presentation (the "Presentation Materials"). This includes, without limitation, the right to distribute the Presentation Materials via streaming and download from the Parleys.com web site, and the right to distribute, broadcast and rebroadcast my Presentation as part of Event proceedings and archives that Devoxx makes available on its web site. Any such use must be in connection with the Event, and must not be misleading or reflect negatively on my Organisation or me.
+
+I understand that neither my Organisation nor I will receive any compensation for granting these permissions. TDC is not granted any other permissions or rights with respect to my Likeness, my Presentation, the Recordings, or the Presentation Materials.
+
+I undertake in each of my presentations to strictly comply with the principles of non-discrimination, the opinions of each, the gender diversity, race and religion, and not to harm the image of others. I understand that any breach of the principles set out above will cause my exclusion from the conference, without any form of compensation.
+
+(1) I am the person who is accepting the invitation to present the session listed above;
+(2) grant this permission and agree to the terms and conditions set forth above on behalf of my Organisation and myself;
+(3) have authority to agree to such terms and conditions on behalf of my Organisation or co-speaker; and
+(4) confirm that no further consents or permissions are required by TDC in order to use the Presentation Materials.
+
+</textarea>
+                            </div>
+                            @helper.form(routes.ApproveOrRefuse.acceptTermsAndConditions()) {
+                                @helper.checkbox(formAccept("accept.chk"))
+                                <input type="submit" value='@Messages("showAcceptTerms.button.validate")' class="btn btn-lg btn-success">
+                                <a href="@routes.CallForPaper.homeForSpeaker()" class="btn btn-lg btn-danger">@Messages("showAcceptTerms.button.decline")</a>
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

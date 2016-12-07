@@ -1,0 +1,189 @@
+@(totalSpeakers: Long, totalProposals: Long, totalReviews: Long, totalVotes: Long, totalNoVotes: Long, mostVoted: Option[(String, String)], bestReviewer: Option[(String, String)], lazyOnes: Map[String, String], totalSubmittedByTrack: Map[String, Int], totalSubmittedByType: Map[String, Int], totalAcceptedByTrack: Map[String, Int], totalAcceptedByType: Map[String, Int], totalSlotsToAllocate: Map[String, Int], totalApprovedSpeakers:Long, totalWithTickets:Long, totalRefusedSpeakers:Long, allApprovedByTrack:Map[String,Int], allApprovedByTalkType:Map[String,Int])(implicit lang: Lang, flash: Flash, req: RequestHeader)
+
+@main(Messages("leaderboard.tab")) {
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><i class="icon-trophy"></i> @Messages("leaderboard.title")</h1>
+                    <small>@Messages("leaderboard.subtitle")</small><br>
+                    <small><a href="@routes.CFPAdmin.doComputeLeaderBoard()" class="btn btn-sm btn-primary"><i class="icon-compass"></i> @Messages("leaderboard.label.refresh")</a></small>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-md-3">
+                        <h1>@totalSpeakers</h1>
+                        <small><i class="icon-user"></i> @Messages("leaderboard.label.speakers")</small>
+                    </div>
+
+                      <div class="col-md-3">
+                        <h1>@totalApprovedSpeakers</h1>
+                        <small><i class="icon-user"></i> @Messages("leaderboard.label.approved.speakers")</small><br>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>@totalRefusedSpeakers</h1>
+                        <small><i class="icon-user"></i> @Messages("leaderboard.label.refused.speakers")</small><br>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>@totalWithTickets</h1>
+                        <small><i class="icon-user"></i> @Messages("leaderboard.label.withpass") </small><br>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>@totalProposals</h1>
+                        <small><i class="icon-book"></i> @Messages("leaderboard.label.proposals")</small>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>@totalVotes</h1>
+                        <small><i class="icon-eye-open"></i> @Messages("leaderboard.label.proposals.withvote")</small>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1><a href="@routes.CFPAdmin.showProposalsWithNoVotes()">@totalNoVotes</a></h1>
+                        <small><i class="icon-eye-close"></i> @Messages("leaderboard.label.proposals.novote")</small>
+                    </div>
+
+                    <div class="col-md-3">
+                        <h1>@totalReviews</h1>
+                        <small><i class="icon-camera-retro"></i> @Messages("leaderboard.label.reviews")</small>
+                    </div>
+
+                    @mostVoted.map { mv =>
+                        <div class="col-md-3">
+                            <h3><a href="@routes.CFPAdmin.showVotesForProposal(mv._1)">@mv._1</a></h3>
+                            <small><i class="icon-heart"></i> most voted with @mv._2 reviews</small>
+                        </div>
+                    }
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-4">
+                        <h3>@Messages("leaderboard.section.top.reviewer")</h3>
+                        @bestReviewer.filter(_._2.toInt>0).map { br =>
+                            @tags.renderGravatar(br._1)
+                            <small>@br._2 talks reviewed.</small>
+                        }
+                    </div>
+
+                    <div class="col-md-4">
+                        <h3>@Messages("leaderboard.section.lazy")</h3>
+                        @lazyOnes.map { wr =>
+                            @tags.renderGravatar(wr._1)
+                            <small>@wr._2 talk@if(wr._2.toInt > 1) {s} reviewed.</small>
+                        }
+                    </div>
+                    <div class="col-md-4">
+                        <h3>@Messages("leaderboard.section.more.stats")</h3>
+                        <small><a href="@routes.CFPAdmin.allReviewersAndStats()" class="btn btn-sm btn-primary">@Messages("leaderboard.btn.see.reviewers")</a></small>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    @if(totalSubmittedByTrack.nonEmpty){
+                    <div class="col-md-6">
+                        <h3>@Messages("leaderboard.section.submitted.bytrack")</h3>
+                            @defining(totalSubmittedByTrack.map(_._2).max){maxValue=>
+                            @totalSubmittedByTrack.map{case(track,total)=>
+                                <span class="label label-info">@total</span> @Messages(track+".leaderboard") <a href="@routes.CFPAdmin.allProposalsByTrack(track)"><i class="icon-arrow-right"></i></a>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+                                        <span class="sr-only">@Messages(track)</span>
+                                </div>
+                                </div>
+                            }
+                            }
+                    </div>
+                        }
+
+                    @if(totalSubmittedByType.nonEmpty){
+                    <div class="col-md-6">
+                        <h3>@Messages("leaderboard.section.submitted.bytype")</h3>
+                        <table class="table table-bordered table-simple">
+                            <thead>
+                                <tr>
+                                    <th>@Messages("leaderboard.columns.type")</th>
+                                    <th>@Messages("leaderboard.columns.received")</th>
+                                    <th>@Messages("leaderboard.columns.slots")</th>
+                                    <th>@Messages("leaderboard.columns.approved") </th>
+                                    <th>@Messages("leaderboard.columns.toallocate")</th>
+                                </tr>
+                            </thead>
+                        @totalSubmittedByType.map { case (propType, total) =>
+                            <tbody>
+                                <tr>
+                                    <th>@Messages(propType) <a href="@routes.CFPAdmin.allProposalsByType(propType)"><i class="icon-arrow-right"></i></a></th>
+                                    <td><span class="label label-warning">@total</span></td>
+                                    <td><span class="label label-success">@totalSlotsToAllocate.get(propType+".label")</span></td>
+                            @defining(models.ApprovedProposal.countApproved(propType)) { approvedTotal =>
+                                       <td><span class="label label-primary">@approvedTotal</span> </td>
+                                       <td><span class="label label-danger">@(totalSlotsToAllocate.get(propType+".label").map(s=>s-approvedTotal))</span> </td>
+                            }
+                                </tr>
+                            </tbody>
+                        }
+                        </table>
+                    </div>
+                    }
+
+                    @if(allApprovedByTrack.nonEmpty) {
+                        <div class="col-md-6">
+                        <h3>@Messages("leaderboard.section.approved.bytrack", allApprovedByTrack.size)</h3>
+                        @defining(allApprovedByTrack.map(_._2).max){maxValue=>
+                            @allApprovedByTrack.map{case(track,total)=>
+                                <span class="label label-info">@total</span> @Messages(track)
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+                                        <span class="sr-only">@Messages(track)</span>
+                                </div>
+                                </div>
+                            }
+                            }
+
+                        </div>
+                    }
+                    @if(allApprovedByTalkType.nonEmpty) {
+                        <div class="col-md-6">
+                            <h3>@Messages("leaderboard.section.approved.bytype")</h3>
+
+                            @allApprovedByTalkType.map { case (propType, total) =>
+                                @Messages(propType) : <span class="label label-warning">@total</span>
+                                approved submissions for <span class="label label-success">@totalSlotsToAllocate.get(propType + ".label")</span> slots<br>
+                            }
+                        </div>
+                    }
+
+
+                    @if(totalAcceptedByTrack.nonEmpty){
+                        <div class="clearfix"></div>
+                     <div class="col-md-6">
+                        <h3>@Messages("leaderboard.section.accepted.bytrack")</h3>
+                            @defining(totalAcceptedByTrack.map(_._2).max){maxValue=>
+                            @totalAcceptedByTrack.map{case(track,total)=>
+                                <span class="label label-info">@total</span> @Messages(track)
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+                                        <span class="sr-only">@Messages(track)</span>
+                                </div>
+                                </div>
+                            }
+                            }
+                    </div>
+                    }
+
+                    @if(totalAcceptedByType.nonEmpty){
+                    <div class="col-md-6">
+                        <h3>@Messages("leaderboard.section.accepted.bytype")</h3>
+                        <p>@Messages("leaderboard.label.accepted.byspeaker")</p>
+                        @totalAcceptedByType.map { case (propType, total) =>
+                                @Messages(propType) : <span class="label label-warning">@total</span>
+                                accepted submissions for <span class="label label-success">@totalSlotsToAllocate.get(propType+".label")</span> slots<br>
+                            }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

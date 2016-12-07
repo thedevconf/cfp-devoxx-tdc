@@ -1,0 +1,51 @@
+@(newRequestToTalkForm:Form[RequestToTalk])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+
+@main("Wishlist"){
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+            <h2><i class="icon-sort-by-attributes-alt"></i> @Messages("wishlist.title")</h2>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-md-12">
+            @if(flash.get("error").isDefined) {
+                <div class="alert alert-danger alert-dismissable">
+                    <strong>Error :</strong>
+                    @flash.get("error").get
+                </div>
+            }
+            @if(flash.get("success").isDefined) {
+                <div class="alert alert-success alert-dismissable">
+                @flash.get("success").get
+                </div>
+            }
+        </div>
+
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><i class="icon-stackexchange"></i> @Messages("wishlist.createRequest")</h3>
+                </div>
+                <div class="panel-body">
+                @helper.form(action = routes.Wishlist.saveNewRequestToTalk) {
+                    @helper.inputText(newRequestToTalkForm("wl_speakerName"), 'class->"form-control")
+                    @helper.inputText(newRequestToTalkForm("wl_company"), 'class->"form-control")
+                    @tags.checkboxI18N(newRequestToTalkForm("wl_keynote"),  'text->"wl_keynote.checkbox")
+                    @tags.selectI18N(field = newRequestToTalkForm("wl_trackCode"), options=Track.allAsIdsAndLabels,  'class->"form-control")
+                    @tags.checkboxI18N(newRequestToTalkForm("wl_travel"),  'text->"wl_travel.checkbox")
+                    @helper.inputText(newRequestToTalkForm("wl_country"), 'class->"form-control")
+                    @helper.textarea(newRequestToTalkForm("wl_note"), 'cols->60,'rows->5,  'class->"form-control")
+                    @tags.selectI18N(field = newRequestToTalkForm("wl_statusCode"), options=RequestToTalkStatus.allAsIdsAndLabels,  'class->"form-control")
+
+                    <input type="hidden" name="wl_message" value="">
+                    <button class="btn btn-success" type="submit"><i class="icon-save"></i> @Messages("wishlist.save")</button>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

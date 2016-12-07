@@ -1,0 +1,26 @@
+@(fromName:String, proposal:models.Proposal, msg:String)
+
+<p>Olá,</p> 
+
+<p>Você recebeu uma nova mensagem de @fromName a respeito da palestra "@proposal.title".</p>
+<br>
+<p>Mensagem:</p>
+<hr>
+<p>
+@msg
+</p>
+
+@fromName
+
+<hr>
+   
+<h3>Como responder?</h3>
+
+<p>Não responda este email, por favor use o web site do CFP.
+Clique ou abra este link para responder diretamente para a mensagem :</p>
+<a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)</a>
+<br>
+<br>
+
+<p>Obrigado,</p>
+<p>Equipe @Messages("longName")</p>

@@ -1,0 +1,18 @@
+@(email:String, password:String)(implicit flash:Flash, lang:Lang, req: RequestHeader)
+
+@main("Profil") {
+    <div class="row">
+        <div class="col-md-12 page-header">
+            <h3>@Messages("profile.imported")</h3>
+        </div>
+        <div class="col-md-12">
+            <p>@Messages("profile.imported.txt")</p>
+            <p>@Messages("profile.username") <strong>@email</strong></p>
+            <p>@Messages("profile.password") <strong>@password</strong></p>
+            <p><a href="@routes.CallForPaper.homeForSpeaker()" class="btn btn-default">@Messages("profile.continue")</a> </p>
+
+            <p></p>
+            <p><small>@Messages("profile.password.help")</small></p>
+        </div>
+    </div>
+}

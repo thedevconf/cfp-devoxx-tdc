@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" ng-app="cfpApp">
+<head>
+  <meta charset="utf-8">
+  <title>Devoxx Planner</title>
+<link rel="stylesheet" href="css/app.css"/>
+<link rel="stylesheet" href="/assets/css/bootstrap.cosmo.min.css">
+<link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="/assets/css/bootswatch.min.css">
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="/cfpadmin" class="navbar-brand">Devox<span class="yl">x</span> FR CFP Admin</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www.devoxx.fr/" target="_blank"><i class="icon-arrow-right"></i> Devox<span class="yl">x</span>  France website</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- ****************************************************************************** //-->
+<div class="container">
+ <h3>Devoxx - Planner</h3>
+  <ul class="menu">
+    <li><a href="#/saved">Reload a saved configuration of slots/talks</a></li>
+    <li><a href="#/slots?confType=uni">All University slots</a></li>
+    <li><a href="#/slots?confType=tia">All Tools-in-Action slots</a></li>
+    <li><a href="#/slots?confType=lab">All Hands-on Labs slots</a></li>
+    <li><a href="#/slots?confType=bof">All BOF slots</a></li>
+    <li><a href="#/slots?confType=conf">All Conferences slots</a></li>
+    <li><a href="#/slots?confType=quick">All Quickies slots</a></li>
+    <li><a href="#/slots?confType=key">All Keynotes slots</a></li>
+    <li><a href="#/slots?confType=start">All Startups slots</a></li>
+    <li><a href="#/slots?confType=ignite">All Ignite Sessions slots</a></li>
+    <a href="/admin/sanitycheck "  class="btn btn-sm btn-primary"><i class="icon-medkit"></i> Sanity check for schedule</a>
+
+  </ul>
+
+  <div ng-view></div>
+
+</div>
+<!-- ****************************************************************************** //-->
+<script src="lib/angular/angular.js" type="text/javascript"></script>
+<script src="lib/angular/angular-route.js" type="text/javascript"></script>
+<script src="lib/angular/angular-resource.js" type="text/javascript"></script>
+<script src="lib/angular/underscore-min.js" type="text/javascript"></script>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/angular-flash.js"></script>
+</body>
+</html>

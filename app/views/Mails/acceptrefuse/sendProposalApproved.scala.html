@@ -1,0 +1,195 @@
+@(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
+
+<table cellpadding="0" cellspacing="0"
+       align="center"
+       style="width: 100%; max-width: 600px; margin: 0 auto; padding: 0; border: 0;">
+    <tr>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #eb0029; background-color: #eb0029;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ff5000; background-color: #ff5000;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ffb819; background-color: #ffb819;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009944; background-color: #009944;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #144733; background-color: #144733;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009bde; background-color: #009bde;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #004a97; background-color: #004a97;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #44273a; background-color: #44273a;">
+            &nbsp;
+        </td>
+    </tr>
+
+</table>
+
+<h3>Bem-vindo ao @Messages("longYearlyName")</h3>
+<p>Olá, @firstName,</p>
+<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 600 propostas!</p>
+<p>Estamos muito contentes em anunciar que a sua palestra foi <strong>APROVADA</strong> :<br/>
+    Título: <strong>@proposal.title</strong> <br/>
+    Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
+    Formato: <strong>@Messages(proposal.talkType.id)</strong> (ou como foi combinado com os coordenadores)
+</p>
+<br/>
+<h3>ATENÇÃO! Ações necessárias</h3>
+<h4>1. Aceitar ou recusar</h4>
+<p>Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+</p>
+<h4>2. Sua minibio e foto</h4>
+<p>Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.</p>
+<h4>3. Questões sobre sua palestra</h4>
+<p>Por favor, não responda este email. Envie qualquer comentário através do web site do CFP, e nossa equipe fará o possível para responder rapidamente.<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
+</p>
+<p>Para fazer a sua apresentação, disponibilizamos um
+    <a target="_blank" href="http://s3-sa-east-1.amazonaws.com/thedevconf/2016/arquivos/template-TDC2016.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
+<h4>4. Cortesia para palestrantes</h4>
+<p>Você gostaria de participar de outras trilhas do evento?
+    Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
+    Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
+    Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido. </p>
+<h4>5. Compartilhe o evento</h4>
+<p>Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no
+    <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> e no
+    <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
+<p>E para ajudar-nos na divulgação do evento, acesse a
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2016/banners-digitais" title="Divulgue o TDC">página de banners digitais</a> do nosso site.</p>
+<br/>
+<p>Lembramos que o evento <strong>não</strong> cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.</p>
+<br/>
+<p>Atenciosamente,</p>
+<p><em>Equipe @Messages("longYearlyName")</em><br />
+    <a target="_blank" href="http://www.thedevelopersconference.com.br" title="@Messages("longYearlyName")">www.thedevelopersconference.com.br</a></p>
+
+<table cellpadding="0" cellspacing="0"
+       align="center"
+       style="width: 100%; max-width: 600px; margin: 0 auto; padding: 0; border: 0;">
+    <tr>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #eb0029; background-color: #eb0029;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ff5000; background-color: #ff5000;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #ffb819; background-color: #ffb819;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009944; background-color: #009944;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #144733; background-color: #144733;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #009bde; background-color: #009bde;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #004a97; background-color: #004a97;">
+            &nbsp;
+        </td>
+        <td valign="top"
+            style="width: 12.5%; height: 5px; padding: 0px;
+        font-size: 10px; line-height: 10px;
+        color: #44273a; background-color: #44273a;">
+            &nbsp;
+        </td>
+    </tr>
+
+</table>
+
+
+<p>Hi, @firstName,</p>
+<p>Thanks again for your submission! The result was amazing, we have received more than 600 submissions!</p>
+<p>We're glad to inform you that your proposal has been <strong>APPROVED</strong>:<br/>
+    Title: <strong>@proposal.title</strong> <br/>
+    Track: <strong> @Messages(proposal.track.label)</strong> <br/>
+    Format: <strong>@Messages(proposal.talkType.id)</strong> (or how it was agreed with the coordinators)
+</p>
+<br/>
+<h3>ATTENTION! Required actions</h3>
+<h4>1. Accept or decline</h4>
+<p>You must now validate or decline the general terms and conditions, and confirm that you are still ok to do
+    this presentation AS SOON AS POSSIBLE:<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+</p>
+<h4>2. Your bio and picture</h4>
+<p>In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.</p>
+<h4>3. Questions regarding your talk</h4>
+<p>Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests to respond quickly.<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
+</p>
+<p>To prepare your presentation, we provide a
+    <a target="_blank" href="http://s3-sa-east-1.amazonaws.com/thedevconf/2016/arquivos/template-TDC2016.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
+<h4>4. Reward for Speakers</h4>
+<p>Would you like to participate in other event tracks?
+    All speakers are entitled to 1 track a day beyond that which will deliver his talk.
+    We recommend that you register as soon as you receive your code because many tracks sell out fast. </p>
+<h4>5. Share the event</h4>
+<p>If you use social networks, take this opportunity to invite you to enjoy our
+    <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> and
+    <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
+<p>And to help us with the event, go to the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2016/banners-digitais" title="Divulgue o @Messages("longYearlyName")">digital banners page</a> of our website.</p>
+<br/>
+<p>We remind that the event does <strong>not</strong> cover travel costs, accommodation and meals of the speakers.</p>
+<br/>
+<p>Best regards,</p>
+<p><em>The @Messages("longYearlyName") Team</em><br />
+    <a target="_blank" href="http://www.thedevelopersconference.com.br" title="@Messages("longYearlyName")">www.thedevelopersconference.com.br</a></p>
+
+

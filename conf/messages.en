@@ -1,0 +1,1167 @@
+# -----------------
+# Main conference details
+CONF.title=TDC Porto Alegre 2016
+CONF.subtitle=POA
+
+# Equivalent to ConferenceNaming
+shortYearlyName=TDC 2016 POA
+longYearlyName=TDC 2016 Porto Alegre
+shortName=TDC Porto Alegre
+longName=TDC 2016 POA CFP
+longSplittedName_whiteStart=TDC
+longSplittedName_colored=2016
+longSplittedName_whiteEnd=POA
+# -----------------
+cfp.title=TDC 2016 POA CFP
+login.error=Invalid email or password
+menu.home=Home
+menu.register=Sign-in
+email=Email
+firstName=First name
+lastName=Last name
+password=Access code
+CallForPaper=Call for papers
+index.welcome=Already registered as a speaker? Please use this form to sign-in :
+btn.login=Sign-in
+login=Sign-in
+signup=Sign-up
+index.method1=Sign-in
+index.method2=Authenticate with OpenID
+index.txt2=Use one of the following social service, this is simpler and you won''t have to remember another password. If your profile does not yet exist, it will be created automatically.
+company=Your company
+bio=A short bio
+twitter=Your twitter handle
+blog=Your blog or company website
+qualifications=Your speaker''s qualifications
+qualifications2=Speaker''s qualifications
+qualifications.label=Speaker qualifications
+index.signupTitle=Sign-up as a speaker
+index.signup2=Sign-up as speaker for {0} and propose one or more subjects.
+index.signup3=Sign-up with one of your social profile in 5 seconds. No password needed.
+index.signup.btn=Sign-up
+email.alreadyexists=This email is already registered in our database.
+register.withopenid=Register with your social profile
+forget.password.confirm=An email was sent to the provided email address. Please check your mailbox.
+forget.password=Forgot your access code?
+avatarUrl=URL to your latest profile photo
+home.txt2=Use one of the following social service, this is simpler and you won''t have to remember another password. If your profile does not yet exist, it will be created automatically.
+format.boolean=
+hosted.on=Hosted on
+disclaimer=and using Devoxx CFP application
+logged.in=Logged as
+logout=Logout
+logout.closeMessage=and close your session
+index.program.text=Complete schedule
+
+# CFP Home page
+your.profile=Your profile
+your.submission=Your proposals
+no.proposal=You haven''t submitted any proposal yet.
+profile.gravatar=Your avatar URL is not set, so we will use your
+profile.gravatar2=for your email
+url.photo=URL to your profile''s picture
+blog.website=Blog or website
+edit.profile=Edit your profile
+edit.name=Edit your name
+new.proposal=New proposal
+
+# --- Formats
+format.date=Date (''{0}'')
+format.numeric=Numeric
+format.real=Real
+
+# github login
+github.importprofile.error=Sorry, cannot import your github profile.
+github.importprofile.error.emailnotfound=The e-mail is not found.
+github.importprofile.error.namenotfound=Your name is not found.
+github.importprofile.error.advice=You might want to change your github settings on https://github.com/settings/profile.
+
+# CFP New
+New.proposal=New proposal - step 1/2
+New.proposal2=New proposal - step 2/2
+Edit.proposal=Edit proposal - step 1/2
+Edit.proposal2=Edit proposal - step 2/2
+title=Presentation title
+title.help=Think carefully and try to create a title that is descriptive enough. Most people selects a talk at the very last minute only based on its title.
+summary=Summary of your presentation, for the attendee
+summary.help=Describe your proposal as it will appear on our website and mobile apps. You can use Markdown syntax.
+lang=Main language
+lang.help=100% of {0} talks are in English
+combo.select=--- Please select ---
+mainSpeaker=Main speaker
+mainSpeaker2=Multiple Speakers?
+mainSpeaker.help=You can add more speakers once the proposal is created.
+# We offer a full Combi pass for the following slots : Conference, University, Hands-on-Labs, Tools-in-Action. Quickie speakers need to purchase a conference pass!
+otherSpeakers=Other speakers
+talkType=Type of talk
+talkType.help=Each type of talk is described on the <a href="" target="new">FAQ</a>.
+
+audienceLevel=Audience level :
+audienceLevel.help=Please, indicate the required audience level for your talk:\
+1- beginner\
+2- intermediate\
+3- experienced\
+
+
+privateMessage=Message for the program committee, motivation for your presentation
+privateMessage.help=Write here any important details about your presentation, that the program committee should know. You can also set here the URL to your slides, or a link to an existing online talk for example on Youtube or Vimeo.
+sponsorTalk=Is this a sponsor presentation?
+
+sponsorTalk.help.title=Sponsor talk
+sponsor.name.plz=Please, specify your company/exhibitor name in the private message textarea.
+#This is valid for Silver and Platinium only.
+sponsorTalk.help=Do not tick this checkbox if your company is not a sponsor.
+#Platinum and Gold sponsors can submit one Conference talk which we will accept as part of their sponsorship.
+sponsorTalk.checkbox=Yes, this is a sponsor/exhibitor talk
+
+helpAndTips=More info
+moreSpeakerLater=You can add more speakers later, once the proposal is submitted.
+btn.home=Back to home without saving
+btn.save=Preview
+btn.save2=Confirm
+not.saved=Your proposal is not yet saved. Please review and check your summary:
+validate.summary2=or use
+validate.summary3=Correct or complete my proposal
+validate.summary4=your proposal
+track=Track for your proposal
+summary.preview=Preview
+preview.warn=Do no forget to submit your proposal to the program committee, using the icon
+preview.warn2=in the main CFP screen.
+next.action=Select next action:
+
+# Proposal types
+palestradebate.label=Talk or Debate (50 min)
+palestradebate.label.simple=Talk or Debate (50 min)
+meiapalestra.label=Short talk (25 min)
+meiapalestra.label.simple=Short talk (25 min)
+minipalestra.label=Mini talk (15 min)
+minipalestra.label.simple=Mini talk (15 min)
+relampago.label=Lightning talk (5 min)
+relampago.label.simple=Lightning talk (5 min)
+
+# Bug report
+Issue.report=Report an issue
+btn.send=Send
+
+# Home page
+appel.conf=Call4Papers
+cfp.opening=CFP opening
+cfp.closing=CFP closing
+cfp.reminder=Reminder
+cfp.reminder.proposals=Do not forget to submit your Draft
+cfp.program=Program announced :
+cfp.program.date=from {0}
+video.title=Videos
+video.tag=Review TDC 2015''s videos on
+call4workshops.title=Workshops
+call4workshops.tag=We are still accepting proposals for workshops on
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2016/call4workshops
+theme.title=Tracks
+theme.track=List of tracks for TDC 2016 POA:
+track.title=Title
+track.description=Description
+appel.conf.dates=TDC 2016 POA, 5th-8th October 2016
+
+# Tracks
+
+track.testes.title=Testes
+track.testes.desc=Testing is never too much!
+testes.label=Testes
+testes.leaderboard=Testes
+
+track.datascience.title=Data Science
+track.datascience.desc=Machine learning, analytics and insights from data
+datascience.label=Data Science
+datascience.leaderboard=Data Science
+
+track.ios.title=iOS
+track.ios.desc=Enhance your skills to become an elite iOS developer
+ios.label=iOS
+ios.leaderboard=iOS
+
+track.dinamicas.title=Dinâmicas e Facilitações
+track.dinamicas.desc=Through dynamic and facilitations we got amazing results!
+dinamicas.label=Dinâmicas e Facilitações
+dinamicas.leaderboard=Dinâmicas e Facilitações
+
+track.javascript.title=JavaScript
+track.javascript.desc=A complete and mature programming language
+javascript.label=JavaScript
+javascript.leaderboard=JavaScript
+
+track.php.title=PHP
+track.php.desc=PHP's strength and its community
+php.label=PHP
+php.leaderboard=PHP
+
+track.iot.title=Internet das Coisas
+track.iot.desc=We live in a world connected to the Internet, now this world becomes integrated into our day by day stuff
+iot.label=Internet das Coisas
+iot.leaderboard=Internet das Coisas
+
+track.devops.title=DevOps
+track.devops.desc=Maximizing the integration between teams to deliver value
+devops.label=DevOps
+devops.leaderboard=DevOps
+
+
+track.management.title=Management 3.0
+track.management.desc=Management is so important that it's crazy to let it only with a person!
+management.label=Management 3.0
+management.leaderboard=Management 3.0
+
+track.bigdata.title=BigData
+track.bigdata.desc=From Relational to NoSQL, from Statistics to Machine learning, passing through BigData
+bigdata.label=BigData
+bigdata.leaderboard=BigData
+
+track.android.title=Android
+track.android.desc=Challenges in application development for Android platform
+android.label=Android
+android.leaderboard=Android
+
+track.growth.title=Growth Hacking e Marketing
+track.growth.desc=Technology and marketing together to accelerate growth
+growth.label=Growth Hacking e Marketing
+growth.leaderboard=Growth Hacking e Marketing
+
+track.web.title=Web
+track.web.desc=Exploring all web potential
+web.label=Web
+web.leaderboard=Web
+
+track.pfuncional.title=Programação Funcional
+track.pfuncional.desc=Techniques and theories of Functional Programming
+pfuncional.label=Programação Funcional
+pfuncional.leaderboard=Programação Funcional
+
+track.cloud.title=Cloud
+track.cloud.desc=Using the power of the cloud in your favor
+cloud.label=Cloud
+cloud.leaderboard=Cloud
+
+
+track.analise.title=Análise de Negócios
+track.analise.desc=In more and more complex scenarios, business analysis can be the key to generate the maximum value with minimal investment
+analise.label=Análise de Negócios
+analise.leaderboard=Análise de Negócios
+
+track.arquitetura.title=Arquitetura
+track.arquitetura.desc=Pluggable architecture, scalable, resilient and polyglot. A world of opportunities.
+arquitetura.label=Arquitetura
+arquitetura.leaderboard=Arquitetura
+
+track.mobile.title=Mobile
+track.mobile.desc=News and trends in the mobile universe
+mobile.label=Mobile
+mobile.leaderboard=Mobile
+
+track.ruby.title=Ruby
+track.ruby.desc=Agility, productivity and good practice
+ruby.label=Ruby
+ruby.leaderboard=Ruby
+
+track.uxdesign.title=UX Design
+track.uxdesign.desc=Validating ideas and building user-centric business
+uxdesign.label=UX Design
+uxdesign.leaderboard=UX Design
+
+track.education.title=Education
+track.education.desc=Education strategies in technology courses to suit market demands and technological development!
+education.label=Education
+education.leaderboard=Education
+
+track.python.title=Python
+track.python.desc=Learn Pythonic lifestyle!
+python.label=Python
+python.leaderboard=Python
+
+track.infraagil.title=Infraestrutura Ágil
+track.infraagil.desc=Breaking paradigms, developing your infrastructure and delivering the WOW to your client !!!
+infraagil.label=Infraestrutura Ágil
+infraagil.leaderboard=Infraestrutura Ágil
+
+
+track.agile.title=Agile
+track.agile.desc=15 years of agility, what we have contributed so far?
+agile.label=Agile
+agile.leaderboard=Agile
+
+track.java.title=Java
+track.java.desc=Meet the main novelties of Java language and platform
+java.label=Java
+java.leaderboard=Java
+
+track.games.title=Games
+track.games.desc=Do to learn
+games.label=Games
+games.leaderboard=Games
+
+track.fintech.title=Fintech
+track.fintech.desc=Financial technology in the service of comfort
+fintech.label=Fintech
+fintech.leaderboard=Fintech
+
+track.dthinking.title=Design Thinking
+track.dthinking.desc=Mostrar que Design Thinking é prática diária
+dthinking.label=Design Thinking
+dthinking.leaderboard=Design Thinking
+
+track.empreende.title=Empreendedorismo
+track.empreende.desc=Entrepreneur in Focus
+empreende.label=entrepreneurship
+empreende.leaderboard=Empreendedorismo
+
+track.arduino.title=Arduino e Makers
+track.arduino.desc=Learning and Innovating in Practice
+arduino.label=Arduino e Makers
+arduino.leaderboard=Arduino e Makers
+
+track.dotnet.title=.NET
+track.dotnet.desc=Microsoft closer and closer to community
+dotnet.label=.NET
+dotnet.leaderboard=.NET
+
+
+track.banco.title=Banco de Dados
+track.banco.desc=Meet the main resources of agnostic relational database of manufacturer
+banco.label=Banco de Dados
+banco.leaderboard=Banco de Dados
+
+track.realidade.title=Realidade Aumentada
+track.realidade.desc=Mixed Reality a new look of the future
+realidade.label=Realidade Aumentada
+realidade.leaderboard=Realidade Aumentada
+
+track.impressao.title=Impressão 3D
+track.impressao.desc=Here we print the Future!
+impressao.label=Impressão 3D
+impressao.leaderboard=Impressão 3D
+
+
+# confirm import
+confirm.import.title=Create your Speaker''s profile
+confirm.import.save=Save
+avatarUrl.isEmpty=URL to your picture is empty, so we will try to use your
+avatarUrl.defined=Your photo (recommended width 150px)
+
+created.title=Success!
+created.text1=We just sent you an email so that you can validate your email address.
+created.text2=Your access code is generated and is displayed once you validate your email.
+created.text3=You will then be able to log-in and start to use the {0} CFP web site.
+
+# prepareSignup
+signup.title=Speaker''s registration
+signup.txt1=Sign up to submit a talk for {0} conference :
+signup.txt2=A validation email will be sent to the address indicated. Your profile will be active once your email address is validated.
+
+# edit profile
+editProfile.title=Your profile
+editProfile.help=Take the time to complete your profile. This content will then be published on the site if you are selected as a speaker, as well as in the conference program:
+editProfile.save=Save
+
+# Home
+table.pres.title=Title
+table.pres.edit=Edit
+table.pres.submit=Submit
+table.pres.delete=Move to trash
+table.pres.action=Actions
+table.pres.doSubmit=Submit
+table.pres.doDelete=Delete
+
+total.draft={0} proposals
+total.draft.sing={0} proposal
+total.archived={0} archived
+total.archived.sing={0} archived
+table.pres.speaker=Speaker
+table.pres.state=State
+table.speaker.addremove=Add/Remove speakers
+table.pres.otherSpeakers=Other speakers
+you.speaker=You
+invalid.proposal=Invalid proposal
+not.yours=Not your proposal... come-on, are trying to cheat?
+saved1=Proposal was successfully saved. Do not forget to re-submit this talk for review.
+saved2=Proposal was successfully saved.
+invalid.form=Error in your form, please review and correct, then submit again
+talk.deleted=Proposal deleted.
+talk.deleted2=Undo this operation on proposal
+talk.draft=Proposal status set to Draft
+talk.submitted=Your talk was successfully submitted
+
+#other speaker
+other.speakers=Presentation''s speakers
+btn.enregistrer=Save
+cancel.goBackHome=Cancel
+proposal.id=Id
+proposal.title=Presentation title
+proposal.mainSpeaker=Main speaker
+proposal.secSpeaker=Secondary speaker
+secondarySpeaker=Secondary speaker
+proposal.otherSpeakers=Other speakers
+proposal.buyPass={0} Days pass included?
+freepass=Yes
+no.freepass=No
+speakers.updated=Speakers''s list updated
+noOther.speaker=---- No other speaker ----
+
+# CFPadmin
+msgSpeaker=Your message
+
+
+# short talk
+
+
+tbl.submitted=Submitted
+profile.imported=Profile imported successfully
+profile.imported.txt=Your profile has been successfully imported. You can change at any time your bio, your personal information or the address of your blog on the CFP Home.
+profile.continue=Continue
+profile.username=Your username:
+profile.password=Your access code (cannot be change):
+profile.password.help=We do not want to store one of your password. We prefer to generate one for you.
+# We encourage you to use the OpenID access via Github or Google.
+
+error.real=Real number value expected
+constraint.required=Required
+msg=Your message
+select.secondarySpeaker=Select a speaker
+freepass.forIdiots=Free pass included if, and only if, your talk is selected by the program committee
+
+nav.homeSpeaker=Home
+editWebuser.title=Edit your firstname and lastname
+
+cfp.isOpen=CFP is open
+cfp.open.enter=Create your speaker''s profile or sign-in
+
+admin.proposals.th.title=Title
+admin.proposals.th.track=Track
+admin.proposals.th.mainSpeaker=Speaker
+admin.proposals.th.talkType=Type of talk
+admin.proposals.th.action=Action
+admin.proposals.todolist.title=Your TODO List
+admin.btn.leaderboard=See Leaderboard
+admin.btn.myvotes=My votes
+admin.btn.sponsortalks=Sponsor''s talks
+admin.btn.speakers=All speakers
+admin.btn.speakersInvited=All invited speakers
+admin.btn.draft=All DRAFT
+admin.btn.submitted=All SUBMITTED
+admin.btn.review=Open for review
+admin.cfp.empty=There is no new submitted proposals for the time being...
+admin.cfp.recentEvents=Events
+admin.cfp.date=Date
+admin.cfp.author=Author
+admin.cfp.propId=ID
+admin.cfp.msg=Message
+admin.cfp.totalEvents=Total events
+previous.page=Previous page
+next.page=Next page
+
+admin.proposal=Proposal
+admin.proposals.th.lang=Lang
+admin.proposals.th.abstract=Proposal text
+admin.sp.mainSpeaker=Main speaker
+admin.sp.secSpeaker=Secondary speaker
+admin.sp.otherSpeaker=Other speaker(s)
+admin.sp.privateMessage=Private message for committee
+admin.sp.sponsorTalk=Talk sponsor
+admin.sp.sponsorTalk.label=This is a sponsor talk
+admin.sp.evaluate=Evaluate this proposal
+admin.sp.voted=You voted
+admin.sp.discussion=Discussion
+admin.sp.committee_speaker=Discussions with the speaker
+admin.btn.sendMessage=Post your message
+admin.sp.warning1=Attention! By clicking the button, an email will be sent to the SPEAKER and it will be registered here below too, visible to all.
+admin.sp.warning2=Attention! By clicking the button, an email will be sent ONLY to the organization and it will be registered here below, visible only to coordinators and organization.
+admin.sp.internal=Private internal discussions
+admin.sp.deleteMyVote=Delete my vote
+admin.btn.allvotes=All votes
+admin.btn.allByTrack=All by track
+
+speaker.other.error=You cannot change the speaker''s list if you are not one of the 2 main speakers.
+admin.draft.warning=Warning
+admin.draft.warning2=This proposal state is not SUBMITTED, thus you cannot vote this talk.
+admin.draft.warning3=Current proposal state :
+
+newProposal.maxLength=Max size is 1200 characters (including Markdown characters, if you want to use it)
+preview.txt=Preview Conference guide (sample page)
+tags.renderComment.postedBy=Posted by {0} - {1}
+
+admin.btn.sponsor=VIP view on proposals
+leaderboard.compute=Computing stats
+
+admin.sp.accepted=Accepted
+admin.sp.approved=Approved
+admin.sp.refused=Refused
+admin.sp.rejected=Rejected
+admin.sp.approved.txt=This talk has been approved by the Program committee.
+admin.sp.accepted.txt=This talk has been accepted. Either during the final decision, or because it''s a sponsor talk or a speaker on the wishlist.
+btn.abstention=Vote 0 for this talk
+remove.sponsorFlag=Remove the sponsor''s flag on this talk
+
+cfp.isClosed=The CFP is closed
+cfp.isClosed.expl=CFP is closed and does not accept submission.
+cfp.closed.enter=Sign-in
+tbl.cfp.closed=CFP closed
+cfp.closed.restrictions=CFP is closed. You can edit your proposal, but please, do not change it completly once it has been submitted. A proposal that differs from the original version will be refused.
+
+forget.password.title=Forget your access code?
+forget.password.txt=Send me a new access code
+forget.password.notfound=This email is not registered
+
+new.accesscode.title=Your new access code
+new.accesscode=Your new access code is :
+
+admin.btn.otherReviewer=Compare with other Reviewer
+btn.showVotes=Show votes
+comment.proposal=Comments for proposal
+question.proposal=Questions about your talk
+
+approve.title={0}, Speaker Consent Form
+accept.chk=I accept the Terms and Conditions
+acceptTerm.pleaseRead=Please read and accept {0} Terms and Conditions
+accept.term.checked=Please check this box if you agree with the Terms and Conditions
+
+acceptedProposals.title=List of accepted/refused proposals for {0}
+ar.approved=Approved proposals
+ar.rejected=Refused proposals
+ar.noneApproved=We are very sorry to inform you that none of your proposals have been accepted.
+ar.pleaseAccept=Please confirm for each accepted proposal, that you accept to present this talk. If you co-present a talk with another speaker, it''s also possible that your co-speaker has already accepted to present.
+ar.IAccept=I accept to present this talk
+ar.IDecline=I decline and I will not present this talk
+ar.IBackup=As a Backup
+ar.declined=Declined
+ar.accepted=Accepted
+ar.currentStatus=Current status
+ar.pleaseSelect=Please, select one of the action for this proposal:
+ar.proposalNotFound=Proposal not found
+ar.choiceRecorded=Your choice for proposal {0} has been updated to {1}
+ar.checkMyProposals=Accept or decline approved proposals
+ar.goBackHome=Go back to home page
+ar.important=Important
+ar.backup.warning1=This is a BACKUP talk. We will notify you if it is approved at a later time.
+ar.backup.warning2=However you can decline if you don't want to keep this talk as a backup.
+ar.accepted.warning=Warning: this talk has been accepted. Please contact the CFP team before you decline
+
+sw.proposal.title=Title
+sw.proposal.talkType=Type of presentation
+sw.proposal.summary=Summary
+sw.proposal.track=Track
+sw.proposal.lang=Lang
+sw.proposals=Talks
+sw.proposal=Talk
+sw.company=Company
+sw.talkType=All talks
+sw.details=See details
+sw.proposal.btn.sendmessage=Send your message
+
+sw.trash.title=Trash
+sw.trash.warning=Please enter DEL in this input box and click on the button
+sw.trash.button=Delete this speaker
+
+pbig=Talk or Debate (50 min)
+pmeia=Short talk (25 min)
+pmini=Mini Talk (15 min)
+prel=Lightning Talk (5 min)
+
+conf=Conference
+uni=University
+tia=Tools-in-Action
+lab=Hands-on Labs
+quick=Quickie
+bof=BOF (Bird of a Feather)
+hack=Hackaton
+key=Keynote
+other=Other format
+all=All
+start=Startup presentation
+amd=Après-midi des Décideurs
+
+sw.proposal.speaker=Presented by
+admin.btn.changeState=Change one proposal state
+
+sw.talkType.warn=List of talks approved by the program committe and accepted by each speaker
+sw.showDetails=See details
+sw.home=Home
+sw.all.uni=All Universities
+sw.all.conf=All Conferences
+sw.all.lab=All Hands-on labs
+sw.all.quick=All Quickies
+sw.all.bof=All BOFs
+sw.all.start=All Startup''s talks
+sw.all.tia=All Tools in Action
+sw.speakers=People
+# Devoxxians
+sw.intro=The agenda is published every day.
+sw.programme=Agenda
+sw.presentations=Talks
+sw.events=Special events
+sw.allSpeakers=speakers
+sw.proposal.presentedWith=Presented also by
+admin.btn.webuser=Administer CFP users
+editSpeakerName=Edit Speaker name
+admin.btn.createNewspeaker=Create a new speaker
+admin.btn.tracklead=Track leader
+
+newSpeaker.title=Create a new speaker
+avatarUrl2=URL of speaker''s photo
+name=Full name
+bio2=Speaker''s bio
+twitter2=Twitter''s handle
+company2=Company
+blog2=Web site or personnal blog
+lang2=Will speak in Portuguese or English? (pt/en)
+sp.editSpeaker=Edit this speaker
+sp.authenticateAs=Authenticate as
+sp.editName=Edit name
+sw.hackatons=Hackatons
+sw.hackatons.describe=Coding events, hacking day, organized during the conference
+sw.faq=See our FAQ for more details about each format
+calendar.pref=Speaker''s preferences for schedulling
+calendar.pref.wednesday=Wednesday
+calendar.pref.thursday=Thursday
+calendar.pref.friday=Friday
+calendar.pref.reset=No preferences
+sw.all.other=Other kind of presentation
+acceptTermsConditions=Accept Terms/Conditions to display this bio on the web site
+sp.authenticateAndCreate=Authenticate as this speaker and create a new talk
+day-uni=Wednesday
+day-labs=Wednesday
+day-tia=Wednesday
+day-confThursday=Thursday
+day-lab=Wednesday
+day-confFriday=Friday
+day-bof=Thursday, 19h30
+day-monday=Monday, 18th April
+day-tuesday=Tuesday, 19th April
+day-wednesday=Wednesday, 20th April
+day-thursday=Thursday, 21st April
+day-friday=Friday, 22nd April
+
+sw.all.confThursday=Conferences on Thursday
+confThursday=Conferences on Thursday
+sw.otherEvents=Special events
+sw.allEvents=See all events
+sw.all.key=Keynotes
+sw.agenda=Agenda
+sw.agenda.txt=Opening, closing hours and global agenda per day
+sw.agenda.mon=Monday
+sw.agenda.monday=Monday
+sw.agenda.tue=Tuesday
+sw.agenda.tuesday=Tuesday
+sw.agenda.wed=Wednesday
+sw.agenda.wednesday=Wednesday
+sw.agenda.thu=Thursday
+sw.agenda.thursday=Thursday
+sw.agenda.fri=Friday
+sw.agenda.friday=Friday
+sw.show.mon=Monday
+sw.show.monday=Monday
+sw.show.tue=Tuesday
+sw.show.tuesday=Tuesday
+sw.show.wed=Wednesday
+sw.show.wednesday=Wednesday
+sw.show.thu=Thursday
+sw.show.thursday=Thursday
+sw.show.fri=Friday
+sw.show.friday=Friday
+sw.show.title.mon=Monday, 18th April 2016
+sw.show.title.tue=Tuesday, 19th April 2016
+sw.show.title.wed=Wednesday, 20th April 2016
+sw.show.title.thu=Thursday, 21st April 2016
+sw.show.title.fri=Friday, 22nd April 2016
+
+sw.horaires=Schedule
+sw.breakfast=Welcome and Breakfast
+sw.mainEvents=Main events and conferences
+sw.lunch=Lunch
+sw.coffee.break=Coffee break
+sw.endOfDay=End of day, exhibition floor closing
+sw.cocktail=Meet and Greet party until 10:30pm in the main exhibition hall
+sw.showAllDay=Show complete agenda for this day
+not.published=The agenda for this conference is not yet published
+
+day-wed=Wednesday
+day-thu=Thursday
+day-fri=Friday
+nav.homeREST=REST API
+acceptedTerms.msg=Terms and Conditions accepted ! Thanks.
+
+antispam=To check that you are not a robot, what is the result of 38 + 4 ?
+bugReport.sent=Your message has been sent to the team. Thanks!
+sw.whenWhere=Schedule time and room
+
+showAgendaByRoom=Agenda by Room
+sw.proposal.whenWhere=Scheduled time and room
+
+level1.label=Open to all level of audience, beginner or novice
+level2.label=For intermediate audience
+level3.label=For expert and senior
+
+demoLevel=What type of presentation will it be?
+demoLevel1.label=Slides only
+demoLevel2.label=Slides and code
+demoLevel3.label=Code only
+demoLevel4.label=No slides & code
+
+btn.saveDraft=Save as draft
+btn.saveAndSend=Save and Submit to committee
+saved=Proposal saved, do not forget to SUBMIT this talk to the program committee when you are ready
+
+wishlist.title=Wishlist
+wishlist.menu=Menu
+wishlist.recentEvents=All requests
+wishlist.requestToTalk.title=Send an invitation to talk to a speaker
+wishlist.requests.track=Track requests for speakers
+wishlist.createRequest=Create a new request
+wishlist.editRequest=Edit and update a request
+wishlist.sendEmail=Send the message to the speaker
+wishlist.save=Save and reload this page
+wishlist.history=History
+wishlist.cancelEdit=Go back to list of Requests
+wishlist.previous=Previous
+wishlist.next=Next
+
+wl_note=Private note and internal discussion
+wl_message=Message for speaker
+wl_speakerEmail=Speaker''s email
+wl_speakerName=Speaker full name
+wl_country=Speaker''s country
+wl_company=Company
+wl_travel=Travel & Lodging
+wl_trackCode=Track
+wl_statusCode=Current state
+wl_travel.checkbox=Yes, include T&L
+
+wl_suggested=Suggested
+wl_contactedUs=Speaker contacted us
+wl_discuss=Discussion
+wl_contactSpeaker=Contact speaker
+wl_contacted=Contacted
+wl_accepted=Speaker accepted
+wl_declined=Speaker declined
+wl_onhold=On hold
+wl_deleted=Deleted
+wl_unknown=Unknown
+
+wishlist.newWishlist=Create new Wishlist
+
+contacted=Speaker has been contacted
+unknown=Unknown
+
+# The abstention button
+Abs=Abs
+trackAndUUIDs=
+
+mail.reset_password_link.subject=You asked to reset your {1}''s access code at {0}
+mail.access_code.subject=Your {0}''s access code
+mail.account_created.subject=Welcome to the CFP for {0} !
+mail.email_validation.subject=Welcome to {0}, please validate your email address now
+mail.issue_reported.subject=New issue reported on CFP web site
+mail.cfp_message_to_speaker.subject=[{1}] Message about your presentation {0}
+mail.question_to_speaker.subject=[{1}] New question posted on TDC Web site about {0}
+mail.speaker_message_to_cfp.subject=[{0}] {1} posted a new message
+mail.notify_proposal.subject={0} submitted a proposal [{1}]
+mail.notify_proposal.content=A Proposal has been submitted on the CFP, with Title: [{0}], Track: [{1}] and Type: [{2}]
+mail.draft_single_reminder.subject={0} reminder : you have one proposal with status ''Draft''
+mail.draft_multiple_reminder.subject={1} reminder : you have {0} proposals to submit
+mail.proposal_approved.subject=Your proposal has been approved {0}
+mail.proposal_refused.subject=Your proposal has been refused {0}
+mail.speaker_cfp_results.subject=Call for Paper {0}
+
+proposal.audienceLevel=Audience level
+proposal.demoLevel=Type of presentation
+l1.label=level 1 : beginner/novice
+l2.label=Intermediate
+l3.label=Expert and senior
+d1.label=Slides only
+d2.label=Slides and code
+d3.label=Code only
+d4.label=No slides & code
+
+table.pres.trash=Delete this proposal
+
+msg_pub=Send a message to the speaker
+email_pub=Your email address
+email_pub2=Please confirm your email
+
+cfp.closed=CFP is currently closed.
+constraint.email=Valid email address
+constraint.max=Max value : {0}
+constraint.maxLength=Max length: {0}
+constraint.min=Min length : {0}
+constraint.minLength=Min length : {0}
+day-mercredi=Wednesday
+day-vendredi=Friday
+error.email=Invalid email address
+error.invalid=Invalid value
+hack.label=Hackaton
+lg_alter.label=Alternate languages on the JVM
+lgaltern.label=Alternate languages on the JVM
+menu.blog=Site TDC
+signup.long=Register as a speaker on TDC POA CFP
+sw.all.hack=Hackatons
+#approved=Speaker approved
+cstory=Session de live coding Code-story
+day-jeudi=Thursday
+#declined=Speaker declined
+presubmit.reminder=When you are ready, do not forget to submit your proposal from the main screen (click on
+
+wl.action=Action
+wl.lm=Last modified
+wl.sn=Speaker name
+wl.fb=Followed by
+wl.company=Company
+wl.track=Track
+wl.status=Current status
+wishlist.setPersonInCharge=Person responsible for {0}
+webmobile.label=Web, Mobile & UX
+agilityTest.label=Agility, Methodology & Tests
+
+wl.country=Country
+wl.keynote=Keynote
+wl_keynote=Keynote
+wl_keynote.checkbox=Yes, this could be a keynote speaker
+
+showProposal.comment.ar=Ask a question about this talk to the team
+ar.proposalType=Proposal type:
+ar.proposalId=Proposal ID:
+
+tag.proposal.title=Title
+tag.proposal.status=Status
+tag.proposal.type=Type
+tag.proposal.track=Track
+tag.invite=Invite
+tag.invited=Invited
+tag.sponsor=sponsor
+tag.speaker.notfound=Speaker not found
+
+speaker.mustAcceptTC=You must accept Terms and Conditions
+speaker.ar1=Please click
+speaker.ar2=here
+speaker.ar3=to review and to validate Terms and Conditions.
+
+tagRenderRow-coffee=Coffee
+tagRenderRow-lunch=Lunch
+tagRenderRow-dej=Breakfast
+tagRenderRow-reg=Registration, welcome and Breakfast
+tagRenderRow-chgt=Short break
+tagRenderRow-meet=Soirée Meet & Greet
+
+please.check.approved=Please, review the list of approved Proposals, then select accept or decline for each Talk.
+proposal.approved.noVotes=Approved proposal - no more votes
+tag.proposal.youVoted=Your vote
+qualifications.otherproposals=Other proposals from this speaker
+qualifications.empty=Speaker did not yet entered its speaking skills/qualifications
+
+# prepareSignupVisitor
+visitor.registration.title=Visitor's registration
+visitor.signup.txt1=Sign up to save your schedule for {0} conference :
+visitor.signup.txt2=A validation email will be sent to the address indicated. Your profile will be active once your email address is validated. We won''t send you other emails.
+
+# homeVisitor
+home.visitor.header=Visitor sign-in or sign-up
+home.visitor.title=Sign-in or register
+home.welcome.txt=Welcome to {0}, please authenticate or create a new visitor profile:
+visitor.signin=Sign-in
+visitor.register=Sign-up as a visitor
+visitor.index.signup2=Sign-up as a visitor and save your Schedule, vote for the best talks, and share your interests with other attendees.
+
+# welcomeVisitor
+visitor.welcome.title=Welcome {0}
+visitor.welcome.text1=You are now authenticated as a TDC visitor. You can mark your favorite talks from the {0} schedule and retrieve your agenda from your profile page.
+visitor.welcome.publisher=Browse the conference schedule
+visitor.welcome.profile=See the list of talks you faved
+
+# renderProposals
+renderProposal.archived={0} proposals archived from some previous editions.
+renderProposal.archived.single=One proposal has been archived from a previous edition.
+renderProposal.noTalks=No other talks submitted or proposed
+
+mail.goldenticket.subject=Golden Ticket for {0}
+error.loginRequired=Access restricted, please authenticate.
+
+userGroup=Show my proposal to Golden Ticket holder?
+userGroup.checkbox= Yes, I would like my proposal to be reviewed by Attendees with a Golden Ticket
+
+goldenTicket.help.title=Golden Ticket review
+goldenTicket.help.txt=A new feature of {0} is the introduction of a Community Advisory Panel comprised of people who have bought a ticket during the CFP window. If you agree, they will be able to review and rate your proposals. The Program Committee will also review and rate proposals, and the 2 sets of ratings will be used to determine what make it onto the final agenda.
+
+gt.title=CFP for Golden ticket
+gt.disclaimer=Please respect the privacy of people submitting talks to TDC. By opening this account you agree not to disclose or publish publicly, including via social media, any of the information you see in the CFP tool.
+
+gt.intro.1=This is the full list of Proposals. You can sort by Proposal title, by Speaker or type of Talk.
+gt.intro.2=If needed, you can also
+gt.reviewYourVotes=review your Votes
+gt.intro.3=while the CFP is open.
+gt.special.need=If you have a specific speaker you would love to see present at TDC POA, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
+gt.todo=Your todo list size:
+
+gt.yourVotes=Your votes
+gt.personnal=Your personnal leaderboard
+gt.youReviewed=You reviewed {0} talk(s)
+gt.youVoted=You have voted for {0} talk(s)
+gt.averageVote=Your average vote is {0}
+gt.noVotes=You haven''t voted for any proposal so far.
+gt.myvote.title=Proposals for which you voted
+
+gt.showVotes.review=Review or change your vote
+gt.home=Go back to home
+gt.vote.ok=Your vote has been recorded.
+gt.youcan=You can now:
+gt.nomore=There is no more talk to review, congratulation you did it!
+gt.nextTalk=Continue and evaluate next talk
+gt.nextTalkType=Continue and evaluate another {0}
+gt.nextTalkTrack=Continue and evaluate next talk for track {0}
+
+gtAdmin.totalGT=Total number of person with a Golden Ticket: {0}
+gtAdmin.top5=Top 5 by score
+gtAdmin.topWorst=Last 5 by score
+gtAdmin.average=Average score given my Golden ticket is {0}
+gtAdmin.totalReviewer=Total number of Proposals reviewed by Golden Ticket : {0}
+
+svp.score=Current score
+svp.average=Average score
+svp.gt.average=Average score given by {0} Golden Ticket holders
+svp.voteCast.gt=Number of Golden tickets that voted
+svp.voteCast=Total votes cast
+svp.votes=Total votes
+svp.abst=Abstention
+svp.standardDev=Standard deviation
+svp.allVotes=All votes
+svp.noshow=Sorry, votes for your talk are hidden.
+svp.voted=voted
+svp.goldenTicket.title=Golden Ticket votes
+svp.gt.novotes=No vote yet from any Golden ticket
+svp.split=Diff between GT score and Comittee score
+svp.commitee={0} by {1} Commitee
+svp.btn.review=Review or change your vote
+svp.btn.home=Go back to home
+svp.btn.notalks=There are no more talk to review
+svp.btn.notalks.bytrack=There are no more talks to review for track {0} in the format {1}
+svp.btn.nexttalk=Continue and evaluate next talk for track {0}
+
+gt.admin.sp.privateMessage=Private message for the program committee
+
+speaker.notfound=Speaker not found, please sign-up and create a speaker profile.
+# A Golden ticket profile is not valid, you must create a separate profile.
+callforpaper.gt.create.profile=You have a Golden ticket profile, but not a Speaker profile. Please complete your profile to proceed.
+cfp.goldenTicket=Golden tickets
+cfp.gt.enter=Authenticate
+cfp.gt.infos=More details about Golden tickets (in French)
+callforpaper.import.profile=Speaker profile not found, please complete your profile.
+
+gt.nav.home=Home GT
+gt.myvotes.home=All your votes
+gt.myvotes=Proposals of type {0} for which you voted
+
+search.result=Search result: {0} hit(s)
+search.close=Close
+search.showOnly=Show only
+search.onlySpeakers=speakers
+search.onlyProposals=proposals
+
+noPasswordHere=This web site does not let you configure a password, mainly because a lot of people use the same password, everywhere. Please save the generated access code.
+# or use OpenID (Github,LinkedIn,Google) access.
+cfpadmin.toreview={0} proposal(s) to review
+cfpAdmin.showWhenCreated=Submitted to the CFP on {0}
+
+publisher.showMore=See proposal details
+publisher.room=Room
+
+hfspk.edit.speaker=Add/remove speaker
+hfspk.rating.title=Rating
+hfspk.rating.desc=Rating given by visitors during the conference with mobile apps.
+table.pres.rating=Rating (1 to 5)
+table.pres.comment=Comments and rating
+rating.default=No comment
+
+
+# Backoffice
+backoffice.allproposals.title=All Proposals
+backoffice.allproposals.warning=This screen lets you to search and to update any proposal current state. Use with caution.
+backoffice.allproposals.columns.id=Proposal id
+backoffice.allproposals.columns.title=Title
+backoffice.allproposals.columns.track=Track
+backoffice.allproposals.columns.author=Author
+backoffice.allproposals.columns.speaker=Speaker
+backoffice.allproposals.columns.speakers=All Speakers
+backoffice.allproposals.columns.type=Type
+backoffice.allproposals.columns.status=Status
+backoffice.allproposals.columns.actions=Change current status
+backoffice.allproposals.columns.notify=Notify
+backoffice.allproposals.approved.notify=Notify
+backoffice.allproposals.approved.notifyagain=Notify again
+backoffice.allproposals.approved.notify.tooltip=Send an email and change the state to APPROVED (Async)
+backoffice.allproposals.approved.notifyagain.tooltip=Send an email again (Async)
+backoffice.allproposals.speaker.accepted=Speaker has accepted
+backoffice.allproposals.rejected.warning=If proposal's state = REJECTED then the speaker has been notified.
+backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to REJECTED (Async)
+backoffice.allproposals.rejected.notify.link=Notify refused
+backoffice.allproposals.empty=There is no proposal with status != Archived
+
+allproposals.submitted={0} submitted proposals
+allproposals.submitted.bytrack=All submitted proposals for track
+allproposals.submitted.bytype=All submitted proposals for type
+allproposals.submitted.tab=All submitted proposals
+allproposals.columns.title=Title
+allproposals.columns.speaker=Speaker
+allproposals.columns.type=Type
+
+backoffice.allproposals.sponsor.title=Sponsors talks
+backoffice.allproposals.sponsor.subtitle=Proposals from Sponsor or Exhibitor
+backoffice.allproposals.sponsor.talks=talks
+backoffice.allproposals.sponsor.message=Private message
+backoffice.allproposals.subtitle.approved=approved
+backoffice.allproposals.subtitle.refused=refused
+backoffice.allproposals.subtitle.proposal=proposal
+backoffice.notification.accepted.title=Accepted talks notification service
+backoffice.notification.accepted.text=This service lets you search for a talk, then send a notification to the speaker
+backoffice.notification.refused.title=Refused talks notification service
+backoffice.notification.refused.text=This service lets you search for a talk, then send a notification to the speaker
+backoffice.allwebusers.subtitle=All speakers
+backoffice.allwebusers.label.users=users
+backoffice.allwebusers.label.cfpusers=CFP users
+backoffice.allwebusers.columns.name=Name
+backoffice.allwebusers.columns.email=Email
+backoffice.allwebusers.columns.image=Gravatar
+backoffice.allwebusers.columns.action=Action
+backoffice.allwebusers.btn.authenticate=Authenticate
+backoffice.allwebusers.btn.remove=Remove from CFP
+backoffice.allwebusers.btn.add=Add to CFP
+backoffice.allwebusers.nouser=There is no webuser
+backoffice.allCFPwebusers.title=Configure track leader
+backoffice.allCFPwebusers.noleader=No Track Leader
+backoffice.allCFPwebusers.columns.track=Track name
+backoffice.allCFPwebusers.columns.leader=Track leader
+backoffice.allCFPwebusers.btn.save=Save the full list
+backoffice.allCFPwebusers.btn.back=Go back to Backoffice
+
+showAcceptTerms.title=Terms and Conditions
+showAcceptTerms.subtitle1=Please read and accept
+showAcceptTerms.subtitle2=Terms and Conditions
+showAcceptTerms.warning=Version in Portuguese and English
+showAcceptTerms.button.validate=Validate
+showAcceptTerms.button.decline=Decline
+
+allMyVotes.tab=All my votes
+allMyVotes.yourVotes=Your votes
+allMyVotes.personnal=Your personnal leaderboard
+allMyVotes.youVoted=Numeber of talks you have voted for
+allMyVotes.sumVotes=Sum of all your points
+allMyVotes.averageVote=Your average vote
+allMyVotes.deviation=Standard deviation for your vote
+allMyVotes.noVotes=You haven''t voted for any proposal so far.
+allMyVotes.votes.title=Proposals of type {0} for which you voted
+allMyVotes.votes.column.youVoted=You voted
+allMyVotes.votes.column.score=Current score
+allMyVotes.votes.column.id=Id
+allMyVotes.votes.column.title=Title
+allMyVotes.votes.column.track=Track
+allMyVotes.votes.column.speakers=Speakers
+
+allVotes.tab=All votes
+allVotes.button.cancel.approve=Cancel approve
+allVotes.button.cancel.refuse=Cancel refuse
+allVotes.button.approve=Pre-Approve
+allVotes.button.refuse=Pre-Refuse
+allVotes.button.remove=Remove from refused list
+
+allVotes.button.all=All
+allVotes.button.recompute=Recompute total and votes
+allVotes.button.byCompany=All talks by company
+allVotes.warning1=All proposals with at least one vote, with state set to
+allVotes.warning2=If you just created a proposal and it's not listed here : please add a vote and click recalculate button above.
+allVotes.label.approved=approved
+allVotes.label.declined=declined
+allVotes.label.remaining=remaining
+allVotes.columns.average=Average
+allVotes.columns.gt=GT
+allVotes.columns.votes=Votes
+allVotes.columns.abstention=Abst.
+allVotes.columns.note=Note GT et comité
+allVotes.columns.title=Title
+allVotes.columns.id=Proposal id
+allVotes.columns.speakers=Speakers
+allVotes.columns.type=Type
+allVotes.columns.track=Track
+allVotes.columns.lang=Lang
+
+compare.reviewer.tab=Compare with another reviewer
+compare.reviewer.title=Select another user to compare with
+
+leaderboard.tab=Leaderboard
+leaderboard.title=Leaderboard
+leaderboard.subtitle=Stats are computed every 10 minutes
+leaderboard.label.refresh=Trigger a refresh now
+leaderboard.label.speakers=speakers
+leaderboard.label.approved.speakers=approved speakers
+leaderboard.label.refused.speakers=refused speakers
+leaderboard.label.withpass=with a TDC POA Pass
+leaderboard.label.proposals=proposals
+leaderboard.label.proposals.withvote=proposals with vote
+leaderboard.label.proposals.novote=proposals with no vote (incl.Draft)
+leaderboard.label.reviews=reviews
+leaderboard.label.most.voted=most voted with 1 reviews
+leaderboard.label.talks.reviewed={0} talks reviewed
+leaderboard.btn.see.reviewers=See all reviewers
+leaderboard.section.top.reviewer=Top Reviewer
+leaderboard.section.lazy=The Lazy One's
+leaderboard.section.more.stats=More stats
+leaderboard.section.submitted.bytrack=Submitted by Track
+leaderboard.section.approved.bytrack=Approved by Track (total {0})
+leaderboard.section.accepted.bytrack=Accepted by Track
+leaderboard.section.submitted.bytype=Submitted by Type
+leaderboard.section.approved.bytype=Approved by Type
+leaderboard.label.accepted.byspeaker=Talk accepted by a speaker
+leaderboard.columns.type=Proposal type
+leaderboard.columns.received=Proposal received
+leaderboard.columns.slots=Total slots
+leaderboard.columns.approved=Proposal approved
+leaderboard.columns.toallocate=To allocate
+leaderboard.approved.bytype=approved submissions for
+leaderboard.accepted.bytype=accepted submissions for
+
+allSpeakers.title=All Speakers
+allSpeakers.users=users
+allSpeakers.speakers=speakers
+allSpeakers.columns.name=Name
+allSpeakers.columns.lang=Lang
+allSpeakers.columns.company=Company
+allSpeakers.columns.email=email
+allSpeakers.columns.actions=Actions
+allSpeakers.warning.nospeaker=There is no speaker
+allSpeakers.warning.nospeaker.approved=There is no approved speaker
+allSpeakers.allSpeakersWithApprovedTalks.title=All speakers with an approved talks
+allSpeakers.allApprovedSpeakersByCompany.title=All speakers with an approved talks by company
+allSpeakers.allSpeakersThatForgetToAccept.title=All speakers that haven't yet ACCEPTED to present an approved talk
+allSpeakers.allSpeakersWithAcceptedTalks.title=All speakers with an accepted talk (including Quickies and BOF)
+allSpeakers.allSpeakersWithAcceptedTalksAndBadge.title=All speakers with an accepted talk and a speaker badge
+allSpeakers.allSpeakersWithAcceptedTalksForExport.title=All speakers with an accepted talk, classified by ProposalType
+allSpeakers.label.companies=companies
+allSpeakers.link.talks=See talks
+allSpeakers.allSpeakersThatForgetToAccept.subtitle=Talk that we approved, for which the speaker did not accept to present yet
+allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Primary or secondary speaker, with a speaker badge; CFP or Red Coat not included; No Quickies or BOF
+allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classified by talks, where the speaker is either primary or secondary speaker.
+allSpeakers.invited.title=All Invited Speakers
+
+draft=draft
+deleted=deleted
+submitted=submitted
+approved=approved
+rejected=rejected
+accepted=accepted
+backup=backup
+declined=declined
+archived=archived
+unknown=unknown
+
+draft.caps=DRAFT
+deleted.caps=DELETED
+submitted.caps=SUBMITTED
+approved.caps=APPROVED
+rejected.caps=REJECTED
+accepted.caps=ACCEPTED
+backup.caps=BACKUP
+declined.caps=DECLINED
+archived.caps=ARCHIVED
+unknown.caps=UNKNOWN

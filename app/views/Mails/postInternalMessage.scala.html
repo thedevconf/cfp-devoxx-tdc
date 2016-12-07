@@ -1,0 +1,18 @@
+@(fromName:String, proposal:models.Proposal, msg:String)
+
+<p>@fromName postou uma mensagem para <strong>@proposal.title</strong></p>
+<br>
+<p>Mensagem:</p>
+<hr>
+<p>
+@msg
+</p>
+<p>@fromName</p>
+<hr>
+<h3>Como responder?</h3>
+<p>Por favor, use este link para responder diretamente para a mensagem :</p>
+<a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)</a>
+<br>
+<br>
+<p>Obrigado,</p>
+<p>Equipe @Messages("longName")</p>

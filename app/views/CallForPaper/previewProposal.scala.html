@@ -1,0 +1,74 @@
+@(htmlSummary: String, privateMessage:String, newProposal: Form[models.Proposal], currentUser:String)(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+@import org.apache.commons.lang3.StringUtils
+@import helper._
+
+@main(newProposal("id").value.map(id => "Edit " + id + " " + newProposal("title").value.getOrElse("")).getOrElse("New proposal preview")) {
+    <div class="row">
+        <div class="col-md-12">
+            @if(newProposal("id").value.isDefined) {
+                <h3>@Messages("Edit.proposal2")</h3>
+            } else {
+                <h3>@Messages("New.proposal2")</h3>
+            }
+            <hr>
+        </div>
+
+        <div class="col-md-23">
+        @helper.form(action = routes.CallForPaper.saveProposal()) {
+            <input type="hidden" name="lang" value="@newProposal("lang").value">
+            <input type="hidden" name="title" value="@newProposal("title").value">
+            <input type="hidden" name="mainSpeaker" value="@newProposal("mainSpeaker").value">
+            <input type="hidden" name="otherSpeakers" value="@newProposal("otherSpeakers").value">
+            <input type="hidden" name="talkType" value="@newProposal("talkType").value">
+            <input type="hidden" name="audienceLevel" value="@newProposal("audienceLevel").value">
+            <input type="hidden" name="summary" value="@newProposal("summary").value">
+            <input type="hidden" name="privateMessage" value="@newProposal("privateMessage").value">
+            <input type="hidden" name="sponsorTalk" value="@newProposal("sponsorTalk").value">
+            <input type="hidden" name="userGroup" value="@newProposal("userGroup").value">
+            <input type="hidden" name="track" value="@newProposal("track").value">
+            <input type="hidden" name="demoLevel" value="@newProposal("demoLevel").value">
+            <input type="hidden" name="id" value="@newProposal("id").value">
+
+            <div class="alert alert-info"><i class="icon-warning-sign"></i> @Messages("not.saved")</div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel">
+                <div class="panel-default">
+                    <div class="panel-heading">@Messages("summary.preview")</div>
+                    <div class="panel-body">
+                        <h3><small>@Messages("sw.proposal.title") :</small> @newProposal("title").value</h3>
+                        <h4><small>@Messages("sw.proposal.talkType") :</small> @Messages(newProposal("talkType").value.getOrElse(""))</h4>
+                        <h4><small>@Messages("sw.proposal.track") :</small> @Messages(newProposal("track").value.getOrElse("") + ".label")</h4>
+                        <br>
+                        <h4><small>@Messages("admin.proposals.th.abstract") :</small></h4>
+                        <div class="proposal_prev">@Html(htmlSummary)</div>
+                        <h4><small>@Messages("admin.sp.privateMessage") :</small></h4>
+                        <div class="proposal_prev">@Html(privateMessage)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="panel">
+                 <div class="panel-default">
+                <div class="panel-body">
+                    <h4>@Messages("next.action")</h4>
+                    <a href="javascript:history.back()" class="btn btn-primary"><i class="icon-arrow-left"></i> @Messages("validate.summary3")</a>
+                    <button class="btn btn-primary" name="a" value="saveDraft"><i class="icon-file-text"></i> @Messages("btn.saveDraft")</button>
+
+
+<p>@Messages("presubmit.reminder") <a href="#" class="btn btn-sm btn-warning" title="@Messages("table.pres.submit")"><i class="icon-envelope"></i>&nbsp;<i class="icon-arrow-right"></i></a>)</p>
+
+                        }
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+    </div>
+}

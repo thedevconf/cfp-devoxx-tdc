@@ -1,0 +1,51 @@
+# Ignore all dotfiles...
+.*
+*~
+
+# except for .gitignore
+!.gitignore
+
+# Ignore Play! working directory #
+# in Dev branch, we do not want to save the application.conf file cause it contains password
+conf/application_nic.conf
+conf/application-be.conf
+conf/application-pl.conf
+conf/application-uk.conf
+conf/application-fr.conf
+db
+eclipse
+log
+logs
+modules
+precompiled
+project/project
+project/target
+target
+tmp
+test-result
+server.pid
+*.iml
+*.eml
+
+### Scala ###
+*.class
+*.log
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+
+/public/speakers/
+run.sh
+run-uk.sh
+run-fr.sh
+
+env.sh
+run-be.sh

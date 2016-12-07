@@ -1,0 +1,1166 @@
+# -----------------
+# Main conference details
+CONF.title=TDC Porto Alegre 2016
+CONF.subtitle=POA
+
+# Equivalent to ConferenceNaming
+shortYearlyName=TDC 2016 POA
+longYearlyName=TDC 2016 Porto Alegre
+shortName=TDC Porto Alegre
+longName=TDC 2016 POA CFP
+longSplittedName_whiteStart=TDC
+longSplittedName_colored=2016
+longSplittedName_whiteEnd=POA
+# -----------------
+cfp.title=TDC 2016 POA CFP
+login.error=Email ou senha inválidos
+menu.home=Home
+menu.register=Entrar
+email=Email
+firstName=Nome
+lastName=Sobrenome
+password=Access code
+CallForPaper=Call for papers
+index.welcome=Já está registrado como palestrante? Por favor use este formulário para entrar:
+btn.login=Entrar
+login=Entrar
+signup=Registrar-se
+index.method1=Entrar
+index.method2=Autenticar com OpenID
+index.txt2=Use um dos seguintes serviços de rede social, é mais simples e você não tem que se lembrar de outra senha. Se o seu perfil não existe ainda, será criado automaticamente.
+company=Sua empresa
+bio=Minibio
+twitter=Seu Twitter
+blog=Seu blog ou website da empresa
+qualifications=Suas qualificações de palestrante
+qualifications2=Qualificações de palestrante
+qualifications.label=Qualificações de palestrante
+index.signupTitle=Registrar-se como palestrante
+index.signup2=Registre-se como palestrante para {0} e submeta uma ou mais palestras.
+index.signup3=Registre-se com seu perfil em rede social em 5 segundos. Nenhuma senha é necessária.
+index.signup.btn=Registrar-se
+email.alreadyexists=Este email já está registrado em nossa base de dados.
+register.withopenid=Registre-se com seu perfil de rede social
+forget.password.confirm=Um email foi enviado para o endereço de email fornecido. Por favor verifique sua caixa de entrada.
+forget.password=Esqueceu seu access code?
+avatarUrl=URL para sua foto mais recente
+home.txt2=Use um dos seguintes serviços de rede social, é mais simples e você não tem que se lembrar de outra senha. Se o seu perfil não existe ainda, será criado automaticamente.
+format.boolean=
+hosted.on=Hospedado em
+disclaimer=e usando a aplicação do Devoxx CFP
+logged.in=Logado como
+logout=Sair
+logout.closeMessage=e fechar sua sessão
+index.program.text=Programação Completa
+
+# CFP Home page
+your.profile=Seu perfil
+your.submission=Suas propostas
+no.proposal=Você não submeteu nenhuma proposta ainda.
+profile.gravatar=A URL do seu avatar não está definida, então vamos usar seu
+profile.gravatar2=para o seu email
+url.photo=URL da sua foto do perfil
+blog.website=Blog ou website
+edit.profile=Editar seu perfil
+edit.name=Editar seu nome
+new.proposal=Nova proposta
+
+# --- Formats
+format.date=Data (''{0}'')
+format.numeric=Numérico
+format.real=Real
+
+# github login
+github.importprofile.error=Desculpe, não foi possível importar deu perfil do github.
+github.importprofile.error.emailnotfound=O e-mail não foi encontrado.
+github.importprofile.error.namenotfound=Seu nome não foi encontrado.
+github.importprofile.error.advice=Você pode querer trocar suas configurações do github em https://github.com/settings/profile.
+
+# CFP New
+New.proposal=Nova proposta - passo 1/2
+New.proposal2=Nova proposta - passo 2/2
+Edit.proposal=Editar proposta - passo 1/2
+Edit.proposal2=Editar proposta - passo 2/2
+title=Título da apresentação
+title.help=Pense cuidadosamente e tente criar um título que seja descritivo o suficiente. Muitos congressistas selecionam uma palestra para assistir baseado somente no título.
+summary=Resumo da sua apresentação, para o público
+summary.help=Descreva sua proposta como ela aparecerá em nosso website e aplicativo móvel.
+lang=Idioma principal
+lang.help=100% de {0} palestras são em Português
+combo.select=--- Por favor selecione ---
+mainSpeaker=Palestrante principal
+mainSpeaker2=Múltiplos palestrantes?
+mainSpeaker.help=Você pode incluir mais palestrantes depois de feita a submissão. 
+# We offer a full Combi pass for the following slots : Conference, University, Hands-on-Labs, Tools-in-Action. Quickie speakers need to purchase a conference pass!
+otherSpeakers=Outros palestrantes
+talkType=Tipo de palestra
+talkType.help=Cada tipo de palestra está descrito na <a href="" target="new">FAQ</a>.
+
+audienceLevel=Nível da audiência:
+audienceLevel.help=Por favor, indique o nível da audiência requerido para sua palestra:\
+1- iniciante\
+2- intermediário\
+3- avançado\
+
+
+privateMessage=Mensagem para os coordenadores da trilha, motivação para sua apresentação
+privateMessage.help=Escreva aqui qualquer detalhe importante sobre sua apresentação que os coordenadores devem saber. Você também pode incluir aqui a URL para seus slides ou um link para uma palestra online sua.
+sponsorTalk=Esta é uma apresentação de patrocinador?
+
+sponsorTalk.help.title=Palestra de patrocinador
+sponsor.name.plz=Por favor, especifique o nome da sua empresa na descrição para os coordenadores.
+# Isso é válido para patrocinadores Diamond somente.
+sponsorTalk.help=Não marque este checkbox se a sua empresa não é patrocinadora.
+# Patrocinadores Diamond podem submeter uma palestra que será aceita como parte de sua cota de patrocínio.
+sponsorTalk.checkbox=Sim, esta é uma palestra de patrocinador
+
+helpAndTips=Mais informações
+moreSpeakerLater=Você pode incluir mais palestrantes depois, assim que a proposta for submetida.
+btn.home=Voltar para a home sem gravar
+btn.save=Preview
+btn.save2=Confirmar
+not.saved=Sua proposta não foi salva ainda. Por favor revise e confira seu resumo:
+validate.summary2=ou use
+validate.summary3=Corrija ou complete sua proposta
+validate.summary4=sua proposta
+track=Trilha da sua proposta
+summary.preview=Preview
+preview.warn=Não esqueça de submeter sua proposta para os coordenadores, usando o ícone
+preview.warn2=na tela principal do CFP.
+next.action=Selecione a próxima ação:
+
+# Proposal types
+palestradebate.label=Palestra ou Debate (50 min)
+palestradebate.label.simple=Palestra ou Debate (50 min)
+meiapalestra.label=Palestra curta (25 min)
+meiapalestra.label.simple=Palestra curta (25 min)
+minipalestra.label=Mini palestra (15 min)
+minipalestra.label.simple=Mini palestra (15 min)
+relampago.label=Palestra relâmpago (5 min)
+relampago.label.simple=Palestra relâmpago (5 min)
+
+# Bug report
+Issue.report=Reportar uma ocorrência
+btn.send=Enviar
+
+# Home page
+appel.conf=Call4Papers
+cfp.opening=Abertura do CFP
+cfp.closing=Fechamento do CFP
+cfp.reminder=Lembrete
+cfp.reminder.proposals=Não esqueça de submeter sua proposta
+cfp.program=Publicação de palestras:
+cfp.program.date=a partir de {0}
+video.title=Vídeos
+video.tag=Reveja os vídeos do TDC 2015 em
+call4workshops.title=Workshops
+call4workshops.tag=Ainda estamos aceitando propostas de workshops em
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2016/call4workshops
+theme.title=Trilhas
+theme.track=Lista de trilhas do TDC 2016 Porto Alegre:
+track.title=Título
+track.description=Descrição
+appel.conf.dates=TDC 2016 Porto Alegre, 5 a 8 de Outubro de 2016
+
+# Tracks
+
+track.testes.title=Testes
+track.testes.desc=Teste nunca é demais!
+testes.label=Testes
+testes.leaderboard=Testes
+
+track.datascience.title=Data Science
+track.datascience.desc=Machine learning, analytics e insights a partir de dados
+datascience.label=Data Science
+datascience.leaderboard=Data Science
+
+track.ios.title=iOS
+track.ios.desc=Aprimore seus conhecimentos para se tornar um desenvolvedor iOS de elite
+ios.label=iOS
+ios.leaderboard=iOS
+
+track.dinamicas.title=Dinâmicas e Facilitações
+track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes!
+dinamicas.label=Dinâmicas e Facilitações
+dinamicas.leaderboard=Dinâmicas e Facilitações
+
+track.javascript.title=JavaScript
+track.javascript.desc=Uma linguagem de programação completa e madura
+javascript.label=JavaScript
+javascript.leaderboard=JavaScript
+
+track.php.title=PHP
+track.php.desc=A força do PHP e sua comunidade
+php.label=PHP
+php.leaderboard=PHP
+
+track.iot.title=Internet das Coisas
+track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado às nossas coisas do dia-a-dia
+iot.label=Internet das Coisas
+iot.leaderboard=Internet das Coisas
+
+track.devops.title=DevOps
+track.devops.desc=Maximizando a integração entre equipes para entregar valor
+devops.label=DevOps
+devops.leaderboard=DevOps
+
+
+track.management.title=Management 3.0
+track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
+management.label=Management 3.0
+management.leaderboard=Management 3.0
+
+track.bigdata.title=BigData
+track.bigdata.desc=Do relacional ao NoSQL, da estatística a Machine learning, passando por BigData
+bigdata.label=BigData
+bigdata.leaderboard=BigData
+
+track.android.title=Android
+track.android.desc=Desafios no desenvolvimento de aplicações para plataforma Android
+android.label=Android
+android.leaderboard=Android
+
+track.growth.title=Growth Hacking e Marketing
+track.growth.desc=Tecnologia e marketing juntos para acelerar o crescimento
+growth.label=Growth Hacking e Marketing
+growth.leaderboard=Growth Hacking e Marketing
+
+track.web.title=Web
+track.web.desc=Explorando todo o potencial da web
+web.label=Web
+web.leaderboard=Web
+
+track.pfuncional.title=Programação Funcional
+track.pfuncional.desc=Técnicas e teorias de Functional Programming
+pfuncional.label=Programação Funcional
+pfuncional.leaderboard=Programação Funcional
+
+track.cloud.title=Cloud
+track.cloud.desc=Utilizando o poder da nuvem em seu favor
+cloud.label=Cloud
+cloud.leaderboard=Cloud
+
+
+track.analise.title=Análise de Negócios
+track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento
+analise.label=Análise de Negócios
+analise.leaderboard=Análise de Negócios
+
+track.arquitetura.title=Arquitetura
+track.arquitetura.desc=Arquitetura Plugável, escalável, resiliente e poliglota. Um mundo de oportunidades
+arquitetura.label=Arquitetura
+arquitetura.leaderboard=Arquitetura
+
+track.mobile.title=Mobile
+track.mobile.desc=Novidades e tendências do universo mobile
+mobile.label=Mobile
+mobile.leaderboard=Mobile
+
+track.ruby.title=Ruby
+track.ruby.desc=Agilidade, produtividade e boas práticas
+ruby.label=Ruby
+ruby.leaderboard=Ruby
+
+track.uxdesign.title=UX Design
+track.uxdesign.desc=Validando ideias e construindo negócios centrados no usuário
+uxdesign.label=UX Design
+uxdesign.leaderboard=UX Design
+
+track.education.title=Education
+track.education.desc=Estratégias de ensino em cursos de tecnologia para adequar as demandas de mercado e evolução tecnológica!
+education.label=Education
+education.leaderboard=Education
+
+track.python.title=Python
+track.python.desc=Aprenda o estilo de vida Pythonico!
+python.label=Python
+python.leaderboard=Python
+
+track.infraagil.title=Infraestrutura Ágil 
+track.infraagil.desc=Quebrando paradigmas, evoluindo a sua infraestrutura e entregando o UAU ao seu cliente!!! 
+infraagil.label=Infraestrutura Ágil 
+infraagil.leaderboard=Infraestrutura Ágil 
+
+
+track.agile.title=Agile
+track.agile.desc=15 anos de agilidade, o que contribuímos até agora?
+agile.label=Agile
+agile.leaderboard=Agile
+
+track.java.title=Java
+track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+java.label=Java
+java.leaderboard=Java
+
+track.games.title=Games
+track.games.desc=Fazer para aprender
+games.label=Games
+games.leaderboard=Games
+
+track.fintech.title=Fintech
+track.fintech.desc=Tecnologia financeira a serviço da comodidade
+fintech.label=Fintech
+fintech.leaderboard=Fintech
+
+track.dthinking.title=Design Thinking
+track.dthinking.desc=Mostrar que Design Thinking é prática diária
+dthinking.label=Design Thinking
+dthinking.leaderboard=Design Thinking
+
+track.empreende.title=Empreendedorismo
+track.empreende.desc=Empreendedor em Foco
+empreende.label=Empreendedorismo
+empreende.leaderboard=Empreendedorismo
+
+track.arduino.title=Arduino e Makers
+track.arduino.desc=Aprendendo e Inovando na Prática
+arduino.label=Arduino e Makers
+arduino.leaderboard=Arduino e Makers
+
+track.dotnet.title=.NET
+track.dotnet.desc=Microsoft cada vez mais perto da comunidade
+dotnet.label=.NET
+dotnet.leaderboard=.NET
+
+
+track.banco.title=Banco de Dados
+track.banco.desc=Conheça os principais recursos de Banco de Dados Relacional agnóstico de fabricante
+banco.label=Banco de Dados
+banco.leaderboard=Banco de Dados
+
+track.realidade.title=Realidade Aumentada
+track.realidade.desc=Mixed Reality um novo olhar do futuro
+realidade.label=Realidade Aumentada
+realidade.leaderboard=Realidade Aumentada
+
+track.impressao.title=Impressão 3D
+track.impressao.desc=Aqui Imprimimos o Futuro!
+impressao.label=Impressão 3D
+impressao.leaderboard=Impressão 3D
+
+
+# confirm import
+confirm.import.title=Criar seu perfil de Palestrante
+confirm.import.save=Gravar
+avatarUrl.isEmpty=URL para foto está vazia, então tentaremos usar seu
+avatarUrl.defined=Sua foto (tamanho recomendado 150px)
+
+created.title=Sucesso!
+created.text1=Acabamos de lhe enviar um email para que você possa validar seu endereço de email.
+created.text2=Seu access code foi gerado e será mostrado assim que validar seu email.
+created.text3=Você poderá então entrar e começar a usar o website do {0}.
+
+# prepareSignup
+signup.title=Registro de Palestrante
+signup.txt1=Registre-se para submeter uma palestra para a conferência {0} :
+signup.txt2=Um email de validação será enviado para o endereço indicado. Seu perfil estará ativo assim que o email for validado.
+
+# edit profile
+editProfile.title=Seu perfil
+editProfile.help=Aproveite para completar seu perfil. Este conteúdo será publicado no site se você for selecionado como palestrante, assim como no programa da conferência:
+editProfile.save=Gravar
+
+# Home
+table.pres.title=Título
+table.pres.edit=Editar
+table.pres.submit=Submeter
+table.pres.delete=Mover para lixo
+table.pres.action=Ações
+table.pres.doSubmit=Submeter
+table.pres.doDelete=Excluir
+
+total.draft={0} propostas
+total.draft.sing={0} proposta
+total.archived={0} arquivadas
+total.archived.sing={0} arquivada
+table.pres.speaker=Palestrante
+table.pres.state=Status
+table.speaker.addremove=Adicionar/Remover palestrantes
+table.pres.otherSpeakers=Outros palestrantes
+you.speaker=Você
+invalid.proposal=Proposta inválida
+not.yours=Não é sua proposta... o que está tentando fazer?
+saved1=Proposta foi salva com sucesso. Não esqueça de submeter novamente esta palestra para revisão.
+saved2=Proposta foi salva com sucesso.
+invalid.form=Erro no seu formulário, por favor revise e corrija, então submeta novamente
+talk.deleted=Proposta excluída.
+talk.deleted2=Desfaça esta operação na proposta
+talk.draft=Status da proposta definida como Draft
+talk.submitted=Sua palestra foi submetida com sucesso
+
+# other speaker
+other.speakers=Palestrantes da palestra
+btn.enregistrer=Gravar
+cancel.goBackHome=Cancelar
+proposal.id=Id
+proposal.title=Título da apresentação
+proposal.mainSpeaker=Palestrante principal
+proposal.secSpeaker=Palestrante secundário
+secondarySpeaker=Palestrante secundário
+proposal.otherSpeakers=Outros palestrantes
+proposal.buyPass=Passe de {0} Dias incluído?
+freepass=Sim
+no.freepass=Não
+speakers.updated=Lista de palestrantes atualizada
+noOther.speaker=---- Nenhum outro palestrante ----
+
+# CFPadmin
+msgSpeaker=Sua mensagem
+
+
+# short talk
+
+
+tbl.submitted=Submetida
+profile.imported=Perfil importado com sucesso
+profile.imported.txt=Seu perfil foi importado com sucesso. A qualquer momento você pode alterar sua minibio, sua informação pessoal ou o endereco do seu blog na home do CFP.
+profile.continue=Continue
+profile.username=Seu username:
+profile.password=Seu access code (não pode ser alterado):
+profile.password.help=Não queremos guardar a sua senha. Preferimos gerar uma para você.
+# Encorajamos você a usar o acesso OpenID via Github ou Google.
+
+error.real=Valor de número real esperado
+constraint.required=Obrigatório
+msg=Sua mensagem
+select.secondarySpeaker=Selecione um palestrante
+freepass.forIdiots=Passe livre incluso se, e somente se, sua palestra for selecionada pelos coordenadores
+
+nav.homeSpeaker=Home
+editWebuser.title=Editar seu nome e sobrenome
+
+cfp.isOpen=CFP está aberto
+cfp.open.enter=Criar seu perfil de palestrante ou entrar
+
+admin.proposals.th.title=Título
+admin.proposals.th.track=Trilha
+admin.proposals.th.mainSpeaker=Palestrante
+admin.proposals.th.talkType=Tipo de palestra
+admin.proposals.th.action=Ação
+admin.proposals.todolist.title=Sua Lista de Pendências
+admin.btn.leaderboard=Ver Leaderboard
+admin.btn.myvotes=Meus votos
+admin.btn.sponsortalks=Palestras de patrocinadores
+admin.btn.speakers=Todos palestrantes
+admin.btn.speakersInvited=Todos palestrantes convidados
+admin.btn.draft=Todas RASCUNHO
+admin.btn.submitted=Todas SUBMETIDA
+admin.btn.review=Abrir para revisar
+admin.cfp.empty=Não há nenhuma palestra nova proposta por ora...
+admin.cfp.recentEvents=Eventos
+admin.cfp.date=Data
+admin.cfp.author=Autor
+admin.cfp.propId=ID
+admin.cfp.msg=Mensagem
+admin.cfp.totalEvents=Total de eventos
+previous.page=Página anterior
+next.page=Página seguinte
+
+admin.proposal=Proposta
+admin.proposals.th.lang=Lang
+admin.proposals.th.abstract=Texto da proposta
+admin.sp.mainSpeaker=Palestrante principal
+admin.sp.secSpeaker=Palestrante secundário
+admin.sp.otherSpeaker=Outro(s) palestrante(s)
+admin.sp.privateMessage=Mensagem privada para os coordenadores
+admin.sp.sponsorTalk=Palestra de patrocinador
+admin.sp.sponsorTalk.label=Esta é uma palestra de patrocinador
+admin.sp.evaluate=Avaliar esta proposta
+admin.sp.voted=Você votou
+admin.sp.discussion=Discussão
+admin.sp.committee_speaker=Discussão com o palestrante
+admin.btn.sendMessage=Enviar sua mensagem
+admin.sp.warning1=Atenção! Ao clicar no botão, um email será enviado para o PALESTRANTE e ficará registrado aqui abaixo, visível para todos.
+admin.sp.warning2=Atenção! Ao clicar no botão, um email será enviado SOMENTE para a organização e ficará registrado aqui abaixo, visível somente para coordenadores e organização.
+admin.sp.internal=Discussões privadas internas
+admin.sp.deleteMyVote=Excluir meu voto
+admin.btn.allvotes=Todos votos
+admin.btn.allByTrack=Todos por trilha
+
+speaker.other.error=Você não pode mudar a lista de palestrantes se você não for um dos 2 palestrantes principais.
+admin.draft.warning=Warning
+admin.draft.warning2=O status desta proposta não é SUBMETIDA, assim você não pode votar nesta palestra.
+admin.draft.warning3=Status atual da proposta :
+
+newProposal.maxLength=Tamanho máximo é de 700 caracteres
+preview.txt=Preview Conference guide (sample page)
+tags.renderComment.postedBy=Postado por {0} - {1}
+
+admin.btn.sponsor=VIP view nas propostas
+leaderboard.compute=Computando stats
+
+admin.sp.accepted=Aceito
+admin.sp.approved=Aprovado
+admin.sp.refused=Recusado
+admin.sp.rejected=Rejeitado
+admin.sp.approved.txt=Esta palestra foi aprovada pelos coordenadores.
+admin.sp.accepted.txt=Esta palestra foi aceita. Durante a decisão final, ou porque é palestra de patrocinador ou um palestrante na wishlist.
+btn.abstention=Votar 0 para esta palestra
+remove.sponsorFlag=Remover a marca de patrocinador desta palestra
+
+cfp.isClosed=O CFP está fechado
+cfp.isClosed.expl=CFP está fechado e não aceita submissões.
+cfp.closed.enter=Entrar
+tbl.cfp.closed=CFP fechado
+cfp.closed.restrictions=CFP está fechado. Você pode editar sua proposta, mas por favor, não mude-a completamente, após ter feito a submissão. Uma proposta que estiver diferente da versão original será recusada.
+
+forget.password.title=Esqueceu seu access code?
+forget.password.txt=Envie-me um novo access code
+forget.password.notfound=Este email não está registrado
+
+new.accesscode.title=Seu novo access code
+new.accesscode=Seu novo access code é :
+
+admin.btn.otherReviewer=Comparar com outro Revisor
+btn.showVotes=Mostrar votos
+comment.proposal=Comentários para proposta
+question.proposal=Perguntas sobre sua proposta
+
+approve.title={0}, Formulário de Consentimento de Palestrante
+accept.chk=Eu aceito os Termos e Condições
+acceptTerm.pleaseRead=Por favor leia e aceite {0} Termos e Condições
+accept.term.checked=Por favor marque este checkbox se você concorda com os Termos e Condições
+
+acceptedProposals.title=Lista de propostas aceitas/recusadas para {0}
+ar.approved=Propostas aprovadas
+ar.rejected=Propostas recusadas
+ar.noneApproved=Lamentamos lhe informar que nenhuma de suas propostas foi aceita.
+ar.pleaseAccept=Por favor confirme cada proposta aprovada, que você aceita apresentar esta palestra. Se você apresentará a palestra junto com outro palestrante, também é possível que seu parceiro já tenha aceitado apresentar.
+ar.IAccept=Eu aceito apresentar esta palestra
+ar.IDecline=Eu me recuso e não vou apresentar esta palestra
+ar.IBackup=Como Backup
+ar.currentStatus=Status atual
+ar.pleaseSelect=Por favor, selecione uma das ações para esta proposta:
+ar.proposalNotFound=Proposta não encontrada
+ar.choiceRecorded=Sua escolha para a proposta {0} foi alterada para {1}
+ar.checkMyProposals=Aceitar ou recusar propostas aprovadas
+ar.goBackHome=Voltar para a home page
+ar.important=Importante
+ar.backup.warning1=Esta é uma palestra de BACKUP. Notificaremos você caso ela seja aprovada mais tarde.
+ar.backup.warning2=Entretanto você pode recusar se não quiser manter esta palestra como backup.
+ar.accepted.warning=Aviso: esta palestra foi aceita. Por favor contate a equipe do CFP antes de recusar
+
+sw.proposal.title=Título
+sw.proposal.talkType=Tipo de apresentação
+sw.proposal.summary=Resumo
+sw.proposal.track=Trilha
+sw.proposal.lang=Lang
+sw.proposals=Palestras
+sw.proposal=Palestra
+sw.company=Empresa
+sw.talkType=Todas palestras
+sw.details=Veja detalhes
+sw.proposal.btn.sendmessage=Enviar sua mensagem
+
+sw.trash.title=Lixeira
+sw.trash.warning=Por favor digite DEL neste input box e clique no botão
+sw.trash.button=Excluir este palestrante
+
+pbig=Palestra ou Debate (50 min)
+pmeia=Palestra curta (25 min)
+pmini=Mini palestra (15 min)
+prel=Palestra relâmpago (5 min)
+
+conf=Conference
+uni=University
+tia=Tools-in-Action
+lab=Hands-on Labs
+quick=Quickie
+bof=BOF (Bird of a Feather)
+hack=Hackaton
+key=Keynote
+other=Other format
+all=All
+start=Startup presentation
+amd=Après-midi des Décideurs
+
+sw.proposal.speaker=Apresentada por
+admin.btn.changeState=Mudar status de uma proposta
+
+sw.talkType.warn=Lista de palestras aprovadas pelos coordenadores e aceitas por cada palestrante
+sw.showDetails=Ver detalhes
+sw.home=Home
+sw.all.uni=All Universities
+sw.all.conf=All Conferences
+sw.all.lab=All Hands-on labs
+sw.all.quick=All Quickies
+sw.all.bof=All BOFs
+sw.all.start=All Startup''s talks
+sw.all.tia=All Tools in Action
+sw.speakers=Participantes
+# Devoxxians
+sw.intro=A agenda é publicada todo dia.
+sw.programme=Agenda
+sw.presentations=Palestras
+sw.events=Eventos especiais
+sw.allSpeakers=palestrantes
+sw.proposal.presentedWith=Apresentada também por
+admin.btn.webuser=Administrar usuários do CFP
+editSpeakerName=Editar nome do palestrante
+admin.btn.createNewspeaker=Criar um novo palestrante
+admin.btn.tracklead=Coordenador da trilha
+
+newSpeaker.title=Criar um novo palestrante
+avatarUrl2=URL para foto do palestrante
+name=Nome completo
+bio2=Minibio do palestrante
+twitter2=Twitter
+company2=Empresa
+blog2=Web site ou blog pessoal
+lang2=Falará em Português ou Inglês? (pt/en)
+sp.editSpeaker=Editar este palestrante
+sp.authenticateAs=Autenticar como
+sp.editName=Edita nome
+sw.hackatons=Hackatons
+sw.hackatons.describe=Coding events, hacking day, organized during the conference
+sw.faq=See our FAQ for more details about each format
+calendar.pref=Preferências do palestrante para horário
+calendar.pref.wednesday=Wednesday
+calendar.pref.thursday=Thursday
+calendar.pref.friday=Friday
+calendar.pref.reset=Nenhuma preferência
+sw.all.other=Outro tipo de apresentação
+acceptTermsConditions=Aceite os Termos/Condições para mostrar esta minibio no web site
+sp.authenticateAndCreate=Autenticar como este palestrante e criar uma nova palestra
+day-uni=Wednesday
+day-labs=Wednesday
+day-tia=Wednesday
+day-confThursday=Thursday
+day-lab=Wednesday
+day-confFriday=Friday
+day-bof=Thursday, 19h30
+day-monday=Monday, 18th April
+day-tuesday=Tuesday, 19th April
+day-wednesday=Wednesday, 20th April
+day-thursday=Thursday, 21st April
+day-friday=Friday, 22nd April
+
+sw.all.confThursday=Conferences on Thursday
+confThursday=Conferences on Thursday
+sw.otherEvents=Special events
+sw.allEvents=See all events
+sw.all.key=Keynotes
+sw.agenda=Agenda
+sw.agenda.txt=Opening, closing hours and global agenda per day
+sw.agenda.mon=Segunda
+sw.agenda.monday=Segunda
+sw.agenda.tue=Terça
+sw.agenda.tuesday=Terça
+sw.agenda.wed=Quarta
+sw.agenda.wednesday=Quarta
+sw.agenda.thu=Quinta
+sw.agenda.thursday=Quinta
+sw.agenda.fri=Sexta
+sw.agenda.friday=Sexta
+sw.show.mon=Segunda
+sw.show.monday=Segunda
+sw.show.tue=Terça
+sw.show.tuesday=Terça
+sw.show.wed=Quarta
+sw.show.wednesday=Quarta
+sw.show.thu=Quinta
+sw.show.thursday=Quinta
+sw.show.fri=Sexta
+sw.show.friday=Sexta
+sw.show.title.mon=Segunda, 3 October 2016
+sw.show.title.tue=Terça, 4 October 2016
+sw.show.title.wed=Quarta, 5 October 2016
+sw.show.title.thu=Quinta, 6 October 2016
+sw.show.title.fri=Sexta, 7 October 2016
+
+sw.horaires=Schedule
+sw.breakfast=Welcome and Breakfast
+sw.mainEvents=Main events and conferences
+sw.lunch=Lunch
+sw.coffee.break=Coffee break
+sw.endOfDay=End of day, exhibition floor closing
+sw.cocktail=Meet and Greet party until 10:30pm in the main exhibition hall
+sw.showAllDay=Show complete agenda for this day
+not.published=The agenda for this conference is not yet published
+
+day-wed=Quarta
+day-thu=Quinta
+day-fri=Sexta
+nav.homeREST=REST API
+acceptedTerms.msg=Termos e Condições aceitos ! Obrigado.
+
+antispam=Para checar se você não é um robô, qual é o resultado de 38 + 4 ?
+bugReport.sent=Sua messagem foi enviada para a equipe. Obrigado!
+sw.whenWhere=Schedule time and room
+
+showAgendaByRoom=Agenda by Room
+sw.proposal.whenWhere=Scheduled time and room
+
+level1.label=Todos níveis de audiência, iniciante ou novata
+level2.label=Para audiência intermediária
+level3.label=Para audiência avançada
+
+demoLevel=Que tipo de apresentação será?
+demoLevel1.label=Somente slides
+demoLevel2.label=Slides e código
+demoLevel3.label=Somente código
+demoLevel4.label=Sem slides e código
+
+btn.saveDraft=Gravar como rascunho
+btn.saveAndSend=Gravar e Submeter para coordenadores
+saved=Proposta gravada, não esqueça de SUBMETER esta palestra para os coordenadores quando você estiver pronto
+
+wishlist.title=Wishlist
+wishlist.menu=Menu
+wishlist.recentEvents=All requests
+wishlist.requestToTalk.title=Send an invitation to talk to a palestrante
+wishlist.requests.track=Track requests for palestrantes
+wishlist.createRequest=Create a new request
+wishlist.editRequest=Edit and update a request
+wishlist.sendEmail=Send the message to the palestrante
+wishlist.save=Save and reload this page
+wishlist.history=History
+wishlist.cancelEdit=Go back to list of Requests
+wishlist.previous=Previous
+wishlist.next=Next
+
+wl_note=Private note and internal discussion
+wl_message=Message for palestrante
+wl_speakerEmail=Speaker''s email
+wl_speakerName=Speaker full name
+wl_country=Speaker''s country
+wl_company=Company
+wl_travel=Travel & Lodging
+wl_trackCode=Track
+wl_statusCode=Current state
+wl_travel.checkbox=Yes, include T&L
+
+wl_suggested=Suggested
+wl_contactedUs=Speaker contacted us
+wl_discuss=Discussion
+wl_contactSpeaker=Contact palestrante
+wl_contacted=Contacted
+wl_accepted=Speaker accepted
+wl_declined=Speaker declined
+wl_onhold=On hold
+wl_deleted=Excluído
+wl_unknown=Unknown
+
+wishlist.newWishlist=Create new Wishlist
+
+contacted=Palestrante foi contatado
+unknown=desconhecido
+
+# The abstention button
+Abs=Abs
+trackAndUUIDs=
+
+mail.reset_password_link.subject=Você pediu para redefinir o seu access code do {1} em {0}
+mail.access_code.subject=Seu access code do {0}
+mail.account_created.subject=Bem-vindo ao CFP para {0} !
+mail.email_validation.subject=Bem-vindo ao {0}, por favor valide seu endereço de email agora
+mail.issue_reported.subject=Nova issue reportada no web site do CFP
+mail.cfp_message_to_speaker.subject=[{1}] Mensagem sobre sua apresentação {0}
+mail.question_to_speaker.subject=[{1}] Nova pergunta postada no Web site do TDC sobre {0}
+mail.speaker_message_to_cfp.subject=[{0}] {1} postou uma nova mensagem
+mail.notify_proposal.subject={0} submeteu uma proposta [{1}]
+mail.notify_proposal.content=Uma proposta foi submetida no CFP, com Título: [{0}], Trilha: [{1}] e Tipo: [{2}]
+mail.draft_single_reminder.subject={0} lembrete : você tem uma proposta com status ''Rascunho''
+mail.draft_multiple_reminder.subject={1} lembrete : você tem {0} propostas para submeter
+mail.proposal_approved.subject=Sua proposta foi aprovada {0}
+mail.proposal_refused.subject=Sua proposta foi rejeitada {0}
+mail.speaker_cfp_results.subject=Call for Paper {0}
+
+proposal.audienceLevel=Nível da audiência
+proposal.demoLevel=Tipo de apresentação
+l1.label=Iniciante/Novato
+l2.label=Intermediário
+l3.label=Avançado
+d1.label=Somente slides
+d2.label=Slides e código
+d3.label=Somente código
+d4.label=Sem slides e código
+
+table.pres.trash=Excluir esta proposta
+
+msg_pub=Envie uma mensagem para o palestrante
+email_pub=Seu endereço de email
+email_pub2=Por favor confirme seu email
+
+cfp.closed=CFP fechado neste momento.
+constraint.email=Endereço de email válido
+constraint.max=Valor máximo : {0}
+constraint.maxLength=Tamanho máximo : {0}
+constraint.min=Tamanho mínimo : {0}
+constraint.minLength=Tamanho mínimo : {0}
+day-mercredi=Wednesday
+day-vendredi=Friday
+error.email=Endereço de email inválido
+error.invalid=Valor inválido
+hack.label=Hackaton
+lg_alter.label=Alternate languages on the JVM
+lgaltern.label=Alternate languages on the JVM
+menu.blog=Site TDC2016
+signup.long=Registre-se como um palestrante no TDC POA CFP
+sw.all.hack=Hackatons
+#approved=Palestrante aprovado
+cstory=Session de live coding Code-story
+day-jeudi=Quinta
+#declined=Palestrante recusou
+presubmit.reminder=Quando estiver pronto, não esqueça de submeter sua proposta a partir da tela principal (clique em
+
+wl.action=Action
+wl.lm=Last modified
+wl.sn=Speaker name
+wl.fb=Followed by
+wl.company=Company
+wl.track=Track
+wl.status=Current status
+wishlist.setPersonInCharge=Person responsible for {0}
+webmobile.label=Web, Mobile & UX
+agilityTest.label=Agility, Methodology & Tests
+
+wl.country=Country
+wl.keynote=Keynote
+wl_keynote=Keynote
+wl_keynote.checkbox=Yes, this could be a keynote speaker
+
+showProposal.comment.ar=Faça uma pergunta sobre esta palestra para a equipe
+ar.proposalType=Tipo da proposta :
+ar.proposalId=ID da proposta :
+
+tag.proposal.title=Título
+tag.proposal.status=Status
+tag.proposal.type=Tipo
+tag.proposal.track=Trilha
+tag.invite=Convidar
+tag.invited=Convidado
+tag.sponsor=patrocinador
+tag.speaker.notfound=Palestrante não encontrado
+
+speaker.mustAcceptTC=Você deve aceitar os Termos e Condições
+speaker.ar1=Por favor clique
+speaker.ar2=aqui
+speaker.ar3=para rever e validar os Termos e Condições.
+
+tagRenderRow-coffee=Coffee
+tagRenderRow-lunch=Lunch
+tagRenderRow-dej=Breakfast
+tagRenderRow-reg=Registration, welcome and Breakfast
+tagRenderRow-chgt=Short break
+tagRenderRow-meet=Soirée Meet & Greet
+
+please.check.approved=Por favor, revise a lista de propostas aprovadas, então selecione aceitar ou recusar para cada palestra.
+proposal.approved.noVotes=Proposta aprovada - sem mais votos
+tag.proposal.youVoted=Seu voto
+qualifications.otherproposals=Outras propostas deste palestrante
+qualifications.empty=Palestrante ainda não incluiu suas qualificações de palestrante
+
+# prepareSignupVisitor
+visitor.registration.title=Registro de visitante
+visitor.signup.txt1=Registre-se para gravar sua agenda para a conferência {0} :
+visitor.signup.txt2=Um email de validação será enviado para o endereço indicado. Seu perfil estará ativo assim que seu endereço de email address for validado. Não enviaremos outros emails para você.
+
+# homeVisitor
+home.visitor.header=Entrar ou registrar-se como visitante
+home.visitor.title=Entrar ou registrar-se
+home.welcome.txt=Bem-vindo ao {0}, por favor autenticar ou criar um novo perfil de visitante:
+visitor.signin=Entrar
+visitor.register=Registrar-se como um visitante
+visitor.index.signup2=Registrar-se como um visitante e salver seu cronograma, votar para as melhores palestras, e compartilhar seus interesses com outros participantes.
+
+# welcomeVisitor
+visitor.welcome.title=Bem-vindo {0}
+visitor.welcome.text1=You are now authenticated as a TDC visitor. You can mark your favorite talks from the {0} schedule and retrieve your agenda from your profile page.
+visitor.welcome.publisher=Browse the conference schedule
+visitor.welcome.profile=See the list of talks you faved
+
+# renderProposals
+renderProposal.archived={0} propostas arquivadas de algumas edições anteriores.
+renderProposal.archived.single=Um proposta foi arquivada de uma edição anterior.
+renderProposal.noTalks=Nenhuma outra palestra submetida ou proposta
+
+mail.goldenticket.subject=Golden Ticket for {0}
+error.loginRequired=Acesso restrito, por favor faça autenticação.
+
+userGroup=Show my proposal to Golden Ticket holder?
+userGroup.checkbox= Yes, I would like my proposal to be reviewed by Attendees with a Golden Ticket
+
+goldenTicket.help.title=Golden Ticket review
+goldenTicket.help.txt=A new feature of {0} is the introduction of a Community Advisory Panel comprised of people who have bought a ticket during the CFP window. If you agree, they will be able to review and rate your proposals. The Program Committee will also review and rate proposals, and the 2 sets of ratings will be used to determine what make it onto the final agenda.
+
+gt.title=CFP for Golden ticket
+gt.disclaimer=Por favor respect the privacy of people submitting talks to TDC. By opening this account you agree not to disclose or publish publicly, including via social media, any of the information you see in the CFP tool.
+
+gt.intro.1=Este é a lista compleata de Propostas. Você pode ordenar por título, por palestrante ou tipo de palestra.
+gt.intro.2=Se necessário, você também pode
+gt.reviewYourVotes=revise seus Votos
+gt.intro.3=enquanto o CFP está aberto.
+gt.special.need=Se você tem um palestrante específico que você adoraria ver se apresentar no TDC POA, mande um email para organizacao@thedevelopersconference.com.br e nós faremos o possível para trazê-lo.
+gt.todo=Tamanho da sua lista de pendências:
+
+gt.yourVotes=Seus votos
+gt.personnal=Seu leaderboard pessoal
+gt.youReviewed=Você revisou {0} palestra(s)
+gt.youVoted=Você já votou em {0} palestra(s)
+gt.averageVote=Sua média de voto é {0}
+gt.noVotes=Você não votou em nenhuma proposta até agora.
+gt.myvote.title=Propostas para as quais você votou
+
+gt.showVotes.review=Revisar ou mudar seu voto
+gt.home=Voltar para home
+gt.vote.ok=Seu voto foi gravado.
+gt.youcan=Você pode agora:
+gt.nomore=Não há mais nenhuma palestra para revisar, parabéns!
+gt.nextTalk=Continue e avalie a próxima palestra
+gt.nextTalkType=Continue e avalie outra {0}
+gt.nextTalkTrack=Continue e avalie a próxima palestra para trilha {0}
+
+gtAdmin.totalGT=Total number of person with a Golden Ticket: {0}
+gtAdmin.top5=Top 5 by score
+gtAdmin.topWorst=Last 5 by score
+gtAdmin.average=Average score given my Golden ticket is {0}
+gtAdmin.totalReviewer=Total number of Proposals reviewed by Golden Ticket : {0}
+
+svp.score=Pontuação atual
+svp.average=Pontuação média
+svp.gt.average=Pontuação média dada por {0} Golden Ticket holders
+svp.voteCast.gt=Número de Golden tickets que votou
+svp.voteCast=Total de votos expressos
+svp.votes=Total de votos
+svp.abst=Abstenção
+svp.standardDev=Desvio padrão
+svp.allVotes=Todos os votos
+svp.noshow=Desculpe, os votos para a sua palestra estão ocultos.
+svp.voted=votou
+svp.goldenTicket.title=Golden Ticket votes
+svp.gt.novotes=No vote yet from any Golden ticket
+svp.split=Diff between GT score and Comittee score
+svp.commitee={0} por {1} Coordenadores
+svp.btn.review=Revisar ou mudar seu voto
+svp.btn.home=Voltar para home
+svp.btn.notalks=Não há mais palestras para revisar
+svp.btn.notalks.bytrack=Não há mais palestras da trilha {0} para revisar no formato {1}
+svp.btn.nexttalk=Continue e avalie a próxima palestra da trilha {0}
+
+gt.admin.sp.privateMessage=Mensagem privada para os coordenadores
+
+speaker.notfound=Palestrante não encontrado, por favor registre-se e crie um perfil de palestrante.
+# A Golden ticket profile is not valid, you must create a separate profile.
+callforpaper.gt.create.profile=You have a Golden ticket profile, but not a Speaker profile. Por favor complete your profile to proceed.
+cfp.goldenTicket=Golden tickets
+cfp.gt.enter=Autenticar
+cfp.gt.infos=More details about Golden tickets (in French)
+callforpaper.import.profile=Perfil de palestrante não encontrado, por favor complete seu perfil.
+
+gt.nav.home=Home GT
+gt.myvotes.home=Todos os seus votos
+gt.myvotes=Propostas do tipo {0} para as quais você votou
+
+search.result=Resultado da pesquisa: {0} visita(s)
+search.close=Fechar
+search.showOnly=Só mostrar
+search.onlySpeakers=palestrantes
+search.onlyProposals=propostas
+
+noPasswordHere=Este web site não te deixa configurar uma senha, principalmente porque muitas pessoas usam a mesma senha, em todo lugar. Por favor salve o access code gerado.
+# ou acesse com OpenID (Github,LinkedIn,Google).
+cfpadmin.toreview={0} proposta(s) para revisar
+cfpAdmin.showWhenCreated=Submeteu para o CFP em {0}
+
+publisher.showMore=Ver detalhes da proposta
+publisher.room=Sala
+
+hfspk.edit.speaker=Adicionar/remover palestrante
+hfspk.rating.title=Classificação
+hfspk.rating.desc=Classificação dada por visitantes durante a conferência com aplicativo móvel.
+table.pres.rating=Classificação (1 a 5)
+table.pres.comment=Comentários e classificação
+rating.default=Nenhum comentário
+
+
+# Backoffice
+backoffice.allproposals.title=Todas Propostas
+backoffice.allproposals.warning=Esta tela permite buscar e alterar o status atual de qualquer proposta. Use com cautela.
+backoffice.allproposals.columns.id=Id da proposta
+backoffice.allproposals.columns.track=Trilha
+backoffice.allproposals.columns.title=Título
+backoffice.allproposals.columns.author=Autor
+backoffice.allproposals.columns.speaker=Palestrante
+backoffice.allproposals.columns.speakers=Todos Palestrantes
+backoffice.allproposals.columns.type=Tipo
+backoffice.allproposals.columns.status=Status
+backoffice.allproposals.columns.actions=Mudar o status atual
+backoffice.allproposals.columns.notify=Notificar
+backoffice.allproposals.approved.notify=Notificar aprovação
+backoffice.allproposals.approved.notifyagain=Notificar aprovação de novo
+backoffice.allproposals.approved.notify.tooltip=Envie um email e mude o status para APROVADA (Async)
+backoffice.allproposals.approved.notifyagain.tooltip=Envie um email novamente (Async)
+backoffice.allproposals.speaker.accepted=Palestrante aceitou
+backoffice.allproposals.rejected.warning=Se o status da proposta = REJEITADA então o palestrante foi notificado.
+backoffice.allproposals.rejected.notify.tooltip=Envie um email e mude o status para REJEITADA (Async)
+backoffice.allproposals.rejected.notify.link=Notificar rejeição
+backoffice.allproposals.empty=Não existem propostas com status != ARQUIVADA
+
+allproposals.submitted={0} propostas submetidas
+allproposals.submitted.bytrack=Todas propostas submetidas para a trilha
+allproposals.submitted.bytype=Todas propostas submetidas para o tipo
+allproposals.submitted.tab=Todas propostas submetidas
+allproposals.columns.title=Título
+allproposals.columns.speaker=Palestrante
+allproposals.columns.type=Tipo
+
+backoffice.allproposals.sponsor.title=Palestras de Patrocinadores
+backoffice.allproposals.sponsor.subtitle=Propostas de Patrocinador ou Expositor
+backoffice.allproposals.sponsor.talks=palestras
+backoffice.allproposals.sponsor.message=Mensagem privada
+backoffice.allproposals.subtitle.approved=aprovadas
+backoffice.allproposals.subtitle.refused=rejeitadas
+backoffice.allproposals.subtitle.proposal=proposta
+backoffice.notification.accepted.title=Serviço de notificação de palestras aceitas
+backoffice.notification.accepted.text=Este serviço permite buscar por uma palestra, então enviar uma notificação para o palestrante
+backoffice.notification.refused.title=Serviço de notificação de palestras recusadas
+backoffice.notification.refused.text=Este serviço permite buscar por uma palestra, então enviar uma notificação para o palestrante
+backoffice.allwebusers.subtitle=Todos palestrantes
+backoffice.allwebusers.label.users=usuários
+backoffice.allwebusers.label.cfpusers=usuários do CFP
+backoffice.allwebusers.columns.name=Nome
+backoffice.allwebusers.columns.email=Email
+backoffice.allwebusers.columns.image=Gravatar
+backoffice.allwebusers.columns.action=Ação
+backoffice.allwebusers.btn.authenticate=Autenticar
+backoffice.allwebusers.btn.remove=Remover do CFP
+backoffice.allwebusers.btn.add=Adicionar ao CFP
+backoffice.allwebusers.nouser=Não há nenhum usuário
+backoffice.allCFPwebusers.title=Configure o líder de trilha
+backoffice.allCFPwebusers.noleader=Nenhum Líder de Trilha
+backoffice.allCFPwebusers.columns.track=Nome da Trilha
+backoffice.allCFPwebusers.columns.leader=Líder da Trilha
+backoffice.allCFPwebusers.btn.save=Gravar a lista completa
+backoffice.allCFPwebusers.btn.back=Voltar para Backoffice
+
+showAcceptTerms.title=Termos e Condições
+showAcceptTerms.subtitle1=Por favor leia e aceite
+showAcceptTerms.subtitle2=Termos e Condições
+showAcceptTerms.warning=Versão em Português e Inglês
+showAcceptTerms.button.validate=Validar
+showAcceptTerms.button.decline=Recusar
+
+allMyVotes.tab=Todos meus votos
+allMyVotes.yourVotes=Seus votos
+allMyVotes.personnal=Seu leaderboard pessoal
+allMyVotes.youVoted=Número de palestras em que você já votou
+allMyVotes.sumVotes=Soma de todos seus pontos
+allMyVotes.averageVote=Sua média de voto
+allMyVotes.deviation=Desvio padrão para o seu voto
+allMyVotes.noVotes=Você não votou em nenhuma proposta até agora.
+allMyVotes.votes.title=Propostas do tipo {0} para as quais você votou
+allMyVotes.votes.column.youVoted=Você votou
+allMyVotes.votes.column.score=Pontuação atual
+allMyVotes.votes.column.id=Id
+allMyVotes.votes.column.title=Título
+allMyVotes.votes.column.track=Trilha
+allMyVotes.votes.column.speakers=Palestrantes
+
+allVotes.tab=Todos votos
+allVotes.button.cancel.approve=Cancelar aprovação
+allVotes.button.cancel.refuse=Cancelar rejeição
+allVotes.button.approve=Pré-Aprovar
+allVotes.button.refuse=Pré-Rejeitar
+allVotes.button.remove=Remover da lista de rejeitadas
+
+allVotes.button.all=Todos
+allVotes.button.recompute=Recalcular total e votos
+allVotes.button.byCompany=Todas palestras por empresa
+allVotes.warning1=Todas propostas com pelo menos um voto, com status definido para
+allVotes.warning2=Se você acabou de criar uma proposta e não está listada aqui : por favor adicione um voto e clique no botão recalcular acima.
+allVotes.label.approved=aprovadas
+allVotes.label.declined=recusadas
+allVotes.label.remaining=remanescentes
+allVotes.columns.average=Média
+allVotes.columns.gt=GT
+allVotes.columns.votes=Votos
+allVotes.columns.abstention=Abst.
+allVotes.columns.note=Note GT et comité
+allVotes.columns.title=Título
+allVotes.columns.id=Id da proposta
+allVotes.columns.speakers=Palestrantes
+allVotes.columns.type=Tipo
+allVotes.columns.track=Trilha
+allVotes.columns.lang=Lang
+
+compare.reviewer.tab=Comparar com outro revisor
+compare.reviewer.title=Selecione outro usuário para comparar
+
+leaderboard.tab=Leaderboard
+leaderboard.title=Leaderboard
+leaderboard.subtitle=Estatistícas são computadas a cada 10 minutos
+leaderboard.label.refresh=Dispare um refresh agora
+leaderboard.label.speakers=palestrantes
+leaderboard.label.approved.speakers=palestrantes aprovados
+leaderboard.label.refused.speakers=palestrantes rejeitados
+leaderboard.label.withpass=com ingresso do TDC POA
+leaderboard.label.proposals=propostas
+leaderboard.label.proposals.withvote=propostas com voto
+leaderboard.label.proposals.novote=propostas sem voto (incl.Rascunho)
+leaderboard.label.reviews=revisões
+leaderboard.label.most.voted=mais votadas com 1 revisões
+leaderboard.label.talks.reviewed={0} palestras revisadas
+leaderboard.btn.see.reviewers=Veja todos revisores
+leaderboard.section.top.reviewer=Revisor Top
+leaderboard.section.lazy=Lanterninha
+leaderboard.section.more.stats=Mais estats
+leaderboard.section.submitted.bytrack=Submetidas por Trilha
+leaderboard.section.approved.bytrack=Aprovadas por Trilha (total {0})
+leaderboard.section.accepted.bytrack=Aceitas por Trilha
+leaderboard.section.submitted.bytype=Submetidas por Tipo
+leaderboard.section.approved.bytype=Aprovadas por Tipo
+leaderboard.label.accepted.byspeaker=Palestra aceita por um palestrante
+leaderboard.columns.type=Tipo de palestra
+leaderboard.columns.received=Propostas recebidas
+leaderboard.columns.slots=Total de slots
+leaderboard.columns.approved=Propostas aprovadas
+leaderboard.columns.toallocate=Falta alocar
+leaderboard.approved.bytype=submissões aprovadas para
+leaderboard.accepted.bytype=submissões aceitas para
+
+allSpeakers.title=Todos Palestrantes
+allSpeakers.speakers=palestrantes
+allSpeakers.users=usuários
+allSpeakers.columns.name=Nome
+allSpeakers.columns.lang=Lang
+allSpeakers.columns.company=Empresa
+allSpeakers.columns.email=email
+allSpeakers.columns.actions=ações
+allSpeakers.warning.nospeaker=Não há nenhum palestrante
+allSpeakers.warning.nospeaker.approved=Não há nenhum palestrante aprovado
+allSpeakers.allSpeakersWithApprovedTalks.title=Todos Palestrantes com palestras aprovadas
+allSpeakers.allApprovedSpeakersByCompany.title=Todos Palestrantes com palestras aprovadas por empresa
+allSpeakers.allSpeakersThatForgetToAccept.title=Todos Palestrantes tque ainda não ACEITARAM apresentar uma palestra aprovada
+allSpeakers.allSpeakersWithAcceptedTalks.title=Todos Palestrantes com uma palestra aceita (incluindo Quickies e BOF)
+allSpeakers.allSpeakersWithAcceptedTalksAndBadge.title=Todos Palestrantes com uma palestra aceita e um badge de palestrante
+allSpeakers.allSpeakersWithAcceptedTalksForExport.title=Todos Palestrantes com uma palestra aceita, classificada por Tipo de Palestra
+allSpeakers.label.companies=empresas
+allSpeakers.link.talks=Ver palestras
+allSpeakers.allSpeakersThatForgetToAccept.subtitle=Palestra que aprovamos, para a qual o palestrante ainda não aceitou apresentar
+allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Palestrante principal ou secundário, com badge de palestrante; CFP não incluído; Nenhuma palestra curta
+allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classificado por palestras, onde o palestrante é o principal ou secundário
+allSpeakers.invited.title=Todos Palestrantes Convidados
+
+draft=rascunho
+deleted=excluída
+submitted=submetida
+approved=aprovada
+rejected=rejeitada
+accepted=aceita
+backup=backup
+declined=recusada
+archived=arquivada
+unknown=desconhecido
+
+draft.caps=RASCUNHO
+deleted.caps=EXCLUÍDA
+submitted.caps=SUBMETIDA
+approved.caps=APROVADA
+rejected.caps=REJEITADA
+accepted.caps=ACEITA
+backup.caps=BACKUP
+declined.caps=RECUSADA
+archived.caps=ARQUIVADA
+unknown.caps=DESCONHECIDO
+

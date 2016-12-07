@@ -1,0 +1,28 @@
+@(email:String, code:String)
+
+------------------------------------------------------------------------------
+                      Bem-vindo(a) ao @Messages("longName")!
+------------------------------------------------------------------------------
+Criamos um access code para você (não queremos guardar nenhuma de suas senhas aqui).
+
+  Seu login é @email
+  Seu código é @code
+
+Se quiser reportar uma ocorrência, por favor use @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()
+
+Equipe @Messages("longName")
+
+------------------------------------------------------------------------------
+
+Welcome to @Messages("longName")!
+
+We created an access code for you (we really don't want to store any of your password here).
+
+  Your login is @email
+  Your code is @code
+
+If you want to report an issue, please use @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()
+
+The @Messages("longName") team
+
+------------------------------------------------------------------------------

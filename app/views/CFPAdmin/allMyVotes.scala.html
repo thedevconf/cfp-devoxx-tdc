@@ -1,0 +1,123 @@
+@(allMyVotes:List[(String,Option[Double])], relatedProposals:Map[String,Proposal], talkType:String, allScoresForProposals:Map[String,Double])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main(Messages("allMyVotes.tab")) {
+    <div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><i class="icon-bar-chart"></i> @Messages("allMyVotes.yourVotes")</h1>
+            </div>
+
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <h3><i class="icon-beaker"></i> @Messages("allMyVotes.personnal")</h3>
+                    @if(allMyVotes.nonEmpty){
+                        @Messages("allMyVotes.youVoted"): @allMyVotes.filter(_._2.isDefined).size <br>
+                        @defining(allMyVotes.filter(_._2.isDefined).toList.map(_._2.get)){ allScores =>
+                            @Messages("allMyVotes.sumVotes"): @Math.round(allScores.sum)<br>
+                            @Messages("allMyVotes.averageVote"): @library.Stats.average(allScores)<br>
+                            @Messages("allMyVotes.deviation"): @library.Stats.standardDeviation(allScores)<br>
+                        }
+                    }else{
+                    @Messages("allMyVotes.noVotes").
+                    }
+
+                    @models.ConferenceDescriptor.ConferenceProposalTypes.ALL.map{confType=>
+                        <a href="@routes.CFPAdmin.allMyVotes(confType.id)" class="btn btn-sm @if(confType.id==talkType) { btn-success } else { btn-primary }">@Messages(confType.id)</a>
+                    }
+
+                </div>
+                @if(allMyVotes.nonEmpty){
+                    <div class="col-md-12 col-lg-12">
+                        <h3><i class="icon-bar-chart"></i> @Messages("allMyVotes.votes.title", talkType)</h3>
+                        <table id="tableMyVotes" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>@Messages("allMyVotes.votes.column.youVoted")</th>
+                                    <th>@Messages("allMyVotes.votes.column.score")</th>
+                                    <th>@Messages("allMyVotes.votes.column.id")</th>
+                                    <th>@Messages("allMyVotes.votes.column.title")</th>
+                                    <th>@Messages("allMyVotes.votes.column.track")</th>
+                                    <th>@Messages("allMyVotes.votes.column.speakers")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @allMyVotes.map { case (proposalId, maybeVote) =>
+                                    @defining(Math.round(maybeVote.get)) { score =>
+                                        <tr>
+                                            <td style="width: 82px" class="score" data-score="@score" data-pid="@proposalId">
+                                            <div class="btn-group-xs">
+                                                    <button class="btn btn-xs btn-color-@score">@score</button>
+                                                    <button data-score="@Math.min(10,score+1)" data-id="@proposalId" class="btn plus btn-xs btn-color-8">+</button>
+                                                    <button data-score="@Math.max(0,score-1)" data-id="@proposalId" class="btn minus btn-xs btn-color-1">-</button>
+                                            </div>
+                                        </td>
+
+                                         <td>@allScoresForProposals.get(proposalId)</td>
+                                    <td><a href="@routes.CFPAdmin.openForReview(proposalId)" class="btn btn-sm btn-primary">@proposalId</a></td>
+                                    @relatedProposals.get(proposalId).map { proposal =>
+                                        <td>
+                                            <small>@proposal.title</small>
+                                        </td>
+
+                                        <td>
+                                            <small>@Messages(proposal.track.label)</small>
+                                        </td>
+                                          <td>
+                                            <small>@proposal.allSpeakers.map(_.cleanName).mkString(", ")</small>
+                                        </td>
+                                    }
+                                    }
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    function generateCell(newScore, pid){
+        return '<td style="width: 82px" class="score" data-score="' + newScore + '" data-pid="' + pid +
+                '">' +
+        '<div class="btn-group btn-group-xs">' +
+                '<button class="btn btn-xs btn-color-' + newScore +
+                '">' + newScore +
+                '</button>' +
+                '<a href="@routes.CFPAdmin.allMyVotes(talkType)" class="btn btn-xs btn-primary"><i class="icon-refresh"></i></a>' +
+                '</div></td>';
+
+    }
+
+    function handleVote(){
+        $('#tableMyVotes').find('.btn.plus, .btn.minus').on('click', function(event) {
+            var $btnClicked = $(event.currentTarget);
+            var $cell = $btnClicked.parents('td');
+            var $row = $cell.parents('tr');
+            $row.addClass('myVotesRowUpdated');
+
+            var newScore = Number($btnClicked.attr('data-score'));
+            var proposalId = $btnClicked.attr('data-id');
+
+            $.ajax({
+                url: '/cfpadmin/proposal/'+proposalId+'/vote?vote='+newScore,
+                cache: false
+            }).then(function(){
+                console.log('Vote '+proposalId+' set to '+newScore);
+                $row.find('td').eq(0).after(generateCell(newScore, proposalId));
+                $cell.remove();
+            });
+        });
+    }
+
+    handleVote();
+});
+</script>
+
+}

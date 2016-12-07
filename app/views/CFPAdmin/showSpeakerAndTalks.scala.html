@@ -1,0 +1,120 @@
+@(speaker:Speaker, proposals:Map[String,Proposal], currentUser:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main("Speaker " + speaker.cleanName) {
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><i class="icon-user"></i> @speaker.cleanName</h3>
+            </div>
+            <div class="panel-body">
+        @if(flash.get("error").isDefined){
+          <div class="alert alert-danger alert-dismissable">
+              <strong>Error :</strong>
+              @flash.get("error").get
+          </div>
+        }
+        @if(flash.get("success").isDefined){
+          <div class="alert alert-success alert-dismissable">
+              @flash.get("success").get
+          </div>
+        }
+@if(SecureCFPController.hasAccessToCFP(req)){
+    <a href="@routes.CFPAdmin.newOrEditSpeaker(Option(speaker.uuid))" class="btn btn-sm btn-primary">@Messages("sp.editSpeaker")</a>
+    <a href="@routes.Backoffice.authenticateAs(speaker.uuid)" class="btn btn-sm btn-warning" ><i class="icon-lock"></i> @Messages("sp.authenticateAs")</a>
+    <a href="@routes.Backoffice.authenticateAndCreateTalk(speaker.uuid)" class="btn btn-sm btn-warning" ><i class="icon-lock"></i> @Messages("sp.authenticateAndCreate")</a>
+}
+@if(SecureCFPController.hasAccessToAdmin(req)){
+    @tags.checkInvited(speaker.uuid)
+}
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                            @if(speaker.avatarUrl.isEmpty) {
+                                <div class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object"
+                                        src="http://www.gravatar.com/avatar/@Webuser.gravatarHash(speaker.email)?s=75"
+                                        alt="@speaker.cleanName"
+                                        title="@speaker.cleanName" />
+                                    </a>
+                                    <div class="media-body">
+                                        <small>@Html(Messages("profile.gravatar")) <a href="http://www.gravatar.com" target="_blank">
+                                            Gravatar.com</a> @Html(Messages("profile.gravatar2")) @speaker.email. </small>
+                                    </div>
+                                </div>
+                            } else {
+                                <div class="media">
+                                    <a class="pull-left" href="#">
+                                        <img class="media-object" width="75"
+                                        src="@speaker.avatarUrl.get"
+                                        alt="@speaker.cleanName"/>
+                                    </a>
+                                </div>
+                            }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="icon-adjust"></i> Bio</td><td>@Html(speaker.bioAsHtml)</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-tasks"></i> @Messages("qualifications.label")</td><td>@speaker.qualifications</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-flag"></i> @Messages("sw.proposal.lang")</td><td><img src="/assets/images/@(speaker.cleanLang).png" alt="@speaker.cleanLang" title="@speaker.cleanLang"/></td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-bullhorn"></i> Blog</td>
+                            <td>
+                            @speaker.blog.map{b=>
+                            <a href="@b" target="new">@b</a>
+                            }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-building"></i> @Messages("sw.company")</td>
+                            <td>@speaker.company.getOrElse("")</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-twitter"></i> Twitter</td>
+                            <td>@speaker.twitter.map{t=>
+                            <a href="http://www.twitter.com/@t" target="new">@t</a>
+                            }.getOrElse("")</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-envelope"></i> Email </td><td>@speaker.email</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+@if(SecureCFPController.hasAccessToCFP(req)){
+    <div class="col-md-12">
+        <div class="panel-heading">
+            <h3><i class="icon-bullhorn"></i> @Messages("sw.proposals")</h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @tags.renderProposals(proposals, currentUser)
+            </div>
+        </div>
+    </div>
+}
+    @if(SecureCFPController.hasAccessToAdmin(req)){
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+    <form action="@routes.Backoffice.deleteSpeaker(speaker.uuid)" method="POST">
+        <h3>@Messages("sw.trash.title")</h3>
+        <small>@Messages("sw.trash.warning") <input type="text" name="secu" value="" placeholder="type here DEL"></small>
+        <button type="submit" class="btn btn-sm btn-danger">@Messages("sw.trash.button")</button>
+    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+}

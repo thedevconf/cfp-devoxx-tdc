@@ -1,0 +1,38 @@
+<configuration info="true" scan="false" scanPeriod="30 seconds">
+
+    <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- %X{URL} -->
+            <!-- %-4relative [%thread] %-5level %logger{35} - %msg %n -->
+            <pattern>%coloredLevel %d{HH:mm:ss,SSS} [%thread{15}] %logger{15}: %15message%n%ex{10}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="play" level="WARN"/>
+    <logger name="models.Issue" level="INFO"/>
+    <logger name="models.Proposal" level="INFO"/>
+    <logger name="models.Review" level="INFO"/>
+    <logger name="models.Speaker" level="INFO"/>
+    <logger name="models.Webuser" level="INFO"/>
+    <logger name="library.ZapActor" level="INFO"/>
+    <logger name="library.Zedis" level="INFO"/>
+    <logger name="library.Zedis.client" level="INFO"/>
+    <logger name="library.ElasticSearch" level="INFO"/>
+    <logger name="application" level="INFO"/>
+    <logger name="application.Benchmark" level="DEBUG"/>
+    <logger name="application.IndexMaster" level="INFO"/>
+    <logger name="application.Reaper" level="INFO"/>
+    <logger name="application.Tweetwall" level="INFO"/>
+    <logger name="application.ApproveOrRefuse" level="INFO"/>
+
+    <logger name="net.sf.ehcache.sizeof.verboseDebugLogging" level="INFO"/>
+    <logger name="net.sf.ehcache" level="WARN"/>
+    <logger name="org.apache.commons.pool" level="INFO"/>
+
+    <root level="ERROR">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>

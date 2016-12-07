@@ -1,0 +1,125 @@
+body {
+    font-family: "Helvetica", sans-serif;
+    font-size: 12px;
+}
+
+.panel_talks {
+    border: 1px solid #eeeeee;
+}
+
+.panel_slots {
+    border: 1px solid #eeeeee;
+}
+
+.talk {
+    display: block;
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+    background-color: #fceec3;
+    border-radius: 3px;
+    box-shadow: 2px 2px #bbb;
+}
+
+.slot {
+
+    border: 2px solid black;
+    padding: 5px;
+    margin: 5px;
+    background-color: #b6dd7b;
+}
+
+.slotTitle {
+    display: block;
+    color: #000000;
+    font-weight: bold;
+    font-size: 9px;
+}
+
+.proposalTitle {
+    display: block;
+    color: #3a0b07;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.slot.ng-hide-add, .slot.ng-hide-remove {
+    transition: 0.5s linear all;
+    display: block !important;
+}
+
+.columnDrag {
+    opacity: 0.7;
+    background-color: blue;
+}
+
+.columnDrop {
+    background-color: green;
+}
+
+
+.animate-repeat {
+    line-height: 40px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity: 0;
+    max-height: 0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity: 1;
+    max-height: 40px;
+}
+
+.camera {
+    background-color: #3bc016;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+}
+
+.rien {
+    background-color: #ff0000;
+    width: 8px;
+    height: 8px;display: inline-block;
+}
+.son {
+    background-color: #ffcc22;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+}
+.sponsor-true{
+    border-color: #ff0000;
+}
+
+.demo-d1{
+        background-color: #ff13cd;
+    width: 8px;
+    height: 8px;display: inline-block;
+}
+.demo-d2{
+        background-color: #6fff7e;
+    width: 8px;
+    height: 8px;display: inline-block;
+}
+.demo-d3{
+        background-color: #101729;
+    border:1px solid #f15f15;
+    width: 8px;
+    height: 8px;display: inline-block;
+}

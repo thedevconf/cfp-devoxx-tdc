@@ -1,0 +1,26 @@
+@(fromName:String, toName:String, proposal:models.Proposal, msg:String)
+
+<p>Olá,</p>
+
+<p>Uma nova mensagem foi postada por <strong>@fromName</strong> para <strong>@toName</strong> a respeito da palestra "<em>@proposal.title</em>".</p>
+<br>
+<hr>
+<p>@msg</p>
+<p>@fromName</p>
+<hr>
+<h3>Acompanhe esta discussão</h3>
+<p>Não responda este email, por favor use o CFP diretamente:</p>
+<a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)</a>
+
+<hr>
+<p>Hello</p>
+
+<p>A new message was posted by <strong>@fromName</strong> to <strong>@toName</strong> regarding talk "<em>@proposal.title</em>".</p>
+<br>
+<hr>
+<p>@msg</p>
+<p>@fromName</p>
+<hr>
+<h3>Follow the discussion</h3>
+<p>Do not respond to this email, please use the CFP directly:</p>
+<a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)</a>
