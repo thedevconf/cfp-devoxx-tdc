@@ -71,7 +71,7 @@ format.numeric=Numérico
 format.real=Real
 
 # github login
-github.importprofile.error=Desculpe, não foi possível importar deu perfil do github.
+github.importprofile.error=Desculpe, não foi possível importar seu perfil do github.
 github.importprofile.error.emailnotfound=O e-mail não foi encontrado.
 github.importprofile.error.namenotfound=Seu nome não foi encontrado.
 github.importprofile.error.advice=Você pode querer trocar suas configurações do github em https://github.com/settings/profile.
