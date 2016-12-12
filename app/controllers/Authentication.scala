@@ -563,8 +563,8 @@ object Authentication extends Controller {
         clientId: String =>
           val redirectUri = routes.Authentication.callbackGoogle().absoluteURL()
           val state = new BigInteger(130, new SecureRandom()).toString(32)
-          val gitUrl = "https://accounts.google.com/o/oauth2/auth?client_id=" + clientId + "&scope=openid%20email%20profile&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
-          Redirect(gitUrl).withSession("state" -> state)
+          val googleUrl = "https://accounts.google.com/o/oauth2/auth?client_id=" + clientId + "&scope=openid%20email%20profile&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
+          Redirect(googleUrl).withSession("state" -> state)
       }.getOrElse {
         InternalServerError("google.client_id is not set in application.conf")
       }
