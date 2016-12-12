@@ -434,19 +434,32 @@ object Authentication extends Controller {
   }
 
   // See LinkedIn documentation https://developer.linkedin.com/documents/authentication
+  /**
+    * Makes request for Authorization Code
+    *
+    * PS: Uses legacy OAuth URL
+    *
+    * @param visitor
+    * @return
+    */
   def linkedinLogin(visitor: Boolean) = Action {
     implicit request =>
       Play.current.configuration.getString("linkedin.client_id").map {
         clientId: String =>
           val redirectUri = routes.Authentication.callbackLinkedin().absoluteURL()
           val state = new BigInteger(130, new SecureRandom()).toString(32)
-          val gitUrl = "https://www.linkedin.com/uas/oauth2/authorization?client_id=" + clientId + "&scope=r_basicprofile%20r_emailaddress&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
-          Redirect(gitUrl).withSession("state" -> state)
+          val linkedinUrl = "https://www.linkedin.com/uas/oauth2/authorization?client_id=" + clientId + "&scope=r_basicprofile%20r_emailaddress&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
+          Redirect(linkedinUrl).withSession("state" -> state)
       }.getOrElse {
         InternalServerError("linkedin.client_id is not set in application.conf")
       }
   }
 
+  /**
+    * Validates the state returned from LinkedIn to avoid CSRF attacks and exchanges the authorization code for an access token
+    *
+    * @return
+    */
   def callbackLinkedin = Action.async {
     implicit request =>
       oauthForm.bindFromRequest.fold(invalidForm => {
@@ -490,6 +503,13 @@ object Authentication extends Controller {
       })
   }
 
+  /**
+    * Uses the Access Token to request the user information.
+    *
+    * Shows the user page or creates a new user.
+    *
+    * @return
+    */
   def createFromLinkedin = Action.async {
     implicit request =>
       request.session.get("linkedin_token").map {
