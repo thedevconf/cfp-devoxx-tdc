@@ -37,7 +37,7 @@
                             <td>@Messages(track.label)</td>
                             <td>
                             <div class="input">
-                                <select id="@track.id" name="@track.id">
+                                <select data-placeholder= "--- @Messages("backoffice.allCFPwebusers.noleader")---" class="chosen-select" id="@track.id" name="@track.id" multiple>
                                         <option value="no_track_lead">--- @Messages("backoffice.allCFPwebusers.noleader")---</option>
                                          @allTrackLeaders.map { uuidAndName =>
                                            <option @if(TrackLeader.isTrackLeader(track.id, uuidAndName._1)){ selected } value="@uuidAndName._1"> @uuidAndName._2 </option>
@@ -57,4 +57,8 @@
         </div>
     </div>
 </div>
+<script src="@routes.Assets.at(path="/public",file="chosen/chosen.jquery.min.js")" type="text/javascript"></script>
+<script>
+    $(".chosen-select").chosen()
+</script>
 }

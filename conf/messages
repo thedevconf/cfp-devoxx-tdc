@@ -65,6 +65,9 @@ edit.profile=Editar seu perfil
 edit.name=Editar seu nome
 new.proposal=Nova proposta
 
+# CFP Users page
+trackleaders.updated=Lista de lideres de trilha atualizada
+
 # --- Formats
 format.date=Data (''{0}'')
 format.numeric=Numérico

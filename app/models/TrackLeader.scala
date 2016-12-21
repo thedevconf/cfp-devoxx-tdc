@@ -56,23 +56,20 @@ object TrackLeader {
 
   def isTrackLeader(trackId: String, webuserId: String): Boolean = Redis.pool.withClient {
     client =>
-      client.hget(s"TrackLeaders", trackId) match {
-        case Some(w) if w == webuserId => true
-        case _ => false
-      }
+      client.sismember(s"TrackLeaders:${trackId}", webuserId)
   }
 
   def updateAllTracks(mapsByTrack: Map[String, Seq[String]]) = Redis.pool.withClient{
     client=>
     val tx = client.multi()
-    tx.del("TrackLeaders")
     mapsByTrack.foreach {
       case (trackId, seqUUIDs) =>
         Redis.pool.withClient {
           client =>
+            tx.del(s"TrackLeaders:${trackId}")
             seqUUIDs.filterNot(_ == "no_track_lead").foreach {
               uuid: String =>
-                tx.hset(s"TrackLeaders", trackId, uuid)
+                tx.sadd(s"TrackLeaders:${trackId}", uuid)
             }
         }
     }
