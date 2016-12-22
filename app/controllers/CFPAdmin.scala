@@ -549,7 +549,7 @@ object CFPAdmin extends SecureCFPController {
       req.request.body.asFormUrlEncoded.map {
         mapsByTrack =>
           TrackLeader.updateAllTracks(mapsByTrack)
-          Redirect(routes.CFPAdmin.allCFPWebusers).flashing("success" -> "List of track leaders updated")
+          Redirect(routes.CFPAdmin.allCFPWebusers).flashing("success" -> Messages("trackleaders.updated"))
       }.getOrElse {
         Redirect(routes.CFPAdmin.allCFPWebusers).flashing("error" -> "No value received")
       }
