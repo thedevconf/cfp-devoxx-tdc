@@ -27,13 +27,13 @@
                     </div>
                 }
             <div class="col-md-12 col-sm-12">
-                <img src="/assets/images/tdc2016poa-banner-call4papers-3.jpg" alt="@Messages("cfp.title")">
-                <h3><a href="http://www.thedevelopersconference.com.br/"><i class="icon-arrow-right"></i> @Messages("index.program.text")</a></h3>
+                <img src="@Messages("banner.link")" alt="@Messages("cfp.title")">
+                <h3><a href="@Messages("index.program.link")"><i class="icon-arrow-right"></i> @Messages("index.program.text")</a></h3>
                 <hr>
             </div>
 
             <div class="col-md-5 col-sm-12">
-                <h3><i class="icon-calendar"></i> Agenda</h3>
+                <h3><i class="icon-calendar"></i> @Messages("agenda.title")</h3>
                 <p><strong>@Messages("cfp.opening") :</strong>  @FormatDate.jodaFullDateFormat(ConferenceDescriptor.current().timing.cfpOpenedOn, lang)</p>
                 <p><strong>@Messages("cfp.closing") :</strong>  @FormatDate.jodaFullDateFormat(ConferenceDescriptor.current().timing.cfpClosedOn, lang)</p>
                 @if(ConferenceDescriptor.isCFPOpen){
@@ -102,6 +102,7 @@
                     <tbody>
                         @for(track <- ConferenceDescriptor.ConferenceTracksDescription.ALL) {
                             <tr>
+                                <td><img src="@Messages(track.imgSrc)" style="height:30px; width:30px" /></td>
                                 <td>@Messages(track.i18nTitleProp)</td>
                                 <td>@Messages(track.i18nDescProp)</td>
                             </tr>

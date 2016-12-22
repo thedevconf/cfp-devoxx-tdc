@@ -211,90 +211,98 @@ object ConferenceDescriptor {
     val IOS = Track("ios", "ios.label")
     val DINAMICAS = Track("dinamicas", "dinamicas.label")
     val JAVASCRIPT = Track("javascript", "javascript.label")
-    val IOT = Track("iot", "iot.label")
+    val PHP = Track("php", "php.label")
+    val GAMES = Track("games", "games.label")
     val DEVOPS = Track("devops", "devops.label")
 
-    val ANALISE = Track("analise", "analise.label")
+    val MANAGEMENT = Track("management", "management.label")
     val BIGDATA = Track("bigdata", "bigdata.label")
     val ANDROID = Track("android", "android.label")
     val GROWTH = Track("growth", "growth.label")
     val WEB = Track("web", "web.label")
-    val EDUCATION = Track("education", "education.label")
-    val PHP = Track("php", "php.label")
+    val PFUNCIONAL = Track("pfuncional", "pfuncional.label")
+    val IOT = Track("iot", "iot.label")
     val CLOUD = Track("cloud", "cloud.label")
 
-    val MANAGEMENT = Track("management", "management.label")
+    val ANALISE = Track("analise", "analise.label")
     val ARQUITETURA = Track("arquitetura", "arquitetura.label")
     val MOBILE = Track("mobile", "mobile.label")
-    val RUBY = Track("ruby", "ruby.label")
-    val DTHINKING = Track("dthinking", "dthinking.label")
-    val PFUNCIONAL = Track("pfuncional", "pfuncional.label")
+    val BANCO = Track("banco", "banco.label")
+    val UXDESIGN = Track("uxdesign", "uxdesign.label")
+    val EDUCATION = Track("education", "education.label")
     val PYTHON = Track("python", "python.label")
     val INFRAAGIL = Track("infraagil", "infraagil.label")
 
     val AGILE = Track("agile", "agile.label")
     val JAVA = Track("java", "java.label")
-    val GAMES = Track("games", "games.label")
+    val RUBY = Track("ruby", "ruby.label")
     val FINTECH = Track("fintech", "fintech.label")
-    val UXDESIGN = Track("uxdesign", "uxdesign.label")
+    val DTHINKING = Track("dthinking", "dthinking.label")
     val EMPREENDE = Track("empreende", "empreende.label")
     val ARDUINO = Track("arduino", "arduino.label")
     val DOTNET = Track("dotnet", "dotnet.label")
-
-    val BANCO = Track("banco", "banco.label")
-    val IMPRESSAO = Track("impressao", "impressao.label")
     val REALIDADE = Track("realidade", "realidade.label")
+    val IMPRESSAO = Track("impressao", "impressao.label")
 
-    val ALL = List(AGILE,ANALISE,ANDROID,ARDUINO,ARQUITETURA,BANCO,BIGDATA,CLOUD,DATASCIENCE,DEVOPS,DINAMICAS,DOTNET,DTHINKING
-			,EDUCATION,EMPREENDE,FINTECH,GAMES,GROWTH,IMPRESSAO,INFRAAGIL,IOS,IOT,JAVA,JAVASCRIPT
-			,MANAGEMENT,MOBILE,PFUNCIONAL,PHP,PYTHON,REALIDADE,RUBY,TESTES,UXDESIGN,WEB)
+    val ALL = List(AGILE, BANCO, WEB, JAVASCRIPT, ARDUINO,
+      ARQUITETURA, ANALISE, BIGDATA, UXDESIGN, IOS, CLOUD,
+      DOTNET, MANAGEMENT, DTHINKING, MOBILE, DEVOPS, IOT,
+      JAVA, INFRAAGIL, FINTECH, DINAMICAS, TESTES, EDUCATION)
+
+   //   DATASCIENCE, PHP, GAMES ,ANDROID, GROWTH, PFUNCIONAL, PYTHON, RUBY, EMPREENDE, REALIDADE, IMPRESSAO)
+
   }
 
   // TODO configure the description for each Track
   object ConferenceTracksDescription {
 
-    val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/dvfr2015/images/icon_testes.png", "track.testes.title", "track.testes.desc")
-    val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/dvfr2015/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
-    val IOS = TrackDesc(ConferenceTracks.IOS.id, "/assets/dvfr2015/images/icon_web.png", "track.ios.title", "track.ios.desc")
-    val DINAMICAS = TrackDesc(ConferenceTracks.DINAMICAS.id, "/assets/dvfr2015/images/icon_dinamicas.png", "track.dinamicas.title", "track.dinamicas.desc")
-    val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/dvfr2015/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
-    val IOT = TrackDesc(ConferenceTracks.IOT.id, "/assets/dvfr2015/images/icon_iot.png", "track.iot.title", "track.iot.desc")
-    val DEVOPS = TrackDesc(ConferenceTracks.DEVOPS.id, "/assets/dvfr2015/images/icon_mobile.png", "track.devops.title", "track.devops.desc")
-    
-    val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/dvfr2015/images/icon_analise.png", "track.analise.title", "track.analise.desc")
-    val BIGDATA = TrackDesc(ConferenceTracks.BIGDATA.id, "/assets/dvfr2015/images/icon_bigdata.png", "track.bigdata.title", "track.bigdata.desc")
-    val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/dvfr2015/images/icon_android.png", "track.android.title", "track.android.desc")
-    val GROWTH = TrackDesc(ConferenceTracks.GROWTH.id, "/assets/dvfr2015/images/icon_growth.png", "track.growth.title", "track.growth.desc")
-    val WEB = TrackDesc(ConferenceTracks.WEB.id, "/assets/dvfr2015/images/icon_web.png", "track.web.title", "track.web.desc")
-    val EDUCATION = TrackDesc(ConferenceTracks.EDUCATION.id, "/assets/dvfr2015/images/icon_education.png", "track.education.title", "track.education.desc")
-    val PHP = TrackDesc(ConferenceTracks.PHP.id, "/assets/dvfr2015/images/icon_php.png", "track.php.title", "track.php.desc")
-    val CLOUD = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/dvfr2015/images/icon_cloud.png", "track.cloud.title", "track.cloud.desc")
+    val AGILE = TrackDesc(ConferenceTracks.AGILE.id, "/assets/tdc2016poa/images/icon_agile.png", "track.agile.title", "track.agile.desc")
+    val BANCO = TrackDesc(ConferenceTracks.BANCO.id, "/assets/tdc2016poa/images/icon_bd.png", "track.banco.title", "track.banco.desc")
+    val WEB = TrackDesc(ConferenceTracks.WEB.id, "/assets/tdc2016poa/images/icon_web.png", "track.web.title", "track.web.desc")
+    val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
+    val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/tdc2016poa/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
 
-    val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/dvfr2015/images/icon_management.png", "track.management.title", "track.management.desc")
-    val ARQUITETURA = TrackDesc(ConferenceTracks.ARQUITETURA.id, "/assets/dvfr2015/images/icon_arquitetura.png", "track.arquitetura.title", "track.arquitetura.desc")
-    val MOBILE = TrackDesc(ConferenceTracks.MOBILE.id, "/assets/dvfr2015/images/icon_mobile.png", "track.mobile.title", "track.mobile.desc")
-    val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/dvfr2015/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
-    val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/dvfr2015/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
-    val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/dvfr2015/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
-    val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/dvfr2015/images/icon_python.png", "track.python.title", "track.python.desc")
-    val INFRAAGIL = TrackDesc(ConferenceTracks.INFRAAGIL.id, "/assets/dvfr2015/images/icon_infraagil.png", "track.infraagil.title", "track.infraagil.desc")
+    val ARQUITETURA = TrackDesc(ConferenceTracks.ARQUITETURA.id, "/assets/tdc2016poa/images/icon_arquitetura.png", "track.arquitetura.title", "track.arquitetura.desc")
+    val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
+    val BIGDATA = TrackDesc(ConferenceTracks.BIGDATA.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.bigdata.title", "track.bigdata.desc")
+    val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/tdc2016poa/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
+    val IOS = TrackDesc(ConferenceTracks.IOS.id, "/assets/tdc2016poa/images/icon_ios.png", "track.ios.title", "track.ios.desc")
+    val CLOUD = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.cloud.title", "track.cloud.desc")
 
-    val AGILE = TrackDesc(ConferenceTracks.AGILE.id, "/assets/dvfr2015/images/icon_agile.png", "track.agile.title", "track.agile.desc")
-    val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/dvfr2015/images/icon_java.png", "track.java.title", "track.java.desc")
-    val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/dvfr2015/images/icon_games.png", "track.games.title", "track.games.desc")
-    val FINTECH = TrackDesc(ConferenceTracks.FINTECH.id, "/assets/dvfr2015/images/icon_fintech.png", "track.fintech.title", "track.fintech.desc")
-    val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/dvfr2015/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
-    val EMPREENDE = TrackDesc(ConferenceTracks.EMPREENDE.id, "/assets/dvfr2015/images/icon_empreende.png", "track.empreende.title", "track.empreende.desc")
-    val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/dvfr2015/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
-    val DOTNET = TrackDesc(ConferenceTracks.DOTNET.id, "/assets/dvfr2015/images/icon_dotnet.png", "track.dotnet.title", "track.dotnet.desc")
+    val DOTNET = TrackDesc(ConferenceTracks.DOTNET.id, "/assets/tdc2016poa/images/icon_dotnet.png", "track.dotnet.title", "track.dotnet.desc")
+    val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/tdc2016poa/images/icon_management.png", "track.management.title", "track.management.desc")
+    val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
+    val MOBILE = TrackDesc(ConferenceTracks.MOBILE.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.mobile.title", "track.mobile.desc")
+    val DEVOPS = TrackDesc(ConferenceTracks.DEVOPS.id, "/assets/tdc2016poa/images/icon_devops.png", "track.devops.title", "track.devops.desc")
+    val IOT = TrackDesc(ConferenceTracks.IOT.id, "/assets/tdc2016poa/images/icon_iot.png", "track.iot.title", "track.iot.desc")
 
-    val BANCO = TrackDesc(ConferenceTracks.BANCO.id, "/assets/dvfr2015/images/icon_banco.png", "track.banco.title", "track.banco.desc")
-    val IMPRESSAO = TrackDesc(ConferenceTracks.IMPRESSAO.id, "/assets/dvfr2015/images/icon_impressao.png", "track.impressao.title", "track.impressao.desc")
-    val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/dvfr2015/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
+    val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
+    val INFRAAGIL = TrackDesc(ConferenceTracks.INFRAAGIL.id, "/assets/tdc2016poa/images/icon_infraagil.png", "track.infraagil.title", "track.infraagil.desc")
+    val FINTECH = TrackDesc(ConferenceTracks.FINTECH.id, "/assets/tdc2016poa/images/icon_fintech.png", "track.fintech.title", "track.fintech.desc")
+    val DINAMICAS = TrackDesc(ConferenceTracks.DINAMICAS.id, "/assets/tdc2016poa/images/icon_dinamicas.png", "track.dinamicas.title", "track.dinamicas.desc")
+    val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
+    val EDUCATION = TrackDesc(ConferenceTracks.EDUCATION.id, "/assets/tdc2016poa/images/icon_education.png", "track.education.title", "track.education.desc")
 
-    val ALL = List(TESTES,DATASCIENCE,IOS,DINAMICAS,JAVASCRIPT,IOT,DEVOPS,ANALISE,BIGDATA,ANDROID,GROWTH,WEB,EDUCATION,PHP,CLOUD, 
-        MANAGEMENT,ARQUITETURA,MOBILE,RUBY,DTHINKING,PFUNCIONAL,PYTHON,INFRAAGIL,AGILE,JAVA,GAMES,FINTECH,UXDESIGN,EMPREENDE,ARDUINO,
-        DOTNET,BANCO,IMPRESSAO,REALIDADE)
+/*
+    val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/tdc2016poa/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
+    val PHP = TrackDesc(ConferenceTracks.PHP.id, "/assets/tdc2016poa/images/icon_php.png", "track.php.title", "track.php.desc")
+    val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
+    val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_android.png", "track.android.title", "track.android.desc")
+    val GROWTH = TrackDesc(ConferenceTracks.GROWTH.id, "/assets/tdc2016poa/images/icon_growth.png", "track.growth.title", "track.growth.desc")
+    val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
+    val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/tdc2016poa/images/icon_python.png", "track.python.title", "track.python.desc")
+    val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/tdc2016poa/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
+    val EMPREENDE = TrackDesc(ConferenceTracks.EMPREENDE.id, "/assets/tdc2016poa/images/icon_empreende.png", "track.empreende.title", "track.empreende.desc")
+    val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
+    val IMPRESSAO = TrackDesc(ConferenceTracks.IMPRESSAO.id, "/assets/tdc2016poa/images/icon_impressao3d.png", "track.impressao.title", "track.impressao.desc")
+*/
+
+    val ALL = List(AGILE, BANCO, WEB, JAVASCRIPT, ARDUINO,
+      ARQUITETURA, ANALISE, BIGDATA, UXDESIGN, IOS, CLOUD,
+      DOTNET, MANAGEMENT, DTHINKING, MOBILE, DEVOPS, IOT,
+      JAVA, INFRAAGIL, FINTECH, DINAMICAS, TESTES, EDUCATION)
+
+//      DATASCIENCE, PHP, GAMES ,ANDROID, GROWTH, PFUNCIONAL, PYTHON, RUBY, EMPREENDE, REALIDADE, IMPRESSAO)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(TESTES)
@@ -758,38 +766,38 @@ object ConferenceDescriptor {
 
   // TODO You might want to start here and configure first, your various Conference Elements
   def current() = ConferenceDescriptor(
-    eventCode = "TDC2016POA",
+    eventCode = "TDC2017FLP",
     // You will need to update conf/routes files with this code if modified
-    confUrlCode = "tdc2016poa",
+    confUrlCode = "tdc2017flp",
     frLangEnabled = false,
     fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
     committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
     bccEmail = Play.current.configuration.getString("mail.bcc"),
     bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@globalcode.com.br"),
     conferenceUrls = ConferenceUrls(
-      faq = "http://call4papers.thedevconf.com.br/faq",
-      registration = "http://thedevconf.com.br/tdc/2016/inscricoes",
+      faq = "http://cfp.thedevconf.com.br/faq",
+      registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
-      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("call4papers-dev.thedevconf.com.br")
+      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-dev.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
-      datesI18nKey = "5 a 8 de Outubro de 2016",
+      datesI18nKey = "3 a 6 de Maio de 2017",
       speakersPassDuration = 4,
       preferredDayEnabled = true,
-      firstDayFr = "5 octobre",
-      firstDayEn = "october 5th",
-      datesFr = "du 5 au 8 octobre 2016",
-      datesEn = "from 5th to 8th of October, 2016",
-      cfpOpenedOn = DateTime.parse("2016-08-11T00:00:00-03:00"),
-      cfpClosedOn = DateTime.parse("2016-08-26T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2016-09-01T00:00:00-03:00"),
+      firstDayFr = "3 may",
+      firstDayEn = "may 3th",
+      datesFr = "du 3 au 6 may 2017",
+      datesEn = "from 3th to 6th of October, 2017",
+      cfpOpenedOn = DateTime.parse("2017-01-02T00:00:00-03:00"),
+      cfpClosedOn = DateTime.parse("2017-02-17T23:59:59-03:00"),
+      scheduleAnnouncedOn = DateTime.parse("2017-02-24T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
     hashTag = "#TheDevConf",
     conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF)
     ,  List(new Locale("pt","BR"))
-    , "UniRitter, Porto Alegre, RS"
+    , "CentroSul, Florianópolis, SC"
     , notifyProposalSubmitted = false // Do not send an email for each talk submitted for France
     , 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
   )

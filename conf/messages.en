@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC Porto Alegre 2016
-CONF.subtitle=POA
+CONF.title=TDC Florianópolis 2017
+CONF.subtitle=FLP
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2016 POA
-longYearlyName=TDC 2016 Porto Alegre
-shortName=TDC Porto Alegre
-longName=TDC 2016 POA CFP
+shortYearlyName=TDC 2017 FLP
+longYearlyName=TDC 2017 Florianópolis
+shortName=TDC Florianópolis
+longName=TDC 2017 FLP CFP
 longSplittedName_whiteStart=TDC
-longSplittedName_colored=2016
-longSplittedName_whiteEnd=POA
+longSplittedName_colored=2017
+longSplittedName_whiteEnd=FLP
 # -----------------
-cfp.title=TDC 2016 POA CFP
+cfp.title=TDC 2017 FLP CFP
 login.error=Invalid email or password
 menu.home=Home
 menu.register=Sign-in
@@ -51,7 +51,9 @@ disclaimer=and using Devoxx CFP application
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
+banner.link=/assets/images/tdc2016poa-banner-call4papers-3.jpg
 index.program.text=Complete schedule
+index.program.link=http://www.thedevelopersconference.com.br/
 
 # CFP Home page
 your.profile=Your profile
@@ -155,12 +157,13 @@ video.title=Videos
 video.tag=Review TDC 2015''s videos on
 call4workshops.title=Workshops
 call4workshops.tag=We are still accepting proposals for workshops on
-call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2016/call4workshops
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
+agenda.title=Agenda
 theme.title=Tracks
-theme.track=List of tracks for TDC 2016 POA:
+theme.track=List of tracks for TDC 2017 FLP:
 track.title=Title
 track.description=Description
-appel.conf.dates=TDC 2016 POA, 5th-8th October 2016
+appel.conf.dates=TDC 2017 Florianópolis, 3th-6th May 2017
 
 # Tracks
 
@@ -664,11 +667,11 @@ sw.show.thu=Thursday
 sw.show.thursday=Thursday
 sw.show.fri=Friday
 sw.show.friday=Friday
-sw.show.title.mon=Monday, 18th April 2016
-sw.show.title.tue=Tuesday, 19th April 2016
-sw.show.title.wed=Wednesday, 20th April 2016
-sw.show.title.thu=Thursday, 21st April 2016
-sw.show.title.fri=Friday, 22nd April 2016
+sw.show.title.mon=Monday, 18th April 2017
+sw.show.title.tue=Tuesday, 19th April 2017
+sw.show.title.wed=Wednesday, 20th April 2017
+sw.show.title.thu=Thursday, 21st April 2017
+sw.show.title.fri=Friday, 22nd April 2017
 
 sw.horaires=Schedule
 sw.breakfast=Welcome and Breakfast
@@ -798,7 +801,7 @@ hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
 menu.blog=Site TDC
-signup.long=Register as a speaker on TDC POA CFP
+signup.long=Register as a speaker on TDC FLP CFP
 sw.all.hack=Hackatons
 #approved=Speaker approved
 cstory=Session de live coding Code-story
@@ -893,7 +896,7 @@ gt.intro.1=This is the full list of Proposals. You can sort by Proposal title, b
 gt.intro.2=If needed, you can also
 gt.reviewYourVotes=review your Votes
 gt.intro.3=while the CFP is open.
-gt.special.need=If you have a specific speaker you would love to see present at TDC POA, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
+gt.special.need=If you have a specific speaker you would love to see present at TDC FLP, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
 gt.todo=Your todo list size:
 
 gt.yourVotes=Your votes
@@ -1096,7 +1099,7 @@ leaderboard.label.refresh=Trigger a refresh now
 leaderboard.label.speakers=speakers
 leaderboard.label.approved.speakers=approved speakers
 leaderboard.label.refused.speakers=refused speakers
-leaderboard.label.withpass=with a TDC POA Pass
+leaderboard.label.withpass=with a TDC FLP Pass
 leaderboard.label.proposals=proposals
 leaderboard.label.proposals.withvote=proposals with vote
 leaderboard.label.proposals.novote=proposals with no vote (incl.Draft)
