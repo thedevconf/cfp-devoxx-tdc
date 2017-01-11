@@ -212,6 +212,7 @@ object ConferenceDescriptor {
     val BIGDATA = Track("bigdata", "bigdata.label")
     val CLOUD = Track("cloud", "cloud.label")
     val IOS = Track("ios", "ios.label")
+    val JAVA = Track("java", "java.label")
 
     val MANAGEMENT = Track("management", "management.label")
     val PHP = Track("php", "php.label")

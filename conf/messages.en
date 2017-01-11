@@ -170,179 +170,145 @@ appel.conf.dates=TDC 2017 Florianópolis, 3th-6th May 2017
 
 # Tracks
 
-track.testes.title=Testes
-track.testes.desc=Testing is never too much!
-testes.label=Testes
-testes.leaderboard=Testes
-
-track.datascience.title=Data Science
-track.datascience.desc=Machine learning, analytics and insights from data
-datascience.label=Data Science
-datascience.leaderboard=Data Science
-
-track.ios.title=iOS
-track.ios.desc=Enhance your skills to become an elite iOS developer
-ios.label=iOS
-ios.leaderboard=iOS
-
-track.dinamicas.title=Dinâmicas e Facilitações
-track.dinamicas.desc=Through dynamic and facilitations we got amazing results!
-dinamicas.label=Dinâmicas e Facilitações
-dinamicas.leaderboard=Dinâmicas e Facilitações
-
-track.javascript.title=JavaScript
-track.javascript.desc=A complete and mature programming language
-javascript.label=JavaScript
-javascript.leaderboard=JavaScript
-
-track.php.title=PHP
-track.php.desc=PHP's strength and its community
-php.label=PHP
-php.leaderboard=PHP
-
-track.iot.title=Internet das Coisas
-track.iot.desc=We live in a world connected to the Internet, now this world becomes integrated into our day by day stuff
-iot.label=Internet das Coisas
-iot.leaderboard=Internet das Coisas
-
-track.devops.title=DevOps
-track.devops.desc=Maximizing the integration between teams to deliver value
-devops.label=DevOps
-devops.leaderboard=DevOps
-
-
-track.management.title=Management 3.0
-track.management.desc=Management is so important that it's crazy to let it only with a person!
-management.label=Management 3.0
-management.leaderboard=Management 3.0
-
-track.bigdata.title=BigData
-track.bigdata.desc=From Relational to NoSQL, from Statistics to Machine learning, passing through BigData
-bigdata.label=BigData
-bigdata.leaderboard=BigData
-
-track.android.title=Android
-track.android.desc=Challenges in application development for Android platform
-android.label=Android
-android.leaderboard=Android
-
-track.growth.title=Growth Hacking e Marketing
-track.growth.desc=Technology and marketing together to accelerate growth
-growth.label=Growth Hacking e Marketing
-growth.leaderboard=Growth Hacking e Marketing
-
-track.web.title=Web
-track.web.desc=Exploring all web potential
-web.label=Web
-web.leaderboard=Web
-
-track.pfuncional.title=Programação Funcional
-track.pfuncional.desc=Techniques and theories of Functional Programming
-pfuncional.label=Programação Funcional
-pfuncional.leaderboard=Programação Funcional
-
-track.cloud.title=Cloud
-track.cloud.desc=Using the power of the cloud in your favor
-cloud.label=Cloud
-cloud.leaderboard=Cloud
-
+track.dotnet.title=.NET
+track.dotnet.desc=.NET em todas as plataformas!
+dotnet.label=.NET
+dotnet.leaderboard=.NET
 
 track.analise.title=Análise de Negócios
-track.analise.desc=In more and more complex scenarios, business analysis can be the key to generate the maximum value with minimal investment
+track.analise.desc=Recomendar soluções para que uma organização atinja seus objetivos
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
 track.arquitetura.title=Arquitetura
-track.arquitetura.desc=Pluggable architecture, scalable, resilient and polyglot. A world of opportunities.
+track.arquitetura.desc=Tendências, tecnologias, futuro e o arquiteto!
 arquitetura.label=Arquitetura
 arquitetura.leaderboard=Arquitetura
 
-track.mobile.title=Mobile
-track.mobile.desc=News and trends in the mobile universe
-mobile.label=Mobile
-mobile.leaderboard=Mobile
+track.bigdata.title=BigData
+track.bigdata.desc=Do relacional ao NoSQL, da estatística a Machine learning, passando por BigData
+bigdata.label=BigData
+bigdata.leaderboard=BigData
+
+track.cloud.title=Cloud
+track.cloud.desc=Utilizando o poder da nuvem em seu favor
+cloud.label=Cloud
+cloud.leaderboard=Cloud
+
+track.ios.title=iOS
+track.ios.desc=Suba de nível em relação as tecnologias de desenvolvimento Apple
+ios.label=iOS
+ios.leaderboard=iOS
+
+track.java.title=Java
+track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+java.label=Java
+java.leaderboard=Java
+
+track.management.title=Management 3.0
+track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
+management.label=Management 3.0
+management.leaderboard=Management 3.0
+
+track.php.title=PHP
+track.php.desc=É para quem leva a carreira a sério!
+php.label=PHP
+php.leaderboard=PHP
 
 track.ruby.title=Ruby
-track.ruby.desc=Agility, productivity and good practice
+track.ruby.desc=Agilidade, produtividade e boas práticas
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=Validating ideas and building user-centric business
+track.uxdesign.desc=Validando ideias e construindo negócios centrados no usuário
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
-track.education.title=Education
-track.education.desc=Education strategies in technology courses to suit market demands and technological development!
-education.label=Education
-education.leaderboard=Education
+track.xamarin.title=Xamarin
+track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C#
+xamarin.label=Xamarin
+xamarin.leaderboard=Xamarin
 
-track.python.title=Python
-track.python.desc=Learn Pythonic lifestyle!
-python.label=Python
-python.leaderboard=Python
+track.pfuncional.title=Programação Funcional
+track.pfuncional.desc=Mais do que conceitos alienígenas, produtividade e segurança!
+pfuncional.label=Programação Funcional
+pfuncional.leaderboard=Programação Funcional
 
-track.infraagil.title=Infraestrutura Ágil
-track.infraagil.desc=Breaking paradigms, developing your infrastructure and delivering the WOW to your client !!!
-infraagil.label=Infraestrutura Ágil
-infraagil.leaderboard=Infraestrutura Ágil
+track.dinamicas.title=Dinâmicas e Facilitações
+track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes! Venha participar conosco!
+dinamicas.label=Dinâmicas e Facilitações
+dinamicas.leaderboard=Dinâmicas e Facilitações
 
+track.javaee.title=Java EE
+track.javaee.desc=A plataforma líder para backend em constante evolução
+javaee.label=Java EE
+javaee.leaderboard=Java EE
+
+track.frameworksjs.title=Frameworks JavaScript
+track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
+frameworksjs.label=Frameworks JavaScript
+frameworksjs.leaderboard=Frameworks JavaScript
+
+track.javascript.title=JavaScript
+track.javascript.desc=Always bet on JS!
+javascript.label=JavaScript
+javascript.leaderboard=JavaScript
 
 track.agile.title=Agile
-track.agile.desc=15 years of agility, what we have contributed so far?
+track.agile.desc=Já passamos da adolescência ágil. Está na hora de assumir mais responsabilidades.
 agile.label=Agile
 agile.leaderboard=Agile
 
-track.java.title=Java
-track.java.desc=Meet the main novelties of Java language and platform
-java.label=Java
-java.leaderboard=Java
-
-track.games.title=Games
-track.games.desc=Do to learn
-games.label=Games
-games.leaderboard=Games
-
-track.fintech.title=Fintech
-track.fintech.desc=Financial technology in the service of comfort
-fintech.label=Fintech
-fintech.leaderboard=Fintech
-
 track.dthinking.title=Design Thinking
-track.dthinking.desc=Mostrar que Design Thinking é prática diária
+track.dthinking.desc=Inovando em tecnologia e centrado no cliente
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
-track.empreende.title=Empreendedorismo
-track.empreende.desc=Entrepreneur in Focus
-empreende.label=entrepreneurship
-empreende.leaderboard=Empreendedorismo
+track.devops.title=DevOps
+track.devops.desc=Maximizando a integração entre equipes para entregar valor
+devops.label=DevOps
+devops.leaderboard=DevOps
 
-track.arduino.title=Arduino e Makers
-track.arduino.desc=Learning and Innovating in Practice
-arduino.label=Arduino e Makers
-arduino.leaderboard=Arduino e Makers
+track.iot.title=Internet das Coisas
+track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado às nossas coisas do dia-a-dia
+iot.label=Internet das Coisas
+iot.leaderboard=Internet das Coisas
 
-track.dotnet.title=.NET
-track.dotnet.desc=Microsoft closer and closer to community
-dotnet.label=.NET
-dotnet.leaderboard=.NET
+track.microservices.title=Microservices
+track.microservices.desc=Arquitetura já consolidada no mercado, vai ficar de fora?
+microservices.label=Microservices
+microservices.leaderboard=Microservices
 
+track.python.title=Python
+track.python.desc=Aprenda o estilo de vida Pythonico!
+python.label=Python
+python.leaderboard=Python
 
-track.banco.title=Banco de Dados
-track.banco.desc=Meet the main resources of agnostic relational database of manufacturer
-banco.label=Banco de Dados
-banco.leaderboard=Banco de Dados
+track.testes.title=Testes
+track.testes.desc=Sem teste, sem chances!
+testes.label=Testes
+testes.leaderboard=Testes
 
-track.realidade.title=Realidade Aumentada
-track.realidade.desc=Mixed Reality a new look of the future
-realidade.label=Realidade Aumentada
-realidade.leaderboard=Realidade Aumentada
+track.android.title=Android
+track.android.desc=Domine a plataforma que domina o mundo
+android.label=Android
+android.leaderboard=Android
 
-track.impressao.title=Impressão 3D
-track.impressao.desc=Here we print the Future!
-impressao.label=Impressão 3D
-impressao.leaderboard=Impressão 3D
+track.mobile.title=Mobile
+track.mobile.desc=Novidades e tendências do universo do desenvolvimento de aplicativos móveis
+mobile.label=Mobile
+mobile.leaderboard=Mobile
+
+track.nosql.title=NoSQL
+track.nosql.desc=---
+nosql.label=NoSQL
+nosql.leaderboard=NoSQL
+
+track.startups.title=Startups
+track.startups.desc=---
+startups.label=Startups
+startups.leaderboard=Startups
 
 
 # confirm import
