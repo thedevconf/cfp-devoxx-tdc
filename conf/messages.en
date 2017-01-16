@@ -205,10 +205,10 @@ track.cloud.desc=Utilizando o poder da nuvem em seu favor
 cloud.label=Cloud
 cloud.leaderboard=Cloud
 
-track.nosql.title=DataScience e Machine Learning
-track.nosql.desc=---
-nosql.label=DataScience
-nosql.leaderboard=DataScience
+track.datascience.title=DataScience e Machine Learning
+track.datascience.desc=---
+datascience.label=DataScience
+datascience.leaderboard=DataScience
 
 track.dinamicas.title=Dinâmicas e Facilitações
 track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes! Venha participar conosco!
