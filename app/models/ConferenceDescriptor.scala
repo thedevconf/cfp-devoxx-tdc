@@ -780,7 +780,7 @@ object ConferenceDescriptor {
       faq = "http://cfp.thedevconf.com.br/faq",
       registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
-      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-dev.thedevconf.com.br")
+      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
       datesI18nKey = "3 a 6 de Maio de 2017",
@@ -790,7 +790,7 @@ object ConferenceDescriptor {
       firstDayEn = "may 3th",
       datesFr = "du 3 au 6 may 2017",
       datesEn = "from 3th to 6th of May, 2017",
-      cfpOpenedOn = DateTime.parse("2017-01-11T00:00:00-03:00"),
+      cfpOpenedOn = DateTime.parse("2017-01-16T14:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2017-02-17T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2017-02-24T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
