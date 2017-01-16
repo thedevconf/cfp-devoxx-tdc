@@ -235,13 +235,13 @@ object ConferenceDescriptor {
     val TESTES = Track("testes", "testes.label")
     val ANDROID = Track("android", "android.label")
     val MOBILE = Track("mobile", "mobile.label")
-    val NOSQL = Track("nosql", "nosql.label")
+    val DATASCIENCE = Track("datascience", "datascience.label")
     val STARTUPS = Track("startups", "startups.label")
 
-    val ALL = List(DOTNET, ANALISE, ARQUITETURA, BIGDATA, CLOUD, IOS, JAVA,
-      MANAGEMENT, PHP, RUBY, UXDESIGN, XAMARIN, PFUNCIONAL, DINAMICAS,
-      JAVAEE, FRAMEWORKSJS, JAVASCRIPT, AGILE, DTHINKING, DEVOPS, IOT,
-      MICROSERVICES, PYTHON, TESTES, ANDROID, MOBILE, NOSQL, STARTUPS)
+    val ALL = List(DOTNET, AGILE, ANALISE, ANDROID, ARQUITETURA, BIGDATA, CLOUD,
+      DATASCIENCE, DTHINKING, DEVOPS, DINAMICAS, FRAMEWORKSJS, IOS, IOT,
+      JAVA, JAVAEE, JAVASCRIPT, MANAGEMENT, MICROSERVICES, MOBILE,
+      PHP, PFUNCIONAL, PYTHON, RUBY, STARTUPS, TESTES, UXDESIGN, XAMARIN)
 
   }
 
@@ -281,8 +281,7 @@ object ConferenceDescriptor {
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
     val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_android.png", "track.android.title", "track.android.desc")
     val MOBILE = TrackDesc(ConferenceTracks.MOBILE.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.mobile.title", "track.mobile.desc")
-    // nosql
-    val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.nosql.title", "track.nosql.desc")
+    val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/tdc2016poa/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
     // startups
     val STARTUPS = TrackDesc(ConferenceTracks.STARTUPS.id, "/assets/tdc2016poa/images/icon_empreende.png", "track.startups.title", "track.startups.desc")
 
@@ -293,7 +292,6 @@ object ConferenceDescriptor {
         val INFRAAGIL = TrackDesc(ConferenceTracks.INFRAAGIL.id, "/assets/tdc2016poa/images/icon_infraagil.png", "track.infraagil.title", "track.infraagil.desc")
         val FINTECH = TrackDesc(ConferenceTracks.FINTECH.id, "/assets/tdc2016poa/images/icon_fintech.png", "track.fintech.title", "track.fintech.desc")
         val EDUCATION = TrackDesc(ConferenceTracks.EDUCATION.id, "/assets/tdc2016poa/images/icon_education.png", "track.education.title", "track.education.desc")
-        val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/tdc2016poa/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
         val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
         val GROWTH = TrackDesc(ConferenceTracks.GROWTH.id, "/assets/tdc2016poa/images/icon_growth.png", "track.growth.title", "track.growth.desc")
         val EMPREENDE = TrackDesc(ConferenceTracks.EMPREENDE.id, "/assets/tdc2016poa/images/icon_empreende.png", "track.empreende.title", "track.empreende.desc")
@@ -301,10 +299,10 @@ object ConferenceDescriptor {
         val IMPRESSAO = TrackDesc(ConferenceTracks.IMPRESSAO.id, "/assets/tdc2016poa/images/icon_impressao3d.png", "track.impressao.title", "track.impressao.desc")
     */
 
-    val ALL = List(DOTNET, ANALISE, ARQUITETURA, BIGDATA, CLOUD, IOS, JAVA,
-      MANAGEMENT, PHP, RUBY, UXDESIGN, XAMARIN, PFUNCIONAL, DINAMICAS,
-      JAVAEE, FRAMEWORKSJS, JAVASCRIPT, AGILE, DTHINKING, DEVOPS, IOT,
-      MICROSERVICES, PYTHON, TESTES, ANDROID, MOBILE, NOSQL, STARTUPS)
+    val ALL = List(DOTNET, AGILE, ANALISE, ANDROID, ARQUITETURA, BIGDATA, CLOUD,
+      DATASCIENCE, DTHINKING, DEVOPS, DINAMICAS, FRAMEWORKSJS, IOS, IOT,
+      JAVA, JAVAEE, JAVASCRIPT, MANAGEMENT, MICROSERVICES, MOBILE,
+      PHP, PFUNCIONAL, PYTHON, RUBY, STARTUPS, TESTES, UXDESIGN, XAMARIN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
@@ -780,7 +778,7 @@ object ConferenceDescriptor {
       faq = "http://cfp.thedevconf.com.br/faq",
       registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
-      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp.thedevconf.com.br")
+      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-flp.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
       datesI18nKey = "3 a 6 de Maio de 2017",
@@ -790,7 +788,7 @@ object ConferenceDescriptor {
       firstDayEn = "may 3th",
       datesFr = "du 3 au 6 may 2017",
       datesEn = "from 3th to 6th of May, 2017",
-      cfpOpenedOn = DateTime.parse("2017-01-16T14:00:00-03:00"),
+      cfpOpenedOn = DateTime.parse("2017-01-17T14:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2017-02-17T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2017-02-24T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))

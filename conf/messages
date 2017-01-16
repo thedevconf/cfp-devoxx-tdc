@@ -175,18 +175,28 @@ track.dotnet.desc=.NET em todas as plataformas!
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
+track.agile.title=Agile
+track.agile.desc=Já passamos da adolescência ágil. Está na hora de assumir mais responsabilidades.
+agile.label=Agile
+agile.leaderboard=Agile
+
 track.analise.title=Análise de Negócios
 track.analise.desc=Recomendar soluções para que uma organização atinja seus objetivos
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
+
+track.android.title=Android
+track.android.desc=Domine a plataforma que domina o mundo
+android.label=Android
+android.leaderboard=Android
 
 track.arquitetura.title=Arquitetura
 track.arquitetura.desc=Tendências, tecnologias, futuro e o arquiteto!
 arquitetura.label=Arquitetura
 arquitetura.leaderboard=Arquitetura
 
-track.bigdata.title=BigData
-track.bigdata.desc=Do relacional ao NoSQL, da estatística a Machine learning, passando por BigData
+track.bigdata.title=BigData e NoSQL
+track.bigdata.desc=---
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
@@ -195,70 +205,15 @@ track.cloud.desc=Utilizando o poder da nuvem em seu favor
 cloud.label=Cloud
 cloud.leaderboard=Cloud
 
-track.ios.title=iOS
-track.ios.desc=Suba de nível em relação as tecnologias de desenvolvimento Apple
-ios.label=iOS
-ios.leaderboard=iOS
-
-track.java.title=Java
-track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
-java.label=Java
-java.leaderboard=Java
-
-track.management.title=Management 3.0
-track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
-management.label=Management 3.0
-management.leaderboard=Management 3.0
-
-track.php.title=PHP
-track.php.desc=É para quem leva a carreira a sério!
-php.label=PHP
-php.leaderboard=PHP
-
-track.ruby.title=Ruby
-track.ruby.desc=Agilidade, produtividade e boas práticas
-ruby.label=Ruby
-ruby.leaderboard=Ruby
-
-track.uxdesign.title=UX Design
-track.uxdesign.desc=Validando ideias e construindo negócios centrados no usuário
-uxdesign.label=UX Design
-uxdesign.leaderboard=UX Design
-
-track.xamarin.title=Xamarin
-track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C#
-xamarin.label=Xamarin
-xamarin.leaderboard=Xamarin
-
-track.pfuncional.title=Programação Funcional
-track.pfuncional.desc=Mais do que conceitos alienígenas, produtividade e segurança!
-pfuncional.label=Programação Funcional
-pfuncional.leaderboard=Programação Funcional
+track.nosql.title=DataScience e Machine Learning
+track.nosql.desc=---
+nosql.label=DataScience
+nosql.leaderboard=DataScience
 
 track.dinamicas.title=Dinâmicas e Facilitações
 track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes! Venha participar conosco!
 dinamicas.label=Dinâmicas e Facilitações
 dinamicas.leaderboard=Dinâmicas e Facilitações
-
-track.javaee.title=Java EE
-track.javaee.desc=A plataforma líder para backend em constante evolução
-javaee.label=Java EE
-javaee.leaderboard=Java EE
-
-track.frameworksjs.title=Frameworks JavaScript
-track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
-frameworksjs.label=Frameworks JavaScript
-frameworksjs.leaderboard=Frameworks JavaScript
-
-track.javascript.title=JavaScript
-track.javascript.desc=Always bet on JS!
-javascript.label=JavaScript
-javascript.leaderboard=JavaScript
-
-track.agile.title=Agile
-track.agile.desc=Já passamos da adolescência ágil. Está na hora de assumir mais responsabilidades.
-agile.label=Agile
-agile.leaderboard=Agile
 
 track.dthinking.title=Design Thinking
 track.dthinking.desc=Inovando em tecnologia e centrado no cliente
@@ -270,45 +225,90 @@ track.devops.desc=Maximizando a integração entre equipes para entregar valor
 devops.label=DevOps
 devops.leaderboard=DevOps
 
+track.frameworksjs.title=Frameworks JavaScript
+track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
+frameworksjs.label=Frameworks JavaScript
+frameworksjs.leaderboard=Frameworks JavaScript
+
 track.iot.title=Internet das Coisas
 track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado às nossas coisas do dia-a-dia
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
+
+track.ios.title=iOS
+track.ios.desc=Suba de nível em relação as tecnologias de desenvolvimento Apple
+ios.label=iOS
+ios.leaderboard=iOS
+
+track.java.title=Java
+track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+java.label=Java
+java.leaderboard=Java
+
+track.javaee.title=Java EE
+track.javaee.desc=A plataforma líder para backend em constante evolução
+javaee.label=Java EE
+javaee.leaderboard=Java EE
+
+track.javascript.title=JavaScript
+track.javascript.desc=Always bet on JS!
+javascript.label=JavaScript
+javascript.leaderboard=JavaScript
+
+track.management.title=Management 3.0
+track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
+management.label=Management 3.0
+management.leaderboard=Management 3.0
 
 track.microservices.title=Microservices
 track.microservices.desc=Arquitetura já consolidada no mercado, vai ficar de fora?
 microservices.label=Microservices
 microservices.leaderboard=Microservices
 
+track.mobile.title=Mobile
+track.mobile.desc=Novidades e tendências do universo do desenvolvimento de aplicativos móveis
+mobile.label=Mobile
+mobile.leaderboard=Mobile
+
+track.php.title=PHP
+track.php.desc=É para quem leva a carreira a sério!
+php.label=PHP
+php.leaderboard=PHP
+
+track.pfuncional.title=Programação Funcional
+track.pfuncional.desc=Mais do que conceitos alienígenas, produtividade e segurança!
+pfuncional.label=Programação Funcional
+pfuncional.leaderboard=Programação Funcional
+
 track.python.title=Python
-track.python.desc=Aprenda o estilo de vida Pythonico!
+track.python.desc=Pessoas > Tecnologia
 python.label=Python
 python.leaderboard=Python
+
+track.ruby.title=Ruby
+track.ruby.desc=Agilidade, produtividade e boas práticas
+ruby.label=Ruby
+ruby.leaderboard=Ruby
+
+track.startups.title=Startups
+track.startups.desc=---
+startups.label=Startups
+startups.leaderboard=Startups
 
 track.testes.title=Testes
 track.testes.desc=Sem teste, sem chances!
 testes.label=Testes
 testes.leaderboard=Testes
 
-track.android.title=Android
-track.android.desc=Domine a plataforma que domina o mundo
-android.label=Android
-android.leaderboard=Android
+track.uxdesign.title=UX Design
+track.uxdesign.desc=Validando ideias e construindo negócios centrados no usuário
+uxdesign.label=UX Design
+uxdesign.leaderboard=UX Design
 
-track.mobile.title=Mobile
-track.mobile.desc=Novidades e tendências do universo do desenvolvimento de aplicativos móveis
-mobile.label=Mobile
-mobile.leaderboard=Mobile
-
-track.nosql.title=NoSQL
-track.nosql.desc=---
-nosql.label=NoSQL
-nosql.leaderboard=NoSQL
-
-track.startups.title=Startups
-track.startups.desc=---
-startups.label=Startups
-startups.leaderboard=Startups
+track.xamarin.title=Xamarin
+track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C#
+xamarin.label=Xamarin
+xamarin.leaderboard=Xamarin
 
 
 # confirm import
