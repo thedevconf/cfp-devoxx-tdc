@@ -404,10 +404,10 @@ object Authentication extends Controller {
 
           val lang = request.headers.get("Accept-Language").map {
             s =>
-              if (s.contains("fr_FR")) {
-                "fr"
-              } else {
+              if (s.contains("en")) {
                 "en"
+              } else {
+                "pt"
               }
           }
           val newSpeaker = Speaker.createSpeaker(validWebuser.uuid, email, validWebuser.lastName, StringUtils.abbreviate(bio, 750), lang, twitter, avatarUrl, company, blog, validWebuser.firstName, qualifications)

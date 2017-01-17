@@ -317,7 +317,7 @@ confirm.import.save=Gravar
 avatarUrl.isEmpty=URL para foto está vazia, então tentaremos usar seu
 avatarUrl.defined=Sua foto (tamanho recomendado 150px)
 
-created.title=Sucesso!
+submeta sua palestra até 14 de fevereirocreated.title=Sucesso!
 created.text1=Acabamos de lhe enviar um email para que você possa validar seu endereço de email.
 created.text2=Seu access code foi gerado e será mostrado assim que validar seu email.
 created.text3=Você poderá então entrar e começar a usar o website do {0}.

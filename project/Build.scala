@@ -9,7 +9,7 @@ import play.Project._
  */
 object ApplicationBuild extends Build {
 
-  val appName = "cfp-devoxxfr"
+  val appName = "cfp-tdc"
   val appVersion = "1.3-SNAPSHOT"
 
   val appDependencies = Seq(
