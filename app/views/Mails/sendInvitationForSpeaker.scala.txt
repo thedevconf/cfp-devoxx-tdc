@@ -1,7 +1,7 @@
 @(message:String,requestId:String)
 
 --------------------------------------------------
-                TDC 2016
+                @Messages("longYearlyName")
 --------------------------------------------------
 
 @message
@@ -18,7 +18,7 @@ Se você ficou interessado e gostaria de propor uma palestra :
   Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
 
 Obrigado,
-Equipe TDC 2016 POA CFP.
+Equipe Equipe @Messages("longName")
 
 --------------------------------------------------
 
@@ -36,5 +36,5 @@ If you are interested and you would like to propose a talk :
   Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
 
 Thanks,
-The TDC 2016 POA CFP team.
+The Equipe @Messages("longName") team.
 
