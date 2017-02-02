@@ -89,12 +89,21 @@ object Review {
       Review.computeAndGenerateVotes()
   }
 
+  /*
+  * Returns all the proposals for review if the user is admin,
+  * otherwise returns only the proposals on the tracks the user is trackleader
+  */
   def allProposalsNotReviewed(reviewerUUID: String): List[Proposal] = Redis.pool.withClient {
     implicit client =>
       // Take all SUBMITTED, remove approved and refused, then removed the ones already reviewed
       val allProposalIDsForReview = client.sdiff(s"Proposals:ByState:${ProposalState.SUBMITTED.code}", "ApprovedById:",
         "RefusedById:", s"Proposals:Reviewed:ByAuthor:$reviewerUUID")
-      Proposal.loadProposalByIDs(allProposalIDsForReview, ProposalState.SUBMITTED)
+      val allProposalsForReview = Proposal.loadProposalByIDs(allProposalIDsForReview, ProposalState.SUBMITTED)
+      if(Webuser.hasAccessToAdmin(reviewerUUID)) {
+        allProposalsForReview
+      } else {
+        allProposalsForReview.filter(p => TrackLeader.isTrackLeader(p.track.id, reviewerUUID))
+      }
   }
 
   def deleteVoteForProposal(proposalId: String) = Redis.pool.withClient {
