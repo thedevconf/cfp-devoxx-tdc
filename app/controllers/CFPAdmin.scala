@@ -273,7 +273,15 @@ object CFPAdmin extends SecureCFPController {
           val uuid = request.webuser.uuid
           val allMyVotes = Review.allVotesFromUser(uuid)
           val allProposalIDs = allMyVotes.map(_._1)
-          val allProposalsForProposalType = Proposal.loadAndParseProposals(allProposalIDs).filter(_._2.talkType == pType)
+
+          //reads all proposals for admin users otherwise only the proposals in tracks the user is leader
+          val allProposalsForProposalType =
+            if(Webuser.hasAccessToAdmin(uuid))
+              Proposal.loadAndParseProposals(allProposalIDs).filter(_._2.talkType == pType)
+            else
+              Proposal.loadAndParseProposals(allProposalIDs).filter(_._2.talkType == pType)
+                .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,uuid))
+
           val allProposalsIdsProposalType = allProposalsForProposalType.keySet
 
           val allMyVotesForSpecificProposalType = allMyVotes.filter{
@@ -364,16 +372,24 @@ object CFPAdmin extends SecureCFPController {
   def allVotes(confType: String, track: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
+      val requesterUUID = request.webuser.uuid
+
       val reviews: Map[String, (Score, TotalVoter, TotalAbst, AverageNote, StandardDev)] = Review.allVotes()
       val totalApproved = ApprovedProposal.countApproved(confType)
 
-      val allProposals = Proposal.loadAndParseProposals(reviews.keySet)
+      //reads all proposals for admin users otherwise only the proposals in tracks the user is leader
+      val allProposals =
+        if(Webuser.hasAccessToAdmin(requesterUUID))
+          Proposal.loadAndParseProposals(reviews.keySet)
+        else
+          Proposal.loadAndParseProposals(reviews.keySet)
+                  .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,requesterUUID))
 
       val listOfProposals = reviews.flatMap {
         case (proposalId, scoreAndVotes) =>
           val maybeProposal = allProposals.get(proposalId)
           maybeProposal match {
-            case None => play.Logger.of("CFPAdmin").error(s"Unable to load proposal id $proposalId")
+            case None => //play.Logger.of("CFPAdmin").error(s"Unable to load proposal id $proposalId")
               None
             case Some(p) => {
               val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
@@ -387,10 +403,11 @@ object CFPAdmin extends SecureCFPController {
         case "all" => listOfProposals
         case filterType => listOfProposals.filter(_._1.talkType.id == filterType)
       }
+
       val listToDisplay = track match {
-        case None => tempListToDisplay
-        case Some(trackId) => tempListToDisplay.filter(_._1.track.id == trackId)
-      }
+          case None => tempListToDisplay
+          case Some(trackId) => tempListToDisplay.filter(_._1.track.id == trackId)
+        }
 
       val totalRemaining = ApprovedProposal.remainingSlots(confType)
       Ok(views.html.CFPAdmin.allVotes(listToDisplay.toList, totalApproved, totalRemaining, confType))
