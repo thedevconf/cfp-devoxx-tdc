@@ -426,9 +426,22 @@ object CFPAdmin extends SecureCFPController {
       Redirect(routes.CFPAdmin.allSponsorTalks()).flashing("success" -> s"Removed sponsor talk on $proposalId")
   }
 
+  /**
+    *
+    * lists all proposals by track if the user is admin
+    * otherwise lists the proposals if the user is trackleader of the requested track
+    *
+    * @param track
+    * @return
+    */
   def allProposalsByTrack(track: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      val proposals = Proposal.allSubmitted().filter(_.track.id == track.getOrElse(""))
+      val uuid = request.webuser.uuid
+      val proposals =
+        if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(track.getOrElse(""),uuid))
+          Proposal.allSubmitted().filter(_.track.id == track.getOrElse(""))
+        else
+          Nil
       Ok(views.html.CFPAdmin.allProposalsByTrack(proposals, track.getOrElse("")))
   }
 

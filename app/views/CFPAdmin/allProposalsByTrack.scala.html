@@ -20,8 +20,14 @@
                     <div class="panel-body">
                         <div class="col-md-12">
 
-                            @ConferenceDescriptor.ConferenceTracks.ALL.map{track=>
-                                <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                            @if(SecureCFPController.hasAccessToAdmin(req)){
+                                @ConferenceDescriptor.ConferenceTracks.ALL.map{track=>
+                                    <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                                }
+                            } else {
+                                @ConferenceDescriptor.ConferenceTracks.ALL.filter(track => SecureCFPController.hasAccessToTrack(track.id)).map{track=>
+                                    <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                                }
                             }
 
                             @if(flash.get("error").isDefined) {

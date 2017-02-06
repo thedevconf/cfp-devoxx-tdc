@@ -25,7 +25,7 @@ package controllers
 
 import javax.crypto.IllegalBlockSizeException
 
-import models.Webuser
+import models.{TrackLeader, Webuser}
 import play.api.i18n.Messages
 import play.api.libs.Crypto
 import play.api.libs.json.Json
@@ -215,6 +215,12 @@ object SecureCFPController {
 
   def isLoggedIn(implicit request: RequestHeader): Boolean = {
     findAuthenticator.isDefined
+  }
+
+  def hasAccessToTrack(trackId:String)(implicit request: RequestHeader): Boolean = {
+    findAuthenticator.exists(uuid =>
+      TrackLeader.isTrackLeader(trackId,uuid)
+    )
   }
 
   def hasAccessToCFP(implicit request: RequestHeader): Boolean = {
