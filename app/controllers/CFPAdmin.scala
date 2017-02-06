@@ -426,10 +426,10 @@ object CFPAdmin extends SecureCFPController {
       Redirect(routes.CFPAdmin.allSponsorTalks()).flashing("success" -> s"Removed sponsor talk on $proposalId")
   }
 
-  def allProposalsByTrack(track: String) = SecuredAction(IsMemberOf("cfp")) {
+  def allProposalsByTrack(track: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      val proposals = Proposal.allSubmitted().filter(_.track.id == track)
-      Ok(views.html.CFPAdmin.allProposalsByTrack(proposals, track))
+      val proposals = Proposal.allSubmitted().filter(_.track.id == track.getOrElse(""))
+      Ok(views.html.CFPAdmin.allProposalsByTrack(proposals, track.getOrElse("")))
   }
 
   def allProposalsByType(confType: String) = SecuredAction(IsMemberOf("cfp")) {

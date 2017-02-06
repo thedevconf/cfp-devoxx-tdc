@@ -38,7 +38,7 @@
 		            <a href="@routes.CFPAdmin.allMyVotes()" class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.myvotes")</a>
                     <a href='@routes.CFPAdmin.allVotes("all",None)' class="btn btn-sm btn-warning"><i class="icon-large"></i><i class="icon-adjust"></i> @Messages("admin.btn.allvotes")</a>
                     <a href="@routes.CFPAdmin.newOrEditSpeaker(None)" class="btn btn-sm btn-primary"><i class="icon-umbrella"></i> @Messages("admin.btn.createNewspeaker")</a>
-		            <a href='@routes.CFPAdmin.allProposalsByTrack("testes")' class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.allByTrack")</a>
+		            <a href='@routes.CFPAdmin.allProposalsByTrack(None)' class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.allByTrack")</a>
                     </div>
 
 
@@ -60,7 +60,7 @@
                                         @proposal.title
                                     </td>
                                     <td>
-					<a href="@routes.CFPAdmin.allProposalsByTrack(proposal.track.id)">@Messages(proposal.track.label)</a>
+					<a href="@routes.CFPAdmin.allProposalsByTrack(Option(proposal.track.id))">@Messages(proposal.track.label)</a>
                                     </td>
                                     <td>
                                         @tags.renderGravatar(proposal.mainSpeaker)

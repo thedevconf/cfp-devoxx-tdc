@@ -15,7 +15,7 @@
                                                    <th>@Messages("admin.proposals.th.title")</th>
                                                    <th>
                                                    @Messages("admin.proposals.th.track")
-                                                    <small><a href="@routes.CFPAdmin.allProposalsByTrack(proposal.track.id)" alt="See all" title="See all proposals by track"><i class="icon-arrow-right"></i> </a></small>
+                                                    <small><a href="@routes.CFPAdmin.allProposalsByTrack(Option(proposal.track.id))" alt="See all" title="See all proposals by track"><i class="icon-arrow-right"></i> </a></small>
                                                    </th>
 
                                                    <th>@Messages("admin.proposals.th.talkType")
@@ -63,7 +63,9 @@
                                 <td>
                                 <div class="showSpeakerDetails">
                                 @tags.showSpeakerBioOverview(proposal.mainSpeaker, proposalsByAuths(proposal.mainSpeaker), currentUser)
+                                </div>
                                 </td>
+                            </tr>
                             </tr>
                             @if(proposal.secondarySpeaker.isDefined) {
                                 <tr>

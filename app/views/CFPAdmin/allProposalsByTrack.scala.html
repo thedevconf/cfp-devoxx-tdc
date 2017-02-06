@@ -21,7 +21,7 @@
                         <div class="col-md-12">
 
                             @ConferenceDescriptor.ConferenceTracks.ALL.map{track=>
-                                <a href="@routes.CFPAdmin.allProposalsByTrack(track.id)" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                                <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
                             }
 
                             @if(flash.get("error").isDefined) {
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
 <script type="text/javascript">
 $(document).ready(function() {
 
