@@ -196,7 +196,7 @@ arquitetura.label=Arquitetura
 arquitetura.leaderboard=Arquitetura
 
 track.bigdata.title=BigData e NoSQL
-track.bigdata.desc=---
+track.bigdata.desc=Rompendo as barreiras da persistência de dados
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
@@ -206,7 +206,7 @@ cloud.label=Cloud
 cloud.leaderboard=Cloud
 
 track.datascience.title=DataScience e Machine Learning
-track.datascience.desc=---
+track.datascience.desc=Da aquisição à geração de valor, todo o potencial dos dados a seu favor
 datascience.label=DataScience
 datascience.leaderboard=DataScience
 
@@ -291,7 +291,7 @@ ruby.label=Ruby
 ruby.leaderboard=Ruby
 
 track.startups.title=Startups
-track.startups.desc=---
+track.startups.desc=Inovar para o seu tempo!
 startups.label=Startups
 startups.leaderboard=Startups
 
