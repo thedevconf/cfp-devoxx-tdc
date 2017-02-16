@@ -171,82 +171,82 @@ appel.conf.dates=TDC 2017 Florianópolis, 3th-6th May 2017
 # Tracks
 
 track.dotnet.title=.NET
-track.dotnet.desc=.NET em todas as plataformas!
+track.dotnet.desc=.NET on all platforms!
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.agile.title=Agile
-track.agile.desc=Já passamos da adolescência ágil. Está na hora de assumir mais responsabilidades.
+track.agile.desc=We are past agile teenage years. It's time to take on more responsibilities.
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.analise.title=Análise de Negócios
-track.analise.desc=Recomendar soluções para que uma organização atinja seus objetivos
+track.analise.desc=Recommend solutions for an organization to achieve its goals
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
 track.android.title=Android
-track.android.desc=Domine a plataforma que domina o mundo
+track.android.desc=Master the platform that dominates the world
 android.label=Android
 android.leaderboard=Android
 
 track.arquitetura.title=Arquitetura
-track.arquitetura.desc=Tendências, tecnologias, futuro e o arquiteto!
+track.arquitetura.desc=Trends, technologies, future and the architect!
 arquitetura.label=Arquitetura
 arquitetura.leaderboard=Arquitetura
 
 track.bigdata.title=BigData e NoSQL
-track.bigdata.desc=Rompendo as barreiras da persistência de dados
+track.bigdata.desc=Breaking the barriers of Data Persistence
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
-track.cloud.title=Cloud
-track.cloud.desc=Utilizando o poder da nuvem em seu favor
+track.cloud.title=Cloud Computing
+track.cloud.desc=Using the power of the cloud in your favor
 cloud.label=Cloud
 cloud.leaderboard=Cloud
 
 track.datascience.title=DataScience e Machine Learning
-track.datascience.desc=Da aquisição à geração de valor, todo o potencial dos dados a seu favor
+track.datascience.desc=From acquisition to value generation, the full potential of the data in your favor
 datascience.label=DataScience
 datascience.leaderboard=DataScience
 
 track.dinamicas.title=Dinâmicas e Facilitações
-track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes! Venha participar conosco!
+track.dinamicas.desc=Through dynamics and facilitation we achieve amazing results! Come and join us!
 dinamicas.label=Dinâmicas e Facilitações
 dinamicas.leaderboard=Dinâmicas e Facilitações
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=Inovando em tecnologia e centrado no cliente
+track.dthinking.desc=Innovating in technology and customer centric
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
 track.devops.title=DevOps
-track.devops.desc=Maximizando a integração entre equipes para entregar valor
+track.devops.desc=Maximizing team integration to deliver value
 devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.frameworksjs.title=Frameworks JavaScript
-track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
+track.frameworksjs.desc=Structuring web applications with quality, predictability and the best in JavaScript
 frameworksjs.label=Frameworks JavaScript
 frameworksjs.leaderboard=Frameworks JavaScript
 
 track.iot.title=Internet das Coisas
-track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado às nossas coisas do dia-a-dia
+track.iot.desc=We have lived in a world connected to the Internet, now this world is integrated into our everyday things
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=Suba de nível em relação as tecnologias de desenvolvimento Apple
+track.ios.desc=Level up in relation to Apple development technologies
 ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+track.java.desc=Come and meet the main novelties of language and Java platform
 java.label=Java
 java.leaderboard=Java
 
 track.javaee.title=Java EE
-track.javaee.desc=A plataforma líder para backend em constante evolução
+track.javaee.desc=The leading platform for ever-evolving backend
 javaee.label=Java EE
 javaee.leaderboard=Java EE
 
@@ -256,57 +256,57 @@ javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
 track.management.title=Management 3.0
-track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
+track.management.desc=Management is so important that it's crazy to just leave it with one person!
 management.label=Management 3.0
 management.leaderboard=Management 3.0
 
 track.microservices.title=Microservices
-track.microservices.desc=Arquitetura já consolidada no mercado, vai ficar de fora?
+track.microservices.desc=Architecture already consolidated in the market, will you be left out?
 microservices.label=Microservices
 microservices.leaderboard=Microservices
 
 track.mobile.title=Mobile
-track.mobile.desc=Novidades e tendências do universo do desenvolvimento de aplicativos móveis
+track.mobile.desc=News and trends in the mobile application development universe
 mobile.label=Mobile
 mobile.leaderboard=Mobile
 
 track.php.title=PHP
-track.php.desc=É para quem leva a carreira a sério!
+track.php.desc=It's for those who take their career seriously!
 php.label=PHP
 php.leaderboard=PHP
 
 track.pfuncional.title=Programação Funcional
-track.pfuncional.desc=Mais do que conceitos alienígenas, produtividade e segurança!
+track.pfuncional.desc=More than alien concepts, productivity and safety!
 pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.python.title=Python
-track.python.desc=Pessoas > Tecnologia
+track.python.desc=People > Technology
 python.label=Python
 python.leaderboard=Python
 
 track.ruby.title=Ruby
-track.ruby.desc=Agilidade, produtividade e boas práticas
+track.ruby.desc=Agility, productivity and good practices
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
 track.startups.title=Startups
-track.startups.desc=Inovar para o seu tempo!
+track.startups.desc=Innovate for your time!
 startups.label=Startups
 startups.leaderboard=Startups
 
 track.testes.title=Testes
-track.testes.desc=Sem teste, sem chances!
+track.testes.desc=No test, no chances!
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=Validando ideias e construindo negócios centrados no usuário
+track.uxdesign.desc=Validating ideas and building user-centric business
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
 track.xamarin.title=Xamarin
-track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C#
+track.xamarin.desc=Create native mobile apps for iOS, Android and Windows Phone using C #
 xamarin.label=Xamarin
 xamarin.leaderboard=Xamarin
 
