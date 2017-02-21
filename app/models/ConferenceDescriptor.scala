@@ -790,7 +790,7 @@ object ConferenceDescriptor {
       datesEn = "from 3th to 6th of May, 2017",
       cfpOpenedOn = DateTime.parse("2017-01-17T14:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2017-02-20T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2017-02-28T00:00:00-03:00"),
+      scheduleAnnouncedOn = DateTime.parse("2017-03-06T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
