@@ -86,7 +86,8 @@ object RestAPI extends Controller {
               }
             )
           )
-          Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag, "Links" -> ("<" + routes.RestAPI.profile("conferences").absoluteURL().toString + ">; rel=\"profile\""))
+          Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
+            "Links" -> ("<" + routes.RestAPI.profile("conferences").absoluteURL().toString + ">; rel=\"profile\""))
         }
       }
   }
@@ -320,6 +321,62 @@ object RestAPI extends Controller {
   def redirectToTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
     implicit request =>
       Redirect(routes.RestAPI.showApprovedTalks(eventCode))
+  }
+
+  def allApprovedTalksByTrack(eventCode: String, track: String) = UserAgentActionAndAllowOrigin {
+    implicit request =>
+
+      val proposals: List[Proposal] =
+        Proposal.allApproved().filter(_.track.id == track)
+
+      val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
+        proposals.map(proposal => (proposal, proposal.allSpeakers))
+
+      val etag = proposals.hashCode.toString
+
+      request.headers.get(IF_NONE_MATCH) match {
+        case Some(tag) if tag == etag => {
+          NotModified
+        }
+        case other => {
+
+          val listaJson = proposalsAndSpeakers.map {
+            par: (Proposal, List[Speaker]) => {
+              val proposal = par._1
+              val speakers = par._2
+              Map(
+                "id" -> Json.toJson(proposal.id),
+                "title" -> Json.toJson(proposal.title),
+                "talkType" -> Json.toJson(Messages(proposal.talkType.id)),
+                "type" -> Json.toJson(proposal.talkType),
+                "lang" -> Json.toJson(proposal.lang),
+                "summary" -> Json.toJson(proposal.summary),
+                "summaryAsHtml" -> Json.toJson(proposal.summaryAsHtml),
+                "track" -> Json.toJson(Messages(proposal.track.label)),
+                "trackId" -> Json.toJson(proposal.track.id),
+                "speakers" -> Json.toJson(speakers.map { speaker =>
+                  Map(
+                    "id" -> Json.toJson(speaker.firstName),
+                    "name" -> Json.toJson(speaker.name),
+                    "email" -> Json.toJson(speaker.email),
+                    "bio" -> Json.toJson(speaker.bio),
+                    "twitter" -> Json.toJson(speaker.twitter),
+                    "avatarUrl" -> Json.toJson(speaker.avatarUrl),
+                    "blog" -> Json.toJson(speaker.blog),
+                    "company" -> Json.toJson(speaker.company)
+                  )
+                })
+              )
+            }
+          }
+
+          val jsonObject = Json.toJson(listaJson)
+
+          Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
+            "Links" -> ("<" + routes.RestAPI.profile("list-of-approved-talks-by-track").absoluteURL() + ">; rel=\"profile\""))
+
+        }
+      }
   }
 
   def showApprovedTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
@@ -766,6 +823,7 @@ object UserAgentActionAndAllowOrigin extends ActionBuilder[Request] with play.ap
     }.getOrElse {
       Future.successful(play.api.mvc.Results.Forbidden("User-Agent is required to interact with " + Messages("longName") + " API"))
     }
+
   }
 }
 
