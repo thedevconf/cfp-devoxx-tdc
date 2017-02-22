@@ -2,6 +2,7 @@
 # Main conference details
 CONF.title=TDC Florianópolis 2017
 CONF.subtitle=FLP
+CONF.dates=3 a 6 de Maio de 2017
 
 # Equivalent to ConferenceNaming
 shortYearlyName=TDC 2017 FLP
@@ -427,6 +428,7 @@ admin.cfp.msg=Mensagem
 admin.cfp.totalEvents=Total de eventos
 previous.page=Página anterior
 next.page=Página seguinte
+top.page=Ir para o topo
 
 admin.proposal=Proposta
 admin.proposals.th.lang=Lang
@@ -1136,3 +1138,8 @@ declined.caps=RECUSADA
 archived.caps=ARQUIVADA
 unknown.caps=DESCONHECIDO
 
+error.message1=Desculpe, há um bug ou algo que nós realmente não esperávamos...
+error.message2.part1=Por favor,
+error.message2.part2=reporte um bug
+error.message2.part3=e especifique
+error.message2.part4=se você acha que isto não é esperado

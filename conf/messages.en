@@ -2,6 +2,7 @@
 # Main conference details
 CONF.title=TDC Florianópolis 2017
 CONF.subtitle=FLP
+CONF.dates=May 3 to 6, 2017
 
 # Equivalent to ConferenceNaming
 shortYearlyName=TDC 2017 FLP
@@ -11,8 +12,8 @@ longName=TDC 2017 FLP CFP
 longSplittedName_whiteStart=TDC
 longSplittedName_colored=2017
 longSplittedName_whiteEnd=FLP
-# -----------------
 cfp.title=TDC 2017 FLP CFP
+# -----------------
 login.error=Invalid email or password
 menu.home=Home
 menu.register=Sign-in
@@ -427,6 +428,7 @@ admin.cfp.msg=Message
 admin.cfp.totalEvents=Total events
 previous.page=Previous page
 next.page=Next page
+top.page=Go to the top
 
 admin.proposal=Proposal
 admin.proposals.th.lang=Lang
@@ -454,7 +456,7 @@ admin.draft.warning=Warning
 admin.draft.warning2=This proposal state is not SUBMITTED, thus you cannot vote this talk.
 admin.draft.warning3=Current proposal state :
 
-newProposal.maxLength=Max size is 1200 characters (including Markdown characters, if you want to use it)
+newProposal.maxLength=Max size is 700 characters (including Markdown characters, if you want to use it)
 preview.txt=Preview Conference guide (sample page)
 tags.renderComment.postedBy=Posted by {0} - {1}
 
@@ -1137,3 +1139,10 @@ backup.caps=BACKUP
 declined.caps=DECLINED
 archived.caps=ARCHIVED
 unknown.caps=UNKNOWN
+
+error.message1=Sorry, there's a bug or something we really didn't expect...
+error.message2.part1=Please,
+error.message2.part2=report a bug
+error.message2.part3=and specify
+error.message2.part4=if you think this is not expected
+
