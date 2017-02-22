@@ -80,6 +80,11 @@
                             }
                             </tbody>
                         </table>
+
+                        <a href="#top" title="Ir para o topo" class="btn">
+                            <h4><i class="icon-angle-up"></i>@Messages("top.page")</h4>
+                        </a>
+
                     } else {
                         <h4>@Messages("admin.cfp.empty")</h4>
                     }
@@ -87,6 +92,8 @@
                 </div>
             </div>
         </div>
+
+
 <!-- eventos exibidos somente para superuser -->
 @if(SecureCFPController.hasAccessToAdmin(req)){
         <div class="col-md-12">
@@ -151,6 +158,11 @@
                         </tfoot>
                     </table>
                 </div>
+
+                <a href="#top" title="Ir para o topo" class="btn">
+                    <h4><i class="icon-angle-up"></i>@Messages("top.page")</h4>
+                </a>
+
             </div>
         </div>
 }
