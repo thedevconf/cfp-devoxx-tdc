@@ -8,6 +8,7 @@ Por favor, acesse este link = @Html(resetUrl)
 
 Não queremos guardar sua senha super secreta, que pode ser a mesma da sua conta no Google. 
 Preferimos gerar um access code randômico para você.  
+Nós também encorajamos você a usar um dos nosos provedores de OpenID como Github, LinkedIn ou Google+. Mais simples, mais seguro, e é show de bola!
 
 Equipe @Messages("longName")
 
@@ -19,7 +20,8 @@ Someone asked to reset your @Messages("longName") password. If it was you, pleas
 
 Please visit this link = @Html(resetUrl)
 
-We don't want to store your super secret password, that might be the same one as your Google Account. We prefer to generate
-a random access code for your. 
+We don't want to store your super secret password, that might be the same one as your Google Account.
+We prefer to generate a random access code for your.
+We also encourage you to use one of our OpenID's providers like Github, LinkedIn or Google+. Simpler, more secure, that just rocks!
 
 @Messages("longName") team

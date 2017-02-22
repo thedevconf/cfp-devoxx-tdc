@@ -4,7 +4,7 @@ Bem-vindo ao @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Olá, @firstName,
 
-Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 600 palestras!
+Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 800 palestras!
 Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
@@ -26,7 +26,7 @@ Por favor, não responda este email. Envie qualquer comentário através do web 
 possível para responder rapidamente.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
-  http://s3-sa-east-1.amazonaws.com/thedevconf/2016/arquivos/template-TDC2016.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
 4. Cortesia para palestrantes
 Você gostaria de participar de outras trilhas do evento?
@@ -38,7 +38,7 @@ Recomendamos que faça sua inscrição assim que receber seu código pois muitas
 Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
   http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
 E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
-  http://www.thedevelopersconference.com.br/tdc/2016/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
 
 Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
 
@@ -51,7 +51,7 @@ Welcome to @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Hi, @firstName,
 
-Thanks again for your submission! The result was amazing, we have received more than 600 submissions!
+Thanks again for your submission! The result was amazing, we have received more than 800 submissions!
 We're glad to inform you that your proposal has been APPROVED:
 Title: <strong>@proposal.title</strong>
 Track: <strong> @Messages(proposal.track.label)
@@ -73,7 +73,7 @@ Please, do not respond to this email. Send any comment through the web interface
 to respond quickly.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
-  http://s3-sa-east-1.amazonaws.com/thedevconf/2016/arquivos/template-TDC2016.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
 4. Reward for Speakers
 Would you like to participate in other event tracks?
@@ -84,7 +84,7 @@ We recommend that you register as soon as you receive your code because many tra
 If you use social networks, take this opportunity to invite you to enjoy ours:
   http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
 And to help us with the event, go to the digital banners page of our website:
-  http://www.thedevelopersconference.com.br/tdc/2016/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
 
 We remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
 

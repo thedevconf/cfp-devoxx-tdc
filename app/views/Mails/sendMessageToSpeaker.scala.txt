@@ -16,7 +16,7 @@ Como responder?
 Por favor, use este link para responder diretamente para a mensagem :
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 
-Não responda este email, por favor use o web site do CFP.
+Não responda este email, por favor use o website do CFP.
 
 Obrigado,
 
@@ -40,7 +40,7 @@ How to respond?
 Please, use this link to respond directly to the message :
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 
-Do not reply to this email, please use the CFP web site.
+Do not reply to this email, please use the CFP website.
 
 Thanks
 
