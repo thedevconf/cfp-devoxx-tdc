@@ -775,7 +775,7 @@ object ConferenceDescriptor {
     bccEmail = Play.current.configuration.getString("mail.bcc"),
     bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@globalcode.com.br"),
     conferenceUrls = ConferenceUrls(
-      faq = "http://cfp.thedevconf.com.br/faq",
+      faq = "http://cfp-flp.thedevconf.com.br/faq",
       registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
       cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-flp.thedevconf.com.br")
@@ -787,7 +787,7 @@ object ConferenceDescriptor {
       firstDayFr = "3 may",
       firstDayEn = "may 3th",
       datesFr = "du 3 au 6 may 2017",
-      datesEn = "from 3th to 6th of May, 2017",
+      datesEn = "May 3rd to 6th, 2017",
       cfpOpenedOn = DateTime.parse("2017-01-17T14:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2017-02-20T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2017-03-06T00:00:00-03:00"),
