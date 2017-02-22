@@ -353,7 +353,7 @@ object CFPAdmin extends SecureCFPController {
   def allSponsorTalks = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
-      val proposals = Proposal.allSponsorsTalk()
+      val proposals = Proposal.allSponsorsTalk().toList.sortBy(_.title)
       Ok(views.html.CFPAdmin.allSponsorTalks(proposals))
   }
 
