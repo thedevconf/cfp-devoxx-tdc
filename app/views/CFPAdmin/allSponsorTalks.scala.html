@@ -8,42 +8,44 @@
     <div class="clearfix"></div>
 
     <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h1 class="panel-title"><i class="icon-bar-chart"></i> @Messages("backoffice.allproposals.sponsor.subtitle")</h1>
-                    @proposals.size @Messages("backoffice.allproposals.sponsor.talks")
-                </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><i class="icon-bar-chart"></i> @Messages("backoffice.allproposals.sponsor.subtitle")</h1>
+                @proposals.size @Messages("backoffice.allproposals.sponsor.talks")
             </div>
         </div>
+    </div>
 
     @proposals.map { proposal =>
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                <div class="panel-body">
-                    <h3>@proposal.title</h3>
-                    <h4>@Messages(proposal.track.label) - <small>@Messages(proposal.talkType.id)</small></h4>
-                    <p><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.id</a></p>
-                    @tags.renderGravatar(proposal.mainSpeaker)
-                    @proposal.secondarySpeaker.map { sc =>
-                        @tags.renderGravatar(sc)
-                    }
-                    @proposal.otherSpeakers.map { s =>
-                        @tags.renderGravatar(s)
-                    }
-                    <h4>@Messages("backoffice.allproposals.sponsor.message")</h4>
-                    <small>
-                        @Html(proposal.privateMessageAsHtml)
-                    </small>
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>@proposal.title</h3>
+            <h4>@Messages(proposal.track.label) - <small>@Messages(proposal.talkType.id)</small></h4>
+            <p><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.id</a></p>
+            @tags.renderGravatar(proposal.mainSpeaker)
+            @proposal.secondarySpeaker.map { sc =>
+                @tags.renderGravatar(sc)
+            }
+            @proposal.otherSpeakers.map { s =>
+                @tags.renderGravatar(s)
+            }
+            <h4>@Messages("backoffice.allproposals.sponsor.message")</h4>
+            <small>
+                @Html(proposal.privateMessageAsHtml)
+            </small>
 
-                    <a href="@routes.CFPAdmin.removeSponsorTalkFlag(proposal.id)" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("remove.sponsorFlag")</a>
-                </div>
-                </div>
-            </div>
+            <a href="@routes.CFPAdmin.removeSponsorTalkFlag(proposal.id)" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("remove.sponsorFlag")</a>
+        </div>
+        </div>
+    </div>
     }
 
-    <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
-        <i class="icon-angle-up"></i> @Messages("top.page")
-    </a>
+    <div class="col-lg-12">
+        <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
+            <i class="icon-angle-up"></i> @Messages("top.page")
+        </a>
+    </div>
 
 </div>
 }
