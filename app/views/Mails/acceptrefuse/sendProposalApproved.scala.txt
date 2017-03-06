@@ -8,7 +8,7 @@ Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível
 Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
-Formato: @Messages(proposal.talkType.id) (ou como foi combinado com os coordenadores)
+Formato: (tempo de palestra conforme combinado com os coordenadores)
 
 ATENÇÃO! Ações necessárias
 --------------------------
