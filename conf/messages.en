@@ -575,6 +575,7 @@ admin.btn.webuser=Administer CFP users
 editSpeakerName=Edit Speaker name
 admin.btn.createNewspeaker=Create a new speaker
 admin.btn.tracklead=Track leader
+admin.btn.howTo=How to...
 
 newSpeaker.title=Create a new speaker
 avatarUrl2=URL of speaker''s photo
@@ -980,6 +981,7 @@ allproposals.submitted.tab=All submitted proposals
 allproposals.columns.title=Title
 allproposals.columns.speaker=Speaker
 allproposals.columns.type=Type
+allproposals.warning=Click the track button as for the talks appear below:
 
 backoffice.allproposals.sponsor.title=Sponsors talks
 backoffice.allproposals.sponsor.subtitle=Proposals from Sponsor or Exhibitor

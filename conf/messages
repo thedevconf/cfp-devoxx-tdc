@@ -573,6 +573,7 @@ admin.btn.webuser=Administrar usuários do CFP
 editSpeakerName=Editar nome do palestrante
 admin.btn.createNewspeaker=Criar um novo palestrante
 admin.btn.tracklead=Coordenador da trilha
+admin.btn.howTo=Como...
 
 newSpeaker.title=Criar um novo palestrante
 avatarUrl2=URL para foto do palestrante
@@ -978,6 +979,7 @@ allproposals.submitted.tab=Todas propostas submetidas
 allproposals.columns.title=Título
 allproposals.columns.speaker=Palestrante
 allproposals.columns.type=Tipo
+allproposals.warning=Clique no botão da trilha para as palestras aparecerem abaixo:
 
 backoffice.allproposals.sponsor.title=Palestras de Patrocinadores
 backoffice.allproposals.sponsor.subtitle=Propostas de Patrocinador ou Expositor

@@ -60,6 +60,7 @@ object RestAPI extends Controller {
         case "tracks" => Ok(views.html.RestAPI.docTrack())
         case "track" => Ok(views.html.RestAPI.docTrack())
         case "room" => Ok(views.html.RestAPI.docRoom())
+        case "approved" => Ok(views.html.RestAPI.docApprovedByTrack())
         case other => NotFound("Sorry, no documentation for this profile")
       }
   }
@@ -323,11 +324,16 @@ object RestAPI extends Controller {
       Redirect(routes.RestAPI.showApprovedTalks(eventCode))
   }
 
-  def allApprovedTalksByTrack(eventCode: String, track: String) = UserAgentActionAndAllowOrigin {
+  def showApprovedTalksByTrack(eventCode: String, track: String) = UserAgentActionAndAllowOrigin {
     implicit request =>
 
-      val proposals: List[Proposal] =
+      val proposalsApproved: List[Proposal] =
         Proposal.allApproved().filter(_.track.id == track)
+
+      val proposalsAccepted: List[Proposal] =
+        Proposal.allAccepted().filter(_.track.id == track)
+
+      val proposals = proposalsApproved ::: proposalsAccepted
 
       val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
         proposals.map(proposal => (proposal, proposal.allSpeakers))
@@ -346,24 +352,19 @@ object RestAPI extends Controller {
               val speakers = par._2
               Map(
                 "id" -> Json.toJson(proposal.id),
-                "title" -> Json.toJson(proposal.title),
-                "talkType" -> Json.toJson(Messages(proposal.talkType.id)),
-                "type" -> Json.toJson(proposal.talkType),
-                "lang" -> Json.toJson(proposal.lang),
-                "summary" -> Json.toJson(proposal.summary),
-                "summaryAsHtml" -> Json.toJson(proposal.summaryAsHtml),
-                "track" -> Json.toJson(Messages(proposal.track.label)),
-                "trackId" -> Json.toJson(proposal.track.id),
-                "speakers" -> Json.toJson(speakers.map { speaker =>
+                "trilha" -> Json.toJson(Messages(proposal.track.label)),
+                "titulo" -> Json.toJson(proposal.title),
+                "tipo" -> Json.toJson(proposal.talkType.label),
+                "descricao" -> Json.toJson(proposal.summaryAsHtml),
+                "palestrantes" -> Json.toJson(speakers.map { speaker =>
                   Map(
-                    "id" -> Json.toJson(speaker.firstName),
-                    "name" -> Json.toJson(speaker.name),
+                    "nome" -> Json.toJson(speaker.cleanName),
                     "email" -> Json.toJson(speaker.email),
-                    "bio" -> Json.toJson(speaker.bio),
+                    "empresa" -> Json.toJson(speaker.company),
+                    "minibio" -> Json.toJson(speaker.bioAsHtml),
                     "twitter" -> Json.toJson(speaker.twitter),
-                    "avatarUrl" -> Json.toJson(speaker.avatarUrl),
-                    "blog" -> Json.toJson(speaker.blog),
-                    "company" -> Json.toJson(speaker.company)
+                    "foto" -> Json.toJson(speaker.avatarUrl),
+                    "blog" -> Json.toJson(speaker.blog)
                   )
                 })
               )
@@ -373,7 +374,7 @@ object RestAPI extends Controller {
           val jsonObject = Json.toJson(listaJson)
 
           Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
-            "Links" -> ("<" + routes.RestAPI.profile("list-of-approved-talks-by-track").absoluteURL() + ">; rel=\"profile\""))
+            "Links" -> ("<" + routes.RestAPI.profile("approved").absoluteURL() + ">; rel=\"profile\""))
 
         }
       }
