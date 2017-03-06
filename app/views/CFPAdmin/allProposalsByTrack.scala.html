@@ -4,81 +4,88 @@
 
 @main(track + ", " + Messages("allproposals.submitted.tab")) {
 
-    <script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables_themeroller.css">
+<script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables_themeroller.css">
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h1 class="panel-title"><i class="icon-bar-chart"></i> @Messages("allproposals.submitted.bytrack") <span class="label label-info">@Messages(AllTracks.find(_.id==track).map(_.label).getOrElse(""))</span></h1>
-                </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><i class="icon-bar-chart"></i> @Messages("allproposals.submitted.bytrack") <span class="label label-info">@Messages(AllTracks.find(_.id==track).map(_.label).getOrElse(""))</span></h1>
+            </div>
 
+            <div class="panel-body">
                 <div class="panel-body">
-                    <div class="panel-body">
-                        <div class="col-md-12">
 
-                            @if(SecureCFPController.hasAccessToAdmin(req)){
-                                @ConferenceDescriptor.ConferenceTracks.ALL.map{track=>
-                                    <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
-                                }
-                            } else {
-                                @ConferenceDescriptor.ConferenceTracks.ALL.filter(track => SecureCFPController.hasAccessToTrack(track.id)).map{track=>
-                                    <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
-                                }
-                            }
-
-                            @if(flash.get("error").isDefined) {
-                                <div class="alert alert-danger alert-dismissable">
-                                    <strong>Error :</strong>
-                                    @flash.get("error").get
-                                </div>
-                            }
-                            @if(flash.get("success").isDefined) {
-                                <div class="alert alert-success alert-dismissable">
-                                @flash.get("success").get
-                                </div>
-                            }
-                            <br>
-                        </div>
-
-                        <div class="col-md-12">
-                            <h3>@Messages("allproposals.submitted", proposals.size)</h3>
-                        </div>
-
-                        <div class="col-md-12">
-                            <table id="allProposals" class="table table-bordered table-hover table-condensed">
-                                <thead>
-                                    <tr>
-                                        <th>@Messages("allproposals.columns.title")</th>
-                                        <th>@Messages("allproposals.columns.speaker")</th>
-                                        <th>@Messages("allproposals.columns.type")</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @proposals.map{ proposal:Proposal =>
-                                        <tr>
-                                            <td>
-                                                <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
-                                            </td>
-                                            <td>
-                                            @tags.renderGravatar(proposal.mainSpeaker,showName = true, showPhoto = false)
-                                            </td>
-                                            <td>
-                                            @Messages(proposal.talkType.id)
-                                            </td>
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-md-12">
+                        <small>@Messages("allproposals.warning")</small>
                     </div>
+
+                    <div class="col-md-12">
+
+                        @if(SecureCFPController.hasAccessToAdmin(req)){
+                        @ConferenceDescriptor.ConferenceTracks.ALL.map{track=>
+                        <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                        }
+                        } else {
+                        @ConferenceDescriptor.ConferenceTracks.ALL.filter(track => SecureCFPController.hasAccessToTrack(track.id)).map{track=>
+                        <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track.id))" class="btn btn-primary btn-sm">@Messages(track.label)</a>
+                        }
+                        }
+
+                        @if(flash.get("error").isDefined) {
+                        <div class="alert alert-danger alert-dismissable">
+                            <strong>Error :</strong>
+                            @flash.get("error").get
+                        </div>
+                        }
+                        @if(flash.get("success").isDefined) {
+                        <div class="alert alert-success alert-dismissable">
+                            @flash.get("success").get
+                        </div>
+                        }
+                        <br>
+                    </div>
+
+                    <div class="col-md-12">
+                        <h3>@Messages("allproposals.submitted", proposals.size)</h3>
+                    </div>
+
+                    <div class="col-md-12">
+                        <table id="allProposals" class="table table-bordered table-hover table-condensed">
+                            <thead>
+                            <tr>
+                                <th>@Messages("allproposals.columns.title")</th>
+                                <th>@Messages("allproposals.columns.speaker")</th>
+                                <th>@Messages("allproposals.columns.type")</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @proposals.map{ proposal:Proposal =>
+                            <tr>
+                                <td>
+                                    <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
+                                </td>
+                                <td>
+                                    @tags.renderGravatar(proposal.mainSpeaker,showName = true, showPhoto = false)
+                                </td>
+                                <td>
+                                    @Messages(proposal.talkType.id)
+                                </td>
+                            </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 <script type="text/javascript">
 $(document).ready(function() {
 
