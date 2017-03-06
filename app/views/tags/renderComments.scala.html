@@ -21,22 +21,22 @@
                     }
                 }
             }
-        @if(c.uuidAuthor==Webuser.Internal.uuid) {
-            <small class="media-object">
-                @Messages("tags.renderComment.postedBy" ,Webuser.Internal.cleanName,  library.FormatDate.ellapsed(c.eventDate))
-            </small>
-            <a class="cfp-gravatars pull-left" href="#">
-                <img class="media-object" width="35" height="35" src="http://lorempixel.com/35/35/abstract/2"/>
-            </a>
-        }
+            @if(c.uuidAuthor==Webuser.Internal.uuid) {
+                <small class="media-object">
+                    @Messages("tags.renderComment.postedBy" ,Webuser.Internal.cleanName,  library.FormatDate.ellapsed(c.eventDate))
+                </small>
+                <a class="cfp-gravatars pull-left" href="#">
+                    <img class="media-object" width="35" height="35" src="http://lorempixel.com/35/35/abstract/2"/>
+                </a>
+            }
             @defining(c.msg.replaceAll("script", ".script").replaceAll("\n", "<br>")) { message: String =>
                 <span class="msgSpeaker media-object">@Html(message)</span>
-            @models.Proposal.ProposalIDRegExp.findAllIn(message).map { proposalIdRef =>
-                <span class="msgSpeaker media-object">@tags.linkToProposal(proposalIdRef)</span>
-            }
-            @models.Proposal.HttpUrl.findAllIn(message).map { test =>
-                <span class="msgSpeaker media-object"><a href="@test" target="_blank"><i class="icon-external-link"></i> @test</a></span>
-            }
+                @models.Proposal.ProposalIDRegExp.findAllIn(message).map { proposalIdRef =>
+                    <span class="msgSpeaker media-object">@tags.linkToProposal(proposalIdRef)</span>
+                }
+                @models.Proposal.HttpUrl.findAllIn(message).map { test =>
+                    <span class="msgSpeaker media-object"><a href="@test" target="_blank"><i class="icon-external-link"></i> @test</a></span>
+                }
             }
         </div>
     }
