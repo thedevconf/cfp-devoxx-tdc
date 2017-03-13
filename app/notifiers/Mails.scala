@@ -116,7 +116,7 @@ object Mails {
 
   def sendMessageToSpeakers(fromWebuser: Webuser, toWebuser: Webuser, proposal: Proposal, msg: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.cfp_message_to_speaker.subject", proposal.title, ConferenceDescriptor.current().eventCode)
+    val subject: String = Messages("mail.cfp_message_to_speaker.subject", proposal.id, Messages(proposal.track.label), ConferenceDescriptor.current().eventCode)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
@@ -136,10 +136,12 @@ object Mails {
     )
 
     // For Program committee
-    emailer.setSubject(s"[${proposal.title} ${proposal.id}]")
+    emailer.setSubject(s"[${proposal.track.label} ${proposal.id}]")
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
+
+    // Send also a copy of the message to the track leaders (included for TDC)
 
     emailer.setCharset("utf-8")
     emailer.send(
@@ -150,7 +152,7 @@ object Mails {
 
   def sendMessageToCommitte(fromWebuser: Webuser, proposal: Proposal, msg: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.speaker_message_to_cfp.subject", proposal.title,fromWebuser.cleanName)
+    val subject: String = Messages("mail.speaker_message_to_cfp.subject", Messages(proposal.track.label), proposal.id, fromWebuser.cleanName)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
@@ -163,6 +165,9 @@ object Mails {
     val maybeOtherEmails = proposal.otherSpeakers.flatMap(uuid => Webuser.getEmailFromUUID(uuid))
     val listOfEmails = mainSpeaker ++ maybeOtherEmails ++ maybeSecondSpeaker.toList
     emailer.addCc(listOfEmails.toSeq: _*) // magic trick to create a java varargs from a scala List
+
+    // Send also a copy of the message to the track leaders (included for TDC)
+
 
     emailer.send(
       views.txt.Mails.sendMessageToCommitte(fromWebuser.cleanName, proposal, msg).toString(),
@@ -191,6 +196,9 @@ object Mails {
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
+
+    // Send also a copy of the message to the track leaders (included for TDC)
+
 
     emailer.setCharset("utf-8")
     emailer.send(
@@ -222,7 +230,7 @@ object Mails {
 
   def sendProposalApproved(toWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.proposal_approved.subject",proposal.title)
+    val subject: String = Messages("mail.proposal_approved.subject", Messages(proposal.track.label), proposal.id)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(toWebuser.email)
@@ -244,7 +252,7 @@ object Mails {
 
   def sendProposalRefused(toWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.proposal_refused.subject",proposal.title)
+    val subject: String = Messages("mail.proposal_refused.subject", Messages(proposal.track.label), proposal.title)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(toWebuser.email)
