@@ -23,22 +23,24 @@
                 </div>
                 <div class="panel-body">
                     <div class="button-group">
-<!-- menus exibidos somente para superuser -->
-@if(SecureCFPController.hasAccessToAdmin(req)){
-                      <a href="@routes.CFPAdmin.leaderBoard()" class="btn btn-sm btn-primary"><i class="icon-trophy"></i> @Messages("admin.btn.leaderboard")</a>
-<!-- Desabilitado Golden Ticket - TODO - Verificar o que � Golden Ticket
-                    <a href="@routes.GoldenTicketAdminController.showStats()" class="btn btn-sm btn-success">Golden Tickets Stats</a>
--->
-                    <a href="@routes.CFPAdmin.showProposalsNotReviewedCompareTo(None)" class="btn btn-sm btn-primary"><i class="icon-circle-arrow-right"></i> @Messages("admin.btn.otherReviewer")</a>
-                    <a href="@routes.CFPAdmin.allSponsorTalks()" class="btn btn-sm btn-primary"><i class="icon-dollar"></i> @Messages("admin.btn.sponsortalks")</a>
-                    <a href="@routes.CFPAdmin.allSpeakers()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakers")</a>
-		            <a href="@routes.InviteController.allInvitations()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakersInvited")</a>
-                    <a href="@routes.Backoffice.allProposals()" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("admin.btn.changeState")</a>
-}                    
-		            <a href="@routes.CFPAdmin.allMyVotes()" class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.myvotes")</a>
-                    <a href='@routes.CFPAdmin.allVotes("all",None)' class="btn btn-sm btn-warning"><i class="icon-large"></i><i class="icon-adjust"></i> @Messages("admin.btn.allvotes")</a>
-                    <a href="@routes.CFPAdmin.newOrEditSpeaker(None)" class="btn btn-sm btn-primary"><i class="icon-umbrella"></i> @Messages("admin.btn.createNewspeaker")</a>
-		            <a href='@routes.CFPAdmin.allProposalsByTrack(None)' class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.allByTrack")</a>
+
+                    <!-- menus exibidos somente para superuser -->
+                    @if(SecureCFPController.hasAccessToAdmin(req)){
+                        <a href="@routes.CFPAdmin.leaderBoard()" class="btn btn-sm btn-primary"><i class="icon-trophy"></i> @Messages("admin.btn.leaderboard")</a>
+                        <!-- Desabilitado Golden Ticket - TODO - Verificar o que � Golden Ticket
+                        <a href="@routes.GoldenTicketAdminController.showStats()" class="btn btn-sm btn-success">Golden Tickets Stats</a>
+                        -->
+                        <a href="@routes.CFPAdmin.showProposalsNotReviewedCompareTo(None)" class="btn btn-sm btn-primary"><i class="icon-circle-arrow-right"></i> @Messages("admin.btn.otherReviewer")</a>
+                        <a href="@routes.CFPAdmin.allSponsorTalks()" class="btn btn-sm btn-primary"><i class="icon-dollar"></i> @Messages("admin.btn.sponsortalks")</a>
+                        <a href="@routes.CFPAdmin.allSpeakers()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakers")</a>
+                        <a href="@routes.InviteController.allInvitations()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakersInvited")</a>
+                        <a href="@routes.Backoffice.allProposals()" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("admin.btn.changeState")</a>
+                    }
+                        <a href="@routes.CFPAdmin.allMyVotes()" class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.myvotes")</a>
+                        <a href='@routes.CFPAdmin.allVotes("all",None)' class="btn btn-sm btn-warning"><i class="icon-large"></i><i class="icon-adjust"></i> @Messages("admin.btn.allvotes")</a>
+                        <a href="@routes.CFPAdmin.newOrEditSpeaker(None)" class="btn btn-sm btn-primary"><i class="icon-umbrella"></i> @Messages("admin.btn.createNewspeaker")</a>
+                        <a href='@routes.CFPAdmin.allProposalsByTrack(None)' class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.allByTrack")</a>
+                        <a href='/assets/Passo-a-Passo-Avaliar-Call4Papers.pdf' class="btn btn-sm btn-primary" target="_blank"><i class="icon-question"></i> @Messages("admin.btn.howTo")</a>
                     </div>
 
 
@@ -92,7 +94,6 @@
                 </div>
             </div>
         </div>
-
 
     <!-- eventos exibidos somente para superuser -->
     @if(SecureCFPController.hasAccessToAdmin(req)){
@@ -157,14 +158,15 @@
                             </tr>
                         </tfoot>
                     </table>
+
+                    <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
+                        <i class="icon-angle-up"></i> @Messages("top.page")
+                    </a>
+
                 </div>
 
             </div>
         </div>
-        <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
-            <i class="icon-angle-up"></i> @Messages("top.page")
-        </a>
-
     }
 
     </div>

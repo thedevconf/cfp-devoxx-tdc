@@ -26,22 +26,66 @@
             <span class="label label-info">@speakersByCompany.size @Messages("allSpeakers.label.companies")</span>
         </div>
         <div class="panel-body">
-            @proposals.map { case (company, props) =>
-            <h3>@company.capitalize @props.size talk(s)</h3>
-                @props.toList.sortBy(_.talkType.id).map {proposal=>
-                    @Messages(proposal.talkType.id) - @proposal.title - @proposal.allSpeakers.map(_.cleanName).mkString(", ") <br>
-                }
+
+            @if(proposals.nonEmpty){
+            <table class="table table-bordered table-stripped">
+                <caption><h4>@Messages("allSpeakers.title.talks")</h4></caption>
+                <thead>
+                <tr>
+                    <th>@Messages("allSpeakers.columns.track")</th>
+                    <th>@Messages("allSpeakers.columns.talk")</th>
+                    <th>@Messages("allSpeakers.columns.speakers")</th>
+                    <th>@Messages("allSpeakers.columns.status")</th>
+                    <th>@Messages("allSpeakers.columns.actions")</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                    @proposals.map { case (company, props) =>
+                        <tr>
+                            <th colspan="5">@company.capitalize - @props.size @Messages("allSpeakers.label.talks")</th>
+                        </tr>
+                        @props.toList.sortBy(_.talkType.id).map {proposal=>
+                        <tr>
+                            <td>
+                                @Messages(proposal.track.label)
+                            </td>
+                            <td>
+                                @proposal.title
+                            </td>
+                            <td>
+                                @proposal.allSpeakers.map(_.cleanName).mkString(", ")
+                            </td>
+                            <td>
+                                <span class="label label-@proposal.state.code">@Messages(proposal.state.code)</span>
+                            </td>
+                            <td>
+                                <a href="@routes.CFPAdmin.openForReview(proposal.id)"
+                                   class="btn btn-primary btn-sm">@Messages("allSpeakers.link.talk")</a>
+                            </td>
+                        </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+            }else{
+                <p>@Messages("allSpeakers.warning.notalk.approved")</p>
             }
 
             <br/>
 
+            <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
+                <i class="icon-angle-up"></i> @Messages("top.page")
+            </a>
+
             @if(speakersByCompany.nonEmpty){
             <table class="table table-bordered table-stripped">
+                <caption><h4>@Messages("allSpeakers.title.speakers")</h4></caption>
                 <thead>
                     <tr>
                         <th>@Messages("allSpeakers.columns.name")</th>
                         <th>@Messages("allSpeakers.columns.lang")</th>
-                        <th>@Messages("allSpeakers.columns.company")</th>
                         <th>@Messages("allSpeakers.columns.email")</th>
                         <th>@Messages("allSpeakers.columns.actions")</th>
                     </tr>
@@ -49,7 +93,7 @@
                 <tbody>
                 @speakersByCompany.map{ case(company:String, speakers: Set[Speaker]) =>
                    <tr>
-                       <th colspan="5">@company - @speakers.size</th>
+                       <th colspan="5">@company.capitalize - @speakers.size @Messages("allSpeakers.label.talks")</th>
                    </tr>
                        @speakers.map{speaker=>
                         <tr>
@@ -60,13 +104,11 @@
                             <img src="/assets/images/@(speaker.cleanLang).png" alt="@speaker.cleanLang" title="@speaker.cleanLang"/>
                         </td>
                         <td>
-                            @speaker.company.getOrElse("")
-                        </td>
-                        <td>
                             <small>@speaker.email</small>
                         </td>
                         <td>
-                            <a href="@routes.CFPAdmin.showSpeakerAndTalks(speaker.uuid)">@Messages("allSpeakers.link.talks")</a>
+                            <a href="@routes.CFPAdmin.showSpeakerAndTalks(speaker.uuid)"
+                               class="btn btn-primary btn-sm">@Messages("allSpeakers.link.talks")</a>
                         </td>
                         </tr>
                        }
@@ -76,8 +118,17 @@
             }else{
                 <p>@Messages("allSpeakers.warning.nospeaker.approved")</p>
             }
+
         </div>
         </div>
     </div>
+
+
+    <div class="col-lg-12">
+        <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
+            <i class="icon-angle-up"></i> @Messages("top.page")
+        </a>
+    </div>
+
 </div>
 }
