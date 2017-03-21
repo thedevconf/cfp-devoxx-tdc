@@ -779,6 +779,18 @@ object Proposal {
       }
   }
 
+  // Included this method for listing all backup proposals
+  def allBackupProposals(): List[Proposal] = Redis.pool.withClient {
+    implicit client =>
+
+      val allDeclineds = client.smembers(s"Proposals:ByState:${ProposalState.BACKUP.code}")
+
+      client.hmget("Proposals", allDeclineds).map {
+        json =>
+          val proposal = Json.parse(json).as[Proposal]
+          proposal.copy(state = ProposalState.BACKUP)
+      }
+  }
 
   // This code is a bit complex. It's an optimized version that loads from Redis
   // a set of Proposal. It returns only valid proposal, successfully loaded.

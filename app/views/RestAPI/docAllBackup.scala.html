@@ -1,0 +1,57 @@
+@()(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@api("proposalType") {
+<div class="row">
+    <div class="col-md-12">
+        <h1>@Messages("shortName") API</h1>
+        <hr>
+        <h3>Documentation for "backup"</h3>
+
+        <p>Returns the list of All Backup Talks</p>
+
+        <h4>Sample:</h4>
+        <code>
+            curl -H "Accept: application/json" <a href="@routes.RestAPI.showAllBackupTalks(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showAllBackupTalks(Conference.currentConference.eventCode).absoluteURL()</a>
+        </code>
+
+        <h4>Result:</h4>
+        <code>
+                <pre>
+[
+  {
+    "trilha": "Agilité, DevOps",
+    "id": "BBV-277",
+    "titulo": "Le bon testeur il teste.... et le mauvais testeur il teste aussi...",
+    "tipo": "Conference",
+    "descricao": "<p>Pourquoi proposer une nouvelle conférence sur les tests ? Il est néanmoins toujours bon de rappeler certains principes. Quelle est la différence entre un bon et un mauvais testeur ? Le bon testeur il teste.... et le mauvais testeur il teste aussi ! Plusieurs règles simples permettent d&#x27;améliorer la qualité de ses tests, certains outils ou librairies (FestAssert, AssertJ, InfiniTest, DBSetup) vont vous simplifier la vie ! Tour d’horizon des bonnes pratiques au programme, le tout en livecoding ! Il est toujours bon de refaire un peu d’évangélisation sur les tests : débutants bienvenus!</p>\n",
+    "palestrantes": [
+        {
+            "nome": "Agnès Crepet",
+            "email": "agnes@@xxxx.com",
+            "minibio": "<p>Agnès est une activiste. Une Java activiste tout d&#x27;abord ! Depuis 12 ans, elle prend plaisir à bâtir des architectures Java et les implémenter. Elle a fondé avec 3 autres ninjas la société coopérative (tous égaux, tous actionnaires) Ninja Squad au sein de laquelle ils partagent tous la même passion pour le développement. Parce qu&#x27;elle aime également apprendre et partager, Agnès est très active dans la communauté. Elle a été élue Java Champion en octobre 2012. Elle est leader de 2 Java Users Groups en France : le Lyon JUG et Duchess France et a cofondé la conférence Mix-IT, mix de Java et d&#x27;Agilité. Elle est également présidente de l&#x27;association Avataria qui organise des concerts ou FabLab dans des lieux du patrimoine industriel de sa ville.</p>\n",
+            "twitter": "@@agnes_crepet",
+            "foto": "https://lh4.googleusercontent.com/-gFmJ8jdbvV4/AAAAAAAAAAI/AAAAAAAAC1M/T3EGEKd_yK4/photo.jpg",
+            "blog": "http://www.ninja-squad.fr",
+            "empresa": "Ninja Squad"
+        },
+        {
+            "nome": "Guillaume Ehret"
+            "email": "guillaume@@xxxx.com",
+            "minibio": "<p>Agnès est une activiste. Une Java activiste tout d&#x27;abord ! Depuis 12 ans, elle prend plaisir à bâtir des architectures Java et les implémenter. Elle a fondé avec 3 autres ninjas la société coopérative (tous égaux, tous actionnaires) Ninja Squad au sein de laquelle ils partagent tous la même passion pour le développement. Parce qu&#x27;elle aime également apprendre et partager, Agnès est très active dans la communauté. Elle a été élue Java Champion en octobre 2012. Elle est leader de 2 Java Users Groups en France : le Lyon JUG et Duchess France et a cofondé la conférence Mix-IT, mix de Java et d&#x27;Agilité. Elle est également présidente de l&#x27;association Avataria qui organise des concerts ou FabLab dans des lieux du patrimoine industriel de sa ville.</p>\n",
+            "twitter": "@@agnes_crepet",
+            "foto": "https://lh4.googleusercontent.com/-gFmJ8jdbvV4/AAAAAAAAAAI/AAAAAAAAC1M/T3EGEKd_yK4/photo.jpg",
+            "blog": "http://www.ninja-squad.fr",
+            "empresa": "Ninja Squad"
+        }
+    ]
+  }
+]
+
+                </pre>
+
+        </code>
+    </div>
+</div>
+</div>
+
+}

@@ -212,6 +212,7 @@ GET           /api/conferences/:eventCode/schedules/:day                        
 GET           /api/conferences/:eventCode/proposalTypes                         controllers.RestAPI.showProposalTypes(eventCode:String)
 GET           /api/conferences/:eventCode/tracks                                controllers.RestAPI.showTracks(eventCode:String)
 GET           /api/conferences/:eventCode/approvedTalks/:track                  controllers.RestAPI.showApprovedTalksByTrack(eventCode:String, track:String)
+GET           /api/conferences/:eventCode/backupTalks                           controllers.RestAPI.showAllBackupTalks(eventCode:String)
 
 GET           /api/profile/:docName                                             controllers.RestAPI.profile(docName:String)
 

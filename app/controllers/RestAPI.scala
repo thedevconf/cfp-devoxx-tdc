@@ -61,6 +61,7 @@ object RestAPI extends Controller {
         case "track" => Ok(views.html.RestAPI.docTrack())
         case "room" => Ok(views.html.RestAPI.docRoom())
         case "approved" => Ok(views.html.RestAPI.docApprovedByTrack())
+        case "backup" => Ok(views.html.RestAPI.docAllBackup())
         case other => NotFound("Sorry, no documentation for this profile")
       }
   }
@@ -375,6 +376,56 @@ object RestAPI extends Controller {
 
           Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
             "Links" -> ("<" + routes.RestAPI.profile("approved").absoluteURL() + ">; rel=\"profile\""))
+
+        }
+      }
+  }
+
+  def showAllBackupTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
+    implicit request =>
+
+      val proposals: List[Proposal] = Proposal.allBackupProposals()
+
+      val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
+        proposals.map(proposal => (proposal, proposal.allSpeakers))
+
+      val etag = proposals.hashCode.toString
+
+      request.headers.get(IF_NONE_MATCH) match {
+        case Some(tag) if tag == etag => {
+          NotModified
+        }
+        case other => {
+
+          val listaJson = proposalsAndSpeakers.map {
+            par: (Proposal, List[Speaker]) => {
+              val proposal = par._1
+              val speakers = par._2
+              Map(
+                "id" -> Json.toJson(proposal.id),
+                "trilha" -> Json.toJson(Messages(proposal.track.label)),
+                "titulo" -> Json.toJson(proposal.title),
+                "tipo" -> Json.toJson(proposal.talkType.label),
+                "descricao" -> Json.toJson(proposal.summaryAsHtml),
+                "palestrantes" -> Json.toJson(speakers.map { speaker =>
+                  Map(
+                    "nome" -> Json.toJson(speaker.cleanName),
+                    "email" -> Json.toJson(speaker.email),
+                    "empresa" -> Json.toJson(speaker.company),
+                    "minibio" -> Json.toJson(speaker.bioAsHtml),
+                    "twitter" -> Json.toJson(speaker.twitter),
+                    "foto" -> Json.toJson(speaker.avatarUrl),
+                    "blog" -> Json.toJson(speaker.blog)
+                  )
+                })
+              )
+            }
+          }
+
+          val jsonObject = Json.toJson(listaJson)
+
+          Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
+            "Links" -> ("<" + routes.RestAPI.profile("backup").absoluteURL() + ">; rel=\"profile\""))
 
         }
       }
