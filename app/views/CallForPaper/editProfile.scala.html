@@ -33,11 +33,15 @@
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
             @helper.inputText(speakerForm("twitter"), 'placeholder -> "@nickname")
             @helper.inputText(speakerForm("blog"), 'size -> 50, 'placeholder -> "http://www.yourblog.com/")
-            @helper.inputText(speakerForm("lang"), 'size->20, 'placeholder -> "pt")
+
+            <!-- @helper.inputText(speakerForm("lang"), 'size->20, 'placeholder -> "pt") -->
+            @helper.select(field = speakerForm("lang"), options = Proposal.langs, 'class -> "form-control")
+
             @helper.textarea(speakerForm("qualifications"), 'cols -> 70, 'rows -> 5)
             <button class="btn btn-success" type="submit">@Messages("editProfile.save")</button>
         }
-    <hr>
+
+        <hr>
         <small>Your UUID: @readOnlyUUID</small>
     </div>
 </div>
