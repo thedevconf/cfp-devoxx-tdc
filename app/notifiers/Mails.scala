@@ -136,12 +136,13 @@ object Mails {
     )
 
     // For Program committee
-    emailer.setSubject(s"[${proposal.track.label} ${proposal.id}]")
+    emailer.setSubject(s"[${Messages(proposal.track.label)} ${proposal.id}]")
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
 
     // Send also a copy of the message to the track leaders (included for TDC)
+    addTrackLeadersEmails(proposal.track.id,emailer)
 
     emailer.setCharset("utf-8")
     emailer.send(
@@ -163,10 +164,11 @@ object Mails {
     val maybeSecondSpeaker = proposal.secondarySpeaker.flatMap(uuid => Webuser.getEmailFromUUID(uuid))
     val mainSpeaker = Webuser.getEmailFromUUID(proposal.mainSpeaker)
     val maybeOtherEmails = proposal.otherSpeakers.flatMap(uuid => Webuser.getEmailFromUUID(uuid))
-    val listOfEmails = mainSpeaker ++ maybeOtherEmails ++ maybeSecondSpeaker.toList
+    val listOfEmails = mainSpeaker ++ maybeOtherEmails ++ maybeSecondSpeaker
     emailer.addCc(listOfEmails.toSeq: _*) // magic trick to create a java varargs from a scala List
 
     // Send also a copy of the message to the track leaders (included for TDC)
+    addTrackLeadersEmails(proposal.track.id,emailer)
 
 
     emailer.send(
@@ -198,13 +200,21 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
 
     // Send also a copy of the message to the track leaders (included for TDC)
-
+    addTrackLeadersEmails(proposal.track.id,emailer)
 
     emailer.setCharset("utf-8")
     emailer.send(
       views.txt.Mails.postInternalMessage(fromWebuser.cleanName, proposal, msg).toString(),
       views.html.Mails.postInternalMessage(fromWebuser.cleanName, proposal, msg).toString()
     )
+  }
+  /*
+    Adds the emails of the trackleaders to the cc attribute of the email
+   */
+  private def addTrackLeadersEmails(trackId: String, emailer:MailerAPI): Unit = {
+    val trackleadersEmails = TrackLeader.findAll(trackId)
+                                        .flatMap(uuid => Webuser.getEmailFromUUID(uuid))
+    emailer.addCc(trackleadersEmails.toSeq: _*)
   }
 
   def sendReminderForDraft(speaker: Webuser, proposals: List[Proposal]) = {
