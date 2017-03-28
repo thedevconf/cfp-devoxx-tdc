@@ -353,7 +353,7 @@ object RestAPI extends Controller {
               val speakers = par._2
               Map(
                 "id" -> Json.toJson(proposal.id),
-                "trilha" -> Json.toJson(Messages(proposal.track.label)),
+                "trilha" -> Json.toJson(proposal.track.label),
                 "titulo" -> Json.toJson(proposal.title),
                 "tipo" -> Json.toJson(proposal.talkType.label),
                 "descricao" -> Json.toJson(proposal.summaryAsHtml),
@@ -403,7 +403,7 @@ object RestAPI extends Controller {
               val speakers = par._2
               Map(
                 "id" -> Json.toJson(proposal.id),
-                "trilha" -> Json.toJson(Messages(proposal.track.label)),
+                "trilha" -> Json.toJson(proposal.track.label),
                 "titulo" -> Json.toJson(proposal.title),
                 "tipo" -> Json.toJson(proposal.talkType.label),
                 "descricao" -> Json.toJson(proposal.summaryAsHtml),
