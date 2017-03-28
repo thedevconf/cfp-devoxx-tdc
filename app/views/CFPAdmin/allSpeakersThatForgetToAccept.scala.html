@@ -40,7 +40,7 @@
                 </div>
                 <div class="panel-body">
                         @props.map{p:Proposal=>
-                          <p><span class="label label-primary">@p.state.code</span> @p.title</p>
+                          <p><span class="label label-primary">@p.state.code</span> Trilha @Messages(p.track.label) - @p.title</p>
                         }
                 </div>
             </div>
