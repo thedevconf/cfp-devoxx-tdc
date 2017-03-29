@@ -29,7 +29,7 @@ import play.api.data.Forms._
 
 /**
  * A track leader is the association between a user and a track.
- * Only one webuser can be assigned as the Track leader.
+ * A Track can have more than one track leader.
  * A webuser can lead more than one Track.
  * This simple use-case demonstrates how to implement a one-to-many relationship with Redis
  * Created by @nmartignole on 15/05/2014 for Devoxx BE.
@@ -57,6 +57,14 @@ object TrackLeader {
   def isTrackLeader(trackId: String, webuserId: String): Boolean = Redis.pool.withClient {
     client =>
       client.sismember(s"TrackLeaders:${trackId}", webuserId)
+  }
+
+  /*
+  * Returns all the UUIDs for the trackleaders of for the requested track
+  */
+  def findAll(trackId: String): Set[String] = Redis.pool.withClient {
+    client =>
+      client.smembers(s"TrackLeaders:${trackId}")
   }
 
   def updateAllTracks(mapsByTrack: Map[String, Seq[String]]) = Redis.pool.withClient{
