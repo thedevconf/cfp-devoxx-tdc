@@ -24,6 +24,7 @@
 package controllers
 
 import akka.util.Crypt
+import controllers.Backoffice.Redirect
 import library._
 import models.Review._
 import models._
@@ -38,6 +39,16 @@ import scala.concurrent.Future
   * Created by nmartignole on 30/01/2014.
   */
 object ApproveOrRefuse extends SecureCFPController {
+
+  /**
+    * allows a trackleader to change the state of a proposal to backup
+    *
+    */
+  def backup(proposalId: String) = SecuredAction(IsMemberOf("cfp")){
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Proposal.changeProposalState(request.webuser.uuid, proposalId, ProposalState.BACKUP)
+      Redirect(routes.CFPAdmin.allVotes("all", None)).flashing("success" -> ("Changed state to Backup"))
+  }
 
   def doApprove(proposalId: String) = SecuredAction(IsMemberOf("cfp")).async {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>

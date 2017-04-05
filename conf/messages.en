@@ -1040,6 +1040,7 @@ allVotes.button.cancel.approve=Cancel approve
 allVotes.button.cancel.refuse=Cancel refuse
 allVotes.button.approve=Pre-Approve
 allVotes.button.refuse=Pre-Refuse
+allVotes.button.backup=Mark Backup
 allVotes.button.remove=Remove from refused list
 
 allVotes.button.all=All

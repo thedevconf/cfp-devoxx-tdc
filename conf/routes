@@ -143,6 +143,7 @@ GET           /ar/preaccept/:proposalId                                         
 GET           /ar/refuse/:proposalId                                            controllers.ApproveOrRefuse.doRefuse(proposalId:String)
 GET           /ar/cancelPreaccept/:proposalId                                   controllers.ApproveOrRefuse.cancelApprove(proposalId:String)
 GET           /ar/cancelPrerefuse/:proposalId                                   controllers.ApproveOrRefuse.cancelRefuse(proposalId:String)
+GET           /ar/backup/:proposalId                                            controllers.ApproveOrRefuse.backup(proposalId:String)
 
 GET           /ar/allApproved/:talkType                                         controllers.ApproveOrRefuse.allApprovedByTalkType(talkType:String)
 GET           /ar/allRefused/:talkType                                          controllers.ApproveOrRefuse.allRefusedByTalkType(talkType:String)

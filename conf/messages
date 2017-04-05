@@ -1038,6 +1038,7 @@ allVotes.button.cancel.approve=Cancelar aprovação
 allVotes.button.cancel.refuse=Cancelar rejeição
 allVotes.button.approve=Pré-Aprovar
 allVotes.button.refuse=Pré-Rejeitar
+allVotes.button.backup=Marcar como backup
 allVotes.button.remove=Remover da lista de rejeitadas
 
 allVotes.button.all=Todos
