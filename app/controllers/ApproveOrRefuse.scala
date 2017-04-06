@@ -41,12 +41,15 @@ import scala.concurrent.Future
 object ApproveOrRefuse extends SecureCFPController {
 
   /**
-    * allows a trackleader to change the state of a proposal to backup
+    * Allows a trackleader to change the state of a proposal to backup.
+    *
+    * When the status is changed a notification email is sent to the Speaker
     *
     */
   def backup(proposalId: String) = SecuredAction(IsMemberOf("cfp")){
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Proposal.changeProposalState(request.webuser.uuid, proposalId, ProposalState.BACKUP)
+      notifyBackup(request.webuser.uuid,proposalId)
       Redirect(routes.CFPAdmin.allVotes("all", None)).flashing("success" -> ("Changed state to Backup"))
   }
 
@@ -118,6 +121,13 @@ object ApproveOrRefuse extends SecureCFPController {
       }
       Redirect(routes.ApproveOrRefuse.allApprovedByTalkType(talkType)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
   }
+
+  def notifyBackup(reporterUUID: String, proposalId: String) =  {
+      Proposal.findById(proposalId).map {
+        proposal: Proposal =>
+          ZapActor.actor ! ProposalBackup(reporterUUID, proposal)
+      }
+   }
 
   def notifyRefused(talkType: String, proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>

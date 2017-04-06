@@ -281,6 +281,27 @@ object Mails {
     )
   }
 
+  def sendProposalBackup(toWebuser: Webuser, proposal: Proposal) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val subject: String = Messages("mail.proposal_backup.subject", Messages(proposal.track.label), proposal.title)
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(toWebuser.email)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+
+    // The Java Mail API accepts varargs... Thus we have to concatenate and turn Scala to Java
+    val maybeSecondSpeaker = proposal.secondarySpeaker.flatMap(uuid => Webuser.getEmailFromUUID(uuid))
+    val maybeOtherEmails = proposal.otherSpeakers.flatMap(uuid => Webuser.getEmailFromUUID(uuid))
+    val listOfEmails = maybeOtherEmails ++ maybeSecondSpeaker.toList
+    emailer.addCc(listOfEmails.toSeq: _*) // magic trick to create a java varargs from a scala List
+
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.acceptrefuse.sendProposalBackup(toWebuser.firstName, proposal).toString(),
+      views.html.Mails.acceptrefuse.sendProposalBackup(toWebuser.firstName, proposal).toString()
+    )
+  }
+
   def sendResultToSpeaker(speaker: Speaker, listOfApprovedProposals: Set[Proposal], listOfRefusedProposals: Set[Proposal]) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
     val subject: String = Messages("mail.speaker_cfp_results.subject", Messages("longYearlyName"))

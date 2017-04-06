@@ -1,0 +1,93 @@
+@(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
+----------------------------------------------------------------------------------------------------------------------
+Bem-vindo ao @Messages("longYearlyName")
+----------------------------------------------------------------------------------------------------------------------
+Olá, @firstName,
+
+Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 800 palestras!
+Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi marcada como BACKUP :
+Trilha:  @Messages(proposal.track.label)
+Título:  @proposal.title
+Formato: (tempo de palestra conforme combinado com os coordenadores)
+
+ATENÇÃO! Ações necessárias
+--------------------------
+1. Aceitar ou recusar
+A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra foi aprovada.
+Caso você não queira manter esta palestra como backup pode declinar através do link:
+  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks
+
+2. Sua minibio e foto
+Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a
+gentileza de fazê-lo neste momento.
+
+3. Questões sobre sua palestra
+Por favor, não responda este email. Envie qualquer comentário através do web site do CFP, e nossa equipe fará o
+possível para responder rapidamente.
+  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
+Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+
+4. Cortesia para palestrantes
+Você gostaria de participar de outras trilhas do evento?
+Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
+Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
+Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido.
+
+5. Compartilhe o evento
+Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
+  http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
+E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
+  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+
+Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
+
+Atenciosamente,
+
+ Equipe @Messages("longYearlyName")
+
+----------------------------------------------------------------------------------------------------------------------
+Welcome to @Messages("longYearlyName")
+----------------------------------------------------------------------------------------------------------------------
+Hi, @firstName,
+
+Thanks again for your submission! The result was amazing, we have received more than 800 submissions!
+We're glad to inform you that your proposal has been APPROVED:
+Title: <strong>@proposal.title</strong>
+Track: <strong> @Messages(proposal.track.label)
+Format: <strong>@Messages(proposal.talkType.id) (or how it was agreed with the coordinators)
+
+ATTENTION! Required actions
+---------------------------
+1. Accept or decline
+You must now validate or decline the general terms and conditions, and confirm that you are still ok to do this
+presentation AS SOON AS POSSIBLE:
+ @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+
+2. Your bio and picture
+In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you
+to do it at this moment.
+
+3. Questions regarding your talk
+Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests
+to respond quickly.
+  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
+To prepare your presentation, we provide a PowerPoint template (not mandatory):
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+
+4. Reward for Speakers
+Would you like to participate in other event tracks?
+All speakers are entitled to 1 track a day beyond that which will deliver his talk.
+We recommend that you register as soon as you receive your code because many tracks sell out fast.
+
+5. Share the event
+If you use social networks, take this opportunity to invite you to enjoy ours:
+  http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
+And to help us with the event, go to the digital banners page of our website:
+  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+
+We remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
+
+Best regards,
+
+The @Messages("longYearlyName") team
