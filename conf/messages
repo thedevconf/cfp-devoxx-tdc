@@ -739,6 +739,7 @@ mail.draft_single_reminder.subject={0} lembrete : você tem uma proposta com sta
 mail.draft_multiple_reminder.subject={1} lembrete : você tem {0} propostas para submeter
 mail.proposal_approved.subject=Sua proposta {1} foi aprovada na Trilha {0}
 mail.proposal_refused.subject=Sua proposta {1} foi rejeitada na Trilha {0}
+mail.proposal_backup.subject=Sua proposta {1} foi marcada como backup na Trilha {0}
 mail.speaker_cfp_results.subject=Call for Paper {0}
 
 proposal.audienceLevel=Nível da audiência

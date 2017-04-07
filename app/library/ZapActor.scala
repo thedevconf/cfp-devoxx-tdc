@@ -66,6 +66,8 @@ case class ProposalApproved(reporterUUID: String, proposal: Proposal)
 
 case class ProposalRefused(reporterUUID: String, proposal: Proposal)
 
+case class ProposalBackup(reporterUUID: String, proposal: Proposal)
+
 case class SaveSlots(confType: String, slots: List[Slot], createdBy: Webuser)
 
 case class LogURL(url: String, objRef: String, objValue: String)
@@ -97,6 +99,7 @@ class ZapActor extends Actor {
     case RemoveVotesForDeletedProposal() => doRemoveVotesForDeletedProposal()
     case ProposalApproved(reporterUUID, proposal) => doProposalApproved(reporterUUID, proposal)
     case ProposalRefused(reporterUUID, proposal) => doProposalRefused(reporterUUID, proposal)
+    case ProposalBackup(reporterUUID, proposal) => doProposalBackup(reporterUUID, proposal)
     case SaveSlots(confType: String, slots: List[Slot], createdBy: Webuser) => doSaveSlots(confType: String, slots: List[Slot], createdBy: Webuser)
     case LogURL(url: String, objRef: String, objValue: String) => doLogURL(url: String, objRef: String, objValue: String)
     case NotifySpeakerRequestToTalk(authorUUiD: String, rtt: RequestToTalk) => doNotifySpeakerRequestToTalk(authorUUiD, rtt)
@@ -183,6 +186,14 @@ class ZapActor extends Actor {
       Event.storeEvent(Event(proposal.id, reporterUUID, s"Sent proposal Approved"))
       Mails.sendProposalApproved(speaker, proposal)
       Proposal.approve(reporterUUID, proposal.id)
+    }
+  }
+
+  def doProposalBackup(reporterUUID: String, proposal: Proposal) {
+    for (reporter <- Webuser.findByUUID(reporterUUID);
+         speaker <- Webuser.findByUUID(proposal.mainSpeaker)) yield {
+      Event.storeEvent(Event(proposal.id, reporterUUID, s"Sent proposal Backup"))
+      Mails.sendProposalBackup(speaker, proposal)
     }
   }
 
