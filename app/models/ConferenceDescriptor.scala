@@ -788,7 +788,7 @@ object ConferenceDescriptor {
       firstDayEn = "july 11th",
       datesFr = "du 11 au 15 july 2017",
       datesEn = "July 11th to 15th, 2017",
-      cfpOpenedOn = DateTime.parse("2017-04-10T20:00:00-03:00"),
+      cfpOpenedOn = DateTime.parse("2017-04-11T18:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2017-05-10T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2017-05-18T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
