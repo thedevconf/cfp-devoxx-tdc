@@ -36,6 +36,10 @@ blog=Your blog or company website
 qualifications=Your speaker''s qualifications
 qualifications2=Speaker''s qualifications
 qualifications.label=Speaker qualifications
+phone=Phone
+gender=Gender
+tshirtSize=T-shirt size
+no.experience=No experience
 index.signupTitle=Sign-up as a speaker
 index.signup2=Sign-up as speaker for {0} and propose one or more subjects.
 index.signup3=Sign-up with one of your social profile in 5 seconds. No password needed.
@@ -191,6 +195,11 @@ track.android.desc=Master the platform that dominates the world
 android.label=Android
 android.leaderboard=Android
 
+track.arduino.title=Arduino
+track.arduino.desc=Learning and Innovating in Practice
+arduino.label=Arduino
+arduino.leaderboard=Arduino
+
 track.arquitetura.title=Arquitetura
 track.arquitetura.desc=Trends, technologies, future and the architect!
 arquitetura.label=Arquitetura
@@ -205,6 +214,11 @@ track.cloud.title=Cloud Computing
 track.cloud.desc=Using the power of the cloud in your favor
 cloud.label=Cloud
 cloud.leaderboard=Cloud
+
+track.chatbots.title=Chatbots
+track.chatbots.desc=Learn all about smart Chatbots, from design to publication
+chatbots.label=Chatbots
+chatbots.leaderboard=Chatbots
 
 track.datascience.title=DataScience e Machine Learning
 track.datascience.desc=From acquisition to value generation, the full potential of the data in your favor
@@ -329,6 +343,7 @@ signup.txt1=Sign up to submit a talk for {0} conference :
 signup.txt2=A validation email will be sent to the address indicated. Your profile will be active once your email address is validated.
 
 # edit profile
+editProfile.tab=Your profile
 editProfile.title=Your profile
 editProfile.help=Take the time to complete your profile. This content will then be published on the site if you are selected as a speaker, as well as in the conference program:
 editProfile.save=Save
@@ -577,6 +592,7 @@ admin.btn.createNewspeaker=Create a new speaker
 admin.btn.tracklead=Track leader
 admin.btn.howTo=How to...
 
+newSpeaker.tab=Create a new speaker
 newSpeaker.title=Create a new speaker
 avatarUrl2=URL of speaker''s photo
 name=Full name
@@ -585,6 +601,8 @@ twitter2=Twitter''s handle
 company2=Company
 blog2=Web site or personnal blog
 lang2=Will speak in Portuguese or English? (pt/en)
+gender2=What is the gender? (M/F/N)
+tshirtSize2=What is the T-shirt size? (P,M,G,GG,XGG,XXGG)
 sp.editSpeaker=Edit this speaker
 sp.authenticateAs=Authenticate as
 sp.editName=Edit name
@@ -1099,6 +1117,7 @@ leaderboard.columns.toallocate=To allocate
 leaderboard.approved.bytype=approved submissions for
 leaderboard.accepted.bytype=accepted submissions for
 
+allSpeakers.tab=All Speakers
 allSpeakers.title=All Speakers
 allSpeakers.users=users
 allSpeakers.speakers=speakers

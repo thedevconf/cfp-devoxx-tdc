@@ -2,7 +2,7 @@
 
 @import helper.twitterBootstrap._
 
-@main("Create a new speaker") {
+@main(Messages("newSpeaker.tab")) {
 
 <div class="row">
     <div class="col-md-12 page-header">
@@ -43,7 +43,10 @@
             @helper.textarea(speakerForm("qualifications2"), 'cols -> 70, 'rows -> 3)
             @helper.inputText(speakerForm("twitter2"), 'placeholder -> "@nickname")
             @helper.inputText(speakerForm("blog2"), 'size -> 50, 'placeholder -> "http://www.yourblog.com/")
-            @helper.inputText(speakerForm("lang2"), 'size->20, 'placeholder -> "pt")
+            @helper.inputText(speakerForm("lang2"), 'size->10, 'placeholder -> "pt")
+            @helper.inputText(speakerForm("phone"), 'size->20, 'placeholder -> "(99) 9999-9999")
+            @helper.inputText(speakerForm("gender2"), 'size->20, 'placeholder -> "M")
+            @helper.inputText(speakerForm("tshirtSize2"), 'size->20, 'placeholder -> "P")
             @helper.checkbox(speakerForm("acceptTermsConditions"))
             <button class="btn btn-success" type="submit">@Messages("editProfile.save")</button>
         }

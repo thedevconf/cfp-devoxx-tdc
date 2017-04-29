@@ -2,7 +2,7 @@
 
 @import helper.twitterBootstrap._
 
-@main("Edit your profile") {
+@main(Messages("editProfile.tab")) {
 
 <div class="row">
     <div class="col-md-12 page-header">
@@ -38,6 +38,11 @@
             @helper.select(field = speakerForm("lang"), options = Proposal.langs, 'class -> "form-control")
 
             @helper.textarea(speakerForm("qualifications"), 'cols -> 70, 'rows -> 5)
+
+            @helper.inputText(speakerForm("phone"))
+            @helper.select(field = speakerForm("gender"), options = Speaker.genders, 'class -> "form-control")
+            @helper.select(field = speakerForm("tshirtSize"), options = Speaker.sizes, 'class -> "form-control")
+
             <button class="btn btn-success" type="submit">@Messages("editProfile.save")</button>
         }
 

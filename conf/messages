@@ -36,6 +36,10 @@ blog=Seu blog ou website da empresa
 qualifications=Suas qualificações de palestrante
 qualifications2=Qualificações de palestrante
 qualifications.label=Qualificações de palestrante
+phone=Telefone
+gender=Gênero
+tshirtSize=Tamanho de camiseta
+no.experience=Sem experiência
 index.signupTitle=Registrar-se como palestrante
 index.signup2=Registre-se como palestrante para {0} e submeta uma ou mais palestras.
 index.signup3=Registre-se com seu perfil em rede social em 5 segundos. Nenhuma senha é necessária.
@@ -191,23 +195,43 @@ track.android.desc=Domine a plataforma que domina o mundo
 android.label=Android
 android.leaderboard=Android
 
-track.arquitetura.title=Arquitetura
-track.arquitetura.desc=Tendências, tecnologias, futuro e o arquiteto!
-arquitetura.label=Arquitetura
-arquitetura.leaderboard=Arquitetura
+track.arduino.title=Arduino
+track.arduino.desc=Aprendendo e Inovando na Prática
+arduino.label=Arduino
+arduino.leaderboard=Arduino
+
+track.arquitetempres.title=Arquitetura Empresarial
+track.arquitetempres.desc=
+arquitetempres.label=Arquitetura Empresarial
+arquitetempres.leaderboard=Arquitetura Empresarial
+
+track.arquitetjava.title=Arquitetura Java
+track.arquitetjava.desc=
+arquitetjava.label=Arquitetura Java
+arquitetjava.leaderboard=Arquitetura Java
 
 track.bigdata.title=BigData e NoSQL
 track.bigdata.desc=Rompendo as barreiras da persistência de dados
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
+track.banco.title=Banco de Dados
+track.banco.desc=
+banco.label=Banco de Dados
+banco.leaderboard=Banco de Dados
+
 track.cloud.title=Cloud Computing
 track.cloud.desc=Utilizando o poder da nuvem em seu favor
 cloud.label=Cloud
 cloud.leaderboard=Cloud
 
-track.datascience.title=DataScience e Machine Learning
-track.datascience.desc=Da aquisição à geração de valor, todo o potencial dos dados a seu favor
+track.chatbots.title=Chatbots
+track.chatbots.desc=Saiba tudo sobre Chatbots inteligentes, desde a concepção até a publicação
+chatbots.label=Chatbots
+chatbots.leaderboard=Chatbots
+
+track.datascience.title=DataScience
+track.datascience.desc=Ciência aplicada na solução de problemas (de empresas e de pessoas)
 datascience.label=DataScience
 datascience.leaderboard=DataScience
 
@@ -226,10 +250,20 @@ track.devops.desc=Maximizando a integração entre equipes para entregar valor
 devops.label=DevOps
 devops.leaderboard=DevOps
 
+track.devtest.title=Dev Test
+track.devtest.desc=
+devtest.label=Dev Test
+devtest.leaderboard=Dev Test
+
 track.frameworksjs.title=Frameworks JavaScript
 track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
 frameworksjs.label=Frameworks JavaScript
 frameworksjs.leaderboard=Frameworks JavaScript
+
+track.games.title=Games
+track.games.desc=
+games.label=Games
+games.leaderboard=Games
 
 track.iot.title=Internet das Coisas
 track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado às nossas coisas do dia-a-dia
@@ -256,6 +290,11 @@ track.javascript.desc=Always bet on JS!
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
+track.machine.title=Machine Learning
+track.machine.desc=
+machine.label=Machine Learning
+machine.leaderboard=Machine Learning
+
 track.management.title=Management 3.0
 track.management.desc=Gestão é tão importante que é uma loucura deixá-la apenas com um pessoa!
 management.label=Management 3.0
@@ -271,6 +310,11 @@ track.mobile.desc=Novidades e tendências do universo do desenvolvimento de apli
 mobile.label=Mobile
 mobile.leaderboard=Mobile
 
+track.nodejs.title=Node.js
+track.nodejs.desc=Novidades e tendências do universo do desenvolvimento de aplicativos móveis
+nodejs.label=Node.js
+nodejs.leaderboard=Node.js
+
 track.php.title=PHP
 track.php.desc=É para quem leva a carreira a sério!
 php.label=PHP
@@ -285,6 +329,11 @@ track.python.title=Python
 track.python.desc=Pessoas > Tecnologia
 python.label=Python
 python.leaderboard=Python
+
+track.realidade.title=Realidade Virtual e Aumentada
+track.realidade.desc=
+realidade.label=Realidade Virtual e Aumentada
+realidade.leaderboard=Realidade Virtual e Aumentada
 
 track.ruby.title=Ruby
 track.ruby.desc=Agilidade, produtividade e boas práticas
@@ -329,6 +378,7 @@ signup.txt1=Registre-se para submeter uma palestra para a conferência {0} :
 signup.txt2=Um email de validação será enviado para o endereço indicado. Seu perfil estará ativo assim que o email for validado.
 
 # edit profile
+editProfile.tab=Seu perfil
 editProfile.title=Seu perfil
 editProfile.help=Aproveite para completar seu perfil. Este conteúdo será publicado no site se você for selecionado como palestrante, assim como no programa da conferência:
 editProfile.save=Gravar
@@ -575,6 +625,7 @@ admin.btn.createNewspeaker=Criar um novo palestrante
 admin.btn.tracklead=Coordenador da trilha
 admin.btn.howTo=Como...
 
+newSpeaker.tab=Criar um novo palestrante
 newSpeaker.title=Criar um novo palestrante
 avatarUrl2=URL para foto do palestrante
 name=Nome completo
@@ -583,6 +634,8 @@ twitter2=Twitter
 company2=Empresa
 blog2=Web site ou blog pessoal
 lang2=Falará em Português ou Inglês? (pt/en)
+gender2=Qual é o gênero? (M/F/N)
+tshirtSize2=Qual é o tamanho de camiseta? (P,M,G,GG,XGG,XXGG)
 sp.editSpeaker=Editar este palestrante
 sp.authenticateAs=Autenticar como
 sp.editName=Edita nome
@@ -1097,6 +1150,7 @@ leaderboard.columns.toallocate=Falta alocar
 leaderboard.approved.bytype=submissões aprovadas para
 leaderboard.accepted.bytype=submissões aceitas para
 
+allSpeakers.tab=Todos Palestrantes
 allSpeakers.title=Todos Palestrantes
 allSpeakers.speakers=palestrantes
 allSpeakers.users=usuários
