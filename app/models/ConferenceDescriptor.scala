@@ -138,7 +138,7 @@ object ConferenceDescriptor {
 
     val QUICK = ProposalType(id = "pmini", label = "minipalestra.label")
 
-    //val IGNITE= ProposalType(id = "prel", label = "relampago.label")
+    val IGNITE= ProposalType(id = "prel", label = "relampago.label")
 
     val ALL = List(CONF, BOF, QUICK)
 
@@ -193,8 +193,8 @@ object ConferenceDescriptor {
       chosablePreferredDay = true)
     val QUICK = ProposalConfiguration(id = "pmini", slotsCount = 1, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-microphone",
       chosablePreferredDay = true)
-    //val IGNITE = ProposalConfiguration(id = "prel", slotsCount = 1, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-fast-forward",
-      //chosablePreferredDay = true)
+    val IGNITE = ProposalConfiguration(id = "prel", slotsCount = 1, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-fast-forward",
+      chosablePreferredDay = true)
 
     val ALL = List(CONF, BOF, QUICK )
 
