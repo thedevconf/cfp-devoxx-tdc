@@ -100,7 +100,7 @@ lang.help=100% de {0} palestras são em Português
 combo.select=--- Por favor selecione ---
 mainSpeaker=Palestrante principal
 mainSpeaker2=Múltiplos palestrantes?
-mainSpeaker.help=Você pode incluir mais palestrantes depois de feita a submissão. 
+mainSpeaker.help=Você pode incluir mais um palestrante depois de feita a submissão.
 # We offer a full Combi pass for the following slots : Conference, University, Hands-on-Labs, Tools-in-Action. Quickie speakers need to purchase a conference pass!
 otherSpeakers=Outros palestrantes
 talkType=Tipo de palestra
