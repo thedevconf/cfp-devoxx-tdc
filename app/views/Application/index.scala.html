@@ -95,7 +95,6 @@
 
             <div class="clearfix"></div>
 
-            <!--
             <div class="col-md-12 col-sm-12">
                 <h3><i class="icon-book"></i> @Messages("theme.title")</h3>
                 <p>@Messages("theme.track")</p>
@@ -103,7 +102,9 @@
                     <tbody>
                         @for(track <- ConferenceDescriptor.ConferenceTracksDescription.ALL) {
                             <tr>
+                                <!--
                                 <td><img src="@Messages(track.imgSrc)" style="height:30px; width:30px" /></td>
+                                -->
                                 <td>@Messages(track.i18nTitleProp)</td>
                                 <td>@Messages(track.i18nDescProp)</td>
                             </tr>
@@ -112,7 +113,6 @@
                 </table>
 
             </div>
--->
 
         </div>
     </div>
