@@ -28,7 +28,7 @@
                 </table>
 
                 <table class="table table-bordered">
-<!-- Removidas informações de free pass
+<!-- Removidas informaï¿½ï¿½es de free pass
                     <thead>
                         <tr>
                             <td></td>
@@ -41,7 +41,7 @@
                         <td>
                             @currentUser
                         </td>
-<!-- Removidas informações de free pass
+<!-- Removidas informaï¿½ï¿½es de free pass
                         <td>
                         @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
                             <span class="label label-success">@Messages("freepass")</span>
@@ -55,7 +55,7 @@
                         <td>
                             @helper.select(field=speakerForm("secondarySpeaker"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control")
                         </td>
-<!-- Removidas informações de free pass
+<!-- Removidas informaï¿½ï¿½es de free pass
                         <td>
                           @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
                             <span class="label label-success">@Messages("freepass")</span>
@@ -65,18 +65,22 @@
                         </td>
 -->
                     </tr>
-                    <tr>
-                        <td>
-                            @helper.select(field=speakerForm("otherSpeakers"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control-cfp", 'multiple->"true" )
-                        </td>
-<!-- Removidas informações de free pass
-                        <td>
-                            <span class="label label-warning">@Messages("no.freepass")</span>
-                        </td>
+                    <!-- removida opÃ§Ã£o de mais speakers
+                <tr>
+                    <td>
+                        @helper.select(field=speakerForm("otherSpeakers"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control-cfp", 'multiple->"true" )
+                    </td>
 -->
+<!-- Removidas informaï¿½ï¿½es de free pass
+                    <td>
+                        <span class="label label-warning">@Messages("no.freepass")</span>
+                    </td>
+-->
+                    <!-- removida opÃ§Ã£o de mais speakers
                     </tr>
+                    -->
                 </tbody>
-<!-- Removidas informações de free pass
+<!-- Removidas informaï¿½ï¿½es de free pass
                     <tfoot>
                         <tr>
                             <td colspan="2"><small>@Messages("freepass.forIdiots")</small></td>

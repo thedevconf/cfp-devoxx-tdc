@@ -106,6 +106,8 @@ otherSpeakers=Outros palestrantes
 talkType=Tipo de palestra
 talkType.help=Cada tipo de palestra está descrito na <a href="" target="new">FAQ</a>.
 
+track.help=Como temos muitas trilhas similares, a sua palestra poderá ser aprovada em uma trilha diferente daquela a que foi submetida.
+
 audienceLevel=Nível da audiência:
 audienceLevel.help=Por favor, indique o nível da audiência requerido para sua palestra:\
 1- iniciante\
@@ -125,7 +127,7 @@ sponsorTalk.help=Não marque este checkbox se a sua empresa não é patrocinador
 sponsorTalk.checkbox=Sim, esta é uma palestra de patrocinador
 
 helpAndTips=Mais informações
-moreSpeakerLater=Você pode incluir mais palestrantes depois, assim que a proposta for submetida.
+moreSpeakerLater=Você pode incluir mais um palestrante depois, assim que a proposta for submetida.
 btn.home=Voltar para a home sem gravar
 btn.save=Preview
 btn.save2=Confirmar

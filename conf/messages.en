@@ -106,6 +106,8 @@ otherSpeakers=Other speakers
 talkType=Type of talk
 talkType.help=Each type of talk is described on the <a href="" target="new">FAQ</a>.
 
+track.help=Since we have many similar tracks, your talk can be approved on a track different from the one you submitted to.
+
 audienceLevel=Audience level :
 audienceLevel.help=Please, indicate the required audience level for your talk:\
 1- beginner\
@@ -125,7 +127,7 @@ sponsorTalk.help=Do not tick this checkbox if your company is not a sponsor.
 sponsorTalk.checkbox=Yes, this is a sponsor/exhibitor talk
 
 helpAndTips=More info
-moreSpeakerLater=You can add more speakers later, once the proposal is submitted.
+moreSpeakerLater=You can add one more speaker later, once the proposal is submitted.
 btn.home=Back to home without saving
 btn.save=Preview
 btn.save2=Confirm
