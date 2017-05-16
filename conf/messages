@@ -180,6 +180,11 @@ track.dotnet.desc=Explore os recursos do .NET
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
+track.acessibilidade.title=Acessibilidade Digital
+track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+acessibilidade.label=Acessibilidade Digital
+acessibilidade.leaderboard=Acessibilidade Digital
+
 track.agile.title=Agile
 track.agile.desc=
 agile.label=Agile
@@ -199,6 +204,11 @@ track.android.title=Android
 track.android.desc=
 android.label=Android
 android.leaderboard=Android
+
+track.arduino.title=Arduino e Makers
+track.arduino.desc=Projetos estilo Faça você mesmo!
+arduino.label=Arduino e Makers
+arduino.leaderboard=Arduino e Makers
 
 track.arquitetdotnet.title=Arquitetura .NET
 track.arquitetdotnet.desc=Arquitetura na plataforma .Net
@@ -260,6 +270,11 @@ track.devtest.desc=Porque qualidade é responsabilidade de todos!
 devtest.label=Dev Test
 devtest.leaderboard=Dev Test
 
+track.embarcados.title=Embarcados
+track.embarcados.desc=
+embarcados.label=Embarcados
+embarcados.leaderboard=Embarcados
+
 track.fintech.title=Fintech
 track.fintech.desc=Tecnologia financeira a serviço da comodidade
 fintech.label=Fintech
@@ -279,6 +294,11 @@ track.impressao.title=Impressão 3D
 track.impressao.desc=Aqui imprimimos futuro
 impressao.label=Impressão 3D
 impressao.leaderboard=Impressão 3D
+
+track.inovacao.title=Inovação
+track.inovacao.desc=
+inovacao.label=Inovação
+inovacao.leaderboard=Inovação
 
 track.infraagil.title=Infraestrutura Ágil
 track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
