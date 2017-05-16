@@ -298,7 +298,7 @@ object ConferenceDescriptor {
 
     val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/tdc2016poa/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
     val DEVOPS = TrackDesc(ConferenceTracks.DEVOPS.id, "/assets/tdc2016poa/images/icon_devops.png", "track.devops.title", "track.devops.desc")
-    val DEVTEST = TrackDesc(ConferenceTracks.DEVTEST.id, "/assets/tdc2016poa/images/icon_devtest.png", "track.devtet.title", "track.devtet.desc")
+    val DEVTEST = TrackDesc(ConferenceTracks.DEVTEST.id, "/assets/tdc2016poa/images/icon_devtest.png", "track.devtest.title", "track.devtest.desc")
     val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
 
     val EMBARCADOS = TrackDesc(ConferenceTracks.EMBARCADOS.id, "/assets/tdc2016poa/images/icon_fintech.png", "track.embarcados.title", "track.embarcados.desc")

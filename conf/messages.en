@@ -225,6 +225,11 @@ track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura
 arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
+track.arquitetphp.title=Arquitetura PHP
+track.arquitetphp.desc=
+arquitetphp.label=Arquitetura PHP
+arquitetphp.leaderboard=Arquitetura PHP
+
 track.banco.title=Banco de Dados
 track.banco.desc=Conheça os principais recursos de Banco de Dados Relacional agnóstico de fabricante
 banco.label=Banco de Dados
