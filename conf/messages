@@ -409,8 +409,8 @@ ruby.leaderboard=Ruby
 
 track.seguranca.title=Segurança
 track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
-seguranca.label=Startups
-seguranca.leaderboard=Startups
+seguranca.label=Segurança
+seguranca.leaderboard=Segurança
 
 track.startups.title=Startups
 track.startups.desc=Mergulhando no ecossistema de Startups
