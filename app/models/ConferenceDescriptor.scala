@@ -218,6 +218,7 @@ object ConferenceDescriptor {
 
     val BIGDATA = Track("bigdata", "bigdata.label")
     val BANCODADOS = Track("banco", "banco.label")
+    val BLOCKCHAIN = Track("blockchain", "blockchain.label")
     val CLOUD = Track("cloud", "cloud.label")
     val COMPUTACAOCOGN = Track("computacao", "computacao.label")
     val CONTAINERS = Track("containers", "containers.label")
@@ -266,12 +267,13 @@ object ConferenceDescriptor {
     val TRANSFDIGITAL = Track("transfdigital", "transfdigital.label")
     val UXDESIGN = Track("uxdesign", "uxdesign.label")
     val XAMARIN = Track("xamarin", "xamarin.label")
+    val WOMEN = Track("women", "women.label")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDOTNET, ARQUITEMPRES,
       ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
       DEVOPS, EMBARCADOS, FINTECH, GAMES, GOLANG, IMPRESSAO, INFRAAGIL, INOVACAO, IOS, IOT, JAVA, JAVAEE, JAVASCRIPT,
       LINUX, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, MODERNWEB, NOSQL, NODEJS, PHP, PFUNCIONAL, PYTHON, RADDELPHIC,
-      REALIDADE, RUBY, SEGURANCA, STARTUPS, TESTES, TRANSFDIGITAL, UXDESIGN, XAMARIN)
+      REALIDADE, RUBY, SEGURANCA, STARTUPS, TESTES, TRANSFDIGITAL, UXDESIGN, XAMARIN, BLOCKCHAIN, WOMEN)
 
   }
 
@@ -292,6 +294,7 @@ object ConferenceDescriptor {
 
     val BANCODADOS = TrackDesc(ConferenceTracks.BANCODADOS.id, "/assets/tdc2016poa/images/icon_bd.png", "track.banco.title", "track.banco.desc")
     val BIGDATA = TrackDesc(ConferenceTracks.BIGDATA.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.bigdata.title", "track.bigdata.desc")
+    val BLOCKCHAIN = TrackDesc(ConferenceTracks.BLOCKCHAIN.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.blockchain.title", "track.blockchain.desc")
     val CLOUD = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.cloud.title", "track.cloud.desc")
     val COMPUTACAOCOGN = TrackDesc(ConferenceTracks.COMPUTACAOCOGN.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.computacao.title", "track.computacao.desc")
     val CONTAINERS = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.containers.title", "track.containers.desc")
@@ -339,12 +342,13 @@ object ConferenceDescriptor {
     val TRANSFDIGITAL = TrackDesc(ConferenceTracks.TRANSFDIGITAL.id, "/assets/tdc2016poa/images/icon_testes.png", "track.transfdigital.title", "track.transfdigital.desc")
     val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/tdc2016poa/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
     val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.xamarin.title", "track.xamarin.desc")
+    val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.women.title", "track.women.desc")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDOTNET, ARQUITEMPRES,
       ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
       DEVOPS, EMBARCADOS, FINTECH, GAMES, GOLANG, IMPRESSAO, INFRAAGIL, INOVACAO, IOS, IOT, JAVA, JAVAEE, JAVASCRIPT,
       LINUX, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, MODERNWEB, NOSQL, NODEJS, PHP, PFUNCIONAL, PYTHON, RADDELPHIC,
-      REALIDADE, RUBY, SEGURANCA, STARTUPS, TESTES, TRANSFDIGITAL, UXDESIGN, XAMARIN)
+      REALIDADE, RUBY, SEGURANCA, STARTUPS, TESTES, TRANSFDIGITAL, UXDESIGN, XAMARIN, BLOCKCHAIN, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)

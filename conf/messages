@@ -242,10 +242,10 @@ track.bigdata.desc=Big Data, muito além dos 3Vs
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
-track.seguranca.title=BlockChain, Segurança e Criptografia
-track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
-seguranca.label=BlockChain, Segurança e Criptografia
-seguranca.leaderboard=BlockChain, Segurança e Criptografia
+track.blockchain.title=BlockChain
+track.blockchain.desc=
+blockchain.label=BlockChain
+blockchain.leaderboard=BlockChain
 
 track.cloud.title=Cloud Computing
 track.cloud.desc=Todos os caminhos e arquiteturas, levam você à nuvem
@@ -412,6 +412,11 @@ track.ruby.desc=Agilidade, produtividade e boas práticas
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
+track.seguranca.title=Segurança e Criptografia
+track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
+seguranca.label=Segurança e Criptografia
+seguranca.leaderboard=Segurança e Criptografia
+
 track.startups.title=Startups
 track.startups.desc=Mergulhando no ecossistema de Startups
 startups.label=Startups
@@ -436,6 +441,11 @@ track.xamarin.title=Xamarin
 track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C
 xamarin.label=Xamarin
 xamarin.leaderboard=Xamarin
+
+track.women.title=TDC4Women
+track.women.desc=
+women.label=TDC4Women
+women.leaderboard=TDC4Women
 
 
 # confirm import
