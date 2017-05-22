@@ -242,6 +242,11 @@ track.bigdata.desc=Big Data, muito além dos 3Vs
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
+track.seguranca.title=BlockChain, Segurança e Criptografia
+track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
+seguranca.label=BlockChain, Segurança e Criptografia
+seguranca.leaderboard=BlockChain, Segurança e Criptografia
+
 track.cloud.title=Cloud Computing
 track.cloud.desc=Todos os caminhos e arquiteturas, levam você à nuvem
 cloud.label=Cloud
@@ -406,11 +411,6 @@ track.ruby.title=Ruby
 track.ruby.desc=Agilidade, produtividade e boas práticas
 ruby.label=Ruby
 ruby.leaderboard=Ruby
-
-track.seguranca.title=Segurança
-track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
-seguranca.label=Segurança
-seguranca.leaderboard=Segurança
 
 track.startups.title=Startups
 track.startups.desc=Mergulhando no ecossistema de Startups
