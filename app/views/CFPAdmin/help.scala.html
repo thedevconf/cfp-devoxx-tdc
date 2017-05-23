@@ -1,0 +1,20 @@
+@(proposal: Proposal)(implicit flash: Flash, lang: Lang, req: RequestHeader)
+
+@main(s"[CFP] history ${proposal.id}") {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Vídeos explicativos</h3>
+                </div>
+
+                <div class="panel-body">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLv3L8f6F-z9L54ExLbUgGsRFWWcF4dqLZ" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}
