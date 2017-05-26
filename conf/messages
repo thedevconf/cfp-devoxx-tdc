@@ -188,7 +188,7 @@ acessibilidade.label=Acessibilidade Digital
 acessibilidade.leaderboard=Acessibilidade Digital
 
 track.agile.title=Agile
-track.agile.desc=
+track.agile.desc=Do Lean ao eXtreme Programming
 agile.label=Agile
 agile.leaderboard=Agile
 
@@ -203,7 +203,7 @@ analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
 track.android.title=Android
-track.android.desc=
+track.android.desc=Domine a plataforma que domina o mundo
 android.label=Android
 android.leaderboard=Android
 
@@ -217,10 +217,10 @@ track.arquitetdotnet.desc=Arquitetura na plataforma .Net
 arquitetdotnet.label=Arquitetura .NET
 arquitetdotnet.leaderboard=Arquitetura .NET
 
-track.arquitetempres.title=Arquitetura Empresarial
+track.arquitetempres.title=Arquitetura Corporativa
 track.arquitetempres.desc=Arquitetando Negócios e TI para a efetiva Transformação Digital!
-arquitetempres.label=Arquitetura Empresarial
-arquitetempres.leaderboard=Arquitetura Empresarial
+arquitetempres.label=Arquitetura Corporativa
+arquitetempres.leaderboard=Arquitetura Corporativa
 
 track.arquitetjava.title=Arquitetura Java
 track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java alavancar seus projetos
@@ -228,7 +228,7 @@ arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
 track.arquitetphp.title=Arquitetura PHP
-track.arquitetphp.desc=
+track.arquitetphp.desc=PHP na jornada em busca da perfeição
 arquitetphp.label=Arquitetura PHP
 arquitetphp.leaderboard=Arquitetura PHP
 
@@ -243,7 +243,7 @@ bigdata.label=BigData
 bigdata.leaderboard=BigData
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=
+track.blockchain.desc=Se quer ser o melhor, tem que ser o mais seguro!
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
@@ -277,13 +277,13 @@ track.devops.desc=Maximizando a integração entre equipes para entregar valor
 devops.label=DevOps
 devops.leaderboard=DevOps
 
-track.devtest.title=Dev Test
+track.devtest.title=DevTest
 track.devtest.desc=Porque qualidade é responsabilidade de todos!
-devtest.label=Dev Test
-devtest.leaderboard=Dev Test
+devtest.label=DevTest
+devtest.leaderboard=DevTest
 
 track.embarcados.title=Embarcados
-track.embarcados.desc=
+track.embarcados.desc=Venha expor conosco tecnologias ligadas ao desenvolvimento de sistemas embarcados
 embarcados.label=Embarcados
 embarcados.leaderboard=Embarcados
 
@@ -378,7 +378,7 @@ nodejs.label=Node.js
 nodejs.leaderboard=Node.js
 
 track.nosql.title=NoSQL
-track.nosql.desc=
+track.nosql.desc=NoSQL, no Limits, lots of Fun!
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
