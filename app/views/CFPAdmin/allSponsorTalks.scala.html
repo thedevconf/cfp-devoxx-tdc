@@ -30,10 +30,12 @@
             @proposal.otherSpeakers.map { s =>
                 @tags.renderGravatar(s)
             }
+            <!-- not necessary for us (TDC)
             <h4>@Messages("backoffice.allproposals.sponsor.message")</h4>
             <small>
                 @Html(proposal.privateMessageAsHtml)
             </small>
+            -->
 
             <a href="@routes.CFPAdmin.removeSponsorTalkFlag(proposal.id)" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("remove.sponsorFlag")</a>
         </div>
