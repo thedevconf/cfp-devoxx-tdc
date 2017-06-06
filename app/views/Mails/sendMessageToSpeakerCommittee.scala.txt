@@ -15,7 +15,7 @@ Uma nova mensagem foi postada por @fromName para @toName a respeito da palestra 
 - Revise esta proposta online:
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)
 
-------------------------------------------------------------------------------
+=============================================================================
 
 Hello,
 

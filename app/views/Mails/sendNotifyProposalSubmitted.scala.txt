@@ -2,7 +2,7 @@
 
 Olá,
 
-Uma proposta foi submitida no CFP por @fromName.
+Uma proposta foi submetida no CFP por @fromName.
 
 Título da palestra : @title
 Trilha : @track

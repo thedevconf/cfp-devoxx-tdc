@@ -4,7 +4,7 @@ Bem-vindo ao @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Olá,
 
-Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 800 palestras!
+Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 1700 palestras!
 Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA!
 Título:  @proposal.title
 Trilha:
@@ -50,7 +50,7 @@ Welcome to @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Hi,
 
-Thanks again for your submission! The result was amazing, we have received more than 800 submissions!
+Thanks again for your submission! The result was amazing, we have received more than 1700 submissions!
 We're glad to inform you that your proposal has been APPROVED:
 Title: @proposal.title
 Track:

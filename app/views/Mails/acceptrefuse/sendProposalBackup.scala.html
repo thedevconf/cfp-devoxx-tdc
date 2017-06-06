@@ -58,7 +58,7 @@
 
 <h3>Bem-vindo ao @Messages("longYearlyName")</h3>
 <p>Olá, @firstName,</p>
-<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 800 propostas!</p>
+<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 1700 propostas!</p>
 <p>Estamos muito contentes em anunciar que a sua palestra foi marcada como <strong>BACKUP</strong> :<br/>
     Título: <strong>@proposal.title</strong> <br/>
     Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
@@ -67,8 +67,8 @@
 <br/>
 <h3>ATENÇÃO! Ações necessárias</h3>
 <h4>1. Aceitar ou recusar</h4>
-<p>A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra foi aprovada.
-    Caso você não queira manter esta palestra como backup pode declinar através do link:<br/>
+<p>A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra for aprovada.
+    Caso você não queira manter esta palestra como backup, pode declinar através do link:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
 </p>
 <h4>2. Sua minibio e foto</h4>
@@ -79,11 +79,8 @@
 </p>
 <p>Para fazer a sua apresentação, disponibilizamos um
     <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
-<h4>4. Cortesia para palestrantes</h4>
-<p>Você gostaria de participar de outras trilhas do evento?
-    Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
-    Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
-    Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido. </p>
+<h4>4. Cortesia para palestrante backup</h4>
+<p>Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha. </p>
 <h4>5. Compartilhe o evento</h4>
 <p>Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> e no
@@ -155,8 +152,8 @@
 
 
 <p>Hi, @firstName,</p>
-<p>Thanks again for your submission! The result was amazing, we have received more than 800 submissions!</p>
-<p>We're glad to inform you that your proposal has been <strong>APPROVED</strong>:<br/>
+<p>Thanks again for your submission! The result was amazing, we have received more than 1700 submissions!</p>
+<p>We're glad to inform you that your proposal has been marked as <strong>BACKUP</strong>:<br/>
     Title: <strong>@proposal.title</strong> <br/>
     Track: <strong> @Messages(proposal.track.label)</strong> <br/>
     Format: <strong>talk time as agreed with the coordinators</strong>
@@ -164,9 +161,9 @@
 <br/>
 <h3>ATTENTION! Required actions</h3>
 <h4>1. Accept or decline</h4>
-<p>You must now validate or decline the general terms and conditions, and confirm that you are still ok to do
-    this presentation AS SOON AS POSSIBLE:<br/>
-    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+<p>Your talk has been approved as backup. That means you will be notified later if your talk is approved.
+    In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
 </p>
 <h4>2. Your bio and picture</h4>
 <p>In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.</p>
@@ -176,10 +173,8 @@
 </p>
 <p>To prepare your presentation, we provide a
     <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
-<h4>4. Reward for Speakers</h4>
-<p>Would you like to participate in other event tracks?
-    All speakers are entitled to 1 track a day beyond that which will deliver his talk.
-    We recommend that you register as soon as you receive your code because many tracks sell out fast. </p>
+<h4>4. Reward for Backup Speaker</h4>
+<p>In case you accept that your talk stay as backup, we offer you a free pass for this track.</p>
 <h4>5. Share the event</h4>
 <p>If you use social networks, take this opportunity to invite you to enjoy our
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> and

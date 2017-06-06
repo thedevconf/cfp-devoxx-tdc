@@ -4,7 +4,7 @@ Bem-vindo ao @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Olá, @firstName,
 
-Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 800 palestras!
+Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 1700 palestras!
 Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi marcada como BACKUP :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
@@ -13,8 +13,8 @@ Formato: (tempo de palestra conforme combinado com os coordenadores)
 ATENÇÃO! Ações necessárias
 --------------------------
 1. Aceitar ou recusar
-A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra foi aprovada.
-Caso você não queira manter esta palestra como backup pode declinar através do link:
+A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra for aprovada.
+Caso você não queira manter esta palestra como backup, pode declinar através do link:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks
 
 2. Sua minibio e foto
@@ -28,11 +28,8 @@ possível para responder rapidamente.
 Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
-4. Cortesia para palestrantes
-Você gostaria de participar de outras trilhas do evento?
-Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
-Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
-Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido.
+4. Cortesia para palestrante backup
+Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha.
 
 5. Compartilhe o evento
 Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
@@ -51,8 +48,8 @@ Welcome to @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Hi, @firstName,
 
-Thanks again for your submission! The result was amazing, we have received more than 800 submissions!
-We're glad to inform you that your proposal has been APPROVED:
+Thanks again for your submission! The result was amazing, we have received more than 1700 submissions!
+We're glad to inform you that your proposal has been marked as BACKUP:
 Title: <strong>@proposal.title</strong>
 Track: <strong> @Messages(proposal.track.label)
 Format: <strong>@Messages(proposal.talkType.id) (or how it was agreed with the coordinators)
@@ -60,9 +57,9 @@ Format: <strong>@Messages(proposal.talkType.id) (or how it was agreed with the c
 ATTENTION! Required actions
 ---------------------------
 1. Accept or decline
-You must now validate or decline the general terms and conditions, and confirm that you are still ok to do this
-presentation AS SOON AS POSSIBLE:
- @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+Your talk has been approved as backup. That means you will be notified later if your talk is approved.
+In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
+ @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks()
 
 2. Your bio and picture
 In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you
@@ -75,10 +72,8 @@ to respond quickly.
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
-4. Reward for Speakers
-Would you like to participate in other event tracks?
-All speakers are entitled to 1 track a day beyond that which will deliver his talk.
-We recommend that you register as soon as you receive your code because many tracks sell out fast.
+4. Reward for Backup Speaker
+In case you accept that your talk stay as backup, we offer you a free pass for this track.
 
 5. Share the event
 If you use social networks, take this opportunity to invite you to enjoy ours:
