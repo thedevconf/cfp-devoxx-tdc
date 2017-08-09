@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC São Paulo 2017
-CONF.subtitle=SP
-CONF.dates=July 18 to 22, 2017
+CONF.title=TDC Porto Alegre 2017
+CONF.subtitle=POA
+CONF.dates=November 8 to 11, 2017
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2017 SP
-longYearlyName=TDC 2017 São Paulo
-shortName=TDC São Paulo
-longName=TDC 2017 SP CFP
+shortYearlyName=TDC 2017 POA
+longYearlyName=TDC 2017 Porto Alegre
+shortName=TDC Porto Alegre
+longName=TDC 2017 POA CFP
 longSplittedName_whiteStart=TDC
 longSplittedName_colored=2017
-longSplittedName_whiteEnd=SP
-cfp.title=TDC 2017 SP CFP
+longSplittedName_whiteEnd=POA
+cfp.title=TDC 2017 POA CFP
 # -----------------
 login.error=Invalid email or password
 menu.home=Home
@@ -56,7 +56,7 @@ disclaimer=and using Devoxx CFP application
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
-banner.link=/assets/images/tdc2017sp-banner-call4papers.png
+banner.link=/assets/images/tdc2017poa-banner-call4papers.png
 index.program.text=Complete schedule
 index.program.link=http://www.thedevelopersconference.com.br/
 
@@ -170,10 +170,10 @@ call4workshops.tag=We are still accepting proposals for workshops on
 call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
 agenda.title=Agenda
 theme.title=Tracks
-theme.track=List of tracks for TDC 2017 SP:
+theme.track=List of tracks for TDC 2017 POA:
 track.title=Title
 track.description=Description
-appel.conf.dates=TDC 2017 São Paulo, 18th-22nd July 2017
+appel.conf.dates=TDC 2017 Porto Alegre, 8th-11th November 2017
 
 # Tracks
 
@@ -913,7 +913,7 @@ hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
 menu.blog=Site TDC
-signup.long=Register as a speaker on TDC SP CFP
+signup.long=Register as a speaker on TDC POA CFP
 sw.all.hack=Hackatons
 #approved=Speaker approved
 cstory=Session de live coding Code-story
@@ -1008,7 +1008,7 @@ gt.intro.1=This is the full list of Proposals. You can sort by Proposal title, b
 gt.intro.2=If needed, you can also
 gt.reviewYourVotes=review your Votes
 gt.intro.3=while the CFP is open.
-gt.special.need=If you have a specific speaker you would love to see present at TDC SP, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
+gt.special.need=If you have a specific speaker you would love to see present at TDC POA, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
 gt.todo=Your todo list size:
 
 gt.yourVotes=Your votes
@@ -1213,7 +1213,7 @@ leaderboard.label.refresh=Trigger a refresh now
 leaderboard.label.speakers=speakers
 leaderboard.label.approved.speakers=approved speakers
 leaderboard.label.refused.speakers=refused speakers
-leaderboard.label.withpass=with a TDC SP Pass
+leaderboard.label.withpass=with a TDC POA Pass
 leaderboard.label.proposals=proposals
 leaderboard.label.proposals.withvote=proposals with vote
 leaderboard.label.proposals.novote=proposals with no vote (incl.Draft)

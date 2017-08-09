@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC São Paulo 2017
-CONF.subtitle=SP
-CONF.dates=18 a 22 de Julho de 2017
+CONF.title=TDC Porto Alegre 2017
+CONF.subtitle=POA
+CONF.dates=8 a 11 de Novembro de 2017
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2017 SP
-longYearlyName=TDC 2017 São Paulo
-shortName=TDC São Paulo
-longName=TDC 2017 SP CFP
+shortYearlyName=TDC 2017 POA
+longYearlyName=TDC 2017 Porto Alegre
+shortName=TDC Porto Alegre
+longName=TDC 2017 POA CFP
 longSplittedName_whiteStart=TDC
 longSplittedName_colored=2017
-longSplittedName_whiteEnd=SP
-cfp.title=TDC 2017 SP CFP
+longSplittedName_whiteEnd=POA
+cfp.title=TDC 2017 POA CFP
 # -----------------
 login.error=Email ou senha inválidos
 menu.home=Home
@@ -56,7 +56,7 @@ disclaimer=e usando a aplicação do Devoxx CFP
 logged.in=Logado como
 logout=Sair
 logout.closeMessage=e fechar sua sessão
-banner.link=/assets/images/tdc2017sp-banner-call4papers.png
+banner.link=/assets/images/tdc2017poa-banner-call4papers.png
 index.program.text=Programação Completa
 index.program.link=http://www.thedevelopersconference.com.br/
 
@@ -170,10 +170,10 @@ call4workshops.tag=Ainda estamos aceitando propostas de workshops em
 call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
 agenda.title=Agenda
 theme.title=Trilhas
-theme.track=Lista de trilhas do TDC 2017 São Paulo:
+theme.track=Lista de trilhas do TDC 2017 Porto Alegre:
 track.title=Título
 track.description=Descrição
-appel.conf.dates=TDC 2017 São Paulo, 18 a 22 de Julho de 2017
+appel.conf.dates=TDC 2017 Porto Alegre, 8 a 11 de Novembro de 2017
 
 # Tracks
 
@@ -912,7 +912,7 @@ hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
 menu.blog=Site TDC2017
-signup.long=Registre-se como um palestrante no TDC SP CFP
+signup.long=Registre-se como um palestrante no TDC POA CFP
 sw.all.hack=Hackatons
 #approved=Palestrante aprovado
 cstory=Session de live coding Code-story
@@ -1007,7 +1007,7 @@ gt.intro.1=Este é a lista compleata de Propostas. Você pode ordenar por títul
 gt.intro.2=Se necessário, você também pode
 gt.reviewYourVotes=revise seus Votos
 gt.intro.3=enquanto o CFP está aberto.
-gt.special.need=Se você tem um palestrante específico que você adoraria ver se apresentar no TDC SP, mande um email para organizacao@thedevelopersconference.com.br e nós faremos o possível para trazê-lo.
+gt.special.need=Se você tem um palestrante específico que você adoraria ver se apresentar no TDC POA, mande um email para organizacao@thedevelopersconference.com.br e nós faremos o possível para trazê-lo.
 gt.todo=Tamanho da sua lista de pendências:
 
 gt.yourVotes=Seus votos
@@ -1212,7 +1212,7 @@ leaderboard.label.refresh=Dispare um refresh agora
 leaderboard.label.speakers=palestrantes
 leaderboard.label.approved.speakers=palestrantes aprovados
 leaderboard.label.refused.speakers=palestrantes rejeitados
-leaderboard.label.withpass=com ingresso do TDC SP
+leaderboard.label.withpass=com ingresso do TDC POA
 leaderboard.label.proposals=propostas
 leaderboard.label.proposals.withvote=propostas com voto
 leaderboard.label.proposals.novote=propostas sem voto (incl.Rascunho)
