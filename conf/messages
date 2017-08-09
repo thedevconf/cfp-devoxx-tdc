@@ -58,7 +58,7 @@ logout=Sair
 logout.closeMessage=e fechar sua sessão
 banner.link=/assets/images/tdc2017poa-banner-call4papers.png
 index.program.text=Programação Completa
-index.program.link=http://www.thedevelopersconference.com.br/
+index.program.link=http://www.thedevelopersconference.com.br/tdc/2017/portoalegre/trilhas
 
 # CFP Home page
 your.profile=Seu perfil
@@ -100,11 +100,11 @@ lang.help=100% de {0} palestras são em Português
 combo.select=--- Por favor selecione ---
 mainSpeaker=Palestrante principal
 mainSpeaker2=Múltiplos palestrantes?
-mainSpeaker.help=Você pode incluir mais um palestrante depois de feita a submissão.
+mainSpeaker.help=Você pode incluir mais um palestrante depois de feita a submissão, enquanto o CFP estiver aberto. Não será aceito depois da avaliação das palestras.
 # We offer a full Combi pass for the following slots : Conference, University, Hands-on-Labs, Tools-in-Action. Quickie speakers need to purchase a conference pass!
 otherSpeakers=Outros palestrantes
 talkType=Tipo de palestra
-talkType.help=Cada tipo de palestra está descrito na <a href="" target="new">FAQ</a>.
+talkType.help=Selecione o tipo de palestra conforme a duração da sua apresentação. Pode ser alterado conforme determinação dos coordenadores da trilha.
 
 track.help=Como temos muitas trilhas similares, a sua palestra poderá ser aprovada em uma trilha diferente daquela a que foi submetida.
 
@@ -122,7 +122,7 @@ sponsorTalk=Esta é uma apresentação de patrocinador?
 sponsorTalk.help.title=Palestra de patrocinador
 sponsor.name.plz=Por favor, especifique o nome da sua empresa na descrição para os coordenadores.
 # Isso é válido para patrocinadores Diamond somente.
-sponsorTalk.help=Não marque este checkbox se a sua empresa não é patrocinadora.
+sponsorTalk.help=Não marque este checkbox se a sua empresa não é patrocinadora desta edição do evento.
 # Patrocinadores Diamond podem submeter uma palestra que será aceita como parte de sua cota de patrocínio.
 sponsorTalk.checkbox=Sim, esta é uma palestra de patrocinador
 
