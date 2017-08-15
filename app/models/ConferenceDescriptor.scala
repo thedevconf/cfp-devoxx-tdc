@@ -253,7 +253,7 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
+      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
   }
@@ -299,7 +299,6 @@ object ConferenceDescriptor {
     val MICROSERVICES = TrackDesc(ConferenceTracks.MICROSERVICES.id, "/assets/tdc2016poa/images/icon_bd.png", "track.microservices.title", "track.microservices.desc")
 
     val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.nodejs.title", "track.nodejs.desc")
-    val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.nosql.title", "track.nosql.desc")
     val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
 
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
@@ -311,7 +310,7 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
+      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
     def findTrackDescFor(t: Track): TrackDesc = {

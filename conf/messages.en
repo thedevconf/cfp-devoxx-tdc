@@ -222,10 +222,10 @@ track.banco.desc=Conheça os principais recursos de Banco de Dados Relacional ag
 banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
-track.bigdata.title=BigData
+track.bigdata.title=BigData e NoSQL
 track.bigdata.desc=Big Data, muito além dos 3Vs
-bigdata.label=BigData
-bigdata.leaderboard=BigData
+bigdata.label=BigData e NoSQL
+bigdata.leaderboard=BigData e NoSQL
 
 track.blockchain.title=BlockChain
 track.blockchain.desc=Se quer ser o melhor, tem que ser o mais seguro!
@@ -331,11 +331,6 @@ track.nodejs.title=Node.js
 track.nodejs.desc=JavaScript ganhando o mundo
 nodejs.label=Node.js
 nodejs.leaderboard=Node.js
-
-track.nosql.title=NoSQL
-track.nosql.desc=NoSQL, no Limits, lots of Fun!
-nosql.label=NoSQL
-nosql.leaderboard=NoSQL
 
 track.pfuncional.title=Programação Funcional
 track.pfuncional.desc=
