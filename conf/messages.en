@@ -212,21 +212,6 @@ track.arduino.desc=Projetos estilo Faça você mesmo!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
-track.arquitetdotnet.title=Arquitetura .NET
-track.arquitetdotnet.desc=Arquitetura na plataforma .Net
-arquitetdotnet.label=Arquitetura .NET
-arquitetdotnet.leaderboard=Arquitetura .NET
-
-track.arquitetempres.title=Arquitetura Corporativa
-track.arquitetempres.desc=Arquitetando Negócios e TI para a efetiva Transformação Digital!
-arquitetempres.label=Arquitetura Corporativa
-arquitetempres.leaderboard=Arquitetura Corporativa
-
-track.arquitetjava.title=Arquitetura Java
-track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java alavancar seus projetos
-arquitetjava.label=Arquitetura Java
-arquitetjava.leaderboard=Arquitetura Java
-
 track.arquitetphp.title=Arquitetura PHP
 track.arquitetphp.desc=PHP na jornada em busca da perfeição
 arquitetphp.label=Arquitetura PHP
@@ -246,6 +231,11 @@ track.blockchain.title=BlockChain
 track.blockchain.desc=Se quer ser o melhor, tem que ser o mais seguro!
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
+
+track.chatbots.title=ChatBots e Interfaces Conversacionais
+track.chatbots.desc=ChatBots
+chatbots.label=ChatBots
+chatbots.leaderboard=ChatBots
 
 track.cloud.title=Cloud Computing
 track.cloud.desc=Todos os caminhos e arquiteturas, levam você à nuvem
@@ -282,35 +272,15 @@ track.devtest.desc=Porque qualidade é responsabilidade de todos!
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
-track.embarcados.title=Embarcados
-track.embarcados.desc=Venha expor conosco tecnologias ligadas ao desenvolvimento de sistemas embarcados
-embarcados.label=Embarcados
-embarcados.leaderboard=Embarcados
-
-track.fintech.title=Fintech
-track.fintech.desc=Tecnologia financeira a serviço da comodidade
-fintech.label=Fintech
-fintech.leaderboard=Fintech
-
-track.games.title=Games
-track.games.desc=O próximo nível dos jogos brasileiros!
-games.label=Games
-games.leaderboard=Games
+track.gestaoprod.title=Gestão de Produto
+track.gestaoprod.desc=Gestão de Produto
+gestaoprod.label=Gestão de Produto
+gestaoprod.leaderboard=Gestão de Produto
 
 track.golang.title=Golang
 track.golang.desc=Conheça essa poderosa e versátil linguagem de programação
 golang.label=Golang
 golang.leaderboard=Golang
-
-track.impressao.title=Impressão 3D
-track.impressao.desc=Aqui imprimimos futuro
-impressao.label=Impressão 3D
-impressao.leaderboard=Impressão 3D
-
-track.inovacao.title=Inovação
-track.inovacao.desc=Tendências, Ideias, Criatividade, Comportamento
-inovacao.label=Inovação
-inovacao.leaderboard=Inovação
 
 track.infraagil.title=Infraestrutura Ágil
 track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
@@ -332,20 +302,10 @@ track.java.desc=
 java.label=Java
 java.leaderboard=Java
 
-track.javaee.title=Java EE
-track.javaee.desc=A plataforma perfeita para suas aplicações coorporativas
-javaee.label=Java EE
-javaee.leaderboard=Java EE
-
 track.javascript.title=JavaScript
 track.javascript.desc=Aprender, se atualizar e refinar o seu conhecimento de JavaScript
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
-
-track.linux.title=Linux Embarcado
-track.linux.desc=Desenvolvimento de Equipamentos embarcados com Linux
-linux.label=Linux Embarcado
-linux.leaderboard=Linux Embarcado
 
 track.machine.title=Machine Learning
 track.machine.desc=Machine learning e bots na nuvem, a Inteligência Artificial acessível
@@ -357,20 +317,15 @@ track.management.desc=
 management.label=Management 3.0
 management.leaderboard=Management 3.0
 
+track.marketing.title=Marketing Digital e Growth Hacking
+track.marketing.desc=Marketing Digital e Growth Hacking
+marketing.label=Marketing Digital e Growth Hacking
+marketing.leaderboard=Marketing Digital e Growth Hacking
+
 track.microservices.title=Microservices
 track.microservices.desc=Entenda os desafios de se aplicar uma arquitetura de Microservices
 microservices.label=Microservices
 microservices.leaderboard=Microservices
-
-track.mobile.title=Mobile
-track.mobile.desc=
-mobile.label=Mobile
-mobile.leaderboard=Mobile
-
-track.modernweb.title=Modern Web
-track.modernweb.desc=Desenvolvimento Web Moderno
-modernweb.label=Modern Web
-modernweb.leaderboard=Modern Web
 
 track.nodejs.title=Node.js
 track.nodejs.desc=JavaScript ganhando o mundo
@@ -382,45 +337,10 @@ track.nosql.desc=NoSQL, no Limits, lots of Fun!
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
-track.php.title=PHP
-track.php.desc=O essencial para desenvolvedores PHP
-php.label=PHP
-php.leaderboard=PHP
-
 track.pfuncional.title=Programação Funcional
 track.pfuncional.desc=
 pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
-
-track.python.title=Python
-track.python.desc=Aprenda o estilo de vida Pythonico!
-python.label=Python
-python.leaderboard=Python
-
-track.raddelphic.title=RAD: Delphi_C++
-track.raddelphic.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
-raddelphic.label=RAD: Delphi_C++
-raddelphic.leaderboard=RAD: Delphi_C++
-
-track.realidade.title=Realidade Virtual e Aumentada
-track.realidade.desc=Demonstrar os avanços das tecnologias de Realidade Virtual e Aumentada, tanto em hardware quanto em Software
-realidade.label=Realidade Virtual e Aumentada
-realidade.leaderboard=Realidade Virtual e Aumentada
-
-track.ruby.title=Ruby
-track.ruby.desc=Agilidade, produtividade e boas práticas
-ruby.label=Ruby
-ruby.leaderboard=Ruby
-
-track.seguranca.title=Segurança e Criptografia
-track.seguranca.desc=Se quer ser o melhor, tem que ser o mais seguro!
-seguranca.label=Segurança e Criptografia
-seguranca.leaderboard=Segurança e Criptografia
-
-track.startups.title=Startups
-track.startups.desc=Mergulhando no ecossistema de Startups
-startups.label=Startups
-startups.leaderboard=Startups
 
 track.testes.title=Testes
 track.testes.desc=Porque testes não morreu!
@@ -437,15 +357,20 @@ track.uxdesign.desc=Conceitos, práticas, metodologias e case sobre User Experie
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
+track.web.title=Web
+track.web.desc=Web
+web.label=Web
+web.leaderboard=Web
+
+track.women.title=TDC4Women
+track.women.desc=TDC4Women
+women.label=TDC4Women
+women.leaderboard=TDC4Women
+
 track.xamarin.title=Xamarin
 track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C
 xamarin.label=Xamarin
 xamarin.leaderboard=Xamarin
-
-track.women.title=TDC4Women
-track.women.desc=
-women.label=TDC4Women
-women.leaderboard=TDC4Women
 
 # confirm import
 confirm.import.title=Create your Speaker''s profile
