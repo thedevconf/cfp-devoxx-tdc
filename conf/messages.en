@@ -212,10 +212,10 @@ track.arduino.desc=Projetos estilo Faça você mesmo!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
-track.arquitetphp.title=Arquitetura Java
-track.arquitetphp.desc=Arquitetura Java
-arquitetphp.label=Arquitetura Java
-arquitetphp.leaderboard=Arquitetura Java
+track.arquitetjava.title=Arquitetura Java
+track.arquitetjava.desc=Arquitetura Java
+arquitetjava.label=Arquitetura Java
+arquitetjava.leaderboard=Arquitetura Java
 
 track.arquitetphp.title=Arquitetura PHP
 track.arquitetphp.desc=PHP na jornada em busca da perfeição
