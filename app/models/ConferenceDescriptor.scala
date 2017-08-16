@@ -211,6 +211,7 @@ object ConferenceDescriptor {
     val ANALISE = Track("analise", "analise.label")
     val ANDROID = Track("android", "android.label")
     val ARDUINO = Track("arduino", "arduino.label")
+    val ARQUITJAVA = Track("arquitetjava", "arquitetjava.label")
     val ARQUITPHP = Track("arquitetphp", "arquitetphp.label")
 
     val BIGDATA = Track("bigdata", "bigdata.label")
@@ -251,7 +252,7 @@ object ConferenceDescriptor {
     val WOMEN = Track("women", "women.label")
     val XAMARIN = Track("xamarin", "xamarin.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITPHP, BANCODADOS, BIGDATA,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
       GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
@@ -268,7 +269,8 @@ object ConferenceDescriptor {
     val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
     val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_android.png", "track.android.title", "track.android.desc")
     val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/tdc2016poa/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
-    val ARQUITPHP = TrackDesc(ConferenceTracks.ARQUITPHP.id, "/assets/tdc2016poa/images/icon_arquitetura.png", "track.arquitetphp.title", "track.arquitetphp.desc")
+    val ARQUITJAVA = TrackDesc(ConferenceTracks.ARQUITJAVA.id, "/assets/tdc2016poa/images/icon_arquitetjava.png", "track.arquitetjava.title", "track.arquitetjava.desc")
+    val ARQUITPHP = TrackDesc(ConferenceTracks.ARQUITPHP.id, "/assets/tdc2016poa/images/icon_arquitetphp.png", "track.arquitetphp.title", "track.arquitetphp.desc")
 
     val BANCODADOS = TrackDesc(ConferenceTracks.BANCODADOS.id, "/assets/tdc2016poa/images/icon_bd.png", "track.banco.title", "track.banco.desc")
     val BIGDATA = TrackDesc(ConferenceTracks.BIGDATA.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.bigdata.title", "track.bigdata.desc")
@@ -308,7 +310,7 @@ object ConferenceDescriptor {
     val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_women.png", "track.women.title", "track.women.desc")
     val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITPHP, BANCODADOS, BIGDATA,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
       GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)

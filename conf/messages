@@ -212,6 +212,11 @@ track.arduino.desc=Projetos estilo Faça você mesmo!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
+track.arquitetphp.title=Arquitetura Java
+track.arquitetphp.desc=Arquitetura Java
+arquitetphp.label=Arquitetura Java
+arquitetphp.leaderboard=Arquitetura Java
+
 track.arquitetphp.title=Arquitetura PHP
 track.arquitetphp.desc=PHP na jornada em busca da perfeição
 arquitetphp.label=Arquitetura PHP
@@ -288,7 +293,7 @@ infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
 track.iot.title=Internet das Coisas
-track.iot.desc=
+track.iot.desc=Internet das Coisas
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
@@ -298,7 +303,7 @@ ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=
+track.java.desc=Java
 java.label=Java
 java.leaderboard=Java
 
@@ -312,10 +317,10 @@ track.machine.desc=Machine learning e bots na nuvem, a Inteligência Artificial 
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
-track.management.title=Management 3.0
-track.management.desc=
-management.label=Management 3.0
-management.leaderboard=Management 3.0
+track.management.title=Management 3.0 e Gestão Ágil
+track.management.desc=Management 3.0 e Gestão Ágil
+management.label=Management 3.0 e Gestão Ágil
+management.leaderboard=Management 3.0 e Gestão Ágil
 
 track.marketing.title=Marketing Digital e Growth Hacking
 track.marketing.desc=Marketing Digital e Growth Hacking
