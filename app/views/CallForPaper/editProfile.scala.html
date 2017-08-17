@@ -28,19 +28,19 @@
 
         @helper.form(action = routes.CallForPaper.saveProfile) {
             <input type="hidden" name="email" value="@speakerForm("email").value.get">
-            @helper.inputText(speakerForm("firstName"), 'size->60)
-            @helper.inputText(speakerForm("lastName"), 'size->60)
-            @helper.inputText(speakerForm("avatarUrl"), 'size->60)
+            @helper.inputText(speakerForm("firstName"), 'class->"form-control")
+            @helper.inputText(speakerForm("lastName"), 'class->"form-control")
+            @helper.inputText(speakerForm("avatarUrl"), 'class->"form-control")
             @helper.inputText(speakerForm("company"))
-            @helper.textarea(speakerForm("bio"), 'cols -> 60, 'rows -> 5)
+            @helper.textarea(speakerForm("bio"), 'cols -> 60, 'rows -> 5, 'class->"form-control")
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
             @helper.inputText(speakerForm("twitter"), 'placeholder -> "@nickname")
-            @helper.inputText(speakerForm("blog"), 'size -> 60, 'placeholder -> "http://www.yourblog.com/")
+            @helper.inputText(speakerForm("blog"), 'size -> 60, 'placeholder -> "http://www.yourblog.com/", 'class->"form-control")
 
             <!-- @helper.inputText(speakerForm("lang"), 'size->20, 'placeholder -> "pt") -->
             @helper.select(field = speakerForm("lang"), options = Proposal.langs, 'class -> "form-control")
 
-            @helper.textarea(speakerForm("qualifications"), 'cols -> 60, 'rows -> 5)
+            @helper.textarea(speakerForm("qualifications"), 'cols -> 60, 'rows -> 5, 'class->"form-control")
 
             @helper.inputText(speakerForm("phone"))
             @helper.select(field = speakerForm("gender"), options = Speaker.genders, 'class -> "form-control")

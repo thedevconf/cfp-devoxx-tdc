@@ -243,6 +243,7 @@ object ConferenceDescriptor {
     val MICROSERVICES = Track("microservices", "microservices.label")
 
     val NODEJS = Track("nodejs", "nodejs.label")
+    val NOSQL = Track("nosql", "nosql.label")
     val PFUNCIONAL = Track("pfuncional", "pfuncional.label")
 
     val TESTES = Track("testes", "testes.label")
@@ -254,7 +255,7 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
+      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
   }
@@ -300,7 +301,8 @@ object ConferenceDescriptor {
     val MARKETING = TrackDesc(ConferenceTracks.MARKETING.id, "/assets/tdc2016poa/images/icon_marketing.png", "track.marketing.title", "track.marketing.desc")
     val MICROSERVICES = TrackDesc(ConferenceTracks.MICROSERVICES.id, "/assets/tdc2016poa/images/icon_bd.png", "track.microservices.title", "track.microservices.desc")
 
-    val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.nodejs.title", "track.nodejs.desc")
+    val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_nodejs.png", "track.nodejs.title", "track.nodejs.desc")
+    val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_nosql.png", "track.nosql.title", "track.nosql.desc")
     val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
 
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
@@ -312,7 +314,7 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
       BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS,
+      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
       PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
@@ -799,8 +801,8 @@ object ConferenceDescriptor {
       firstDayEn = "november 8th",
       datesFr = "du 8 au 11 november 2017",
       datesEn = "November 8th to 11th, 2017",
-      cfpOpenedOn = DateTime.parse("2017-08-17T18:00:00-03:00"),
-      cfpClosedOn = DateTime.parse("2017-09-01T23:59:59-03:00"),
+      cfpOpenedOn = DateTime.parse("2017-08-18T08:00:00-03:00"),
+      cfpClosedOn = DateTime.parse("2017-09-03T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2017-09-11T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
