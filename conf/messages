@@ -392,8 +392,12 @@ signup.txt2=Um email de validação será enviado para o endereço indicado. Seu
 # edit profile
 editProfile.tab=Seu perfil
 editProfile.title=Seu perfil
-editProfile.help=Aproveite para completar seu perfil. Este conteúdo será publicado no site se você for selecionado como palestrante, assim como no programa da conferência:
+editProfile.help=Aproveite para completar seu perfil. Este conteúdo será publicado no site (exceto email, qualificações, telefone, gênero e camiseta) se você for selecionado como palestrante. É importante para os participantes saberem quem você é e qual sua experiência na área.
 editProfile.save=Gravar
+
+conduct=Código de conduta
+conduct.help=Queremos te avisar que o #TheDevConf também respeita um código de conduta e que nós levamos isto a sério, então por favor leia o texto nesta página:
+conduct.link=http://thedevconf.com.br/conduta
 
 # Home
 table.pres.title=Título

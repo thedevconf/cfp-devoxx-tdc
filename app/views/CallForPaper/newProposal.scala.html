@@ -78,6 +78,9 @@
             @if(ConferenceDescriptor.current().conferenceSponsor.showSponsorProposalCheckbox) {
                 <p><label>@Messages("sponsorTalk.help.title") : </label><br> @Messages("sponsorTalk.help")</p>
             }
+            <p><label>@Messages("conduct") : </label><br/>
+                <a href="http://thedevconf.com.br/conduta" target="new">@Messages("conduct.link")</a>
+            </p>
 <!-- Desabilitando golden ticket - TODO - Verificar como funciona e se for o caso habilitar
             <p><label>@Messages("goldenTicket.help.title")</label><br> @Html(Messages("goldenTicket.help.txt", Messages("shortYearlyName")))</p>
 -->

@@ -391,8 +391,12 @@ signup.txt2=A validation email will be sent to the address indicated. Your profi
 # edit profile
 editProfile.tab=Your profile
 editProfile.title=Your profile
-editProfile.help=Take the time to complete your profile. This content will then be published on the site if you are selected as a speaker, as well as in the conference program:
+editProfile.help=Take the time to complete your profile. This content will then be published on the site if you are selected as a speaker (except for qualifications, gender, phone and T-shirt size). It is important for the audience to know who you are and what your experience in the area is.
 editProfile.save=Save
+
+conduct=Code of conduct
+conduct.help=We would like to let you know that #TheDevConf also respects a code of conduct and that we take this seriously, so please read the text on this page:
+conduct.link=http://thedevconf.com.br/conduta
 
 # Home
 table.pres.title=Title

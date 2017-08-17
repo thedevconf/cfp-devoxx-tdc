@@ -5,11 +5,14 @@
 @main(Messages("editProfile.tab")) {
 
 <div class="row">
-    <div class="col-md-12 page-header">
-        <h3>@Messages("editProfile.title")</h3>
-    </div>
     <div class="col-md-12">
-        <p>@Messages("editProfile.help")</p>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>@Messages("editProfile.title")</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7">
 
         @if(flash.get("error").isDefined){
           <div class="alert alert-danger alert-dismissable">
@@ -48,6 +51,13 @@
 
         <hr>
         <small>Your UUID: @readOnlyUUID</small>
+    </div>
+    <div class="col-md-5">
+        <h3>@Messages("helpAndTips")</h3>
+        <p>@Messages("editProfile.help")</p>
+        <p><label>@Messages("conduct") : </label><br/>
+            <a href="http://thedevconf.com.br/conduta" target="new">@Messages("conduct.link")</a>
+        </p>
     </div>
 </div>
 
