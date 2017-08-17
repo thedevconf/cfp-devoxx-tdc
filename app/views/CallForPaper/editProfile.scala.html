@@ -28,9 +28,9 @@
 
         @helper.form(action = routes.CallForPaper.saveProfile) {
             <input type="hidden" name="email" value="@speakerForm("email").value.get">
-            @helper.inputText(speakerForm("firstName"), 'size->80)
-            @helper.inputText(speakerForm("lastName"), 'size->80)
-            @helper.inputText(speakerForm("avatarUrl"), 'size->80)
+            @helper.inputText(speakerForm("firstName"), 'size->70)
+            @helper.inputText(speakerForm("lastName"), 'size->70)
+            @helper.inputText(speakerForm("avatarUrl"), 'size->70)
             @helper.inputText(speakerForm("company"))
             @helper.textarea(speakerForm("bio"), 'cols -> 70, 'rows -> 5)
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
@@ -56,6 +56,7 @@
         <h3>@Messages("helpAndTips")</h3>
         <p>@Messages("editProfile.help")</p>
         <p><label>@Messages("conduct") : </label><br/>
+            @Messages("conduct.help")
             <a href="http://thedevconf.com.br/conduta" target="new">@Messages("conduct.link")</a>
         </p>
     </div>
