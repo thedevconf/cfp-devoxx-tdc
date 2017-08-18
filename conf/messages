@@ -178,27 +178,27 @@ appel.conf.dates=TDC 2017 Porto Alegre, 8 a 11 de Novembro de 2017
 # Tracks
 
 track.dotnet.title=.NET
-track.dotnet.desc=Explore os recursos do .NET
+track.dotnet.desc=Microsoft cada vez mais perto da comunidade
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.acessibilidade.title=Acessibilidade Digital
-track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+track.acessibilidade.desc=Acessibilidade como equidade de oportunidades para pessoas com deficiência
 acessibilidade.label=Acessibilidade Digital
 acessibilidade.leaderboard=Acessibilidade Digital
 
 track.agile.title=Agile
-track.agile.desc=Do Lean ao eXtreme Programming
+track.agile.desc=Do Manifesto Ágil à Estratégia da Organização
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=Transformando times
+track.agilecoach.desc=Transforme pessoas, times, empresas e culturas
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
 track.analise.title=Análise de Negócios
-track.analise.desc=Análise de Negócios pode ajudá-los a atender as reais necessidades das corporações
+track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
@@ -208,7 +208,7 @@ android.label=Android
 android.leaderboard=Android
 
 track.arduino.title=Arduino e Makers
-track.arduino.desc=Projetos estilo Faça você mesmo!
+track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
@@ -218,7 +218,7 @@ arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
 track.arquitetphp.title=Arquitetura PHP
-track.arquitetphp.desc=PHP na jornada em busca da perfeição
+track.arquitetphp.desc=Venha conhecer as novidades e tendências de arquitetura PHP
 arquitetphp.label=Arquitetura PHP
 arquitetphp.leaderboard=Arquitetura PHP
 
@@ -228,12 +228,12 @@ banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=Big Data, muito além dos 3Vs
+track.bigdata.desc=NoSQL, no Limits, lots of Fun!
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=Se quer ser o melhor, tem que ser o mais seguro!
+track.blockchain.desc=Crie a próxima geração de aplicações distribuidas com a tecnologia Blockchain
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
@@ -258,7 +258,7 @@ containers.label=Containers
 containers.leaderboard=Containers
 
 track.datascience.title=DataScience
-track.datascience.desc=Ciência aplicada na solução de problemas (de empresas e de pessoas)
+track.datascience.desc=Machine learning, analytics e insights a partir de dados
 datascience.label=DataScience
 datascience.leaderboard=DataScience
 
@@ -278,37 +278,37 @@ devtest.label=DevTest
 devtest.leaderboard=DevTest
 
 track.gestaoprod.title=Gestão de Produto
-track.gestaoprod.desc=Gestão de Produto
+track.gestaoprod.desc=Para quem é apaixonado por criar produtos que encantam clientes e usuários
 gestaoprod.label=Gestão de Produto
 gestaoprod.leaderboard=Gestão de Produto
 
 track.golang.title=Golang
-track.golang.desc=Conheça essa poderosa e versátil linguagem de programação
+track.golang.desc=A linguagem para sistemas distribuídos do Google
 golang.label=Golang
 golang.leaderboard=Golang
 
 track.infraagil.title=Infraestrutura Ágil
-track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
+track.infraagil.desc=É possível viver sem Infraestrutura como Código num mundo cada vez mais DevOps?
 infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
 track.iot.title=Internet das Coisas
-track.iot.desc=Internet das Coisas
+track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=Aprimore seu conhecimento em iOS com profissionais dos maiores apps do Brasil
+track.ios.desc=Aprimore seus conhecimentos sobre desenvolvimento nas plataformas móveis da Apple
 ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=Java
+track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
 java.label=Java
 java.leaderboard=Java
 
 track.javascript.title=JavaScript
-track.javascript.desc=Aprender, se atualizar e refinar o seu conhecimento de JavaScript
+track.javascript.desc=Javascript, sim, já dominou o mundo
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
@@ -318,12 +318,12 @@ machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
 track.management.title=Management 3.0 e Gestão Ágil
-track.management.desc=Management 3.0 e Gestão Ágil
+track.management.desc=Gestão feita por pessoas e para pessoas
 management.label=Management 3.0 e Gestão Ágil
 management.leaderboard=Management 3.0 e Gestão Ágil
 
 track.marketing.title=Marketing Digital e Growth Hacking
-track.marketing.desc=Marketing Digital e Growth Hacking
+track.marketing.desc=Desenvolver negócios e gerar mais resultados!
 marketing.label=Marketing Digital e Growth Hacking
 marketing.leaderboard=Marketing Digital e Growth Hacking
 
@@ -333,47 +333,47 @@ microservices.label=Microservices
 microservices.leaderboard=Microservices
 
 track.nodejs.title=Node.js
-track.nodejs.desc=JavaScript ganhando o mundo
+track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
 nodejs.label=Node.js
 nodejs.leaderboard=Node.js
 
 track.nosql.title=NoSQL
-track.nosql.desc=NoSQL
+track.nosql.desc=NoSQL, no Limits, lots of Fun!
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
 track.pfuncional.title=Programação Funcional
-track.pfuncional.desc=
+track.pfuncional.desc=Conceitos, técnicas e o mercado de Functional Programming
 pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.testes.title=Testes
-track.testes.desc=Porque testes não morreu!
+track.testes.desc=Qualidade, um compromisso de todos
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=Facilite seus negócios e sua vida com Transformação Digital!
+track.transfdigital.desc=A corrida das empresas pela conquista da geração Y
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=Conceitos, práticas, metodologias e case sobre User Experience Design, Usabilidade e afins!
+track.uxdesign.desc=Construindo proposta de valores aliadas a experiência do usuário
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
 track.web.title=Web
-track.web.desc=Web
+track.web.desc=Explorando todo o potencial da web
 web.label=Web
 web.leaderboard=Web
 
 track.women.title=TDC4Women
-track.women.desc=TDC4Women
+track.women.desc=Empoderando mulheres a seguir carreira na tecnologia
 women.label=TDC4Women
 women.leaderboard=TDC4Women
 
 track.xamarin.title=Xamarin
-track.xamarin.desc=Crie aplicativos móveis nativos para iOS, Android e Windows Phone utilizando C
+track.xamarin.desc=Desenvolvimento Cross Platform de alta performance
 xamarin.label=Xamarin
 xamarin.leaderboard=Xamarin
 
