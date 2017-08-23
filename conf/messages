@@ -183,12 +183,12 @@ dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.acessibilidade.title=Acessibilidade Digital
-track.acessibilidade.desc=Acessibilidade como equidade de oportunidades para pessoas com deficiência
+track.acessibilidade.desc=Acessibilidade como igualdade de oportunidades para pessoas com deficiência
 acessibilidade.label=Acessibilidade Digital
 acessibilidade.leaderboard=Acessibilidade Digital
 
 track.agile.title=Agile
-track.agile.desc=Do Manifesto Ágil à Estratégia da Organização
+track.agile.desc=Do Lean ao eXtreme Programming
 agile.label=Agile
 agile.leaderboard=Agile
 
@@ -212,10 +212,10 @@ track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
-track.arquitetjava.title=Arquitetura Java
-track.arquitetjava.desc=Arquitetura Java
-arquitetjava.label=Arquitetura Java
-arquitetjava.leaderboard=Arquitetura Java
+track.arquitetjava.title=Arquitetura
+track.arquitetjava.desc=Arquitetura Plugável, escalável, resiliente e poliglota. Um mundo de oportunidades
+arquitetjava.label=Arquitetura
+arquitetjava.leaderboard=Arquitetura
 
 track.arquitetphp.title=Arquitetura PHP
 track.arquitetphp.desc=Venha conhecer as novidades e tendências de arquitetura PHP
@@ -228,7 +228,7 @@ banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=NoSQL, no Limits, lots of Fun!
+track.bigdata.desc=Big data na nuvem, uma boa idéia?
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
@@ -238,7 +238,7 @@ blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
 track.chatbots.title=ChatBots e Interfaces Conversacionais
-track.chatbots.desc=ChatBots
+track.chatbots.desc=Chatbots e o futuro das interações conversacionais
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
@@ -288,7 +288,7 @@ golang.label=Golang
 golang.leaderboard=Golang
 
 track.infraagil.title=Infraestrutura Ágil
-track.infraagil.desc=É possível viver sem Infraestrutura como Código num mundo cada vez mais DevOps?
+track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
 infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
@@ -308,12 +308,12 @@ java.label=Java
 java.leaderboard=Java
 
 track.javascript.title=JavaScript
-track.javascript.desc=Javascript, sim, já dominou o mundo
+track.javascript.desc=Aprender, se atualizar e refinar o seu conhecimento de JavaScript
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
 track.machine.title=Machine Learning
-track.machine.desc=Machine learning e bots na nuvem, a Inteligência Artificial acessível
+track.machine.desc=Apresentação de cases em produção de Machine Learning
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
@@ -323,7 +323,7 @@ management.label=Management 3.0 e Gestão Ágil
 management.leaderboard=Management 3.0 e Gestão Ágil
 
 track.marketing.title=Marketing Digital e Growth Hacking
-track.marketing.desc=Desenvolver negócios e gerar mais resultados!
+track.marketing.desc=A melhor maneira de encontrar o seu cliente é ser encontrado por ele!
 marketing.label=Marketing Digital e Growth Hacking
 marketing.leaderboard=Marketing Digital e Growth Hacking
 
@@ -348,17 +348,17 @@ pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.testes.title=Testes
-track.testes.desc=Qualidade, um compromisso de todos
+track.testes.desc=Porque o teste não morreu!
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=A corrida das empresas pela conquista da geração Y
+track.transfdigital.desc=Facilite seus negócios e sua vida com Transformação Digital!
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=Construindo proposta de valores aliadas a experiência do usuário
+track.uxdesign.desc=A Experiência em primeiro lugar!
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
