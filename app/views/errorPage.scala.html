@@ -3,5 +3,10 @@
 @main("500 Internal server error"){
 <h1>500 Internal server error</h1>
 <p>@Messages("error.message1")</p>
-<p>@Messages("error.message2.parte1") <a href="@routes.Application.bugReport()"><i class="icon-bug"></i> @Messages("error.message2.parte2")</a> @Messages("error.message2.parte3") ErrorID=<strong>@error.id</strong></p>
+<p>@Messages("error.message2.part1")
+    <a href="@routes.Application.bugReport()">
+        <i class="icon-bug"></i> @Messages("error.message2.part2")
+    </a>
+    @Messages("error.message2.part3") ErrorID=<strong>@error.id</strong> @Messages("error.message2.part4")
+</p>
 }
