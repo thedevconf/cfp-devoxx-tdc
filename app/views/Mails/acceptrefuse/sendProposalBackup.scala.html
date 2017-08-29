@@ -58,7 +58,7 @@
 
 <h3>Bem-vindo ao @Messages("longYearlyName")</h3>
 <p>Olá, @firstName,</p>
-<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 1700 propostas!</p>
+<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de propostas!</p>
 <p>Estamos muito contentes em anunciar que a sua palestra foi marcada como <strong>BACKUP</strong> :<br/>
     Título: <strong>@proposal.title</strong> <br/>
     Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
@@ -71,17 +71,25 @@
     Caso você não queira manter esta palestra como backup, pode declinar através do link:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
 </p>
-<h4>2. Sua minibio e foto</h4>
+<h4>2. Cortesia para palestrante backup</h4>
+<p>Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha. </p>
+
+<h4>3. Comprometimento</h4>
+<p>Para ser palestrante backup, precisamos muito do seu comprometimento. Muitas vezes a palestra backup é acionada
+bem antes do início do evento devido a eventual desistência de um palestrante aprovado, mas no dia do evento
+também podem ocorrer desistências, atrasos, ou outras ocorrências que impossibilitam a apresentação da palestra que estava na grade,
+e, a função do backup é muito importante, pois você fará a sua palestra e todos os dados serão atualizados na grade.
+Por isto é importante já trabalhar na apresentação de sua palestra e acreditar que poderá apresentá-la no dia.</p>
+
+<h4>4. Sua minibio e foto</h4>
 <p>Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.</p>
-<h4>3. Questões sobre sua palestra</h4>
+<h4>5. Questões sobre sua palestra</h4>
 <p>Por favor, não responda este email. Envie qualquer comentário através do web site do CFP, e nossa equipe fará o possível para responder rapidamente.<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>Para fazer a sua apresentação, disponibilizamos um
     <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
-<h4>4. Cortesia para palestrante backup</h4>
-<p>Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha. </p>
-<h4>5. Compartilhe o evento</h4>
+<h4>6. Compartilhe o evento</h4>
 <p>Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> e no
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
@@ -152,7 +160,7 @@
 
 
 <p>Hi, @firstName,</p>
-<p>Thanks again for your submission! The result was amazing, we have received more than 1700 submissions!</p>
+<p>Thanks again for your submission! The result was amazing, we have received hundreds of submissions!</p>
 <p>We're glad to inform you that your proposal has been marked as <strong>BACKUP</strong>:<br/>
     Title: <strong>@proposal.title</strong> <br/>
     Track: <strong> @Messages(proposal.track.label)</strong> <br/>
@@ -165,17 +173,25 @@
     In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
 </p>
-<h4>2. Your bio and picture</h4>
+<h4>2. Reward for Backup Speaker</h4>
+<p>In case you accept that your talk stay as backup, we offer you a free pass for this track.</p>
+
+<h4>3. Commitment</h4>
+<p>To be a backup speaker, we really need your commitment. Often the backup talk is requested well before the event
+starts due to the possible drop-out of an approved speaker, but on the day of the event can also occur dropouts, delays,
+or other occurrences that make it impossible to present the talk that was in the grid, and, the backup function is very
+important because you will give your speech and all data will be updated in the grid.
+That is why it is important to work on the presentation of your lecture and believe that you can present it on the day.</p>
+
+<h4>4. Your bio and picture</h4>
 <p>In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.</p>
-<h4>3. Questions regarding your talk</h4>
+<h4>5. Questions regarding your talk</h4>
 <p>Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests to respond quickly.<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>To prepare your presentation, we provide a
     <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
-<h4>4. Reward for Backup Speaker</h4>
-<p>In case you accept that your talk stay as backup, we offer you a free pass for this track.</p>
-<h4>5. Share the event</h4>
+<h4>6. Share the event</h4>
 <p>If you use social networks, take this opportunity to invite you to enjoy our
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> and
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>

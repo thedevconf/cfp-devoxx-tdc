@@ -4,7 +4,7 @@ Bem-vindo ao @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Olá, @firstName,
 
-Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos mais de 1700 palestras!
+Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
 Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi marcada como BACKUP :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
@@ -17,21 +17,28 @@ A palestra foi aprovada como backup. Isso significa que você será notificado p
 Caso você não queira manter esta palestra como backup, pode declinar através do link:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks
 
-2. Sua minibio e foto
+2. Cortesia para palestrante backup
+Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha.
+
+3. Comprometimento
+Para ser palestrante backup, precisamos muito do seu comprometimento. Muitas vezes a palestra backup é acionada
+bem antes do início do evento devido a eventual desistência de um palestrante aprovado, mas no dia do evento
+também podem ocorrer desistências, atrasos, ou outras ocorrências que impossibilitam a apresentação da palestra que estava na grade,
+e, a função do backup é muito importante, pois você fará a sua palestra e todos os dados serão atualizados na grade.
+Por isto é importante já trabalhar na apresentação de sua palestra e acreditar que poderá apresentá-la no dia.
+
+4. Sua minibio e foto
 Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a
 gentileza de fazê-lo neste momento.
 
-3. Questões sobre sua palestra
+5. Questões sobre sua palestra
 Por favor, não responda este email. Envie qualquer comentário através do web site do CFP, e nossa equipe fará o
 possível para responder rapidamente.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
-4. Cortesia para palestrante backup
-Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha.
-
-5. Compartilhe o evento
+6. Compartilhe o evento
 Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
   http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
 E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
@@ -48,7 +55,7 @@ Welcome to @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
 Hi, @firstName,
 
-Thanks again for your submission! The result was amazing, we have received more than 1700 submissions!
+Thanks again for your submission! The result was amazing, we have received hundreds of submissions!
 We're glad to inform you that your proposal has been marked as BACKUP:
 Title: <strong>@proposal.title</strong>
 Track: <strong> @Messages(proposal.track.label)
@@ -61,21 +68,28 @@ Your talk has been approved as backup. That means you will be notified later if 
 In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks()
 
-2. Your bio and picture
+2. Reward for Backup Speaker
+In case you accept that your talk stay as backup, we offer you a free pass for this track.
+
+3. Commitment
+To be a backup speaker, we really need your commitment. Often the backup talk is requested well before the event
+starts due to the possible drop-out of an approved speaker, but on the day of the event can also occur dropouts, delays,
+or other occurrences that make it impossible to present the talk that was in the grid, and, the backup function is very
+important because you will give your speech and all data will be updated in the grid.
+That is why it is important to work on the presentation of your lecture and believe that you can present it on the day.
+
+4. Your bio and picture
 In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you
 to do it at this moment.
 
-3. Questions regarding your talk
+5. Questions regarding your talk
 Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests
 to respond quickly.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
 
-4. Reward for Backup Speaker
-In case you accept that your talk stay as backup, we offer you a free pass for this track.
-
-5. Share the event
+6. Share the event
 If you use social networks, take this opportunity to invite you to enjoy ours:
   http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
 And to help us with the event, go to the digital banners page of our website:
