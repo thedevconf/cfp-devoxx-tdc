@@ -162,8 +162,10 @@
                                             @if(proposal.state==ProposalState.BACKUP){
                                                 <i class="icon-exclamation-sign"></i> Backup
                                             }else{
-                                                <small><a href="@routes.ApproveOrRefuse.backup(proposal.id)" class="btn btn-sm btn-warning">
+                                                @if(SecureCFPController.hasAccessToAdmin(req)){
+                                                    <small><a href="@routes.ApproveOrRefuse.backup(proposal.id)" class="btn btn-sm btn-warning">
                                                         @Messages("allVotes.button.backup")</a> </small>
+                                                }
                                             }
                                             <a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
                                                 <i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
