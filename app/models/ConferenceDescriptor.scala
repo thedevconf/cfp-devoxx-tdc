@@ -228,6 +228,7 @@ object ConferenceDescriptor {
     val DEVTEST = Track("devtest", "devtest.label")
 
     val GESTAOPROD = Track("gestaoprod", "gestaoprod.label")
+    val GAMES = Track("games", "games.label")
     val GOLANG = Track("golang", "golang.label")
 
     val INFRAAGIL = Track("infraagil", "infraagil.label")
@@ -253,10 +254,10 @@ object ConferenceDescriptor {
     val WOMEN = Track("women", "women.label")
     val XAMARIN = Track("xamarin", "xamarin.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
-      BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
-      PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
+      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
+      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
+      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
   }
 
@@ -287,6 +288,7 @@ object ConferenceDescriptor {
     val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
 
     val GESTAOPROD = TrackDesc(ConferenceTracks.GESTAOPROD.id, "/assets/tdc2016poa/images/icon_gestaoprod.png", "track.gestaoprod.title", "track.gestaoprod.desc")
+    val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
 
     val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
@@ -312,10 +314,10 @@ object ConferenceDescriptor {
     val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_women.png", "track.women.title", "track.women.desc")
     val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA,
-      BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD,
-      GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING, MICROSERVICES, NODEJS, NOSQL,
-      PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
+      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
+      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
+      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
