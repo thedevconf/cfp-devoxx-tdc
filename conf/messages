@@ -277,10 +277,10 @@ track.devtest.desc=Porque qualidade é responsabilidade de todos!
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
-track.golang.title=Games
-track.golang.desc=O próximo nível dos jogos brasileiros!
-golang.label=Games
-golang.leaderboard=Games
+track.games.title=Games
+track.games.desc=O próximo nível dos jogos brasileiros!
+games.label=Games
+games.leaderboard=Games
 
 track.gestaoprod.title=Gestão de Produto
 track.gestaoprod.desc=Para quem é apaixonado por criar produtos que encantam clientes e usuários
