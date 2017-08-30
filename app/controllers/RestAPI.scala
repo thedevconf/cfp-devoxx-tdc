@@ -519,6 +519,7 @@ object RestAPI extends Controller {
                 "trilha" -> Json.toJson(Messages(proposal.track.label)),
                 "titulo" -> Json.toJson(proposal.title),
                 "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
+                "status" -> Json.toJson(Messages(proposal.state.code)),
                 "descricao" -> Json.toJson(proposal.summaryAsHtml),
                 "palestrantes" -> Json.toJson(speakers.map { speaker =>
                   Map(
