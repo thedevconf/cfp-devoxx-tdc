@@ -38,7 +38,7 @@
             </thead>
             <tbody>
             @proposals.map { proposal =>
-            <tr class="preselected_@approved refused_@refused">
+            <tr>
                 <td class="number_table"/>
                 <td>
                     <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.title</small></a>
