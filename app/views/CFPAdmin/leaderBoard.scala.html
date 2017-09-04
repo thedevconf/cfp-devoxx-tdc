@@ -43,7 +43,7 @@
 
                     <div class="col-md-3">
                         <h1>
-                            <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                            <!-- acesso somente habilitado para superusers -->
                             @if(SecureCFPController.hasAccessToAdmin(req)){
                                 <a href="@routes.CFPAdmin.showProposalsWithNoVotes()">@totalNoVotes</a>
                             } else {
@@ -61,7 +61,7 @@
                     @mostVoted.map { mv =>
                         <div class="col-md-3">
                             <h3>
-                                <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                                <!-- acesso somente habilitado para superusers -->
                                 @if(SecureCFPController.hasAccessToAdmin(req)){
                                     <a href="@routes.CFPAdmin.showVotesForProposal(mv._1)">@mv._1</a>
                                 } else {
@@ -73,7 +73,7 @@
                     }
                     <div class="clearfix"></div>
 
-                    <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                    <!-- acesso  somente habilitado para superusers -->
                     @if(SecureCFPController.hasAccessToAdmin(req)){
 
                     <div class="col-md-4">
@@ -99,24 +99,25 @@
 
                     }
 
-                    <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
-                    @if(SecureCFPController.hasAccessToAdmin(req)){
-
                     @if(totalSubmittedByTrack.nonEmpty){
                     <div class="col-md-6">
                         <h3>@Messages("leaderboard.section.submitted.bytrack")</h3>
                             @defining(totalSubmittedByTrack.map(_._2).max){maxValue=>
                             @totalSubmittedByTrack.map{case(track,total)=>
-                                <span class="label label-info">@total</span> @Messages(track+".leaderboard") <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track))"><i class="icon-arrow-right"></i></a>
+                                <span class="label label-info">@total</span> @Messages(track+".leaderboard")
+                                    <!-- acesso somente habilitado para superusers -->
+                                    @if(SecureCFPController.hasAccessToAdmin(req)){
+                                        <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track))"><i class="icon-arrow-right"></i></a>
+                                    }
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
                                         <span class="sr-only">@Messages(track)</span>
-                                </div>
+                                    </div>
                                 </div>
                             }
                             }
                     </div>
-                        }
+                    }
 
                     @if(totalSubmittedByType.nonEmpty){
                     <div class="col-md-6">
@@ -134,7 +135,12 @@
                         @totalSubmittedByType.map { case (propType, total) =>
                             <tbody>
                                 <tr>
-                                    <th>@Messages(propType) <a href="@routes.CFPAdmin.allProposalsByType(propType)"><i class="icon-arrow-right"></i></a></th>
+                                    <th>@Messages(propType)
+                                        <!-- acesso somente habilitado para superusers -->
+                                        @if(SecureCFPController.hasAccessToAdmin(req)){
+                                            <a href="@routes.CFPAdmin.allProposalsByType(propType)"><i class="icon-arrow-right"></i></a>
+                                        }
+                                    </th>
                                     <td><span class="label label-warning">@total</span></td>
                                     <td><span class="label label-success">@totalSlotsToAllocate.get(propType+".label")</span></td>
                             @defining(models.ApprovedProposal.countApproved(propType)) { approvedTotal =>
@@ -157,7 +163,7 @@
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
                                         <span class="sr-only">@Messages(track)</span>
-                                </div>
+                                    </div>
                                 </div>
                             }
                             }
@@ -202,8 +208,6 @@
                                 accepted submissions for <span class="label label-success">@totalSlotsToAllocate.get(propType+".label")</span> slots<br>
                             }
                     </div>
-                    }
-
                     }
 
                 </div>
