@@ -41,12 +41,11 @@
             <tr>
                 <td class="number_table"/>
                 <td>
-                    <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.title</small></a>
-                    @if(proposal.sponsorTalk){
-                    &nbsp;<label class="label label-info"><i class="icon-dollar"></i> @Messages("tag.sponsor")</label>
-                    }
+                    <small>@proposal.title</small>
                 </td>
-                <td><small>@proposal.id</small></td>
+                <td>
+                    <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.id</small></a>
+                </td>
                 <td>
                     @proposal.allSpeakers.map { s: Speaker =>
                         @if(models.Invitation.isInvited(s.uuid)){

@@ -545,7 +545,7 @@ admin.sp.rejected=Rejeitado
 admin.sp.approved.txt=Esta palestra foi aprovada pelos coordenadores.
 admin.sp.accepted.txt=Esta palestra foi aceita. Durante a decisão final, ou porque é palestra de patrocinador ou um palestrante na wishlist.
 btn.abstention=Votar 0 para esta palestra
-remove.sponsorFlag=Remover a marca de patrocinador desta palestra
+remove.sponsorFlag=Remover a marca de patrocinador
 
 cfp.isClosed=O CFP está fechado
 cfp.isClosed.expl=CFP está fechado e não aceita submissões.
