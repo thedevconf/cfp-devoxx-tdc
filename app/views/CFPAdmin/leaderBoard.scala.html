@@ -42,7 +42,14 @@
                     </div>
 
                     <div class="col-md-3">
-                        <h1><a href="@routes.CFPAdmin.showProposalsWithNoVotes()">@totalNoVotes</a></h1>
+                        <h1>
+                            <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                            @if(SecureCFPController.hasAccessToAdmin(req)){
+                                <a href="@routes.CFPAdmin.showProposalsWithNoVotes()">@totalNoVotes</a>
+                            } else {
+                                @totalNoVotes
+                            }
+                        </h1>
                         <small><i class="icon-eye-close"></i> @Messages("leaderboard.label.proposals.novote")</small>
                     </div>
 
@@ -53,11 +60,21 @@
 
                     @mostVoted.map { mv =>
                         <div class="col-md-3">
-                            <h3><a href="@routes.CFPAdmin.showVotesForProposal(mv._1)">@mv._1</a></h3>
+                            <h3>
+                                <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                                @if(SecureCFPController.hasAccessToAdmin(req)){
+                                    <a href="@routes.CFPAdmin.showVotesForProposal(mv._1)">@mv._1</a>
+                                } else {
+                                    @mv._1
+                                }
+                            </h3>
                             <small><i class="icon-heart"></i> most voted with @mv._2 reviews</small>
                         </div>
                     }
                     <div class="clearfix"></div>
+
+                    <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                    @if(SecureCFPController.hasAccessToAdmin(req)){
 
                     <div class="col-md-4">
                         <h3>@Messages("leaderboard.section.top.reviewer")</h3>
@@ -66,7 +83,6 @@
                             <small>@br._2 talks reviewed.</small>
                         }
                     </div>
-
                     <div class="col-md-4">
                         <h3>@Messages("leaderboard.section.lazy")</h3>
                         @lazyOnes.map { wr =>
@@ -80,6 +96,11 @@
                     </div>
 
                     <div class="clearfix"></div>
+
+                    }
+
+                    <!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
+                    @if(SecureCFPController.hasAccessToAdmin(req)){
 
                     @if(totalSubmittedByTrack.nonEmpty){
                     <div class="col-md-6">
@@ -182,6 +203,9 @@
                             }
                     </div>
                     }
+
+                    }
+
                 </div>
             </div>
         </div>
