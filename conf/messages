@@ -1060,6 +1060,7 @@ allproposals.columns.speaker=Palestrante
 allproposals.columns.type=Tipo
 allproposals.warning=Clique no botão da trilha para as palestras aparecerem abaixo:
 
+backoffice.allproposals.sponsor.tab=Todas palestras de patrocinadores
 backoffice.allproposals.sponsor.title=Palestras de Patrocinadores
 backoffice.allproposals.sponsor.subtitle=Propostas de Patrocinador ou Expositor
 backoffice.allproposals.sponsor.talks=palestras

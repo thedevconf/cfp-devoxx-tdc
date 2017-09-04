@@ -1,7 +1,13 @@
 @(proposals: List[Proposal])(implicit lang: Lang, flash: Flash, req: RequestHeader)
 
-@main("All sponsors's talks") {
+@main(Messages("allSponsors.tab") "") {
+
+<script type="text/javascript" charset="utf-8" language="javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+
 <div class="row">
+
+
     <div class="col-lg-offset-4 col-md-6">
         <h2>@Messages("backoffice.allproposals.sponsor.title")</h2>
     </div>
@@ -16,32 +22,61 @@
         </div>
     </div>
 
-    @proposals.map { proposal =>
     <div class="col-md-12">
-        <div class="panel panel-default">
-        <div class="panel-body">
-            <h3>@proposal.title</h3>
-            <h4>@Messages(proposal.track.label) - <small>@Messages(proposal.talkType.id)</small></h4>
-            <p><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.id</a></p>
-            @tags.renderGravatar(proposal.mainSpeaker)
-            @proposal.secondarySpeaker.map { sc =>
-                @tags.renderGravatar(sc)
+        <table id="sponsorsTalks" class="compact cell-border order-column">
+            <thead>
+                <tr>
+                    <th/>
+                    <th>@Messages("allVotes.columns.title")</th>
+                    <th>@Messages("allVotes.columns.id")</th>
+                    <th>@Messages("allVotes.columns.speakers")</th>
+                    <th>@Messages("allVotes.columns.type")</th>
+                    <th>@Messages("allVotes.columns.track")</th>
+                    <th>@Messages("allVotes.columns.lang")</th>
+                    <th/>
+                </tr>
+            </thead>
+            <tbody>
+            @proposals.map { proposal =>
+            <tr class="preselected_@approved refused_@refused">
+                <td class="number_table"/>
+                <td>
+                    <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.title</small></a>
+                    @if(proposal.sponsorTalk){
+                    &nbsp;<label class="label label-info"><i class="icon-dollar"></i> @Messages("tag.sponsor")</label>
+                    }
+                </td>
+                <td><small>@proposal.id</small></td>
+                <td>
+                    @proposal.allSpeakers.map { s: Speaker =>
+                        @if(models.Invitation.isInvited(s.uuid)){
+                            <span class="label label-warning"><i class="icon-glass"></i> @s.cleanName <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                        }else{
+                            <span class="label label-default">@s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                        }
+                    }
+                </td>
+                <td>
+                    <small>@Messages(proposal.talkType.id)</small>
+                </td>
+                <td>
+                    <small>@Messages(proposal.track.label)</small>
+                </td>
+                <td><img src="/assets/images/@(proposal.lang).png" alt="@proposal.lang" title="@proposal.lang"/></td>
+                <td>
+                    <span class="label label-@proposal.state.code">@Messages(proposal.state.code)</span>
+                    <br>
+                    @if(SecureCFPController.hasAccessToAdmin(req)){
+                        <a href="@routes.CFPAdmin.removeSponsorTalkFlag(proposal.id)" class="btn btn-sm btn-danger">
+                            <i class="icon-warning-sign"></i> @Messages("remove.sponsorFlag")
+                        </a>
+                    }
+                </td>
+            </tr>
             }
-            @proposal.otherSpeakers.map { s =>
-                @tags.renderGravatar(s)
-            }
-            <!-- not necessary for us (TDC)
-            <h4>@Messages("backoffice.allproposals.sponsor.message")</h4>
-            <small>
-                @Html(proposal.privateMessageAsHtml)
-            </small>
-            -->
-
-            <a href="@routes.CFPAdmin.removeSponsorTalkFlag(proposal.id)" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("remove.sponsorFlag")</a>
-        </div>
-        </div>
+            </tbody>
+        </table>
     </div>
-    }
 
     <div class="col-lg-12">
         <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
@@ -50,4 +85,37 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+    $.fn.dataTableExt.oStdClasses.sStripeOdd = '';
+    $.fn.dataTableExt.oStdClasses.sStripeEven = '';
+
+    $('#sponsorsTalks').DataTable({
+        "autoWidth": true,
+        "dom": 'lfirtp',
+        "aaSorting": [[ 1, "desc" ]],
+        "pageLength": 75,
+        "lengthMenu": [[5, 10, 25, 50, 75, 100, -1], [5,10,25, 50, 75,100, "All"]],
+        "stateSave": true,
+        "drawCallback": function ( oSettings ) {
+            /* Need to redo the counters if filtered or sorted */
+            if ( oSettings.bSorted || oSettings.bFiltered ) {
+                for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ ) {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                }
+            }
+        },
+        "aoColumnsDef": [
+            { "bSortable" : "false", "bSearchable" : "false", "aTargets": 0 },
+            { "sType": "numeric", "aTargets": [1, 2, 3, 4]},
+            { "sType": "string", "aTargets": [5, 6, 7, 8, 9, 10, 11,12 ]}
+        ],
+        "stripeClasses": []
+    });
+
+} );
+</script>
+
 }

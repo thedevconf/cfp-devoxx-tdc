@@ -1062,6 +1062,7 @@ allproposals.columns.speaker=Speaker
 allproposals.columns.type=Type
 allproposals.warning=Click the track button as for the talks appear below:
 
+backoffice.allproposals.sponsor.tab=All sponsors's talks
 backoffice.allproposals.sponsor.title=Sponsors talks
 backoffice.allproposals.sponsor.subtitle=Proposals from Sponsor or Exhibitor
 backoffice.allproposals.sponsor.talks=talks
