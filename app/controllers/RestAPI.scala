@@ -62,6 +62,7 @@ object RestAPI extends Controller {
         case "room" => Ok(views.html.RestAPI.docRoom())
         case "approved" => Ok(views.html.RestAPI.docApprovedByTrack())
         case "backup" => Ok(views.html.RestAPI.docAllBackup())
+        case "all-talks" => Ok(views.html.RestAPI.docAllBackup())
         case other => NotFound("Sorry, no documentation for this profile")
       }
   }
@@ -495,6 +496,60 @@ object RestAPI extends Controller {
   }
 
   def showAllTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
+    implicit request =>
+
+      val proposals: List[Proposal] = Proposal.allProposals()
+
+      val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
+        proposals.map(proposal => (proposal, proposal.allSpeakers))
+
+      val etag = proposals.hashCode.toString
+
+      request.headers.get(IF_NONE_MATCH) match {
+        case Some(tag) if tag == etag => {
+          NotModified
+        }
+        case other => {
+
+          val listaJson = proposalsAndSpeakers.map {
+            par: (Proposal, List[Speaker]) => {
+              val proposal = par._1
+              val speakers = par._2
+              Map(
+                "id" -> Json.toJson(proposal.id),
+                "trilha" -> Json.toJson(Messages(proposal.track.label)),
+                "titulo" -> Json.toJson(proposal.title),
+                "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
+                "status" -> Json.toJson(Messages(proposal.state.code)),
+                "descricao" -> Json.toJson(proposal.summaryAsHtml),
+                "palestrantes" -> Json.toJson(speakers.map { speaker =>
+                  Map(
+                    "nome" -> Json.toJson(speaker.cleanName),
+                    "email" -> Json.toJson(speaker.email),
+                    "empresa" -> Json.toJson(speaker.company),
+                    "minibio" -> Json.toJson(speaker.bioAsHtml),
+                    "twitter" -> Json.toJson(speaker.twitter),
+                    "foto" -> Json.toJson(speaker.avatarUrl),
+                    "blog" -> Json.toJson(speaker.blog),
+                    "phone" -> Json.toJson(speaker.phone),
+                    "gender" -> Json.toJson(speaker.gender),
+                    "tshirtSize" -> Json.toJson(speaker.tshirtSize)
+                  )
+                })
+              )
+            }
+          }
+
+          val jsonObject = Json.toJson(listaJson)
+
+          Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
+            "Links" -> ("<" + routes.RestAPI.profile("all-talks").absoluteURL() + ">; rel=\"profile\""))
+
+        }
+      }
+  }
+
+  def showAllTalksPlain(eventCode: String) = UserAgentActionAndAllowOrigin {
     implicit request =>
 
       val proposals: List[Proposal] = Proposal.allProposals()
