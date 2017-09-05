@@ -576,20 +576,29 @@ object RestAPI extends Controller {
                 "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
                 "status" -> Json.toJson(Messages(proposal.state.code)),
                 "descricao" -> Json.toJson(proposal.summaryAsHtml),
-                "palestrantes" -> Json.toJson(speakers.map { speaker =>
-                  Map(
-                    "nome" -> Json.toJson(speaker.cleanName),
-                    "email" -> Json.toJson(speaker.email),
-                    "empresa" -> Json.toJson(speaker.company),
-                    "minibio" -> Json.toJson(speaker.bioAsHtml),
-                    "twitter" -> Json.toJson(speaker.twitter),
-                    "foto" -> Json.toJson(speaker.avatarUrl),
-                    "blog" -> Json.toJson(speaker.blog),
-                    "phone" -> Json.toJson(speaker.phone),
-                    "gender" -> Json.toJson(speaker.gender),
-                    "tshirtSize" -> Json.toJson(speaker.tshirtSize)
-                  )
-                })
+
+                "nome1" -> Json.toJson(proposal.mainSpeaker.cleanName),
+                "email1" -> Json.toJson(proposal.mainSpeaker.email),
+                "empresa1" -> Json.toJson(proposal.mainSpeaker.company),
+                "minibio1" -> Json.toJson(proposal.mainSpeaker.bioAsHtml),
+                "twitter1" -> Json.toJson(proposal.mainSpeaker.twitter),
+                "foto1" -> Json.toJson(proposal.mainSpeaker.avatarUrl),
+                "blog1" -> Json.toJson(proposal.mainSpeaker.blog),
+                "phone1" -> Json.toJson(proposal.mainSpeaker.phone),
+                "gender1" -> Json.toJson(proposal.mainSpeaker.gender),
+                "tshirtSize1" -> Json.toJson(proposal.mainSpeaker.tshirtSize),
+
+                "nome2" -> Json.toJson(proposal.secondarySpeaker.cleanName),
+                "email2" -> Json.toJson(proposal.secondarySpeaker.email),
+                "empresa2" -> Json.toJson(proposal.secondarySpeaker.company),
+                "minibio2" -> Json.toJson(proposal.secondarySpeaker.bioAsHtml),
+                "twitter2" -> Json.toJson(proposal.secondarySpeaker.twitter),
+                "foto2" -> Json.toJson(proposal.secondarySpeaker.avatarUrl),
+                "blog2" -> Json.toJson(proposal.secondarySpeaker.blog),
+                "phone2" -> Json.toJson(proposal.secondarySpeaker.phone),
+                "gender2" -> Json.toJson(proposal.secondarySpeaker.gender),
+                "tshirtSize2" -> Json.toJson(proposal.secondarySpeaker.tshirtSize)
+
               )
             }
           }
