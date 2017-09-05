@@ -575,7 +575,9 @@ object RestAPI extends Controller {
                 "titulo" -> Json.toJson(proposal.title),
                 "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
                 "status" -> Json.toJson(Messages(proposal.state.code)),
-                "descricao" -> Json.toJson(proposal.summaryAsHtml),
+                "descricao" -> Json.toJson(proposal.summaryAsHtml)
+
+                /*  Preciso gerar este arquivo json com os campos abaixo, mas está dando erro, como fazer isso Kleber?
 
                 "nome1" -> Json.toJson(proposal.mainSpeaker.cleanName),
                 "email1" -> Json.toJson(proposal.mainSpeaker.email),
@@ -598,6 +600,8 @@ object RestAPI extends Controller {
                 "phone2" -> Json.toJson(proposal.secondarySpeaker.phone),
                 "gender2" -> Json.toJson(proposal.secondarySpeaker.gender),
                 "tshirtSize2" -> Json.toJson(proposal.secondarySpeaker.tshirtSize)
+
+                */
 
               )
             }
