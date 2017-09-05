@@ -62,7 +62,7 @@ object RestAPI extends Controller {
         case "room" => Ok(views.html.RestAPI.docRoom())
         case "approved" => Ok(views.html.RestAPI.docApprovedByTrack())
         case "backup" => Ok(views.html.RestAPI.docAllBackup())
-        case "all-talks" => Ok(views.html.RestAPI.docAllBackup())
+        case "all-talks" => Ok(views.html.RestAPI.docAllTalks())
         case other => NotFound("Sorry, no documentation for this profile")
       }
   }
