@@ -27,7 +27,7 @@ import library.Benchmark
 import models._
 import org.joda.time.{DateTime, DateTimeZone}
 import play.api.i18n.Messages
-import play.api.libs.json.{JsNull, Json}
+import play.api.libs.json.{JsNull, JsValue, Json}
 import play.api.mvc.{SimpleResult, _}
 
 import scala.concurrent.{ExecutionContext, Future}
@@ -562,7 +562,7 @@ object RestAPI extends Controller {
         }
         case other => {
 
-          val listaJson = proposals.map {
+          val listaJson:List[Map[String,JsValue]] = proposals.map {
             p: Proposal => {
               val mainSpeaker = Speaker.findByUUID(p.mainSpeaker)
               val secSpeaker = p.secondarySpeaker.flatMap(Speaker.findByUUID(_))
@@ -580,7 +580,7 @@ object RestAPI extends Controller {
                 "blog1" -> mainSpeaker.map(u => Json.toJson(u.blog)).getOrElse(JsNull),
                 "empresa1" -> mainSpeaker.map(u => Json.toJson(u.company)).getOrElse(JsNull),
                 "lang1" -> mainSpeaker.map(u => Json.toJson(u.lang)).getOrElse(Json.toJson("pt")),
-                "minibio1" -> mainSpeaker.map(u => Json.toJson(u.bioAsHtml)),
+                "minibio1" -> mainSpeaker.map(u => Json.toJson(u.bioAsHtml)).getOrElse(JsNull),
                 "twitter1" -> mainSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(JsNull),
                 "phone1" -> mainSpeaker.map(u => Json.toJson(u.phone)).getOrElse(JsNull),
                 "gender1" -> mainSpeaker.map(u => Json.toJson(u.gender)).getOrElse(JsNull),
@@ -592,7 +592,7 @@ object RestAPI extends Controller {
                 "blog2" -> secSpeaker.map(u => Json.toJson(u.blog)).getOrElse(JsNull),
                 "empresa2" -> secSpeaker.map(u => Json.toJson(u.company)).getOrElse(JsNull),
                 "lang2" -> secSpeaker.map(u => Json.toJson(u.lang)).getOrElse(Json.toJson("pt")),
-                "minibio2" -> secSpeaker.map(u => Json.toJson(u.bioAsHtml)),
+                "minibio2" -> secSpeaker.map(u => Json.toJson(u.bioAsHtml)).getOrElse(JsNull),
                 "twitter2" -> secSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(JsNull),
                 "phone2" -> secSpeaker.map(u => Json.toJson(u.phone)).getOrElse(JsNull),
                 "gender2" -> secSpeaker.map(u => Json.toJson(u.gender)).getOrElse(JsNull),
