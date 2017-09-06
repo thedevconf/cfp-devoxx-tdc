@@ -574,31 +574,29 @@ object RestAPI extends Controller {
                 "status" -> Json.toJson(Messages(p.state.code)),
                 "descricao" -> Json.toJson(p.summaryAsHtml),
 
-                // mais uma tentativa que não deu certo :(
+                "nome1" -> mainSpeaker.map(u => Json.toJson(u.cleanName.trim())).getOrElse(JsNull),
+                "email1" -> mainSpeaker.map(u => Json.toJson(u.email)).getOrElse(JsNull),
+                "foto1" -> mainSpeaker.map(u => Json.toJson(u.avatarUrl)).getOrElse(JsNull),
+                "blog1" -> mainSpeaker.map(u => Json.toJson(u.blog)).getOrElse(JsNull),
+                "empresa1" -> mainSpeaker.map(u => Json.toJson(u.company)).getOrElse(JsNull),
+                "lang1" -> mainSpeaker.map(u => Json.toJson(u.lang)).getOrElse(Json.toJson("pt")),
+                "minibio1" -> mainSpeaker.map(u => Json.toJson(u.bioAsHtml)),
+                "twitter1" -> mainSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(JsNull),
+                "phone1" -> mainSpeaker.map(u => Json.toJson(u.phone)).getOrElse(JsNull),
+                "gender1" -> mainSpeaker.map(u => Json.toJson(u.gender)).getOrElse(JsNull),
+                "tshirtSize1" ->  mainSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(JsNull),
 
-                "nome1" -> mainSpeaker.cleanName.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "email1" -> Json.toJson(mainSpeaker.email),
-                "foto1" -> mainSpeaker.avatarUrl.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "blog1" -> mainSpeaker.blog.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "empresa1" -> mainSpeaker.company.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "lang1" -> mainSpeaker.lang.map(u => Json.toJson(u.trim())).getOrElse(Json.toJson("pt")),
-                "minibio1" -> Json.toJson(mainSpeaker.bioAsHtml),
-                "twitter1" -> mainSpeaker.cleanTwitter.map(Json.toJson(_)).getOrElse(JsNull),
-                "phone1" -> mainSpeaker.phone.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "gender1" -> mainSpeaker.gender.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "tshirtSize1" ->  mainSpeaker.tshirtSize.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-
-                "nome2" -> Json.toJson(secSpeaker.cleanName),
-                "email2" -> Json.toJson(secSpeaker.email),
-                "foto2" -> secSpeaker.avatarUrl.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "blog2" -> secSpeaker.blog.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "empresa2" -> secSpeaker.company.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "lang2" -> secSpeaker.lang.map(u => Json.toJson(u.trim())).getOrElse(Json.toJson("pt")),
-                "minibio2" -> Json.toJson(secSpeaker.bioAsHtml),
-                "twitter2" -> secSpeaker.cleanTwitter.map(Json.toJson(_)).getOrElse(JsNull),
-                "phone2" -> secSpeaker.phone.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "gender2" -> secSpeaker.gender.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
-                "tshirtSize2" ->  secSpeaker.tshirtSize.map(u => Json.toJson(u.trim())).getOrElse(JsNull)
+                "nome2" -> secSpeaker.map(u => Json.toJson(u.cleanName.trim())).getOrElse(JsNull),
+                "email2" -> secSpeaker.map(u => Json.toJson(u.email)).getOrElse(JsNull),
+                "foto2" -> secSpeaker.map(u => Json.toJson(u.avatarUrl)).getOrElse(JsNull),
+                "blog2" -> secSpeaker.map(u => Json.toJson(u.blog)).getOrElse(JsNull),
+                "empresa2" -> secSpeaker.map(u => Json.toJson(u.company)).getOrElse(JsNull),
+                "lang2" -> secSpeaker.map(u => Json.toJson(u.lang)).getOrElse(Json.toJson("pt")),
+                "minibio2" -> secSpeaker.map(u => Json.toJson(u.bioAsHtml)),
+                "twitter2" -> secSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(JsNull),
+                "phone2" -> secSpeaker.map(u => Json.toJson(u.phone)).getOrElse(JsNull),
+                "gender2" -> secSpeaker.map(u => Json.toJson(u.gender)).getOrElse(JsNull),
+                "tshirtSize2" ->  secSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(JsNull)
 
               )
             }
