@@ -805,8 +805,8 @@ trackAndUUIDs=
 
 mail.reset_password_link.subject=Você pediu para redefinir o seu access code do {1} em {0}
 mail.access_code.subject=Seu access code do {0}
-mail.account_created.subject=Bem-vindo ao CFP para {0} !
-mail.email_validation.subject=Bem-vindo ao {0}, por favor valide seu endereço de email agora
+mail.account_created.subject=Boas vindas ao CFP para {0} !
+mail.email_validation.subject=Por favor valide seu endereço de email agora para o {0}
 mail.issue_reported.subject=Nova issue reportada no website do CFP
 mail.cfp_message_to_speaker.subject=[{2}] Mensagem sobre sua apresentação {0} na Trilha {1}
 mail.question_to_speaker.subject=[{1}] Nova pergunta postada no website do CFP sobre {0}
