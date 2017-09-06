@@ -554,9 +554,6 @@ object RestAPI extends Controller {
 
       val proposals: List[Proposal] = Proposal.allProposals()
 
-      val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
-        proposals.map(proposal => (proposal, proposal.allSpeakers))
-
       val etag = proposals.hashCode.toString
 
       request.headers.get(IF_NONE_MATCH) match {
@@ -565,43 +562,43 @@ object RestAPI extends Controller {
         }
         case other => {
 
-          val listaJson = proposalsAndSpeakers.map {
-            par: (Proposal, List[Speaker]) => {
-              val proposal = par._1
-              val speakers = par._2
+          val listaJson = proposals.map {
+            p: Proposal => {
+              val mainSpeaker = Speaker.findByUUID(p.mainSpeaker)
+              val secSpeaker = p.secondarySpeaker.flatMap(Speaker.findByUUID(_))
               Map(
-                "id" -> Json.toJson(proposal.id),
-                "trilha" -> Json.toJson(Messages(proposal.track.label)),
-                "titulo" -> Json.toJson(proposal.title),
-                "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
-                "status" -> Json.toJson(Messages(proposal.state.code)),
-                "descricao" -> Json.toJson(proposal.summaryAsHtml)
+                "id" -> Json.toJson(p.id),
+                "trilha" -> Json.toJson(Messages(p.track.label)),
+                "titulo" -> Json.toJson(p.title),
+                "tipo" -> Json.toJson(Messages(p.talkType.label)),
+                "status" -> Json.toJson(Messages(p.state.code)),
+                "descricao" -> Json.toJson(p.summaryAsHtml),
 
-                /*  Preciso gerar este arquivo json com os campos abaixo, mas está dando erro, como fazer isso Kleber?
+                // mais uma tentativa que não deu certo :(
 
-                "nome1" -> Json.toJson(proposal.mainSpeaker.cleanName),
-                "email1" -> Json.toJson(proposal.mainSpeaker.email),
-                "empresa1" -> Json.toJson(proposal.mainSpeaker.company),
-                "minibio1" -> Json.toJson(proposal.mainSpeaker.bioAsHtml),
-                "twitter1" -> Json.toJson(proposal.mainSpeaker.twitter),
-                "foto1" -> Json.toJson(proposal.mainSpeaker.avatarUrl),
-                "blog1" -> Json.toJson(proposal.mainSpeaker.blog),
-                "phone1" -> Json.toJson(proposal.mainSpeaker.phone),
-                "gender1" -> Json.toJson(proposal.mainSpeaker.gender),
-                "tshirtSize1" -> Json.toJson(proposal.mainSpeaker.tshirtSize),
+                "nome1" -> mainSpeaker.cleanName.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "email1" -> Json.toJson(mainSpeaker.email),
+                "foto1" -> mainSpeaker.avatarUrl.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "blog1" -> mainSpeaker.blog.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "empresa1" -> mainSpeaker.company.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "lang1" -> mainSpeaker.lang.map(u => Json.toJson(u.trim())).getOrElse(Json.toJson("pt")),
+                "minibio1" -> Json.toJson(mainSpeaker.bioAsHtml),
+                "twitter1" -> mainSpeaker.cleanTwitter.map(Json.toJson(_)).getOrElse(JsNull),
+                "phone1" -> mainSpeaker.phone.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "gender1" -> mainSpeaker.gender.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "tshirtSize1" ->  mainSpeaker.tshirtSize.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
 
-                "nome2" -> Json.toJson(proposal.secondarySpeaker.cleanName),
-                "email2" -> Json.toJson(proposal.secondarySpeaker.email),
-                "empresa2" -> Json.toJson(proposal.secondarySpeaker.company),
-                "minibio2" -> Json.toJson(proposal.secondarySpeaker.bioAsHtml),
-                "twitter2" -> Json.toJson(proposal.secondarySpeaker.twitter),
-                "foto2" -> Json.toJson(proposal.secondarySpeaker.avatarUrl),
-                "blog2" -> Json.toJson(proposal.secondarySpeaker.blog),
-                "phone2" -> Json.toJson(proposal.secondarySpeaker.phone),
-                "gender2" -> Json.toJson(proposal.secondarySpeaker.gender),
-                "tshirtSize2" -> Json.toJson(proposal.secondarySpeaker.tshirtSize)
-
-                */
+                "nome2" -> Json.toJson(secSpeaker.cleanName),
+                "email2" -> Json.toJson(secSpeaker.email),
+                "foto2" -> secSpeaker.avatarUrl.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "blog2" -> secSpeaker.blog.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "empresa2" -> secSpeaker.company.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "lang2" -> secSpeaker.lang.map(u => Json.toJson(u.trim())).getOrElse(Json.toJson("pt")),
+                "minibio2" -> Json.toJson(secSpeaker.bioAsHtml),
+                "twitter2" -> secSpeaker.cleanTwitter.map(Json.toJson(_)).getOrElse(JsNull),
+                "phone2" -> secSpeaker.phone.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "gender2" -> secSpeaker.gender.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
+                "tshirtSize2" ->  secSpeaker.tshirtSize.map(u => Json.toJson(u.trim())).getOrElse(JsNull)
 
               )
             }
@@ -610,7 +607,7 @@ object RestAPI extends Controller {
           val jsonObject = Json.toJson(listaJson)
 
           Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
-            "Links" -> ("<" + routes.RestAPI.profile("all-talks").absoluteURL() + ">; rel=\"profile\""))
+            "Links" -> ("<" + routes.RestAPI.profile("all-talks-plain").absoluteURL() + ">; rel=\"profile\""))
 
         }
       }
