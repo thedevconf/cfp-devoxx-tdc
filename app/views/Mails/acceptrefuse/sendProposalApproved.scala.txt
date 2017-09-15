@@ -13,9 +13,14 @@ Formato: (tempo de palestra conforme combinado com os coordenadores)
 ATENÇÃO! Ações necessárias
 --------------------------
 1. Aceitar ou recusar
-Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação o
+Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação ATÉ O DIA XX/XX.
+(link)
+
+Você deve agora validar ou recusar os termos e condições, para confirmar que vai fazer esta apresentação o
 MAIS RÁPIDO POSSÍVEL:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+ATENÇÃO: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
+As palestras não aceitas em até 5 dias úteis após esta notificação, serão canceladas e outra ocupará seu lugar.
 
 2. Sua minibio e foto
 Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a
@@ -63,6 +68,8 @@ ATTENTION! Required actions
 You must now validate or decline the general terms and conditions, and confirm that you are still ok to do this
 presentation AS SOON AS POSSIBLE:
  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+ATTENTION: Only accepted talks by the CFP system will be published on the website, so we ask you to do it as soon as possible.
+The talks not accepted within 5 working days from this notification will be canceled and another one will take its place.
 
 2. Your bio and picture
 In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you
