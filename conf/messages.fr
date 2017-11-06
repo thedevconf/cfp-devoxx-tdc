@@ -764,3 +764,9 @@ cfpAdmin.showWhenCreated=Sujet soumis par le speaker sur le CFP le {0}
 
 publisher.showMore=Voir la description
 publisher.room=Salle
+
+# Messages for the Attic page
+attic.alert=<strong>Attention :</strong>\
+            <p>Vous êtes sur le point d'archiver/d'effacer TOUTES les propositions de votre base du CFP.</p>\
+            <p>Sérieusement, faîtes un backup de votre fichier DUMP et de votre fichier AOF avant de commencer à cliquer sur l'un de ces boutons.</p>
+

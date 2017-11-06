@@ -1236,3 +1236,19 @@ error.message2.part1=Por favor,
 error.message2.part2=reporte um bug
 error.message2.part3=e especifique
 error.message2.part4=se você acha que isto não é esperado
+
+# Messages for the Attic page
+attic.title=Limpeza de banco de dados
+attic.alert=<strong>Atenção:</strong>\
+            <p>Você está prestes a arquivar/remover TODAS as propostas do seu CFP.</p>\
+            <p>Por favor, crie um backup REDIS (como BGSAVE) e salve seu arquivo AOF em um lugar seguro ANTES de começar a arquivar palestras e revisões</p>\
+            <p>Se você utilizou o controlador Publisher, você também deve salvar todas as páginas HTML geradas com listas de palestras, bios de palestrantes, etc. Eu utilizo WGET (veja README) com noclobber</p>
+attic.talk.title=Palestras
+attic.bt.prune.deleted=Apagar palestras excluidas
+attic.bt.prune.draft=Apagar palestras rascunho
+attic.bt.archive.talk=Arquivar todas as palestras do tipo {0}
+attic.other.title=Outros
+attic.bt.delete.invited=Remover status [Convidado] de todos os palestrantes
+attic.bt.delete.events=Remover todos os eventos e histórico
+attic.bt.delete.events.explanation=Eventos são um log de todas as ações e atualizações executadas pelos palestrantes e pela equipe.
+attic.bt.reset.notifications=Reiniciar a lista de palestrantes notificados (aprovados e recusados)
