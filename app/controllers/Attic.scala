@@ -26,6 +26,7 @@ package controllers
 import models.{Event, ArchiveProposal, Invitation}
 import play.api.data.Form
 import play.api.data.Forms._
+import play.api.i18n.Messages
 
 import scala.concurrent.Future
 
@@ -56,13 +57,13 @@ object Attic extends SecureCFPController {
           case o if o == "deleted" =>
             val futureTotalDeleted = Future(ArchiveProposal.pruneAllDeleted())
             futureTotalDeleted.map { totalDeleted =>
-              Redirect(routes.Attic.atticHome()).flashing(("success", s"$totalDeleted Deleted moved to Attic"))
+              Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.prune.deleted",totalDeleted)))
             }
           case o if o == "draft" =>
             val futureTotalDraft = Future(ArchiveProposal.pruneAllDraft())
             futureTotalDraft.map {
               totalDraft =>
-                Redirect(routes.Attic.atticHome()).flashing(("success", s"$totalDraft Draft deleted"))
+                Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.prune.draft",totalDraft)))
             }
           case other =>
             Future.successful(Redirect(routes.Attic.atticHome()))
@@ -78,7 +79,7 @@ object Attic extends SecureCFPController {
         proposalType => {
           Future(ArchiveProposal.archiveAll(proposalType)).map {
             totalArchived =>
-              Redirect(routes.Attic.atticHome()).flashing(("success", s"$totalArchived archived"))
+              Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.archive.talk",totalArchived)))
           }
         }
       )
@@ -87,7 +88,7 @@ object Attic extends SecureCFPController {
   def deleteInvitedSpeakers() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Invitation.deleteAll()
-      Redirect(routes.Attic.atticHome()).flashing(("success", s"Deleted all Invitations"))
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.delete.invited")))
   }
 
   /**
@@ -96,7 +97,7 @@ object Attic extends SecureCFPController {
   def resetNotified() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Event.resetSpeakersNotified()
-      Redirect(routes.Attic.atticHome()).flashing(("success", s"All Notified collections have been deleted."))
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.notifications")))
   }
 
   /**
@@ -105,7 +106,7 @@ object Attic extends SecureCFPController {
   def resetEvents() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Event.resetEvents()
-      Redirect(routes.Attic.atticHome()).flashing(("success", s"Events log flushed."))
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.delete.events")))
   }
 
 
