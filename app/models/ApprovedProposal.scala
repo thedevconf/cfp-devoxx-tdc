@@ -24,7 +24,7 @@
 package models
 
 import library.Redis
-import models.ConferenceDescriptor.ConferenceProposalConfigurations
+import models.ConferenceDescriptor.{ConferenceProposalConfigurations, ConferenceProposalTypes}
 
 /**
  * Approve or reject a proposal
@@ -53,7 +53,7 @@ object ApprovedProposal {
       talkType match {
         case null => 0
         case "all" =>
-          client.scard("Approved:conf") + client.scard("Approved:lab") + client.scard("Approved:bof") + client.scard("Approved:key") + client.scard("Approved:tia") + client.scard("Approved:uni") + client.scard("Approved:quick")
+          ConferenceDescriptor.ConferenceProposalTypes.ALL.foldLeft(0L)((total,confType) => total + client.scard("Approved:"+confType.id))
         case other =>
           client.scard(s"Approved:$talkType")
       }
@@ -64,7 +64,7 @@ object ApprovedProposal {
       talkType match {
         case null => 0
         case "all" =>
-          client.scard("Refused:conf") + client.scard("Refused:lab") + client.scard("Refused:bof") + client.scard("Refused:tia") + client.scard("Refused:uni") + client.scard("Refused:quick")
+          ConferenceDescriptor.ConferenceProposalTypes.ALL.foldLeft(0L)((total,confType) => total + client.scard("Refused:"+confType.id))
         case other =>
           client.scard(s"Refused:$talkType")
       }
