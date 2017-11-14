@@ -648,7 +648,11 @@ object Proposal {
       }
   }
 
-  def destroy(proposal: Proposal) = Redis.pool.withClient {
+  /*
+    Removes all references for a proposal. If eraseAllData is true, also erases all data for the proposal in
+    the Proposals hash on Redis. Usually when a proposal is archived we don't want to erase all data.
+   */
+  def destroy(proposal: Proposal, eraseAllData:Boolean = true) = Redis.pool.withClient {
     implicit client =>
       val tx = client.multi()
       tx.srem(s"Proposals:ByAuthor:${proposal.mainSpeaker}", proposal.id)
@@ -666,7 +670,9 @@ object Proposal {
           tx.srem("Proposals:ByAuthor:" + otherSpeaker, proposal.id)
       }
       tx.hdel("Proposal:SubmittedDate", proposal.id)
-      tx.hdel("Proposals", proposal.id)
+      if (eraseAllData) {
+        tx.hdel("Proposals", proposal.id)
+      }
       if (proposal.id != "") {
         tx.del(s"Events:V2:${proposal.id}")
         tx.del(s"Events:LastUpdated:${proposal.id}")
