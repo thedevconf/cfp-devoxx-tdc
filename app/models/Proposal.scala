@@ -672,6 +672,12 @@ object Proposal {
         tx.del(s"Events:LastUpdated:${proposal.id}")
       }
       tx.exec()
+
+      //Delete all comments
+      Comment.deleteAllComments(proposal.id)
+
+      // Remove votes for this talk
+      Review.archiveAllVotesOnProposal(proposal.id)
   }
 
   def findProposalTrack(proposalId: String): Option[Track] = Redis.pool.withClient {
