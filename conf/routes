@@ -253,13 +253,14 @@ GET           /cfpadmin/invitations/invite                                      
 GET           /cfpadmin/invitations/cancel                                      controllers.InviteController.cancelInvite(speakerUUID)
 
 # Attic - Used to archive talks from previous year. If you use it before your conference, it deletes everything...
-# Please note that I removed the following links from the ADMIN Panel cause it is really something you do onle once a year.
+# Please note that I removed the following links from the ADMIN Panel cause it is really something you do only once a year.
 GET           /cfpadmin/attic/home                                              controllers.Attic.atticHome()
 POST          /cfpadmin/attic/pruneDraft                                        controllers.Attic.prune()
 POST          /cfpadmin/attic/doArchive                                         controllers.Attic.doArchive()
 POST          /cfpadmin/attic/deleteInvitedSpeakers                             controllers.Attic.deleteInvitedSpeakers()
 POST          /cfpadmin/attic/resetNotified                                     controllers.Attic.resetNotified()
 POST          /cfpadmin/attic/resetEvents                                       controllers.Attic.resetEvents()
+POST          /cfpadmin/attic/resetTrackLeaders                                 controllers.Attic.resetTrackLeaders()
 
 # Golden ticket admin
 GET           /admin/goldenTickets                                              controllers.GoldenTicketAdminController.showAll()

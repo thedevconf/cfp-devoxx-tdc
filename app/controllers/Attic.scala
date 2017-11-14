@@ -23,7 +23,7 @@
 
 package controllers
 
-import models.{Event, ArchiveProposal, Invitation}
+import models._
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.i18n.Messages
@@ -109,5 +109,12 @@ object Attic extends SecureCFPController {
       Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.delete.events")))
   }
 
-
+  /**
+    * Flush the trackleaders.
+    */
+  def resetTrackLeaders() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      TrackLeader.resetAll()
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.trackleaders")))
+  }
 }
