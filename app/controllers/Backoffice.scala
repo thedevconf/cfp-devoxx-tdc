@@ -107,6 +107,17 @@ object Backoffice extends SecureCFPController {
 
   def changeProposalState(proposalId: String, state: String) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+
+      //if the proposal was manually rejected but was previously accepted
+      if (state == ProposalState.REJECTED.code) {
+        Proposal.findById(proposalId).map {
+          proposal =>
+            if(proposal.state == ProposalState.ACCEPTED) {
+              ApprovedProposal.cancelApprove(proposal)
+            }
+        }
+      }
+
       Proposal.changeProposalState(request.webuser.uuid, proposalId, ProposalState.parse(state))
       if (state == ProposalState.ACCEPTED.code) {
         Proposal.findById(proposalId).map {
