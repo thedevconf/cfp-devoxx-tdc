@@ -108,32 +108,56 @@ object Backoffice extends SecureCFPController {
   def changeProposalState(proposalId: String, state: String) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
-      //if the proposal was manually rejected but was previously accepted
-      if (state == ProposalState.REJECTED.code) {
-        Proposal.findById(proposalId).map {
-          proposal =>
-            if(proposal.state == ProposalState.ACCEPTED) {
-              ApprovedProposal.cancelApprove(proposal)
-            }
-        }
+      val proposalOption = Proposal.findById(proposalId)
+
+      //Removes the proposal from the Approved or Refused Collections, to avoid inconsistencies in the state.
+      //Without this we can have proposals for example in an Approved state and in a Refused* collection, since this method
+      //is accessed for a manual change of state for the Admins.
+      //It always cleans the relevant collections for safety. The performance impact should not be great since this operation
+      //is rarely used.
+      if (!isApprovalState(state)) {
+        proposalOption.map( proposal =>
+          ApprovedProposal.cancelApprove(proposal)
+        )
+      }
+      if (!isRefusalState(state)) {
+        proposalOption.map( proposal =>
+          ApprovedProposal.cancelRefuse(proposal)
+        )
       }
 
       Proposal.changeProposalState(request.webuser.uuid, proposalId, ProposalState.parse(state))
       if (state == ProposalState.ACCEPTED.code) {
-        Proposal.findById(proposalId).map {
+        proposalOption.map {
           proposal =>
             ApprovedProposal.approve(proposal)
-            ElasticSearchActor.masterActor ! DoIndexProposal(proposal.copy(state = ProposalState.ACCEPTED))
         }
       }
-      if (state == ProposalState.DECLINED.code) {
-        Proposal.findById(proposalId).map {
+      if (state == ProposalState.DECLINED.code || state == ProposalState.REJECTED.code) {
+        proposalOption.map {
           proposal =>
             ApprovedProposal.refuse(proposal)
-            ElasticSearchActor.masterActor ! DoIndexProposal(proposal.copy(state = ProposalState.DECLINED))
         }
       }
       Redirect(routes.Backoffice.allProposals()).flashing("success" -> ("Changed state to " + state))
+  }
+
+  /*
+   * method that allows future addition of other states that represent an approval state (Ex: ACCEPTED or APPROVED)
+   *
+   * An approval state is a state in which the proposal is saved in the Approved* collections
+   */
+  private def isApprovalState(state:String):Boolean = {
+    return (state == ProposalState.ACCEPTED.code)
+  }
+
+  /*
+   * method that allows future modification of states that represent a refusal state.
+   *
+   * A refusal state is a state in which the proposal is saved in the Refused* collections
+   */
+  private def isRefusalState(state:String):Boolean = {
+    return (state == ProposalState.REJECTED.code || state == ProposalState.DECLINED.code)
   }
 
   val formSecu = Form("secu" -> nonEmptyText())
