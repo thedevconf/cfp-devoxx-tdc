@@ -127,13 +127,13 @@ object Backoffice extends SecureCFPController {
       }
 
       Proposal.changeProposalState(request.webuser.uuid, proposalId, ProposalState.parse(state))
-      if (state == ProposalState.ACCEPTED.code) {
+      if (isApprovalState(state)) {
         proposalOption.map {
           proposal =>
             ApprovedProposal.approve(proposal)
         }
       }
-      if (state == ProposalState.DECLINED.code || state == ProposalState.REJECTED.code) {
+      if (isRefusalState(state)) {
         proposalOption.map {
           proposal =>
             ApprovedProposal.refuse(proposal)
@@ -148,7 +148,7 @@ object Backoffice extends SecureCFPController {
    * An approval state is a state in which the proposal is saved in the Approved* collections
    */
   private def isApprovalState(state:String):Boolean = {
-    return (state == ProposalState.ACCEPTED.code)
+    return (state == ProposalState.ACCEPTED.code || state == ProposalState.APPROVED.code)
   }
 
   /*
