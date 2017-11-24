@@ -89,7 +89,11 @@ object ArchiveProposal {
         ApprovedProposal.cancelRefuse(approvedProposal)
     }
 
-    Proposal.destroy(proposal,false)
+    //Delete all comments
+    Comment.deleteAllComments(proposalId)
+
+    // Remove votes for this talk
+    Review.archiveAllVotesOnProposal(proposalId)
 
     Proposal.changeProposalState("system", proposalId, ProposalState.ARCHIVED)
   }
