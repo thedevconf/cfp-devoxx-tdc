@@ -685,6 +685,17 @@ object CFPAdmin extends SecureCFPController {
           Ok(views.html.CFPAdmin.history(proposal))
       }.getOrElse(NotFound("Proposal not found"))
   }
+  /*
+   * Loads the Speaker Events from the database and shows the speaker history view
+   */
+  def speakerHistory(uuidSpeaker: String)=SecuredAction(IsMemberOf("cfp")){
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Speaker.findByUUID(uuidSpeaker).map{ speaker:Speaker =>
+          val events = Event.loadEventsForObjRef(uuidSpeaker).sortBy(_.date.map(_.getMillis).getOrElse(0L))
+          Ok(views.html.CFPAdmin.speakerHistory(speaker.cleanName,events))
+      }.getOrElse(NotFound("Speaker not found"))
+  }
+
 
   def help() = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>

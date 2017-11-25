@@ -663,6 +663,7 @@ blog2=Web site or personnal blog
 lang2=Will speak in Portuguese or English? (pt/en)
 gender2=What is the gender? (M/F/N)
 tshirtSize2=What is the T-shirt size? (P,M,G,GG,XGG,XXGG)
+sp.btn.history=See History
 sp.editSpeaker=Edit this speaker
 sp.authenticateAs=Authenticate as
 sp.editName=Edit name
@@ -1267,3 +1268,6 @@ attic.msg.reset.trackleaders=All trackleaders reset
 heading.proposal.history= Proposal History
 title.proposal.history=[CFP] History {0}
 btn.proposal.history=See History
+
+heading.speaker.history= Speaker {0} History
+title.speaker.history=[CFP] History {0}

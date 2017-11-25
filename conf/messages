@@ -661,6 +661,7 @@ blog2=Web site ou blog pessoal
 lang2=Falará em Português ou Inglês? (pt/en)
 gender2=Qual é o gênero? (M/F/N)
 tshirtSize2=Qual é o tamanho de camiseta? (P,M,G,GG,XGG,XXGG)
+sp.btn.history=Ver Histórico
 sp.editSpeaker=Editar este palestrante
 sp.authenticateAs=Autenticar como
 sp.editName=Edita nome
@@ -1265,3 +1266,7 @@ attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
 heading.proposal.history= Histórico da palestra
 title.proposal.history=[CFP] Histórico {0}
 btn.proposal.history=Ver Histórico
+
+heading.speaker.history= Histórico do palestrante {0}
+title.speaker.history=[CFP] Histórico {0}
+

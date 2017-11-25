@@ -1,0 +1,44 @@
+@(speakerName: String, events: List[Event])(implicit flash: Flash, lang: Lang, req: RequestHeader)
+
+@main(Messages("title.speaker.history",speakerName)) {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>@Messages("heading.speaker.history",speakerName)</h3>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>@Messages("admin.cfp.date")</th>
+                                <th>@Messages("admin.cfp.author")</th>
+                                <th>@Messages("admin.cfp.propId")</th>
+                                <th>@Messages("admin.cfp.msg")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @events.map { event =>
+                            <tr>
+                                <td class="text-center">
+                                    <small>@event.date.map(s=>s.toDateTime(org.joda.time.DateTimeZone.forID("America/Sao_Paulo")).toString("dd/MM HH:mm"))</small>
+                                </td>
+                                <td class="text-center">
+                                    @tags.renderGravatar(event.uuid,showName = false)
+                                </td>
+                                <td class="text-center">
+                                    @tags.renderObjRef(event.objRef)
+                                </td>
+                                <td><small>@event.msg</small></td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+        </div>
+    </div>
+
+
+}
