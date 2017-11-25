@@ -1,15 +1,16 @@
 @(proposal: Proposal, proposalsByAuths: Map[String, Map[String, Proposal]], speakerComments: List[Comment], internalComments: List[Comment], msgToSpeakerForm: Form[String], msgInternalForm: Form[String], voteForm: Form[Int],  maybeMyVote:Option[Review], currentUser:String)(implicit flash: Flash, lang: Lang, req:RequestHeader)
 
-@main("[CFP] " + proposal.id + "/" + proposal.title) {
+@main(s"[CFP] ${proposal.id}/${proposal.title}") {
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3><i class="icon-signin"></i> @Messages("admin.proposal")</h3>
+                    <a class="btn btn-sm btn-primary" href="@routes.CFPAdmin.history(proposal.id)">@Messages("btn.proposal.history")</a>
                 </div>
 
                 <div class="panel-body">
-                    <table class="table table-bordered table-strippted">
+                    <table class="table table-bordered table-striped">
                                            <thead>
                                                <tr>
                                                    <th>@Messages("admin.proposals.th.title")</th>
@@ -215,7 +216,7 @@
                 <div class="panel-body">
                 @helper.form(action = routes.CFPAdmin.sendMessageToSpeaker(proposal.id)) {
                     @helper.textarea(msgToSpeakerForm("msg"), 'class -> "form-control input-xs")
-                    <button type="submit" class="btb btn-xs btn-primary">@Messages("admin.btn.sendMessage")</button>
+                    <button type="submit" class="btn btn-xs btn-primary">@Messages("admin.btn.sendMessage")</button>
                 }
                 </div>
                 <div class="panel-body">
@@ -270,7 +271,7 @@
                 <div class="panel-body">
                 @helper.form(action = routes.CFPAdmin.postInternalMessage(proposal.id)) {
                     @helper.textarea(msgInternalForm("msg"), 'class -> "form-control input-xs")
-                    <button type="submit" class="btb btn-xs btn-primary">@Messages("admin.btn.sendMessage")</button>
+                    <button type="submit" class="btn btn-xs btn-primary">@Messages("admin.btn.sendMessage")</button>
                 }
                 </div>
                 <div class="panel-body">

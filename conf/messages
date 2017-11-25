@@ -1260,3 +1260,8 @@ attic.msg.delete.invited=Todos os convites foram removidos
 attic.msg.delete.events=Log de eventos removido
 attic.msg.reset.notifications=Todas as notificacoes foram removidas
 attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
+
+#Logs
+heading.proposal.history= Histórico da palestra
+title.proposal.history=[CFP] Histórico {0}
+btn.proposal.history=Ver Histórico

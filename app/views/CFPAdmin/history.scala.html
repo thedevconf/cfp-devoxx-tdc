@@ -1,20 +1,41 @@
 @(proposal: Proposal)(implicit flash: Flash, lang: Lang, req: RequestHeader)
 
-@main(s"[CFP] history ${proposal.id}") {
+@main(Messages("title.proposal.history",proposal.id)) {
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>@Messages("history")</h3>
+                    <h3>@Messages("heading.proposal.history")</h3>
                 </div>
 
                 <div class="panel-body">
-                <div class="panel-body">
-                    @Event.loadEventsForObjRef(proposal.id).sortBy(_.date.map(_.getMillis).getOrElse(0L)).map { event =>
-                     <small><strong>@event.date.map(s=>s.toDateTime(org.joda.time.DateTimeZone.forID("America/Sao_Paulo")).toString("EEE dd/MM HH:mm")):</strong> @event.msg</small><br>
-                    }
+                    <table class="table table-bordered table-striped table-hover table-condensed">
+                        <thead>
+                            <tr>
+                                <th>@Messages("admin.cfp.date")</th>
+                                <th>@Messages("admin.cfp.author")</th>
+                                <th>@Messages("admin.cfp.propId")</th>
+                                <th>@Messages("admin.cfp.msg")</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Event.loadEventsForObjRef(proposal.id).sortBy(_.date.map(_.getMillis).getOrElse(0L)).map { event =>
+                            <tr>
+                                <td class="text-center">
+                                    <small>@event.date.map(s=>s.toDateTime(org.joda.time.DateTimeZone.forID("America/Sao_Paulo")).toString("dd/MM HH:mm"))</small>
+                                </td>
+                                <td class="text-center">
+                                    @tags.renderGravatar(event.uuid,showName = false)
+                                </td>
+                                <td class="text-center">
+                                    @tags.renderObjRef(event.objRef)
+                                </td>
+                                <td><small>@event.msg</small></td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
                 </div>
-            </div>
 
         </div>
     </div>

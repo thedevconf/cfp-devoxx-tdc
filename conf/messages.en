@@ -1262,3 +1262,8 @@ attic.msg.delete.invited=Deleted all Invitations
 attic.msg.delete.events=Events log flushed.
 attic.msg.reset.notifications=All Notified collections have been deleted.
 attic.msg.reset.trackleaders=All trackleaders reset
+
+#Logs
+heading.proposal.history= Proposal History
+title.proposal.history=[CFP] History {0}
+btn.proposal.history=See History
