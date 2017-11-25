@@ -56,6 +56,9 @@
             <h4>Webusers</h4>
             <a href="@routes.CFPAdmin.allWebusers()" class="btn btn-sm btn-primary"><i class="icon-user"></i> @Messages("admin.btn.webuser")</a>
             <a href="@routes.CFPAdmin.allCFPWebusers()" class="btn btn-sm btn-primary"><i class="icon-user-md"></i> @Messages("admin.btn.tracklead")</a>
+
+            <h4>@Messages("backoffice.events.log.title")</h4>
+            <a href="@routes.CFPAdmin.eventLog()" class="btn btn-sm btn-primary"><i class="icon-stackexchange"></i> @Messages("admin.btn.events")</a>
 <!--
             <h4>Cron</h4>
             <a href="@routes.Backoffice.sendDraftReminder()" class="btn btn-sm btn-primary"><i class="icon-refresh"></i> Send a reminder to speakers for DRAFT</a>

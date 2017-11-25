@@ -70,7 +70,8 @@ GET           /bug                                                              
 POST          /bug/new                                                          controllers.Application.submitIssue()
 
 # CFP Admin
-GET           /cfpadmin                                                         controllers.CFPAdmin.index(page:Int ?= 0, sort:Option[String] ?=None, ascdesc:Option[String] ?=None, track:Option[String] ?=None)
+GET           /cfpadmin                                                         controllers.CFPAdmin.index(sort:Option[String] ?=None, ascdesc:Option[String] ?=None, track:Option[String] ?=None)
+GET           /cfpadmin/events                                                  controllers.CFPAdmin.eventLog(page:Int ?= 0)
 GET           /cfpadmin/proposal/:proposalId                                    controllers.CFPAdmin.openForReview(proposalId:String)
 GET           /cfpadmin/proposal/:proposalId/history                            controllers.CFPAdmin.history(proposalId:String)
 POST          /cfpadmin/proposal/:proposalId/msgToSpeaker                       controllers.CFPAdmin.sendMessageToSpeaker(proposalId:String)

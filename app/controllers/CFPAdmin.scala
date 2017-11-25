@@ -19,7 +19,7 @@ import play.api.libs.json.{JsObject, Json}
   */
 object CFPAdmin extends SecureCFPController {
 
-  def index(page: Int, sort: Option[String], ascdesc: Option[String], track: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
+  def index(sort: Option[String], ascdesc: Option[String], track: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       val uuid = request.webuser.uuid
       val sorter = proposalSorter(sort)
@@ -30,13 +30,12 @@ object CFPAdmin extends SecureCFPController {
         case Some(trackLabel) => allNotReviewed.filter(_.track.id.equalsIgnoreCase(StringUtils.trimToEmpty(trackLabel)))
       }
       val allProposalsForReview = sortProposals(maybeFilteredProposals, sorter, orderer)
-      val twentyEvents = Event.loadEvents(20, page)
 
-      val etag = allProposalsForReview.hashCode() + "_" + twentyEvents.hashCode()
+      val etag = allProposalsForReview.hashCode().toString
 
       request.headers.get("If-None-Match") match {
         case Some(tag) if tag == etag => NotModified
-        case _ => Ok(views.html.CFPAdmin.cfpAdminIndex(twentyEvents, allProposalsForReview, Event.totalEvents(), page, sort, ascdesc)).withHeaders("ETag" -> etag)
+        case _ => Ok(views.html.CFPAdmin.cfpAdminIndex(allProposalsForReview, sort, ascdesc)).withHeaders("ETag" -> etag)
       }
   }
 
@@ -700,6 +699,15 @@ object CFPAdmin extends SecureCFPController {
   def help() = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Ok(views.html.CFPAdmin.help())
+  }
+
+  /*
+   * loads the events and show the events view
+   */
+  def eventLog(page:Int) = SecuredAction(IsMemberOf("admin")){
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val twentyEvents = Event.loadEvents(20, page)
+      Ok(views.html.Backoffice.showEvents(twentyEvents, Event.totalEvents(), page))
   }
 
 }

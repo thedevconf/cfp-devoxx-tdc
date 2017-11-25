@@ -1,4 +1,4 @@
-@(events: List[Event], allProposalsForReview: List[Proposal], totalEvents:Long, page:Int, sort:Option[String], ascdesc:Option[String])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+@(allProposalsForReview: List[Proposal], sort:Option[String], ascdesc:Option[String])(implicit flash: Flash, lang: Lang, req:RequestHeader)
 
 @main("CFP Admin") {
     <div class="row">
@@ -50,10 +50,10 @@
                         <table class="table table-bordered table-striped table-hover table-condensed">
                             <thead>
                                 <tr>
-                                    <th>@tags.renderThTag("title", page, sort, ascdesc)</th>
-                                    <th>@tags.renderThTag("track", page, sort, ascdesc)</th>
-                                    <th>@tags.renderThTag("mainSpeaker", page, sort, ascdesc)</th>
-                                    <th>@tags.renderThTag("talkType", page, sort, ascdesc)</th>
+                                    <th>@tags.renderThTag("title", sort, ascdesc)</th>
+                                    <th>@tags.renderThTag("track", sort, ascdesc)</th>
+                                    <th>@tags.renderThTag("mainSpeaker", sort, ascdesc)</th>
+                                    <th>@tags.renderThTag("talkType", sort, ascdesc)</th>
                                     <th>@Messages("admin.proposals.th.action")</th>
                                 </tr>
                             </thead>
@@ -96,80 +96,6 @@
                 </div>
             </div>
         </div>
-
-    <!-- eventos exibidos somente para superuser -->
-    @if(SecureCFPController.hasAccessToAdmin(req)){
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3><i class="icon-stackexchange"></i> @Messages("admin.cfp.recentEvents")</h3>
-                </div>
-
-                <div class="panel-body">
-                    <table class="table table-bordered table-striped table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>@Messages("admin.cfp.date")</th>
-                                <th>@Messages("admin.cfp.author")</th>
-                                <th>@Messages("admin.cfp.propId")</th>
-                                <th>@Messages("admin.cfp.msg")</th>
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <small>
-                                    @Messages("admin.cfp.totalEvents"): @totalEvents - Page @page/@(totalEvents/20)
-                                    @if(page > 0){
-                                      <a href="@routes.CFPAdmin.index(page-1)">&lt; @Messages("previous.page")</a> -
-                                    }
-                                    @if(page < totalEvents/20){
-                                      <a href="@routes.CFPAdmin.index(page+1)">@Messages("next.page") &gt;</a>
-                                    }</small>
-                                </td>
-                            </tr>
-
-                        </thead>
-                        <tbody>
-                        @events.map { event: Event =>
-                            <tr>
-                                <td class="text-center">
-                                    <small>@event.date.map(s=>s.toDateTime(org.joda.time.DateTimeZone.forID("Europe/Brussels")).toString("dd/MM HH:mm"))</small>
-                                </td>
-                                <td class="text-center">
-                                @tags.renderGravatar(event.uuid,showName = false)
-                                </td>
-                                <td class="text-center">
-                                @tags.renderObjRef(event.objRef)
-                                </td>
-                                <td><small>@event.msg</small></td>
-                            </tr>
-                        }
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4">
-                                    <small>
-                                    @Messages("admin.cfp.totalEvents"): @totalEvents - Page @page/@(totalEvents/20)
-                                    @if(page > 0){
-                                      <a href="@routes.CFPAdmin.index(page-1)">&lt; @Messages("previous.page")</a> -
-                                    }
-                                    @if(page < totalEvents/20){
-                                      <a href="@routes.CFPAdmin.index(page+1)">@Messages("next.page") &gt;</a>
-                                    }
-                                    </small>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-
-                    <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
-                        <i class="icon-angle-up"></i> @Messages("top.page")
-                    </a>
-
-                </div>
-
-            </div>
-        </div>
-    }
 
     </div>
 }

@@ -1052,6 +1052,9 @@ backoffice.allproposals.rejected.notify.tooltip=Envie um email e mude o status p
 backoffice.allproposals.rejected.notify.link=Notificar rejeição
 backoffice.allproposals.empty=Não existem propostas com status != ARQUIVADA
 
+backoffice.events.log.title=Log de Eventos
+admin.btn.events=Visualizar Log
+
 allproposals.submitted={0} propostas submetidas
 allproposals.submitted.bytrack=Todas propostas submetidas para a trilha
 allproposals.submitted.bytype=Todas propostas submetidas para o tipo
