@@ -266,6 +266,13 @@ object ApprovedProposal {
       allProposalWithVotes.values.toList
   }
 
+  def allBackup():List[Proposal] = Redis.pool.withClient {
+    implicit client =>
+      val allProposalIDs = client.smembers("Proposals:ByState:backup")
+      val allProposalWithVotes = Proposal.loadAndParseProposals(allProposalIDs.toSet)
+      allProposalWithVotes.values.toList
+  }
+
   /**
    * Approved = a proposal was selected by the program committee
    * Accepted = the speaker accepted to present the approved talk

@@ -110,6 +110,11 @@ object ApproveOrRefuse extends SecureCFPController {
       Ok(views.html.ApproveOrRefuse.allRefusedByTalkType(ApprovedProposal.allRefusedByTalkType(talkType), talkType))
   }
 
+  def allBackupByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse("")))
+  }
+
   def notifyApprove(talkType: String, proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Proposal.findById(proposalId).map {
@@ -117,6 +122,15 @@ object ApproveOrRefuse extends SecureCFPController {
           ZapActor.actor ! ProposalApproved(request.webuser.uuid, proposal)
       }
       Redirect(routes.ApproveOrRefuse.allApprovedByTalkType(talkType)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
+  }
+
+  def notifyBackup(trackId:String, proposalId: String) =  SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Proposal.findById(proposalId).map {
+        proposal: Proposal =>
+          ZapActor.actor ! ProposalBackup(request.webuser.uuid, proposal)
+      }
+      Redirect(routes.ApproveOrRefuse.allBackupByTrack(Option(trackId))).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
   }
 
   def notifyRefused(talkType: String, proposalId: String) = SecuredAction(IsMemberOf("cfp")) {

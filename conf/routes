@@ -150,8 +150,10 @@ GET           /ar/backup/:proposalId                                            
 
 GET           /ar/allApproved/:talkType                                         controllers.ApproveOrRefuse.allApprovedByTalkType(talkType:String)
 GET           /ar/allRefused/:talkType                                          controllers.ApproveOrRefuse.allRefusedByTalkType(talkType:String)
+GET           /ar/allBackup                                                     controllers.ApproveOrRefuse.allBackupByTrack(trackId:Option[String] ?= None)
 GET           /ar/notifyApprove/:talkType                                       controllers.ApproveOrRefuse.notifyApprove(talkType:String, proposalId:String)
 GET           /ar/notifyRefuse/:talkType                                        controllers.ApproveOrRefuse.notifyRefused(talkType:String, proposalId:String)
+GET           /ar/notifyBackup                                                  controllers.ApproveOrRefuse.notifyBackup(trackId:String, proposalId:String)
 GET           /ar/showAcceptTerms                                               controllers.ApproveOrRefuse.showAcceptTerms()
 GET           /ar/accept                                                        controllers.ApproveOrRefuse.acceptTermsAndConditions()
 GET           /ar/acceptOrRefuseTalks                                           controllers.ApproveOrRefuse.showAcceptOrRefuseTalks()
