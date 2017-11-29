@@ -30,19 +30,11 @@
                 <a href="@routes.Backoffice.doResetAndConfigureElasticSearch()" class="btn btn-primary btn-sm"><i class="icon-search"></i> Delete speakers and proposals ES Indexes</a><br>
                 <a href="@routes.Backoffice.doIndexElasticSearch()" class="btn btn-primary btn-sm"><i class="icon-search"></i> Force indexation of speakers and proposals</a><br>
 -->
-            <h4>@Messages("backoffice.notification.accepted.title")</h4>
-            <p>@Messages("backoffice.notification.accepted.text")</p>
-            @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
-                <a href="@routes.ApproveOrRefuse.allApprovedByTalkType(proposalType.id)" class="btn btn-primary btn-sm"><i class="@ProposalConfiguration.getHTMLClassFor(proposalType)"></i> @Messages(proposalType.label+".simple")</a>
-            }
-            <h4>@Messages("backoffice.notification.refused.title")</h4>
-            @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
-                <a href="@routes.ApproveOrRefuse.allRefusedByTalkType(proposalType.id)" class="btn btn-danger btn-sm"><i class="@ProposalConfiguration.getHTMLClassFor(proposalType)"></i> @Messages(proposalType.label+".simple")</a>
-            }
-
             <h4>@Messages("backoffice.notification.title")</h4>
+            <p>@Messages("backoffice.notification.accepted.text")</p>
+            <a href="@routes.ApproveOrRefuse.allApprovedByTrack()" class="btn btn-primary btn-sm"><i class="icon-thumbs-up"></i> @Messages("backoffice.notification.label.approved")</a>
+            <a href="@routes.ApproveOrRefuse.allRefusedByTrack()" class="btn btn-danger btn-sm"><i class="icon-thumbs-down"></i> @Messages("backoffice.notification.label.refused")</a>
             <a href="@routes.ApproveOrRefuse.allBackupByTrack()" class="btn btn-default btn-sm"><i class="icon-exclamation-sign"></i> @Messages("backoffice.notification.label.backup")</a>
-
 
             <!--
                         <h4>Mass refuse system</h4>

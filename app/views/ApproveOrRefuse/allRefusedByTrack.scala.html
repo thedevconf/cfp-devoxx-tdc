@@ -1,8 +1,8 @@
-@(allProposals:List[models.Proposal], trackId:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(allProposals:Set[models.Proposal], trackId:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @import ConferenceDescriptor.ConferenceTracks.{ALL => AllTracks}
 
-@main(Messages("backoffice.notification.backup.title")) {
+@main(Messages("backoffice.notification.refused.title")) {
 
 <script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js"></script>
 <script type="text/javascript" charset="utf-8" language="javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
@@ -33,12 +33,12 @@
 
 
                 <div class="col-md-12">
-                    <h3>@allProposals.size @Messages("backoffice.allproposals.subtitle.proposal")s @Messages("backoffice.allproposals.subtitle.backup")</h3>
+                    <h3>@allProposals.size @Messages("backoffice.allproposals.subtitle.proposal")s @Messages("backoffice.allproposals.subtitle.refused")</h3>
                     <span class="label label-primary">@allProposals.filter(_.lang=="pt").size PT</span>
                     <span class="label label-default">@allProposals.filter(_.lang=="en").size EN</span>
 
                     @allProposals.groupBy(_.track).map{case(track,listOfProps)=>
-                        <a class = "btn btn-xs btn-info" href="@routes.ApproveOrRefuse.allBackupByTrack(Option(track.id))">@listOfProps.size @Messages(track.label)</a>
+                        <a class = "btn btn-xs btn-info" href="@routes.ApproveOrRefuse.allRefusedByTrack(Option(track.id))">@listOfProps.size @Messages(track.label)</a>
                     }
 
                     <br/>
@@ -77,12 +77,10 @@
                                     @Messages(proposal.state.code)
                                 </td>
                                 <td>
-                                    <a href="@routes.ApproveOrRefuse.notifyBackup(trackId, proposal.id)"
-                                       title='@Messages("backoffice.allproposals.backup.notify.tooltip")'
-                                       class="label label-success">
-                                        <i class="icon-envelope"></i>
-                                        @Messages("backoffice.allproposals.backup.notify")
-                                    </a>
+                                    <a href="@routes.ApproveOrRefuse.notifyRefusedByTrack(Option(trackId), proposal.id)"
+                                       title='@Messages("backoffice.allproposals.rejected.notify.tooltip")'
+                                       class="label label-danger">
+                                        <i class="icon-warning-sign"></i>@Messages("backoffice.allproposals.rejected.notify.link")</a>
                                 </td>
                             </tr>
                         }

@@ -110,6 +110,16 @@ object ApproveOrRefuse extends SecureCFPController {
       Ok(views.html.ApproveOrRefuse.allRefusedByTalkType(ApprovedProposal.allRefusedByTalkType(talkType), talkType))
   }
 
+  def allApprovedByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.ApproveOrRefuse.allApprovedByTrack(ApprovedProposal.allApproved(),trackId.getOrElse("")))
+  }
+
+  def allRefusedByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.ApproveOrRefuse.allRefusedByTrack(ApprovedProposal.allRefused(),trackId.getOrElse("")))
+  }
+
   def allBackupByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse("")))
@@ -122,6 +132,15 @@ object ApproveOrRefuse extends SecureCFPController {
           ZapActor.actor ! ProposalApproved(request.webuser.uuid, proposal)
       }
       Redirect(routes.ApproveOrRefuse.allApprovedByTalkType(talkType)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
+  }
+
+  def notifyApproveByTrack(trackId: Option[String], proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Proposal.findById(proposalId).map {
+        proposal: Proposal =>
+          ZapActor.actor ! ProposalApproved(request.webuser.uuid, proposal)
+      }
+      Redirect(routes.ApproveOrRefuse.allApprovedByTrack(trackId)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
   }
 
   def notifyBackup(trackId:String, proposalId: String) =  SecuredAction(IsMemberOf("cfp")) {
@@ -140,6 +159,15 @@ object ApproveOrRefuse extends SecureCFPController {
           ZapActor.actor ! ProposalRefused(request.webuser.uuid, proposal)
       }
       Redirect(routes.ApproveOrRefuse.allRefusedByTalkType(talkType)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
+  }
+
+  def notifyRefusedByTrack(trackId: Option[String], proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Proposal.findById(proposalId).map {
+        proposal: Proposal =>
+          ZapActor.actor ! ProposalRefused(request.webuser.uuid, proposal)
+      }
+      Redirect(routes.ApproveOrRefuse.allRefusedByTrack(trackId)).flashing("success" -> s"Notified speakers for Proposal ID $proposalId")
   }
 
   val formApprove = Form(
