@@ -46,6 +46,7 @@ project/plugins/project/
 run.sh
 run-uk.sh
 run-fr.sh
+run.bat
 
 env.sh
 run-be.sh
