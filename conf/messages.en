@@ -1285,3 +1285,30 @@ btn.proposal.history=See History
 
 heading.speaker.history= Speaker {0} History
 title.speaker.history=[CFP] History {0}
+
+#CallForTracks
+callfortracks.registration.title=Track Registration
+callfortracks.registration.description.text=Choose the registration type, that can be track and trackleader or Workshop/TDC4Kids (3 hours)
+callfortracks.registration.label.track=Track and trackleaders
+callfortracks.registration.label.workshop= Workshop or TDC4Kids
+
+#CallForTracks - Track Registration
+callfortracks.newtrack.title=New Track
+callfortracks.new.track=New Track
+callfortracks.edit.track=Edit Track
+
+callfortracks.name.label=Track Name
+callfortracks.slogan.label=Track Slogan
+callfortracks.description.label=Track Description
+callfortracks.target.label=Target Viewers
+callfortracks.trackleader.label=Trackleader
+
+#CallForTracks - Workshop Registration
+callfortracks.newworkshop.title=New Workshop
+callfortracks.new.workshop=New Workshop
+callfortracks.edit.workshop=Edit Workshop
+
+callfortracks.instructor.label=Instructor
+callfortracks.workshop.noinstructor= No instructor selected
+
+callfortracks.btn.save=Save

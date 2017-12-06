@@ -62,6 +62,9 @@
                 @if(SecureCFPController.hasAccessToAdmin(req)){
                     <li><a href="@routes.Backoffice.homeBackoffice()"><i class="icon-magnet"></i> Backoffice</a></li>
                 }
+                @if(false){
+                    <li><a href="@routes.CallForTrack.homeCallForTracks()"><i class="icon-dashboard"></i> CallForTracks </a></li>
+                }
             </ul>
 <!-- Busca desabilitada - TODO - Configurar ElasticSearch 
             @if(SecureCFPController.hasAccessToCFP(req)){

@@ -1,0 +1,84 @@
+@(newProposal:Form[models.TrackProposal], allTrackLeaders:Seq[(String, String)])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+@import org.apache.commons.lang3.StringUtils
+
+@main(Messages("callfortracks.newtrack.title")) {
+<link rel="stylesheet" href="/assets/js/select2-3.4.5/select2.css"/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                @if(newProposal("id").value.isDefined) {
+                    <h2>@Messages("callfortracks.edit.track")</h2>
+                } else {
+                    <h2>@Messages("callfortracks.new.track")</h2>
+                }
+@** TODO create feature for opening and closing the call for tracks **@
+                @if(ConferenceDescriptor.isCFPOpen==false){
+                    <div class="alert alert-info">
+                        @Messages("cfp.closed.restrictions")
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            @if(flash.get("error").isDefined){
+                <div class="alert alert-danger alert-dismissable">
+                    @flash.get("error").get
+                </div>
+            }
+            @if(flash.get("success").isDefined){
+                <div class="alert alert-success alert-dismissable">
+                    @flash.get("success").get
+                </div>
+            }
+            @helper.form(action = routes.CallForTrack.saveTrack()){
+                <input type="hidden" name="id" value="@newProposal("id").value">
+                @helper.inputText(newProposal("name"), 'class->"form-control", '_label->Messages("callfortracks.name.label"))
+                @helper.inputText(newProposal("slogan"), 'class->"form-control", '_label->Messages("callfortracks.slogan.label"))
+                @helper.textarea(newProposal("description"), 'cols->60, 'rows->6,  'class->"form-control", '_label->Messages("callfortracks.description.label"))
+                @helper.inputText(newProposal("target"), 'class->"form-control", '_label->Messages("callfortracks.target.label"))
+                @tags.selectI18N(field = newProposal("numberPeople"), options=TrackProposal.numberPeopleOptions,
+                    '_default->Messages("combo.select"), 'class->"form-control", '_label->Messages("callfortracks.numberPeople.label"))
+                @tags.selectI18N(field = newProposal("numberProposals"), options=TrackProposal.numberProposalsOptions,
+                    '_default->Messages("combo.select"), 'class->"form-control", '_label->Messages("callfortracks.numberProposals.label"))
+                @helper.inputText(newProposal("sponsors"), 'class->"form-control", '_label->Messages("callfortracks.sponsors.label"))
+                @helper.inputText(newProposal("otherGroups"), 'class->"form-control", '_label->Messages("callfortracks.otherGroups.label"))
+                @helper.inputText(newProposal("publications"), 'class->"form-control", '_label->Messages("callfortracks.publications.label"))
+                <label for="trackleader">@Messages("callfortracks.trackleader.label")</label>
+                <div class="input">
+                    <select data-placeholder= "--- @Messages("backoffice.allCFPwebusers.noleader")---" class="chosen-select" id="trackleader" name="trackleader" multiple>
+                    <option value="no_track_lead">--- @Messages("backoffice.allCFPwebusers.noleader")---</option>
+                    @allTrackLeaders.map { uuidAndName =>
+                    <option @if(TrackLeader.isTrackLeader(newProposal("id").value.getOrElse(""), uuidAndName._1)){ selected } value="@uuidAndName._1"> @uuidAndName._2 </option>
+                    }
+                    </select>
+                </div>
+
+                <hr>
+                <button type="submit" class="btn btn-success btn-sm"><i class="icon-arrow-right"></i> @Messages("callfortracks.btn.save")</button>
+            }
+        </div>
+
+        <div class="col-md-5">
+            <h3>@Messages("helpAndTips")</h3>
+            <p><label>@Messages("callfortracks.slogan.label") : </label><br> @Html(Messages("callfortracks.slogan.help"))</p>
+            <p><label>@Messages("callfortracks.description.label") : </label><br> @Messages("callfortracks.description.help")</p>
+            <p><label>@Messages("callfortracks.target.label") : </label><br> @Messages("callfortracks.target.help")</p>
+            <p><label>@Messages("callfortracks.trackleader.label") : </label><br> @Messages("callfortracks.trackleader.help")</p>
+            <p><label>@Messages("conduct") : </label><br/>
+                @Messages("conduct.help")
+                <a href="@Messages("conduct.link")" target="new">@Messages("conduct.link")</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="@routes.Assets.at(path="/public",file="chosen/chosen.jquery.min.js")" type="text/javascript"></script>
+    <script>
+        $(".chosen-select").chosen()
+    </script>
+}

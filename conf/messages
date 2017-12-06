@@ -1284,3 +1284,69 @@ btn.proposal.history=Ver Histórico
 heading.speaker.history= Histórico do palestrante {0}
 title.speaker.history=[CFP] Histórico {0}
 
+#CallForTracks
+callfortracks.registration.title=Cadastro de Trilhas
+callfortracks.registration.description.text=Escolha o tipo de cadastro desejado, que pode ser trilha e coordenador ou Workshop/TDC4Kids (3 horas)
+callfortracks.registration.label.track=Trilha e coordenadores
+callfortracks.registration.label.workshop= Workshop ou TDC4Kids
+
+#CallForTracks - Track Registration
+callfortracks.newtrack.title=Nova Trilha
+callfortracks.new.track=Nova Trilha
+callfortracks.edit.track=Editar Trilha
+
+callfortracks.name.label=Nome da Trilha
+callfortracks.slogan.label=Slogan da Trilha
+callfortracks.description.label=Descrição da Trilha
+callfortracks.target.label=Público Alvo
+callfortracks.trackleader.label=Coordenador da Trilha
+callfortracks.numberPeople.label=Quantas pessoas você acha que conseguimos atrair para a trilha?
+callfortracks.numberProposals.label=Quantas submissões de palestras acredita que a trilha terá no Call4Papers?
+callfortracks.sponsors.label=Possíveis patrocinadores da Trilha
+callfortracks.otherGroups.label=Quais são os grupos de usuários ou outras entidades educacionais ou não governamentais relacionadas ao assunto da trilha?
+callfortracks.publications.label=Quais são as principais publicações da área que você conhece ou tem contato?
+callfortracks.slogan.help=Uma frase curta que defina o objetivo da trilha
+callfortracks.description.help=Coloque um texto que explique o que será tratado nas palestras e que seja atrativo para o público. (2 parágrafos)
+callfortracks.target.help=Coloque a quem se destinam as palestras desta trilha
+callfortracks.trackleader.help=É muito importante ter dois ou até três coordenadores na trilha, afinal de contas nenhum de nós está livre de ter imprevistos!\
+        Duas ou três pessoas trabalhando juntas na divulgação, suporte aos palestrantes, interação com outros coordenadores e principalmente no dia do evento!
+
+callfortracks.combopeople.1=Entre 15 e 30 pessoas
+callfortracks.combopeople.2=Entre 30 e 50 pessoas
+callfortracks.combopeople.3=Entre 50 e 80 pessoas
+callfortracks.combopeople.4=Entre 80 e 150 pessoas
+callfortracks.combopeople.5=Mais de 150 pessoas
+callfortracks.combopeople.6=Não sei
+
+callfortracks.comboproposals.1=Até 5 palestras
+callfortracks.comboproposals.2=Entre 5 e 15 palestras
+callfortracks.comboproposals.3=Mais de 15 palestras
+callfortracks.comboproposals.4=Não tenho experiência com call4papers
+callfortracks.comboproposals.5=Não concordo com call4papers, gostaria de convidar os palestrantes
+
+#CallForTracks - Workshop Registration
+callfortracks.newworkshop.title=Novo Workshop
+callfortracks.new.workshop=Novo Workshop
+callfortracks.edit.workshop=Editar Workshop
+
+callfortracks.instructor.label=Instrutor
+callfortracks.workshopType.label=Qual categoria será o seu workshop?
+callfortracks.theme.label=Tema do workshop
+callfortracks.workshop.description.label=Descrição do workshop
+callfortracks.minimumAge.label=Idade mínima para participar
+callfortracks.notebookNeeded.label=O participante precisa levar NoteBook?
+callfortracks.materials.label=Que tipo de material é utilizado no workshop?
+callfortracks.infrastructure.label=Qual a infraestrutura necessária para realização do workshop?
+callfortracks.topics.label=Tópicos do Workshop
+callfortracks.prerequisites.label=Pré-requisitos para participação do workshop
+callfortracks.workshop.target.label=Qual é o público alvo do Workshop?
+callfortracks.otherInformation.label=Você já ministrou este workshop antes? Por favor, descreva brevemente sua experiência.
+
+callfortracks.workshop.noinstructor=Nenhum instrutor selecionado
+callfortracks.workshop.nomaterial=Nenhum material extra necessario
+callfortracks.workshop.help=Os workshops terão 3 horas de duração, programe-se para o tempo estipulado. Temos um quórum mínimo de 10 participantes.
+
+callfortracks.comboworkshoptype.1=Workshop Adulto - 3 horas
+callfortracks.comboworkshoptype.2=Workshop TDC4Kids - 3 horas
+
+callfortracks.btn.save=Salvar

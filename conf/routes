@@ -41,6 +41,13 @@ GET           /cfp/profile                                                      
 POST          /cfp/profile                                                      controllers.CallForPaper.saveProfile
 GET           /cfp/newSpeakerForExistingWebuser                                 controllers.CallForPaper.newSpeakerForExistingWebuser()
 
+# call for tracks
+GET           /cft/home                                                         controllers.CallForTrack.homeCallForTracks()
+GET           /cft/track/new                                                    controllers.CallForTrack.newTrackProposal()
+GET           /cft/workshop/new                                                 controllers.CallForTrack.newWorkshopProposal()
+POST          /cft/tracks                                                       controllers.CallForTrack.saveTrack()
+POST          /cft/workshops                                                    controllers.CallForTrack.saveWorkshop()
+
 # proposal
 GET           /cfp/proposal/new                                                 controllers.CallForPaper.newProposal()
 POST          /cfp/proposal/preview                                             controllers.CallForPaper.previewProposal()

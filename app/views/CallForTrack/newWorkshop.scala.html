@@ -1,0 +1,98 @@
+@(newProposal:Form[models.WorkshopProposal], allTrackLeaders:Seq[(String, String)])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+@import org.apache.commons.lang3.StringUtils
+
+@main(Messages("callfortracks.newworkshop.title")) {
+<link rel="stylesheet" href="/assets/js/select2-3.4.5/select2.css"/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                @if(newProposal("id").value.isDefined) {
+                    <h2>@Messages("callfortracks.edit.workshop")</h2>
+                } else {
+                    <h2>@Messages("callfortracks.new.workshop")</h2>
+                }
+@** TODO create feature for opening and closing the call for tracks **@
+                @if(ConferenceDescriptor.isCFPOpen==false){
+                    <div class="alert alert-info">
+                        @Messages("cfp.closed.restrictions")
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            @if(flash.get("error").isDefined){
+                <div class="alert alert-danger alert-dismissable">
+                    @flash.get("error").get
+                </div>
+            }
+            @if(flash.get("success").isDefined){
+                <div class="alert alert-success alert-dismissable">
+                    @flash.get("success").get
+                </div>
+            }
+            @helper.form(action = routes.CallForTrack.saveWorkshop()){
+                <input type="hidden" name="id" value="@newProposal("id").value">
+
+                <label for="instructor">@Messages("callfortracks.instructor.label")</label>
+                <div class="input">
+                    <select data-placeholder= "--- @Messages("callfortracks.workshop.noinstructor")---" class="chosen-select form-control" id="instructor" name="instructor">
+                    <option value="no_instructor">--- @Messages("callfortracks.workshop.noinstructor")---</option>
+                    @allTrackLeaders.map { uuidAndName =>
+                    <option @if(TrackLeader.isTrackLeader(newProposal("id").value.getOrElse(""), uuidAndName._1)){ selected } value="@uuidAndName._1"> @uuidAndName._2 </option>
+                    }
+                    </select>
+                </div><br>
+
+                @tags.selectI18N(field = newProposal("workshopType"), options=WorkshopProposal.allTypes,
+                        '_default->Messages("combo.select"), 'class->"form-control", '_label->Messages("callfortracks.workshopType.label"))
+
+                @helper.inputText(newProposal("theme"), 'class->"form-control", '_label->Messages("callfortracks.theme.label"))
+                @helper.inputText(newProposal("description"), 'class->"form-control", '_label->Messages("callfortracks.workshop.description.label"))
+                @helper.inputText(newProposal("minimalAge"), 'class->"form-control", '_label->Messages("callfortracks.minimumAge.label"))
+
+                @helper.inputRadioGroup(newProposal("notebookNeeded"), options=Seq("true"->"Sim", "false"->"Não"), '_label->Messages("callfortracks.notebookNeeded.label"))
+
+                <label for="materials">@Messages("callfortracks.materials.label")</label>
+                <div class="input">
+                    <select data-placeholder= "--- @Messages("callfortracks.workshop.nomaterial")---" class="chosen-select form-control" id="material" name="material" multiple>
+                    <option value="no_material">--- @Messages("callfortracks.workshop.nomaterial")---</option>
+                    @WorkshopProposal.materialTypes.map { valueAndLabel =>
+                        <option value="@valueAndLabel._1"> @valueAndLabel._2 </option>
+                    }
+                    </select>
+                </div><br>
+
+                @helper.inputText(newProposal("infrastructure"), 'class->"form-control", '_label->Messages("callfortracks.infrastructure.label"))
+                @helper.inputText(newProposal("topics"), 'class->"form-control", '_label->Messages("callfortracks.topics.label"))
+                @helper.inputText(newProposal("prerequisites"), 'class->"form-control", '_label->Messages("callfortracks.prerequisites.label"))
+                @helper.inputText(newProposal("target"), 'class->"form-control", '_label->Messages("callfortracks.workshop.target.label"))
+                @helper.textarea(newProposal("otherInformation"), 'class->"form-control", '_label->Messages("callfortracks.otherInformation.label"))
+
+
+
+                <hr>
+                <button type="submit" class="btn btn-success btn-sm"><i class="icon-arrow-right"></i> @Messages("callfortracks.btn.save")</button>
+            }
+        </div>
+
+        <div class="col-md-5">
+            <h3>@Messages("helpAndTips")</h3>
+            <p>@Messages("callfortracks.workshop.help")</p>
+            <p><label>@Messages("conduct") : </label><br/>
+                @Messages("conduct.help")
+                <a href="@Messages("conduct.link")" target="new">@Messages("conduct.link")</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="@routes.Assets.at(path="/public",file="chosen/chosen.jquery.min.js")" type="text/javascript"></script>
+    <script>
+        $(".chosen-select").chosen()
+    </script>
+}
