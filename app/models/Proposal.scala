@@ -393,9 +393,6 @@ object Proposal {
   }
 
   def decline(uuid: String, proposalId: String) = {
-    Proposal.findById(proposalId).map(proposal =>
-      ApprovedProposal.refuse(proposal)
-    )
     changeProposalState(uuid, proposalId, ProposalState.DECLINED)
   }
 

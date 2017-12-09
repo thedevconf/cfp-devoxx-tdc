@@ -115,7 +115,8 @@ object Backoffice extends SecureCFPController {
       //is accessed for a manual change of state for the Admins.
       //It always cleans the relevant collections for safety. The performance impact should not be great since this operation
       //is rarely used.
-      if (!isApprovalState(state)) {
+      //A declined proposal can appear or not in the approvals collection, so it should not cause any change in this cleaning process.
+      if (!isApprovalState(state)  && state != ProposalState.DECLINED.code) {
         proposalOption.map( proposal =>
           ApprovedProposal.cancelApprove(proposal)
         )
@@ -157,7 +158,7 @@ object Backoffice extends SecureCFPController {
    * A refusal state is a state in which the proposal is saved in the Refused* collections
    */
   private def isRefusalState(state:String):Boolean = {
-    return (state == ProposalState.REJECTED.code || state == ProposalState.DECLINED.code)
+    return (state == ProposalState.REJECTED.code)
   }
 
   val formSecu = Form("secu" -> nonEmptyText())
