@@ -332,6 +332,11 @@ object Proposal {
 
   }
 
+  /*
+  * changes the Proposals:ByState collection in which the proposal id is saved.
+  *
+  * Does not change the proposal state in the Proposals collection in REDIS
+   */
   def changeProposalState(uuid: String, proposalId: String, newState: ProposalState) = Redis.pool.withClient {
     client =>
       // Same kind of operation for the proposalState
@@ -354,6 +359,15 @@ object Proposal {
         Event.storeEvent(Event(proposalId, uuid, s"Posted new talk $proposalId with status ${newState.code}"))
       }
   }
+
+  /*
+  * Updates the state of the proposal in the Proposals collection. By default it is unknown
+   */
+  def saveState(proposal: Proposal): Unit =
+    Redis.pool.withClient { client =>
+      val json = Json.toJson(proposal)
+      client.hset("Proposals", proposal.id, json.toString())
+    }
 
   def getSubmissionDate(proposalId: String): Option[Long] = Redis.pool.withClient {
     implicit client =>
