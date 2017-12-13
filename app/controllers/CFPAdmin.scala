@@ -374,7 +374,6 @@ object CFPAdmin extends SecureCFPController {
       val requesterUUID = request.webuser.uuid
 
       val reviews: Map[String, (Score, TotalVoter, TotalAbst, AverageNote, StandardDev)] = Review.allVotes()
-      val totalApproved = ApprovedProposal.countApproved(confType)
 
       //reads all proposals for admin users otherwise only the proposals in tracks the user is leader
       val allProposals =
@@ -408,8 +407,7 @@ object CFPAdmin extends SecureCFPController {
           case Some(trackId) => tempListToDisplay.filter(_._1.track.id == trackId)
         }
 
-      val totalRemaining = ApprovedProposal.remainingSlots(confType)
-      Ok(views.html.CFPAdmin.allVotes(listToDisplay.toList, totalApproved, totalRemaining, confType))
+      Ok(views.html.CFPAdmin.allVotes(listToDisplay.toList))
   }
 
   def doComputeVotesTotal() = SecuredAction(IsMemberOf("cfp")) {

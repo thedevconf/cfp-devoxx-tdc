@@ -1,4 +1,4 @@
-@(allVotes:List[(models.Proposal,(models.Review.Score, models.Review.TotalVoter, models.Review.TotalAbst, models.Review.AverageNote, models.Review.StandardDev), Double, Long)], totalApproved:Long, totalRemaining:Long, confType:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(allVotes:List[(models.Proposal,(models.Review.Score, models.Review.TotalVoter, models.Review.TotalAbst, models.Review.AverageNote, models.Review.StandardDev), Double, Long)])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 @import models.Review.Score
 @import models.Review.TotalVoter
 @import models.Review.TotalAbst
@@ -43,10 +43,13 @@
                 </div>
             }
             <br>
-            @defining(allVotes.count(_._1.state == ProposalState.DECLINED)){declinedTotal=>
-                <span class="label label-success">@totalApproved @Messages("allVotes.label.approved")</span>
-                <span class="label label-declined">- @declinedTotal @Messages("allVotes.label.declined")</span>
-                <span class="label label-warning">= @(totalRemaining+declinedTotal) @Messages("allVotes.label.remaining")</span>
+            @defining(allVotes.groupBy(_._1.state.code)){proposalsByState=>
+                <span class="label label-default">@proposalsByState.get("submitted").size @Messages("submitted")</span>
+                <span class="label label-warning">@proposalsByState.get("backup").map(_.size).getOrElse(0) @Messages("backup")</span>
+                <span class="label label-danger">@proposalsByState.get("rejected").map(_.size).getOrElse(0) @Messages("rejected")</span>
+                <span class="label label-primary">@proposalsByState.get("approved").map(_.size).getOrElse(0) @Messages("approved")</span>
+                <span class="label label-success">@proposalsByState.get("accepted").map(_.size).getOrElse(0) @Messages("accepted")</span>
+                <span class="label label-danger">@proposalsByState.get("declined").map(_.size).getOrElse(0) @Messages("declined")</span>
             }
             <br>
             <span class="label label-primary">@allVotes.map(_._1).count(_.lang == "pt") PT</span>
