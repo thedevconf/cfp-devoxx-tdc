@@ -1194,7 +1194,7 @@ leaderboard.approved.bytype=approved submissions for
 leaderboard.accepted.bytype=accepted submissions for
 
 allSpeakers.tab=All Speakers
-allSpeakers.title=All Speakers
+allSpeakers.title=Speakers Reports
 allSpeakers.users=users
 allSpeakers.speakers=speakers
 allSpeakers.columns.track=Track

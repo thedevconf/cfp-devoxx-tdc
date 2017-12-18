@@ -1192,7 +1192,7 @@ leaderboard.approved.bytype=submissões aprovadas para
 leaderboard.accepted.bytype=submissões aceitas para
 
 allSpeakers.tab=Todos Palestrantes
-allSpeakers.title=Todos Palestrantes
+allSpeakers.title=Relatórios de Palestrantes
 allSpeakers.speakers=palestrantes
 allSpeakers.users=usuários
 allSpeakers.columns.track=Trilha
