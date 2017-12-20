@@ -26,11 +26,14 @@
                     </div>
                     </div>
                 }
+
+            <!--  TODO: descomentar antes de abrir o CFP em 8 de janeiro
             <div class="col-md-12 col-sm-12">
                 <img src="@Messages("banner.link")" alt="@Messages("cfp.title")">
                 <h3><a href="@Messages("index.program.link")"><i class="icon-arrow-right"></i> @Messages("index.program.text")</a></h3>
                 <hr>
             </div>
+            -->
 
             <div class="col-md-5 col-sm-12">
                 <h3><i class="icon-calendar"></i> @Messages("agenda.title")</h3>
@@ -117,13 +120,20 @@
                     <tbody>
                         @for(track <- ConferenceDescriptor.ConferenceTracksDescription.ALL) {
                             <tr>
-                                <!--
+                                <!-- TODO: descomentar antes de abrir o CFP em 8 de janeiro
                                 <td><img src="@Messages(track.imgSrc)" style="height:30px; width:30px" /></td>
-                                -->
                                 <td>@Messages(track.i18nTitleProp)</td>
                                 <td>@Messages(track.i18nDescProp)</td>
+                                -->
                             </tr>
                         }
+                        <tr>
+                            <td>
+                                Ainda não definimos as trilhas!<br/>
+                                Se quiser submeter uma trilha ou workshop, clique no link abaixo até 29 de dezembro de 2017:<br/>
+                                <a href="http://bit.ly/tdc2018flp-cft">http://bit.ly/tdc2018flp-cft</a>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
