@@ -979,7 +979,7 @@ object Proposal {
   private def resetVotesIfProposalTypeIsUpdated(proposalId: String, talkType: ProposalType, oldTalkType: ProposalType, state: ProposalState) {
     if (oldTalkType.id != talkType.id) {
       if (state == ProposalState.DRAFT) {
-        if (ApprovedProposal.isApproved(proposalId, talkType.id) == false) {
+        if (!ApprovedProposal.isApproved(proposalId, oldTalkType.id)) {
           Review.archiveAllVotesOnProposal(proposalId)
           Comment.saveInternalComment(proposalId, Webuser.Internal.uuid, s"All votes deleted for this talk, because it was changed from [${Messages(oldTalkType.id)}] to [${Messages(talkType.id)}]")
         }
