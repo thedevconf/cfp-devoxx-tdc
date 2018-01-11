@@ -56,13 +56,6 @@
             </div>
 -------------------->
 
-            <!-- área com link para call4workshops
-            <div class="col-md-5 col-sm-12">
-                <h3><i class="icon-beaker"></i> @Messages("call4workshops.title")</h3>
-                <p>@Messages("call4workshops.tag") <a href="http://www.thedevelopersconference.com.br/tdc/2016/call4workshops" target="new">@Messages("call4workshops.link")</a> </p>
-            </div>
-            -->
-
             <!-- área com aviso
             <div class="col-md-5 col-sm-12">
                 <h3><i class="icon-warning-sign"></i> Atenção!</h3>
@@ -122,13 +115,12 @@
                     <tbody>
                         @for(track <- ConferenceDescriptor.ConferenceTracksDescription.ALL) {
                             <tr>
-                                <!-- TODO: descomentar antes de abrir o CFP em 8 de janeiro
                                 <td><img src="@Messages(track.imgSrc)" style="height:30px; width:30px" /></td>
                                 <td>@Messages(track.i18nTitleProp)</td>
                                 <td>@Messages(track.i18nDescProp)</td>
-                                -->
                             </tr>
                         }
+                        <!--
                         <tr>
                             <td>
                                 Ainda não definimos as trilhas!<br/>
@@ -136,6 +128,7 @@
                                 <a href="http://bit.ly/tdc2018flp-cft">http://bit.ly/tdc2018flp-cft</a>
                             </td>
                         </tr>
+                        -->
                     </tbody>
                 </table>
             </div>
