@@ -205,7 +205,7 @@ object ConferenceDescriptor {
   object ConferenceTracks {
 
     val DOTNET = Track("dotnet", "dotnet.label")
-    //val ACESSIBILIDADE = Track("acessibilidade", "acessibilidade.label")
+    val ACESSIBILIDADE = Track("acessibilidade", "acessibilidade.label")
     val AGILE = Track("agile", "agile.label")
     val AGILECOACH = Track("agilecoach", "agilecoach.label")
     val ANALISE = Track("analise", "analise.label")
@@ -228,7 +228,7 @@ object ConferenceDescriptor {
     val DEVOPS = Track("devops", "devops.label")
     val DEVTEST = Track("devtest", "devtest.label")
 
-    val EMPREENDE = Track("empreende", "empreende.label")
+    //val EMPREENDE = Track("empreende", "empreende.label")
     val GESTAOPROD = Track("gestaoprod", "gestaoprod.label")
     //val GAMES = Track("games", "games.label")
     val GOLANG = Track("golang", "golang.label")
@@ -260,12 +260,12 @@ object ConferenceDescriptor {
     val UXDESIGN = Track("uxdesign", "uxdesign.label")
     //val WEB = Track("web", "web.label")
     val WOMEN = Track("women", "women.label")
-    val XAMARIN = Track("xamarin", "xamarin.label")
+    //val XAMARIN = Track("xamarin", "xamarin.label")
 
-    val ALL = List(DOTNET, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
       COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, EMPREENDE, GESTAOPROD, GOLANG, IOS, IOT,
       JAVA, JAVAEE, JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, NODEJS, NOSQL, PHP, PYTHON, RUBY, SEGURANCA,
-      TESTES, UXDESIGN, WOMEN, XAMARIN)
+      TESTES, UXDESIGN, WOMEN)
 
   }
 
@@ -273,7 +273,7 @@ object ConferenceDescriptor {
   object ConferenceTracksDescription {
 
     val DOTNET = TrackDesc(ConferenceTracks.DOTNET.id, "/assets/tdc2016poa/images/icon_dotnet.png", "track.dotnet.title", "track.dotnet.desc")
-    //val ACESSIBILIDADE = TrackDesc(ConferenceTracks.ACESSIBILIDADE.id, "/assets/tdc2016poa/images/icon_acessibilidade.png", "track.acessibilidade.title", "track.acessibilidade.desc")
+    val ACESSIBILIDADE = TrackDesc(ConferenceTracks.ACESSIBILIDADE.id, "/assets/tdc2016poa/images/icon_acessibilidade.png", "track.acessibilidade.title", "track.acessibilidade.desc")
     val AGILE = TrackDesc(ConferenceTracks.AGILE.id, "/assets/tdc2016poa/images/icon_agile.png", "track.agile.title", "track.agile.desc")
     val AGILECOACH = TrackDesc(ConferenceTracks.AGILECOACH.id, "/assets/tdc2016poa/images/icon_agilecoach.png", "track.agilecoach.title", "track.agilecoach.desc")
     val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
@@ -328,12 +328,13 @@ object ConferenceDescriptor {
     val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/tdc2016poa/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
     //val WEB = TrackDesc(ConferenceTracks.WEB.id, "/assets/tdc2016poa/images/icon_web.png", "track.web.title", "track.web.desc")
     val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_women.png", "track.women.title", "track.women.desc")
-    val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
+    //val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
 
-    val ALL = List(DOTNET, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
       COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, EMPREENDE, GESTAOPROD, GOLANG, IOS, IOT,
       JAVA, JAVAEE, JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, NODEJS, NOSQL, PHP, PYTHON, RUBY, SEGURANCA,
-      TESTES, UXDESIGN, WOMEN, XAMARIN)
+      TESTES, UXDESIGN, WOMEN)
+
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
     }
@@ -818,7 +819,7 @@ object ConferenceDescriptor {
       firstDayEn = "April 18th",
       datesFr = "du 18 au 21 april 2018",
       datesEn = "April 18th to 21st, 2018",
-      cfpOpenedOn = DateTime.parse("2018-01-12T18:00:00-03:00"),
+      cfpOpenedOn = DateTime.parse("2018-01-12T15:00:00-03:00"),
       cfpClosedOn = DateTime.parse("2018-02-19T23:59:59-03:00"),
       scheduleAnnouncedOn = DateTime.parse("2018-03-01T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
