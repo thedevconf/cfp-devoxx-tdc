@@ -263,7 +263,7 @@ object ConferenceDescriptor {
     //val XAMARIN = Track("xamarin", "xamarin.label")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
-      COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, EMPREENDE, GESTAOPROD, GOLANG, IOS, IOT,
+      COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD, GOLANG, IOS, IOT,
       JAVA, JAVAEE, JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, NODEJS, NOSQL, PHP, PYTHON, RUBY, SEGURANCA,
       TESTES, UXDESIGN, WOMEN)
 
@@ -296,7 +296,7 @@ object ConferenceDescriptor {
     val DEVTEST = TrackDesc(ConferenceTracks.DEVTEST.id, "/assets/tdc2016poa/images/icon_devtest.png", "track.devtest.title", "track.devtest.desc")
     val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
 
-    val EMPREENDE = TrackDesc(ConferenceTracks.EMPREENDE.id, "/assets/tdc2016poa/images/icon_empreende.png", "track.empreende.title", "track.empreende.desc")
+    //val EMPREENDE = TrackDesc(ConferenceTracks.EMPREENDE.id, "/assets/tdc2016poa/images/icon_empreende.png", "track.empreende.title", "track.empreende.desc")
     val GESTAOPROD = TrackDesc(ConferenceTracks.GESTAOPROD.id, "/assets/tdc2016poa/images/icon_gestaoprod.png", "track.gestaoprod.title", "track.gestaoprod.desc")
     //val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
@@ -331,7 +331,7 @@ object ConferenceDescriptor {
     //val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITETURA, BIGDATA, BLOCKCHAIN, CLOUD,
-      COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, EMPREENDE, GESTAOPROD, GOLANG, IOS, IOT,
+      COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GESTAOPROD, GOLANG, IOS, IOT,
       JAVA, JAVAEE, JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE, NODEJS, NOSQL, PHP, PYTHON, RUBY, SEGURANCA,
       TESTES, UXDESIGN, WOMEN)
 
