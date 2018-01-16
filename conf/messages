@@ -369,6 +369,7 @@ python.leaderboard=Python
 
 track.ruby.title=Ruby
 track.ruby.desc=Além da sintaxe elegante e legibilidade, até onde o Ruby pode te levar
+ruby.label=Ruby
 ruby.leaderboard=Ruby
 
 track.seguranca.title=Segurança e Criptografia
