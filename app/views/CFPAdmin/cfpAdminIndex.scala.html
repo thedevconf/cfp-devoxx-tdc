@@ -35,11 +35,13 @@
                         <a href="@routes.CFPAdmin.allSpeakers()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakers")</a>
                         <a href="@routes.InviteController.allInvitations()" class="btn btn-sm btn-primary"><i class="icon-group"></i> @Messages("admin.btn.speakersInvited")</a>
                         <a href="@routes.Backoffice.allProposals()" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("admin.btn.changeState")</a>
+                        <a href='@routes.TDCSchedulingController.index' class="btn btn-sm btn-primary"><i class="icon-large"></i><i class="icon-calendar"></i> @Messages("admin.btn.scheduling")</a>
                     }
                         <a href="@routes.CFPAdmin.newOrEditSpeaker(None)" class="btn btn-sm btn-primary"><i class="icon-umbrella"></i> @Messages("admin.btn.createNewspeaker")</a>
                         <a href='@routes.CFPAdmin.allProposalsByTrack(None)' class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.allByTrack")</a>
                         <a href="@routes.CFPAdmin.allMyVotes()" class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("admin.btn.myvotes")</a>
                         <a href='@routes.CFPAdmin.allVotes("all",None)' class="btn btn-sm btn-primary"><i class="icon-large"></i><i class="icon-adjust"></i> @Messages("admin.btn.allvotes")</a>
+
                         <!--
                         <a href='/assets/Passo-a-Passo-Avaliar-Call4Papers.pdf' class="btn btn-sm btn-primary" target="_blank"><i class="icon-question"></i> @Messages("admin.btn.howTo")</a>
                         -->

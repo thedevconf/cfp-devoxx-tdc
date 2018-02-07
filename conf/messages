@@ -525,6 +525,7 @@ admin.sp.internal=Discussões privadas internas
 admin.sp.deleteMyVote=Excluir meu voto
 admin.btn.allvotes=Todos votos
 admin.btn.allByTrack=Todos por trilha
+admin.btn.scheduling=Grade das trilhas
 
 speaker.other.error=Você não pode mudar a lista de palestrantes se você não for um dos 2 palestrantes principais.
 admin.draft.warning=Warning

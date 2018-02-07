@@ -1,0 +1,30 @@
+@(tracks:List[Track])(implicit req:RequestHeader)
+
+@main("CFP Admin") {
+     <div class="container" ng-app="cfpApp">
+     <h3>Planejamento da grade de palestras</h3>
+      <ul class="menu">
+          @tracks.map { track =>
+            <li><a href="#/slots?trackId=@track.id">Palestras da trilha @Messages(track.label)</a></li>
+          }
+    <!--
+          <li><a href="#/saved">Reload a saved configuration of slots/talks</a></li>
+        <a href="/admin/sanitycheck "  class="btn btn-sm btn-primary"><i class="icon-medkit"></i> Sanity check for schedule</a>
+    -->
+      </ul>
+
+      <div ng-view></div>
+
+    </div>
+    <!-- ****************************************************************************** //-->
+    <link rel="stylesheet" href="/assets/tdc-angular/css/app.css"/>
+    <script src="/assets/tdc-angular/lib/angular/angular.js" type="text/javascript"></script>
+    <script src="/assets/tdc-angular/lib/angular/angular-route.js" type="text/javascript"></script>
+    <script src="/assets/tdc-angular/lib/angular/angular-resource.js" type="text/javascript"></script>
+    <script src="/assets/tdc-angular/lib/angular/underscore-min.js" type="text/javascript"></script>
+    <script src="/assets/tdc-angular/js/app.js"></script>
+    <script src="/assets/tdc-angular/js/services.js"></script>
+    <script src="/assets/tdc-angular/js/controllers.js"></script>
+    <script src="/assets/tdc-angular/js/directives.js"></script>
+    <script src="/assets/tdc-angular/js/angular-flash.js"></script>
+}

@@ -525,6 +525,7 @@ admin.sp.internal=Private internal discussions
 admin.sp.deleteMyVote=Delete my vote
 admin.btn.allvotes=All votes
 admin.btn.allByTrack=All by track
+admin.btn.scheduling=Track Scheduling
 
 speaker.other.error=You cannot change the speaker''s list if you are not one of the 2 main speakers.
 admin.draft.warning=Warning
