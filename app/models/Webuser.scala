@@ -180,6 +180,21 @@ object Webuser {
       }
   }
 
+  def updateEmail(webuser: Webuser, newEmail: String) = Redis.pool.withClient {
+    client =>
+
+      val tx = client.multi()
+      tx.set("Webuser:UUID:" + webuser.uuid, newEmail)
+      tx.del("Webuser:Email:" + webuser.email)
+      tx.set("Webuser:Email:" + newEmail, webuser.uuid)
+
+      val cleanWebuser = webuser.copy(email = newEmail)
+      val json = Json.stringify(Json.toJson(cleanWebuser))
+      tx.hset("Webuser", cleanWebuser.uuid, json)
+
+      tx.exec()
+  }
+
   def update(webuser: Webuser) = Redis.pool.withClient {
     client =>
       val cleanWebuser = webuser.copy(email = webuser.email.toLowerCase.trim)

@@ -217,13 +217,11 @@ GET           /api/conferences/:eventCode/speakers                              
 GET           /api/conferences/:eventCode/speakers/:uuid                        controllers.RestAPI.showSpeaker(eventCode:String,uuid:String)
 GET           /api/conferences/:eventCode/rooms/:room/:day                      controllers.RestAPI.showScheduleForRoom(eventCode: String, room:String, day: String)
 GET           /api/conferences/:eventCode/rooms/                                controllers.RestAPI.showRooms(eventCode:String)
-GET           /api/conferences/:eventCode/rooms                                 controllers.RestAPI.showRooms(eventCode:String)
 GET           /api/conferences/:eventCode/topFavedTalks                         controllers.RestAPI.topFavedTalks(eventCode:String, limit:Int ?=10)
 GET           /api/conferences/:eventCode/talks/                                controllers.RestAPI.redirectToTalks(eventCode:String)
 GET           /api/conferences/:eventCode/talks                                 controllers.RestAPI.showApprovedTalks(eventCode:String)
 GET           /api/conferences/:eventCode/talks/:id                             controllers.RestAPI.showTalk(eventCode:String,id:String)
 GET           /api/conferences/:eventCode/schedules/                            controllers.RestAPI.showAllSchedules(eventCode:String)
-GET           /api/conferences/:eventCode/schedules                             controllers.RestAPI.showAllSchedules(eventCode:String)
 GET           /api/conferences/:eventCode/schedules/:day/                       controllers.RestAPI.showScheduleFor(eventCode:String, day:String)
 GET           /api/conferences/:eventCode/schedules/:day                        controllers.RestAPI.showScheduleFor(eventCode:String, day:String)
 GET           /api/conferences/:eventCode/proposalTypes                         controllers.RestAPI.showProposalTypes(eventCode:String)
@@ -235,6 +233,12 @@ GET           /api/conferences/:eventCode/allTalks                              
 GET           /api/conferences/:eventCode/allTalksPlain                         controllers.RestAPI.showAllTalksPlain(eventCode:String)
 
 GET           /api/profile/:docName                                             controllers.RestAPI.profile(docName:String)
+
+# Scheduling for TDC
+GET           /cfpadmin/scheduling                                              controllers.TDCSchedulingController.index
+
+# API for AngularJS for TDC
+GET           /cfpadmin/scheduling/approvedTalks                                controllers.TDCSchedulingController.approvedTalks(trackId:String)
 
 # API for AngularJS
 GET           /schedulling/slots                                                controllers.SchedullingController.slots(confType:String)

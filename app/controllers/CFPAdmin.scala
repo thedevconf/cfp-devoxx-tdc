@@ -634,7 +634,11 @@ object CFPAdmin extends SecureCFPController {
               play.Logger.of("application.CFPAdmin").debug("Updating existing speaker " + existingUUID)
               Webuser.findByUUID(existingUUID).map {
                 existingWebuser =>
-                  Webuser.updateNames(existingUUID, validSpeaker.firstName.getOrElse("?"), validSpeaker.name.getOrElse("?"))
+                  if(existingWebuser.email != validSpeaker.email) {
+                    Webuser.updateEmail(existingWebuser, validSpeaker.email)
+                  } else {
+                    Webuser.updateNames(existingUUID, validSpeaker.firstName.getOrElse("?"), validSpeaker.name.getOrElse("?"))
+                  }
               }.getOrElse {
                 val newWebuser = Webuser.createSpeaker(validSpeaker.email, validSpeaker.firstName.getOrElse("?"), validSpeaker.name.getOrElse("?"))
                 val newUUID = Webuser.saveAndValidateWebuser(newWebuser)
