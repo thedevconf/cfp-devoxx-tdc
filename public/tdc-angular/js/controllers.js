@@ -34,13 +34,13 @@ mainController.controller('MainController', function MainController($rootScope, 
     });
 
     //Right column, list of slots
-    $scope.slots = [{id:1,from:"2016-04-22T10:10:00.000",to:"2016-04-22T11:00:00.000"}
-                    ,{id:2,from:"2016-04-22T11:10:00.000",to:"2016-04-22T12:00:00.000"}
-                    ,{id:3,from:"2016-04-22T13:10:00.000",to:"2016-04-22T14:00:00.000"}
-                    ,{id:4,from:"2016-04-22T14:10:00.000",to:"2016-04-22T15:00:00.000"}
-                    ,{id:5,from:"2016-04-22T15:40:00.000",to:"2016-04-22T16:30:00.000"}
-                    ,{id:6,from:"2016-04-22T16:40:00.000",to:"2016-04-22T17:30:00.000"}
-                    ,{id:7,from:"2016-04-22T17:40:00.000",to:"2016-04-22T18:30:00.000"}]
+    $scope.slots = [{id:1,proposals:[]}
+                    ,{id:2,proposals:[]}
+                    ,{id:3,proposals:[]}
+                    ,{id:4,proposals:[]}
+                    ,{id:5,proposals:[]}
+                    ,{id:6,proposals:[]}
+                    ,{id:7,proposals:[]}]
 
     // Load a schedule configuration
  /*   SlotService.get({trackId: $routeParams.trackId}, function (jsonArray) {
@@ -66,47 +66,36 @@ mainController.controller('MainController', function MainController($rootScope, 
 
     $rootScope.$on('dropEvent', function (evt, dragged, dropped) {
 
-        var maybeSlot2 = _.find($scope.slots, function (slot) {
+        var maybeSlot = _.find($scope.slots, function (slot) {
             return slot.id == dropped.id;
         });
-        if (_.isUndefined(maybeSlot2)) {
+        if (_.isUndefined(maybeSlot)) {
             console.log("old slot not found");
         } else {
-            if(_.isUndefined(maybeSlot2.proposal)==false){
-                // if there is a talk, remove it
-                var oldTalk=maybeSlot2.proposal ;
-
-                // Remove from left
-                 maybeSlot2.proposal=undefined;
-            }
 
             // Update the slot
-            maybeSlot2.proposal = dragged;
+            maybeSlot.proposals.push(dragged);
 
             // remove from accepted talks
             $scope.approvedTalks = _.reject($scope.approvedTalks, function (a) {
                 return a.id === dragged.id
             });
-            // Add back to right
-            if(_.isUndefined(oldTalk)==false){
-                $scope.approvedTalks = $scope.approvedTalks.concat(oldTalk);
-            }
 
             $scope.$apply();
         }
     });
 
-    $scope.unallocate = function(slotId){
+    $scope.deallocate = function(slotId,position){
        var maybeSlot = _.find($scope.slots, function (slot) {
             return slot.id == slotId;
         });
         if (_.isUndefined(maybeSlot)) {
             console.log("old slot not found");
         } else {
-            var talk=maybeSlot.proposal ;
+            var talk=maybeSlot.proposals[position] ;
 
             // Remove from left
-            maybeSlot.proposal=undefined;
+            maybeSlot.proposals.splice(position,1);
 
             // Add back to right
             $scope.approvedTalks = $scope.approvedTalks.concat(talk);

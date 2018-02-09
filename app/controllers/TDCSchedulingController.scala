@@ -86,25 +86,19 @@ object TDCSchedulingController extends SecureCFPController {
           val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
           val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
           val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
-          val preferredDay = Proposal.getPreferredDay(p.id)
 
           // Transform speakerUUID to Speaker name, this simplify Angular Code
-          // Add the number of stars to the title so that we don't break the AngularJS application before Devoxx BE 2015
-          // A better solution would be to return a new JSON Map with the proposal and the stars
-          // but this introduced too many bugs on the Angular JS app.
           p.copy(
             mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
             , secondarySpeaker = secWebuser.map(_.cleanName)
             , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
-            , privateMessage = preferredDay.getOrElse("")
           )
 
       }
 
       val json = Json.toJson(
         Map("approvedTalks" -> Json.toJson(
-          Map("confType" -> JsString(trackId),
-            "total" -> JsNumber(proposals.size),
+          Map("total" -> JsNumber(proposals.size),
             "talks" -> Json.toJson(proposalsWithSpeaker))
         )
         )
