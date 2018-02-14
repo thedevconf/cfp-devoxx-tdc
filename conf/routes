@@ -239,6 +239,7 @@ GET           /cfpadmin/scheduling                                              
 
 # API for AngularJS for TDC
 GET           /cfpadmin/scheduling/approvedTalks                                controllers.TDCSchedulingController.approvedTalks(trackId:String)
+POST          /cfpadmin/scheduling/slots                                        controllers.TDCSchedulingController.saveSlots(trackId:String)
 
 # API for AngularJS
 GET           /schedulling/slots                                                controllers.SchedullingController.slots(confType:String)

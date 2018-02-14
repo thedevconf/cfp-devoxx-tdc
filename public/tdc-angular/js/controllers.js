@@ -15,7 +15,7 @@ homeController.controller('HomeController', function HomeController($rootScope, 
 });
 */
 
-mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ApprovedTalksService, flash) {
+mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ApprovedTalksService, SlotService, flash) {
     // Left column, list of accepted proposal
     ApprovedTalksService.get({trackId: $routeParams.trackId}, function (allApproved) {
         // If a ScheduleConfiguration was reloaded, then we need to filter-out the list of ApprovedTalks
@@ -34,13 +34,13 @@ mainController.controller('MainController', function MainController($rootScope, 
     });
 
     //Right column, list of slots
-    $scope.slots = [{id:1,proposals:[]}
-                    ,{id:2,proposals:[]}
-                    ,{id:3,proposals:[]}
-                    ,{id:4,proposals:[]}
-                    ,{id:5,proposals:[]}
-                    ,{id:6,proposals:[]}
-                    ,{id:7,proposals:[]}]
+    $scope.slots = [{id:'1',proposals:[]}
+                    ,{id:'2',proposals:[]}
+                    ,{id:'3',proposals:[]}
+                    ,{id:'4',proposals:[]}
+                    ,{id:'5',proposals:[]}
+                    ,{id:'6',proposals:[]}
+                    ,{id:'7',proposals:[]}]
 
     // Load a schedule configuration
  /*   SlotService.get({trackId: $routeParams.trackId}, function (jsonArray) {
@@ -80,6 +80,7 @@ mainController.controller('MainController', function MainController($rootScope, 
             $scope.approvedTalks = _.reject($scope.approvedTalks, function (a) {
                 return a.id === dragged.id
             });
+            $scope.messages = []
 
             $scope.$apply();
         }
@@ -99,12 +100,17 @@ mainController.controller('MainController', function MainController($rootScope, 
 
             // Add back to right
             $scope.approvedTalks = $scope.approvedTalks.concat(talk);
+            $scope.messages = []
         }
     };
 
     $scope.saveAllocation=function(){
-        flash("Allocation for "+$routeParams.confType+" saved");
-        SlotService.save({confType: $routeParams.confType}, $scope.slots);
+        var jsonSlots = $scope.slots.map(slot => {
+            return {id: slot.id, proposals: slot.proposals.map(proposal => proposal.id)};
+        });
+        SlotService.save({trackId: $routeParams.trackId}, jsonSlots);
+        flash("Allocation for "+$routeParams.trackId+" saved");
+
     };
 
     $scope.isNotAcepted=true;

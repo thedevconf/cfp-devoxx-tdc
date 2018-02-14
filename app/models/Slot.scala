@@ -145,3 +145,9 @@ object Slot {
     ConferenceDescriptor.ConferenceSlots.all.filter(s => s.name == proposalType.id)
   }
 }
+
+case class TDCSlot(id:String,proposals:List[String])
+
+object TDCSlot {
+  implicit val tdcSlotFormat = Json.format[TDCSlot]
+}
