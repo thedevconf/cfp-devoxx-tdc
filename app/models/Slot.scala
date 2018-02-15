@@ -151,3 +151,9 @@ case class TDCSlot(id:String,proposals:List[String])
 object TDCSlot {
   implicit val tdcSlotFormat = Json.format[TDCSlot]
 }
+
+case class FullTDCSlot(id:String, proposals:List[Proposal])
+
+object FullTDCSlot {
+  implicit val fullTDCSlotFormat = Json.format[FullTDCSlot]
+}

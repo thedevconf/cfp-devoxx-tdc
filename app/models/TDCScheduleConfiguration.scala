@@ -24,15 +24,21 @@
 package models
 
 import library.Redis
-import play.api.libs.json.{JsPath, JsValue, Json}
-import org.apache.commons.lang3.RandomStringUtils
+import play.api.libs.json.{JsValue, Json}
 
 /**
   * Slots that are scheduled.
   *
   */
 
+case class TDCScheduleConfiguration(trackId: String, slots: List[FullTDCSlot])
+
+case class TDCScheduleSaved(createdBy: String, slots: List[TDCSlot])
+
 object TDCScheduleConfiguration {
+
+  implicit val scheduleSavedFormat = Json.format[TDCScheduleSaved]
+  implicit val scheduleConfigurationFormat = Json.format[TDCScheduleConfiguration]
 
   def persist(trackId: String, slots: JsValue, createdBy: Webuser): Unit = Redis.pool.withClient {
     implicit client =>
@@ -42,6 +48,30 @@ object TDCScheduleConfiguration {
       val json = tdcScheduleConfiguration.toString()
 
       client.hset("ScheduleConfigurationByTrack", trackId, json)
+  }
+
+  def allScheduledTracks(): Set[String] = Redis.pool.withClient {
+    implicit client =>
+      client.hkeys("ScheduleConfigurationByTrack")
+  }
+
+  def delete(trackId: String) = Redis.pool.withClient {
+    implicit client =>
+      client.hdel("ScheduleConfigurationByTrack", trackId)
+  }
+
+  def loadScheduledConfiguration(trackId: String): Option[TDCScheduleSaved] = Redis.pool.withClient {
+    implicit client =>
+      client.hget("ScheduleConfigurationByTrack", trackId).flatMap(json => {
+        val maybeScheduledConf = Json.parse(json).validate[TDCScheduleSaved]
+        maybeScheduledConf.fold(errors => {
+          play.Logger.of("models.TDCScheduleConfiguration").warn("Unable to reload a SlotConfiguration due to JSON error")
+          play.Logger.of("models.TDCScheduleConfiguration").warn(s"Got error : ${library.ZapJson.showError(errors)} ")
+          None
+        }
+          , someConf => Option(someConf)
+        )
+      })
   }
 
 }
