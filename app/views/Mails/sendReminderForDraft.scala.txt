@@ -4,14 +4,14 @@ Caro(a) @firstName
 
 O CFP vai fechar em: @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")
 
-Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Draft" no @Messages("longName").
+Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @Messages("longName").
 Você deve submeter uma palestra para revisão na sua seção privada do CFP, desta forma os coordenadores poderão revisar e votar na sua proposta.
 
 @proposals.map{proposal=>
  - @proposal.title  [@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.editProposal(proposal.id)]
 }
 
-Se você não quer receber esta mensagem, você também pode mover as propostas com status "draft" para o lixo a partir da home.
+Se você não quer receber esta mensagem, você também pode mover as propostas com status "rascunho" para o lixo a partir da home.
 
 Obrigado !
 
@@ -23,7 +23,7 @@ Dear @firstName
 
 CFP will be closed on @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")
 
-We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName") CFP.
+We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName").
 You must submit a talk for review on your private CFP section, so that the program committee can review and vote for your proposal.
 
 @proposals.map{proposal=>

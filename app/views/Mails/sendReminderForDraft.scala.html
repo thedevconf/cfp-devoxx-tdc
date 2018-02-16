@@ -3,14 +3,14 @@
     <p>Caro(a) @firstName</p>
     <br>
     <p><strong>O CFP vai fechar em: @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")</strong></p>
-    <p>Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Draft" no @Messages("longName") CFP.
+    <p>Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @Messages("longName").
     Você deve submeter uma palestra para revisão na sua seção privada do CFP, desta forma os coordenadores poderão revisar e votar na sua proposta.</p>
     <br>
     @proposals.map{proposal=>
      - @proposal.title <a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.editProposal(proposal.id)">@proposal.id</a> <br>
     }
     <br>
-    <p>Se você não quer receber esta mensagem, você também pode mover as propostas com status "draft" para o lixo a partir da home.</p>
+    <p>Se você não quer receber esta mensagem, você também pode mover as propostas com status "rascunho" para o lixo a partir da home.</p>
     
     <p>Obrigado !</p>
     <br>
@@ -22,7 +22,7 @@
 <p>Dear @firstName</p>
 <br>
 <p><strong>CFP will be closed on @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")</strong></p>
-<p>We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName") CFP.
+<p>We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName").
 You must submit a talk for review on your private CFP section, so that the program committee can review and vote for your proposal.</p>
 
 @proposals.map{proposal=>
