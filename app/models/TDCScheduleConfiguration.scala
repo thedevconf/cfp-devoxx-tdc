@@ -74,4 +74,9 @@ object TDCScheduleConfiguration {
       })
   }
 
+  def deleteAll() = Redis.pool.withClient {
+    implicit client =>
+      client.del("ScheduleConfigurationByTrack")
+  }
+
 }

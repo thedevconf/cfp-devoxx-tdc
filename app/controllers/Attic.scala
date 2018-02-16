@@ -117,4 +117,13 @@ object Attic extends SecureCFPController {
       TrackLeader.resetAll()
       Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.trackleaders")))
   }
+
+  /**
+    * Flush the track schedules.
+    */
+  def resetSchedules() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      TDCScheduleConfiguration.deleteAll()
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.schedules")))
+  }
 }
