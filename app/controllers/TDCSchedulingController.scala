@@ -92,6 +92,7 @@ object TDCSchedulingController extends SecureCFPController {
             mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
             , secondarySpeaker = secWebuser.map(_.cleanName)
             , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
+            , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
             , summary = ""
             , privateMessage = ""
           )

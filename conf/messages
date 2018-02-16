@@ -143,13 +143,13 @@ next.action=Selecione a próxima ação:
 
 # Proposal types
 palestradebate.label=Palestra ou Debate (50 min)
-palestradebate.label.simple=Palestra ou Debate (50 min)
+palestradebate.label.simple=50 min
 meiapalestra.label=Palestra curta (25 min)
-meiapalestra.label.simple=Palestra curta (25 min)
+meiapalestra.label.simple=25 min
 minipalestra.label=Mini palestra (15 min)
-minipalestra.label.simple=Mini palestra (15 min)
+minipalestra.label.simple=15 min
 relampago.label=Palestra relâmpago (5 min)
-relampago.label.simple=Palestra relâmpago (5 min)
+relampago.label.simple=5 min
 
 # Bug report
 Issue.report=Reportar uma ocorrência
