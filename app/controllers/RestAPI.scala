@@ -167,7 +167,7 @@ object RestAPI extends Controller {
     implicit request =>
 
       // First load published slots
-      val publishedConf =  ScheduleConfiguration.loadAllPublishedSlots().filter(_.proposal.isDefined)
+      val publishedConf = ScheduleConfiguration.loadAllPublishedSlots().filter(_.proposal.isDefined)
 
       val allSpeakersIDs = publishedConf.flatMap(_.proposal.get.allSpeakerUUIDs).toSet
 
@@ -178,7 +178,7 @@ object RestAPI extends Controller {
           NotModified
         }
         case other => {
-          val onlySpeakersThatAcceptedTerms: Set[String] =allSpeakersIDs.filterNot(uuid => Speaker.needsToAccept(uuid))
+          val onlySpeakersThatAcceptedTerms: Set[String] = allSpeakersIDs.filterNot(uuid => Speaker.needsToAccept(uuid))
           val speakers = Speaker.loadSpeakersFromSpeakerIDs(onlySpeakersThatAcceptedTerms)
 
           val updatedSpeakers = speakers.sortBy(_.name).map {
@@ -324,6 +324,53 @@ object RestAPI extends Controller {
   def redirectToTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
     implicit request =>
       Redirect(routes.RestAPI.showApprovedTalks(eventCode))
+  }
+
+  def showScheduleByTrack(eventCode:String, track: String) = UserAgentActionAndAllowOrigin {
+
+    //Loads the schedule for the track. It contains only the proposal IDs
+    val schedule: Option[TDCScheduleSaved] = TDCScheduleConfiguration.loadScheduledConfiguration(track)
+    schedule.map(saved => {
+
+      //Loads all the proposals for the track that are scheduled
+      val scheduledIds = saved.slots.flatMap(slot => slot.proposals)
+      val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == track && scheduledIds.contains(p.id))
+
+      val fullSlots:List[FullTDCSlot] = saved.slots.map(slot => FullTDCSlot(slot.id, slot.proposals.map(id => proposals.find(_.id == id).get)))
+
+      val result = Map("trilha" -> Json.toJson(track),
+                        "slots" -> Json.toJson(fullSlots.map{slot =>
+                          Map(
+                            "id" -> Json.toJson(slot.id),
+                            "palestras" -> Json.toJson(slot.proposals.map{proposal =>
+                              Map(
+                                "id" -> Json.toJson(proposal.id),
+                                "titulo" -> Json.toJson(proposal.title),
+                                "tipo" -> Json.toJson(proposal.talkType.label),
+                                "descricao" -> Json.toJson(proposal.summaryAsHtml),
+                                "palestrantes" -> Json.toJson(proposal.allSpeakers.map { speaker =>
+                                  Map(
+                                    "nome" -> Json.toJson(speaker.cleanName),
+                                    "email" -> Json.toJson(speaker.email),
+                                    "empresa" -> Json.toJson(speaker.company),
+                                    "minibio" -> Json.toJson(speaker.bioAsHtml),
+                                    "twitter" -> Json.toJson(speaker.twitter),
+                                    "foto" -> Json.toJson(speaker.avatarUrl),
+                                    "blog" -> Json.toJson(speaker.blog),
+                                    "telefone" -> Json.toJson(speaker.phone),
+                                    "genero" -> Json.toJson(speaker.gender),
+                                    "camiseta" -> Json.toJson(speaker.tshirtSize)
+                                  )
+                                }) // end palestrantes
+                              )
+                            }) //end proposals
+                          )
+                        })//end slots
+      )
+
+      Ok(Json.toJson(result)).as(JSON)
+    }).getOrElse(NotFound(s"Track $track has no schedule"))
+  
   }
 
   def showApprovedTalksByTrack(eventCode: String, track: String) = UserAgentActionAndAllowOrigin {
@@ -562,7 +609,7 @@ object RestAPI extends Controller {
         }
         case other => {
 
-          val listaJson:List[Map[String,JsValue]] = proposals.map {
+          val listaJson: List[Map[String, JsValue]] = proposals.map {
             p: Proposal => {
               val mainSpeaker = Speaker.findByUUID(p.mainSpeaker)
               val secSpeaker = p.secondarySpeaker.flatMap(Speaker.findByUUID(_))
@@ -584,7 +631,7 @@ object RestAPI extends Controller {
                 "twitter1" -> mainSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(Json.toJson("")),
                 "telefone1" -> mainSpeaker.map(u => Json.toJson(u.phone)).getOrElse(Json.toJson("")),
                 "genero1" -> mainSpeaker.map(u => Json.toJson(u.gender)).getOrElse(Json.toJson("")),
-                "camiseta1" ->  mainSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(Json.toJson("")),
+                "camiseta1" -> mainSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(Json.toJson("")),
 
                 "nome2" -> secSpeaker.map(u => Json.toJson(u.cleanName.trim())).getOrElse(Json.toJson("")),
                 "email2" -> secSpeaker.map(u => Json.toJson(u.email)).getOrElse(Json.toJson("")),
@@ -596,7 +643,7 @@ object RestAPI extends Controller {
                 "twitter2" -> secSpeaker.map(u => Json.toJson(u.cleanTwitter)).getOrElse(Json.toJson("")),
                 "telefone2" -> secSpeaker.map(u => Json.toJson(u.phone)).getOrElse(Json.toJson("")),
                 "genero2" -> secSpeaker.map(u => Json.toJson(u.gender)).getOrElse(Json.toJson("")),
-                "camiseta2" ->  secSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(Json.toJson(""))
+                "camiseta2" -> secSpeaker.map(u => Json.toJson(u.tshirtSize)).getOrElse(Json.toJson(""))
 
               )
             }
