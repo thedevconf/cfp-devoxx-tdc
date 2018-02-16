@@ -30,7 +30,7 @@ import akka.actor._
 import models._
 import notifiers.Mails
 import org.apache.commons.io.filefilter.{SuffixFileFilter, WildcardFileFilter}
-import play.api.libs.json.Json
+import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.WS
 import play.libs.Akka
 
@@ -82,12 +82,15 @@ case class NotifyGoldenTicket(goldenTicket: GoldenTicket)
 
 case class SendHeartbeat(apiKey: String, name: String)
 
+case class SaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser)
+
 // Defines an actor (no failover strategy here)
 object ZapActor {
   val actor = Akka.system.actorOf(Props[ZapActor])
 }
 
 class ZapActor extends Actor {
+
   def receive = {
     case ReportIssue(issue) => publishBugReport(issue)
     case SendMessageToSpeaker(reporterUUID, proposal, msg) => sendMessageToSpeaker(reporterUUID, proposal, msg)
@@ -107,6 +110,7 @@ class ZapActor extends Actor {
     case NotifyProposalSubmitted(author: String, proposal: Proposal) => doNotifyProposalSubmitted(author, proposal)
     case SendHeartbeat(apiKey: String, name: String) => doSendHeartbeat(apiKey, name)
     case NotifyGoldenTicket(goldenTicket:GoldenTicket) => doNotifyGoldenTicket(goldenTicket)
+    case SaveTDCSlots(trackId,slots,createdBy) => doSaveTDCSlots(trackId,slots,createdBy)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -269,5 +273,9 @@ class ZapActor extends Actor {
     }.getOrElse {
       play.Logger.error("Golden ticket error : user not found with uuid " + gt.webuserUUID)
     }
+  }
+
+  def doSaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser): Unit = {
+    TDCScheduleConfiguration.persist(trackId, slots, createdBy)
   }
 }

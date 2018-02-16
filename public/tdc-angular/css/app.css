@@ -3,6 +3,11 @@ body {
     font-size: 12px;
 }
 
+hr.tdc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .panel_talks {
     border: 1px solid #eeeeee;
 }
