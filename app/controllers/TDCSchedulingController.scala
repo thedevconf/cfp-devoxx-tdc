@@ -94,7 +94,8 @@ object TDCSchedulingController extends SecureCFPController {
             , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
             , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
             , summary = ""
-            , privateMessage = ""
+            , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
+            , state = ProposalState(Messages(p.state.code))
           )
       }
 

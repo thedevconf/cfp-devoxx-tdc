@@ -21,6 +21,7 @@
          dropStyle="columnDrop">
         <span class="proposalTitle">{{talk.title}}</span>
         <span class="label label-default">{{talk.talkType.label}}</span>
+        <span class="label label-default">{{talk.state.code}}</span>
         <div class="label label-info">{{talk.lang}}</div>
         <div class="label label-warning">{{talk.track.id}}</div>
 
@@ -42,14 +43,14 @@
             </button>
             <span class="proposalTitle">{{proposal.title}}</span>
             <div class="label label-default">{{proposal.talkType.label}}</div>
+            <span class="label label-default">{{proposal.state.code}}</span>
             <div class="label label-success">{{proposal.mainSpeaker}}</div>
             <div class="label label-success btn-sm">{{proposal.secondarySpeaker}}</div>
             <div ng-repeat="otherSpeaker in proposal.otherSpeakers" class="label label-success btn-sm">
                 {{otherSpeaker}}
             </div>
-            <div ng-show="proposal.title.substring(0,4)=='[Not'">
-                <div class="alert alert-danger alert-block"><i class="icon-warning-sign"></i> This talk was not
-                    approved
+            <div ng-show="proposal.privateMessage !=='OK'">
+                <div class="alert alert-danger alert-block"><i class="icon-warning-sign"></i> Esta proposta ainda não foi aceita
                 </div>
             </div>
         </div>
