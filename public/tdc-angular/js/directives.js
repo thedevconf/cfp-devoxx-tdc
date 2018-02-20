@@ -2,8 +2,8 @@ cfpApp.directive("drag", ["$rootScope", function($rootScope) {
 
   function dragStart(evt, element, dragStyle) {
     element.addClass(dragStyle);
- //   evt.dataTransfer.setData("id", evt.target.id);
- //   evt.dataTransfer.effectAllowed = 'move';
+    evt.dataTransfer.setData("id", evt.target.id);
+    evt.dataTransfer.effectAllowed = 'move';
   };
 
   function dragEnd(evt, element, dragStyle) {
