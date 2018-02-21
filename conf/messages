@@ -143,13 +143,13 @@ next.action=Selecione a próxima ação:
 
 # Proposal types
 palestradebate.label=Palestra ou Debate (50 min)
-palestradebate.label.simple=Palestra ou Debate (50 min)
+palestradebate.label.simple=50 min
 meiapalestra.label=Palestra curta (25 min)
-meiapalestra.label.simple=Palestra curta (25 min)
+meiapalestra.label.simple=25 min
 minipalestra.label=Mini palestra (15 min)
-minipalestra.label.simple=Mini palestra (15 min)
+minipalestra.label.simple=15 min
 relampago.label=Palestra relâmpago (5 min)
-relampago.label.simple=Palestra relâmpago (5 min)
+relampago.label.simple=5 min
 
 # Bug report
 Issue.report=Reportar uma ocorrência
@@ -1299,6 +1299,7 @@ attic.bt.delete.events=Remover todos os eventos e histórico
 attic.bt.delete.events.explanation=Eventos são um log de todas as ações e atualizações executadas pelos palestrantes e pela equipe.
 attic.bt.reset.notifications=Reiniciar a lista de palestrantes notificados (aprovados e recusados)
 attic.bt.reset.trackleaders=Limpar os coordenadores das trilhas
+attic.bt.reset.schedules=Limpar toda a programação de grades das trilhas
 attic.msg.prune.deleted={0} palestras excluidas
 attic.msg.prune.draft={0} palestras rascunho excluidas
 attic.msg.archive.talk={0} palestras arquivadas
@@ -1306,6 +1307,7 @@ attic.msg.delete.invited=Todos os convites foram removidos
 attic.msg.delete.events=Log de eventos removido
 attic.msg.reset.notifications=Todas as notificacoes foram removidas
 attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
+attic.msg.reset.schedules=Removida toda a programação de grades das trilhas
 
 #Logs
 heading.proposal.history= Histórico da palestra

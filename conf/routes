@@ -234,11 +234,17 @@ GET           /api/conferences/:eventCode/allTalksPlain                         
 
 GET           /api/profile/:docName                                             controllers.RestAPI.profile(docName:String)
 
+GET           /api/scheduling/:eventCode/:track                                 controllers.RestAPI.showScheduleByTrack(eventCode:String, track: String)
+
 # Scheduling for TDC
 GET           /cfpadmin/scheduling                                              controllers.TDCSchedulingController.index
 
 # API for AngularJS for TDC
-GET           /cfpadmin/scheduling/approvedTalks                                controllers.TDCSchedulingController.approvedTalks(trackId:String)
+POST          /cfpadmin/scheduling/schedules                                    controllers.TDCSchedulingController.saveSchedule(trackId:String)
+GET           /cfpadmin/scheduling/schedules/:trackId                           controllers.TDCSchedulingController.loadSchedule(trackId:String)
+DELETE        /cfpadmin/scheduling/schedules/:trackId                           controllers.TDCSchedulingController.deleteSchedule(trackId:String)
+GET           /cfpadmin/scheduling/schedules                                    controllers.TDCSchedulingController.allScheduledTracks()
+
 
 # API for AngularJS
 GET           /schedulling/slots                                                controllers.SchedullingController.slots(confType:String)
@@ -280,6 +286,7 @@ POST          /cfpadmin/attic/deleteInvitedSpeakers                             
 POST          /cfpadmin/attic/resetNotified                                     controllers.Attic.resetNotified()
 POST          /cfpadmin/attic/resetEvents                                       controllers.Attic.resetEvents()
 POST          /cfpadmin/attic/resetTrackLeaders                                 controllers.Attic.resetTrackLeaders()
+POST          /cfpadmin/attic/resetSchedules                                    controllers.Attic.resetSchedules()
 
 # Golden ticket admin
 GET           /admin/goldenTickets                                              controllers.GoldenTicketAdminController.showAll()

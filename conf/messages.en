@@ -143,13 +143,13 @@ next.action=Select next action:
 
 # Proposal types
 palestradebate.label=Talk or Debate (50 min)
-palestradebate.label.simple=Talk or Debate (50 min)
+palestradebate.label.simple=50 min
 meiapalestra.label=Short talk (25 min)
-meiapalestra.label.simple=Short talk (25 min)
+meiapalestra.label.simple=25 min
 minipalestra.label=Mini talk (15 min)
-minipalestra.label.simple=Mini talk (15 min)
+minipalestra.label.simple=15 min
 relampago.label=Lightning talk (5 min)
-relampago.label.simple=Lightning talk (5 min)
+relampago.label.simple=5 min
 
 # Bug report
 Issue.report=Report an issue
@@ -1301,6 +1301,7 @@ attic.bt.delete.events=Delete all Events and history
 attic.bt.delete.events.explanation=Events is a log of all actions such as votes, new proposals, actions and updates performed by speakers and the team.
 attic.bt.reset.notifications=Reset the list of notified Speakers (approved and refused)
 attic.bt.reset.trackleaders=Reset the Trackleaders
+attic.bt.reset.schedules=Reset Schedules
 attic.msg.prune.deleted={0} Deleted moved to Attic
 attic.msg.prune.draft={0} Draft deleted
 attic.msg.archive.talk={0} archived
@@ -1308,6 +1309,7 @@ attic.msg.delete.invited=Deleted all Invitations
 attic.msg.delete.events=Events log flushed.
 attic.msg.reset.notifications=All Notified collections have been deleted.
 attic.msg.reset.trackleaders=All trackleaders reset
+attic.msg.reset.schedules=All schedules reset
 
 #Logs
 heading.proposal.history= Proposal History
