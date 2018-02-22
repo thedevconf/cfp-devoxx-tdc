@@ -793,6 +793,23 @@ object Proposal {
       }
   }
 
+  /**
+    * Load all proposals except ARCHIVED and DELETED
+    */
+  def allActiveProposals(): List[Proposal] = Redis.pool.withClient {
+    implicit client =>
+
+      val allActiveProposalIDs = client.hkeys("Proposals")
+              .diff(client.sunion(s"Proposals:ByState:${ProposalState.ARCHIVED.code}",s"Proposals:ByState:${ProposalState.DELETED.code}"))
+
+      client.hmget("Proposals", allActiveProposalIDs).map {
+        json =>
+          val proposal = Json.parse(json).as[Proposal]
+          val proposalState = findProposalState(proposal.id)
+          proposal.copy(state = proposalState.getOrElse(ProposalState.UNKNOWN))
+      }
+  }
+
   def allDeclinedProposals(): List[Proposal] = Redis.pool.withClient {
     implicit client =>
 

@@ -213,40 +213,33 @@ object CFPAdmin extends SecureCFPController {
 
       val totalSpeakers = Leaderboard.totalSpeakers()
       val totalProposals = Leaderboard.totalProposals()
-      val totalVotes = Leaderboard.totalVotes()
+      val totalReviews = Leaderboard.totalVotes()
       val totalWithVotes = Leaderboard.totalWithVotes()
       val totalNoVotes = Leaderboard.totalNoVotes()
       val maybeMostVoted = Leaderboard.mostReviewed()
-      val bestReviewer = Leaderboard.bestReviewer()
-      val lazyOnes = Leaderboard.lazyOnes()
+ //     val bestReviewer = Leaderboard.bestReviewer()
+ //     val lazyOnes = Leaderboard.lazyOnes()
 
       val totalSubmittedByTrack = Leaderboard.totalSubmittedByTrack()
-      val totalSubmittedByType = Leaderboard.totalSubmittedByType()
       val totalAcceptedByTrack = Leaderboard.totalAcceptedByTrack()
-      val totalAcceptedByType = Leaderboard.totalAcceptedByType()
 
-      val totalSlotsToAllocate = ApprovedProposal.getTotal
       val totalApprovedSpeakers = Leaderboard.totalApprovedSpeakers()
-      val totalWithTickets = Leaderboard.totalWithTickets()
       val totalRefusedSpeakers = Leaderboard.totalRefusedSpeakers()
 
-      val allApproved = ApprovedProposal.allApproved()
+      val totalApprovedByTrack:Map[String,Int] = Leaderboard.totalApprovedByTrack()
 
-      val allApprovedByTrack:Map[String,Int] = allApproved.groupBy(_.track.label).map(trackAndProposals=>(trackAndProposals._1,trackAndProposals._2.size))
-      val allApprovedByTalkType:Map[String,Int] = allApproved.groupBy(_.talkType.id).map(trackAndProposals=>(trackAndProposals._1,trackAndProposals._2.size))
-
+      val totalByState:List[(String,Int)] = Leaderboard.totalByState()
 
       Ok(
         views.html.CFPAdmin.leaderBoard(
-          totalSpeakers, totalProposals, totalVotes, totalWithVotes,
-          totalNoVotes, maybeMostVoted, bestReviewer, lazyOnes,
-          totalSubmittedByTrack, totalSubmittedByType,
-          totalAcceptedByTrack, totalAcceptedByType,
-          totalSlotsToAllocate,
+          totalSpeakers, totalProposals, totalReviews, totalWithVotes,
+          totalNoVotes, maybeMostVoted,
+          totalSubmittedByTrack,
+          totalAcceptedByTrack,
           totalApprovedSpeakers,
-          totalWithTickets,
           totalRefusedSpeakers,
-          allApprovedByTrack,allApprovedByTalkType
+          totalApprovedByTrack,
+          totalByState
         )
       )
   }
@@ -260,7 +253,6 @@ object CFPAdmin extends SecureCFPController {
   def doComputeLeaderBoard() = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       library.ZapActor.actor ! ComputeLeaderboard()
-      library.ZapActor.actor ! ComputeVotesAndScore()
       Redirect(routes.CFPAdmin.index()).flashing("success" -> Messages("leaderboard.compute"))
   }
 

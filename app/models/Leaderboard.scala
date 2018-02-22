@@ -30,6 +30,7 @@ import library.Redis
  * Created by nicolas on 21/01/2014.
  */
 object Leaderboard {
+
   def computeStats() = Redis.pool.withClient {
     implicit client =>
 
@@ -38,24 +39,39 @@ object Leaderboard {
       Review.computeAndGenerateVotes()
 
       val tx = client.multi()
-      tx.del("Leaderboard:totalByCategories")
-      tx.del("Leaderboard:totalByType")
 
+      //Total of Speakers
       val totalSpeakers = Speaker.countAll()
       tx.set("Leaderboard:totalSpeakers", totalSpeakers.toString())
 
+      //Total Approved Speakers
+      val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
+      val totalApprovedSpeakers = allApprovedIDs.size
+      tx.set("Leaderboard:totalApprovedSpeakers", totalApprovedSpeakers.toString)
+
+      //Total Refused Speakers
+      val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
+      val refusedSpeakers = allRejectedIDs.diff(allApprovedIDs)
+      val totalRefusedSpeakers = refusedSpeakers.size
+      tx.set("Leaderboard:totalRefusedSpeakers", totalRefusedSpeakers.toString)
+
+      //Total Proposals
       val totalProposals = Proposal.countAll()
       tx.set("Leaderboard:totalProposals", totalProposals.toString())
 
-      val totalVotes = Review.countAll()
-      tx.set("Leaderboard:totalVotes", totalVotes.toString())
-
+      //Total Proposals with Votes
       val totalWithVotes = Review.countWithVotes()
       tx.set("Leaderboard:totalWithVotes", totalWithVotes.toString())
 
+      //Total Proposals with No Votes
       val totalNoVotes = Review.countWithNoVotes()
       tx.set("Leaderboard:totalNoVotes", totalNoVotes.toString())
 
+      //Total Reviews
+      val totalReviews = Review.countAll()
+      tx.set("Leaderboard:totalVotes", totalReviews.toString())
+
+      // Proposal most reviewed
       val mostReviewed = Review.mostReviewed()
       mostReviewed.map{
         mr=>
@@ -66,6 +82,40 @@ object Leaderboard {
         tx.del("Leaderboard:mostReviewed:score")
       }
 
+      // Proposals by state
+      val totalByState = Proposal.allActiveProposals().groupBy(_.state.code).map(pair => (pair._1,pair._2.size))
+      tx.del("Leaderboard:totalByState")
+      totalByState.foreach {
+        case (state: String, total: Int) =>
+          tx.hset("Leaderboard:totalByState", state, total.toString)
+      }
+
+      //Proposals submitted by track
+      val totalSubmittedByTrack = Proposal.totalSubmittedByTrack()
+      tx.del("Leaderboard:totalSubmittedByTrack")
+      totalSubmittedByTrack.map {
+        case (track: Track, total: Int) =>
+          tx.hset("Leaderboard:totalSubmittedByTrack", track.id, total.toString)
+      }
+
+      //Proposals approved by track
+      val allApproved = ApprovedProposal.allApproved()
+      val totalApprovedByTrack =  allApproved.groupBy(_.track.label).map(trackAndProposals=>(trackAndProposals._1,trackAndProposals._2.size))
+      tx.del("Leaderboard:totalApprovedByTrack")
+      totalApprovedByTrack.foreach {
+        case (track: String, total: Int) =>
+          tx.hset("Leaderboard:totalApprovedByTrack", track, total.toString)
+      }
+
+      //Proposals accepted by track
+      val totalAcceptedByTrack = Proposal.totalAcceptedByTrack()
+      tx.del("Leaderboard:totalAcceptedByTrack")
+      totalAcceptedByTrack.map {
+        case (track: Track, total: Int) =>
+          tx.hset("Leaderboard:totalAcceptedByTrack", track.label, total.toString)
+      }
+
+/*
       Review.bestReviewer().map {
         bestReviewer =>
           tx.set("Leaderboard:bestReviewer:uuid", bestReviewer._1)
@@ -83,52 +133,9 @@ object Leaderboard {
         tx.del("Leaderboard:worstReviewer:uuid")
         tx.del("Leaderboard:worstReviewer:score")
       }
+*/
 
-      val totalSubmittedByTrack = Proposal.totalSubmittedByTrack()
-      tx.del("Leaderboard:totalSubmittedByTrack")
-      totalSubmittedByTrack.map {
-        case (track: Track, total: Int) =>
-          tx.hset("Leaderboard:totalSubmittedByTrack", track.id, total.toString)
-      }
-
-      tx.del("Leaderboard:totalSubmittedByType")
-      val totalSubmittedByType = Proposal.totalSubmittedByType()
-      totalSubmittedByType.toList.map {
-        case (propType: ProposalType, total: Int) =>
-          tx.hset("Leaderboard:totalSubmittedByType", propType.id, total.toString)
-      }
-
-      val totalAcceptedByTrack = Proposal.totalAcceptedByTrack()
-      tx.del("Leaderboard:totalAcceptedByTrack")
-      totalAcceptedByTrack.map {
-        case (track: Track, total: Int) =>
-          tx.hset("Leaderboard:totalAcceptedByTrack", track.label, total.toString)
-      }
-
-      val totalAcceptedByType = Proposal.totalAcceptedByType()
-      tx.del("Leaderboard:totalAcceptedByType")
-      totalAcceptedByType.toList.map {
-        case (propType: ProposalType, total: Int) =>
-          tx.hset("Leaderboard:totalAcceptedByType", propType.id, total.toString)
-      }
-
-      val allWebusers= Webuser.allCFPWebusers().toSet
-      val totalApprovedSpeakers = ApprovedProposal.allApprovedSpeakerIDs().diff(allWebusers.map(_.uuid)).size
-      tx.set("Leaderboard:totalApprovedSpeakers", totalApprovedSpeakers.toString)
-
-      val totalWithTickets = ApprovedProposal.allApprovedSpeakersWithFreePass().map(_.uuid).diff(allWebusers.map(_.uuid)).size
-      tx.set("Leaderboard:totalWithTickets", totalWithTickets.toString)
-
-    val allCFPWebusers= Webuser.allCFPWebusers().map(w=>w.uuid).toSet
-    val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
-    val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
-
-    val refusedSpeakers = allRejectedIDs.diff(allCFPWebusers).diff(allApprovedIDs)
-
-    val totalRefusedSpeakers = refusedSpeakers.size
-    tx.set("Leaderboard:totalRefusedSpeakers", totalRefusedSpeakers.toString)
-
-    tx.exec()
+     tx.exec()
   }
 
   def totalSpeakers():Long = {
@@ -213,6 +220,22 @@ object Leaderboard {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
+  }
+
+  def totalApprovedByTrack(): Map[String,Int] = Redis.pool.withClient {
+    implicit client =>
+      client.hgetAll("Leaderboard:totalApprovedByTrack").map {
+        case (key: String, value: String) =>
+          (key, value.toInt)
+      }
+  }
+
+  def totalByState():List[(String,Int)] = Redis.pool.withClient {
+    implicit client =>
+      client.hgetAll("Leaderboard:totalByState").map {
+        case (key: String, value: String) =>
+          (key, value.toInt)
+      }.toList
   }
 
   private def getFromRedis(key: String): Long = Redis.pool.withClient {
