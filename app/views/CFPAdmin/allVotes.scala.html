@@ -44,7 +44,7 @@
             }
             <br>
             @defining(allVotes.groupBy(_._1.state.code)){proposalsByState=>
-                <span class="label label-default">@proposalsByState.get("submitted").size @Messages("submitted")</span>
+                <span class="label label-default">@proposalsByState.get("submitted").map(_.size).getOrElse(0) @Messages("submitted")</span>
                 <span class="label label-warning">@proposalsByState.get("backup").map(_.size).getOrElse(0) @Messages("backup")</span>
                 <span class="label label-danger">@proposalsByState.get("rejected").map(_.size).getOrElse(0) @Messages("rejected")</span>
                 <span class="label label-primary">@proposalsByState.get("approved").map(_.size).getOrElse(0) @Messages("approved")</span>
@@ -62,7 +62,7 @@
     <div class="row">
 
         <div class="col-md-12">
-            <small>@Messages("allVotes.warning1") @Messages("submitted.caps")/@Messages("approved.caps")/@Messages("accepted.caps")/@Messages("backup.caps")</small>
+            <small>@Messages("allVotes.warning1")</small>
             <br/>
             <small>@Messages("allVotes.warning2")</small>
         </div>
