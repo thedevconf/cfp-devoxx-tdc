@@ -41,11 +41,11 @@
                 </thead>
                 <tbody>
 
-                    @proposals.map { case (company, props) =>
+                    @proposals.sortBy(_._1).map { case (company, props) =>
                         <tr>
                             <th colspan="5">@company.capitalize - @props.size @Messages("allSpeakers.label.talks")</th>
                         </tr>
-                        @props.toList.sortBy(_.talkType.id).map {proposal=>
+                        @props.toList.sortBy(p => Messages(p.track.label)).map {proposal=>
                         <tr>
                             <td>
                                 @Messages(proposal.track.label)

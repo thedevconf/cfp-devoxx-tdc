@@ -452,11 +452,31 @@ object CFPAdmin extends SecureCFPController {
       }
   }
 
-  // Returns all speakers
-
-  def allSpeakers() = SecuredAction(IsMemberOf("cfp")) {
+  def reportsHome() = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      Ok(views.html.CFPAdmin.allSpeakersHome())
+      Ok(views.html.CFPAdmin.reportsHome())
+  }
+
+  def allTalksByCompany() = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+
+      val allProposals = Proposal.allActiveProposals()
+
+      val allSpeakers: Set[Speaker] = allProposals.flatMap(p => p.allSpeakers).toSet
+      val groupedSpeakers = allSpeakers
+        .groupBy(_.company.map(_.toLowerCase.trim).getOrElse(Messages("reports.talks.nocompany")))
+        .toList
+
+      val groupedProposals = groupedSpeakers.map {
+        case (company, speakers) =>
+          val setOfProposals = speakers.flatMap {
+            s =>
+              allProposals.filter(_.allSpeakerUUIDs.contains(s.uuid))
+          }
+          (company, setOfProposals)
+      }
+
+      Ok(views.html.CFPAdmin.allTalksByCompany(groupedProposals))
   }
 
   def allSpeakersWithApprovedTalks() = SecuredAction(IsMemberOf("cfp")) {
