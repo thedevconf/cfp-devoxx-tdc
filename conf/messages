@@ -489,7 +489,7 @@ admin.proposals.todolist.title=Sua Lista de Pendências
 admin.btn.leaderboard=Ver Leaderboard
 admin.btn.myvotes=Meus votos
 admin.btn.sponsortalks=Palestras de patrocinadores
-admin.btn.speakers=Relatorios de palestrantes
+admin.btn.reports=Relatorios
 admin.btn.speakersInvited=Todos palestrantes convidados
 admin.btn.draft=Todas RASCUNHO
 admin.btn.submitted=Todas SUBMETIDA
@@ -1193,7 +1193,7 @@ leaderboard.approved.bytype=submissões aprovadas para
 leaderboard.accepted.bytype=submissões aceitas para
 
 allSpeakers.tab=Todos Palestrantes
-allSpeakers.title=Relatórios de Palestrantes
+allSpeakers.title=Palestrantes
 allSpeakers.speakers=palestrantes
 allSpeakers.users=usuários
 allSpeakers.columns.track=Trilha
@@ -1224,6 +1224,12 @@ allSpeakers.allSpeakersThatForgetToAccept.subtitle=Palestra que aprovamos, para 
 allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Palestrante principal ou secundário, com badge de palestrante; CFP não incluído; Nenhuma palestra curta
 allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classificado por palestras, onde o palestrante é o principal ou secundário
 allSpeakers.invited.title=Todos Palestrantes Convidados
+
+reports.title=Relatórios
+reports.talks.title=Palestras
+reports.allTalksByCompany.title=Todas as palestras por empresa
+reports.warning.notalk=Nenhuma palestra encontrada
+reports.talks.nocompany=empresa não informada
 
 draft=rascunho
 deleted=excluída
