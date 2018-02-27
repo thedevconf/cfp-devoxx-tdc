@@ -111,7 +111,24 @@ object TDCSchedulingController extends SecureCFPController {
           val selectedIds = config.slots.flatMap(slot => slot.proposals)
           val (scheduledProposals,availableProposals) = proposalsWithSpeaker.partition(p => selectedIds.contains(p.id))
 
-          val fullSlots:List[FullTDCSlot] = config.slots.map(slot => FullTDCSlot(slot.id, slot.proposals.map(id => scheduledProposals.find(_.id == id).get)))
+          val fullSlots:List[FullTDCSlot] = config.slots.map(slot =>
+            FullTDCSlot(slot.id, slot.proposals.map(id =>
+              scheduledProposals.find(_.id == id).getOrElse({
+                //for the case when the trackleader removes the approval of a scheduled proposal
+                val p = Proposal.findById(id).get
+                val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
+                val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
+                val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
+                p.copy(mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
+                  , secondarySpeaker = secWebuser.map(_.cleanName)
+                  , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
+                  , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
+                  , summary = ""
+                  , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
+                  , state = ProposalState(Messages(p.state.code))
+                )
+              }))))
+
           val fullSchedule = TDCScheduleConfiguration(trackId,fullSlots)
 
           Json.toJson(Map(
