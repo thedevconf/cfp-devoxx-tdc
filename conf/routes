@@ -97,6 +97,7 @@ GET           /cfpadmin/allSponsorTalks                                         
 GET           /cfpadmin/speaker/:uuidSpeaker                                    controllers.CFPAdmin.showSpeakerAndTalks(uuidSpeaker:String)
 GET           /cfpadmin/speaker/:uuidSpeaker/history                            controllers.CFPAdmin.speakerHistory(uuidSpeaker:String)
 GET           /cfpadmin/sponsorTalk/remove/:proposalId                          controllers.CFPAdmin.removeSponsorTalkFlag(proposalId:String)
+POST          /cfpadmin/sponsorTalk/add/:proposalId                             controllers.CFPAdmin.addSponsorTalkFlag(proposalId:String)
 GET           /cfpadmin/proposals/byType/:confType                              controllers.CFPAdmin.allProposalsByType(confType:String)
 GET           /cfpadmin/proposals/byTrack/                                      controllers.CFPAdmin.allProposalsByTrack(track:Option[String])
 GET           /cfpadmin/compareReviewer                                         controllers.CFPAdmin.showProposalsNotReviewedCompareTo(maybeReviewer:Option[String])

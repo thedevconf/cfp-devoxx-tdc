@@ -872,6 +872,14 @@ object Proposal {
     }
   }
 
+  def addSponsorTalkFlag(authorUUID: String, proposalId: String) = {
+    Proposal.findById(proposalId).filter(_.sponsorTalk == false).map {
+      proposal =>
+        Event.storeEvent(Event(proposal.id, authorUUID, "Added [sponsorTalkFlag] on proposal " + proposal.title))
+        Proposal.save(proposal.mainSpeaker, proposal.copy(sponsorTalk = true), proposal.state)
+    }
+  }
+
   def hasOneProposal(uuid: String): Boolean = Redis.pool.withClient {
     implicit client =>
       client.exists(s"Proposals:ByAuthor:$uuid")

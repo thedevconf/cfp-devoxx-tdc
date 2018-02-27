@@ -577,6 +577,7 @@ admin.sp.approved.txt=This talk has been approved by the Program committee.
 admin.sp.accepted.txt=This talk has been accepted. Either during the final decision, or because it''s a sponsor talk or a speaker on the wishlist.
 btn.abstention=Vote 0 for this talk
 remove.sponsorFlag=Remove the sponsor''s flag
+add.sponsorFlag=Add sponsor''s flag
 
 cfp.isClosed=The CFP is closed
 cfp.isClosed.expl=CFP is closed and does not accept submission.

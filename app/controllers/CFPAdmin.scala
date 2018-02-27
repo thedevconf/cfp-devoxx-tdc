@@ -415,6 +415,13 @@ object CFPAdmin extends SecureCFPController {
       Redirect(routes.CFPAdmin.allSponsorTalks()).flashing("success" -> s"Removed sponsor talk on $proposalId")
   }
 
+  def addSponsorTalkFlag(proposalId: String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val uuid = request.webuser.uuid
+      Proposal.addSponsorTalkFlag(uuid, proposalId)
+      Redirect(routes.CFPAdmin.allSponsorTalks()).flashing("success" -> s"Added sponsor talk on $proposalId")
+  }
+
   /**
     *
     * lists all proposals by track if the user is admin
