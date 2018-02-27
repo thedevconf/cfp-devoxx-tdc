@@ -1,5 +1,7 @@
 @(proposals:List[(String,Set[Proposal])])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
+@import helper._
+
 @main("CFP Talks") {
 <div class="row">
     <div class="col-lg-offset-4 col-md-4">
@@ -68,6 +70,9 @@
                                 <td>
                                     <a href="@routes.CFPAdmin.openForReview(proposal.id)"
                                        class="btn btn-primary btn-sm">@Messages("allSpeakers.link.talk")</a>
+                                    @form(routes.CFPAdmin.addSponsorTalkFlag(proposal.id)) {
+                                        <input class="btn btn-sm btn-primary" type="submit" value='@Messages("add.sponsorFlag")' />
+                                    }
                                 </td>
                             </tr>
                             }
