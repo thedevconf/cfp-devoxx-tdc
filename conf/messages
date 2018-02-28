@@ -1286,6 +1286,12 @@ attic.msg.reset.notifications=Todas as notificacoes foram removidas
 attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
 attic.msg.reset.schedules=Removida toda a programação de grades das trilhas
 
+#Proposal Edit by admin
+btn.proposal.edit = Editar
+cfpadmin.proposal.edit.title = Editar Palestra
+btn.proposal.save = Salvar
+
+
 #Logs
 heading.proposal.history= Histórico da palestra
 title.proposal.history=[CFP] Histórico {0}

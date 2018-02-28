@@ -423,6 +423,50 @@ object CFPAdmin extends SecureCFPController {
   }
 
   /**
+    * Loads a proposal for an administrator to edit
+    *
+    * @param proposalId
+    * @return
+    */
+  def editProposal(proposalId: String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request =>
+      val maybeProposal = Proposal.findById(proposalId)
+      maybeProposal match {
+        case Some(proposal) => {
+            val proposalForm = Proposal.proposalForm.fill(proposal)
+            Ok(views.html.CFPAdmin.editProposal(proposalForm))
+        }
+        case None => NotFound("Proposal not found").as("text/html")
+      }
+  }
+
+  /**
+    * Allows an admin to update the proposal
+    *
+    * @param proposalId
+    * @return
+    */
+  def updateProposal(proposalId:String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request =>
+      val uuid = request.webuser.uuid
+
+      Proposal.proposalForm.bindFromRequest.fold(
+        hasErrors => BadRequest(views.html.CFPAdmin.editProposal(hasErrors)),
+        proposal => {
+          Proposal.findById(proposal.id) match {
+            case Some(existingProposal) => {
+              val updatedProposal = proposal.copy(mainSpeaker = existingProposal.mainSpeaker, secondarySpeaker = existingProposal.secondarySpeaker, otherSpeakers = existingProposal.otherSpeakers)
+              Proposal.save(updatedProposal.mainSpeaker, updatedProposal, existingProposal.state)
+              Event.storeEvent(Event(proposal.id, uuid, "Edited proposal " + proposal.id + " with current state [" + existingProposal.state.code + "]"))
+              Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved2"))
+            }
+            case None => NotFound("Proposal not found").as("text/html")
+          }
+        }
+      )
+  }
+
+  /**
     *
     * lists all proposals by track if the user is admin
     * otherwise lists the proposals if the user is trackleader of the requested track
