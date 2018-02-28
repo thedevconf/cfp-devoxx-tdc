@@ -1318,6 +1318,11 @@ attic.msg.reset.notifications=All Notified collections have been deleted.
 attic.msg.reset.trackleaders=All trackleaders reset
 attic.msg.reset.schedules=All schedules reset
 
+#Proposal Edit by admin
+btn.proposal.edit = Edit
+cfpadmin.proposal.edit.title = Edit Proposal
+btn.proposal.save = Save
+
 #Logs
 heading.proposal.history= Proposal History
 title.proposal.history=[CFP] History {0}
