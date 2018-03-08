@@ -146,13 +146,13 @@ object Slot {
   }
 }
 
-case class TDCSlot(id:String,proposals:List[String])
+case class TDCSlot(id:String, stadium:Option[Boolean] = Some(false), proposals:List[String])
 
 object TDCSlot {
   implicit val tdcSlotFormat = Json.format[TDCSlot]
 }
 
-case class FullTDCSlot(id:String, proposals:List[Proposal])
+case class FullTDCSlot(id:String, stadium:Option[Boolean] = Some(false) ,proposals:List[Proposal])
 
 object FullTDCSlot {
   implicit val fullTDCSlotFormat = Json.format[FullTDCSlot]
