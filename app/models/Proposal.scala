@@ -145,7 +145,6 @@ case class Proposal(id: String,
   }
 
   def allSpeakers: List[Speaker] = {
-  def allSpeakers: List[Speaker] = {
     allSpeakerUUIDs.flatMap { uuid =>
       Speaker.findByUUID(uuid)
     }
