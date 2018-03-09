@@ -1258,11 +1258,13 @@ allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Primary or secondary s
 allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classified by talks, where the speaker is either primary or secondary speaker.
 allSpeakers.invited.title=All Invited Speakers
 
+#Reports
 reports.title=Reports
 reports.talks.title=Talks
 reports.allTalksByCompany.title=All talks by company
 allSpeakers.warning.notalk=No talk found
 reports.talks.nocompany=no company
+reports.allStadiumTalks.title=All Stadium talks
 
 draft=draft
 deleted=deleted

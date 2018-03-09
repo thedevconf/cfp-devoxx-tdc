@@ -112,7 +112,7 @@ object TDCSchedulingController extends SecureCFPController {
           val (scheduledProposals,availableProposals) = proposalsWithSpeaker.partition(p => selectedIds.contains(p.id))
 
           val fullSlots:List[FullTDCSlot] = config.slots.map(slot =>
-            FullTDCSlot(slot.id, slot.proposals.map(id =>
+            FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id =>
               scheduledProposals.find(_.id == id).getOrElse({
                 //for the case when the trackleader removes the approval of a scheduled proposal
                 val p = Proposal.findById(id).get

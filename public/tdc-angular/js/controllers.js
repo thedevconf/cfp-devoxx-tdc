@@ -78,13 +78,23 @@ mainController.controller('MainController', function MainController($rootScope, 
         }
     };
 
-    $scope.saveAllocation=function(){
+    $scope.saveAllocation = function() {
         var jsonSlots = $scope.slots.map(slot => {
-            return {id: slot.id, proposals: slot.proposals.map(proposal => proposal.id)};
+            return {id: slot.id, proposals: slot.proposals.map(proposal => proposal.id), stadium: slot.stadium};
         });
         ScheduleService.save({trackId: $routeParams.id}, jsonSlots);
         flash("Programação Salva");
 
+    };
+
+    $scope.toggleStadium = function(slotId) {
+        $scope.slots.forEach(slot => {
+            if(slot.id !== slotId) {
+                slot.stadium = false;
+            } else {
+                slot.stadium = !slot.stadium
+            }
+        });
     };
 
 });

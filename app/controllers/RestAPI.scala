@@ -336,12 +336,13 @@ object RestAPI extends Controller {
       val scheduledIds = saved.slots.flatMap(slot => slot.proposals)
       val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == track && scheduledIds.contains(p.id))
 
-      val fullSlots:List[FullTDCSlot] = saved.slots.map(slot => FullTDCSlot(slot.id, slot.proposals.map(id => proposals.find(_.id == id).get)))
+      val fullSlots:List[FullTDCSlot] = saved.slots.map(slot => FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id => proposals.find(_.id == id).get)))
 
       val result = Map("trilha" -> Json.toJson(track),
                         "slots" -> Json.toJson(fullSlots.map{slot =>
                           Map(
                             "id" -> Json.toJson(slot.id),
+                            "stadium" -> Json.toJson(slot.stadium.getOrElse(false)),
                             "palestras" -> Json.toJson(slot.proposals.map{proposal =>
                               Map(
                                 "id" -> Json.toJson(proposal.id),

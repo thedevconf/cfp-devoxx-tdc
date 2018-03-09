@@ -35,7 +35,10 @@
 
 <div class="col-lg-6 panel_slots">
     <div ng-repeat="slot in slots" class="slot" drop="slot" dropStyle="columnDrop">
-        <span class="label label-default">Slot {{slot.id }}</span>
+        <button ng-click="toggleStadium(slot.id)" class="label label-default" title="Clique aqui para marcar/desmarcar como Stadium">Slot {{slot.id }}</button>
+        <div ng-show="slot.stadium" class="label label-warning">
+            Stadium
+        </div>
         <div ng-repeat="proposal in slot.proposals">
             <hr class="tdc">
             <span class="label label-default">{{$index + 1}}</span>

@@ -6,7 +6,7 @@ import org.joda.time.Instant
 import play.api.data.Forms._
 import play.api.data._
 import play.api.i18n.Messages
-import play.api.libs.json.Json
+import play.api.libs.json.{JsValue, Json}
 import play.api.templates.HtmlFormat
 
 /**
@@ -144,6 +144,7 @@ case class Proposal(id: String,
     mainSpeaker :: (secondarySpeaker.toList ++ otherSpeakers)
   }
 
+  def allSpeakers: List[Speaker] = {
   def allSpeakers: List[Speaker] = {
     allSpeakerUUIDs.flatMap { uuid =>
       Speaker.findByUUID(uuid)
@@ -1011,6 +1012,33 @@ object Proposal {
       }
     }
 
+  }
+
+  /**
+    * Loads all proposals that are scheduled inside a slot marked as Stadium
+    *
+    * @return
+    */
+  def allStadium(): List[Proposal] = Redis.pool.withClient {
+    implicit client =>
+      import models.TDCScheduleConfiguration.scheduleSavedFormat
+
+      val allSchedules:Map[String,TDCSlot] = client.hgetAll("ScheduleConfigurationByTrack")
+                        .mapValues(json => {
+                          val schedule = Json.parse(json).as[TDCScheduleSaved]
+                          schedule.slots.find(slot => slot.stadium.getOrElse(false))
+                        })
+                        .filter{case (track, optionSlot) => optionSlot.nonEmpty}
+                        .mapValues(optionSlot => optionSlot.get)
+
+      val allProposalIDs = allSchedules.values.flatMap(_.proposals).toList
+
+      client.hmget("Proposals", allProposalIDs).map {
+        json =>
+          val proposal = Json.parse(json).as[Proposal]
+          val proposalState = findProposalState(proposal.id)
+          proposal.copy(state = proposalState.getOrElse(ProposalState.UNKNOWN))
+      }
   }
 
 }
