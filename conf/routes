@@ -106,6 +106,7 @@ GET           /cfpadmin/compareReviewer                                         
 GET           /cfpadmin/allWebusers                                             controllers.CFPAdmin.allWebusers()
 GET           /cfpadmin/reports                                                 controllers.CFPAdmin.reportsHome()
 GET           /cfpadmin/reports/talks/byCompany                                 controllers.CFPAdmin.allTalksByCompany()
+GET           /cfpadmin/reports/talks/stadium                                   controllers.CFPAdmin.allStadiumTalks()
 GET           /cfpadmin/reports/allSpeakers/approvedTalks                       controllers.CFPAdmin.allSpeakersWithApprovedTalks()
 GET           /cfpadmin/reports/allSpeakers/approvedTalks/byCompany             controllers.CFPAdmin.allApprovedSpeakersByCompany(showQuickiesAndBof:Boolean ?=false)
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/forgetToAccept        controllers.CFPAdmin.allSpeakersThatForgetToAccept()

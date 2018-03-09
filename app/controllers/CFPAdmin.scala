@@ -503,12 +503,12 @@ object CFPAdmin extends SecureCFPController {
       }
   }
 
-  def reportsHome() = SecuredAction(IsMemberOf("cfp")) {
+  def reportsHome() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Ok(views.html.CFPAdmin.reportsHome())
   }
 
-  def allTalksByCompany() = SecuredAction(IsMemberOf("cfp")) {
+  def allTalksByCompany() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
       val allProposals = Proposal.allActiveProposals()
@@ -775,6 +775,19 @@ object CFPAdmin extends SecureCFPController {
       Ok(views.html.Backoffice.showEvents(twentyEvents, Event.totalEvents(), page))
   }
 
+  /**
+    * loads all the talks that were marked as candidates for stadium, classified by track
+    * @return
+    */
+  def allStadiumTalks() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+
+      val allProposals = Proposal.allStadium()
+
+      val groupedProposals:Map[Track,List[Proposal]] = allProposals.groupBy(_.track)
+
+      Ok(views.html.CFPAdmin.allStadiumTalks(groupedProposals))
+  }
 }
 
 

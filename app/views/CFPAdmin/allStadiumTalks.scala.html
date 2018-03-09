@@ -1,0 +1,90 @@
+@(proposals:Map[Track,List[Proposal]])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@import helper._
+
+@main("CFP Talks") {
+<div class="row">
+    <div class="col-lg-offset-4 col-md-4">
+        <h2><i class="icon-thumbs-up-alt"></i> @Messages("reports.title")</h2>
+    </div>
+    <div class="clearfix"></div>
+
+    @if(flash.get("error").isDefined){
+        <div class="alert alert-danger alert-dismissable col-md-12">
+            <strong>Error :</strong>
+            @flash.get("error").get
+        </div>
+    }
+    @if(flash.get("success").isDefined){
+        <div class="alert alert-success alert-dismissable col-md-12">
+            @flash.get("success").get
+        </div>
+    }
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>@Messages("reports.allStadiumTalks.title")</h3>
+            </div>
+            <div class="panel-footer">
+                <a href="@routes.CFPAdmin.reportsHome()" class="btn btn-sm btn-primary"><i class="icon-table"></i> @Messages("admin.btn.reports")</a>
+            </div>
+        </div>
+    </div>
+    <div class = "col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                @if(proposals.nonEmpty){
+                <table class="table table-bordered table-stripped">
+                    <thead>
+                    <tr>
+                        <th>@Messages("allSpeakers.columns.talk")</th>
+                        <th>@Messages("allSpeakers.columns.speakers")</th>
+                        <th>@Messages("allSpeakers.columns.status")</th>
+                        <th>@Messages("allSpeakers.columns.actions")</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                        @proposals.toList.sortBy(pair=> Messages(pair._1.label)).map { case (track, props) =>
+                            <tr>
+                                <th colspan="5">@Messages(track.label)</th>
+                            </tr>
+                            @props.map {proposal=>
+                            <tr>
+                                <td>
+                                    @proposal.title
+                                </td>
+                                <td>
+                                    @proposal.allSpeakers.map(_.cleanName).mkString(", ")
+                                </td>
+                                <td>
+                                    <span class="label label-@proposal.state.code">@Messages(proposal.state.code)</span>
+                                </td>
+                                <td>
+                                    <a href="@routes.CFPAdmin.openForReview(proposal.id)"
+                                       class="btn btn-primary btn-sm">@Messages("allSpeakers.link.talk")</a>
+                                </td>
+                            </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+                }else{
+                    <p>@Messages("allSpeakers.warning.notalk")</p>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-12">
+        <a href="#top" title="Ir para o topo" class="btn btn-sm btn-warning">
+            <i class="icon-angle-up"></i> @Messages("top.page")
+        </a>
+    </div>
+
+</div>
+}
