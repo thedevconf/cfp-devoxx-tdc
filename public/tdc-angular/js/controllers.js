@@ -16,6 +16,11 @@ adminController.controller('AdminController', function AdminController($rootScop
             });
         })
     }
+    $scope.toggleBlockedStatus = function(track) {
+        var trackToChange = $scope.allScheduledTracks.find(t => t.id === track.id);
+        trackToChange.blocked = !trackToChange.blocked;
+        ScheduleService.updateStatus({id:track.id}, trackToChange);
+    }
 });
 
 
@@ -36,6 +41,7 @@ mainController.controller('MainController', function MainController($rootScope, 
         } else {
             $scope.slots = jsonObj["fullSchedule"].slots;
         }
+        $scope.blocked = jsonObj["fullSchedule"].blocked
     });
 
     $rootScope.$on('dropEvent', function (evt, dragged, dropped) {

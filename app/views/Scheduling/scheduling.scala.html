@@ -60,10 +60,11 @@
 
      <div class="container" ng-app="cfpApp">
      <h3>Planejamento da grade de palestras</h3>
+     @if(SecureCFPController.hasAccessToAdmin(req)){
+         <a class = "btn btn-primary btn-sm"href="#/saved">Administrar grades salvas</a>
+     }
+      <h4>Carregar palestras</h4>
       <ul class="menu">
-          @if(SecureCFPController.hasAccessToAdmin(req)){
-            <li><a href="#/saved">Recarregar uma grade salva</a></li>
-          }
           @tracks.map { track =>
             <li><a href="#/slots/@track.id">Palestras da trilha @Messages(track.label)</a></li>
           }
