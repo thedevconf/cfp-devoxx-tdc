@@ -23,7 +23,7 @@
 
 package controllers
 
-import library.{SaveTDCSlots, ZapActor}
+import library.{UpdateScheduleStatus, SaveTDCSlots, ZapActor}
 import models._
 import play.api.i18n.Messages
 import play.api.libs.json.Json
@@ -56,19 +56,34 @@ object TDCSchedulingController extends SecureCFPController {
       }
   }
 
+  /**
+    * returns a Json with all the tracks that have a schedule and their respective status
+    *
+    */
   def allScheduledTracks() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
-      val tracks = TDCScheduleConfiguration.allScheduledTracks()
-                  .map(trackId => {
+      val tracks:List[(Track,Boolean)] = TDCScheduleConfiguration.allScheduledTracks().toList
+                  .map{case (trackId,schedule) => {
                     val track = Track.parse(trackId)
-                    track.copy(label = Messages(track.label))
-                  })
-      val json = Json.toJson(Map("scheduledTracks" -> Json.toJson(tracks)))
+                    val updatedTrack = track.copy(label = Messages(track.label))
+                    (updatedTrack,schedule.blocked.getOrElse(false))
+                  }}
+      val json = Json.toJson(Map(
+                              "scheduledTracks" ->
+                                    Json.toJson(tracks.map{case (track,blocked) =>
+                                        Map(
+                                          "id" -> Json.toJson(track.id),
+                                          "label" -> Json.toJson(track.label),
+                                          "blocked" -> Json.toJson(blocked)
+                                        )
+                                    })
+                              )
+      )
       Ok(Json.stringify(json)).as("application/json")
   }
 
-  def deleteSchedule(trackId:String) = SecuredAction(IsMemberOf("cfp")) {
+  def deleteSchedule(trackId:String) = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       TDCScheduleConfiguration.delete(trackId)
       Ok("{\"status\":\"deleted\"}").as("application/json")
@@ -129,7 +144,7 @@ object TDCSchedulingController extends SecureCFPController {
                 )
               }))))
 
-          val fullSchedule = TDCScheduleConfiguration(trackId,fullSlots)
+          val fullSchedule = TDCScheduleConfiguration(trackId,fullSlots,config.blocked)
 
           Json.toJson(Map(
             "approvedTalks" -> Json.toJson(availableProposals)
@@ -137,6 +152,23 @@ object TDCSchedulingController extends SecureCFPController {
           ))
       }
       Ok(Json.stringify(jsonResult)).as("application/json")
+  }
+
+  /**
+    * updates the blocked status of a schedule
+    *
+    * @param trackId
+    * @return
+    */
+  def updateStatus(trackId:String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      request.body.asJson.map {
+        json =>
+          ZapActor.actor ! UpdateScheduleStatus(trackId, (json \ "blocked").as[Boolean] )
+          Ok("{\"status\":\"success\"}").as("application/json")
+      }.getOrElse {
+        BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
+      }
   }
 
 }

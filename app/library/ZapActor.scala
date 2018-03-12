@@ -84,6 +84,8 @@ case class SendHeartbeat(apiKey: String, name: String)
 
 case class SaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser)
 
+case class UpdateScheduleStatus(trackId: String, blocked: Boolean)
+
 // Defines an actor (no failover strategy here)
 object ZapActor {
   val actor = Akka.system.actorOf(Props[ZapActor])
@@ -111,6 +113,7 @@ class ZapActor extends Actor {
     case SendHeartbeat(apiKey: String, name: String) => doSendHeartbeat(apiKey, name)
     case NotifyGoldenTicket(goldenTicket:GoldenTicket) => doNotifyGoldenTicket(goldenTicket)
     case SaveTDCSlots(trackId,slots,createdBy) => doSaveTDCSlots(trackId,slots,createdBy)
+    case UpdateScheduleStatus(trackId, status) => doUpdateScheduleStatus (trackId, status)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -277,5 +280,11 @@ class ZapActor extends Actor {
 
   def doSaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser): Unit = {
     TDCScheduleConfiguration.persist(trackId, slots, createdBy)
+    Event.storeEvent(Event(trackId, createdBy.uuid, s"Updated track scheduling for track $trackId"))
+    Mails.sendScheduleUpdated(Track.parse(trackId),createdBy.cleanName)
+  }
+
+  def doUpdateScheduleStatus(trackId:String, status:Boolean) = {
+    TDCScheduleConfiguration.updateStatus(trackId, status)
   }
 }

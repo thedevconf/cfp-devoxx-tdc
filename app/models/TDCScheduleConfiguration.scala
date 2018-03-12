@@ -31,9 +31,9 @@ import play.api.libs.json.{JsValue, Json}
   *
   */
 
-case class TDCScheduleConfiguration(trackId: String, slots: List[FullTDCSlot])
+case class TDCScheduleConfiguration(trackId: String, slots: List[FullTDCSlot], blocked: Option[Boolean] = Some(false))
 
-case class TDCScheduleSaved(createdBy: String, slots: List[TDCSlot])
+case class TDCScheduleSaved(createdBy: String, slots: List[TDCSlot], blocked: Option[Boolean] = Some(false))
 
 object TDCScheduleConfiguration {
 
@@ -50,9 +50,15 @@ object TDCScheduleConfiguration {
       client.hset("ScheduleConfigurationByTrack", trackId, json)
   }
 
-  def allScheduledTracks(): Set[String] = Redis.pool.withClient {
+  /**
+    * Loads all saved schedules grouped by track
+    *
+    * @return
+    */
+  def allScheduledTracks(): Map[String,TDCScheduleSaved] = Redis.pool.withClient {
     implicit client =>
-      client.hkeys("ScheduleConfigurationByTrack")
+      client.hgetAll("ScheduleConfigurationByTrack")
+            .mapValues(json => Json.parse(json).as[TDCScheduleSaved])
   }
 
   def delete(trackId: String) = Redis.pool.withClient {
@@ -77,6 +83,18 @@ object TDCScheduleConfiguration {
   def deleteAll() = Redis.pool.withClient {
     implicit client =>
       client.del("ScheduleConfigurationByTrack")
+  }
+
+  def updateStatus(trackId:String, status:Boolean) = Redis.pool.withClient {
+    implicit client =>
+      val updatedSchedule = client.hget("ScheduleConfigurationByTrack",trackId)
+                                  .map(Json.parse(_).as[TDCScheduleSaved].copy(blocked = Some(status)))
+      updatedSchedule match {
+        case Some(schedule) =>
+          client.hset("ScheduleConfigurationByTrack", trackId, Json.toJson(schedule).toString)
+        case None =>
+          play.Logger.of("models.TDCScheduleConfiguration").warn(s"Unable to load a SlotConfiguration for the selected track $trackId")
+      }
   }
 
 }

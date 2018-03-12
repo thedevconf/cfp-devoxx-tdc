@@ -6,12 +6,20 @@
 <div class="col-lg-12">
 <flash-messages>
 </flash-messages>
-    <ul ng-repeat="track in allScheduledTracks">
-        <li>
-            <strong>Trilha {{track.label}}</strong>
-            <a class="btn btn-xs btn-primary" href="#/slots/{{track.id}}"><i class="icon-edit-sign"></i> Editar</a>
-            <button class="btn btn-xs btn-danger" ng-click="deleteSchedule(track)"><i class="icon-trash"></i> Excluir</button><br>
-        </li>
-    </ul>
+    <table class="table_talks">
+        <tr>
+            <th>Trilha</th>
+            <th>Ações</th>
+        </tr>
+        <tr ng-repeat="track in allScheduledTracks | orderBy:'label'">
+            <td>{{track.label}}</td>
+            <td>
+                <a class="btn btn-xs btn-primary" href="#/slots/{{track.id}}"><i class="icon-edit-sign"></i> Editar</a>
+                <button class="btn btn-xs btn-danger" ng-click="deleteSchedule(track)"><i class="icon-trash"></i> Excluir</button>
+                <button ng-show="!track.blocked" class="btn btn-xs btn-warning" ng-click="toggleBlockedStatus(track)"><i class="icon-ban-circle"></i> Bloquear</button>
+                <button ng-show="track.blocked" class="btn btn-xs btn-success" ng-click="toggleBlockedStatus(track)"><i class="icon-play"></i> Desbloquear</button>
+            </td>
+        </tr>
+    </table>
 </div>
 

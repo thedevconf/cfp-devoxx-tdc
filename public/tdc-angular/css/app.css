@@ -8,6 +8,10 @@ hr.tdc {
     margin-bottom: 5px;
 }
 
+.table_talks th {
+    text-align: center;
+}
+
 .panel_talks {
     border: 1px solid #eeeeee;
 }

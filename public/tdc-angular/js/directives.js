@@ -13,16 +13,18 @@ cfpApp.directive("drag", ["$rootScope", function($rootScope) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs)  {
-      attrs.$set('draggable', 'true');
-      scope.dragData = scope[attrs["drag"]];
-      scope.dragStyle = attrs["dragstyle"];
-      element.bind('dragstart', function(evt) {
-        $rootScope.draggedElement = scope.dragData;
-        dragStart(evt, element, scope.dragStyle);
-      });
-      element.bind('dragend', function(evt) {
-        dragEnd(evt, element, scope.dragStyle);
-      });
+      if(!scope.blocked) {
+          attrs.$set('draggable', 'true');
+          scope.dragData = scope[attrs["drag"]];
+          scope.dragStyle = attrs["dragstyle"];
+          element.bind('dragstart', function(evt) {
+            $rootScope.draggedElement = scope.dragData;
+            dragStart(evt, element, scope.dragStyle);
+          });
+          element.bind('dragend', function(evt) {
+            dragEnd(evt, element, scope.dragStyle);
+          });
+      }
     }
   }
 }]);
