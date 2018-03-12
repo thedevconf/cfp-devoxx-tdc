@@ -332,6 +332,22 @@ object Mails {
     )
   }
 
+  def sendScheduleUpdated(track: Track, author: String) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val subject: String = Messages("mail.schedule_updated.subject", Messages(track.label))
+
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(committeeEmail)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.sendScheduleUpdated(track,author).toString(),
+      views.html.Mails.sendScheduleUpdated(track,author).toString()
+    )
+  }
+
+
   def sendGoldenTicketEmail(invitedWebuser: Webuser, gt: GoldenTicket) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
     val subject: String = Messages("mail.goldenticket.subject", Messages("shortYearlyName"))

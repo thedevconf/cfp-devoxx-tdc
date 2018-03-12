@@ -1,12 +1,18 @@
 @(objRef:String)
 
-@if(models.Proposal.ProposalIDRegExp findFirstIn(objRef) isDefined){
-<a href="@routes.CFPAdmin.openForReview(objRef)" class="btn btn-sm btn-primary"><i class="icon-signin"></i> @objRef</a>
+@objRef match {
+    case obj if models.Proposal.ProposalIDRegExp findFirstIn(obj) isDefined => {
+    <a href="@routes.CFPAdmin.openForReview(objRef)" class="btn btn-sm btn-primary"><i class="icon-signin"></i> @objRef</a>
+    }
+    case obj if models.RequestToTalk.IDRegExp findFirstIn(obj) isDefined  => {
+    <a href="@routes.Wishlist.edit(objRef)" class="btn btn-sm btn-primary"><i class="icon-sort-by-attributes-alt"></i> @objRef</a>
+    }
+    case obj if org.apache.commons.lang3.StringUtils.trimToEmpty(obj).length==40  => {
+    <a href="@routes.CFPAdmin.showSpeakerAndTalks(objRef)" class="btn btn-sm btn-primary"><i class="icon-user"></i></a>
+    }
+    case obj => {
+        @obj
+    }
 }
-@if(models.RequestToTalk.IDRegExp findFirstIn(objRef) isDefined){
-<a href="@routes.Wishlist.edit(objRef)" class="btn btn-sm btn-primary"><i class="icon-sort-by-attributes-alt"></i> @objRef</a>
-}
-@if(org.apache.commons.lang3.StringUtils.trimToEmpty(objRef).length==40) {
-<a href="@routes.CFPAdmin.showSpeakerAndTalks(objRef)" class="btn btn-sm btn-primary"><i class="icon-user"></i></a>
-}
+
 

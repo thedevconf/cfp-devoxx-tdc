@@ -1,0 +1,10 @@
+@(track:Track, author:String)
+
+A grade da trilha @Messages(track.label) foi atualizada por @author
+
+Por favor, use este link acessar a grade alterada:
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.TDCSchedulingController.index#/slots/@track.id
+
+Obrigado,
+
+Equipe @Messages("longName")

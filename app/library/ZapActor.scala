@@ -280,6 +280,8 @@ class ZapActor extends Actor {
 
   def doSaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser): Unit = {
     TDCScheduleConfiguration.persist(trackId, slots, createdBy)
+    Event.storeEvent(Event(trackId, createdBy.uuid, s"Updated track scheduling for track $trackId"))
+    Mails.sendScheduleUpdated(Track.parse(trackId),createdBy.cleanName)
   }
 
   def doUpdateScheduleStatus(trackId:String, status:Boolean) = {
