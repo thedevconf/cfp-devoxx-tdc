@@ -855,6 +855,7 @@ mail.proposal_refused.subject=Your proposal {1} has been refused on Track {0}
 mail.proposal_backup.subject=Your proposal {1} has been marked as backup on Track {0}
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Schedule updated for track {0}
+mail.profile_updated.subject=User {0} profile has been updated
 
 proposal.audienceLevel=Audience level
 proposal.demoLevel=Type of presentation
@@ -1146,6 +1147,7 @@ showAcceptTerms.subtitle2=Terms and Conditions
 showAcceptTerms.warning=Version in Portuguese and English
 showAcceptTerms.button.validate=Validate
 showAcceptTerms.button.decline=Decline
+showAcceptTerms.warning=Warning! To be able to accept or decline a talk you must first accept the terms and conditions!
 
 allMyVotes.tab=All my votes
 allMyVotes.yourVotes=Your votes

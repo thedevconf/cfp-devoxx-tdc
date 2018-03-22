@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, SendMessageToCommitte, ZapActor}
+import library.{NotifyProposalSubmitted, SendMessageToCommitte, ZapActor, ProfileUpdated}
 import models._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
@@ -120,6 +120,7 @@ object CallForPaper extends SecureCFPController {
         updatedSpeaker => {
           Webuser.updateNames(uuid, updatedSpeaker.firstName.getOrElse("?"), updatedSpeaker.name.getOrElse("?"))
           Speaker.update(uuid, updatedSpeaker)
+          ZapActor.actor ! ProfileUpdated(updatedSpeaker.copy(uuid=uuid))
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> "Profile saved")
         }
       )

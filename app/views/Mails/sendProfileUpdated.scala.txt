@@ -1,0 +1,10 @@
+@(speaker:Speaker)
+
+O usuario @speaker.cleanName acabou de atualizar os dados de seu perfil
+
+Por favor, use este link acessar a grade alterada:
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.showSpeakerAndTalks(speaker.uuid)
+
+Obrigado,
+
+Equipe @Messages("longName")

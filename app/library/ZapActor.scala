@@ -86,6 +86,8 @@ case class SaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser)
 
 case class UpdateScheduleStatus(trackId: String, blocked: Boolean)
 
+case class ProfileUpdated(speaker:Speaker)
+
 // Defines an actor (no failover strategy here)
 object ZapActor {
   val actor = Akka.system.actorOf(Props[ZapActor])
@@ -114,6 +116,7 @@ class ZapActor extends Actor {
     case NotifyGoldenTicket(goldenTicket:GoldenTicket) => doNotifyGoldenTicket(goldenTicket)
     case SaveTDCSlots(trackId,slots,createdBy) => doSaveTDCSlots(trackId,slots,createdBy)
     case UpdateScheduleStatus(trackId, status) => doUpdateScheduleStatus (trackId, status)
+    case ProfileUpdated(speaker) => doNotifyProfileUpdated(speaker)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -286,5 +289,9 @@ class ZapActor extends Actor {
 
   def doUpdateScheduleStatus(trackId:String, status:Boolean) = {
     TDCScheduleConfiguration.updateStatus(trackId, status)
+  }
+
+  def doNotifyProfileUpdated(speaker: Speaker) = {
+    Mails.sendProfileUpdated(speaker)
   }
 }
