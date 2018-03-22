@@ -1,0 +1,10 @@
+@(speaker:Speaker)
+
+<p>O usuario <strong>@speaker.cleanName</strong> acabou de atualizar os dados de seu perfil</p>
+
+<p>Por favor, use este link acessar o novo perfil:</p>
+<a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.showSpeakerAndTalks(speaker.uuid)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.showSpeakerAndTalks(speaker.uuid)</a>
+<br>
+<br>
+<p>Obrigado,</p>
+<p>Equipe @Messages("longName")</p>

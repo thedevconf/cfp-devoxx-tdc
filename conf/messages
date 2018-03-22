@@ -823,6 +823,7 @@ mail.proposal_refused.subject=Sua proposta {1} foi rejeitada na Trilha {0}
 mail.proposal_backup.subject=Sua proposta {1} foi marcada como backup na Trilha {0}
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Grade atualizada para trilha {0}
+mail.profile_updated.subject=O usuario {0} atualizou seus dados
 
 proposal.audienceLevel=Nível da audiência
 proposal.demoLevel=Tipo de apresentação

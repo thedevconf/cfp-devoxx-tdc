@@ -347,6 +347,21 @@ object Mails {
     )
   }
 
+  def sendProfileUpdated(speaker: Speaker) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val subject: String = Messages("mail.profile_updated.subject", speaker.cleanName)
+
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(committeeEmail)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.sendProfileUpdated(speaker).toString(),
+      views.html.Mails.sendProfileUpdated(speaker).toString()
+    )
+  }
+
 
   def sendGoldenTicketEmail(invitedWebuser: Webuser, gt: GoldenTicket) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
