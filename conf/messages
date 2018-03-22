@@ -1114,6 +1114,7 @@ showAcceptTerms.subtitle2=Termos e Condições
 showAcceptTerms.warning=Versão em Português e Inglês
 showAcceptTerms.button.validate=Validar
 showAcceptTerms.button.decline=Recusar
+showAcceptTerms.warning=Atenção! Para aceitar ou recusar apresentar uma palestra primeiro é necessário aceitar os termos e condições!
 
 allMyVotes.tab=Todos meus votos
 allMyVotes.yourVotes=Seus votos

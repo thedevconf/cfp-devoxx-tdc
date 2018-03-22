@@ -1116,6 +1116,7 @@ showAcceptTerms.subtitle2=Terms and Conditions
 showAcceptTerms.warning=Version in Portuguese and English
 showAcceptTerms.button.validate=Validate
 showAcceptTerms.button.decline=Decline
+showAcceptTerms.warning=Warning! To be able to accept or decline a talk you must first accept the terms and conditions!
 
 allMyVotes.tab=All my votes
 allMyVotes.yourVotes=Your votes
