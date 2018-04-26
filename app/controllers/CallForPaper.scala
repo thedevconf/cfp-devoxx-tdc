@@ -82,7 +82,7 @@ object CallForPaper extends SecureCFPController {
   def newSpeakerForExistingWebuser = SecuredAction {
     implicit request =>
       val w = request.webuser
-      val defaultValues = (w.email, w.firstName, w.lastName, StringUtils.abbreviate("...", 750), None, None, None, None, "No experience", None, None, None)
+      val defaultValues = (w.email, w.firstName, w.lastName, StringUtils.abbreviate("...", 750), None, None, None, None, "No experience", "", None, None)
       Ok(views.html.Authentication.confirmImport(Authentication.importSpeakerForm.fill(defaultValues)))
   }
 
@@ -98,7 +98,7 @@ object CallForPaper extends SecureCFPController {
     "blog" -> optional(text),
     "firstName" -> nonEmptyText(maxLength = 25),
     "qualifications" -> nonEmptyText(maxLength = 750),
-    "phone" -> optional(text),
+    "phone" -> nonEmptyText,
     "gender" -> optional(text),
     "tshirtSize" -> optional(text)
   )(Speaker.createSpeaker)(Speaker.unapplyForm))
