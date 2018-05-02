@@ -387,10 +387,10 @@ track.nosql.desc=
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
-track.php.title=PHP Essencial
-track.php.desc=
-php.label=PHP Essencial
-php.leaderboard=PHP Essencial
+track.phpessencial.title=PHP Essencial
+track.phpessencial.desc=
+phpessencial.label=PHP Essencial
+phpessencial.leaderboard=PHP Essencial
 
 track.pfuncional.title=Programação Funcional
 track.pfuncional.desc=
@@ -438,7 +438,7 @@ smartcities.label=Smart Cities
 smartcities.leaderboard=Smart Cities
 
 track.testes.title=Testes
-track.testes.desc=Porque o teste não morreu!
+track.testes.desc=
 testes.label=Testes
 testes.leaderboard=Testes
 
