@@ -776,43 +776,43 @@ object ConferenceDescriptor {
 
   def dateRange(from: DateTime, to: DateTime, step: Period): Iterator[DateTime]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
 
-  val fromDay = new DateTime().withYear(2017).withMonthOfYear(11).withDayOfMonth(8)
-  val toDay = new DateTime().withYear(2017).withMonthOfYear(11).withDayOfMonth(11)
+  val fromDay = new DateTime().withYear(2018).withMonthOfYear(7).withDayOfMonth(17)
+  val toDay = new DateTime().withYear(2018).withMonthOfYear(7).withDayOfMonth(21)
 
   // TODO You might want to start here and configure first, your various Conference Elements
   def current() = ConferenceDescriptor(
-    eventCode = "TDC2017POA",
+    eventCode = "TDC2018SP",
     // You will need to update conf/routes files with this code if modified
-    confUrlCode = "tdc2017poa",
+    confUrlCode = "tdc2018sp",
     frLangEnabled = false,
     fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
     committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
     bccEmail = Play.current.configuration.getString("mail.bcc"),
     bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
     conferenceUrls = ConferenceUrls(
-      faq = "http://cfp-poa.thedevconf.com.br/faq",
-      registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
+      faq = "http://cfp-sp.thedevconf.com.br/faq",
+      registration = "http://thedevconf.com.br/tdc/2018/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
       cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
-      datesI18nKey = "8 a 11 de Novembro de 2017",
+      datesI18nKey = "17 a 21 de Julho de 2018",
       speakersPassDuration = 4,
       preferredDayEnabled = true,
-      firstDayFr = "8 november",
-      firstDayEn = "november 8th",
-      datesFr = "du 8 au 11 november 2017",
-      datesEn = "November 8th to 11th, 2017",
-      cfpOpenedOn = DateTime.parse("2017-08-18T08:00:00-03:00"),
-      cfpClosedOn = DateTime.parse("2017-09-03T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2017-09-11T00:00:00-03:00"),
+      firstDayFr = "17 july",
+      firstDayEn = "july 17th",
+      datesFr = "du 17 au 21 july 2018",
+      datesEn = "July 17th to 21st, 2018",
+      cfpOpenedOn = DateTime.parse("2018-05-03T08:00:00-03:00"),
+      cfpClosedOn = DateTime.parse("2018-04-23T23:59:59-03:00"),
+      scheduleAnnouncedOn = DateTime.parse("2018-06-04T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
     hashTag = "#TheDevConf",
     conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF)
     ,  List(new Locale("pt","BR"))
-    , "UniRitter, Porto Alegre, RS"
+    , "AnhembiMorumbi, São Paulo, SP"
     , notifyProposalSubmitted = false // Do not send an email for each talk submitted for France
     , 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
   )
