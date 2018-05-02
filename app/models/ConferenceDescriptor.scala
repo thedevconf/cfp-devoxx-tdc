@@ -211,12 +211,16 @@ object ConferenceDescriptor {
     val ANALISE = Track("analise", "analise.label")
     val ANDROID = Track("android", "android.label")
     val ARDUINO = Track("arduino", "arduino.label")
+    val ARQUITCORP = Track("arquitetcorp", "arquitetcorp.label")
+    val ARQUITDADOS = Track("arquitetdados", "arquitetdados.label")
     val ARQUITJAVA = Track("arquitetjava", "arquitetjava.label")
+    val ARQUITNET = Track("arquitetnet", "arquitetnet.label")
     val ARQUITPHP = Track("arquitetphp", "arquitetphp.label")
 
     val BIGDATA = Track("bigdata", "bigdata.label")
     val BANCODADOS = Track("banco", "banco.label")
     val BLOCKCHAIN = Track("blockchain", "blockchain.label")
+
     val CHATBOTS = Track("chatbots", "chatbots.label")
     val CLOUD = Track("cloud", "cloud.label")
     val COMPUTACAOCOGN = Track("computacao", "computacao.label")
@@ -231,33 +235,52 @@ object ConferenceDescriptor {
     val GAMES = Track("games", "games.label")
     val GOLANG = Track("golang", "golang.label")
 
-    val INFRAAGIL = Track("infraagil", "infraagil.label")
+    val INOVACAO = Track("inovacao", "inovacao.label")
+    val INTELARTIF = Track("intelartif", "intelartif.label")
     val IOS = Track("ios", "ios.label")
     val IOT = Track("iot", "iot.label")
 
     val JAVA = Track("java", "java.label")
+    val JAVACORP = Track("javacorp", "javacorp.label")
     val JAVASCRIPT = Track("javascript", "javascript.label")
+
+    val KANBAN = Track("kanban", "kanban.label")
+    val KOTLYN = Track("kotlyn", "kotlyn.label")
 
     val MACHINE = Track("machine", "machine.label")
     val MANAGEMENT = Track("management", "management.label")
-    val MARKETING = Track("marketing", "marketing.label")
     val MICROSERVICES = Track("microservices", "microservices.label")
+    val MOBILE = Track("mobile", "mobile.label")
+    val MODERNWEB = Track("modernweb", "modernweb.label")
 
     val NODEJS = Track("nodejs", "nodejs.label")
     val NOSQL = Track("nosql", "nosql.label")
+
     val PFUNCIONAL = Track("pfuncional", "pfuncional.label")
+    val PHPESSENCIAL = Track("phpessencial", "phpessencial.label")
+    val PYTHON = Track("python", "python.label")
+
+    val RADDELPHIC = Track("raddelphic", "raddelphic.label")
+    val REALIDADE = Track("realidade", "realidade.label")
+    val REQUISAGEIS = Track("requisitos", "requisitos.label")
+    val RUBY = Track("ruby", "ruby.label")
+
+    val SEGURANCA = Track("seguranca", "seguranca.label")
+    val SERVERLESS = Track("serverless", "serverless.label")
+    val SMARTCITIES = Track("smartcities", "smartcities.label")
 
     val TESTES = Track("testes", "testes.label")
     val TRANSFDIGITAL = Track("transfdigital", "transfdigital.label")
     val UXDESIGN = Track("uxdesign", "uxdesign.label")
-    val WEB = Track("web", "web.label")
+    val XP = Track("xp", "xp.label")
     val WOMEN = Track("women", "women.label")
-    val XAMARIN = Track("xamarin", "xamarin.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
-      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
-      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
-      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITDOTNET, ARQUITCORP,
+      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
+      CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
+      MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
+      RUBY, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 
   }
 
@@ -271,7 +294,10 @@ object ConferenceDescriptor {
     val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
     val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_android.png", "track.android.title", "track.android.desc")
     val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/tdc2016poa/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
+    val ARQUITCORP = TrackDesc(ConferenceTracks.ARQUITCORP.id, "/assets/tdc2016poa/images/icon_arquitetcorp.png", "track.arquitetcorp.title", "track.arquitetcorp.desc")
+    val ARQUITDADOS = TrackDesc(ConferenceTracks.ARQUITDADOS.id, "/assets/tdc2016poa/images/icon_arquitetdados.png", "track.arquitetdados.title", "track.arquitetdados.desc")
     val ARQUITJAVA = TrackDesc(ConferenceTracks.ARQUITJAVA.id, "/assets/tdc2016poa/images/icon_arquitetjava.png", "track.arquitetjava.title", "track.arquitetjava.desc")
+    val ARQUITNET = TrackDesc(ConferenceTracks.ARQUITNET.id, "/assets/tdc2016poa/images/icon_arquitetnet.png", "track.arquitetnet.title", "track.arquitetnet.desc")
     val ARQUITPHP = TrackDesc(ConferenceTracks.ARQUITPHP.id, "/assets/tdc2016poa/images/icon_arquitetphp.png", "track.arquitetphp.title", "track.arquitetphp.desc")
 
     val BANCODADOS = TrackDesc(ConferenceTracks.BANCODADOS.id, "/assets/tdc2016poa/images/icon_bd.png", "track.banco.title", "track.banco.desc")
@@ -291,33 +317,52 @@ object ConferenceDescriptor {
     val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
 
-    val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
-    val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
-
-    val INFRAAGIL = TrackDesc(ConferenceTracks.INFRAAGIL.id, "/assets/tdc2016poa/images/icon_infraagil.png", "track.infraagil.title", "track.infraagil.desc")
+    val INOVACAO = TrackDesc(ConferenceTracks.INOVACAO.id, "/assets/tdc2016poa/images/icon_inovacao.png", "track.inovacao.title", "track.inovacao.desc")
+    val INTELARTIF = TrackDesc(ConferenceTracks.INTELARTIF.id, "/assets/tdc2016poa/images/icon_intelartif.png", "track.intelartif.title", "track.intelartif.desc")
     val IOS = TrackDesc(ConferenceTracks.IOS.id, "/assets/tdc2016poa/images/icon_ios.png", "track.ios.title", "track.ios.desc")
     val IOT = TrackDesc(ConferenceTracks.IOT.id, "/assets/tdc2016poa/images/icon_iot.png", "track.iot.title", "track.iot.desc")
 
+    val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
+    val JAVACORP = TrackDesc(ConferenceTracks.JAVACORP.id, "/assets/tdc2016poa/images/icon_javacorp.png", "track.javacorp.title", "track.javacorp.desc")
+    val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
+
+    val KANBAN = TrackDesc(ConferenceTracks.KANBAN.id, "/assets/tdc2016poa/images/icon_kanban.png", "track.kanban.title", "track.kanban.desc")
+    val KOTLYN = TrackDesc(ConferenceTracks.KOTLYN.id, "/assets/tdc2016poa/images/icon_kotlyn.png", "track.kotlyn.title", "track.kotlyn.desc")
+
     val MACHINE = TrackDesc(ConferenceTracks.MACHINE.id, "/assets/tdc2016poa/images/icon_machine.png", "track.machine.title", "track.machine.desc")
     val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/tdc2016poa/images/icon_management.png", "track.management.title", "track.management.desc")
-    val MARKETING = TrackDesc(ConferenceTracks.MARKETING.id, "/assets/tdc2016poa/images/icon_marketing.png", "track.marketing.title", "track.marketing.desc")
     val MICROSERVICES = TrackDesc(ConferenceTracks.MICROSERVICES.id, "/assets/tdc2016poa/images/icon_bd.png", "track.microservices.title", "track.microservices.desc")
+    val MOBILE = TrackDesc(ConferenceTracks.MOBILE.id, "/assets/tdc2016poa/images/icon_mobile.png", "track.mobile.title", "track.mobile.desc")
+    val MODERNWEB = TrackDesc(ConferenceTracks.MODERNWEB.id, "/assets/tdc2016poa/images/icon_web.png", "track.modernweb.title", "track.modernweb.desc")
 
     val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_nodejs.png", "track.nodejs.title", "track.nodejs.desc")
     val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_nosql.png", "track.nosql.title", "track.nosql.desc")
+
+    val PHPESSENCIAL = TrackDesc(ConferenceTracks.PHPESSENCIAL.id, "/assets/tdc2016poa/images/icon_php.png", "track.phpessencial.title", "track.phpessencial.desc")
     val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
+    val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/tdc2016poa/images/icon_python.png", "track.python.title", "track.python.desc")
+
+    val RADDELPHIC = TrackDesc(ConferenceTracks.RADDELPHIC.id, "/assets/tdc2016poa/images/icon_delphic.png", "track.raddelphic.title", "track.raddelphic.desc")
+    val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
+    val REQUISAGEIS = TrackDesc(ConferenceTracks.REQUISAGEIS.id, "/assets/tdc2016poa/images/icon_requisitos.png", "track.requisitos.title", "track.requisitos.desc")
+    val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/tdc2016poa/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
+
+    val SEGURANCA = TrackDesc(ConferenceTracks.SEGURANCA.id, "/assets/tdc2016poa/images/icon_seguranca.png", "track.seguranca.title", "track.seguranca.desc")
+    val SERVERLESS = TrackDesc(ConferenceTracks.SERVERLESS.id, "/assets/tdc2016poa/images/icon_serverless.png", "track.serverless.title", "track.serverless.desc")
+    val SMARTCITIES = TrackDesc(ConferenceTracks.SMARTCITIES.id, "/assets/tdc2016poa/images/icon_smartcities.png", "track.smartcities.title", "track.smartcities.desc")
 
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
     val TRANSFDIGITAL = TrackDesc(ConferenceTracks.TRANSFDIGITAL.id, "/assets/tdc2016poa/images/icon_transfdigital.png", "track.transfdigital.title", "track.transfdigital.desc")
     val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/tdc2016poa/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
-    val WEB = TrackDesc(ConferenceTracks.WEB.id, "/assets/tdc2016poa/images/icon_web.png", "track.web.title", "track.web.desc")
     val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_women.png", "track.women.title", "track.women.desc")
-    val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
+    val XP = TrackDesc(ConferenceTracks.XP.id, "/assets/tdc2016poa/images/icon_xp.png", "track.xp.title", "track.xp.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
-      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
-      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
-      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITDOTNET, ARQUITCORP,
+      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
+      CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
+      MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
+      RUBY, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
