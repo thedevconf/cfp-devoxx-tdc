@@ -422,6 +422,11 @@ track.ruby.desc=
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
+track.rust.title=Rust
+track.rust.desc=
+rust.label=Rust
+rust.leaderboard=Rust
+
 track.seguranca.title=Segurança
 track.seguranca.desc=
 seguranca.label=Segurança

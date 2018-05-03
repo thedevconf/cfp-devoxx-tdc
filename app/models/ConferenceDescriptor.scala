@@ -264,6 +264,7 @@ object ConferenceDescriptor {
     val REALIDADE = Track("realidade", "realidade.label")
     val REQUISAGEIS = Track("requisitos", "requisitos.label")
     val RUBY = Track("ruby", "ruby.label")
+    val RUST = Track("rust", "rust.label")
 
     val SEGURANCA = Track("seguranca", "seguranca.label")
     val SERVERLESS = Track("serverless", "serverless.label")
@@ -276,11 +277,11 @@ object ConferenceDescriptor {
     val WOMEN = Track("women", "women.label")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITNET, ARQUITCORP,
-      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
+      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, ARDUINO, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
       CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
       IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
       MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
-      RUBY, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
+      RUBY, RUST, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 
   }
 
@@ -346,6 +347,7 @@ object ConferenceDescriptor {
     val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
     val REQUISAGEIS = TrackDesc(ConferenceTracks.REQUISAGEIS.id, "/assets/tdc2016poa/images/icon_requisitos.png", "track.requisitos.title", "track.requisitos.desc")
     val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/tdc2016poa/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
+    val RUST = TrackDesc(ConferenceTracks.RUST.id, "/assets/tdc2016poa/images/icon_rust.png", "track.rust.title", "track.rust.desc")
 
     val SEGURANCA = TrackDesc(ConferenceTracks.SEGURANCA.id, "/assets/tdc2016poa/images/icon_seguranca.png", "track.seguranca.title", "track.seguranca.desc")
     val SERVERLESS = TrackDesc(ConferenceTracks.SERVERLESS.id, "/assets/tdc2016poa/images/icon_serverless.png", "track.serverless.title", "track.serverless.desc")
@@ -358,11 +360,11 @@ object ConferenceDescriptor {
     val XP = TrackDesc(ConferenceTracks.XP.id, "/assets/tdc2016poa/images/icon_xp.png", "track.xp.title", "track.xp.desc")
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITNET, ARQUITCORP,
-      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
+      ARQUITDADOS, ARQUITJAVA, ARQUITPHP, ARDUINO, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
       CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
       IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
       MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
-      RUBY, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
+      RUBY, RUST, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
