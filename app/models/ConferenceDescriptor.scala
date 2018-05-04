@@ -245,7 +245,7 @@ object ConferenceDescriptor {
     val JAVASCRIPT = Track("javascript", "javascript.label")
 
     val KANBAN = Track("kanban", "kanban.label")
-    val KOTLYN = Track("kotlyn", "kotlyn.label")
+    val KOTLIN = Track("kotlin", "kotlin.label")
 
     val MACHINE = Track("machine", "machine.label")
     val MANAGEMENT = Track("management", "management.label")
@@ -279,7 +279,7 @@ object ConferenceDescriptor {
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITNET, ARQUITCORP,
       ARQUITDADOS, ARQUITJAVA, ARQUITPHP, ARDUINO, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
       CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
-      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
+      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLIN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
       MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
       RUBY, RUST, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 
@@ -328,7 +328,7 @@ object ConferenceDescriptor {
     val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
 
     val KANBAN = TrackDesc(ConferenceTracks.KANBAN.id, "/assets/tdc2016poa/images/icon_kanban.png", "track.kanban.title", "track.kanban.desc")
-    val KOTLYN = TrackDesc(ConferenceTracks.KOTLYN.id, "/assets/tdc2016poa/images/icon_kotlyn.png", "track.kotlyn.title", "track.kotlyn.desc")
+    val KOTLIN = TrackDesc(ConferenceTracks.KOTLIN.id, "/assets/tdc2016poa/images/icon_kotlin.png", "track.kotlin.title", "track.kotlin.desc")
 
     val MACHINE = TrackDesc(ConferenceTracks.MACHINE.id, "/assets/tdc2016poa/images/icon_machine.png", "track.machine.title", "track.machine.desc")
     val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/tdc2016poa/images/icon_management.png", "track.management.title", "track.management.desc")
@@ -362,7 +362,7 @@ object ConferenceDescriptor {
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARQUITNET, ARQUITCORP,
       ARQUITDADOS, ARQUITJAVA, ARQUITPHP, ARDUINO, BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN,
       CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST, DEVOPS, GAMES, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
-      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLYN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
+      IOS, IOT, JAVA, JAVACORP, JAVASCRIPT, KANBAN, KOTLIN, MACHINE, MANAGEMENT, MICROSERVICES, MOBILE,
       MODERNWEB, NOSQL, NODEJS, PHPESSENCIAL, PFUNCIONAL, PYTHON, RADDELPHIC, REALIDADE, REQUISAGEIS,
       RUBY, RUST, SEGURANCA, SERVERLESS, SMARTCITIES, TESTES, TRANSFDIGITAL, UXDESIGN, XP, WOMEN)
 

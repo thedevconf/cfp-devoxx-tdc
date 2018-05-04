@@ -347,10 +347,10 @@ track.kanban.desc=
 kanban.label=Kanban e Lean
 kanban.leaderboard=Kanban e Lean
 
-track.kotlyn.title=Kotlyn
-track.kotlyn.desc=
-kotlyn.label=Kotlyn
-kotlyn.leaderboard=Kotlyn
+track.kotlin.title=Kotlin
+track.kotlin.desc=
+kotlin.label=Kotlin
+kotlin.leaderboard=Kotlin
 
 track.machine.title=Machine Learning
 track.machine.desc=
