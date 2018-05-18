@@ -840,7 +840,7 @@ object ConferenceDescriptor {
       faq = "http://cfp-sp.thedevconf.com.br/faq",
       registration = "http://thedevconf.com.br/tdc/2018/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
-      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br")
+      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-sp.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
       datesI18nKey = "17 a 21 de Julho de 2018",
