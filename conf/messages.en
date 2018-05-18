@@ -288,11 +288,7 @@ devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.devtest.title=DevTest
-track.devtest.desc=live-coding, tests on/with:
-                   thorntail-tests (a.k.a wildfly swarm)
-                   OpenShift
-                   microservices
-                   vert-x
+track.devtest.desc=live-coding, tests on/with: thorntail-tests (a.k.a wildfly swarm); OpenShift; microservices; vert-x
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
