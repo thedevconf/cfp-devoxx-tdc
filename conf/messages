@@ -178,17 +178,7 @@ appel.conf.dates=TDC 2018 São Paulo, 17 a 21 de Julho de 2018
 # Tracks
 
 track.dotnet.title=.NET
-track.dotnet.desc=.NET Core;
-                  ASP.NET Core;
-                  Identity Server;
-                  SignarlR;
-                  C#;
-                  Visual Studio;
-                  Roslyn;
-                  Xamarin;
-                  ML.NET;
-                  Visual Studio Live Share;
-                  Entity Framework Core
+track.dotnet.desc=.NET Core; ASP.NET Core; Identity Server; SignarlR; C#; Visual Studio; Roslyn; Xamarin; ML.NET; Visual Studio Live Share; Entity Framework Core
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
@@ -203,9 +193,7 @@ agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=- Cases de sucesso (e nem tanto)
-                      - Papel do Agile Coach
-                      - Experiência na prática
+track.agilecoach.desc=Cases de sucesso (e nem tanto); Papel do Agile Coach; Experiência na prática
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
@@ -290,16 +278,7 @@ datascience.label=Data Science
 datascience.leaderboard=Data Science
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=- Mostrar cases de como está aplicando Design Thinking na sua empresa e/ou organização
-                     - Mostrar para as pessoas como funciona uma ferramenta de Design que achou interessante utilizar e achou que seria útil. Exemplos: Pegue uma deste livro aqui https://www.amazon.com/Universal-Methods-Design-Innovative-Effective-ebook/dp/B007WRCRH8 e mostre como é útil.
-                     - Trazer discussões sobre Design de Serviços e Lógica Dominante de Serviços
-                     - Mostrar os diferentes 'flavors' de Design Sprints
-                     - Mostrar como tem expandido a cultura de Design na sua realidade
-                     - Mostrar como alguma utiliza design no dia-a-dia
-                     - Mostrar como você utiliza o design para seus projetos
-                     - Mostrar como utilizando Design Thinking o seu time agora sabe o porque de fazer algo ao invés de ser super Ágil fazendo algo que se propõe a 'entregar valor'
-                     - Mostrar como tem usado Design Thinking para superar as barreiras entre os silos de produtos e desenvolvimento
-                     - Mostrar como grandes iniciativas de Design no mundo te inspiraram para buscar os métodos e mindset do design, design thinking, etc.
+track.dthinking.desc=Mostrar cases de como está aplicando Design Thinking na sua empresa e/ou organização; Mostrar para as pessoas como funciona uma ferramenta de Design que achou interessante utilizar e achou que seria útil. Exemplos: Pegue uma deste livro aqui https://www.amazon.com/Universal-Methods-Design-Innovative-Effective-ebook/dp/B007WRCRH8 e mostre como é útil; Trazer discussões sobre Design de Serviços e Lógica Dominante de Serviços; Mostrar os diferentes 'flavors' de Design Sprints; Mostrar como tem expandido a cultura de Design na sua realidade; Mostrar como alguma utiliza design no dia-a-dia; Mostrar como você utiliza o design para seus projetos; Mostrar como utilizando Design Thinking o seu time agora sabe o porque de fazer algo ao invés de ser super Ágil fazendo algo que se propõe a 'entregar valor'; Mostrar como tem usado Design Thinking para superar as barreiras entre os silos de produtos e desenvolvimento; Mostrar como grandes iniciativas de Design no mundo te inspiraram para buscar os métodos e mindset do design, design thinking, etc.
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
@@ -328,15 +307,7 @@ gestaoprod.label=Gestão de Produto
 gestaoprod.leaderboard=Gestão de Produto
 
 track.golang.title=Go
-track.golang.desc=- gerenciamento de dependências (vgo e dep)
-                  - web
-                  - testes
-                  - concorrência e paralelismo
-                  - performance
-                  - cases interessantes
-                  - apresentação de libs opensource, em especial criadas/mantidas por brasileiros
-                  - arquitetura
-                  - TDD
+track.golang.desc=-gerenciamento de dependências (vgo e dep); web; testes; concorrência e paralelismo; performance; cases interessantes; apresentação de libs opensource, em especial criadas/mantidas por brasileiros; arquitetura; TDD
 golang.label=Go
 golang.leaderboard=Go
 
