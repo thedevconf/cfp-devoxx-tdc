@@ -14,8 +14,12 @@ ATENÇÃO! Ações necessárias
 --------------------------
 
 1. Aceitar ou recusar
-Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:
+Você deve agora validar/aceitar ou recusar os termos e condições de participação, assim como o código de conduta, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
+ATENÇÃO: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
+As palestras não aceitas em até 5 dias úteis após esta notificação, serão canceladas e outra ocupará seu lugar.
 
 2. Sua minibio e foto
 Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.
@@ -60,9 +64,13 @@ ATTENTION! Required actions
 ---------------------------
 
 1. Accept or decline
-You must now validate or decline the general terms and conditions, and confirm that you are still ok to do
+You must now validate/accept or decline the general terms and conditions, as well as the code of conduct, and confirm that you are still ok to do
     this presentation AS SOON AS POSSIBLE:
  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
+ATTENTION: Only talks accepted via CFP website will be published in TDC website, so we ask you to do it as soon as possible.
+Talks not accepted within 5 working days after this notification, will be cancelled and another one will take its place.
 
 2. Your bio and picture
 In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.
