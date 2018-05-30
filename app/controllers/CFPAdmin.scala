@@ -67,11 +67,15 @@ object CFPAdmin extends SecureCFPController {
       val uuid = request.webuser.uuid
       Proposal.findById(proposalId) match {
         case Some(proposal) => {
-          val speakerDiscussion = Comment.allSpeakerComments(proposal.id)
-          val internalDiscussion = Comment.allInternalComments(proposal.id)
-          val maybeMyVote = Review.lastVoteByUserForOneProposal(uuid, proposalId)
-          val proposalsByAuths = allProposalByProposal(proposal)
-          Ok(views.html.CFPAdmin.showProposal(proposal, proposalsByAuths, speakerDiscussion, internalDiscussion, messageForm, messageForm, voteForm, maybeMyVote, uuid))
+          if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(proposal.track.id,uuid)) {
+            val speakerDiscussion = Comment.allSpeakerComments(proposal.id)
+            val internalDiscussion = Comment.allInternalComments(proposal.id)
+            val maybeMyVote = Review.lastVoteByUserForOneProposal(uuid, proposalId)
+            val proposalsByAuths = allProposalByProposal(proposal)
+            Ok(views.html.CFPAdmin.showProposal(proposal, proposalsByAuths, speakerDiscussion, internalDiscussion, messageForm, messageForm, voteForm, maybeMyVote, uuid))
+          } else {
+            Redirect(routes.Application.index()).flashing("error" -> "Not Authorized")
+          }
         }
         case None => NotFound("Proposal not found").as("text/html")
       }
