@@ -4,7 +4,7 @@ Olá, @firstName,
 
 Agradecemos mais uma vez a submissão da sua palestra!
 
-Lamentamos informar que INFELIZMENTE a sua palestra foi REJEITADA:
+Lamentamos informar que INFELIZMENTE a sua palestra NÃO foi APROVADA:
     Título: @proposal.title
     Trilha: @Messages(proposal.track.label)
 

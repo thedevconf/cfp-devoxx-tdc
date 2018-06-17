@@ -13,9 +13,6 @@ Formato: (tempo de palestra conforme combinado com os coordenadores)
 ATENÇÃO! Ações necessárias
 --------------------------
 1. Aceitar ou recusar
-Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação ATÉ O DIA XX/XX.
-(link)
-
 Você deve agora validar ou recusar os termos e condições, para confirmar que vai fazer esta apresentação o
 MAIS RÁPIDO POSSÍVEL:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
@@ -31,7 +28,7 @@ Por favor, não responda este email. Envie qualquer comentário através do web 
 possível para responder rapidamente.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt
 
 4. Cortesia para palestrantes
 Você gostaria de participar de outras trilhas do evento?
@@ -43,7 +40,7 @@ Recomendamos que faça sua inscrição assim que receber seu código pois muitas
 Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
   http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
 E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
-  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais
 
 Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
 
