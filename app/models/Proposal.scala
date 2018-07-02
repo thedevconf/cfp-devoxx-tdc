@@ -191,7 +191,7 @@ object Proposal {
 
       findById(proposal.id).map {
         oldProposal =>
-          resetVotesIfProposalTypeIsUpdated(proposal.id, proposal.talkType, oldProposal.talkType, proposalState)
+          resetVotesIfProposalTrackIsUpdated(proposal.id, proposal.track, oldProposal.track)
       }
 
 
@@ -1001,6 +1001,13 @@ object Proposal {
       }
   }
 
+  private def resetVotesIfProposalTrackIsUpdated(proposalId: String, track: Track, oldTrack: Track) {
+    if (track.id != oldTrack.id) {
+      Review.archiveAllVotesOnProposal(proposalId)
+      Comment.saveInternalComment(proposalId, Webuser.Internal.uuid, s"All votes deleted for this talk, because it was changed from [${Messages(oldTrack.label)}] to [${Messages(track.label)}]")
+    }
+  }
+
   private def resetVotesIfProposalTypeIsUpdated(proposalId: String, talkType: ProposalType, oldTalkType: ProposalType, state: ProposalState) {
     if (oldTalkType.id != talkType.id) {
       if (state == ProposalState.DRAFT) {
@@ -1010,7 +1017,6 @@ object Proposal {
         }
       }
     }
-
   }
 
   /**
