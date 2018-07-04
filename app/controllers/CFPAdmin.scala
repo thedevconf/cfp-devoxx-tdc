@@ -10,6 +10,7 @@ import play.api.data._
 import play.api.data.validation.Constraints._
 import play.api.i18n.Messages
 import play.api.libs.json.{JsObject, Json}
+import models.Incident._
 
 /**
   * The backoffice controller for the CFP technical committee.
@@ -376,7 +377,8 @@ object CFPAdmin extends SecureCFPController {
       Speaker.findByUUID(uuidSpeaker) match {
         case Some(speaker) => {
           val proposals = Proposal.allProposalsByAuthor(speaker.uuid)
-          Ok(views.html.CFPAdmin.showSpeakerAndTalks(speaker, proposals, request.webuser.uuid))
+          val incidents = Incident.allIncidentsByAuthor(speaker.uuid)
+          Ok(views.html.CFPAdmin.showSpeakerAndTalks(speaker, proposals, incidents, request.webuser.uuid))
         }
         case None => NotFound("Speaker not found")
       }
@@ -810,6 +812,31 @@ object CFPAdmin extends SecureCFPController {
 
       Ok(views.html.CFPAdmin.allStadiumTalks(groupedProposals))
   }
+
+  /**
+    * Opens the form for the insertion of a new incident for a speaker
+    */
+  def addIncident(speakerId: String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.CFPAdmin.incident(incidentForm.fill(Incident(speakerId,IncidentType.UNKNOWN,conference=ConferenceDescriptor.current().eventCode))))
+  }
+
+  /**
+    * Saves a new incident for the speaker
+    *
+    */
+  def saveIncident() = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      incidentForm.bindFromRequest.fold(
+        invalidForm => BadRequest(views.html.CFPAdmin.incident(invalidForm)).flashing("error" -> Messages("form.msg.error")),
+        validIncident => {
+          Incident.save(validIncident)
+          Event.storeEvent(Event(validIncident.speakerId, request.webuser.uuid, "added a new incident [" + validIncident.incidentType.id + "]"))
+          Redirect(routes.CFPAdmin.showSpeakerAndTalks(validIncident.speakerId)).flashing("success" -> Messages("sw.incidents.msg.success"))
+        }
+      )
+  }
+
 }
 
 
