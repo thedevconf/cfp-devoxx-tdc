@@ -688,6 +688,28 @@ sw.talkType=Todas palestras
 sw.details=Veja detalhes
 sw.proposal.btn.sendmessage=Enviar sua mensagem
 
+sw.incidents=Ocorrências
+sw.incidents.add=Adicionar uma ocorrência
+sw.incidents.description=Uma ocorrência indica se o palestrante já causou problemas em eventos anteriores, tais como faltas, cancelamento de última hora ou quebra do código de conduta
+sw.incidents.form.title=Adicionar Ocorrência
+sw.incidents.form.bt.save=Gravar
+sw.incidents.form.bt.cancel=Cancelar
+sw.incidents.msg.success=Ocorrência salva com sucesso
+sw.incidents.msg.error=Formulário inválido, não foi possivel criar a ocorrência
+sw.incidents.title.conference=Conferência
+sw.incidents.title.type=Tipo
+sw.incidents.title.description=Descrição
+
+form.msg.error=Formulario invalido, favor verificar e corrigir os erros.
+
+# Labels for incidents form
+description=Descrição
+incidentType=Tipo de Ocorrência
+incident.cancel=Cancelamento em cima da hora
+incident.noshow=Faltou na palestra
+incident.behavior=Quebra de código de conduta
+incident.unknown=Tipo de Incidente Desconhecido
+
 sw.trash.title=Lixeira
 sw.trash.warning=Por favor digite DEL neste input box e clique no botão
 sw.trash.button=Excluir este palestrante
@@ -1018,6 +1040,9 @@ visitor.welcome.profile=See the list of talks you faved
 renderProposal.archived={0} propostas arquivadas de algumas edições anteriores.
 renderProposal.archived.single=Um proposta foi arquivada de uma edição anterior.
 renderProposal.noTalks=Nenhuma outra palestra submetida ou proposta
+
+# renderIncidents
+renderIncidents.noIncidents=Nenhuma ocorrência encontrada
 
 mail.goldenticket.subject=Golden Ticket for {0}
 error.loginRequired=Acesso restrito, por favor faça autenticação.

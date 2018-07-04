@@ -690,6 +690,29 @@ sw.talkType=All talks
 sw.details=See details
 sw.proposal.btn.sendmessage=Send your message
 
+sw.incidents=Incidents
+sw.incidents.add=Add incident
+sw.incidents.description=An incident indicates whether the speaker had any problems on past events, like bad behavior, not attending or cancelling at very short notice
+sw.incidents.form.title=Add Incident
+sw.incidents.form.bt.save=Save
+sw.incidents.form.bt.cancel=Cancel
+sw.incidents.msg.success=Incident successfully saved.
+sw.incidents.msg.error=Invalid form, cannot create incident.
+sw.incidents.title.conference=Conference
+sw.incidents.title.type=Type
+sw.incidents.title.description=Description
+
+
+form.msg.error=Invalid form, please check and correct errors.
+
+# Labels for incidents form
+description=Description
+incidentType=Incident Type
+incident.cancel=Cancelled at very short notice
+incident.noshow=Did not attend
+incident.behavior=Bad behavior
+incident.unknown=Unknown Incident Type
+
 sw.trash.title=Trash
 sw.trash.warning=Please enter DEL in this input box and click on the button
 sw.trash.button=Delete this speaker
@@ -1020,6 +1043,9 @@ visitor.welcome.profile=See the list of talks you faved
 renderProposal.archived={0} proposals archived from some previous editions.
 renderProposal.archived.single=One proposal has been archived from a previous edition.
 renderProposal.noTalks=No other talks submitted or proposed
+
+# renderIncidents
+renderIncidents.noIncidents=No incidents found
 
 mail.goldenticket.subject=Golden Ticket for {0}
 error.loginRequired=Access restricted, please authenticate.

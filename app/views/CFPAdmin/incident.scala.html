@@ -1,0 +1,53 @@
+@(incidentForm: Form[Incident])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+
+@main(Messages("sw.incidents.form.title")) {
+
+<div class="row">
+    <div class="col-md-12 page-header">
+        <h3>@Messages("sw.incidents.form.title")</h3>
+    </div>
+    <div class="col-md-12">
+        @if(flash.get("error").isDefined){
+          <div class="alert alert-danger alert-dismissable">
+              <strong>Error :</strong>
+              @flash.get("error").get
+          </div>
+        }
+        @if(flash.get("success").isDefined){
+          <div class="alert alert-success alert-dismissable">
+              @flash.get("success").get
+          </div>
+        }
+        @if(incidentForm.hasErrors){
+          <div class="alert alert-danger">
+              <h4>@Messages("sw.incidents.msg.error")</h4>
+              @incidentForm.errors.map { err =>
+                @err.key : @Messages(err.message)<br>
+              }
+          </div>
+        }
+        @if(incidentForm.hasGlobalErrors){
+            has global errors
+        }
+        @helper.form(action = routes.CFPAdmin.saveIncident) {
+            <input type="hidden" name="speakerId" value='@incidentForm("speakerId").value'>
+            <input type="hidden" name="conference" value='@incidentForm("conference").value'>
+            @tags.selectI18N(field = incidentForm("incidentType"), options=IncidentType.ALL.map(i => (i.id,i.label)), '_default->Messages("combo.select"),  'class->"form-control")
+            @helper.textarea(incidentForm("description"), 'cols -> 70, 'rows -> 5, 'class->"form-control")
+            <i class="icon-text-width"></i> : <span id="charsremain"></span><br>
+            <a href='@routes.CFPAdmin.showSpeakerAndTalks(incidentForm("speakerId").value.getOrElse(""))' class="btn btn-warning">@Messages("sw.incidents.form.bt.cancel")</a>
+            <button class="btn btn-success" type="submit">@Messages("sw.incidents.form.bt.save")</button>
+        }
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/maxlength.js"></script>
+<script type="text/javascript">
+$(document).ready(function($){
+    setformfieldsize($('#description'), 1200, 'charsremain');
+});
+</script>
+
+}

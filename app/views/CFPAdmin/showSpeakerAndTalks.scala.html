@@ -1,4 +1,4 @@
-@(speaker:Speaker, proposals:Map[String,Proposal], currentUser:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(speaker:Speaker, proposals:Map[String,Proposal], incidents:List[Incident] ,currentUser:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @main("Speaker " + speaker.cleanName) {
 <div class="row">
@@ -100,6 +100,20 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 @tags.renderProposals(proposals, currentUser)
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel-heading">
+            <h3><i class="icon-thumbs-down"></i> @Messages("sw.incidents")</h3>
+            <p>@Messages("sw.incidents.description")</p>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a href="@routes.CFPAdmin.addIncident(speaker.uuid)" class="btn btn-sm btn-primary">@Messages("sw.incidents.add")</a>
+            </div>
+            <div class="panel-body">
+                @tags.renderIncidents(incidents)
             </div>
         </div>
     </div>

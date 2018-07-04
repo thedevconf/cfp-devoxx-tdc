@@ -190,15 +190,9 @@ object CallForPaper extends SecureCFPController {
               val updatedProposal = proposal.copy(mainSpeaker = existingProposal.mainSpeaker, secondarySpeaker = existingProposal.secondarySpeaker, otherSpeakers = existingProposal.otherSpeakers)
 
               // Then because the editor becomes mainSpeaker, we have to update the secondary and otherSpeaker
-              if (existingProposal.state == ProposalState.DRAFT || existingProposal.state == ProposalState.SUBMITTED) {
-                Proposal.save(uuid, Proposal.setMainSpeaker(updatedProposal, uuid), ProposalState.DRAFT)
-                Event.storeEvent(Event(proposal.id, uuid, "Updated proposal " + proposal.id + " with title " + StringUtils.abbreviate(proposal.title, 80)))
-                Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved1"))
-              } else {
-                Proposal.save(uuid, Proposal.setMainSpeaker(updatedProposal, uuid), existingProposal.state)
-                Event.storeEvent(Event(proposal.id, uuid, "Edited proposal " + proposal.id + " with current state [" + existingProposal.state.code + "]"))
-                Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved2"))
-              }
+              Proposal.save(uuid, Proposal.setMainSpeaker(updatedProposal, uuid), existingProposal.state)
+              Event.storeEvent(Event(proposal.id, uuid, "Updated proposal " + proposal.id + " with current state [" + existingProposal.state.code + "]"))
+              Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved2"))
             }
             case other => {
               // Check that this is really a new id and that it does not exist

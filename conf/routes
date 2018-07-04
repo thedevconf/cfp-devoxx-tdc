@@ -118,6 +118,10 @@ POST          /cfpadmin/cfpWebusers/trackLeaders                                
 GET           /cfpadmin/proposals/withNoVotes                                   controllers.CFPAdmin.showProposalsWithNoVotes()
 GET           /cfpadmin/help                                                    controllers.CFPAdmin.help()
 
+# CFP Admin speaker incidents
+GET           /cfpadmin/speaker/incidents/new                                   controllers.CFPAdmin.addIncident(speakerId: String)
+POST          /cfpadmin/speaker/incidents                                       controllers.CFPAdmin.saveIncident()
+
 
 GET           /cfpadmin/setPreferredDay                                         controllers.CFPAdmin.setPreferredDay(proposalId:String, day:String)
 GET           /cfpadmin/resetPreferredDay                                       controllers.CFPAdmin.resetPreferredDay(proposalId:String)
