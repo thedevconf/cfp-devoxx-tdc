@@ -62,7 +62,7 @@ object Backoffice extends SecureCFPController {
       }
   }
 
-  def allProposals(proposalId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
+  def allProposals(proposalId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
       proposalId match {
@@ -74,15 +74,7 @@ object Backoffice extends SecureCFPController {
           }
         case None =>
           val proposals = Proposal.allProposals().sortBy(_.state.code)
-
-//Kleber: Filter proposals if user is not member of admin
-	  if (SecureCFPController.hasAccessToAdmin) {
-		Ok(views.html.Backoffice.allProposals(proposals))
-	  } else {
-	  	val filteredProposals = proposals.filter( proposal =>
-			(proposal.state != ProposalState.DELETED) && (proposal.state != ProposalState.DRAFT))
-          	Ok(views.html.Backoffice.allProposals(filteredProposals))
-	  }
+      		Ok(views.html.Backoffice.allProposals(proposals))
       }
   }
 
