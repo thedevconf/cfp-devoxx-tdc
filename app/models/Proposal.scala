@@ -70,6 +70,7 @@ object ProposalState {
   val DECLINED = ProposalState("declined")
   val BACKUP = ProposalState("backup")
   val ARCHIVED = ProposalState("archived")
+  val CANCELED = ProposalState("canceled")
   val UNKNOWN = ProposalState("unknown")
 
   val all = List(
@@ -82,6 +83,7 @@ object ProposalState {
     DECLINED,
     BACKUP,
     ARCHIVED,
+    CANCELED,
     UNKNOWN
   )
 
@@ -92,6 +94,7 @@ object ProposalState {
     REJECTED,
     ACCEPTED,
     DECLINED,
+    CANCELED,
     BACKUP
   )
 
@@ -108,6 +111,7 @@ object ProposalState {
       case "declined" => DECLINED
       case "backup" => BACKUP
       case "ar" => ARCHIVED
+      case "canceled" => CANCELED
       case other => UNKNOWN
     }
   }
@@ -517,7 +521,8 @@ object Proposal {
         isNotDeclined <- checkIsNotMember(client, ProposalState.DECLINED, proposalId).toRight(ProposalState.DECLINED).right;
         isNotRejected <- checkIsNotMember(client, ProposalState.REJECTED, proposalId).toRight(ProposalState.REJECTED).right;
         isNotBackup <- checkIsNotMember(client, ProposalState.BACKUP, proposalId).toRight(ProposalState.BACKUP).right;
-        isNotArchived <- checkIsNotMember(client, ProposalState.ARCHIVED, proposalId).toRight(ProposalState.ARCHIVED).right
+        isNotArchived <- checkIsNotMember(client, ProposalState.ARCHIVED, proposalId).toRight(ProposalState.ARCHIVED).right;
+        isNotDeleted <- checkIsNotMember(client, ProposalState.CANCELED, proposalId).toRight(ProposalState.CANCELED).right
       ) yield ProposalState.UNKNOWN // If we reach this code, we could not find what was the proposal state
 
       thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
