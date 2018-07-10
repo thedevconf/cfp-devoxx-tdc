@@ -1274,6 +1274,7 @@ accepted=accepted
 backup=backup
 declined=declined
 archived=archived
+canceled=canceled
 unknown=unknown
 
 draft.caps=DRAFT
@@ -1285,6 +1286,7 @@ accepted.caps=ACCEPTED
 backup.caps=BACKUP
 declined.caps=DECLINED
 archived.caps=ARCHIVED
+canceled.caps=CANCELED
 unknown.caps=UNKNOWN
 
 error.message1=Sorry, there's a bug or something we really didn't expect...

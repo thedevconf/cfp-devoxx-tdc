@@ -141,7 +141,7 @@ object Backoffice extends SecureCFPController {
    * An approval state is a state in which the proposal is saved in the Approved* collections
    */
   private def isApprovalState(state:String):Boolean = {
-    return (state == ProposalState.ACCEPTED.code || state == ProposalState.APPROVED.code)
+    return (state == ProposalState.ACCEPTED.code || state == ProposalState.APPROVED.code || state == ProposalState.CANCELED.code)
   }
 
   /*

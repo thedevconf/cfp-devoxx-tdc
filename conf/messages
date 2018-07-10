@@ -1271,6 +1271,7 @@ accepted=aceita
 backup=backup
 declined=recusada
 archived=arquivada
+canceled=cancelada
 unknown=desconhecido
 
 draft.caps=RASCUNHO
@@ -1282,6 +1283,7 @@ accepted.caps=ACEITA
 backup.caps=BACKUP
 declined.caps=RECUSADA
 archived.caps=ARQUIVADA
+canceled.caps=CANCELADA
 unknown.caps=DESCONHECIDO
 
 error.message1=Desculpe, há um bug ou algo que nós realmente não esperávamos...

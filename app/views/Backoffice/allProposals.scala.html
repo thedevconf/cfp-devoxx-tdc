@@ -86,6 +86,8 @@
                                     <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.DECLINED.code)" class="btn btn-sm btn-danger"
 					                    	title="palestra declinada pelo palestrante">
                                         @Messages("declined.caps")</a> </small>
+                                    <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.CANCELED.code)" class="btn btn-sm btn-danger">
+                                        @Messages("canceled.caps")</a> </small>
                                 </td>
                             </tr>
                         }
