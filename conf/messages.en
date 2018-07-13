@@ -592,6 +592,8 @@ ar.important=Important
 ar.backup.warning1=This is a BACKUP talk. We will notify you if it is approved at a later time.
 ar.backup.warning2=However you can decline if you don't want to keep this talk as a backup.
 ar.accepted.warning=Warning: this talk has been accepted. Please contact the CFP team before you decline
+ar.message.massnotifications=Notified speakers for the selected proposals
+ar.message.massnotifications.error=There was an error sending the notifications
 
 sw.proposal.title=Title
 sw.proposal.talkType=Type of presentation
@@ -1082,6 +1084,11 @@ backoffice.allproposals.speaker.accepted=Speaker has accepted
 backoffice.allproposals.rejected.warning=If proposal's state = REJECTED then the speaker has been notified.
 backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to REJECTED (Async)
 backoffice.allproposals.rejected.notify.link=Notify refused
+backoffice.allproposals.rejected.notify.all.link=Notify all selected
+backoffice.allproposals.backup.notify.all.link=Notify all selected
+backoffice.allproposals.approved.notify.all.link=Notify all selected
+backoffice.allproposals.select.all=Select all
+backoffice.allproposals.deselect.all=Remove all selections
 backoffice.allproposals.empty=There is no proposal with status != Archived
 
 backoffice.events.log.title=Event Log
