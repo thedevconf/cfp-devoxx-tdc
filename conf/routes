@@ -177,6 +177,9 @@ GET           /ar/showAcceptTerms                                               
 GET           /ar/accept                                                        controllers.ApproveOrRefuse.acceptTermsAndConditions()
 GET           /ar/acceptOrRefuseTalks                                           controllers.ApproveOrRefuse.showAcceptOrRefuseTalks()
 POST          /ar/acceptOrRefuseTalks                                           controllers.ApproveOrRefuse.doAcceptOrRefuseTalk()
+POST          /ar/notifyManyApprove/                                            controllers.ApproveOrRefuse.notifyManyApprove(trackId:Option[String] ?= None)
+POST          /ar/notifyManyRefuse/                                             controllers.ApproveOrRefuse.notifyManyRefuse(trackId:Option[String] ?= None)
+POST          /ar/notifyManyBackup/                                             controllers.ApproveOrRefuse.notifyManyBackup(trackId:Option[String] ?= None)
 
 GET           /ar/prepareMassRefuse                                             controllers.ApproveOrRefuse.prepareMassRefuse(confType:String ?="conf")
 GET           /ar/doMassRefuseAndRedirect                                       controllers.ApproveOrRefuse.doRefuseAndRedirectToMass(proposalId:String, confType:String)

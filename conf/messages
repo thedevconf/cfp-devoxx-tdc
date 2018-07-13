@@ -675,6 +675,8 @@ ar.important=Importante
 ar.backup.warning1=Esta é uma palestra de BACKUP. Notificaremos você caso ela seja aprovada mais tarde.
 ar.backup.warning2=Entretanto você pode recusar se não quiser manter esta palestra como backup.
 ar.accepted.warning=Aviso: esta palestra foi aceita. Por favor contate a equipe do CFP antes de recusar
+ar.message.massnotifications=Os palestrantes para as palestras marcadas foram notificados
+ar.message.massnotifications.error=Ocorreu um erro no envio de notificações
 
 sw.proposal.title=Título
 sw.proposal.talkType=Tipo de apresentação
@@ -1164,6 +1166,11 @@ backoffice.allproposals.speaker.accepted=Palestrante aceitou
 backoffice.allproposals.rejected.warning=Se o status da proposta = REJEITADA então o palestrante foi notificado.
 backoffice.allproposals.rejected.notify.tooltip=Envie um email e mude o status para REJEITADA (Async)
 backoffice.allproposals.rejected.notify.link=Notificar rejeição
+backoffice.allproposals.rejected.notify.all.link=Notificar marcadas
+backoffice.allproposals.backup.notify.all.link=Notificar marcadas
+backoffice.allproposals.approved.notify.all.link=Notificar marcadas
+backoffice.allproposals.select.all=Marcar todas
+backoffice.allproposals.deselect.all=Desmarcar todas
 backoffice.allproposals.empty=Não existem propostas com status != ARQUIVADA
 
 backoffice.events.log.title=Log de Eventos
