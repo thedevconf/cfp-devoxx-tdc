@@ -94,6 +94,10 @@ case class Speaker(uuid: String
 
   def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
 
+  def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
+
+  def hasGithub = StringUtils.trimToEmpty(github.getOrElse("")).nonEmpty
+
   def hasBio = StringUtils.trimToEmpty(bio).nonEmpty
 
   def hasCompany = StringUtils.trimToEmpty(company.getOrElse("")).nonEmpty

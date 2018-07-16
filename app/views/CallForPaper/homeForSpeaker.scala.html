@@ -90,6 +90,26 @@
                             </td>
                         </tr>
                         <tr>
+                            <td>@Html(Messages("linkedIn"))</td>
+                            <td>
+                                @if(speaker.hasLinkedIn) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("github"))</td>
+                            <td>
+                                @if(speaker.hasGithub) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
                             <td>@Html(Messages("qualifications.label"))</td>
                             <td>
                             @if(StringUtils.trimToEmpty(speaker.qualifications.getOrElse("")).isEmpty) {
