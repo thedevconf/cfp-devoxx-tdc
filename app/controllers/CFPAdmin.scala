@@ -692,7 +692,9 @@ object CFPAdmin extends SecureCFPController {
     "qualifications2" -> nonEmptyText(maxLength = 750),
     "phone2" -> optional(text),
     "gender2" -> optional(text),
-    "tshirtSize2" -> optional(text)
+    "tshirtSize2" -> optional(text),
+    "linkedIn2" -> optional(text),
+    "github2" -> optional(text)
   )(Speaker.createOrEditSpeaker)(Speaker.unapplyFormEdit))
 
 

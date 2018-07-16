@@ -85,6 +85,18 @@
                             }.getOrElse("")</td>
                         </tr>
                         <tr>
+                            <td><i class="icon-linkedin"></i> LinkedIn</td>
+                            <td>@speaker.linkedIn.map{url=>
+                                <a href="@url" target="new">@url</a>
+                                }.getOrElse("")</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-github"></i> Github</td>
+                            <td>@speaker.github.map{url=>
+                                <a href="@url" target="new">@url</a>
+                                }.getOrElse("")</td>
+                        </tr>
+                        <tr>
                             <td><i class="icon-envelope"></i> Email </td><td>@speaker.email</td>
                         </tr>
                     </tbody>
