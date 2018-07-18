@@ -137,7 +137,8 @@ case class Proposal(id: String,
                     track: Track,
                     demoLevel: Option[String],
                     userGroup: Option[Boolean],
-                    wishlisted: Option[Boolean] = None) {
+                    wishlisted: Option[Boolean] = None,
+                    presentationUploaded: Option[Boolean] = None) {
 
   def escapedTitle: String = title match {
     case null => ""
@@ -1049,6 +1050,21 @@ object Proposal {
           val proposalState = findProposalState(proposal.id)
           proposal.copy(state = proposalState.getOrElse(ProposalState.UNKNOWN))
       }
+  }
+
+  /**
+    * Updates the presentationUploaded field of the proposal in the Proposals collection in Redis
+    *
+    * @param proposalId
+    * @param uploaded
+    * @return
+    */
+  def updatePresentationStatus(proposalId:String, uploaded:Boolean) = Redis.pool.withClient {
+    implicit client =>
+      findById(proposalId).map( proposal => {
+        val json = Json.toJson(proposal.copy(presentationUploaded=Option(uploaded))).toString
+        client.hset("Proposals", proposalId, json)
+      })
   }
 
 }

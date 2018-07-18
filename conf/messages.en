@@ -418,6 +418,18 @@ table.pres.delete=Move to trash
 table.pres.action=Actions
 table.pres.doSubmit=Submit
 table.pres.doDelete=Delete
+table.pres.trash=Delete this proposal
+table.pres.doUploadSlides=Upload
+table.pres.title.uploadSlides=Upload the presentation for this proposal
+table.pres.title.uploadSlides.again=Upload again the presentation for this proposal
+
+uploadPresentation.title=Presentation upload
+uploadPresentation.btn=Send
+uploadPresentation.label=Select the file
+uploadPresentation.label.title=Click here to select the file for upload
+uploadPresentation.msg.success=Presentation uploaded
+uploadPresentation.msg.error.missing=Missing file
+uploadPresentation.msg.error.general=Error parsing form data
 
 total.draft={0} proposals
 total.draft.sing={0} proposal
@@ -865,8 +877,6 @@ d1.label=Slides only
 d2.label=Slides and code
 d3.label=Code only
 d4.label=No slides & code
-
-table.pres.trash=Delete this proposal
 
 msg_pub=Send a message to the speaker
 email_pub=Your email address

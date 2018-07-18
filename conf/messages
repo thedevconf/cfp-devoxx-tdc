@@ -418,6 +418,18 @@ table.pres.delete=Mover para lixo
 table.pres.action=Ações
 table.pres.doSubmit=Submeter
 table.pres.doDelete=Excluir
+table.pres.trash=Excluir esta proposta
+table.pres.doUploadSlides=Upload
+table.pres.title.uploadSlides=Fazer upload da apresentação desta palestra
+table.pres.title.uploadSlides.again=Fazer novo upload da apresentação desta palestra
+
+uploadPresentation.title=Upload de apresentação
+uploadPresentation.btn=Enviar
+uploadPresentation.label=Escolha o arquivo
+uploadPresentation.label.title=clique aqui para selecionar o arquivo a ser enviado
+uploadPresentation.msg.success= Apresentação recebida
+uploadPresentation.msg.error.missing= Arquivo ausente
+uploadPresentation.msg.error.general= Erro ao submeter o arquivo
 
 total.draft={0} propostas
 total.draft.sing={0} proposta
@@ -862,8 +874,6 @@ d1.label=Somente slides
 d2.label=Slides e código
 d3.label=Somente código
 d4.label=Sem slides e código
-
-table.pres.trash=Excluir esta proposta
 
 msg_pub=Envie uma mensagem para o palestrante
 email_pub=Seu endereço de email
