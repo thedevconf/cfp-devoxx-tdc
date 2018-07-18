@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, SendMessageToCommitte, ZapActor, ProfileUpdated}
+import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor}
 import models._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
@@ -406,6 +406,47 @@ object CallForPaper extends SecureCFPController {
             InternalServerError
           }
         }
+      }
+  }
+
+  /**
+    * Opens the form used for the upload of the proposal presentation
+    * @param proposalId
+    * @return
+    */
+  def uploadPresentationForProposal(proposalId:String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.CallForPaper.uploadPresentation(proposalId))
+  }
+
+  /**
+    * Reads the presentation for the proposal from the web application and saves it to a temporary file
+    * at /tmp/presentations, prefixed with the current date
+    *
+    * Also updates the status of the proposal to inform that it already has an uploaded presentation
+    *
+    * @param proposalId
+    * @return
+    */
+  def savePresentationForProposal(proposalId:String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      request.body.asMultipartFormData.map { data =>
+
+        import java.time.LocalDateTime
+        import java.time.format.DateTimeFormatter
+        import java.io.File
+
+        data.file("presentation").map{ presentation =>
+          val prefix = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hhmmss"))
+          val filename = s"${prefix}_${presentation.filename}"
+          presentation.ref.moveTo(new File(s"/tmp/presentations/$filename"))
+          Proposal.updatePresentationStatus(proposalId,true)
+          Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("uploadPresentation.msg.success"))
+        }.getOrElse(
+          Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> Messages("uploadPresentation.msg.error.missing"))
+        )
+      }.getOrElse {
+        Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> Messages("uploadPresentation.msg.error.general"))
       }
   }
 

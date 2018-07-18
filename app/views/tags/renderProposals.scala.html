@@ -14,6 +14,7 @@
             }
             <th>@Messages("tag.proposal.type")</th>
             <th>@Messages("tag.proposal.track")</th>
+            <th>@Messages("table.pres.doUploadSlides")</th>
         </tr>
     </thead>
 
@@ -61,6 +62,14 @@
             }
         <td>@Messages(proposal.talkType.id)</td>
         <td>@Messages(proposal.track.label)</td>
+        <td>
+            @if(proposal.presentationUploaded) {
+            <a href="@routes.CallForPaper.uploadPresentationForProposal(proposal.id)" class="btn btn-sm btn-warning" title="@Messages("table.pres.title.uploadSlides.again")"><i class="icon-repeat"></i></a>
+            } else {
+            <a href="@routes.CallForPaper.uploadPresentationForProposal(proposal.id)" class="btn btn-sm btn-primary" title="@Messages("table.pres.title.uploadSlides")"><i class="icon-upload-alt"></i></a>
+            }
+        </td>
+
         </tr>
         }
     }

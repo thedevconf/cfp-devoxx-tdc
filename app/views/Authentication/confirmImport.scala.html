@@ -31,8 +31,8 @@
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
             @helper.inputText(formWebuser("company"))
             @helper.inputText(formWebuser("twitter"), 'placeholder -> "@nickname")
-            @helper.inputText(formWebuser("linkedIn"))
-            @helper.inputText(formWebuser("github"))
+            @helper.inputText(formWebuser("linkedIn"), 'size -> 50)
+            @helper.inputText(formWebuser("github"), 'size -> 50)
             @helper.inputText(formWebuser("blog"), 'size -> 50, 'placeholder -> "http://www.yourblog.com/")
             @helper.textarea(formWebuser("qualifications"), 'cols -> 80, 'rows -> 3, 'placeholder -> "No experience")
 
