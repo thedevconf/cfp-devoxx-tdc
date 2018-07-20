@@ -1037,6 +1037,7 @@ svp.btn.home=Voltar para home
 svp.btn.notalks=Não há mais palestras para revisar
 svp.btn.notalks.bytrack=Não há mais palestras da trilha {0} para revisar no formato {1}
 svp.btn.nexttalk=Continue e avalie a próxima palestra da trilha {0}
+svp.btn.vote.delete=Excluir o voto
 
 gt.admin.sp.privateMessage=Mensagem privada para os coordenadores
 

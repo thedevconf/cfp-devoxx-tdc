@@ -57,7 +57,39 @@ object Review {
       Event.storeEvent(Event(proposalId, reviewerUUID, s"Voted $vote"))
   }
 
-  def removeVoteForProposal(proposalId: String, reviewerUUID: String) = Redis.pool.withClient {
+  /**
+    * Allows a reviewer to remove his vote on a proposal
+    *
+    * @param proposalId proposal that will have a vote removed
+    * @param reviewerUUID reviewer that is removing his vote
+    * @return
+    */
+  def removeVoteForProposal(proposalId: String, reviewerUUID: String) = {
+      removeVote(proposalId, reviewerUUID)
+      Event.storeEvent(Event(proposalId, reviewerUUID, "Removed its vote on this talk"))
+  }
+
+  /**
+    * Allows an admin to remove a vote from a proposal
+    *
+    * @param adminUUID admin that is removing the vote
+    * @param proposalId proposal that will have a vote removed
+    * @param reviewerUUID reviewer that will have his vote for the proposal removed
+    * @return
+    */
+  def removeVoteForProposal(adminUUID:String, proposalId: String, reviewerUUID: String) = {
+      removeVote(proposalId, reviewerUUID)
+      Event.storeEvent(Event(proposalId, adminUUID, "Admin removed a vote on this talk"))
+  }
+
+  /**
+    * removes the vote from the Redis database
+    *
+    * @param proposalId proposal that will have a vote removed
+    * @param reviewerUUID reviewer that will have his vote for the proposal removed
+    * @return
+    */
+  private def removeVote(proposalId: String, reviewerUUID: String) = Redis.pool.withClient {
     implicit client =>
       val tx = client.multi()
       tx.srem(s"Proposals:Reviewed:ByAuthor:$reviewerUUID", proposalId)
@@ -65,7 +97,6 @@ object Review {
       tx.zrem(s"Proposals:Votes:$proposalId", reviewerUUID) // if the vote does already exist, Redis updates the existing vote. reviewer is a discriminator on Redis.
       tx.zrem(s"Proposals:Dates:$proposalId", reviewerUUID + "__DEL")
       tx.exec()
-      Event.storeEvent(Event(proposalId, reviewerUUID, s"Removed its vote on this talk"))
   }
 
   def archiveAllVotesOnProposal(proposalId: String) = Redis.pool.withClient {

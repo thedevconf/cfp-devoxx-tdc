@@ -88,6 +88,7 @@ POST          /cfpadmin/proposal/:proposalId/postInternal                       
 GET           /cfpadmin/proposal/:proposalId/vote                               controllers.CFPAdmin.voteForProposal(proposalId:String)
 GET           /cfpadmin/proposal/:proposalId/clearVote                          controllers.CFPAdmin.clearVoteForProposal(proposalId:String)
 GET           /cfpadmin/proposal/:proposalId/score                              controllers.CFPAdmin.showVotesForProposal(proposalId:String)
+DELETE        /cfpadmin/proposal/:proposalId/score                              controllers.CFPAdmin.deleteVotesForProposal(proposalId:String,uuid:String)
 GET           /cfpadmin/proposal/:proposalId/edit                               controllers.CFPAdmin.editProposal(proposalId:String)
 PUT           /cfpadmin/proposal/:proposalId                                    controllers.CFPAdmin.updateProposal(proposalId:String)
 GET           /cfpadmin/leaderboard                                             controllers.CFPAdmin.leaderBoard

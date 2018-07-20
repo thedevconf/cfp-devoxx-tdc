@@ -839,6 +839,25 @@ object CFPAdmin extends SecureCFPController {
       )
   }
 
+
+  /**
+    * Deletes a vote for a proposal
+    *
+    * @param proposalId proposal that will have a vote deleted
+    * @param reviewerUUID webuser that will have his vote deleted for the selected proposal
+    * @return
+    */
+  def deleteVotesForProposal(proposalId:String,reviewerUUID:String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val uuid = request.webuser.uuid
+      Proposal.findById(proposalId) match {
+        case Some(_) => {
+          Review.removeVoteForProposal(uuid, proposalId, reviewerUUID)
+          NoContent
+        }
+        case None => NotFound("Proposal not found").as("text/html")
+      }
+  }
 }
 
 

@@ -1040,6 +1040,7 @@ svp.btn.home=Go back to home
 svp.btn.notalks=There are no more talk to review
 svp.btn.notalks.bytrack=There are no more talks to review for track {0} in the format {1}
 svp.btn.nexttalk=Continue and evaluate next talk for track {0}
+svp.btn.vote.delete=Delete vote
 
 gt.admin.sp.privateMessage=Private message for the program committee
 
