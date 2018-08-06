@@ -78,12 +78,18 @@
                     } else {
 
                         <div class="media">
-                        @allVotes.sortBy(_._2).map { case (author, vote) =>
-                        <div class="media-body">
-                            <span class="pull-left">@tags.renderGravatar(author, showName = false)</span> &nbsp;
-                            <h5 class="media-heading">@Messages("svp.voted") @tags.renderVote(vote.toInt) </h5>
-                        </div>
-                        }
+                            @allVotes.sortBy(_._2).map { case (author, vote) =>
+
+                            <div class="media-body">
+                                <span class="pull-left">@tags.renderGravatar(author, showName = false)</span> &nbsp;
+                                <h5 class="media-heading pull-left">@Messages("svp.voted") @tags.renderVote(vote.toInt)</h5>
+                                @if(SecureCFPController.hasAccessToAdmin(req)){
+                                    <button id="@author" type="button" class="pull-right btn btn-xs btn-danger" title='@Messages("svp.btn.vote.delete")'>
+                                        <i class="icon-trash"></i>
+                                    </button>
+                                }
+                            </div>
+                            }
                         </div>
                     }
                     </div>
@@ -151,46 +157,26 @@
                                     @Messages("svp.btn.notalks.bytrack", Messages(proposal.track.label),Messages(proposal.talkType.label))</a>
                             }
                         }
-
-
-<!-- removidos botao de navegacao para proxima palestra por tipo de palestra
-                        @if(nextToBeReviewedSameTrack.nonEmpty && nextToBeReviewedSameFormat.nonEmpty) {
-                            @if(nextToBeReviewedSameTrack.head.track.id == proposal.track.id) {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-N"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk for track @Messages(nextToBeReviewedSameTrack.head.track.label)</a>
-                            } else {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-N"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk</a>
-                            }
-                            @if(nextToBeReviewedSameFormat.head.talkType.id == proposal.talkType.id) {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameFormat.head.id)" title="Shortcut: Ctrl-Option-L"><i class="icon-forward"></i>
-                                    Continue and evaluate another @Messages(proposal.talkType.id)</a>
-                            } else {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-L"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk</a>
-                            }
-                        }
-                        @if(nextToBeReviewedSameTrack.nonEmpty) {
-                            @if(nextToBeReviewedSameTrack.head.track.id == proposal.track.id) {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-N"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk for track @Messages(nextToBeReviewedSameTrack.head.track.label)</a>
-                            } else {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-N"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk</a>
-                            }
-                        }
-                        @if(nextToBeReviewedSameTrack.isEmpty && nextToBeReviewedSameFormat.nonEmpty) {
-                            @if(nextToBeReviewedSameFormat.head.talkType.id == proposal.talkType.id) {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameFormat.head.id)" title="Shortcut: Ctrl-Option-L"><i class="icon-forward"></i>
-                                    Continue and evaluate another @Messages(proposal.talkType.id)</a>
-                            } else {
-                                <a class="btn btn-success" accesskey="n" href="@routes.CFPAdmin.openForReview(nextToBeReviewedSameTrack.head.id)" title="Shortcut: Ctrl-Option-L"><i class="icon-forward"></i>
-                                    Continue and evaluate next talk</a>
-                            }
-                        }
--->
                     </div>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+        $(document).ready(function($){
+            $('[type="button"]').on("click", function() {
+                $.ajax({
+                    url: window.location + "?uuid=" + $(this).attr("id"),
+                    method: "DELETE",
+                    success: function() {
+                        location.reload(true);
+                    },
+                    error: function(req) {
+                        console.log(req);
+                    }
+                });
+            });
+        });
+        </script>
+
     }
