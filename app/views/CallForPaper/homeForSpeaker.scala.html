@@ -50,7 +50,7 @@
                         <tr>
                             <td>@Html(Messages("company"))
                                 @if(speaker.hasCompany) {
-                                  <br/> speaker.company
+                                  <br/> @speaker.company
                                 }
                             </td>
                             <td>
@@ -74,7 +74,11 @@
                         </tr>
 
                         <tr>
-                            <td>@Html(Messages("twitter"))</td>
+                            <td>@Html(Messages("twitter"))
+                                @if(speaker.hasTwitter) {
+                                <br/> @speaker.twitter
+                                }
+                            </td>
                             <td>
                             @if(speaker.hasTwitter) {
                                 <i class="icon-ok alert-success"></i>
@@ -84,7 +88,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>@Html(Messages("linkedIn"))</td>
+                            <td>@Html(Messages("linkedIn"))
+                                @if(speaker.hasLinkedIn) {
+                                <br/> @speaker.linkedIn
+                                }
+                            </td>
                             <td>
                                 @if(speaker.hasLinkedIn) {
                                 <i class="icon-ok alert-success"></i>
@@ -94,7 +102,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>@Html(Messages("github"))</td>
+                            <td>@Html(Messages("github"))
+                                @if(speaker.hasGithub) {
+                                <br/> @speaker.github
+                                }
+                            </td>
                             <td>
                                 @if(speaker.hasGithub) {
                                 <i class="icon-ok alert-success"></i>
@@ -105,7 +117,11 @@
                         </tr>
 
                         <tr>
-                            <td>@Html(Messages("blog.website"))</td>
+                            <td>@Html(Messages("blog.website"))
+                                @if(speaker.hasBlog) {
+                                <br/> @speaker.blog
+                                }
+                            </td>
                             <td>
                                 @if(speaker.hasBlog) {
                                 <i class="icon-ok alert-success"></i>
@@ -138,7 +154,11 @@
                         </tr>
 
                         <tr>
-                            <td>@Html(Messages("phone"))</td>
+                            <td>@Html(Messages("phone"))
+                                @if(speaker.hasPhone) {
+                                <br/> @speaker.phone
+                                }
+                            </td>
                             <td>
                                 @if(speaker.hasPhone) {
                                 <i class="icon-ok alert-success"></i>
@@ -148,7 +168,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>@Html(Messages("gender"))</td>
+                            <td>@Html(Messages("gender"))
+                                @if(speaker.hasGender) {
+                                <br/> @speaker.gender
+                                }
+                            </td>
                             <td>
                                 @if(speaker.hasGender) {
                                 <i class="icon-ok alert-success"></i>
