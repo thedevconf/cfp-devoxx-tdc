@@ -37,41 +37,35 @@
                         </tr>
 
                         <tr>
+                            <td>@Html(Messages("url.photo"))</td>
+                            <td>
+                                @if(speaker.hasAvatar) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("company"))
+                                @if(speaker.hasCompany) {
+                                  <br/> speaker.company
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasCompany) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
                             <td>@Html(Messages("bio"))</td>
                             <td>
                             @if(speaker.hasBio) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html(Messages("url.photo"))</td>
-                            <td>
-                            @if(speaker.hasAvatar) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html(Messages("blog.website"))</td>
-                            <td>
-                            @if(speaker.hasBlog) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>@Html(Messages("company"))</td>
-                            <td>
-                            @if(speaker.hasCompany) {
                                 <i class="icon-ok alert-success"></i>
                             } else {
                                 <i class="icon-exclamation-sign error"></i>
@@ -109,14 +103,15 @@
                                 }
                             </td>
                         </tr>
+
                         <tr>
-                            <td>@Html(Messages("qualifications.label"))</td>
+                            <td>@Html(Messages("blog.website"))</td>
                             <td>
-                            @if(StringUtils.trimToEmpty(speaker.qualifications.getOrElse("")).isEmpty) {
-                                <i class="icon-exclamation-sign error"></i>
-                            } else {
+                                @if(speaker.hasBlog) {
                                 <i class="icon-ok alert-success"></i>
-                            }
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
                             </td>
                         </tr>
 
@@ -127,6 +122,38 @@
                                 <i class="icon-exclamation-sign error"></i>
                                 } else {
                                 <i class="icon-ok alert-success"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("qualifications.label"))</td>
+                            <td>
+                                @if(StringUtils.trimToEmpty(speaker.qualifications.getOrElse("")).isEmpty) {
+                                <i class="icon-exclamation-sign error"></i>
+                                } else {
+                                <i class="icon-ok alert-success"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("phone"))</td>
+                            <td>
+                                @if(speaker.hasPhone) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("gender"))</td>
+                            <td>
+                                @if(speaker.hasGender) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
                                 }
                             </td>
                         </tr>
