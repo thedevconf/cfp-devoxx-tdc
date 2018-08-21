@@ -1,12 +1,12 @@
-import java.io.File
 import java.util.concurrent.TimeUnit
 
 import library.search.{StopIndex, _}
 import library.{DraftReminder, _}
 import org.joda.time.DateMidnight
 import play.api.Play.current
+import play.api._
 import play.api.libs.concurrent._
-import play.api.mvc.RequestHeader
+import play.api.mvc.{RequestHeader,Result}
 import play.api.mvc.Results._
 import play.api.templates.HtmlFormat
 import play.api.{UnexpectedException, _}
@@ -34,7 +34,10 @@ object Global extends GlobalSettings {
 
   }
 
-  override def onError(request: RequestHeader, ex: Throwable) = {
+  /**
+    * Server error 500
+    */
+  /*override def onError(request: RequestHeader, ex: Throwable) = {
     val viewO: Option[(UsefulException) => HtmlFormat.Appendable] = Play.maybeApplication.map {
       case app if app.mode != Mode.Prod => views.html.defaultpages.devError.f
       case app => views.html.errorPage.f(_: UsefulException)(request)
@@ -53,7 +56,7 @@ object Global extends GlobalSettings {
       }
     }
   }
-
+*/
   /**
     * 404 custom page, for Prod mode only
     */

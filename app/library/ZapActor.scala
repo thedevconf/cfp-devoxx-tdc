@@ -33,6 +33,7 @@ import org.apache.commons.io.filefilter.{SuffixFileFilter, WildcardFileFilter}
 import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.WS
 import play.libs.Akka
+import play.api.Play.current
 
 import scala.Predef._
 
