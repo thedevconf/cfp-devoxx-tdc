@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor}
+import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation}
 import models._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
@@ -437,10 +437,11 @@ object CallForPaper extends SecureCFPController {
         import java.io.File
 
         data.file("presentation").map{ presentation =>
-          val prefix = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hhmmss"))
+          val prefix = proposalId + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hhmmss"))
           val filename = s"${prefix}_${presentation.filename}"
-          presentation.ref.moveTo(new File(s"/tmp/presentations/$filename"))
+          presentation.ref.moveTo(new File(S3.presentationSourceDir + filename))
           Proposal.updatePresentationStatus(proposalId,true)
+          ZapActor.actor ! UploadPresentation(proposalId, filename, request.webuser.uuid)
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("uploadPresentation.msg.success"))
         }.getOrElse(
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> Messages("uploadPresentation.msg.error.missing"))

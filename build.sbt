@@ -27,3 +27,9 @@ libraryDependencies ++= Seq(
     exclude ("com.fasterxml.jackson.core", "jackson-databind")
     exclude ("joda-time", "joda-time")
 )
+
+dependencyOverrides ++= Set(
+  "com.fasterxml.jackson.core" % "jackson-annotations" % "2.6.0",
+  "com.fasterxml.jackson.core" % "jackson-core" % "2.6.0",
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.0"
+)
