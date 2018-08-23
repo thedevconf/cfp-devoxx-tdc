@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor}
+import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation}
 import models._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
@@ -132,7 +132,7 @@ object CallForPaper extends SecureCFPController {
   def newProposal() = SecuredAction {
     implicit request =>
       val uuid = request.webuser.uuid
-      Ok(views.html.CallForPaper.newProposal(Proposal.proposalForm)).withSession(session + ("token" -> Crypto.sign(uuid)))
+      Ok(views.html.CallForPaper.newProposal(Proposal.proposalForm)).withSession(request.session + ("token" -> Crypto.sign(uuid)))
   }
 
   // Load a proposal
@@ -144,15 +144,15 @@ object CallForPaper extends SecureCFPController {
         case Some(proposal) => {
           if (proposal.mainSpeaker == uuid) {
             val proposalForm = Proposal.proposalForm.fill(proposal)
-            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(session + ("token" -> Crypto.sign(proposalId)))
+            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(request.session + ("token" -> Crypto.sign(proposalId)))
           } else if (proposal.secondarySpeaker.isDefined && proposal.secondarySpeaker.get == uuid) {
             // Switch the mainSpeaker and the other Speakers
             val proposalForm = Proposal.proposalForm.fill(Proposal.setMainSpeaker(proposal, uuid))
-            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(session + ("token" -> Crypto.sign(proposalId)))
+            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(request.session + ("token" -> Crypto.sign(proposalId)))
           } else if (proposal.otherSpeakers.contains(uuid)) {
             // Switch the secondary speaker and this speaker
             val proposalForm = Proposal.proposalForm.fill(Proposal.setMainSpeaker(proposal, uuid))
-            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(session + ("token" -> Crypto.sign(proposalId)))
+            Ok(views.html.CallForPaper.newProposal(proposalForm)).withSession(request.session + ("token" -> Crypto.sign(proposalId)))
           } else {
             Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> "Invalid state")
           }
@@ -437,10 +437,11 @@ object CallForPaper extends SecureCFPController {
         import java.io.File
 
         data.file("presentation").map{ presentation =>
-          val prefix = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hhmmss"))
+          val prefix = proposalId + "_" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'hhmmss"))
           val filename = s"${prefix}_${presentation.filename}"
-          presentation.ref.moveTo(new File(s"/tmp/presentations/$filename"))
+          presentation.ref.moveTo(new File(S3.presentationSourceDir + filename))
           Proposal.updatePresentationStatus(proposalId,true)
+          ZapActor.actor ! UploadPresentation(proposalId, filename, request.webuser.uuid)
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("uploadPresentation.msg.success"))
         }.getOrElse(
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> Messages("uploadPresentation.msg.error.missing"))

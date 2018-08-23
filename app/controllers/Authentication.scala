@@ -39,6 +39,7 @@ import play.api.libs.Crypto
 import play.api.libs.json.Json
 import play.api.libs.ws._
 import play.api.mvc._
+import play.api.Play.current
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
@@ -481,7 +482,7 @@ object Authentication extends Controller {
           BadRequest(views.html.Application.home(invalidForm)).flashing("error" -> "Invalid form")
         }
       }, {
-        case (code, state) if state == Crypto.sign(session.get("state").getOrElse("")) => {
+        case (code, state) if state == Crypto.sign(request.session.get("state").getOrElse("")) => {
           val auth = for (clientId <- Play.current.configuration.getString("linkedin.client_id");
                           clientSecret <- Play.current.configuration.getString("linkedin.client_secret")) yield (clientId, clientSecret)
           auth.map {
@@ -594,7 +595,7 @@ object Authentication extends Controller {
           BadRequest(views.html.Application.home(invalidForm)).flashing("error" -> "Invalid form")
         }
       }, {
-        case (code, state) if state == Crypto.sign(session.get("state").getOrElse("")) => {
+        case (code, state) if state == Crypto.sign(request.session.get("state").getOrElse("")) => {
           val auth = for (clientId <- Play.current.configuration.getString("google.client_id");
                           clientSecret <- Play.current.configuration.getString("google.client_secret")) yield (clientId, clientSecret)
           auth.map {
