@@ -37,6 +37,32 @@
                         </tr>
 
                         <tr>
+                            <td>@Html(Messages("url.photo"))</td>
+                            <td>
+                                @if(speaker.hasAvatar) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("company"))
+                                @if(speaker.hasCompany) {
+                                  <br/> @speaker.company
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasCompany) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
                             <td>@Html(Messages("bio"))</td>
                             <td>
                             @if(speaker.hasBio) {
@@ -48,39 +74,11 @@
                         </tr>
 
                         <tr>
-                            <td>@Html(Messages("url.photo"))</td>
-                            <td>
-                            @if(speaker.hasAvatar) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
+                            <td>@Html(Messages("twitter"))
+                                @if(speaker.hasTwitter) {
+                                <br/> @speaker.twitter
+                                }
                             </td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html(Messages("blog.website"))</td>
-                            <td>
-                            @if(speaker.hasBlog) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>@Html(Messages("company"))</td>
-                            <td>
-                            @if(speaker.hasCompany) {
-                                <i class="icon-ok alert-success"></i>
-                            } else {
-                                <i class="icon-exclamation-sign error"></i>
-                            }
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>@Html(Messages("twitter"))</td>
                             <td>
                             @if(speaker.hasTwitter) {
                                 <i class="icon-ok alert-success"></i>
@@ -90,13 +88,46 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>@Html(Messages("qualifications.label"))</td>
+                            <td>@Html(Messages("linkedIn"))
+                                @if(speaker.hasLinkedIn) {
+                                <br/> @speaker.linkedIn
+                                }
+                            </td>
                             <td>
-                            @if(StringUtils.trimToEmpty(speaker.qualifications.getOrElse("")).isEmpty) {
-                                <i class="icon-exclamation-sign error"></i>
-                            } else {
+                                @if(speaker.hasLinkedIn) {
                                 <i class="icon-ok alert-success"></i>
-                            }
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("github"))
+                                @if(speaker.hasGithub) {
+                                <br/> @speaker.github
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasGithub) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("blog.website"))
+                                @if(speaker.hasBlog) {
+                                <br/> @speaker.blog
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasBlog) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
                             </td>
                         </tr>
 
@@ -107,6 +138,46 @@
                                 <i class="icon-exclamation-sign error"></i>
                                 } else {
                                 <i class="icon-ok alert-success"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("qualifications.label"))</td>
+                            <td>
+                                @if(StringUtils.trimToEmpty(speaker.qualifications.getOrElse("")).isEmpty) {
+                                <i class="icon-exclamation-sign error"></i>
+                                } else {
+                                <i class="icon-ok alert-success"></i>
+                                }
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>@Html(Messages("phone"))
+                                @if(speaker.hasPhone) {
+                                <br/> @speaker.phone
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasPhone) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("gender"))
+                                @if(speaker.hasGender) {
+                                <br/> @speaker.gender
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasGender) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
                                 }
                             </td>
                         </tr>
@@ -166,6 +237,7 @@
                             <th>@Messages("table.pres.doSubmit")</th>
                             <th><i class="icon-comments"></i></th>
                             <th>@Messages("table.pres.doDelete")</th>
+                            <th>@Messages("table.pres.doUploadSlides")</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -232,8 +304,17 @@
                                 @if(prop.state==ProposalState.SUBMITTED ||prop.state==ProposalState.DRAFT ){
                                     <a href="@routes.CallForPaper.deleteProposal(prop.id)" class="btn btn-sm btn-danger" title="@Messages("table.pres.trash")"><i class="icon-trash"></i></a>
                                 }
-
                             </td>
+                            <td>
+                                @if(prop.state==ProposalState.ACCEPTED){
+                                    @if(prop.presentationUploaded) {
+                                    <a href="@routes.CallForPaper.uploadPresentationForProposal(prop.id)" class="btn btn-sm btn-warning" title="@Messages("table.pres.title.uploadSlides.again")"><i class="icon-repeat"></i></a>
+                                    } else {
+                                    <a href="@routes.CallForPaper.uploadPresentationForProposal(prop.id)" class="btn btn-sm btn-primary" title="@Messages("table.pres.title.uploadSlides")"><i class="icon-upload-alt"></i></a>
+                                    }
+                              }
+                            </td>
+
                         </tr>
                     }
                     </tbody>
@@ -305,7 +386,5 @@
         }
 
 </div>
-<!-- @speaker.uuid -->
-<!-- @webuser.uuid -->
 
 }

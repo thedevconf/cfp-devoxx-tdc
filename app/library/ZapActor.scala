@@ -24,15 +24,13 @@
 package library
 
 
-import java.io.File
-
 import akka.actor._
 import models._
 import notifiers.Mails
-import org.apache.commons.io.filefilter.{SuffixFileFilter, WildcardFileFilter}
 import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.WS
 import play.libs.Akka
+import play.api.Play.current
 
 import scala.Predef._
 
@@ -88,6 +86,8 @@ case class UpdateScheduleStatus(trackId: String, blocked: Boolean)
 
 case class ProfileUpdated(speaker:Speaker)
 
+case class UploadPresentation(proposalId:String, filename:String, uploadedBy:String)
+
 // Defines an actor (no failover strategy here)
 object ZapActor {
   val actor = Akka.system.actorOf(Props[ZapActor])
@@ -117,6 +117,7 @@ class ZapActor extends Actor {
     case SaveTDCSlots(trackId,slots,createdBy) => doSaveTDCSlots(trackId,slots,createdBy)
     case UpdateScheduleStatus(trackId, status) => doUpdateScheduleStatus (trackId, status)
     case ProfileUpdated(speaker) => doNotifyProfileUpdated(speaker)
+    case UploadPresentation(proposalId,filename,uploadedBy) => doUploadPresentation(proposalId, filename,uploadedBy)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -293,5 +294,17 @@ class ZapActor extends Actor {
 
   def doNotifyProfileUpdated(speaker: Speaker) = {
     Mails.sendProfileUpdated(speaker)
+  }
+
+  def doUploadPresentation(proposalId: String, filename: String, uploadedBy: String) = {
+    val trackId = Proposal.findProposalTrack(proposalId).map(_.id).getOrElse("")
+    val eventCode = ConferenceDescriptor.current().eventCode
+    try {
+      S3.uploadPresentation(eventCode, trackId, filename)
+      Event.storeEvent(Event(proposalId, uploadedBy, s"Uploaded presentation for track $trackId"))
+    } catch {
+      case e:Exception =>
+        Event.storeEvent(Event(proposalId, uploadedBy, s"Error uploading presentation for track $trackId : ${e.getMessage}"))
+    }
   }
 }

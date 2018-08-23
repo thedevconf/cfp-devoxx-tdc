@@ -70,6 +70,7 @@ object ProposalState {
   val DECLINED = ProposalState("declined")
   val BACKUP = ProposalState("backup")
   val ARCHIVED = ProposalState("archived")
+  val CANCELED = ProposalState("canceled")
   val UNKNOWN = ProposalState("unknown")
 
   val all = List(
@@ -82,6 +83,7 @@ object ProposalState {
     DECLINED,
     BACKUP,
     ARCHIVED,
+    CANCELED,
     UNKNOWN
   )
 
@@ -92,6 +94,7 @@ object ProposalState {
     REJECTED,
     ACCEPTED,
     DECLINED,
+    CANCELED,
     BACKUP
   )
 
@@ -108,6 +111,7 @@ object ProposalState {
       case "declined" => DECLINED
       case "backup" => BACKUP
       case "ar" => ARCHIVED
+      case "canceled" => CANCELED
       case other => UNKNOWN
     }
   }
@@ -133,7 +137,8 @@ case class Proposal(id: String,
                     track: Track,
                     demoLevel: Option[String],
                     userGroup: Option[Boolean],
-                    wishlisted: Option[Boolean] = None) {
+                    wishlisted: Option[Boolean] = None,
+                    presentationUploaded: Option[Boolean] = None) {
 
   def escapedTitle: String = title match {
     case null => ""
@@ -191,7 +196,7 @@ object Proposal {
 
       findById(proposal.id).map {
         oldProposal =>
-          resetVotesIfProposalTypeIsUpdated(proposal.id, proposal.talkType, oldProposal.talkType, proposalState)
+          resetVotesIfProposalTrackIsUpdated(proposal.id, proposal.track, oldProposal.track)
       }
 
 
@@ -517,7 +522,8 @@ object Proposal {
         isNotDeclined <- checkIsNotMember(client, ProposalState.DECLINED, proposalId).toRight(ProposalState.DECLINED).right;
         isNotRejected <- checkIsNotMember(client, ProposalState.REJECTED, proposalId).toRight(ProposalState.REJECTED).right;
         isNotBackup <- checkIsNotMember(client, ProposalState.BACKUP, proposalId).toRight(ProposalState.BACKUP).right;
-        isNotArchived <- checkIsNotMember(client, ProposalState.ARCHIVED, proposalId).toRight(ProposalState.ARCHIVED).right
+        isNotArchived <- checkIsNotMember(client, ProposalState.ARCHIVED, proposalId).toRight(ProposalState.ARCHIVED).right;
+        isNotDeleted <- checkIsNotMember(client, ProposalState.CANCELED, proposalId).toRight(ProposalState.CANCELED).right
       ) yield ProposalState.UNKNOWN // If we reach this code, we could not find what was the proposal state
 
       thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
@@ -1001,6 +1007,13 @@ object Proposal {
       }
   }
 
+  private def resetVotesIfProposalTrackIsUpdated(proposalId: String, track: Track, oldTrack: Track) {
+    if (track.id != oldTrack.id) {
+      Review.archiveAllVotesOnProposal(proposalId)
+      Comment.saveInternalComment(proposalId, Webuser.Internal.uuid, s"All votes deleted for this talk, because it was changed from [${Messages(oldTrack.label)}] to [${Messages(track.label)}]")
+    }
+  }
+
   private def resetVotesIfProposalTypeIsUpdated(proposalId: String, talkType: ProposalType, oldTalkType: ProposalType, state: ProposalState) {
     if (oldTalkType.id != talkType.id) {
       if (state == ProposalState.DRAFT) {
@@ -1010,7 +1023,6 @@ object Proposal {
         }
       }
     }
-
   }
 
   /**
@@ -1038,6 +1050,21 @@ object Proposal {
           val proposalState = findProposalState(proposal.id)
           proposal.copy(state = proposalState.getOrElse(ProposalState.UNKNOWN))
       }
+  }
+
+  /**
+    * Updates the presentationUploaded field of the proposal in the Proposals collection in Redis
+    *
+    * @param proposalId
+    * @param uploaded
+    * @return
+    */
+  def updatePresentationStatus(proposalId:String, uploaded:Boolean) = Redis.pool.withClient {
+    implicit client =>
+      findById(proposalId).map( proposal => {
+        val json = Json.toJson(proposal.copy(presentationUploaded=Option(uploaded))).toString
+        client.hset("Proposals", proposalId, json)
+      })
   }
 
 }

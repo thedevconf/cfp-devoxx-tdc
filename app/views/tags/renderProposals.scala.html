@@ -3,80 +3,127 @@
 
 @defining(proposals.values.partition(_.state.code==ProposalState.ARCHIVED.code)) { case (archivedProposals, notArchived) =>
 
+@******************************************** Proposals for this conference **************************************************@
+
     @if(notArchived.size>0){
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>@Messages("tag.proposal.title")</th>
-            @if(SecureCFPController.hasAccessToCFP(req)) {
-                <th>@Messages("tag.proposal.youVoted")</th>
-                <th>@Messages("tag.proposal.status")</th>
-            }
-            <th>@Messages("tag.proposal.type")</th>
-            <th>@Messages("tag.proposal.track")</th>
-        </tr>
-    </thead>
-
-    @notArchived.toList.sortBy(_.state.code).map { proposal: Proposal =>
-        @defining(ApprovedProposal.isApproved(proposal.id, proposal.talkType.id)) { approved =>
-            @if(approved) {
-                <tr class="label-approved">
-            } else {
-                <tr class="renderProposal_@proposal.state.code">
-                }
-        <td><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a></td>
-            @if(SecureCFPController.hasAccessToCFP(req)) {
-                <td>@Review.lastVoteByUserForOneProposal(currentUser, proposal.id).map { review: Review =>
-                    @defining(review.vote) { score =>
-                        <small>
-                            @if(score > 6) {
-                                <span class="label label-success">@score</span>
-                            }
-                            @if(score < 4 && score > 0) {
-                                <span class="label label-danger">@score</span>
-                            }
-                            @if(score >= 4 && score <= 6) {
-                                <span class="label label-warning">@score</span>
-                            }
-                            @if(score == 0) {
-                                <span class="label label-default">@score</span>
-                            }
-                        </small>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Messages("tag.proposal.title")</th>
+                    @if(SecureCFPController.hasAccessToCFP(req)) {
+                        <th>@Messages("tag.proposal.youVoted")</th>
+                        <th>@Messages("tag.proposal.status")</th>
                     }
-                    @review.date.toString("dd-MMM HH:mm")
-                }.getOrElse {
-                    <span class="label label-default">-</span>
-                }
-                </td>
+                    <th>@Messages("tag.proposal.type")</th>
+                    <th>@Messages("tag.proposal.track")</th>
+                    <th>@Messages("table.pres.doUploadSlides")</th>
+                </tr>
+            </thead>
 
-                <td>
-                @if(approved) {
-                    <span class="label-approved">@Messages("approved")</span>
-                    <em>(@tags.renderProposalState(proposal.state))</em>
-                } else {
-                    @tags.renderProposalState(proposal.state)
-                }
+            @notArchived.toList.sortBy(_.state.code).map { proposal: Proposal =>
+                @defining(ApprovedProposal.isApproved(proposal.id, proposal.talkType.id)) { approved =>
+                    @if(approved) {
+                        <tr class="label-approved">
+                    } else {
+                        <tr class="renderProposal_@proposal.state.code">
+                    }
+                            <td><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a></td>
+                            @if(SecureCFPController.hasAccessToCFP(req)) {
+                                <td>@Review.lastVoteByUserForOneProposal(currentUser, proposal.id).map { review: Review =>
+                                    @defining(review.vote) { score =>
+                                        <small>
+                                            @if(score > 6) {
+                                                <span class="label label-success">@score</span>
+                                            }
+                                            @if(score < 4 && score > 0) {
+                                                <span class="label label-danger">@score</span>
+                                            }
+                                            @if(score >= 4 && score <= 6) {
+                                                <span class="label label-warning">@score</span>
+                                            }
+                                            @if(score == 0) {
+                                                <span class="label label-default">@score</span>
+                                            }
+                                        </small>
+                                    }@** defining **@
+                                    @review.date.toString("dd-MMM HH:mm")
+                                }.getOrElse {
+                                    <span class="label label-default">-</span>
+                                }
+                                </td>
 
-                </td>
-            }
-        <td>@Messages(proposal.talkType.id)</td>
-        <td>@Messages(proposal.track.label)</td>
-        </tr>
-        }
-    }
+                                <td>
+                                    @if(approved) {
+                                        <span class="label-approved">@Messages("approved")</span>
+                                        <em>(@tags.renderProposalState(proposal.state))</em>
+                                    } else {
+                                        @tags.renderProposalState(proposal.state)
+                                    }
+                                </td>
+                            }@** if **@
+                        <td>@Messages(proposal.talkType.id)</td>
+                        <td>@Messages(proposal.track.label)</td>
+                        <td>
+                            @if(proposal.presentationUploaded) {
+                            <a href="@routes.CallForPaper.uploadPresentationForProposal(proposal.id)" class="btn btn-sm btn-warning" title='@Messages("table.pres.title.uploadSlides.again")'><i class="icon-repeat"></i></a>
+                            } else {
+                            <a href="@routes.CallForPaper.uploadPresentationForProposal(proposal.id)" class="btn btn-sm btn-primary" title='@Messages("table.pres.title.uploadSlides")'><i class="icon-upload-alt"></i></a>
+                            }
+                        </td>
+                    </tr>
+                }@** defining **@
+            }@** notArchived.map **@
 
-</table>
+        </table>
     }else{
         <p>@Messages("renderProposal.noTalks")</p>
     }
 
-    @if(archivedProposals.size > 1) {
-        @Messages("renderProposal.archived",archivedProposals.size)
-    }
-    @if(archivedProposals.size == 1) {
-        @Messages("renderProposal.archived.single")
-    }
+@******************************************** Archived proposals **************************************************@
 
+    @if(archivedProposals.size>0){
+        <p>
+            @if(archivedProposals.size > 1) {
+                @Messages("renderProposal.archived",archivedProposals.size)
+            }
+            @if(archivedProposals.size == 1) {
+                @Messages("renderProposal.archived.single")
+            }
+            <button id="btToggleView" title="mostrar" class="btn-xs btn-primary"><i class="icon-eye-open"></i> @Messages("renderProposal.archived.btn.view")</button>
+        </p>
+        <table id="tbArchived" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>@Messages("tag.proposal.event")</th>
+                    <th>@Messages("tag.proposal.title")</th>
+                    <th>@Messages("tag.proposal.status")</th>
+                    <th>@Messages("tag.proposal.type")</th>
+                    <th>@Messages("tag.proposal.track")</th>
+                </tr>
+            </thead>
+
+            @archivedProposals.toList.sortBy(_.event).map { proposal: Proposal =>
+                <tr class="renderProposal_@proposal.state.code">
+                    <td>@proposal.event</td>
+                    <td><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a></td>
+                    <td>
+                        @tags.renderProposalState(proposal.state)
+                    </td>
+                    <td>@Messages(proposal.talkType.id)</td>
+                    <td>@Messages(proposal.track.label)</td>
+                </tr>
+            }
+
+        </table>
+        <script>
+            $(document).ready(function() {
+                $("#tbArchived").hide();
+                $("#btToggleView").click( function() {
+                    $("#tbArchived").toggle();
+                });
+            });
+        </script>
+    }
 }
 
 

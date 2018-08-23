@@ -1,0 +1,44 @@
+@(proposalId: String)(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+
+@main(Messages("editProfile.tab")) {
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>@Messages("uploadPresentation.title")</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+
+        @if(flash.get("error").isDefined){
+          <div class="alert alert-danger alert-dismissable">
+              <strong>Error :</strong>
+              @flash.get("error").get
+          </div>
+        }
+        @if(flash.get("success").isDefined){
+          <div class="alert alert-success alert-dismissable">
+              @flash.get("success").get
+          </div>
+        }
+        <link href='@routes.Assets.at(path="/public",file="css/upload.css")' rel="stylesheet" >
+
+        @helper.form(action = routes.CallForPaper.savePresentationForProposal(proposalId), 'enctype -> "multipart/form-data") {
+            <label id="presentationLabel" for="presentation" title='@Messages("uploadPresentation.label.title")' class="btn btn-primary"><i class="icon-upload-alt"></i> <span>@Messages("uploadPresentation.label")</span></label>
+            <input class="inputfile" id="presentation" type="file" name="presentation">
+            <button class="btn btn-primary" type="submit">@Messages("uploadPresentation.btn")</button><br>
+        }
+    </div>
+    <script>
+        $("#presentation").change((e) => {
+                let label = $("#presentationLabel");
+                let fileName = e.target.value.split( '\\' ).pop();
+                label.children("span").first().html(fileName);
+        });
+    </script>
+</div>
+}

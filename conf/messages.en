@@ -32,11 +32,13 @@ index.txt2=Use one of the following social service, this is simpler and you won'
 company=Your company
 bio=A short bio
 twitter=Your twitter handle
-blog=Your blog or company website
+blog=Your blog
+linkedIn=Your LinkedIn
+github=Your GitHub
 qualifications=Your speaker''s qualifications
 qualifications2=Speaker''s qualifications
 qualifications.label=Speaker qualifications
-phone=Phone
+phone=Phone / Whatsapp
 gender=Gender
 tshirtSize=T-shirt size
 no.experience=No experience
@@ -446,6 +448,18 @@ table.pres.delete=Move to trash
 table.pres.action=Actions
 table.pres.doSubmit=Submit
 table.pres.doDelete=Delete
+table.pres.trash=Delete this proposal
+table.pres.doUploadSlides=Upload
+table.pres.title.uploadSlides=Upload the presentation for this proposal
+table.pres.title.uploadSlides.again=Upload again the presentation for this proposal
+
+uploadPresentation.title=Presentation upload
+uploadPresentation.btn=Send
+uploadPresentation.label=Select the file
+uploadPresentation.label.title=Click here to select the file for upload
+uploadPresentation.msg.success=Presentation uploaded
+uploadPresentation.msg.error.missing=Missing file
+uploadPresentation.msg.error.general=Error parsing form data
 
 total.draft={0} proposals
 total.draft.sing={0} proposal
@@ -622,6 +636,8 @@ ar.important=Important
 ar.backup.warning1=This is a BACKUP talk. We will notify you if it is approved at a later time.
 ar.backup.warning2=However you can decline if you don't want to keep this talk as a backup.
 ar.accepted.warning=Warning: this talk has been accepted. Please contact the CFP team before you decline
+ar.message.massnotifications=Notified speakers for the selected proposals
+ar.message.massnotifications.error=There was an error sending the notifications
 
 sw.proposal.title=Title
 sw.proposal.talkType=Type of presentation
@@ -634,6 +650,29 @@ sw.company=Company
 sw.talkType=All talks
 sw.details=See details
 sw.proposal.btn.sendmessage=Send your message
+
+sw.incidents=Incidents
+sw.incidents.add=Add incident
+sw.incidents.description=An incident indicates whether the speaker had any problems on past events, like bad behavior, not attending or cancelling at very short notice
+sw.incidents.form.title=Add Incident
+sw.incidents.form.bt.save=Save
+sw.incidents.form.bt.cancel=Cancel
+sw.incidents.msg.success=Incident successfully saved.
+sw.incidents.msg.error=Invalid form, cannot create incident.
+sw.incidents.title.conference=Conference
+sw.incidents.title.type=Type
+sw.incidents.title.description=Description
+
+
+form.msg.error=Invalid form, please check and correct errors.
+
+# Labels for incidents form
+description=Description
+incidentType=Incident Type
+incident.cancel=Cancelled at very short notice
+incident.noshow=Did not attend
+incident.behavior=Bad behavior
+incident.unknown=Unknown Incident Type
 
 sw.trash.title=Trash
 sw.trash.warning=Please enter DEL in this input box and click on the button
@@ -689,7 +728,9 @@ newSpeaker.title=Create a new speaker
 avatarUrl2=URL of speaker''s photo
 name=Full name
 bio2=Speaker''s bio
-twitter2=Twitter''s handle
+twitter2=Twitter
+linkedIn2=LinkedIn
+github2=Github
 company2=Company
 blog2=Web site or personnal blog
 lang2=Will speak in Portuguese or English? (pt/en)
@@ -851,7 +892,7 @@ mail.notify_proposal.content=A Proposal has been submitted on the CFP, with Titl
 mail.draft_single_reminder.subject={0} reminder : you have one proposal with status ''Draft''
 mail.draft_multiple_reminder.subject={1} reminder : you have {0} proposals to submit
 mail.proposal_approved.subject=Your proposal {1} has been approved on Track {0}
-mail.proposal_refused.subject=Your proposal {1} has been refused on Track {0}
+mail.proposal_refused.subject=Your proposal {1} has not been approved on Track {0}
 mail.proposal_backup.subject=Your proposal {1} has been marked as backup on Track {0}
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Schedule updated for track {0}
@@ -866,8 +907,6 @@ d1.label=Slides only
 d2.label=Slides and code
 d3.label=Code only
 d4.label=No slides & code
-
-table.pres.trash=Delete this proposal
 
 msg_pub=Send a message to the speaker
 email_pub=Your email address
@@ -919,6 +958,7 @@ tag.proposal.title=Title
 tag.proposal.status=Status
 tag.proposal.type=Type
 tag.proposal.track=Track
+tag.proposal.event=Event
 tag.invite=Invite
 tag.invited=Invited
 tag.sponsor=sponsor
@@ -965,6 +1005,10 @@ visitor.welcome.profile=See the list of talks you faved
 renderProposal.archived={0} proposals archived from some previous editions.
 renderProposal.archived.single=One proposal has been archived from a previous edition.
 renderProposal.noTalks=No other talks submitted or proposed
+renderProposal.archived.btn.view=Show/Hide
+
+# renderIncidents
+renderIncidents.noIncidents=No incidents found
 
 mail.goldenticket.subject=Golden Ticket for {0}
 error.loginRequired=Access restricted, please authenticate.
@@ -1028,6 +1072,7 @@ svp.btn.home=Go back to home
 svp.btn.notalks=There are no more talk to review
 svp.btn.notalks.bytrack=There are no more talks to review for track {0} in the format {1}
 svp.btn.nexttalk=Continue and evaluate next talk for track {0}
+svp.btn.vote.delete=Delete vote
 
 gt.admin.sp.privateMessage=Private message for the program committee
 
@@ -1086,6 +1131,11 @@ backoffice.allproposals.speaker.accepted=Speaker has accepted
 backoffice.allproposals.rejected.warning=If proposal's state = REJECTED then the speaker has been notified.
 backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to REJECTED (Async)
 backoffice.allproposals.rejected.notify.link=Notify refused
+backoffice.allproposals.rejected.notify.all.link=Notify all selected
+backoffice.allproposals.backup.notify.all.link=Notify all selected
+backoffice.allproposals.approved.notify.all.link=Notify all selected
+backoffice.allproposals.select.all=Select all
+backoffice.allproposals.deselect.all=Remove all selections
 backoffice.allproposals.empty=There is no proposal with status != Archived
 
 backoffice.events.log.title=Event Log
@@ -1278,6 +1328,7 @@ accepted=accepted
 backup=backup
 declined=declined
 archived=archived
+canceled=canceled
 unknown=unknown
 
 draft.caps=DRAFT
@@ -1289,6 +1340,7 @@ accepted.caps=ACCEPTED
 backup.caps=BACKUP
 declined.caps=DECLINED
 archived.caps=ARCHIVED
+canceled.caps=CANCELED
 unknown.caps=UNKNOWN
 
 error.message1=Sorry, there's a bug or something we really didn't expect...

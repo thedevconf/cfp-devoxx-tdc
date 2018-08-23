@@ -356,7 +356,7 @@ class ArchivedProposalSpecs extends PlaySpecification {
     val webuser = Webuser.createSpeaker(email, "John", "UnitTest")
     Webuser.saveAndValidateWebuser(webuser)
     val uuid = webuser.uuid
-    val speaker = Speaker.createSpeaker(uuid, email, "j", "bio", None, Some("Twitter"), None, Some("company"), Some("blog"), "john", "newbie")
+    val speaker = Speaker.createSpeaker(uuid, email, "j", "bio", None, Some("Twitter"), None, Some("company"), Some("blog"), "john", "newbie","",None,None)
     Speaker.save(speaker)
     uuid
   }

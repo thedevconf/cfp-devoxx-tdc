@@ -10,6 +10,7 @@ import play.api.data._
 import play.api.data.validation.Constraints._
 import play.api.i18n.Messages
 import play.api.libs.json.{JsObject, Json}
+import models.Incident._
 
 /**
   * The backoffice controller for the CFP technical committee.
@@ -67,11 +68,15 @@ object CFPAdmin extends SecureCFPController {
       val uuid = request.webuser.uuid
       Proposal.findById(proposalId) match {
         case Some(proposal) => {
-          val speakerDiscussion = Comment.allSpeakerComments(proposal.id)
-          val internalDiscussion = Comment.allInternalComments(proposal.id)
-          val maybeMyVote = Review.lastVoteByUserForOneProposal(uuid, proposalId)
-          val proposalsByAuths = allProposalByProposal(proposal)
-          Ok(views.html.CFPAdmin.showProposal(proposal, proposalsByAuths, speakerDiscussion, internalDiscussion, messageForm, messageForm, voteForm, maybeMyVote, uuid))
+          if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(proposal.track.id,uuid)) {
+            val speakerDiscussion = Comment.allSpeakerComments(proposal.id)
+            val internalDiscussion = Comment.allInternalComments(proposal.id)
+            val maybeMyVote = Review.lastVoteByUserForOneProposal(uuid, proposalId)
+            val proposalsByAuths = allProposalByProposal(proposal)
+            Ok(views.html.CFPAdmin.showProposal(proposal, proposalsByAuths, speakerDiscussion, internalDiscussion, messageForm, messageForm, voteForm, maybeMyVote, uuid))
+          } else {
+            Redirect(routes.Application.index()).flashing("error" -> "Not Authorized")
+          }
         }
         case None => NotFound("Proposal not found").as("text/html")
       }
@@ -92,31 +97,33 @@ object CFPAdmin extends SecureCFPController {
       scala.concurrent.Future {
         Proposal.findById(proposalId) match {
           case Some(proposal) => {
-            val currentAverageScore = Review.averageScore(proposalId)
-            val countVotesCast = Review.totalVoteCastFor(proposalId) // votes exprimes (sans les votes a zero)
-            val countVotes = Review.totalVoteFor(proposalId)
-            val allVotes = Review.allVotesFor(proposalId)
+            if(isAuthorizedToVote(uuid,proposal)) {
+              val currentAverageScore = Review.averageScore(proposalId)
+              val countVotesCast = Review.totalVoteCastFor(proposalId) // votes exprimes (sans les votes a zero)
+              val countVotes = Review.totalVoteFor(proposalId)
+              val allVotes = Review.allVotesFor(proposalId)
 
-            // The next proposal I should review
-            val allNotReviewed = Review.allProposalsNotReviewed(uuid)
-            val (sameTracks, otherTracks) = allNotReviewed.partition(_.track.id == proposal.track.id)
-            val (sameTalkType, otherTalksType) = allNotReviewed.partition(_.talkType.id == proposal.talkType.id)
+              // The next proposal I should review
+              val allNotReviewed = Review.allProposalsNotReviewed(uuid)
+              val (sameTracks, otherTracks) = allNotReviewed.partition(_.track.id == proposal.track.id)
+              val (sameTalkType, otherTalksType) = allNotReviewed.partition(_.talkType.id == proposal.talkType.id)
 
-            val nextToBeReviewedSameTrack = (sameTracks.sortBy(_.talkType.id) ++ otherTracks).headOption
-            val nextToBeReviewedSameFormat = (sameTalkType.sortBy(_.track.id) ++ otherTalksType).headOption
+              val nextToBeReviewedSameTrack = (sameTracks.sortBy(_.talkType.id) ++ otherTracks).headOption
+              val nextToBeReviewedSameFormat = (sameTalkType.sortBy(_.track.id) ++ otherTalksType).headOption
 
-            // If Golden Ticket is active
-            if (ConferenceDescriptor.isGoldenTicketActive) {
-              val averageScoreGT = ReviewByGoldenTicket.averageScore(proposalId)
-              val countVotesCastGT: Option[Long] = Option(ReviewByGoldenTicket.totalVoteCastFor(proposalId))
+              // If Golden Ticket is active
+              if (ConferenceDescriptor.isGoldenTicketActive) {
+                val averageScoreGT = ReviewByGoldenTicket.averageScore(proposalId)
+                val countVotesCastGT: Option[Long] = Option(ReviewByGoldenTicket.totalVoteCastFor(proposalId))
 
 
-              Ok(views.html.CFPAdmin.showVotesForProposal(uuid, proposal, currentAverageScore, countVotesCast, countVotes, allVotes, nextToBeReviewedSameTrack, nextToBeReviewedSameFormat, averageScoreGT, countVotesCastGT))
+                Ok(views.html.CFPAdmin.showVotesForProposal(uuid, proposal, currentAverageScore, countVotesCast, countVotes, allVotes, nextToBeReviewedSameTrack, nextToBeReviewedSameFormat, averageScoreGT, countVotesCastGT))
+              } else {
+                Ok(views.html.CFPAdmin.showVotesForProposal(uuid, proposal, currentAverageScore, countVotesCast, countVotes, allVotes, nextToBeReviewedSameTrack, nextToBeReviewedSameFormat, 0, None))
+              }
             } else {
-              Ok(views.html.CFPAdmin.showVotesForProposal(uuid, proposal, currentAverageScore, countVotesCast, countVotes, allVotes, nextToBeReviewedSameTrack, nextToBeReviewedSameFormat, 0, None))
+              Redirect(routes.Application.index()).flashing("error" -> "Not Authorized")
             }
-
-
           }
           case None => NotFound("Proposal not found").as("text/html")
         }
@@ -188,12 +195,28 @@ object CFPAdmin extends SecureCFPController {
               BadRequest(views.html.CFPAdmin.showProposal(proposal, proposals, speakerDiscussion, internalDiscussion, messageForm, messageForm, hasErrors, maybeMyVote, uuid))
             },
             validVote => {
-              Review.voteForProposal(proposalId, uuid, validVote)
-              Redirect(routes.CFPAdmin.showVotesForProposal(proposalId)).flashing("vote" -> "Ok, vote submitted")
+              if(isAuthorizedToVote(uuid,proposal)) {
+                Review.voteForProposal(proposalId, uuid, validVote)
+                Redirect(routes.CFPAdmin.showVotesForProposal(proposalId)).flashing("vote" -> "Ok, vote submitted")
+              } else {
+                Redirect(routes.Application.index()).flashing("error" -> "Not Authorized")
+              }
             }
           )
         case None => NotFound("Proposal not found").as("text/html")
       }
+  }
+
+  /**
+    *
+    * Validates if the user has the authorization to vote for a proposal
+    *
+    * @param uuid identifier of the user that is trying to vote for the proposal
+    * @param proposal proposal to receive the vote
+    * @return true if the user is authorized to vote for the requested proposal
+    */
+  private def isAuthorizedToVote(uuid:String, proposal:Proposal) = {
+      Webuser.hasAccessToAdmin(uuid) || TrackLeader.isTrackLeader(proposal.track.id,uuid)
   }
 
   def clearVoteForProposal(proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
@@ -354,7 +377,8 @@ object CFPAdmin extends SecureCFPController {
       Speaker.findByUUID(uuidSpeaker) match {
         case Some(speaker) => {
           val proposals = Proposal.allProposalsByAuthor(speaker.uuid)
-          Ok(views.html.CFPAdmin.showSpeakerAndTalks(speaker, proposals, request.webuser.uuid))
+          val incidents = Incident.allIncidentsByAuthor(speaker.uuid)
+          Ok(views.html.CFPAdmin.showSpeakerAndTalks(speaker, proposals, incidents, request.webuser.uuid))
         }
         case None => NotFound("Speaker not found")
       }
@@ -668,7 +692,9 @@ object CFPAdmin extends SecureCFPController {
     "qualifications2" -> nonEmptyText(maxLength = 750),
     "phone2" -> optional(text),
     "gender2" -> optional(text),
-    "tshirtSize2" -> optional(text)
+    "tshirtSize2" -> optional(text),
+    "linkedIn2" -> optional(text),
+    "github2" -> optional(text)
   )(Speaker.createOrEditSpeaker)(Speaker.unapplyFormEdit))
 
 
@@ -787,6 +813,50 @@ object CFPAdmin extends SecureCFPController {
       val groupedProposals:Map[Track,List[Proposal]] = allProposals.groupBy(_.track)
 
       Ok(views.html.CFPAdmin.allStadiumTalks(groupedProposals))
+  }
+
+  /**
+    * Opens the form for the insertion of a new incident for a speaker
+    */
+  def addIncident(speakerId: String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Ok(views.html.CFPAdmin.incident(incidentForm.fill(Incident(speakerId,IncidentType.UNKNOWN,conference=ConferenceDescriptor.current().eventCode))))
+  }
+
+  /**
+    * Saves a new incident for the speaker
+    *
+    */
+  def saveIncident() = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      incidentForm.bindFromRequest.fold(
+        invalidForm => BadRequest(views.html.CFPAdmin.incident(invalidForm)).flashing("error" -> Messages("form.msg.error")),
+        validIncident => {
+          Incident.save(validIncident)
+          Event.storeEvent(Event(validIncident.speakerId, request.webuser.uuid, "added a new incident [" + validIncident.incidentType.id + "]"))
+          Redirect(routes.CFPAdmin.showSpeakerAndTalks(validIncident.speakerId)).flashing("success" -> Messages("sw.incidents.msg.success"))
+        }
+      )
+  }
+
+
+  /**
+    * Deletes a vote for a proposal
+    *
+    * @param proposalId proposal that will have a vote deleted
+    * @param reviewerUUID webuser that will have his vote deleted for the selected proposal
+    * @return
+    */
+  def deleteVotesForProposal(proposalId:String,reviewerUUID:String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val uuid = request.webuser.uuid
+      Proposal.findById(proposalId) match {
+        case Some(_) => {
+          Review.removeVoteForProposal(uuid, proposalId, reviewerUUID)
+          NoContent
+        }
+        case None => NotFound("Proposal not found").as("text/html")
+      }
   }
 }
 

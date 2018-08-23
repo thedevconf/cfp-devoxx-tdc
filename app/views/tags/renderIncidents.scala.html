@@ -1,0 +1,24 @@
+@(incidents: List[Incident])(implicit lang: Lang,req: RequestHeader)
+
+@if(incidents.size>0){
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>@Messages("sw.incidents.title.conference")</th>
+                <th>@Messages("sw.incidents.title.type")</th>
+                <th>@Messages("sw.incidents.title.description")</th>
+            </tr>
+        </thead>
+        <tbody>
+        @incidents.sortBy(_.conference).map { incident: Incident =>
+            <tr>
+                <td>@incident.conference</a></td>
+                <td>@Messages(incident.incidentType.label)</td>
+                <td>@incident.description</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}else{
+    <p>@Messages("renderIncidents.noIncidents") <i class="icon-ok"></i></p>
+}

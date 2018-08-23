@@ -203,7 +203,7 @@ object ApproveOrRefuse extends SecureCFPController {
 
       val (accepted, rejected) = allMyProposals.partition(p => p.state == ProposalState.APPROVED || p.state == ProposalState.DECLINED || p.state == ProposalState.ACCEPTED || p.state == ProposalState.BACKUP)
       Ok(views.html.ApproveOrRefuse.acceptOrRefuseTalks(accepted, rejected.filter(_.state == ProposalState.REJECTED), cssrf))
-        .withSession(session.+(("CSSRF", Crypt.sha1(cssrf))))
+        .withSession(request.session.+(("CSSRF", Crypt.sha1(cssrf))))
   }
 
   val formAccept = Form(tuple("proposalId" -> nonEmptyText(maxLength = 8), "dec" -> nonEmptyText, "cssrf_t" -> nonEmptyText))
@@ -215,7 +215,7 @@ object ApproveOrRefuse extends SecureCFPController {
         Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("error" -> "Invalid form, please check and validate again")
         , validForm => {
           val cssrf = Crypt.sha1(validForm._3)
-          val fromSession = session.get("CSSRF")
+          val fromSession = request.session.get("CSSRF")
           if (Some(cssrf) != fromSession) {
             Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("error" -> "Invalid CSSRF token")
           } else {
@@ -314,6 +314,75 @@ object ApproveOrRefuse extends SecureCFPController {
 
   }
 
+  val proposalsForm = Form(
+    "notificationList" -> list(text)
+  )
+
+  /**
+    * Sends bulk notifications for proposal approvals
+    *
+    * @param trackId uses the trackId only to return to the page where the notifications were sent from
+    * @return
+    */
+  def notifyManyApprove(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      proposalsForm.bindFromRequest.fold(
+        err => Redirect(routes.ApproveOrRefuse.allApprovedByTrack(trackId)).flashing("error" -> Messages("ar.message.massnotifications.error")),
+        proposals => {
+          val result:Map[String,Proposal] = Proposal.loadAndParseProposals(proposals.toSet)
+
+          result.foreach { case (_, proposal) =>
+            ZapActor.actor ! ProposalApproved(request.webuser.uuid, proposal)
+          }
+
+          Redirect(routes.ApproveOrRefuse.allApprovedByTrack(trackId)).flashing("success" -> Messages("ar.message.massnotifications"))
+        }
+      )
+
+  }
+
+  /**
+    * Sends bulk notifications for proposal refusals
+    *
+    * @param trackId uses the trackId only to return to the page where the notifications were sent from
+    * @return
+    */
+  def notifyManyRefuse(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      proposalsForm.bindFromRequest.fold(
+        err => Redirect(routes.ApproveOrRefuse.allRefusedByTrack(trackId)).flashing("error" -> Messages("ar.message.massnotifications.error")),
+        proposals => {
+          val result:Map[String,Proposal] = Proposal.loadAndParseProposals(proposals.toSet)
+
+          result.foreach { case (_, proposal) =>
+            ZapActor.actor ! ProposalRefused(request.webuser.uuid, proposal)
+          }
+
+         Redirect(routes.ApproveOrRefuse.allRefusedByTrack(trackId)).flashing("success" -> Messages("ar.message.massnotifications"))
+        }
+      )
+  }
+  /**
+    * Sends bulk notifications for proposal backups
+    *
+    * @param trackId uses the trackId only to return to the page where the notifications were sent from
+    * @return
+    */
+  def notifyManyBackup(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      proposalsForm.bindFromRequest.fold(
+        err => Redirect(routes.ApproveOrRefuse.allBackupByTrack(trackId)).flashing("error" -> Messages("ar.message.massnotifications.error")),
+        proposals => {
+          val result:Map[String,Proposal] = Proposal.loadAndParseProposals(proposals.toSet)
+
+          result.foreach { case (_, proposal) =>
+            ZapActor.actor ! ProposalBackup(request.webuser.uuid, proposal)
+          }
+
+          Redirect(routes.ApproveOrRefuse.allBackupByTrack(trackId)).flashing("success" -> Messages("ar.message.massnotifications"))
+        }
+      )
+  }
 
 }
 

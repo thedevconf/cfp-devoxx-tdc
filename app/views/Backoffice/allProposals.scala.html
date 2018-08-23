@@ -80,15 +80,14 @@
                                         @Messages("backup.caps")</a> </small>
                                     <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.REJECTED.code)" class="btn btn-sm btn-danger">
                                         @Messages("rejected.caps")</a> </small>
-<!-- acesso a confirmar a proposta em prol do palestrante somente habilitado para superusers -->
-@if(SecureCFPController.hasAccessToAdmin(req)){
                                     <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.ACCEPTED.code)" class="btn btn-sm btn-success"
-						title="termos e palestra confirmados pelo palestrante">
+                    						title="termos e palestra confirmados pelo palestrante">
                                         @Messages("accepted.caps")</a> </small>
                                     <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.DECLINED.code)" class="btn btn-sm btn-danger"
-						title="palestra declinada pelo palestrante">
+					                    	title="palestra declinada pelo palestrante">
                                         @Messages("declined.caps")</a> </small>
-}
+                                    <small><a href="@routes.Backoffice.changeProposalState(proposal.id, ProposalState.CANCELED.code)" class="btn btn-sm btn-danger">
+                                        @Messages("canceled.caps")</a> </small>
                                 </td>
                             </tr>
                         }

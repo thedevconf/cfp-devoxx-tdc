@@ -1,6 +1,7 @@
 @(allProposals:Set[models.Proposal], trackId:String)(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @import ConferenceDescriptor.ConferenceTracks.{ALL => AllTracks}
+@import helper.twitterBootstrap._
 
 @main(Messages("backoffice.notification.refused.title")) {
 
@@ -33,81 +34,97 @@
 
 
                 <div class="col-md-12">
-                    <h3>@allProposals.size @Messages("backoffice.allproposals.subtitle.proposal")s @Messages("backoffice.allproposals.subtitle.refused")</h3>
-                    <span class="label label-primary">@allProposals.filter(_.lang=="pt").size PT</span>
-                    <span class="label label-default">@allProposals.filter(_.lang=="en").size EN</span>
+                    @helper.form(action=routes.ApproveOrRefuse.notifyManyRefuse(Option(trackId))) {
+                        <button type="submit"
+                           title='@Messages("backoffice.allproposals.rejected.notify.tooltip")'
+                           class="btn btn-sm btn-danger">
+                            <i class="icon-warning-sign"></i> @Messages("backoffice.allproposals.rejected.notify.all.link")</button>
+                        <button type="button" id="checkAll" class="btn btn-sm btn-primary">
+                            <i class="icon-check"></i> @Messages("backoffice.allproposals.select.all")</button>
+                        <button type="button" id="uncheckAll" class="btn btn-sm btn-primary">
+                            <i class="icon-check-empty"></i> @Messages("backoffice.allproposals.deselect.all")</button>
 
-                    @allProposals.groupBy(_.track).map{case(track,listOfProps)=>
-                        <a class = "btn btn-xs btn-info" href="@routes.ApproveOrRefuse.allRefusedByTrack(Option(track.id))">@listOfProps.size @Messages(track.label)</a>
-                    }
+                        <h3>@allProposals.size @Messages("backoffice.allproposals.subtitle.proposal")s @Messages("backoffice.allproposals.subtitle.refused")</h3>
+                        <span class="label label-primary">@allProposals.filter(_.lang=="pt").size PT</span>
+                        <span class="label label-default">@allProposals.filter(_.lang=="en").size EN</span>
 
-                    <br/>
-
-                    <table id="allProposals" class="table table-bordered table-hover table-condensed">
-                        <thead>
-                            <tr>
-                                <th>@Messages("backoffice.allproposals.columns.title")</th>
-                                <th>@Messages("backoffice.allproposals.columns.id")</th>
-                                <th>@Messages("backoffice.allproposals.columns.speaker")</th>
-                                <th>@Messages("backoffice.allproposals.columns.track")</th>
-                                <th>@Messages("backoffice.allproposals.columns.status")</th>
-                                <th>@Messages("backoffice.allproposals.columns.notify")</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @allProposals.filter(p => if(trackId=="") true else p.track.id == trackId).map { proposal =>
-                            <tr class="tr_@proposal.state.code">
-                                <td>
-                                    <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
-                                </td>
-                                <td>@proposal.id</td>
-                                <td>
-                                    @tags.renderGravatar(proposal.mainSpeaker,showName = true, showPhoto = false)
-                                    @proposal.secondarySpeaker.map { sp =>
-                                    @tags.renderGravatar(sp,showName = true, showPhoto = false)
-                                    }
-                                    @proposal.otherSpeakers.map{ sp2=>
-                                    @tags.renderGravatar(sp2,showName = true, showPhoto = false)
-                                    }
-                                </td>
-                                <td>
-                                    @Messages(proposal.track.label)
-                                </td>
-                                <td>
-                                    @Messages(proposal.state.code)
-                                </td>
-                                <td>
-                                    <a href="@routes.ApproveOrRefuse.notifyRefusedByTrack(Option(trackId), proposal.id)"
-                                       title='@Messages("backoffice.allproposals.rejected.notify.tooltip")'
-                                       class="label label-danger">
-                                        <i class="icon-warning-sign"></i>@Messages("backoffice.allproposals.rejected.notify.link")</a>
-                                </td>
-                            </tr>
+                        @allProposals.groupBy(_.track).map{case(track,listOfProps)=>
+                            <a class = "btn btn-xs btn-info" href="@routes.ApproveOrRefuse.allRefusedByTrack(Option(track.id))">@listOfProps.size @Messages(track.label)</a>
                         }
-                        </tbody>
-                    </table>
+
+                        <br/>
+
+                        <table id="allProposals" class="table table-bordered table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>@Messages("backoffice.allproposals.columns.title")</th>
+                                    <th>@Messages("backoffice.allproposals.columns.id")</th>
+                                    <th>@Messages("backoffice.allproposals.columns.speaker")</th>
+                                    <th>@Messages("backoffice.allproposals.columns.track")</th>
+                                    <th>@Messages("backoffice.allproposals.columns.status")</th>
+                                    <th>@Messages("backoffice.allproposals.columns.notify")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @allProposals.filter(p => if(trackId=="") true else p.track.id == trackId).map { proposal =>
+                                <tr class="tr_@proposal.state.code">
+                                    <td style="background-color:white"><input name="notificationList[]" type="checkbox" value="@proposal.id" /></td>
+                                    <td>
+                                        <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
+                                    </td>
+                                    <td>@proposal.id</td>
+                                    <td>
+                                        @tags.renderGravatar(proposal.mainSpeaker,showName = true, showPhoto = false)
+                                        @proposal.secondarySpeaker.map { sp =>
+                                        @tags.renderGravatar(sp,showName = true, showPhoto = false)
+                                        }
+                                        @proposal.otherSpeakers.map{ sp2=>
+                                        @tags.renderGravatar(sp2,showName = true, showPhoto = false)
+                                        }
+                                    </td>
+                                    <td>
+                                        @Messages(proposal.track.label)
+                                    </td>
+                                    <td>
+                                        @Messages(proposal.state.code)
+                                    </td>
+                                    <td>
+                                        <a href="@routes.ApproveOrRefuse.notifyRefusedByTrack(Option(trackId), proposal.id)"
+                                           title='@Messages("backoffice.allproposals.rejected.notify.tooltip")'
+                                           class="label label-danger">
+                                            <i class="icon-warning-sign"></i>@Messages("backoffice.allproposals.rejected.notify.link")
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    }
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-    <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function() {
-    $('#allProposals').dataTable({
-    "aaSorting": [[ 0, "desc" ]],
-    "iDisplayLength": 50,
-    "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-    "bStateSave": true,
-    "aoColumns": [
-        { "sType": "string"},
-        { "sType": "string"},
-        { "sType": "string"},
-        { "sType": "string"},
-        { "sType": "string"},
-        { "sType": "string"}
-        ]
-    });
+        $('#allProposals').dataTable({
+            "aaSorting": [[1,"desc"]],
+            "iDisplayLength": 50,
+            "aLengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+            "aoColumns": [
+                { "bSortable":false},
+                { "sType": "string"},
+                { "sType": "string"},
+                { "sType": "string"},
+                { "sType": "string"},
+                { "sType": "string"},
+                { "sType": "string"}
+                ]
+        });
+        $('#checkAll').click(() => $("input").filter(":checkbox").prop("checked",true));
+        $('#uncheckAll').click(() => $("input").filter(":checkbox").prop("checked",false));
     } );
 </script>
 }

@@ -32,11 +32,13 @@ index.txt2=Use um dos seguintes serviços de rede social, é mais simples e voc�
 company=Sua empresa
 bio=Minibio
 twitter=Seu Twitter
-blog=Seu blog ou website da empresa
+blog=Seu blog ou website
+linkedIn=Seu LinkedIn
+github=Seu GitHub
 qualifications=Suas qualificações de palestrante
 qualifications2=Qualificações de palestrante
 qualifications.label=Qualificações de palestrante
-phone=Telefone
+phone=Telefone / Whatsapp
 gender=Gênero
 tshirtSize=Tamanho de camiseta
 no.experience=Sem experiência
@@ -446,6 +448,18 @@ table.pres.delete=Mover para lixo
 table.pres.action=Ações
 table.pres.doSubmit=Submeter
 table.pres.doDelete=Excluir
+table.pres.trash=Excluir esta proposta
+table.pres.doUploadSlides=Upload
+table.pres.title.uploadSlides=Fazer upload da apresentação desta palestra
+table.pres.title.uploadSlides.again=Fazer novo upload da apresentação desta palestra
+
+uploadPresentation.title=Upload de apresentação
+uploadPresentation.btn=Enviar
+uploadPresentation.label=Escolha o arquivo
+uploadPresentation.label.title=clique aqui para selecionar o arquivo a ser enviado
+uploadPresentation.msg.success= Apresentação recebida
+uploadPresentation.msg.error.missing= Arquivo ausente
+uploadPresentation.msg.error.general= Erro ao submeter o arquivo
 
 total.draft={0} propostas
 total.draft.sing={0} proposta
@@ -620,6 +634,8 @@ ar.important=Importante
 ar.backup.warning1=Esta é uma palestra de BACKUP. Notificaremos você caso ela seja aprovada mais tarde.
 ar.backup.warning2=Entretanto você pode recusar se não quiser manter esta palestra como backup.
 ar.accepted.warning=Aviso: esta palestra foi aceita. Por favor contate a equipe do CFP antes de recusar
+ar.message.massnotifications=Os palestrantes para as palestras marcadas foram notificados
+ar.message.massnotifications.error=Ocorreu um erro no envio de notificações
 
 sw.proposal.title=Título
 sw.proposal.talkType=Tipo de apresentação
@@ -632,6 +648,28 @@ sw.company=Empresa
 sw.talkType=Todas palestras
 sw.details=Veja detalhes
 sw.proposal.btn.sendmessage=Enviar sua mensagem
+
+sw.incidents=Ocorrências
+sw.incidents.add=Adicionar uma ocorrência
+sw.incidents.description=Uma ocorrência indica se o palestrante já causou problemas em eventos anteriores, tais como faltas, cancelamento de última hora ou quebra do código de conduta
+sw.incidents.form.title=Adicionar Ocorrência
+sw.incidents.form.bt.save=Gravar
+sw.incidents.form.bt.cancel=Cancelar
+sw.incidents.msg.success=Ocorrência salva com sucesso
+sw.incidents.msg.error=Formulário inválido, não foi possivel criar a ocorrência
+sw.incidents.title.conference=Conferência
+sw.incidents.title.type=Tipo
+sw.incidents.title.description=Descrição
+
+form.msg.error=Formulario invalido, favor verificar e corrigir os erros.
+
+# Labels for incidents form
+description=Descrição
+incidentType=Tipo de Ocorrência
+incident.cancel=Cancelamento em cima da hora
+incident.noshow=Faltou na palestra
+incident.behavior=Quebra de código de conduta
+incident.unknown=Tipo de Incidente Desconhecido
 
 sw.trash.title=Lixeira
 sw.trash.warning=Por favor digite DEL neste input box e clique no botão
@@ -688,6 +726,8 @@ avatarUrl2=URL para foto do palestrante
 name=Nome completo
 bio2=Minibio do palestrante
 twitter2=Twitter
+linkedIn2=LinkedIn
+github2=Github
 company2=Empresa
 blog2=Web site ou blog pessoal
 lang2=Falará em Português ou Inglês? (pt/en)
@@ -849,7 +889,7 @@ mail.notify_proposal.content=Uma proposta foi submetida no CFP, com Título: [{0
 mail.draft_single_reminder.subject={0} lembrete : você tem uma proposta com status ''Rascunho''
 mail.draft_multiple_reminder.subject={1} lembrete : você tem {0} propostas para submeter
 mail.proposal_approved.subject=Sua proposta {1} foi aprovada na Trilha {0}
-mail.proposal_refused.subject=Sua proposta {1} foi rejeitada na Trilha {0}
+mail.proposal_refused.subject=Sua proposta {1} não foi aprovada na Trilha {0}
 mail.proposal_backup.subject=Sua proposta {1} foi marcada como backup na Trilha {0}
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Grade atualizada para trilha {0}
@@ -864,8 +904,6 @@ d1.label=Somente slides
 d2.label=Slides e código
 d3.label=Somente código
 d4.label=Sem slides e código
-
-table.pres.trash=Excluir esta proposta
 
 msg_pub=Envie uma mensagem para o palestrante
 email_pub=Seu endereço de email
@@ -917,6 +955,7 @@ tag.proposal.title=Título
 tag.proposal.status=Status
 tag.proposal.type=Tipo
 tag.proposal.track=Trilha
+tag.proposal.event=Evento
 tag.invite=Convidar
 tag.invited=Convidado
 tag.sponsor=patrocinador
@@ -963,6 +1002,10 @@ visitor.welcome.profile=See the list of talks you faved
 renderProposal.archived={0} propostas arquivadas de algumas edições anteriores.
 renderProposal.archived.single=Um proposta foi arquivada de uma edição anterior.
 renderProposal.noTalks=Nenhuma outra palestra submetida ou proposta
+renderProposal.archived.btn.view=Mostrar/Ocultar
+
+# renderIncidents
+renderIncidents.noIncidents=Nenhuma ocorrência encontrada
 
 mail.goldenticket.subject=Golden Ticket for {0}
 error.loginRequired=Acesso restrito, por favor faça autenticação.
@@ -1026,6 +1069,7 @@ svp.btn.home=Voltar para home
 svp.btn.notalks=Não há mais palestras para revisar
 svp.btn.notalks.bytrack=Não há mais palestras da trilha {0} para revisar no formato {1}
 svp.btn.nexttalk=Continue e avalie a próxima palestra da trilha {0}
+svp.btn.vote.delete=Excluir o voto
 
 gt.admin.sp.privateMessage=Mensagem privada para os coordenadores
 
@@ -1084,6 +1128,11 @@ backoffice.allproposals.speaker.accepted=Palestrante aceitou
 backoffice.allproposals.rejected.warning=Se o status da proposta = REJEITADA então o palestrante foi notificado.
 backoffice.allproposals.rejected.notify.tooltip=Envie um email e mude o status para REJEITADA (Async)
 backoffice.allproposals.rejected.notify.link=Notificar rejeição
+backoffice.allproposals.rejected.notify.all.link=Notificar marcadas
+backoffice.allproposals.backup.notify.all.link=Notificar marcadas
+backoffice.allproposals.approved.notify.all.link=Notificar marcadas
+backoffice.allproposals.select.all=Marcar todas
+backoffice.allproposals.deselect.all=Desmarcar todas
 backoffice.allproposals.empty=Não existem propostas com status != ARQUIVADA
 
 backoffice.events.log.title=Log de Eventos
@@ -1276,6 +1325,7 @@ accepted=aceita
 backup=backup
 declined=recusada
 archived=arquivada
+canceled=cancelada
 unknown=desconhecido
 
 draft.caps=RASCUNHO
@@ -1287,6 +1337,7 @@ accepted.caps=ACEITA
 backup.caps=BACKUP
 declined.caps=RECUSADA
 archived.caps=ARQUIVADA
+canceled.caps=CANCELADA
 unknown.caps=DESCONHECIDO
 
 error.message1=Desculpe, há um bug ou algo que nós realmente não esperávamos...
