@@ -82,17 +82,38 @@ object CallForPaper extends SecureCFPController {
   def newSpeakerForExistingWebuser = SecuredAction {
     implicit request =>
       val w = request.webuser
-      val defaultValues = (w.email, w.firstName, w.lastName, StringUtils.abbreviate("...", 750), None, None, None, None, "No experience", "", None, None, None, None)
+      val defaultValues = 
+			Speaker(uuid = "xxx"
+			   , email = w.email 
+			   , name = Option(w.lastName)
+			   , bio = StringUtils.abbreviate("...", 750)
+			   , lang = None
+			   , twitter = None
+			   , avatarUrl = None
+			   , company = None
+			   , blog = None
+			   , firstName = Option(w.firstName)
+			   , qualifications = Option("No experience")
+			   , phone = None
+			   , gender = None
+			   , tshirtSize = None
+			   , linkedIn = None
+			   , github = None
+			   , tagName = None
+			   , facebook = None
+			   , instagram = None
+			   , race = None
+			   , disability = None
+			  )
       Ok(views.html.Authentication.confirmImport(Authentication.importSpeakerForm.fill(defaultValues)))
   }
 
-  val speakerForm = play.api.data.Form(mapping(
+  val speakerForm = Form(mapping(
     "uuid" -> ignored("xxx"),
     "email" -> (email verifying nonEmpty),
     "lastName" -> nonEmptyText(maxLength = 25),
     "bio" -> nonEmptyText(maxLength = 750),
     "lang" -> optional(text),
-    "twitter" -> optional(text),
     "avatarUrl" -> optional(text),
     "company" -> optional(text),
     "blog" -> optional(text),
@@ -101,8 +122,16 @@ object CallForPaper extends SecureCFPController {
     "phone" -> nonEmptyText,
     "gender" -> optional(text),
     "tshirtSize" -> optional(text),
-    "linkedIn" -> optional(text),
-    "github" -> optional(text)
+    "tagName" -> nonEmptyText(maxLength = 50),
+    "race" -> optional(text),
+    "disability" -> optional(text),
+    "socialMedia" -> mapping(
+        "twitter" -> optional(text),
+        "linkedIn" -> optional(text),
+        "github" -> optional(text),
+        "facebook" -> optional(text),
+        "instagram" -> optional(text)
+      )(SocialMedia.apply)(SocialMedia.unapply)
   )(Speaker.createSpeaker)(Speaker.unapplyForm))
 
   def editProfile = SecuredAction {

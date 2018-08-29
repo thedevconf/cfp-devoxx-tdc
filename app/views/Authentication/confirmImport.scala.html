@@ -1,9 +1,9 @@
-@(formWebuser: Form[(String, String,String,String,Option[String],Option[String],Option[String],Option[String],String,String,Option[String],Option[String],Option[String],Option[String])])(implicit flash: Flash, lang: Lang, req: RequestHeader)
+@(formWebuser: Form[Speaker])(implicit flash: Flash, lang: Lang, req: RequestHeader)
 
 @import helper.twitterBootstrap._
 @import org.apache.commons.codec.digest.DigestUtils
 
-@main("New profil") {
+@main("New profile") {
 <div class="row">
         <div class="col-md-12">
             <div class="page-header">
@@ -27,18 +27,26 @@
             @helper.inputText(formWebuser("email") , 'size->50, 'length->50)
             @helper.inputText(formWebuser("firstName"))
             @helper.inputText(formWebuser("lastName"))
+			@helper.inputText(formWebuser("tagName"),'size->50)
+			@helper.inputText(formWebuser("phone"))
             @helper.textarea(formWebuser("bio"), 'cols -> 80, 'rows -> 5)
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
-            @helper.inputText(formWebuser("company"))
-            @helper.inputText(formWebuser("twitter"), 'placeholder -> "@nickname")
-            @helper.inputText(formWebuser("linkedIn"), 'size -> 50)
-            @helper.inputText(formWebuser("github"), 'size -> 50)
-            @helper.inputText(formWebuser("blog"), 'size -> 50, 'placeholder -> "http://www.yourblog.com/")
-            @helper.textarea(formWebuser("qualifications"), 'cols -> 80, 'rows -> 3, 'placeholder -> "No experience")
+			@helper.textarea(formWebuser("qualifications"), 'cols -> 80, 'rows -> 3, 'placeholder -> "No experience")
+			@helper.inputText(formWebuser("company"))			
+            @helper.inputText(formWebuser("socialMedia.twitter"), 'placeholder -> "@nickname")
+            @helper.inputText(formWebuser("socialMedia.linkedIn"), 'size -> 60)
+            @helper.inputText(formWebuser("socialMedia.github"), 'size -> 60)
+            @helper.inputText(formWebuser("socialMedia.facebook"), 'size -> 60)
+            @helper.inputText(formWebuser("socialMedia.instagram"), 'size -> 60)			
+            @helper.inputText(formWebuser("blog"), 'size -> 60, 'placeholder -> "http://www.yourblog.com/")
 
-            @helper.inputText(formWebuser("phone"))
-            @helper.select(field = formWebuser("gender"), options = Speaker.genders, 'class -> "form-control")
-            @helper.select(field = formWebuser("tshirtSize"), options = Speaker.sizes, 'class -> "form-control")
+            @helper.select(field = formWebuser("lang"), options = Proposal.langs, 'class -> "form-control")
+
+            @helper.select(field = formWebuser("gender"), options = Speaker.genders, 'class -> "form-control", '_default -> Messages("select.gender"))
+            @helper.select(field = formWebuser("race"), options = Speaker.races, 'class -> "form-control", '_default -> Messages("select.race"))
+            @helper.select(field = formWebuser("disability"), options = Speaker.disabilities, 'class -> "form-control", '_default -> Messages("select.disability"))
+            @helper.select(field = formWebuser("tshirtSize"), options = Speaker.sizes, 'class -> "form-control", '_default -> Messages("select.tshirtSize"))
+
 
             @if(formWebuser("email").value!=""){
                 @if(formWebuser("avatarUrl").value.isEmpty){

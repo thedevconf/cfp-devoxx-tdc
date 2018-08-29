@@ -677,26 +677,32 @@ object CFPAdmin extends SecureCFPController {
     )
   )
 
-  val speakerForm = play.api.data.Form(mapping(
+  val speakerForm = Form(mapping(
     "uuid" -> optional(text),
     "email" -> (email verifying nonEmpty),
     "lastName" -> text,
     "bio2" -> nonEmptyText(maxLength = 1200),
     "lang2" -> optional(text),
-    "twitter2" -> optional(text),
     "avatarUrl2" -> optional(text),
     "company2" -> optional(text),
     "blog2" -> optional(text),
     "firstName" -> text,
     "acceptTermsConditions" -> boolean,
     "qualifications2" -> nonEmptyText(maxLength = 750),
-    "phone2" -> optional(text),
+    "phone" -> optional(text),
     "gender2" -> optional(text),
     "tshirtSize2" -> optional(text),
-    "linkedIn2" -> optional(text),
-    "github2" -> optional(text)
+    "tagName" -> nonEmptyText(maxLength = 50),
+    "race2" -> optional(text),
+    "disability2" -> optional(text),
+    "socialMedia" -> mapping(
+        "twitter2" -> optional(text),
+        "linkedIn2" -> optional(text),
+        "github2" -> optional(text),
+        "facebook2" -> optional(text),
+        "instagram2" -> optional(text)
+      )(SocialMedia.apply)(SocialMedia.unapply)
   )(Speaker.createOrEditSpeaker)(Speaker.unapplyFormEdit))
-
 
   def newOrEditSpeaker(speakerUUID: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
