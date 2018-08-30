@@ -96,6 +96,22 @@
                                 <a href="@url" target="new">@url</a>
                                 }.getOrElse("")</td>
                         </tr>
+						<tr>
+                            <td><i class="icon-facebook"></i> Facebook</td>
+                            <td>@speaker.facebook.map{url=>
+                                <a href="@url" target="new">@url</a>
+                                }.getOrElse("")</td>
+                        </tr>
+						<tr>
+                            <td><i class="icon-instagram"></i> Instagram</td>
+                            <td>@speaker.instagram.map{url=>
+                                <a href="@url" target="new">@url</a>
+                                }.getOrElse("")</td>
+                        </tr>
+						<tr>
+                            <td><i class="icon-phone"></i> Telefone</td>
+                            <td>@speaker.phone.getOrElse("")</td>
+                        </tr>
                         <tr>
                             <td><i class="icon-envelope"></i> Email </td><td>@speaker.email</td>
                         </tr>
