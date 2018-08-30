@@ -41,6 +41,8 @@
                 @tags.selectI18N(field = proposal("audienceLevel"), options=ProposalType.audienceLevels,'_default->Messages("combo.select"),  'class->"form-control")
                 @tags.selectI18N(field = proposal("demoLevel"), options=ProposalType.demoLevels,'_default->Messages("combo.select"),  'class->"form-control")
 
+				@tags.checkboxI18N(proposal("publicationAuthorized"), 'text -> "publicationAuthorized.checkbox")				
+				
                 @if(ConferenceDescriptor.current().conferenceSponsor.showSponsorProposalCheckbox) {
                     @tags.checkboxI18N(proposal("sponsorTalk"), 'text -> "sponsorTalk.checkbox")
                 }

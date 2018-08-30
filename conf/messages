@@ -125,6 +125,8 @@ audienceLevel.help=Por favor, indique o nível da audiência requerido para sua 
 2- intermediário\
 3- avançado\
 
+publicationAuthorized=Permite disponibilizar slides da sua apresentação e que seja gravada e publicada no site? 
+publicationAuthorized.checkbox=Sim, autorizo a gravação da minha palestra e disponibilização dos slides da minha apresentação.
 
 privateMessage=Mensagem para os coordenadores da trilha, motivação para sua apresentação
 privateMessage.help=Escreva aqui qualquer detalhe importante sobre sua apresentação que os coordenadores devem saber. Você também pode incluir aqui a URL para seus slides ou um link para uma palestra online sua.
@@ -890,6 +892,10 @@ d1.label=Somente slides
 d2.label=Slides e código
 d3.label=Somente código
 d4.label=Sem slides e código
+
+proposal.publicationAuthorized=Filmagem e publicação de slides da apresentação autorizados?
+proposal.authorization.false=Não
+proposal.authorization.true=Sim
 
 msg_pub=Envie uma mensagem para o palestrante
 email_pub=Seu endereço de email

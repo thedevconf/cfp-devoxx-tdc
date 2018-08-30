@@ -50,6 +50,8 @@
                 @tags.selectI18N(field = newProposal("audienceLevel"), options=ProposalType.audienceLevels,'_default->Messages("combo.select"),  'class->"form-control")
                 @tags.selectI18N(field = newProposal("demoLevel"), options=ProposalType.demoLevels,'_default->Messages("combo.select"),  'class->"form-control")
 
+				@tags.checkboxI18N(newProposal("publicationAuthorized"), 'text -> "publicationAuthorized.checkbox")
+				
 <!-- Desabilitando Golden Ticket - TODO
                 @* tags.checkboxI18N(newProposal("userGroup"),  'text->"userGroup.checkbox", 'checked->"true") *@
 -->

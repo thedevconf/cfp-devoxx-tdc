@@ -138,7 +138,8 @@ case class Proposal(id: String,
                     demoLevel: Option[String],
                     userGroup: Option[Boolean],
                     wishlisted: Option[Boolean] = None,
-                    presentationUploaded: Option[Boolean] = None) {
+                    presentationUploaded: Option[Boolean] = None,
+					publicationAuthorized: Option[Boolean] = None) {
 
   def escapedTitle: String = title match {
     case null => ""
@@ -245,6 +246,7 @@ object Proposal {
     , "track" -> nonEmptyText
     , "demoLevel" -> optional(text)
     , "userGroup" -> optional(boolean)
+	, "publicationAuthorized" -> boolean
   )(validateNewProposal)(unapplyProposalForm))
 
   def generateId(): String = Redis.pool.withClient {
@@ -270,7 +272,8 @@ object Proposal {
                           sponsorTalk: Boolean,
                           track: String,
                           demoLevel: Option[String],
-                          userGroup: Option[Boolean]): Proposal = {
+                          userGroup: Option[Boolean],
+						  publicationAuthorized: Boolean): Proposal = {
     Proposal(
       id.getOrElse(generateId()),
       // TODO Devoxx FR 2015 and Devoxx BE 2015 used [Messages("longYearlyName" instead of ConferenceDescriptor
@@ -290,7 +293,8 @@ object Proposal {
       Track.parse(track),
       demoLevel,
       userGroup,
-      wishlisted = None
+      wishlisted = None,
+	  publicationAuthorized = Option(publicationAuthorized)
     )
 
   }
@@ -302,9 +306,9 @@ object Proposal {
   }
 
   def unapplyProposalForm(p: Proposal): Option[(Option[String], String, String, Option[String], List[String], String, String, String, String,
-    Boolean, String, Option[String], Option[Boolean])] = {
+    Boolean, String, Option[String], Option[Boolean], Boolean)] = {
     Option((Option(p.id), p.lang, p.title, p.secondarySpeaker, p.otherSpeakers, p.talkType.id, p.audienceLevel, p.summary, p.privateMessage,
-      p.sponsorTalk, p.track.id, p.demoLevel, p.userGroup))
+      p.sponsorTalk, p.track.id, p.demoLevel, p.userGroup, p.publicationAuthorized.getOrElse(false)))
   }
 
   def changeTrack(uuid: String, proposal: Proposal) = Redis.pool.withClient {

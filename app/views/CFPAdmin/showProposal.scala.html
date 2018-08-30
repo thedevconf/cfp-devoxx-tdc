@@ -58,6 +58,10 @@
                                 <th>@Messages("proposal.demoLevel")</th>
                                 <td>@proposal.demoLevel.map(d=> Messages(d+".label"))</td>
                             </tr>
+                            <tr>
+                                <th>@Messages("proposal.publicationAuthorized")</th>
+                                <td>@Messages("proposal.authorization."+proposal.publicationAuthorized.getOrElse(false))</td>
+                            </tr>							
                         </tbody>
                     </table>
                     <table class="table table-bordered">
