@@ -188,30 +188,30 @@ track.title=Título
 track.description=Descrição
 appel.conf.dates=TDC 2017 Porto Alegre, 8 a 11 de Novembro de 2017
 
-# Tracks
+# Trilhas
 
 track.dotnet.title=.NET
-track.dotnet.desc=Microsoft cada vez mais perto da comunidade
+track.dotnet.desc=.NET Core; ASP.NET Core; Identity Server; SignarlR; C#; Visual Studio; Roslyn; Xamarin; ML.NET; Visual Studio Live Share; Entity Framework Core
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
-track.acessibilidade.title=Acessibilidade Digital
-track.acessibilidade.desc=Acessibilidade como igualdade de oportunidades para pessoas com deficiência
-acessibilidade.label=Acessibilidade Digital
-acessibilidade.leaderboard=Acessibilidade Digital
+track.acessibilidade.title=Acessibilidade
+track.acessibilidade.desc=Casos de sucesso de acessibilidade para sites e aplicativos, testes com usuários com deficiência, internet das coisas acessível, acessibilidade web, acessibilidade mobile, design inclusivo, HTML e CSS para acessibilidade, JS acessível, recrutamento de profissionais de TI com deficiência
+acessibilidade.label=Acessibilidade
+acessibilidade.leaderboard=Acessibilidade
 
 track.agile.title=Agile
-track.agile.desc=Do Lean ao eXtreme Programming
+track.agile.desc=Uma novo mundo de agilidade se abre através das Transformações Digitais
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=Transforme pessoas, times, empresas e culturas
+track.agilecoach.desc=Cases de sucesso (e nem tanto); Papel do Agile Coach; Experiência na prática
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
 track.analise.title=Análise de Negócios
-track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento
+track.analise.desc=Metodologias de Discovery, priorização, gerenciamento de caos, descobrimento contexto de negócio, pareamento
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
@@ -220,63 +220,83 @@ track.android.desc=Domine a plataforma que domina o mundo
 android.label=Android
 android.leaderboard=Android
 
-track.arduino.title=Arduino e Makers
-track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!!
-arduino.label=Arduino e Makers
-arduino.leaderboard=Arduino e Makers
+track.arduino.title=Arduino, Makers e Impressão 3D
+track.arduino.desc=e também Node Red
+arduino.label=Arduino, Makers e Impressão 3D
+arduino.leaderboard=Arduino, Makers e Impressão 3D
 
-track.arquitetjava.title=Arquitetura
-track.arquitetjava.desc=Arquitetura Plugável, escalável, resiliente e poliglota. Um mundo de oportunidades
-arquitetjava.label=Arquitetura
-arquitetjava.leaderboard=Arquitetura
+track.arquitetura.title=Arquitetura
+track.arquitetura.desc=Arquitetura Plugável, escalável, resiliente e poliglota. Um mundo de oportunidades
+arquitetura.label=Arquitetura
+arquitetura.leaderboard=Arquitetura
+
+track.arquitetcorp.title=Arquitetura Corporativa
+track.arquitetcorp.desc=Arquitetura corporativa em ambiente ágil; Experiências na implementação de uma equipe de AC
+arquitetcorp.label=Arquitetura Corporativa
+arquitetcorp.leaderboard=Arquitetura Corporativa
+
+track.arquitetnet.title=Arquitetura .NET
+track.arquitetnet.desc=microservices, cqrs, event-driven
+arquitetnet.label=Arquitetura .NET
+arquitetnet.leaderboard=Arquitetura .NET
+
+track.arquitetdados.title=Arquitetura de Dados
+track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
+arquitetdados.label=Arquitetura de Dados
+arquitetdados.leaderboard=Arquitetura de Dados
+
+track.arquitetjava.title=Arquitetura Java
+track.arquitetjava.desc=Java 11, Java EE, Spring Boot, Vert.x, Akka, Lagom, Play, Kubernetes, alta performance, escalabilidade
+arquitetjava.label=Arquitetura Java
+arquitetjava.leaderboard=Arquitetura Java
 
 track.arquitetphp.title=Arquitetura PHP
-track.arquitetphp.desc=Venha conhecer as novidades e tendências de arquitetura PHP
+track.arquitetphp.desc=PHP na jornada em busca da perfeição
 arquitetphp.label=Arquitetura PHP
 arquitetphp.leaderboard=Arquitetura PHP
 
 track.banco.title=Banco de Dados
-track.banco.desc=Conheça os principais recursos de Banco de Dados Relacional agnóstico de fabricante
+track.banco.desc=SQL avançado, Json, DBaaS, DBA DevOps, microserviços, persistência poliglota, integração entre bancos de dados e serviços, etc
 banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=Big data na nuvem, uma boa idéia?
+track.bigdata.desc=Dar valor aos dados é a alma da nossa trilha!
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=Crie a próxima geração de aplicações distribuidas com a tecnologia Blockchain
+track.blockchain.desc=Muito além do bitcoin: a internet do valor
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
-track.chatbots.title=ChatBots e Interfaces Conversacionais
-track.chatbots.desc=Chatbots e o futuro das interações conversacionais
+track.chatbots.title=ChatBots
+track.chatbots.desc=Processamento de Linguagem Natural (PLN), Assistentes Pessoais, Design Conversacional, Interfaces Conversacionais, Chatbots em Produção,  KPIs/Métricas para Chatbots, Avaliação de Chatbots
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
 track.cloud.title=Cloud Computing
-track.cloud.desc=Todos os caminhos e arquiteturas, levam você à nuvem
-cloud.label=Cloud
-cloud.leaderboard=Cloud
+track.cloud.desc=well architected framework; cloud computing best practice; cloud architecture patterns; resilience by design for cloud services
+cloud.label=Cloud Computing
+cloud.leaderboard=Cloud Computing
 
 track.computacao.title=Computação Cognitiva
-track.computacao.desc=Fique por dentro desta nova tendencia em aplicativos, sistemas integrados e experiências do usuário
+track.computacao.desc=A evolução das máquinas converge para uma junção entre as habilidades humanas e super processamento
 computacao.label=Computação Cognitiva
 computacao.leaderboard=Computação Cognitiva
 
 track.containers.title=Containers
-track.containers.desc=O universo rodando dentro de containers
+track.containers.desc=Qualquer nível desde introdução aos contêineres até orquestração / automação. Docker, CRI-O, rkt, runC, ContainerD, Garden. Ferramentas de apoio. Orquestradores como Swarm, Kubernetes, Mesos, Marathon, ECS, Fargate. Outros temas como Funcion as a Service, contêineres em iot, cases de sucesso, cases de falha.
 containers.label=Containers
 containers.leaderboard=Containers
 
-track.datascience.title=DataScience
-track.datascience.desc=Machine learning, analytics e insights a partir de dados
-datascience.label=DataScience
-datascience.leaderboard=DataScience
+track.datascience.title=Data Science
+track.datascience.desc=Casos de Uso de Data Science, palestrar com foco em gestão
+datascience.label=Data Science
+datascience.leaderboard=Data Science
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=Design Thinking é estratégico para inovação
+track.dthinking.desc=Mostrar cases de como está aplicando Design Thinking na sua empresa e/ou organização; Mostrar para as pessoas como funciona uma ferramenta de Design que achou interessante utilizar e achou que seria útil. Exemplos: Pegue uma deste livro aqui https://www.amazon.com/Universal-Methods-Design-Innovative-Effective-ebook/dp/B007WRCRH8 e mostre como é útil; Trazer discussões sobre Design de Serviços e Lógica Dominante de Serviços; Mostrar os diferentes 'flavors' de Design Sprints; Mostrar como tem expandido a cultura de Design na sua realidade; Mostrar como alguma utiliza design no dia-a-dia; Mostrar como você utiliza o design para seus projetos; Mostrar como utilizando Design Thinking o seu time agora sabe o porque de fazer algo ao invés de ser super Ágil fazendo algo que se propõe a 'entregar valor'; Mostrar como tem usado Design Thinking para superar as barreiras entre os silos de produtos e desenvolvimento; Mostrar como grandes iniciativas de Design no mundo te inspiraram para buscar os métodos e mindset do design, design thinking, etc.
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
@@ -286,9 +306,14 @@ devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.devtest.title=DevTest
-track.devtest.desc=Porque qualidade é responsabilidade de todos!
+track.devtest.desc=live-coding, tests on/with: thorntail-tests (a.k.a wildfly swarm); OpenShift; microservices; vert-x
 devtest.label=DevTest
 devtest.leaderboard=DevTest
+
+track.empreende.title=Empreendedorismo
+track.empreende.desc=Empreendedor em Foco
+empreende.label=Empreendedorismo
+empreende.leaderboard=Empreendedorismo
 
 track.games.title=Games
 track.games.desc=O próximo nível dos jogos brasileiros!
@@ -296,27 +321,37 @@ games.label=Games
 games.leaderboard=Games
 
 track.gestaoprod.title=Gestão de Produto
-track.gestaoprod.desc=Para quem é apaixonado por criar produtos que encantam clientes e usuários
+track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
 gestaoprod.label=Gestão de Produto
 gestaoprod.leaderboard=Gestão de Produto
 
-track.golang.title=Golang
-track.golang.desc=A linguagem para sistemas distribuídos do Google
-golang.label=Golang
-golang.leaderboard=Golang
+track.golang.title=Go
+track.golang.desc=-gerenciamento de dependências (vgo e dep); web; testes; concorrência e paralelismo; performance; cases interessantes; apresentação de libs opensource, em especial criadas/mantidas por brasileiros; arquitetura; TDD
+golang.label=Go
+golang.leaderboard=Go
 
 track.infraagil.title=Infraestrutura Ágil
 track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
 infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
+track.inovacao.title=Inovação
+track.inovacao.desc=Inovação, Tendências, Open Innovation, Inovação Aberta, Transformação Digital, Cultura de Inovação, Mudança de Mindset, Futurismo, Tecnologias Disruptivas, Inteligência Artificial, Blockchain, Realidade Virtual, Realidade Aumentada, Realidade Mista, IoT
+inovacao.label=Inovação
+inovacao.leaderboard=Inovação
+
+track.intelartif.title=Inteligência Artificial
+track.intelartif.desc=Inteligência artificial e a revolução industrial 4.0
+intelartif.label=Inteligência Artificial
+intelartif.leaderboard=Inteligência Artificial
+
 track.iot.title=Internet das Coisas
-track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia
+track.iot.desc=Em um mundo onde todas as coisas serão conectadas!
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=Aprimore seus conhecimentos sobre desenvolvimento nas plataformas móveis da Apple
+track.ios.desc=Aprimore seu conhecimento em iOS com profissionais dos maiores apps do Brasil
 ios.label=iOS
 ios.leaderboard=iOS
 
@@ -325,20 +360,40 @@ track.java.desc=Venha conhecer as principais novidades da linguagem e da platafo
 java.label=Java
 java.leaderboard=Java
 
+track.javaee.title=JavaEE
+track.javaee.desc=A plataforma líder para backend em constante evolução
+javaee.label=JavaEE
+javaee.leaderboard=JavaEE
+
+track.javacorp.title=Java Enterprise
+track.javacorp.desc=Desenvolva aplicações de ponta com a linguagem mais utilizada no mundo
+javacorp.label=Java Enterprise
+javacorp.leaderboard=Java Enterprise
+
 track.javascript.title=JavaScript
-track.javascript.desc=Aprender, se atualizar e refinar o seu conhecimento de JavaScript
+track.javascript.desc=JavaScript
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
+track.kanban.title=Kanban e Lean
+track.kanban.desc=Agile, Lean, Scrum e Kanban. Sua diferenças, prós e contras
+kanban.label=Kanban e Lean
+kanban.leaderboard=Kanban e Lean
+
+track.kotlin.title=Kotlin
+track.kotlin.desc=Aprenda mais sobre esta linguagem baseada na JVM que está invadindo o mundo Android, Apple e JavaScript
+kotlin.label=Kotlin
+kotlin.leaderboard=Kotlin
+
 track.machine.title=Machine Learning
-track.machine.desc=Apresentação de cases em produção de Machine Learning
+track.machine.desc=Assuntos relacionados à machine learning: algoritimos, ferramentas, cloud(ML na cloud) e etc.
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
-track.management.title=Management 3.0 e Gestão Ágil
-track.management.desc=Gestão feita por pessoas e para pessoas
-management.label=Management 3.0 e Gestão Ágil
-management.leaderboard=Management 3.0 e Gestão Ágil
+track.management.title=Management 3.0
+track.management.desc=Managament 3.0: Inovação, Lideração e Gestão
+management.label=Management 3.0
+management.leaderboard=Management 3.0
 
 track.marketing.title=Marketing Digital e Growth Hacking
 track.marketing.desc=A melhor maneira de encontrar o seu cliente é ser encontrado por ele!
@@ -350,6 +405,16 @@ track.microservices.desc=Entenda os desafios de se aplicar uma arquitetura de Mi
 microservices.label=Microservices
 microservices.leaderboard=Microservices
 
+track.mobile.title=Mobile
+track.mobile.desc=Novidades e tendências do universo mobile
+mobile.label=Mobile
+mobile.leaderboard=Mobile
+
+track.modernweb.title=Modern Web
+track.modernweb.desc=Venha conferir as tendências da Web moderna
+modernweb.label=Modern Web
+modernweb.leaderboard=Modern Web
+
 track.nodejs.title=Node.js
 track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
 nodejs.label=Node.js
@@ -360,23 +425,78 @@ track.nosql.desc=NoSQL, no Limits, lots of Fun!
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
+track.php.title=PHP
+track.php.desc=O essencial para desenvolvedores PHP
+php.label=PHP
+php.leaderboard=PHP
+
+track.phpessencial.title=PHP Essencial
+track.phpessencial.desc=Além do essencial para desenvolvedores PHP!
+phpessencial.label=PHP Essencial
+phpessencial.leaderboard=PHP Essencial
+
 track.pfuncional.title=Programação Funcional
-track.pfuncional.desc=Conceitos, técnicas e o mercado de Functional Programming
+track.pfuncional.desc=Scala, Clojure, Haskell, Elixir, F#, OCaml, Lua, Erlang, Lisp, Javascript Funcional, Java Funcional, Programação funcional prática, Imutabilidade
 pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
+track.python.title=Python
+track.python.desc=Aprenda o estilo de vida Pythonico!
+python.label=Python
+python.leaderboard=Python
+
+track.raddelphic.title=RAD: Delphi_C++
+track.raddelphic.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
+raddelphic.label=RAD: Delphi_C++
+raddelphic.leaderboard=RAD: Delphi_C++
+
+track.realidade.title=Realidade Virtual
+track.realidade.desc=Venha descobrir as novidades tecnologicas sobre Realidade Virtual
+realidade.label=Realidade Virtual
+realidade.leaderboard=Realidade Virtual
+
+track.requisitos.title=Requisitos Ágeis
+track.requisitos.desc=Engenharia de requisitos para o mundo de projetos ágeis
+requisitos.label=Requisitos Ágeis
+requisitos.leaderboard=Requisitos Ágeis
+
+track.ruby.title=Ruby
+track.ruby.desc=Lapidando código e a comunidade
+ruby.label=Ruby
+ruby.leaderboard=Ruby
+
+track.rust.title=Rust
+track.rust.desc=Concorrente, Rápido e Seguro!
+rust.label=Rust
+rust.leaderboard=Rust
+
+track.seguranca.title=Segurança
+track.seguranca.desc=Todos precisam, mas nem todos sabem como usar.
+seguranca.label=Segurança
+seguranca.leaderboard=Segurança
+
+track.serverless.title=Serverless
+track.serverless.desc=Arquiteturas Serverless Escaláveis
+serverless.label=Serverless
+serverless.leaderboard=Serverless
+
+track.smartcities.title=Smart Cities
+track.smartcities.desc=Tecnologias aliadas a pessoas para criar cidades mais inteligentes de fato
+smartcities.label=Smart Cities
+smartcities.leaderboard=Smart Cities
+
 track.testes.title=Testes
-track.testes.desc=Porque o teste não morreu!
+track.testes.desc=Vocês precisam ir além do funcional!
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=Facilite seus negócios e sua vida com Transformação Digital!
+track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=A Experiência em primeiro lugar!
+track.uxdesign.desc=UX Design é um grande guarda-chuva que deve ser aberto e apresentado a todos!
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
@@ -386,14 +506,19 @@ web.label=Web
 web.leaderboard=Web
 
 track.women.title=TDC4Women
-track.women.desc=Empoderando mulheres a seguir carreira na tecnologia
+track.women.desc=Lugar de falar da mulher da tecnologia
 women.label=TDC4Women
 women.leaderboard=TDC4Women
 
 track.xamarin.title=Xamarin
-track.xamarin.desc=Desenvolvimento Cross Platform de alta performance
+track.xamarin.desc=Aplicativos com interface e perfomance nativa  com o máximo de  compartilhamento de código
 xamarin.label=Xamarin
 xamarin.leaderboard=Xamarin
+
+track.xp.title=XP
+track.xp.desc=Valores, princípios e práticas diferenciando a forma como se desenvolve software
+xp.label=XP
+xp.leaderboard=XP
 
 # confirm import
 confirm.import.title=Criar seu perfil de Palestrante
@@ -605,6 +730,8 @@ ar.pleaseAccept=Por favor confirme cada proposta aprovada, que você aceita apre
 ar.IAccept=Eu aceito apresentar esta palestra
 ar.IDecline=Eu me recuso e não vou apresentar esta palestra
 ar.IBackup=Como Backup
+ar.declined=Recusada
+ar.accepted=Aceita
 ar.currentStatus=Status atual
 ar.pleaseSelect=Por favor, selecione uma das ações para esta proposta:
 ar.proposalNotFound=Proposta não encontrada
@@ -914,8 +1041,8 @@ error.invalid=Valor inválido
 hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
-menu.blog=Site TDC2017
-signup.long=Registre-se como um palestrante no TDC POA CFP
+menu.blog=Site TDC2018
+signup.long=Registre-se como um palestrante no TDC SP CFP
 sw.all.hack=Hackatons
 #approved=Palestrante aprovado
 cstory=Session de live coding Code-story
@@ -1368,7 +1495,6 @@ attic.msg.reset.schedules=Removida toda a programação de grades das trilhas
 btn.proposal.edit = Editar
 cfpadmin.proposal.edit.title = Editar Palestra
 btn.proposal.save = Salvar
-
 
 #Logs
 heading.proposal.history= Histórico da palestra
