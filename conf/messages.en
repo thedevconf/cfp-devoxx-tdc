@@ -275,20 +275,20 @@ track.bigdata.desc=Dar valor aos dados é a alma da nossa trilha!
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
-track.bigdata.title=Beginners
-track.bigdata.desc=
-bigdata.label=Beginners
-bigdata.leaderboard=Beginners
+track.beginners.title=Beginners
+track.beginners.desc=
+beginners.label=Beginners
+beginners.leaderboard=Beginners
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=Muito além do bitcoin: a internet do valor
+track.blockchain.desc=
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
-track.chatbots.title=Carreira
-track.chatbots.desc=
-chatbots.label=Carreira
-chatbots.leaderboard=Carreira
+track.carreira.title=Carreira
+track.carreira.desc=
+carreira.label=Carreira
+carreira.leaderboard=Carreira
 
 track.chatbots.title=ChatBots
 track.chatbots.desc=Processamento de Linguagem Natural (PLN), Assistentes Pessoais, Design Conversacional, Interfaces Conversacionais, Chatbots em Produção,  KPIs/Métricas para Chatbots, Avaliação de Chatbots
