@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC Porto Alegre 2017
+CONF.title=TDC Porto Alegre 2018
 CONF.subtitle=POA
-CONF.dates=8 a 11 de Novembro de 2017
+CONF.dates=5 a 8 de Dezembro de 2018
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2017 POA
-longYearlyName=TDC 2017 Porto Alegre
+shortYearlyName=TDC 2018 POA
+longYearlyName=TDC 2018 Porto Alegre
 shortName=TDC Porto Alegre
-longName=TDC 2017 POA CFP
+longName=TDC 2018 POA CFP
 longSplittedName_whiteStart=TDC
-longSplittedName_colored=2017
+longSplittedName_colored=2018
 longSplittedName_whiteEnd=POA
-cfp.title=TDC 2017 POA CFP
+cfp.title=TDC 2018 POA CFP
 # -----------------
 login.error=Email ou senha inválidos
 menu.home=Home
@@ -67,9 +67,9 @@ disclaimer=e usando a aplicação do Devoxx CFP
 logged.in=Logado como
 logout=Sair
 logout.closeMessage=e fechar sua sessão
-banner.link=/assets/images/tdc2017poa-banner-call4papers.png
+banner.link=/assets/images/tdc2018poa-banner-call4papers.png
 index.program.text=Programação Completa
-index.program.link=http://www.thedevelopersconference.com.br/tdc/2017/portoalegre/trilhas
+index.program.link=http://www.thedevelopersconference.com.br/tdc/2018/portoalegre/trilhas
 
 # CFP Home page
 your.profile=Seu perfil
@@ -180,13 +180,13 @@ video.title=Vídeos
 video.tag=Reveja os vídeos do TDC 2015 em
 call4workshops.title=Workshops
 call4workshops.tag=Ainda estamos aceitando propostas de workshops em
-call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2018/call4workshops
 agenda.title=Agenda
 theme.title=Trilhas
-theme.track=Lista de trilhas do TDC 2017 Porto Alegre:
+theme.track=Lista de trilhas do TDC 2018 Porto Alegre:
 track.title=Título
 track.description=Descrição
-appel.conf.dates=TDC 2017 Porto Alegre, 8 a 11 de Novembro de 2017
+appel.conf.dates=TDC 2018 Porto Alegre, 5 a 8 de Dezembro de 2018
 
 # Trilhas
 
@@ -903,11 +903,11 @@ sw.show.thu=Quinta
 sw.show.thursday=Quinta
 sw.show.fri=Sexta
 sw.show.friday=Sexta
-sw.show.title.mon=Segunda, 3 October 2017
-sw.show.title.tue=Terça, 4 October 2017
-sw.show.title.wed=Quarta, 5 October 2017
-sw.show.title.thu=Quinta, 6 October 2017
-sw.show.title.fri=Sexta, 7 October 2017
+sw.show.title.mon=Segunda, 3 October 2018
+sw.show.title.tue=Terça, 4 October 2018
+sw.show.title.wed=Quarta, 5 October 2018
+sw.show.title.thu=Quinta, 6 October 2018
+sw.show.title.fri=Sexta, 7 October 2018
 
 sw.horaires=Schedule
 sw.breakfast=Welcome and Breakfast
@@ -1042,7 +1042,7 @@ hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
 menu.blog=Site TDC2018
-signup.long=Registre-se como um palestrante no TDC SP CFP
+signup.long=Registre-se como um palestrante no TDC POA CFP
 sw.all.hack=Hackatons
 #approved=Palestrante aprovado
 cstory=Session de live coding Code-story
@@ -1138,7 +1138,7 @@ goldenTicket.help.txt=A new feature of {0} is the introduction of a Community Ad
 gt.title=CFP for Golden ticket
 gt.disclaimer=Por favor respect the privacy of people submitting talks to TDC. By opening this account you agree not to disclose or publish publicly, including via social media, any of the information you see in the CFP tool.
 
-gt.intro.1=Este é a lista compleata de Propostas. Você pode ordenar por título, por palestrante ou tipo de palestra.
+gt.intro.1=Este é a lista completa de Propostas. Você pode ordenar por título, por palestrante ou tipo de palestra.
 gt.intro.2=Se necessário, você também pode
 gt.reviewYourVotes=revise seus Votos
 gt.intro.3=enquanto o CFP está aberto.

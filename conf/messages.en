@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC Porto Alegre 2017
+CONF.title=TDC Porto Alegre 2018
 CONF.subtitle=POA
-CONF.dates=November 8 to 11, 2017
+CONF.dates=December 5 to 8, 2018
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2017 POA
-longYearlyName=TDC 2017 Porto Alegre
+shortYearlyName=TDC 2018 POA
+longYearlyName=TDC 2018 Porto Alegre
 shortName=TDC Porto Alegre
-longName=TDC 2017 POA CFP
+longName=TDC 2018 POA CFP
 longSplittedName_whiteStart=TDC
-longSplittedName_colored=2017
+longSplittedName_colored=2018
 longSplittedName_whiteEnd=POA
-cfp.title=TDC 2017 POA CFP
+cfp.title=TDC 2018 POA CFP
 # -----------------
 login.error=Invalid email or password
 menu.home=Home
@@ -67,9 +67,9 @@ disclaimer=and using Devoxx CFP application
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
-banner.link=/assets/images/tdc2017poa-banner-call4papers.png
+banner.link=/assets/images/tdc2018poa-banner-call4papers.png
 index.program.text=Complete schedule
-index.program.link=http://www.thedevelopersconference.com.br/tdc/2017/portoalegre/trilhas
+index.program.link=http://www.thedevelopersconference.com.br/tdc/2018/portoalegre/trilhas
 
 # CFP Home page
 your.profile=Your profile
@@ -180,13 +180,13 @@ video.title=Videos
 video.tag=Review TDC 2015''s videos on
 call4workshops.title=Workshops
 call4workshops.tag=We are still accepting proposals for workshops on
-call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2018/call4workshops
 agenda.title=Agenda
 theme.title=Tracks
-theme.track=List of tracks for TDC 2017 POA:
+theme.track=List of tracks for TDC 2018 POA:
 track.title=Title
 track.description=Description
-appel.conf.dates=TDC 2017 Porto Alegre, 8th-11th November 2017
+appel.conf.dates=TDC 2018 Porto Alegre, 5th-8th December 2018
 
 # Tracks
 
@@ -903,11 +903,11 @@ sw.show.thu=Thursday
 sw.show.thursday=Thursday
 sw.show.fri=Friday
 sw.show.friday=Friday
-sw.show.title.mon=Monday, 18th April 2017
-sw.show.title.tue=Tuesday, 19th April 2017
-sw.show.title.wed=Wednesday, 20th April 2017
-sw.show.title.thu=Thursday, 21st April 2017
-sw.show.title.fri=Friday, 22nd April 2017
+sw.show.title.mon=Monday, 18th April 2018
+sw.show.title.tue=Tuesday, 19th April 2018
+sw.show.title.wed=Wednesday, 20th April 2018
+sw.show.title.thu=Thursday, 21st April 2018
+sw.show.title.fri=Friday, 22nd April 2018
 
 sw.horaires=Schedule
 sw.breakfast=Welcome and Breakfast
