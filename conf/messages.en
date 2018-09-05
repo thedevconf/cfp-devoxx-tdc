@@ -1,18 +1,18 @@
 # -----------------
 # Main conference details
-CONF.title=TDC Porto Alegre 2017
+CONF.title=TDC Porto Alegre 2018
 CONF.subtitle=POA
-CONF.dates=November 8 to 11, 2017
+CONF.dates=December 5 to 8, 2018
 
 # Equivalent to ConferenceNaming
-shortYearlyName=TDC 2017 POA
-longYearlyName=TDC 2017 Porto Alegre
+shortYearlyName=TDC 2018 POA
+longYearlyName=TDC 2018 Porto Alegre
 shortName=TDC Porto Alegre
-longName=TDC 2017 POA CFP
+longName=TDC 2018 POA CFP
 longSplittedName_whiteStart=TDC
-longSplittedName_colored=2017
+longSplittedName_colored=2018
 longSplittedName_whiteEnd=POA
-cfp.title=TDC 2017 POA CFP
+cfp.title=TDC 2018 POA CFP
 # -----------------
 login.error=Invalid email or password
 menu.home=Home
@@ -67,9 +67,9 @@ disclaimer=and using Devoxx CFP application
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
-banner.link=/assets/images/tdc2017poa-banner-call4papers.png
+banner.link=/assets/images/tdc2018poa-banner-call4papers.png
 index.program.text=Complete schedule
-index.program.link=http://www.thedevelopersconference.com.br/tdc/2017/portoalegre/trilhas
+index.program.link=http://www.thedevelopersconference.com.br/tdc/2018/portoalegre/trilhas
 
 # CFP Home page
 your.profile=Your profile
@@ -180,13 +180,13 @@ video.title=Videos
 video.tag=Review TDC 2015''s videos on
 call4workshops.title=Workshops
 call4workshops.tag=We are still accepting proposals for workshops on
-call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2017/call4workshops
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2018/call4workshops
 agenda.title=Agenda
 theme.title=Tracks
-theme.track=List of tracks for TDC 2017 POA:
+theme.track=List of tracks for TDC 2018 POA:
 track.title=Title
 track.description=Description
-appel.conf.dates=TDC 2017 Porto Alegre, 8th-11th November 2017
+appel.conf.dates=TDC 2018 Porto Alegre, 5th-8th December 2018
 
 # Tracks
 
@@ -240,10 +240,20 @@ track.arquitetnet.desc=microservices, cqrs, event-driven
 arquitetnet.label=Arquitetura .NET
 arquitetnet.leaderboard=Arquitetura .NET
 
+track.arquitetdotnet.title=Arquitetura .NET
+track.arquitetdotnet.desc=Arquitetura na plataforma .Net
+arquitetdotnet.label=Arquitetura .NET
+arquitetdotnet.leaderboard=Arquitetura .NET
+
 track.arquitetdados.title=Arquitetura de Dados
 track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
 arquitetdados.label=Arquitetura de Dados
 arquitetdados.leaderboard=Arquitetura de Dados
+
+track.arquitetempres.title=Arquitetura Empresarial
+track.arquitetempres.desc=Arquitetando Negócios e TI para a efetiva Transformação Digital!
+arquitetempres.label=Arquitetura Empresarial
+arquitetempres.leaderboard=Arquitetura Empresarial
 
 track.arquitetjava.title=Arquitetura Java
 track.arquitetjava.desc=Java 11, Java EE, Spring Boot, Vert.x, Akka, Lagom, Play, Kubernetes, alta performance, escalabilidade
@@ -265,10 +275,20 @@ track.bigdata.desc=Dar valor aos dados é a alma da nossa trilha!
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
+track.bigdata.title=Beginners
+track.bigdata.desc=
+bigdata.label=Beginners
+bigdata.leaderboard=Beginners
+
 track.blockchain.title=BlockChain
 track.blockchain.desc=Muito além do bitcoin: a internet do valor
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
+
+track.chatbots.title=Carreira
+track.chatbots.desc=
+chatbots.label=Carreira
+chatbots.leaderboard=Carreira
 
 track.chatbots.title=ChatBots
 track.chatbots.desc=Processamento de Linguagem Natural (PLN), Assistentes Pessoais, Design Conversacional, Interfaces Conversacionais, Chatbots em Produção,  KPIs/Métricas para Chatbots, Avaliação de Chatbots
@@ -310,10 +330,35 @@ track.devtest.desc=live-coding, tests on/with: thorntail-tests (a.k.a wildfly sw
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
+track.dinamicas.title=Dinâmicas e Facilitações
+track.dinamicas.desc=Através de dinâmicas e facilitações conseguimos resultados surpreendentes! Venha participar conosco!
+dinamicas.label=Dinâmicas e Facilitações
+dinamicas.leaderboard=Dinâmicas e Facilitações
+
+track.education.title=Education
+track.education.desc=Estratégias de ensino em cursos de tecnologia para adequar as demandas de mercado e evolução tecnológica!
+education.label=Education
+education.leaderboard=Education
+
 track.empreende.title=Empreendedorismo
 track.empreende.desc=Empreendedor em Foco
 empreende.label=Empreendedorismo
 empreende.leaderboard=Empreendedorismo
+
+track.extremeprog.title=Extreme Programming
+track.extremeprog.desc=Valores, princípios e práticas diferenciando a forma como se desenvolve software
+extremeprog.label=Extreme Programming
+extremeprog.leaderboard=Extreme Programming
+
+track.fintech.title=Fintech
+track.fintech.desc=Tecnologia financeira a serviço da comodidade
+fintech.label=Fintech
+fintech.leaderboard=Fintech
+
+track.frameworksjs.title=Frameworks JavaScript
+track.frameworksjs.desc=Estruturando aplicações web com qualidade, previsibilidade e com o que há de melhor no JavaScript
+frameworksjs.label=Frameworks JavaScript
+frameworksjs.leaderboard=Frameworks JavaScript
 
 track.games.title=Games
 track.games.desc=O próximo nível dos jogos brasileiros!
@@ -329,6 +374,11 @@ track.golang.title=Go
 track.golang.desc=-gerenciamento de dependências (vgo e dep); web; testes; concorrência e paralelismo; performance; cases interessantes; apresentação de libs opensource, em especial criadas/mantidas por brasileiros; arquitetura; TDD
 golang.label=Go
 golang.leaderboard=Go
+
+track.impressao.title=Impressão 3D
+track.impressao.desc=Aqui imprimimos futuro
+impressao.label=Impressão 3D
+impressao.leaderboard=Impressão 3D
 
 track.infraagil.title=Infraestrutura Ágil
 track.infraagil.desc=Quebrando paradigmas e evoluindo a sua infraestrutura!!!
@@ -384,6 +434,11 @@ track.kotlin.title=Kotlin
 track.kotlin.desc=Aprenda mais sobre esta linguagem baseada na JVM que está invadindo o mundo Android, Apple e JavaScript
 kotlin.label=Kotlin
 kotlin.leaderboard=Kotlin
+
+track.linux.title=Linux Embarcado
+track.linux.desc=Desenvolvimento de Equipamentos embarcados com Linux
+linux.label=Linux Embarcado
+linux.leaderboard=Linux Embarcado
 
 track.machine.title=Machine Learning
 track.machine.desc=Assuntos relacionados à machine learning: algoritimos, ferramentas, cloud(ML na cloud) e etc.
@@ -484,6 +539,11 @@ track.smartcities.title=Smart Cities
 track.smartcities.desc=Tecnologias aliadas a pessoas para criar cidades mais inteligentes de fato
 smartcities.label=Smart Cities
 smartcities.leaderboard=Smart Cities
+
+track.startups.title=Startups
+track.startups.desc=
+startups.label=Startups
+startups.leaderboard=Startups
 
 track.testes.title=Testes
 track.testes.desc=Vocês precisam ir além do funcional!
@@ -903,11 +963,11 @@ sw.show.thu=Thursday
 sw.show.thursday=Thursday
 sw.show.fri=Friday
 sw.show.friday=Friday
-sw.show.title.mon=Monday, 18th April 2017
-sw.show.title.tue=Tuesday, 19th April 2017
-sw.show.title.wed=Wednesday, 20th April 2017
-sw.show.title.thu=Thursday, 21st April 2017
-sw.show.title.fri=Friday, 22nd April 2017
+sw.show.title.mon=Monday, 18th April 2018
+sw.show.title.tue=Tuesday, 19th April 2018
+sw.show.title.wed=Wednesday, 20th April 2018
+sw.show.title.thu=Thursday, 21st April 2018
+sw.show.title.fri=Friday, 22nd April 2018
 
 sw.horaires=Schedule
 sw.breakfast=Welcome and Breakfast
