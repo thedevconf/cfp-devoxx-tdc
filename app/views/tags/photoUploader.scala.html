@@ -115,8 +115,8 @@
 						   
 					//Validate the File Height and Width.
 					image.onload = (e) => {
-						var height = e.path[0].height;
-						var width = e.path[0].width;
+						var	height = e.target.height;
+						var	width = e.target.width;
 						if (height === width) {
 							resolve();
 						}
