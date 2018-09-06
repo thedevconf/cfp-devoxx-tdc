@@ -40,6 +40,7 @@ GET           /cfp/home                                                         
 GET           /cfp/profile                                                      controllers.CallForPaper.editProfile
 POST          /cfp/profile                                                      controllers.CallForPaper.saveProfile
 GET           /cfp/newSpeakerForExistingWebuser                                 controllers.CallForPaper.newSpeakerForExistingWebuser()
+POST		  /cfp/profile/picture/:userId	  								    controllers.CallForPaper.uploadPicture(userId:String)
 
 # call for tracks
 GET           /cft/home                                                         controllers.CallForTrack.homeCallForTracks()

@@ -1,0 +1,136 @@
+@(readOnlyUUID:String)(implicit lang: Lang,req:RequestHeader)
+
+<div id="uploader"></div>
+<!-- Fine Uploader -->
+	<link href="/assets/fine-uploader/fine-uploader-new.min.css" rel="stylesheet">
+    <script src="/assets/fine-uploader/fine-uploader.min.js"></script>
+	<script type="text/template" id="qq-template-manual-trigger">
+        <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="@Messages("fineUploader.drop")">
+            <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+                <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+            </div>
+            <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+                <span class="qq-upload-drop-area-text-selector"></span>
+            </div>
+            <div class="buttons">
+                <div class="qq-upload-button-selector qq-upload-button">
+                    <div>@Messages("fineUploader.btSelect")</div>
+                </div>
+                <button type="button" id="trigger-upload" class="btn btn-primary" title="@Messages("fineUploader.btUpload.tooltip")">
+                    <i class="icon-upload icon-white"></i> @Messages("fineUploader.btUpload")
+                </button>
+            </div>
+            <span class="qq-drop-processing-selector qq-drop-processing">
+                <span>@Messages("fineUploader.processing")</span>
+                <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+            </span>
+            <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+                <li>
+                    <div class="qq-progress-bar-container-selector">
+                        <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                    </div>
+                    <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                    <img class="qq-thumbnail-selector" qq-max-size="100" width="75" height="75">
+                    <span class="qq-upload-file-selector qq-upload-file"></span>
+                    <span class="qq-upload-size-selector qq-upload-size"></span>
+                    <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">@Messages("fineUploader.upload.cancel")</button>
+                    <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">@Messages("fineUploader.upload.retry")</button>
+                    <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+                </li>
+            </ul>
+        </div>
+    </script>
+	<style>
+        #trigger-upload {
+            color: white;
+            background-color: #00ABC7;
+            font-size: 14px;
+            padding: 7px 20px;
+            background-image: none;
+        }
+
+        #uploader .qq-upload-button {
+            margin-right: 15px;
+        }
+
+        #uploader .qq-uploader .qq-total-progress-bar-container {
+            width: 60%;
+        }
+    </style>
+	<script>
+		var manualUploader = new qq.FineUploader({
+			element: document.getElementById('uploader'),
+            template: 'qq-template-manual-trigger',
+            request: {
+                endpoint: '/cfp/profile/picture/@readOnlyUUID'
+            },
+            autoUpload: false,
+			multiple: false,
+			messages: {
+				minHeightImageError: '@Messages("fineUploader.msg.minHeightImageError")',
+				minWidthImageError: '@Messages("fineUploader.msg.minWidthImageError")',
+				noFilesError: '@Messages("fineUploader.msg.noFilesError")',
+				typeError: '@Messages("fineUploader.msg.typeError")'
+			},
+			text: {
+				failUpload: '@Messages("fineUploader.msg.failUpload")',
+				waitingForResponse: '@Messages("fineUploader.msg.waitingForResponse")',
+				fileInputTitle: '@Messages("fineUploader.msg.fileInputTitle")'
+			},
+			failedUploadTextDisplay: {
+				mode: 'custom'
+			},
+			validation: {
+				acceptFiles: 'image/jpeg,image/png',
+				allowedExtensions: ['jpeg','jpg','png'],
+				image: {
+					minHeight: 150,
+					minWidth: 150
+				}
+			},
+			callbacks: {
+				onComplete: function(id,name,response) {
+					if(response.success === true) {
+						var photoUrl = response.avatarUrl;
+						document.querySelector("#avatarUrl").value = photoUrl;
+						document.querySelector("#avatar").src = photoUrl;
+					};
+				},
+				onSubmit: isSquarePicture
+			}
+        });
+
+		function isSquarePicture(fileId) {
+			let reader = new FileReader();
+			//Read the contents of Image File.
+			reader.readAsDataURL(this.getFile(fileId));
+			
+			var promise = new Promise((resolve,reject) => {
+				reader.onload = (e) => {
+					//Initiate the JavaScript Image object.
+					var image = new Image();
+	 
+					//Set the Base64 string return from FileReader as source.
+					image.src = e.target.result;
+						   
+					//Validate the File Height and Width.
+					image.onload = (e) => {
+						var height = e.path[0].height;
+						var width = e.path[0].width;
+						if (height === width) {
+							resolve();
+						}
+						else {
+							alert(@Messages("fineUploader.msg.squareError"));
+							reject();
+						}
+					};
+				}
+			});
+			return promise;
+		}
+		
+        qq(document.getElementById("trigger-upload")).attach("click", function() {
+            manualUploader.uploadStoredFiles();
+        });
+    </script>

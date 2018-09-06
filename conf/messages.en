@@ -584,7 +584,7 @@ xp.leaderboard=XP
 confirm.import.title=Create your Speaker''s profile
 confirm.import.save=Save
 avatarUrl.isEmpty=URL to your picture is empty, so we will try to use your
-avatarUrl.defined=Your photo (recommended width 150px)
+avatarUrl.defined=Your photo (must be square with minimum width 150px)
 
 created.title=Success!
 created.text1=We just sent you an email so that you can validate your email address.
@@ -600,6 +600,13 @@ signup.txt2=A validation email will be sent to the address indicated. Your profi
 editProfile.tab=Your profile
 editProfile.title=Your profile
 editProfile.help=Take the time to complete your profile. This content will then be published on the site if you are selected as a speaker (except for qualifications, gender, phone and T-shirt size). It is important for the audience to know who you are and what your experience in the area is.
+editProfile.help.picture.label=Picture upload
+editProfile.help.picture=It is important that you upload a recent picture, which will be published on the site if your proposal is approved. The picture must be square with a minimum of 150px. To upload a picture:
+editProfile.help.picture.1=Drag and drop a picture on the appropriate area or click on the "Select picture" button to open a popup window and select the file.
+editProfile.help.picture.2=After the selection a thumbnail will be drawn. The thumbnail resolution is lower than the real picture resolution, so don't worry if it looks pixeled.
+editProfile.help.picture.3=If you wish to cancel the picture selection, click the "Cancel" button, or if you wish to change it you just need to select a new picture as you did on step 1.
+editProfile.help.picture.4=Click the "Upload" button.
+editProfile.help.picture.5=The first time you upload a picture, you still need to submit the form for it to be saved. Afterwards this is not needed anymore.
 editProfile.save=Save
 
 conduct=Code of conduct
@@ -890,7 +897,7 @@ admin.btn.howTo=How to...
 
 newSpeaker.tab=Create/Edit a speaker
 newSpeaker.title=Create/Edit a speaker
-avatarUrl2=URL of speaker''s photo
+avatarUrl2=Speaker''s photo
 name=Full name
 bio2=Speaker''s bio
 socialMedia.twitter2=Twitter
@@ -1563,6 +1570,25 @@ btn.proposal.history=See History
 
 heading.speaker.history= Speaker {0} History
 title.speaker.history=[CFP] History {0}
+
+#Picture Uploader
+fineUploader.drop=Drop your picture here
+fineUploader.btSelect=Select picture
+fineUploader.btUpload=Upload
+fineUploader.btUpload.tooltip=Click to upload the picture.
+fineUploader.processing=Processing picture
+fineUploader.upload.cancel=Cancel
+fineUploader.upload.retry=Retry
+fineUploader.msg.minHeightImageError=Image is not tall enough
+fineUploader.msg.minWidthImageError=Image is not wide enough
+fineUploader.msg.noFilesError=No file to upload
+fineUploader.msg.typeError='{'file'}' has an invalid extension. Valid extension(s): '{'extensions'}'.
+fineUploader.msg.failUpload=Upload failed
+fineUploader.msg.waitingForResponse=Processing...
+fineUploader.msg.fileInputTitle=Select picture to upload and show a preview
+fineUploader.msg.squareError=`The picture must be square. This picture is $'{'width'}' x $'{'height'}'`
+uploadPicture.msg.error.missing=Missing file
+uploadPicture.msg.error.general=Error parsing form data
 
 #CallForTracks
 callfortracks.registration.title=Track Registration

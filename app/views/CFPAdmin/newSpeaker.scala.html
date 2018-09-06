@@ -38,7 +38,12 @@
             @helper.inputText(speakerForm("email"), 'size->40)
             @helper.inputText(speakerForm("phone"), 'size->20, 'placeholder -> "(99) 9999-9999")			
 			@helper.inputText(speakerForm("tagName"), 'size->50)
-            @helper.inputText(speakerForm("avatarUrl2"), 'size->80, 'label->"URL to image")
+			@if(!speakerForm("uuid").value.isEmpty) {
+				<label>@Messages("avatarUrl2")</label>
+				<input type="hidden" id="avatarUrl" name="avatarUrl" value="@speakerForm("avatarUrl").value" />
+				<p><img id="avatar" src="@speakerForm("avatarUrl").value" width="75"/></p>	
+				@tags.photoUploader(speakerForm("uuid").value.get)
+			}			
             @helper.inputText(speakerForm("company2"))
             @helper.textarea(speakerForm("bio2"), 'cols -> 70, 'rows -> 5)
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
