@@ -683,7 +683,7 @@ object CFPAdmin extends SecureCFPController {
     "lastName" -> text,
     "bio2" -> nonEmptyText(maxLength = 1200),
     "lang2" -> optional(text),
-    "avatarUrl2" -> optional(text),
+    "avatarUrl" -> optional(text),
     "company2" -> optional(text),
     "blog2" -> optional(text),
     "firstName" -> text,

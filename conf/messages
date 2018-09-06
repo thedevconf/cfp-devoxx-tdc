@@ -584,7 +584,7 @@ xp.leaderboard=XP
 confirm.import.title=Criar seu perfil de Palestrante
 confirm.import.save=Gravar
 avatarUrl.isEmpty=URL para foto está vazia, então tentaremos usar seu
-avatarUrl.defined=Sua foto (tamanho recomendado 150px)
+avatarUrl.defined=Sua foto (deve ser quadrada com tamanho mínimo 150px)
 
 created.title=Sucesso!
 created.text1=Acabamos de lhe enviar um email para que você possa validar seu endereço de email.
@@ -600,6 +600,13 @@ signup.txt2=Um email de validação será enviado para o endereço indicado. Seu
 editProfile.tab=Seu perfil
 editProfile.title=Seu perfil
 editProfile.help=Aproveite para completar seu perfil. Este conteúdo será publicado no site (exceto email, qualificações, telefone, gênero e camiseta) se você for selecionado como palestrante. É importante para os participantes saberem quem você é e qual sua experiência na área.
+editProfile.help.picture.label=Upload de fotos
+editProfile.help.picture=É importante fazer um upload de uma foto atualizada, que será publicada no site no caso de sua palestra ser aprovada. A foto deve ser quadrada e ter no mínimo 150px. Para fazer o upload:
+editProfile.help.picture.1=Arraste uma foto para a área indicada ou clique no botão "Selecionar foto" para abrir uma janela de diálogo de seleção.
+editProfile.help.picture.2=Após a seleção da foto será exibido um thumbnail. A resolução do thumbnail é inferior a resolução real da foto que será carregada, por isso, não se preocupe se parecer pixelada.
+editProfile.help.picture.3=Caso queira cancelar a seleção da foto clique no botão "Cancelar", ou se quiser substituí-la basta selecionar uma nova foto de acordo com o passo 1.
+editProfile.help.picture.4=Clique no botão "Carregar".
+editProfile.help.picture.5=No primeiro cadastro de fotos será necessário fazer o submit do formulário para que ela seja gravada na base de dados. Para atualização de fotos esse último passo não é necessário, bastando clicar no botão "Carregar" do passo 4.
 editProfile.save=Gravar
 
 conduct=Código de conduta
@@ -890,7 +897,7 @@ admin.btn.howTo=Como...
 
 newSpeaker.tab=Criar/Editar um palestrante
 newSpeaker.title=Criar/Editar um palestrante
-avatarUrl2=URL para foto do palestrante
+avatarUrl2=Foto do palestrante
 name=Nome completo
 bio2=Minibio do palestrante
 socialMedia.twitter2=Twitter
@@ -1563,6 +1570,27 @@ btn.proposal.history=Ver Histórico
 
 heading.speaker.history= Histórico do palestrante {0}
 title.speaker.history=[CFP] Histórico {0}
+
+#Picture Uploader
+fineUploader.drop=Arraste sua foto aqui
+fineUploader.btSelect=Selecionar foto
+fineUploader.btUpload=Carregar
+fineUploader.btUpload.tooltip=Clique para fazer o upload da foto.
+fineUploader.processing=Processando foto
+fineUploader.upload.cancel=Cancelar
+fineUploader.upload.retry=Repetir
+fineUploader.msg.minHeightImageError=Foto não tem a altura minima
+fineUploader.msg.minWidthImageError=Foto não tem a largura minima
+fineUploader.msg.noFilesError=Nenhuma foto selecionada
+fineUploader.msg.typeError=Tipo de arquivo inválido. Tipos válidos: '{'extensions'}'.
+fineUploader.msg.failUpload=Erro enviando o arquivo
+fineUploader.msg.waitingForResponse=Processando...
+fineUploader.msg.fileInputTitle=Selecione a foto a ser carregada e veja uma prévia de como vai aparecer
+fineUploader.msg.squareError=`A foto deve ser quadrada. Esta foto tem $'{'width'}' x $'{'height'}'`
+uploadPicture.msg.error.missing=Arquivo ausente
+uploadPicture.msg.error.general=Erro ao submeter o arquivo
+
+
 
 #CallForTracks
 callfortracks.registration.title=Cadastro de Trilhas

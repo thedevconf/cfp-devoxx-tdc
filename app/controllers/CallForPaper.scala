@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation}
+import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation, S3}
 import models._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
@@ -46,7 +46,7 @@ object CallForPaper extends SecureCFPController {
   def homeForSpeaker = SecuredAction {
     implicit request =>
       val uuid = request.webuser.uuid
-
+	  Ok(views.html.Authentication.confirmImport(speakerForm))
       Speaker.findByUUID(uuid).map {
         speaker: Speaker =>
           val hasApproved = Proposal.countByProposalState(uuid, ProposalState.APPROVED) > 0
@@ -450,7 +450,7 @@ object CallForPaper extends SecureCFPController {
 
   /**
     * Reads the presentation for the proposal from the web application and saves it to a temporary file
-    * at /tmp/presentations, prefixed with the current date
+    * defined by S3.presentationSourceDir, prefixed with the current date and the proposal id
     *
     * Also updates the status of the proposal to inform that it already has an uploaded presentation
     *
@@ -477,6 +477,34 @@ object CallForPaper extends SecureCFPController {
         )
       }.getOrElse {
         Redirect(routes.CallForPaper.homeForSpeaker()).flashing("error" -> Messages("uploadPresentation.msg.error.general"))
+      }
+  }
+  
+  /**
+    * Reads the picture for speaker and saves it to a temporary file defined by S3.pictureSourceDir
+    *
+    * @param userId
+    * @return JSON response for the fineUploader component
+    */
+  def uploadPicture(userId:String) = SecuredAction(IsMemberOf("cfp")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      request.body.asMultipartFormData.map { data =>
+
+        import java.io.File
+
+        data.file("qqfile").map{ picture =>
+          picture.ref.moveTo(new File(S3.pictureSourceDir + picture.filename),replace = true)
+		  val avatarUrl = S3.uploadPicture(userId,picture.filename)
+		  Event.storeEvent(Event(userId, request.webuser.uuid, "Photo uploaded"))		  
+          Ok(s"""{
+			"success":true,
+			"avatarUrl": "${avatarUrl}"
+			}""")
+        }.getOrElse{
+          BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.missing")}"}""")
+        }
+      }.getOrElse {
+	    BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.general")}"}""")
       }
   }
 

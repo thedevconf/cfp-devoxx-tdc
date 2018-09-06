@@ -31,8 +31,11 @@
             @helper.inputText(speakerForm("firstName"), 'class->"form-control")
             @helper.inputText(speakerForm("lastName"), 'class->"form-control")
             @helper.inputText(speakerForm("tagName"), 'class->"form-control")
-            @helper.inputText(speakerForm("phone"))			
-            @helper.inputText(speakerForm("avatarUrl"), 'class->"form-control")
+            @helper.inputText(speakerForm("phone"))
+			<label>@Messages("avatarUrl.defined")</label>
+			<input type="hidden" id="avatarUrl" name="avatarUrl" value="@speakerForm("avatarUrl").value" />
+			<p><img id="avatar" src="@speakerForm("avatarUrl").value" width="75" height="75"/></p>	
+			@tags.photoUploader(readOnlyUUID)
             @helper.textarea(speakerForm("bio"), 'cols -> 60, 'rows -> 5, 'class->"form-control")
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
 			@helper.textarea(speakerForm("qualifications"), 'cols -> 60, 'rows -> 5, 'class->"form-control")
@@ -60,6 +63,16 @@
     <div class="col-md-5">
         <h3>@Messages("helpAndTips")</h3>
         <p>@Messages("editProfile.help")</p>
+		<p><label>@Messages("editProfile.help.picture.label") : </label><br/>
+            @Messages("editProfile.help.picture")
+			<ol>
+				<li>@Messages("editProfile.help.picture.1")</li>
+				<li>@Messages("editProfile.help.picture.2")</li>
+				<li>@Messages("editProfile.help.picture.3")</li>
+				<li>@Messages("editProfile.help.picture.4")</li>
+				<li>@Messages("editProfile.help.picture.5")</li>
+			</ol>
+		</p>	
         <p><label>@Messages("conduct") : </label><br/>
             @Messages("conduct.help")
             <a href="@Messages("conduct.link")" target="new">@Messages("conduct.link")</a>
@@ -73,5 +86,4 @@ $(document).ready(function($){
     setformfieldsize($('#bio'), 750, 'charsremain');
 });
 </script>
-
 }
