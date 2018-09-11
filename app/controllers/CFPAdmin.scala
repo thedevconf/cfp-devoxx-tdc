@@ -864,6 +864,30 @@ object CFPAdmin extends SecureCFPController {
         case None => NotFound("Proposal not found").as("text/html")
       }
   }
+  
+  /**
+    * Shows report of speakers by gender
+    *
+    */
+  def allSpeakersByGender() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+	  val allSpeakers = Speaker.allSpeakers
+	  
+	  val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
+	  val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
+	  val refusedSpeakers = allRejectedIDs.diff(allApprovedIDs)
+	  val approvedSpeakers = allSpeakers.filter(s => allApprovedIDs.contains(s.uuid))
+	  val rejectedSpeakers = allSpeakers.filter(s => refusedSpeakers.contains(s.uuid))
+	  
+	  val speakersByTrackAndGender = Proposal.allAccepted()     		//all accepted proposals
+							  .groupBy(_.track)  						//proposals by track
+							  .mapValues( _.flatMap( _.allSpeakers)) 	//speakers by track 		
+							  .mapValues( _.groupBy(s => 
+										s.gender.getOrElse("empty"))
+										.withDefaultValue(List())) 		//speakers by gender by track
+										
+	  Ok(views.html.CFPAdmin.allSpeakersByGender(allSpeakers,approvedSpeakers,rejectedSpeakers,speakersByTrackAndGender))	
+  }
 }
 
 

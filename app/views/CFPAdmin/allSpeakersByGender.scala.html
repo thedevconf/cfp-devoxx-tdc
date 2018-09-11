@@ -1,0 +1,103 @@
+@(speakers:List[Speaker],approvedSpeakers:List[Speaker],rejectedSpeakers:List[Speaker], proposalsByTrack:Map[Track,Map[String,List[Speaker]]])(implicit lang: Lang, flash: Flash, req: RequestHeader)
+
+@main("CFP Speakers") {
+    <div class="row">
+        <div class="col-lg-offset-4 col-md-4">
+            <h2><i class="icon-thumbs-up-alt"></i> CFP Admin</h2>
+        </div>
+        <div class="clearfix"></div>
+
+        @if(flash.get("error").isDefined) {
+            <div class="alert alert-danger alert-dismissable col-md-12">
+                <strong>Error :</strong>
+                @flash.get("error").get
+            </div>
+        }
+        @if(flash.get("success").isDefined) {
+            <div class="alert alert-success alert-dismissable col-md-12">
+            @flash.get("success").get
+            </div>
+        }
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>@Messages("allSpeakers.allSpeakersByGender.title")</h3>
+                    <span class="label label-info"> @speakers.size @Messages("allSpeakers.speakers")</span>
+                </div>
+                <div class="panel-footer">
+                     <a href="@routes.CFPAdmin.reportsHome()" class="btn btn-sm btn-primary"><i class="icon-table"></i> @Messages("admin.btn.reports")</a>
+                </div>
+            </div>
+        </div>
+		<div class="col-md-12">
+			<h3>@Messages("allSpeakers.allSpeakersByGender.section.all")</h3>
+			@defining(speakers.size){maxValue=>
+			@speakers.groupBy(_.gender).map(pair => (Messages(s"gender.${pair._1.getOrElse("empty")}"),pair._2.size)).toList.sortBy(_._1).map{case(gender,total)=>
+				<span class="label label-info">@total</span> @gender
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+						<span class="sr-only">@gender</span>
+					</div>
+				</div>
+				}
+			}
+		</div>
+		<div class="col-md-6">
+			<h3>@Messages("allSpeakers.allSpeakersByGender.section.approvedSpeakers")</h3>
+			@defining(approvedSpeakers.size){maxValue=>
+			@approvedSpeakers.groupBy(_.gender).map(pair => (Messages(s"gender.${pair._1.getOrElse("empty")}"),pair._2.size)).toList.sortBy(_._1).map{case(gender,total)=>
+				<span class="label label-info">@total</span> @gender (@String.format("%.2f",(total*100.0)/maxValue:java.lang.Double) %)
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+						<span class="sr-only">@gender</span>
+					</div>
+				</div>
+				}
+			}
+		</div>
+		<div class="col-md-6">
+			<h3>@Messages("allSpeakers.allSpeakersByGender.section.rejectedSpeakers")</h3>
+			@defining(rejectedSpeakers.size){maxValue=>
+			@rejectedSpeakers.groupBy(_.gender).map(pair => (Messages(s"gender.${pair._1.getOrElse("empty")}"),pair._2.size)).toList.sortBy(_._1).map{case(gender,total)=>
+				<span class="label label-info">@total</span> @gender (@String.format("%.2f",(total*100.0)/maxValue:java.lang.Double) %)
+				<div class="progress">
+					<div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
+						<span class="sr-only">@gender</span>
+					</div>
+				</div>
+				}
+			}
+		</div>
+		<div class="clearfix"></div>
+		<div class="col-md-12">
+			<h3>@Messages("allSpeakers.allSpeakersByGender.section.tracks")</h3>
+	<table class="table table-bordered table-condensed">
+		<thead>
+			<tr>
+				<th>@Messages("sw.proposal.track")</th>
+				<th>@Messages("gender.M")</th>
+				<th>@Messages("gender.F")</th>
+				<th>@Messages("gender.N")</th>
+				<th>@Messages("gender.P")</th>
+				<th>@Messages("gender.empty")</th>
+			</tr>
+		</thead>
+		<tbody>
+		@proposalsByTrack.map(pair => (Messages(pair._1.label),pair._2)).toSeq.sortBy(_._1).map{case(track,speakers)=>
+			<tr>
+				<td>@track</td>
+				<td>@speakers("M").size</td>
+				<td>@speakers("F").size</td>
+				<td>@speakers("N").size</td>
+				<td>@speakers("P").size</td>
+				<td>@speakers("empty").size</td>
+			</tr>
+		}		
+		</tbody>
+	</table>
+		</div>
+
+
+    </div>
+}

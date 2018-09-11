@@ -1493,6 +1493,18 @@ allSpeakers.allSpeakersThatForgetToAccept.subtitle=Palestra que aprovamos, para 
 allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Palestrante principal ou secundário, com badge de palestrante; CFP não incluído; Nenhuma palestra curta
 allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classificado por palestras, onde o palestrante é o principal ou secundário
 allSpeakers.invited.title=Todos Palestrantes Convidados
+allSpeakers.allSpeakersByGender.title=Todos Palestrantes por gênero
+allSpeakers.allSpeakersByGender.section.all=Total de palestrantes cadastrados em todas as edições
+allSpeakers.allSpeakersByGender.section.approvedSpeakers=Palestrantes aprovados nesta edição
+allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Palestrantes rejeitados nesta edição
+allSpeakers.allSpeakersByGender.section.tracks=Palestrantes com palestras aceitas por trilha
+
+#Gender labels
+gender.M=Masculino
+gender.F=Feminino
+gender.N=Outro
+gender.P=Prefiro não responder
+gender.empty=em branco
 
 #Reports
 reports.title=Relatórios
