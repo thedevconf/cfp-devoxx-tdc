@@ -1493,6 +1493,17 @@ allSpeakers.allSpeakersThatForgetToAccept.subtitle=Talk that we approved, for wh
 allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Primary or secondary speaker, with a speaker badge; CFP or Red Coat not included; No Quickies or BOF
 allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classified by talks, where the speaker is either primary or secondary speaker.
 allSpeakers.invited.title=All Invited Speakers
+allSpeakers.allSpeakersByGender.title=All speakers by gender
+allSpeakers.allSpeakersByGender.section.all=All speakers registered in all events
+allSpeakers.allSpeakersByGender.section.approvedSpeakers=Approved Speakers on this event
+allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Rejected Speakers on this event
+
+#Gender labels
+gender.M=Masculine
+gender.F=Feminine
+gender.N=Other
+gender.P=I'd rather not answer
+gender.empty=empty
 
 #Reports
 reports.title=Reports
