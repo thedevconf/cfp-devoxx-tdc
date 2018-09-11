@@ -443,7 +443,7 @@ object CallForPaper extends SecureCFPController {
     * @param proposalId
     * @return
     */
-  def uploadPresentationForProposal(proposalId:String) = SecuredAction(IsMemberOf("cfp")) {
+  def uploadPresentationForProposal(proposalId:String) = SecuredAction {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Ok(views.html.CallForPaper.uploadPresentation(proposalId))
   }
@@ -457,7 +457,7 @@ object CallForPaper extends SecureCFPController {
     * @param proposalId
     * @return
     */
-  def savePresentationForProposal(proposalId:String) = SecuredAction(IsMemberOf("cfp")) {
+  def savePresentationForProposal(proposalId:String) = SecuredAction {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asMultipartFormData.map { data =>
 
@@ -486,7 +486,7 @@ object CallForPaper extends SecureCFPController {
     * @param userId
     * @return JSON response for the fineUploader component
     */
-  def uploadPicture(userId:String) = SecuredAction(IsMemberOf("cfp")) {
+  def uploadPicture(userId:String) = SecuredAction {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asMultipartFormData.map { data =>
 
