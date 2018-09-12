@@ -225,10 +225,6 @@ track.androidkotlin.desc=
 androidkotlin.label=Android
 androidkotlin.leaderboard=Android
 
-track.arduino.title=Arduino, Makers e Impressão 3D
-track.arduino.desc=e também Node Red
-arduino.label=Arduino, Makers e Impressão 3D
-arduino.leaderboard=Arduino, Makers e Impressão 3D
 track.arduino.title=Arduino e Makers
 track.arduino.desc=
 arduino.label=Arduino e Makers
