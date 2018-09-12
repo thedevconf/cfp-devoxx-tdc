@@ -220,6 +220,11 @@ track.android.desc=
 android.label=Android
 android.leaderboard=Android
 
+track.androidkotlin.title=Android e Kotlin
+track.androidkotlin.desc=
+androidkotlin.label=Android
+androidkotlin.leaderboard=Android
+
 track.arduino.title=Arduino e Makers
 track.arduino.desc=
 arduino.label=Arduino e Makers
@@ -315,6 +320,11 @@ track.datascience.desc=
 datascience.label=Data Science
 datascience.leaderboard=Data Science
 
+track.delphi.title=Delphi
+track.delphi.desc=
+delphi.label=Delphi
+delphi.leaderboard=Delphi
+
 track.dthinking.title=Design Thinking
 track.dthinking.desc=
 dthinking.label=Design Thinking
@@ -324,6 +334,11 @@ track.devops.title=DevOps
 track.devops.desc=
 devops.label=DevOps
 devops.leaderboard=DevOps
+
+track.devopstools.title=DevOps Tools
+track.devopstools.desc=
+devopstools.label=DevOps Tools
+devopstools.leaderboard=DevOps Tools
 
 track.devtest.title=DevTest
 track.devtest.desc=
@@ -365,10 +380,10 @@ track.games.desc=
 games.label=Games
 games.leaderboard=Games
 
-track.gestaoprod.title=Gestão de Produto
-track.gestaoprod.desc=
-gestaoprod.label=Gestão de Produto
-gestaoprod.leaderboard=Gestão de Produto
+track.gestaoprod.title=Gestão de Produtos
+track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
+gestaoprod.label=Gestão de Produtos
+gestaoprod.leaderboard=Gestão de Produtos
 
 track.golang.title=Go
 track.golang.desc=
@@ -505,10 +520,10 @@ track.raddelphic.desc=
 raddelphic.label=RAD: Delphi_C++
 raddelphic.leaderboard=RAD: Delphi_C++
 
-track.realidade.title=Realidade Virtual
+track.realidade.title=Realidade Virtual e Aumentada
 track.realidade.desc=
-realidade.label=Realidade Virtual
-realidade.leaderboard=Realidade Virtual
+realidade.label=Realidade Virtual e Aumentada
+realidade.leaderboard=Realidade Virtual e Aumentada
 
 track.requisitos.title=Requisitos Ágeis
 track.requisitos.desc=
@@ -555,6 +570,11 @@ track.transfdigital.desc=
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
+track.university.title=University
+track.university.desc=
+university.label=University
+university.leaderboard=University
+
 track.uxdesign.title=UX Design
 track.uxdesign.desc=
 uxdesign.label=UX Design
@@ -564,6 +584,11 @@ track.web.title=Web
 track.web.desc=
 web.label=Web
 web.leaderboard=Web
+
+track.webfrontend.title=Web / Front-end
+track.webfrontend.desc=
+webfrontend.label=Web / Front-end
+webfrontend.leaderboard=Web / Front-end
 
 track.women.title=TDC4Women
 track.women.desc=
