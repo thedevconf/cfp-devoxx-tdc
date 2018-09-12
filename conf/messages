@@ -220,6 +220,11 @@ track.android.desc=Domine a plataforma que domina o mundo
 android.label=Android
 android.leaderboard=Android
 
+track.androidkotlin.title=Android e Kotlin
+track.androidkotlin.desc=
+androidkotlin.label=Android
+androidkotlin.leaderboard=Android
+
 track.arduino.title=Arduino, Makers e Impressão 3D
 track.arduino.desc=e também Node Red
 arduino.label=Arduino, Makers e Impressão 3D
@@ -315,6 +320,11 @@ track.datascience.desc=Casos de Uso de Data Science, palestrar com foco em gest�
 datascience.label=Data Science
 datascience.leaderboard=Data Science
 
+track.delphi.title=Delphi
+track.delphi.desc=
+delphi.label=Delphi
+delphi.leaderboard=Delphi
+
 track.dthinking.title=Design Thinking
 track.dthinking.desc=Mostrar cases de como está aplicando Design Thinking na sua empresa e/ou organização; Mostrar para as pessoas como funciona uma ferramenta de Design que achou interessante utilizar e achou que seria útil. Exemplos: Pegue uma deste livro aqui https://www.amazon.com/Universal-Methods-Design-Innovative-Effective-ebook/dp/B007WRCRH8 e mostre como é útil; Trazer discussões sobre Design de Serviços e Lógica Dominante de Serviços; Mostrar os diferentes 'flavors' de Design Sprints; Mostrar como tem expandido a cultura de Design na sua realidade; Mostrar como alguma utiliza design no dia-a-dia; Mostrar como você utiliza o design para seus projetos; Mostrar como utilizando Design Thinking o seu time agora sabe o porque de fazer algo ao invés de ser super Ágil fazendo algo que se propõe a 'entregar valor'; Mostrar como tem usado Design Thinking para superar as barreiras entre os silos de produtos e desenvolvimento; Mostrar como grandes iniciativas de Design no mundo te inspiraram para buscar os métodos e mindset do design, design thinking, etc.
 dthinking.label=Design Thinking
@@ -324,6 +334,11 @@ track.devops.title=DevOps
 track.devops.desc=Maximizando a integração entre equipes para entregar valor
 devops.label=DevOps
 devops.leaderboard=DevOps
+
+track.devopstools.title=DevOps Tools
+track.devopstools.desc=
+devopstools.label=DevOps Tools
+devopstools.leaderboard=DevOps Tools
 
 track.devtest.title=DevTest
 track.devtest.desc=live-coding, tests on/with: thorntail-tests (a.k.a wildfly swarm); OpenShift; microservices; vert-x
@@ -365,10 +380,10 @@ track.games.desc=O próximo nível dos jogos brasileiros!
 games.label=Games
 games.leaderboard=Games
 
-track.gestaoprod.title=Gestão de Produto
+track.gestaoprod.title=Gestão de Produtos
 track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
-gestaoprod.label=Gestão de Produto
-gestaoprod.leaderboard=Gestão de Produto
+gestaoprod.label=Gestão de Produtos
+gestaoprod.leaderboard=Gestão de Produtos
 
 track.golang.title=Go
 track.golang.desc=-gerenciamento de dependências (vgo e dep); web; testes; concorrência e paralelismo; performance; cases interessantes; apresentação de libs opensource, em especial criadas/mantidas por brasileiros; arquitetura; TDD
@@ -555,6 +570,11 @@ track.transfdigital.desc=Facilite seus negócios e sua vida com transformação 
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
+track.university.title=University
+track.university.desc=
+university.label=University
+university.leaderboard=University
+
 track.uxdesign.title=UX Design
 track.uxdesign.desc=UX Design é um grande guarda-chuva que deve ser aberto e apresentado a todos!
 uxdesign.label=UX Design
@@ -564,6 +584,11 @@ track.web.title=Web
 track.web.desc=Explorando todo o potencial da web
 web.label=Web
 web.leaderboard=Web
+
+track.webfrontend.title=Web / Front-end
+track.webfrontend.desc=
+webfrontend.label=Web / Front-end
+webfrontend.leaderboard=Web / Front-end
 
 track.women.title=TDC4Women
 track.women.desc=Lugar de falar da mulher da tecnologia
