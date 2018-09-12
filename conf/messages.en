@@ -747,6 +747,10 @@ previous.page=Previous page
 next.page=Next page
 top.page=Go to the top
 
+cfp.archivedProposal=Archived Proposal
+
+msg.unauthorized=Not Authorized
+
 admin.proposal=Proposal
 admin.proposals.th.lang=Lang
 admin.proposals.th.abstract=Proposal text

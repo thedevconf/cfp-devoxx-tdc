@@ -64,6 +64,7 @@ GET           /cfp/comment/:proposalId                                          
 POST          /cfp/comment/:proposalId                                          controllers.CallForPaper.sendMessageToCommitte(proposalId:String)
 GET           /cfp/proposal/upload/:proposalId/new                              controllers.CallForPaper.uploadPresentationForProposal(proposalId:String)
 POST          /cfp/proposal/upload/:proposalId                                  controllers.CallForPaper.savePresentationForProposal(proposalId:String)
+GET           /cfp/proposal/:proposalId                                    		controllers.CallForPaper.showArchivedProposal(proposalId:String)
 
 # Password
 GET           /forget                                                           controllers.Authentication.forgetPassword
