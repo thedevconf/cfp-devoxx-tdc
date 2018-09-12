@@ -1,0 +1,61 @@
+@(proposal: Proposal)(implicit flash: Flash, lang: Lang, req:RequestHeader)
+
+@main(s"[CFP] ${proposal.id}/${proposal.title}") {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3><i class="icon-signin"></i> @Messages("cfp.archivedProposal") - @proposal.event</h3>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped">
+                                           <thead>
+                                               <tr>
+                                                   <th>@Messages("admin.proposals.th.title")</th>
+                                                   <th>@Messages("admin.proposals.th.track")</th>
+                                                   <th>@Messages("admin.proposals.th.talkType")</th>
+                                                   <th>@Messages("admin.proposals.th.lang")</th>
+                                               </tr>
+                                           </thead>
+                                           <tbody>
+                                               <tr>
+                                                   <td>@proposal.title</td>
+                                                   <td>@Messages(proposal.track.label)</td>
+                                                   <td>@Messages(proposal.talkType.id)</td>
+                                                   <td><img src="/assets/images/@(proposal.lang).png" alt="@proposal.lang" title="@proposal.lang"/></td>
+                                               </tr>
+                                               <tr>
+                                                   <th colspan="4">
+                                                   @Messages("admin.proposals.th.abstract")
+                                                   </th>
+                                               </tr>
+                                               <tr>
+                                                   <td colspan="4" class="proposal">
+                                                     @Html(proposal.summaryAsHtml)
+                                                   </td>
+                                               </tr>
+
+                                           </tbody>
+                                       </table>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>@Messages("proposal.audienceLevel")</th>
+                                <td>@Messages(proposal.audienceLevel+".label")</td>
+                            </tr>
+                            <tr>
+                                <th>@Messages("proposal.demoLevel")</th>
+                                <td>@proposal.demoLevel.map(d=> Messages(d+".label"))</td>
+                            </tr>
+                            <tr>
+                                <th>@Messages("proposal.publicationAuthorized")</th>
+                                <td>@Messages("proposal.authorization."+proposal.publicationAuthorized.getOrElse(false))</td>
+                            </tr>							
+                        </tbody>
+                    </table>
+				</div>
+            </div>
+        </div>
+    </div>
+}

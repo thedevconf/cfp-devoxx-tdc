@@ -1,4 +1,4 @@
-@(speaker: Speaker, webuser: Webuser, myProposals: List[Proposal], totalArchived:Int, ratings:Map[Proposal,List[Rating]])(implicit flash: Flash, lang: Lang, req:RequestHeader)
+@(speaker: Speaker, webuser: Webuser, myProposals: List[Proposal], archivedProposals:List[Proposal], ratings:Map[Proposal,List[Rating]])(implicit flash: Flash, lang: Lang, req:RequestHeader)
 @import helper.twitterBootstrap._
 @import org.apache.commons.lang3.StringUtils
 
@@ -320,25 +320,63 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th><span class="badge">
-                                    @if(myProposals.size <= 1){
-                                        @Messages("total.draft.sing", myProposals.size)
-                                    }
-                                    @if(myProposals.size > 1){
-                                        @Messages("total.draft", myProposals.size)
-                                    }
-                            </span>
-                            @if(totalArchived>1){
-                                <span class="badge">@Messages("total.archived", totalArchived)</span>
-                            }
-                            @if(totalArchived==1){
-                                <span class="badge">@Messages("total.archived.sing", totalArchived)</span>
-                            }
+                            <th>
+								<span class="badge">
+										@if(myProposals.size <= 1){
+											@Messages("total.draft.sing", myProposals.size)
+										}
+										@if(myProposals.size > 1){
+											@Messages("total.draft", myProposals.size)
+										}
+								</span>
                             </th>
                         </tr>
                     </tfoot>
                 </table>
             }
+			@if(archivedProposals.size>0){
+				<p>
+					@if(archivedProposals.size > 1) {
+						@Messages("renderProposal.archived",archivedProposals.size)
+					}
+					@if(archivedProposals.size == 1) {
+						@Messages("renderProposal.archived.single")
+					}
+					<button id="btToggleView" title="mostrar" class="btn-xs btn-primary"><i class="icon-eye-open"></i> @Messages("renderProposal.archived.btn.view")</button>
+				</p>
+				<table id="tbArchived" class="table table-bordered">
+					<thead>
+						<tr>
+							<th>@Messages("tag.proposal.event")</th>
+							<th>@Messages("tag.proposal.title")</th>
+							<th>@Messages("tag.proposal.status")</th>
+							<th>@Messages("tag.proposal.type")</th>
+							<th>@Messages("tag.proposal.track")</th>
+						</tr>
+					</thead>
+
+					@archivedProposals.toList.sortBy(_.event).map { proposal: Proposal =>
+						<tr class="renderProposal_@proposal.state.code">
+							<td>@proposal.event</td>
+							<td><a href="@routes.CallForPaper.showArchivedProposal(proposal.id)">@proposal.title</a></td>
+							<td>
+								@tags.renderProposalState(proposal.state)
+							</td>
+							<td>@Messages(proposal.talkType.id)</td>
+							<td>@Messages(proposal.track.label)</td>
+						</tr>
+					}
+
+				</table>
+				<script>
+					$(document).ready(function() {
+						$("#tbArchived").hide();
+						$("#btToggleView").click( function() {
+							$("#tbArchived").toggle();
+						});
+					});
+				</script>
+			}
 @if(ConferenceDescriptor.isCFPOpen){
             <a href="@routes.CallForPaper.newProposal" class="btn btn-primary">@Html(Messages("new.proposal"))</a>
 }else{

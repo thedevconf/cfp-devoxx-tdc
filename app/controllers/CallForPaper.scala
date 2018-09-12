@@ -58,13 +58,13 @@ object CallForPaper extends SecureCFPController {
             case (false, true, _) => Redirect(routes.ApproveOrRefuse.doAcceptOrRefuseTalk()).flashing("success" -> Messages("please.check.approved"))
             case other => {
               val allProposals = Proposal.allMyProposals(uuid)
-              val totalArchived = Proposal.countByProposalState(uuid, ProposalState.ARCHIVED)
+			        val archivedProposals = Proposal.allMyArchivedProposals(uuid)
               val ratings = if(hasAccepted||hasApproved){
                 Rating.allRatingsForTalks(allProposals)
               }else{
                 Map.empty[Proposal,List[Rating]]
               }
-              Ok(views.html.CallForPaper.homeForSpeaker(speaker, request.webuser, allProposals, totalArchived,ratings))
+              Ok(views.html.CallForPaper.homeForSpeaker(speaker, request.webuser, allProposals, archivedProposals,ratings))
             }
           }
       }.getOrElse {
@@ -508,5 +508,25 @@ object CallForPaper extends SecureCFPController {
       }
   }
 
+  /**
+  * Show the contents of an archived Proposal of the speaker
+  *
+  **/
+  def showArchivedProposal(proposalId: String) = SecuredAction {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val uuid = request.webuser.uuid
+      Proposal.findById(proposalId) match {
+        case Some(proposal) => {
+			val authorIds: List[String] = proposal.mainSpeaker :: proposal.secondarySpeaker.toList ::: proposal.otherSpeakers
+			//checks whether the user is one of the authors of the proposal
+			if(authorIds.contains(uuid)) {
+				Ok(views.html.CallForPaper.showArchivedProposal(proposal))
+			} else {
+				Redirect(routes.CallForPaper.homeForSpeaker).flashing("error" -> Messages("msg.unauthorized"))
+			}
+        }
+        case None => NotFound("Proposal not found").as("text/html")
+      }
+  }
 }
 

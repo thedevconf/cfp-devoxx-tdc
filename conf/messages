@@ -747,6 +747,10 @@ previous.page=Página anterior
 next.page=Página seguinte
 top.page=Ir para o topo
 
+cfp.archivedProposal=Palestra Arquivada
+
+msg.unauthorized=Acesso não autorizado
+
 admin.proposal=Proposta
 admin.proposals.th.lang=Lang
 admin.proposals.th.abstract=Texto da proposta
@@ -1211,7 +1215,7 @@ visitor.welcome.profile=See the list of talks you faved
 
 # renderProposals
 renderProposal.archived={0} propostas arquivadas de algumas edições anteriores.
-renderProposal.archived.single=Um proposta foi arquivada de uma edição anterior.
+renderProposal.archived.single=Uma proposta foi arquivada de uma edição anterior.
 renderProposal.noTalks=Nenhuma outra palestra submetida ou proposta
 renderProposal.archived.btn.view=Mostrar/Ocultar
 
