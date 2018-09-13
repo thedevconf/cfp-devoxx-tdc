@@ -36,7 +36,7 @@
                     </tr>
                     <tr>
                         <td>
-                            @helper.select(field=speakerForm("secondarySpeaker"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control")
+                            @helper.select(field=speakerForm("secondarySpeaker"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._2==currentUser),  'class->"form-control")
                         </td>
                     </tr>
                     <!-- removida opção de mais speakers
