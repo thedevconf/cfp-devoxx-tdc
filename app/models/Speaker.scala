@@ -28,7 +28,7 @@ import library.{Benchmark, Redis, ZapJson}
 import org.apache.commons.lang3.StringUtils
 import org.joda.time.{DateTime, Instant}
 import play.api.libs.json.Json
-import play.api.templates.HtmlFormat
+import play.twirl.api.HtmlFormat
 
 /**
  * Speaker profile, is used mainly to show details.
