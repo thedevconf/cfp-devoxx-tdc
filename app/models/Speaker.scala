@@ -58,7 +58,7 @@ case class Speaker(uuid: String
                    , facebook: Option[String]
                    , instagram: Option[String]
                    , race: Option[String]
-				   , disability: Option[String]
+                   , disability: Option[String]
                   ) {
 
   def cleanName: String = {
@@ -104,6 +104,10 @@ case class Speaker(uuid: String
 
   def hasGithub = StringUtils.trimToEmpty(github.getOrElse("")).nonEmpty
 
+  def hasFacebook = StringUtils.trimToEmpty(facebook.getOrElse("")).nonEmpty
+
+  def hasInstagram = StringUtils.trimToEmpty(instagram.getOrElse("")).nonEmpty
+
   def hasBio = StringUtils.trimToEmpty(bio).nonEmpty
 
   def hasCompany = StringUtils.trimToEmpty(company.getOrElse("")).nonEmpty
@@ -121,6 +125,10 @@ case class Speaker(uuid: String
   def hasPhone = StringUtils.trimToEmpty(phone.getOrElse("")).nonEmpty
 
   def hasGender = StringUtils.trimToEmpty(gender.getOrElse("")).nonEmpty
+
+  def hasRace = StringUtils.trimToEmpty(race.getOrElse("")).nonEmpty
+
+  def hasDisability = StringUtils.trimToEmpty(disability.getOrElse("")).nonEmpty
 
   def hasTshirtSize = StringUtils.trimToEmpty(tshirtSize.getOrElse("")).nonEmpty
 

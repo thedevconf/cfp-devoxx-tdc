@@ -47,6 +47,7 @@ select.gender=Selecione seu gênero
 race=Etnia
 select.race=Selecione sua etnia
 disability=Você tem alguma deficiência auditiva, visual ou motora?
+disability.label=Deficiência
 select.disability=Selecione aqui
 tshirtSize=Tamanho de camiseta
 select.tshirtSize=Selecione o tamanho de sua camiseta

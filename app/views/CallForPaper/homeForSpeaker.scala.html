@@ -115,7 +115,34 @@
                                 }
                             </td>
                         </tr>
-
+                        <tr>
+                            <td>@Html(Messages("facebook"))
+                                @if(speaker.hasFacebook) {
+                                <br/> @speaker.twitter
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasFacebook) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("instagram"))
+                                @if(speaker.hasInstagram) {
+                                <br/> @speaker.instagram
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasInstagram) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
                         <tr>
                             <td>@Html(Messages("blog.website"))
                                 @if(speaker.hasBlog) {
@@ -181,6 +208,35 @@
                                 }
                             </td>
                         </tr>
+                        <tr>
+                            <td>@Html(Messages("race"))
+                                @if(speaker.hasRace) {
+                                <br/> @speaker.race
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasRace) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>@Html(Messages("disability.label"))
+                                @if(speaker.hasDisability) {
+                                <br/> @speaker.disability
+                                }
+                            </td>
+                            <td>
+                                @if(speaker.hasDisability) {
+                                <i class="icon-ok alert-success"></i>
+                                } else {
+                                <i class="icon-exclamation-sign error"></i>
+                                }
+                            </td>
+                        </tr>
+
                     </tbody>
                 </table>
 
