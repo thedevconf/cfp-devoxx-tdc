@@ -972,6 +972,8 @@ object Proposal {
       oldSpeakerId.map {
         speakerId =>
           tx.srem(s"Proposals:ByAuthor:$speakerId", proposalId)
+		      tx.srem(s"ApprovedSpeakers:$speakerId", proposalId)
+		      tx.srem(s"RefusedSpeakers:$speakerId", proposalId)
       }
       newSpeakerId.map {
         speakerId =>
