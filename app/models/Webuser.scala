@@ -249,7 +249,7 @@ object Webuser {
 
   def allSpeakers: List[Webuser] = Redis.pool.withClient {
     client =>
-      val allSpeakerUUIDs = client.smembers("Webuser:speaker").toList
+      val allSpeakerUUIDs = Speaker.allSpeakersUUID
       client.hmget("Webuser", allSpeakerUUIDs).flatMap {
         js: String =>
           Json.parse(js).asOpt[Webuser]

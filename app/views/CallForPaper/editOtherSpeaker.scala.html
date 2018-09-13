@@ -28,42 +28,16 @@
                 </table>
 
                 <table class="table table-bordered">
-<!-- Removidas informa��es de free pass
-                    <thead>
-                        <tr>
-                            <td></td>
-                            <th>@Messages("proposal.buyPass", ConferenceDescriptor.current().timing.speakersPassDuration)</th>
-                        </tr>
-                    </thead>
--->
                     <tbody>
                     <tr>
                         <td>
                             @currentUser
                         </td>
-<!-- Removidas informa��es de free pass
-                        <td>
-                        @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
-                            <span class="label label-success">@Messages("freepass")</span>
-                        } else {
-                            <span class="label label-warning">@Messages("no.freepass")</span>
-                        }
-                        </td>
--->
                     </tr>
                     <tr>
                         <td>
                             @helper.select(field=speakerForm("secondarySpeaker"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control")
                         </td>
-<!-- Removidas informa��es de free pass
-                        <td>
-                          @if(ProposalConfiguration.doesProposalTypeGiveSpeakerFreeEntrance(proposal.talkType)) {
-                            <span class="label label-success">@Messages("freepass")</span>
-                          } else {
-                            <span class="label label-warning">@Messages("no.freepass")</span>
-                          }
-                        </td>
--->
                     </tr>
                     <!-- removida opção de mais speakers
                 <tr>
@@ -71,7 +45,7 @@
                         @helper.select(field=speakerForm("otherSpeakers"), options=Webuser.allSecondarySpeakersAsOption.filterNot(_._1==currentUser),  'class->"form-control-cfp", 'multiple->"true" )
                     </td>
 -->
-<!-- Removidas informa��es de free pass
+<!-- Removidas informações de free pass
                     <td>
                         <span class="label label-warning">@Messages("no.freepass")</span>
                     </td>
@@ -80,13 +54,6 @@
                         </tr>
                     -->
                 </tbody>
-<!-- Removidas informa��es de free pass
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"><small>@Messages("freepass.forIdiots")</small></td>
-                        </tr>
-                    </tfoot>
--->
             </table>
 
             @if(flash.get("error").isDefined) {
