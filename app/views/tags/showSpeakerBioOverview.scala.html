@@ -21,7 +21,7 @@
          }
          @if(proposals.nonEmpty) {
              <h4>@Messages("qualifications.otherproposals")</h4>
-             @tags.renderProposals(proposals, currentUser)
+             @tags.renderProposals(proposals, currentUser, speakerId)
          }
      </div>
  </div>
