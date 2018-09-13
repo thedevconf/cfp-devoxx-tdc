@@ -6,8 +6,8 @@ import org.joda.time.Instant
 import play.api.data.Forms._
 import play.api.data._
 import play.api.i18n.Messages
-import play.api.libs.json.{JsValue, Json}
-import play.api.templates.HtmlFormat
+import play.api.libs.json.Json
+import play.twirl.api.HtmlFormat
 
 /**
   * Proposal is the main and maybe the most important object for a CFP.
@@ -972,6 +972,8 @@ object Proposal {
       oldSpeakerId.map {
         speakerId =>
           tx.srem(s"Proposals:ByAuthor:$speakerId", proposalId)
+		      tx.srem(s"ApprovedSpeakers:$speakerId", proposalId)
+		      tx.srem(s"RefusedSpeakers:$speakerId", proposalId)
       }
       newSpeakerId.map {
         speakerId =>

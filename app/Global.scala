@@ -4,17 +4,15 @@ import library.search.{StopIndex, _}
 import library.{DraftReminder, _}
 import org.joda.time.DateMidnight
 import play.api.Play.current
-import play.api._
 import play.api.libs.concurrent._
-import play.api.mvc.{RequestHeader,Result}
+import play.api.mvc.RequestHeader
 import play.api.mvc.Results._
-import play.api.templates.HtmlFormat
-import play.api.{UnexpectedException, _}
+import play.twirl.api.HtmlFormat
+import play.api._
 import play.core.Router.Routes
 
 import scala.concurrent.Future
 import scala.concurrent.duration._
-import scala.util.control.NonFatal
 
 object Global extends GlobalSettings {
   override def onStart(app: Application) {

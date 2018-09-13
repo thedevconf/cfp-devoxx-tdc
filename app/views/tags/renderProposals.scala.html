@@ -1,4 +1,4 @@
-@(proposals: Map[String, Proposal], currentUser: String)(implicit lang: Lang,req: RequestHeader)
+@(proposals: Map[String, Proposal], currentUser: String, speakerId: String = "")(implicit lang: Lang,req: RequestHeader)
 
 
 @defining(proposals.values.partition(_.state.code==ProposalState.ARCHIVED.code)) { case (archivedProposals, notArchived) =>
@@ -89,9 +89,9 @@
             @if(archivedProposals.size == 1) {
                 @Messages("renderProposal.archived.single")
             }
-            <button id="btToggleView" title="mostrar" class="btn-xs btn-primary"><i class="icon-eye-open"></i> @Messages("renderProposal.archived.btn.view")</button>
+            <button id='@speakerId.concat("_btToggleView")' title="mostrar" class="btn-xs btn-primary"><i class="icon-eye-open"></i> @Messages("renderProposal.archived.btn.view")</button>
         </p>
-        <table id="tbArchived" class="table table-bordered">
+        <table id='@speakerId.concat("_tbArchived")' class="table table-bordered">
             <thead>
                 <tr>
                     <th>@Messages("tag.proposal.event")</th>
@@ -117,9 +117,9 @@
         </table>
         <script>
             $(document).ready(function() {
-                $("#tbArchived").hide();
-                $("#btToggleView").click( function() {
-                    $("#tbArchived").toggle();
+                $('#@speakerId.concat("_tbArchived")').hide();
+                $('#@speakerId.concat("_btToggleView")').click( function() {
+                    $('#@speakerId.concat("_tbArchived")').toggle();
                 });
             });
         </script>

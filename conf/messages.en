@@ -47,6 +47,7 @@ select.gender=Select your gender
 race=Race
 select.race=Select your race
 disability=Do you have any hearing, visual or motor impairment?
+disability.label=Disabilities
 select.disability=Select here
 tshirtSize=T-shirt size
 select.tshirtSize=Select your T-shirt size

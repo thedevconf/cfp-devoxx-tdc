@@ -28,7 +28,7 @@ import library.{Benchmark, Redis, ZapJson}
 import org.apache.commons.lang3.StringUtils
 import org.joda.time.{DateTime, Instant}
 import play.api.libs.json.Json
-import play.api.templates.HtmlFormat
+import play.twirl.api.HtmlFormat
 
 /**
  * Speaker profile, is used mainly to show details.
@@ -58,7 +58,7 @@ case class Speaker(uuid: String
                    , facebook: Option[String]
                    , instagram: Option[String]
                    , race: Option[String]
-				   , disability: Option[String]
+                   , disability: Option[String]
                   ) {
 
   def cleanName: String = {
@@ -104,6 +104,10 @@ case class Speaker(uuid: String
 
   def hasGithub = StringUtils.trimToEmpty(github.getOrElse("")).nonEmpty
 
+  def hasFacebook = StringUtils.trimToEmpty(facebook.getOrElse("")).nonEmpty
+
+  def hasInstagram = StringUtils.trimToEmpty(instagram.getOrElse("")).nonEmpty
+
   def hasBio = StringUtils.trimToEmpty(bio).nonEmpty
 
   def hasCompany = StringUtils.trimToEmpty(company.getOrElse("")).nonEmpty
@@ -121,6 +125,10 @@ case class Speaker(uuid: String
   def hasPhone = StringUtils.trimToEmpty(phone.getOrElse("")).nonEmpty
 
   def hasGender = StringUtils.trimToEmpty(gender.getOrElse("")).nonEmpty
+
+  def hasRace = StringUtils.trimToEmpty(race.getOrElse("")).nonEmpty
+
+  def hasDisability = StringUtils.trimToEmpty(disability.getOrElse("")).nonEmpty
 
   def hasTshirtSize = StringUtils.trimToEmpty(tshirtSize.getOrElse("")).nonEmpty
 
