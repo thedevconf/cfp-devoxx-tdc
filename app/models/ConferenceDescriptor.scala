@@ -229,6 +229,7 @@ object ConferenceDescriptor {
     val DEVOPS = Track("devops", "devops.label")
     val DEVOPSTOOLS = Track("devopstools", "devopstools.label")
     val DEVTEST = Track("devtest", "devtest.label")
+    val DESIGNCODIGO = Track("designcodigo", "designcodigo.label")
 
     val EXTREMEPROG = Track("extremeprog", "extremeprog.label")
 
@@ -264,11 +265,11 @@ object ConferenceDescriptor {
 
     //val UNIVERSITY = Track("university", "university.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS,
-      ARQUITJAVA, ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DTHINKING,
-      DEVTEST, DEVOPS, DEVOPSTOOLS, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA, JAVASCRIPT,
-      MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL, UXDESIGN,
-      WEBFRONTEND, WOMEN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
+      ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
+      JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
+      UXDESIGN, WEBFRONTEND, WOMEN)
 
   }
 
@@ -300,6 +301,7 @@ object ConferenceDescriptor {
     val DEVOPSTOOLS = TrackDesc(ConferenceTracks.DEVOPSTOOLS.id, "/assets/tdc2016poa/images/icon_devops.png", "track.devopstools.title", "track.devopstools.desc")
     val DEVTEST = TrackDesc(ConferenceTracks.DEVTEST.id, "/assets/tdc2016poa/images/icon_devtest.png", "track.devtest.title", "track.devtest.desc")
     val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
+    val DESIGNCODIGO = TrackDesc(ConferenceTracks.DESIGNCODIGO.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.designcodigo.title", "track.designcodigo.desc")
 
     val EXTREMEPROG = TrackDesc(ConferenceTracks.EXTREMEPROG.id, "/assets/tdc2016poa/images/icon_xp.png", "track.extremeprog.title", "track.extremeprog.desc")
 
@@ -335,11 +337,11 @@ object ConferenceDescriptor {
 
     //val UNIVERSITY = TrackDesc(ConferenceTracks.UNIVERSITY.id, "/assets/tdc2016poa/images/icon_university.png", "track.university.title", "track.university.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS,
-      ARQUITJAVA, ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DTHINKING,
-      DEVTEST, DEVOPS, DEVOPSTOOLS, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA, JAVASCRIPT,
-      MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL, UXDESIGN,
-      WEBFRONTEND, WOMEN)
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
+      ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
+      JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
+      UXDESIGN, WEBFRONTEND, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
