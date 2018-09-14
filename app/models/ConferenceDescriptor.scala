@@ -211,7 +211,6 @@ object ConferenceDescriptor {
     val ANALISE = Track("analise", "analise.label")
     val ANDROID = Track("androidkotlin", "androidkotlin.label")
     val ARDUINO = Track("arduino", "arduino.label")
-    val ARQUITCORP = Track("arquitetcorp", "arquitetcorp.label")
     val ARQUITDADOS = Track("arquitetdados", "arquitetdados.label")
     val ARQUITJAVA = Track("arquitetjava", "arquitetjava.label")
     val ARQUITNET = Track("arquitetnet", "arquitetnet.label")
@@ -265,7 +264,7 @@ object ConferenceDescriptor {
 
     //val UNIVERSITY = Track("university", "university.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITCORP, ARQUITDADOS,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS,
       ARQUITJAVA, ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DTHINKING,
       DEVTEST, DEVOPS, DEVOPSTOOLS, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA, JAVASCRIPT,
       MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL, UXDESIGN,
@@ -283,7 +282,6 @@ object ConferenceDescriptor {
     val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
     val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_androidkotlin.png", "track.androidkotlin.title", "track.androidkotlin.desc")
     val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/tdc2016poa/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
-    val ARQUITCORP = TrackDesc(ConferenceTracks.ARQUITCORP.id, "/assets/tdc2016poa/images/icon_arquitetcorp.png", "track.arquitetcorp.title", "track.arquitetcorp.desc")
     val ARQUITDADOS = TrackDesc(ConferenceTracks.ARQUITDADOS.id, "/assets/tdc2016poa/images/icon_arquitetdados.png", "track.arquitetdados.title", "track.arquitetdados.desc")
     val ARQUITJAVA = TrackDesc(ConferenceTracks.ARQUITJAVA.id, "/assets/tdc2016poa/images/icon_arquitetjava.png", "track.arquitetjava.title", "track.arquitetjava.desc")
     val ARQUITNET = TrackDesc(ConferenceTracks.ARQUITNET.id, "/assets/tdc2016poa/images/icon_arquitetnet.png", "track.arquitetnet.title", "track.arquitetnet.desc")
@@ -337,7 +335,7 @@ object ConferenceDescriptor {
 
     //val UNIVERSITY = TrackDesc(ConferenceTracks.UNIVERSITY.id, "/assets/tdc2016poa/images/icon_university.png", "track.university.title", "track.university.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITCORP, ARQUITDADOS,
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS,
       ARQUITJAVA, ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DTHINKING,
       DEVTEST, DEVOPS, DEVOPSTOOLS, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA, JAVASCRIPT,
       MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL, UXDESIGN,
