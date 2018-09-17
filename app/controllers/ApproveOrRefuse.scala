@@ -122,7 +122,8 @@ object ApproveOrRefuse extends SecureCFPController {
 
   def allBackupByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("cfp")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse("")))
+      val notifiedProposals = Event.notifiedBackupProposals()
+      Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse(""),notifiedProposals))
   }
 
   def notifyApprove(talkType: String, proposalId: String) = SecuredAction(IsMemberOf("cfp")) {
