@@ -25,6 +25,7 @@ package models
 
 import library.Redis
 import models.ConferenceDescriptor.{ConferenceProposalConfigurations, ConferenceProposalTypes}
+import collection.JavaConverters._
 
 /**
  * Approve or reject a proposal
@@ -266,10 +267,15 @@ object ApprovedProposal {
       allProposalWithVotes.values.toList
   }
 
+  /**
+  * Returns all proposals with the state Backup that are also not in the pseudo state
+  * PreApproved or PreRefused
+  */
   def allBackup():List[Proposal] = Redis.pool.withClient {
     implicit client =>
-      val allProposalIDs = client.smembers("Proposals:ByState:backup")
-      val allProposalWithVotes = Proposal.loadAndParseProposals(allProposalIDs.toSet)
+	    val keys = "Proposals:ByState:backup" +: (client.keys("Approved:*") ++: client.keys("Refused:*")).toSeq
+	    val allProposalIDs = client.sdiff(keys: _*).asScala.toSet
+      val allProposalWithVotes = Proposal.loadAndParseProposals(allProposalIDs)
       allProposalWithVotes.values.toList
   }
 
