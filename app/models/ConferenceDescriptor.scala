@@ -244,6 +244,8 @@ object ConferenceDescriptor {
     val JAVA = Track("java", "java.label")
     val JAVASCRIPT = Track("javascript", "javascript.label")
 
+    val KANBAN = Track("kanban", "kanban.label")
+
     val MACHINE = Track("machine", "machine.label")
     val MANAGEMENT = Track("management", "management.label")
     val MICROSERVICES = Track("microservices", "microservices.label")
@@ -251,7 +253,6 @@ object ConferenceDescriptor {
     val NODEJS = Track("nodejs", "nodejs.label")
     val NOSQL = Track("nosql", "nosql.label")
 
-    val PHP = Track("php", "php.label")
     val PYTHON = Track("python", "python.label")
 
     val REALIDADE = Track("realidade", "realidade.label")
@@ -268,7 +269,7 @@ object ConferenceDescriptor {
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
       ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
       DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
-      JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
+      JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
       UXDESIGN, WEBFRONTEND, WOMEN)
 
   }
@@ -316,6 +317,8 @@ object ConferenceDescriptor {
     val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
     val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
 
+    val KANBAN = TrackDesc(ConferenceTracks.KANBAN.id, "/assets/tdc2016poa/images/icon_kanban.png", "track.kanban.title", "track.kanban.desc")
+
     val MACHINE = TrackDesc(ConferenceTracks.MACHINE.id, "/assets/tdc2016poa/images/icon_machine.png", "track.machine.title", "track.machine.desc")
     val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/tdc2016poa/images/icon_management.png", "track.management.title", "track.management.desc")
     val MICROSERVICES = TrackDesc(ConferenceTracks.MICROSERVICES.id, "/assets/tdc2016poa/images/icon_bd.png", "track.microservices.title", "track.microservices.desc")
@@ -323,7 +326,6 @@ object ConferenceDescriptor {
     val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_nodejs.png", "track.nodejs.title", "track.nodejs.desc")
     val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_nosql.png", "track.nosql.title", "track.nosql.desc")
 
-    val PHP = TrackDesc(ConferenceTracks.PHP.id, "/assets/tdc2016poa/images/icon_php.png", "track.php.title", "track.phpessencial.desc")
     val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/tdc2016poa/images/icon_python.png", "track.python.title", "track.python.desc")
 
     val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
@@ -340,7 +342,7 @@ object ConferenceDescriptor {
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
       ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
       DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
-      JAVASCRIPT, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PHP, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
+      JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
       UXDESIGN, WEBFRONTEND, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
