@@ -205,6 +205,7 @@ class ZapActor extends Actor {
          speaker <- Webuser.findByUUID(proposal.mainSpeaker)) yield {
       Event.storeEvent(Event(proposal.id, reporterUUID, s"Sent proposal Backup"))
       Mails.sendProposalBackup(speaker, proposal)
+      Event.backupNotificationSent(proposal)
     }
   }
 

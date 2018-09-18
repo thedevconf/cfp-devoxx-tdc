@@ -399,6 +399,7 @@ object CFPAdmin extends SecureCFPController {
           Proposal.loadAndParseProposals(reviews.keySet)
                   .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,requesterUUID))
 
+	    val notifiedBackups = Event.notifiedBackupProposals()
       val listOfProposals = reviews.flatMap {
         case (proposalId, scoreAndVotes) =>
           val maybeProposal = allProposals.get(proposalId)
@@ -408,7 +409,7 @@ object CFPAdmin extends SecureCFPController {
             case Some(p) => {
               val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
               val gtVoteCast:Long = ReviewByGoldenTicket.totalVoteCastFor(p.id)
-              Option(p, scoreAndVotes, goldenTicketScore, gtVoteCast)
+              Option(p, scoreAndVotes, goldenTicketScore, gtVoteCast, notifiedBackups.contains(p.id))
             }
           }
       }

@@ -130,5 +130,15 @@ object Event {
       client.del("Notified:BackupSpeakers")
   }
 
+  def backupNotificationSent(proposal: Proposal): Unit = Redis.pool.withClient {
+    client =>
+      client.sadd("NotifiedBackupProposals", proposal.id)
+  }
+
+  def notifiedBackupProposals():Set[String] = Redis.pool.withClient {
+    client =>
+      client.smembers("NotifiedBackupProposals")
+  }
+
 
 }
