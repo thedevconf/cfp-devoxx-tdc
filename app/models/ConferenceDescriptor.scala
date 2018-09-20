@@ -306,7 +306,7 @@ object ConferenceDescriptor {
 
     val EXTREMEPROG = TrackDesc(ConferenceTracks.EXTREMEPROG.id, "/assets/tdc2016poa/images/icon_xp.png", "track.extremeprog.title", "track.extremeprog.desc")
 
-    val GAMESREALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_gamesrealidade.png", "track.gamesrealidade.title", "track.gamesrealidade.desc")
+    val GAMESREALIDADE = TrackDesc(ConferenceTracks.GAMESREALIDADE.id, "/assets/tdc2016poa/images/icon_gamesrealidade.png", "track.gamesrealidade.title", "track.gamesrealidade.desc")
     val GESTAOPROD = TrackDesc(ConferenceTracks.GESTAOPROD.id, "/assets/tdc2016poa/images/icon_gestaoprod.png", "track.gestaoprod.title", "track.gestaoprod.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
 
