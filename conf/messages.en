@@ -386,6 +386,11 @@ track.games.desc=
 games.label=Games
 games.leaderboard=Games
 
+track.gamesrealidade.title=Games e Realidade Aumentada
+track.gamesrealidade.desc=
+gamesrealidade.label=Games e Realidade Aumentada
+gamesrealidade.leaderboard=Games e Realidade Aumentada
+
 track.gestaoprod.title=Gestão de Produtos
 track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
 gestaoprod.label=Gestão de Produtos

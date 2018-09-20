@@ -233,6 +233,7 @@ object ConferenceDescriptor {
 
     val EXTREMEPROG = Track("extremeprog", "extremeprog.label")
 
+    val GAMESREALIDADE = Track("gamesrealidade", "gamesrealidade.label")
     val GESTAOPROD = Track("gestaoprod", "gestaoprod.label")
     val GOLANG = Track("golang", "golang.label")
 
@@ -255,7 +256,6 @@ object ConferenceDescriptor {
 
     val PYTHON = Track("python", "python.label")
 
-    val REALIDADE = Track("realidade", "realidade.label")
     val RUBY = Track("ruby", "ruby.label")
 
     val TESTES = Track("testes", "testes.label")
@@ -268,9 +268,9 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
       ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
-      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
-      JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
-      UXDESIGN, WEBFRONTEND, WOMEN)
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GAMESREALIDADE, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, RUBY, TESTES,
+      TRANSFDIGITAL, UXDESIGN, WEBFRONTEND, WOMEN)
 
   }
 
@@ -306,6 +306,7 @@ object ConferenceDescriptor {
 
     val EXTREMEPROG = TrackDesc(ConferenceTracks.EXTREMEPROG.id, "/assets/tdc2016poa/images/icon_xp.png", "track.extremeprog.title", "track.extremeprog.desc")
 
+    val GAMESREALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_gamesrealidade.png", "track.gamesrealidade.title", "track.gamesrealidade.desc")
     val GESTAOPROD = TrackDesc(ConferenceTracks.GESTAOPROD.id, "/assets/tdc2016poa/images/icon_gestaoprod.png", "track.gestaoprod.title", "track.gestaoprod.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
 
@@ -328,7 +329,6 @@ object ConferenceDescriptor {
 
     val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/tdc2016poa/images/icon_python.png", "track.python.title", "track.python.desc")
 
-    val REALIDADE = TrackDesc(ConferenceTracks.REALIDADE.id, "/assets/tdc2016poa/images/icon_realidade.png", "track.realidade.title", "track.realidade.desc")
     val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/tdc2016poa/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
 
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
@@ -341,9 +341,9 @@ object ConferenceDescriptor {
 
     val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
       ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
-      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF, IOS, IOT, JAVA,
-      JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, REALIDADE, RUBY, TESTES, TRANSFDIGITAL,
-      UXDESIGN, WEBFRONTEND, WOMEN)
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GAMESREALIDADE, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, RUBY, TESTES,
+      TRANSFDIGITAL, UXDESIGN, WEBFRONTEND, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
@@ -831,7 +831,7 @@ object ConferenceDescriptor {
       datesEn = "December 5th to 8th, 2018",
       cfpOpenedOn = DateTime.parse("2018-09-12T16:30:00-03:00"),
       cfpClosedOn = DateTime.parse("2018-09-28T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2018-10-02T00:00:00-03:00"),
+      scheduleAnnouncedOn = DateTime.parse("2018-10-03T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
