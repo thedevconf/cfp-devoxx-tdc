@@ -95,10 +95,9 @@ object TrackLeader {
   * cleans the trackleaders for all the tracks
   */
   def resetAll():Unit = Redis.pool.withClient{ client =>
-    val tx = client.multi();
-    Track.all.foreach(track =>
-      tx.del(s"TrackLeaders:${track.id}")
-    )
-    tx.exec();
+    val tracks = client.keys("TrackLeaders:*").toList
+	  if(!tracks.isEmpty) {
+      client.del(tracks: _*)
+	  }
   }
 }
