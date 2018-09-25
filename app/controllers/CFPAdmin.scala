@@ -643,7 +643,7 @@ object CFPAdmin extends SecureCFPController {
       Ok(views.html.CFPAdmin.allSpeakersWithAcceptedTalksForExport(proposals))
   }
 
-  def allWebusers() = SecuredAction(IsMemberOf("cfp")) {
+  def allWebusers() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       val allSpeakers = Webuser.allSpeakers.sortBy(_.cleanName)
       Ok(views.html.CFPAdmin.allWebusers(allSpeakers))
@@ -653,12 +653,12 @@ object CFPAdmin extends SecureCFPController {
   import play.api.data.Form
   import play.api.data.Forms._
 
-  def allCFPWebusers() = SecuredAction(IsMemberOf("cfp")) {
+  def allCFPWebusers() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Ok(views.html.CFPAdmin.showCFPUsers(Webuser.allCFPAdminUsers()))
   }
 
-  def updateTrackLeaders() = SecuredAction(IsMemberOf("cfp")) {
+  def updateTrackLeaders() = SecuredAction(IsMemberOf("admin")) {
     implicit req: SecuredRequest[play.api.mvc.AnyContent] =>
 
       req.request.body.asFormUrlEncoded.map {
