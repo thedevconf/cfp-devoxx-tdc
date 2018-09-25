@@ -212,7 +212,7 @@ agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
 track.analise.title=Análise de Negócios
-track.analise.desc=
+track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
@@ -227,7 +227,7 @@ androidkotlin.label=Android
 androidkotlin.leaderboard=Android
 
 track.arduino.title=Arduino e Makers
-track.arduino.desc=
+track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
@@ -252,7 +252,7 @@ arquitetdotnet.label=Arquitetura .NET
 arquitetdotnet.leaderboard=Arquitetura .NET
 
 track.arquitetdados.title=Arquitetura de Dados
-track.arquitetdados.desc=
+track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
 arquitetdados.label=Arquitetura de Dados
 arquitetdados.leaderboard=Arquitetura de Dados
 
@@ -262,7 +262,7 @@ arquitetempres.label=Arquitetura Empresarial
 arquitetempres.leaderboard=Arquitetura Empresarial
 
 track.arquitetjava.title=Arquitetura Java
-track.arquitetjava.desc=
+track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
 arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
@@ -297,7 +297,7 @@ carreira.label=Carreira
 carreira.leaderboard=Carreira
 
 track.chatbots.title=ChatBots
-track.chatbots.desc=
+track.chatbots.desc=Chatbots e o futuro das interações conversacionais
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
@@ -322,12 +322,12 @@ datascience.label=Data Science
 datascience.leaderboard=Data Science
 
 track.delphi.title=Delphi
-track.delphi.desc=
+track.delphi.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
 delphi.label=Delphi
 delphi.leaderboard=Delphi
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=
+track.dthinking.desc=Compartilhando experiência de desenvolvimentos centrado no usuário através de Design Thinking e métodos adjacentes
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
@@ -347,7 +347,7 @@ devopstools.label=DevOps Tools
 devopstools.leaderboard=DevOps Tools
 
 track.devtest.title=DevTest
-track.devtest.desc=
+track.devtest.desc=Porque qualidade é responsabilidade de todos
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
@@ -387,17 +387,17 @@ games.label=Games
 games.leaderboard=Games
 
 track.gamesrealidade.title=Games e Realidade Aumentada
-track.gamesrealidade.desc=
+track.gamesrealidade.desc=O futuro dos jogos no Brasil!
 gamesrealidade.label=Games e Realidade Aumentada
 gamesrealidade.leaderboard=Games e Realidade Aumentada
 
 track.gestaoprod.title=Gestão de Produtos
-track.gestaoprod.desc=
+track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
 gestaoprod.label=Gestão de Produtos
 gestaoprod.leaderboard=Gestão de Produtos
 
 track.golang.title=Go
-track.golang.desc=
+track.golang.desc=A internet é feita em Go
 golang.label=Go
 golang.leaderboard=Go
 
@@ -417,7 +417,7 @@ inovacao.label=Inovação
 inovacao.leaderboard=Inovação
 
 track.intelartif.title=Inteligência Artificial
-track.intelartif.desc=
+track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
 intelartif.label=Inteligência Artificial
 intelartif.leaderboard=Inteligência Artificial
 
@@ -432,7 +432,7 @@ ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=
+track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
 java.label=Java
 java.leaderboard=Java
 
@@ -447,7 +447,7 @@ javacorp.label=Java Enterprise
 javacorp.leaderboard=Java Enterprise
 
 track.javascript.title=JavaScript
-track.javascript.desc=
+track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
@@ -467,7 +467,7 @@ linux.label=Linux Embarcado
 linux.leaderboard=Linux Embarcado
 
 track.machine.title=Machine Learning
-track.machine.desc=
+track.machine.desc=Future with Machine Learning
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
@@ -482,7 +482,7 @@ marketing.label=Marketing Digital e Growth Hacking
 marketing.leaderboard=Marketing Digital e Growth Hacking
 
 track.microservices.title=Microservices
-track.microservices.desc=
+track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
 microservices.label=Microservices
 microservices.leaderboard=Microservices
 
@@ -497,12 +497,12 @@ modernweb.label=Modern Web
 modernweb.leaderboard=Modern Web
 
 track.nodejs.title=Node.js
-track.nodejs.desc=
+track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
 nodejs.label=Node.js
 nodejs.leaderboard=Node.js
 
 track.nosql.title=NoSQL
-track.nosql.desc=
+track.nosql.desc=NoSQL, no Limits, lots of Fun!
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
@@ -542,7 +542,7 @@ requisitos.label=Requisitos Ágeis
 requisitos.leaderboard=Requisitos Ágeis
 
 track.ruby.title=Ruby
-track.ruby.desc=
+track.ruby.desc=Lapidando código e a comunidade
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
@@ -572,12 +572,12 @@ startups.label=Startups
 startups.leaderboard=Startups
 
 track.testes.title=Testes
-track.testes.desc=
+track.testes.desc=Qualidade de Software como princípio
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=
+track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
 
@@ -587,7 +587,7 @@ university.label=University
 university.leaderboard=University
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=
+track.uxdesign.desc=O usuário quer experiências extraordinárias que sejam úteis, funcionais e desejáveis.
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
