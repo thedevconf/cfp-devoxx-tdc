@@ -923,6 +923,11 @@ admin.btn.webuser=Administrar usuários do CFP
 editSpeakerName=Editar nome do palestrante
 admin.btn.createNewspeaker=Criar um novo palestrante
 admin.btn.tracklead=Coordenador da trilha
+admin.btn.backoffice=Administrador do CFP
+admin.btn.backoffice.tooltip=Dar permissão de administrador para um usuário
+backoffice.alladminusers.title=Adicione ou remova permissão de administrador aos usuários
+backoffice.alladminusers.btn.remove=Remover de Admin
+backoffice.alladminusers.btn.add=Adicionar a Admin
 admin.btn.howTo=Como...
 
 newSpeaker.tab=Criar/Editar um palestrante

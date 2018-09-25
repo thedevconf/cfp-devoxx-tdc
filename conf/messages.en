@@ -923,6 +923,11 @@ admin.btn.webuser=Administer CFP users
 editSpeakerName=Edit Speaker name
 admin.btn.createNewspeaker=Create a new speaker
 admin.btn.tracklead=Track leader
+admin.btn.backoffice=CFP Administrator
+admin.btn.backoffice.tooltip=Give administrator permissions to a user
+backoffice.alladminusers.title=Add or remove administrator permissions to the users
+backoffice.allwebusers.btn.remove=Remove from Admin
+backoffice.allwebusers.btn.add=Add to Admin
 admin.btn.howTo=How to...
 
 newSpeaker.tab=Create/Edit a speaker

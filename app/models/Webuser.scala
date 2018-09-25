@@ -305,4 +305,12 @@ object Webuser {
     client =>
       !client.exists("Webuser:UUID:" + uuid)
   }
+  
+  /**
+  * removes a user from the admin security group
+  */
+  def removeFromBackofficeAdmin(uuid: String) = Redis.pool.withClient {
+    client =>
+      client.srem("Webuser:admin", uuid)
+  }
 }

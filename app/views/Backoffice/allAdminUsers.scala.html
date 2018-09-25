@@ -1,0 +1,63 @@
+@(speakers:List[Webuser])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main("Manage Admins") {
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+			<h3><i class="icon-suitcase"></i> @Messages("backoffice.alladminusers.title")</h3>
+        </div>
+        <div class="panel-body">
+            @if(flash.get("error").isDefined){
+              <div class="alert alert-danger alert-dismissable col-md-12">
+                  <strong>Error :</strong>
+                  @flash.get("error").get
+              </div>
+            }
+            @if(flash.get("success").isDefined){
+              <div class="alert alert-success alert-dismissable col-md-12">
+                  @flash.get("success").get
+              </div>
+            }
+		
+            @if(speakers.nonEmpty){
+            <table class="table table-bordered table-strippted">
+                <thead>
+                    <tr>
+                        <th>@Messages("backoffice.allwebusers.columns.name")</th>
+                        <th>@Messages("backoffice.allwebusers.columns.email")</th>
+                        <th>@Messages("backoffice.allwebusers.columns.action")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @speakers.sortBy(w=>Webuser.hasAccessToAdmin(w.uuid)).reverse.map{ webuser: Webuser =>
+                    <tr>
+                        <td>
+                            @tags.renderGravatar(webuser.uuid, showName=true, showPhoto=false)</td>
+                        </td>
+                         <td>
+                            <small>@webuser.email</small>
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="@routes.Backoffice.authenticateAs(webuser.uuid)"><i class="icon-lock"></i> @Messages("backoffice.allwebusers.btn.authenticate")</a>
+
+                           @if(SecureCFPController.hasAccessToAdmin(req)){
+                                @if(Webuser.hasAccessToAdmin(webuser.uuid)){
+                                    <a class="btn btn-sm btn-danger" href="@routes.Backoffice.switchBackoffice(webuser.uuid)">@Messages("backoffice.alladminusers.btn.remove")</a>
+                                }else{
+                                    <a class="btn btn-sm btn-success" href="@routes.Backoffice.switchBackoffice(webuser.uuid)">@Messages("backoffice.alladminusers.btn.add")</a>
+                                }
+                           }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            }else{
+                <p>@Messages("backoffice.allwebusers.nouser")</p>
+            }
+        </div>
+        </div>
+    </div>
+</div>
+}
