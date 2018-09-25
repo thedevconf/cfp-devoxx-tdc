@@ -314,5 +314,34 @@ object Backoffice extends SecureCFPController {
       Ok(views.html.Backoffice.showAllDeclined(allDeclined))
 
   }
+  
+  /**
+  * Shows the page that allows adding or removing users from the admin list
+  */
+  def allAdminUsers() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+	  val allWebusers = Webuser.allSpeakers.sortBy(_.cleanName)
+      Ok(views.html.Backoffice.allAdminUsers(allWebusers))
+  }
+  
+  /**
+  * Add or remove the specified user from "admin" security group
+  */
+  def switchBackoffice(uuidSpeaker: String) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Webuser.findByUUID(uuidSpeaker).map {
+        webuser =>
+          if (Webuser.hasAccessToAdmin(uuidSpeaker)) {
+            Event.storeEvent(Event(uuidSpeaker, request.webuser.uuid, s"removed ${webuser.cleanName} from Admin group"))
+            Webuser.removeFromBackofficeAdmin(uuidSpeaker)
+          } else {
+            Webuser.addToBackofficeAdmin(uuidSpeaker)
+            Event.storeEvent(Event(uuidSpeaker, request.webuser.uuid, s"added ${webuser.cleanName} to Admin group"))
+          }
+          Redirect(routes.Backoffice.allAdminUsers())
+      }.getOrElse {
+        NotFound("Webuser not found")
+      }
+  }
 
 }
