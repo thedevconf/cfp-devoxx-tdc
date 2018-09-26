@@ -313,4 +313,11 @@ object Webuser {
     client =>
       client.srem("Webuser:admin", uuid)
   }
+  /**
+  * returns the number of users in the admin group
+  */
+  def countAdmins = Redis.pool.withClient {
+    client =>
+	    client.scard("Webuser:admin")
+  }
 }

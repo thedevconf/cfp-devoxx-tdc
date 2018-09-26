@@ -925,10 +925,11 @@ admin.btn.createNewspeaker=Create a new speaker
 admin.btn.tracklead=Track leader
 admin.btn.backoffice=CFP Administrator
 admin.btn.backoffice.tooltip=Give administrator permissions to a user
+admin.btn.howTo=How to...
 backoffice.alladminusers.title=Add or remove administrator permissions to the users
 backoffice.allwebusers.btn.remove=Remove from Admin
 backoffice.allwebusers.btn.add=Add to Admin
-admin.btn.howTo=How to...
+backoffice.alladminusers.remove.error=You can't remove all the admins. There must be at least one.
 
 newSpeaker.tab=Create/Edit a speaker
 newSpeaker.title=Create/Edit a speaker

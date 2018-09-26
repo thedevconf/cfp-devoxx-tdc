@@ -10,6 +10,7 @@ import play.api.data.Forms._
 import play.api.data._
 import play.api.libs.json.Json
 import play.api.mvc.Action
+import play.api.i18n.Messages
 
 /**
   * Backoffice actions, for maintenance and validation.
@@ -331,14 +332,23 @@ object Backoffice extends SecureCFPController {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Webuser.findByUUID(uuidSpeaker).map {
         webuser =>
+		  var success = true
           if (Webuser.hasAccessToAdmin(uuidSpeaker)) {
-            Event.storeEvent(Event(uuidSpeaker, request.webuser.uuid, s"removed ${webuser.cleanName} from Admin group"))
-            Webuser.removeFromBackofficeAdmin(uuidSpeaker)
+            if(Webuser.countAdmins > 1) {
+              Event.storeEvent(Event(uuidSpeaker, request.webuser.uuid, s"removed ${webuser.cleanName} from Admin group"))
+              Webuser.removeFromBackofficeAdmin(uuidSpeaker)
+			      } else {
+			        success = false
+			      }
           } else {
             Webuser.addToBackofficeAdmin(uuidSpeaker)
             Event.storeEvent(Event(uuidSpeaker, request.webuser.uuid, s"added ${webuser.cleanName} to Admin group"))
           }
-          Redirect(routes.Backoffice.allAdminUsers())
+		  if(success) {
+		    Redirect(routes.Backoffice.allAdminUsers())
+		  } else {
+			Redirect(routes.Backoffice.allAdminUsers()).flashing("error" -> Messages("backoffice.alladminusers.remove.error"))
+		  }
       }.getOrElse {
         NotFound("Webuser not found")
       }
