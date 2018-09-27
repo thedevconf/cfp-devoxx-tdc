@@ -222,7 +222,7 @@ android.label=Android
 android.leaderboard=Android
 
 track.androidkotlin.title=Android e Kotlin
-track.androidkotlin.desc=
+track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
 androidkotlin.label=Android
 androidkotlin.leaderboard=Android
 
@@ -302,7 +302,7 @@ chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
 track.cloud.title=Cloud Computing
-track.cloud.desc=
+track.cloud.desc=Caminhando nas nuvens sem turbulências!
 cloud.label=Cloud Computing
 cloud.leaderboard=Cloud Computing
 
@@ -312,7 +312,7 @@ computacao.label=Computação Cognitiva
 computacao.leaderboard=Computação Cognitiva
 
 track.containers.title=Containers
-track.containers.desc=
+track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
 containers.label=Containers
 containers.leaderboard=Containers
 
@@ -342,7 +342,7 @@ devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.devopstools.title=DevOps Tools
-track.devopstools.desc=
+track.devopstools.desc=O DevOps é definido atualmente pela sigla CALMS.
 devopstools.label=DevOps Tools
 devopstools.leaderboard=DevOps Tools
 
@@ -412,7 +412,7 @@ infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
 track.inovacao.title=Inovação
-track.inovacao.desc=
+track.inovacao.desc=Inovação, tendências e futurismo
 inovacao.label=Inovação
 inovacao.leaderboard=Inovação
 
@@ -422,7 +422,7 @@ intelartif.label=Inteligência Artificial
 intelartif.leaderboard=Inteligência Artificial
 
 track.iot.title=Internet das Coisas
-track.iot.desc=
+track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
@@ -472,7 +472,7 @@ machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
 track.management.title=Management 3.0 e Gestão Ágil
-track.management.desc=
+track.management.desc=Inovação, Liderança e Gestão
 management.label=Management 3.0
 management.leaderboard=Management 3.0
 
