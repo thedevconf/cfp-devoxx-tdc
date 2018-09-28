@@ -35,7 +35,7 @@ import play.api.libs.json.Json
   */
 object TDCSchedulingController extends SecureCFPController {
 
-  def index = SecuredAction(IsMemberOf("cfp")) {
+  def index = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       val uuid = request.webuser.uuid
       val allTracks = ConferenceDescriptor.ConferenceTracks.ALL
@@ -44,7 +44,7 @@ object TDCSchedulingController extends SecureCFPController {
       Ok(views.html.Scheduling.scheduling(allTracks))
   }
 
-  def saveSchedule(trackId: String) = SecuredAction(IsMemberOf("cfp")) {
+  def saveSchedule(trackId: String) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
       request.body.asJson.map {
@@ -89,7 +89,7 @@ object TDCSchedulingController extends SecureCFPController {
       Ok("{\"status\":\"deleted\"}").as("application/json")
   }
 
-  def loadSchedule(trackId:String) = SecuredAction(IsMemberOf("cfp")) {
+  def loadSchedule(trackId:String) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
       import TDCScheduleConfiguration.scheduleConfigurationFormat

@@ -44,7 +44,7 @@ object Backoffice extends SecureCFPController {
   }
 
   // Authenticate on CFP on behalf of specified user.
-  def authenticateAs(uuidSpeaker: String) = SecuredAction(IsMemberOf("cfp")) {
+  def authenticateAs(uuidSpeaker: String) = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       // Block redirect if the uuidSpeaker belongs to the ADMIN group and not you
       if (Webuser.isMember(uuidSpeaker, "admin") && Webuser.isNotMember(request.webuser.uuid, "admin")) {
