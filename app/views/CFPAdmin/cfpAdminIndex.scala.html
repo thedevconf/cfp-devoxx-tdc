@@ -27,9 +27,6 @@
                     <!-- menus exibidos somente para superuser -->
                     @if(SecureCFPController.hasAccessToAdmin(req)){
                         <a href="@routes.CFPAdmin.leaderBoard()" class="btn btn-sm btn-primary"><i class="icon-trophy"></i> @Messages("admin.btn.leaderboard")</a>
-                        <!-- Desabilitado Golden Ticket - TODO - Verificar o que � Golden Ticket
-                        <a href="@routes.GoldenTicketAdminController.showStats()" class="btn btn-sm btn-success">Golden Tickets Stats</a>
-                        -->
                         <a href="@routes.CFPAdmin.showProposalsNotReviewedCompareTo(None)" class="btn btn-sm btn-primary"><i class="icon-circle-arrow-right"></i> @Messages("admin.btn.otherReviewer")</a>
                         <a href="@routes.CFPAdmin.allSponsorTalks()" class="btn btn-sm btn-primary"><i class="icon-dollar"></i> @Messages("admin.btn.sponsortalks")</a>
                         <a href="@routes.CFPAdmin.reportsHome()" class="btn btn-sm btn-primary"><i class="icon-table"></i> @Messages("admin.btn.reports")</a>

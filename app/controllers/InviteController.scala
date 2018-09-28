@@ -32,7 +32,7 @@ import models.{Speaker, Invitation}
  */
 object InviteController extends SecureCFPController{
 
-  def allInvitations()=SecuredAction(IsMemberOf("cfp")) {
+  def allInvitations()=SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       val speakers = Invitation.all.flatMap{uuid=>
         Speaker.findByUUID(uuid)
