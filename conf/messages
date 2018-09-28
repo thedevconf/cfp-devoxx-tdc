@@ -192,7 +192,7 @@ appel.conf.dates=TDC 2018 Porto Alegre, 5 a 8 de Dezembro de 2018
 # Trilhas
 
 track.dotnet.title=.NET
-track.dotnet.desc=
+track.dotnet.desc=Explore o .NET, do console a nuvem
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
@@ -202,12 +202,12 @@ acessibilidade.label=Acessibilidade
 acessibilidade.leaderboard=Acessibilidade
 
 track.agile.title=Agile
-track.agile.desc=
+track.agile.desc=O que? Como? E.. mais importante.. Por quê?
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=
+track.agilecoach.desc=Agile coaching transformando times e organizações
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
@@ -242,7 +242,7 @@ arquitetcorp.label=Arquitetura Corporativa
 arquitetcorp.leaderboard=Arquitetura Corporativa
 
 track.arquitetnet.title=Arquitetura .NET
-track.arquitetnet.desc=
+track.arquitetnet.desc=Do monólito ao infinito
 arquitetnet.label=Arquitetura .NET
 arquitetnet.leaderboard=Arquitetura .NET
 
@@ -277,7 +277,7 @@ banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=
+track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
@@ -317,7 +317,7 @@ containers.label=Containers
 containers.leaderboard=Containers
 
 track.datascience.title=Data Science
-track.datascience.desc=
+track.datascience.desc=Dados estão transformando negócios em toda parte.
 datascience.label=Data Science
 datascience.leaderboard=Data Science
 
@@ -427,7 +427,7 @@ iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=
+track.ios.desc=O maravilhoso mundo mágico da Apple.
 ios.label=iOS
 ios.leaderboard=iOS
 
