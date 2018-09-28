@@ -337,7 +337,7 @@ designcodigo.label=Design de Código
 designcodigo.leaderboard=Design de Código
 
 track.devops.title=DevOps
-track.devops.desc=
+track.devops.desc=Maximizando a integração entre equipes para entregar valor
 devops.label=DevOps
 devops.leaderboard=DevOps
 
@@ -522,7 +522,7 @@ pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.python.title=Python
-track.python.desc=
+track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
 python.label=Python
 python.leaderboard=Python
 
@@ -602,7 +602,7 @@ webfrontend.label=Web / Front-end
 webfrontend.leaderboard=Web / Front-end
 
 track.women.title=TDC4Women
-track.women.desc=
+track.women.desc=Uma trilha feita por mulheres para todas as pessoas
 women.label=TDC4Women
 women.leaderboard=TDC4Women
 
