@@ -197,7 +197,7 @@ dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.acessibilidade.title=Acessibilidade
-track.acessibilidade.desc=
+track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
 acessibilidade.label=Acessibilidade
 acessibilidade.leaderboard=Acessibilidade
 
@@ -287,7 +287,7 @@ beginners.label=Beginners
 beginners.leaderboard=Beginners
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=
+track.blockchain.desc=Uma Revolução muito além de tecnologia, a grande possível de uma revolução social!
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
@@ -367,7 +367,7 @@ empreende.label=Empreendedorismo
 empreende.leaderboard=Empreendedorismo
 
 track.extremeprog.title=Extreme Programming
-track.extremeprog.desc=
+track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
 extremeprog.label=Extreme Programming
 extremeprog.leaderboard=Extreme Programming
 
@@ -597,7 +597,7 @@ web.label=Web
 web.leaderboard=Web
 
 track.webfrontend.title=Web / Front-end
-track.webfrontend.desc=
+track.webfrontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
 webfrontend.label=Web / Front-end
 webfrontend.leaderboard=Web / Front-end
 
