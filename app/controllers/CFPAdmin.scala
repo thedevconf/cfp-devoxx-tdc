@@ -893,6 +893,18 @@ object CFPAdmin extends SecureCFPController {
 										
 	  Ok(views.html.CFPAdmin.allSpeakersByGender(allSpeakers,approvedSpeakers,rejectedSpeakers,speakersByTrackAndGender))	
   }
+  /**
+  * Shows report of speakers by language
+  */
+  def allSpeakersByLang(lang:Option[String]) = SecuredAction(IsMemberOf("admin")) {
+	implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+	  val proposals = Proposal.allActiveProposals()
+      val allSpeakers = proposals.flatMap(_.allSpeakers).toSet
+	  val speakersByLang = allSpeakers.toList
+	                                  .sortBy(_.cleanName)
+									  .groupBy(_.cleanLang)
+	  Ok(views.html.CFPAdmin.allSpeakersByLang(speakersByLang,lang.getOrElse("")))
+  }
 }
 
 
