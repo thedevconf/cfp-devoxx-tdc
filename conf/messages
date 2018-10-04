@@ -1536,6 +1536,9 @@ allSpeakers.allSpeakersByGender.section.all=Total de palestrantes cadastrados em
 allSpeakers.allSpeakersByGender.section.approvedSpeakers=Palestrantes aprovados nesta edição
 allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Palestrantes rejeitados nesta edição
 allSpeakers.allSpeakersByGender.section.tracks=Palestrantes com palestras aceitas por trilha
+allSpeakers.allSpeakersByLang.title=Todos Palestrantes por idioma
+allSpeakers.allSpeakersByLang.page.title=Palestrantes por idioma
+allSpeakers.allSpeakersByLang.help=Para selecionar o idioma clique na opção desejada abaixo 
 
 #Gender labels
 gender.M=Masculino

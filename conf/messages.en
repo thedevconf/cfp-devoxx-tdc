@@ -1535,6 +1535,10 @@ allSpeakers.allSpeakersByGender.title=All speakers by gender
 allSpeakers.allSpeakersByGender.section.all=All speakers registered in all events
 allSpeakers.allSpeakersByGender.section.approvedSpeakers=Approved Speakers on this event
 allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Rejected Speakers on this event
+allSpeakers.allSpeakersByLang.title=All speakers by language
+allSpeakers.allSpeakersByLang.page.title=Speakers by language
+allSpeakers.allSpeakersByLang.help=To filter by language click on the desired option below
+
 
 #Gender labels
 gender.M=Masculine
