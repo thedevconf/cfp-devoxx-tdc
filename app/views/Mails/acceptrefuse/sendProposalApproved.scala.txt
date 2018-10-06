@@ -1,33 +1,34 @@
-@(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
+@(proposal:models.Proposal)
 ----------------------------------------------------------------------------------------------------------------------
 Bem-vindo ao @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
-Olá, @firstName,
+Olá,
 
 Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
-Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA :
-Trilha:  @Messages(proposal.track.label)
+Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA!
 Título:  @proposal.title
-Formato: (tempo de palestra conforme combinado com os coordenadores)
+Trilha:
+Formato: @Messages(proposal.talkType.id).
 
 ATENÇÃO! Ações necessárias
 --------------------------
+
 1. Aceitar ou recusar
-Você deve agora validar ou recusar os termos e condições, para confirmar que vai fazer esta apresentação o
-MAIS RÁPIDO POSSÍVEL:
+Você deve agora validar/aceitar ou recusar os termos e condições de participação, assim como o código de conduta, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
 ATENÇÃO: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
 As palestras não aceitas em até 5 dias úteis após esta notificação, serão canceladas e outra ocupará seu lugar.
 
 2. Sua minibio e foto
-Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a
-gentileza de fazê-lo neste momento.
+Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.
 
 3. Questões sobre sua palestra
-Por favor, não responda este email. Envie qualquer comentário através do web site do CFP, e nossa equipe fará o
-possível para responder rapidamente.
+Por favor, não responda este email. Envie qualquer comentário através do web site do CFP,
+e nossa equipe fará o possível para responder rapidamente.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
-Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
+Para fazer a sua apresentação, disponibilizamos um  template em PowerPoint (uso não obrigatório):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt
 
 4. Cortesia para palestrantes
@@ -46,40 +47,42 @@ Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimen
 
 Atenciosamente,
 
- Equipe @Messages("longYearlyName")
+Equipe @Messages("longYearlyName")
 
 ----------------------------------------------------------------------------------------------------------------------
 Welcome to @Messages("longYearlyName")
 ----------------------------------------------------------------------------------------------------------------------
-Hi, @firstName,
+Hi,
 
 Thanks again for your submission! The result was amazing, we have received hundreds of submissions!
 We're glad to inform you that your proposal has been APPROVED:
-Title: <strong>@proposal.title</strong>
-Track: <strong> @Messages(proposal.track.label)
-Format: <strong>@Messages(proposal.talkType.id) (or how it was agreed with the coordinators)
+Title: @proposal.title
+Track:
+Format: @Messages(proposal.talkType.id)
 
 ATTENTION! Required actions
 ---------------------------
+
 1. Accept or decline
-You must now validate or decline the general terms and conditions, and confirm that you are still ok to do this
-presentation AS SOON AS POSSIBLE:
+You must now validate/accept or decline the general terms and conditions, as well as the code of conduct, and confirm that you are still ok to do
+    this presentation AS SOON AS POSSIBLE:
  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
-ATTENTION: Only accepted talks by the CFP system will be published on the website, so we ask you to do it as soon as possible.
-The talks not accepted within 5 working days from this notification will be canceled and another one will take its place.
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
+ATTENTION: Only talks accepted via CFP website will be published in TDC website, so we ask you to do it as soon as possible.
+Talks not accepted within 5 working days after this notification, will be cancelled and another one will take its place.
 
 2. Your bio and picture
-In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you
-to do it at this moment.
+In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.
 
 3. Questions regarding your talk
 Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests
 to respond quickly.
-  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
+ @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt
 
-4. Reward for Speakers
+4. Reward for Speakers</h4>
 Would you like to participate in other event tracks?
 All speakers are entitled to 1 track a day beyond that which will deliver his talk.
 We recommend that you register as soon as you receive your code because many tracks sell out fast.
@@ -88,7 +91,7 @@ We recommend that you register as soon as you receive your code because many tra
 If you use social networks, take this opportunity to invite you to enjoy ours:
   http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
 And to help us with the event, go to the digital banners page of our website:
-  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais
 
 We remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
 

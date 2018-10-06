@@ -58,7 +58,7 @@
 
 <h3>Bem-vindo ao @Messages("longYearlyName")</h3>
 <p>Olá, <?= nomePalestrantes ?>,</p>
-<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos quase 1700 palestras!</p>
+<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!</p>
 <p>Estamos muito contentes em anunciar que a sua palestra foi <strong>APROVADA</strong>:
     Título: <strong>@proposal.title</strong> <br/>
     Trilha: <strong>  </strong> <br/>
@@ -66,8 +66,13 @@
 <br/>
 <h3>ATENÇÃO! Ações necessárias</h3>
 <h4>1. Aceitar ou recusar</h4>
-<p>Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:<br/>
+<p>Você deve agora validar/aceitar ou recusar os
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">termos e condições de participação</a>, assim como o
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">código de conduta</a>, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+    <br/>
+    <b>ATENÇÃO</b>: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
+    As palestras não aceitas em até 5 dias úteis após esta notificação, serão canceladas e outra ocupará seu lugar.
 </p>
 <h4>2. Sua minibio e foto</h4>
 <p>Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.</p>
@@ -153,7 +158,7 @@
 
 
 <p>Hi, <?= nomePalestrantes ?>,</p>
-<p>Thanks again for your submission! The result was amazing, we have received almost 1700 submissions!</p>
+<p>Thanks again for your submission! The result was amazing, we have received hundreds of submissions!</p>
 <p>We're glad to inform you that your proposal has been <strong>APPROVED</strong>:
     Title: <strong>@proposal.title</strong> <br/>
     Track: <strong>  </strong> <br/>
@@ -161,9 +166,14 @@
 <br/>
 <h3>ATTENTION! Required actions</h3>
 <h4>1. Accept or decline</h4>
-<p>You must now validate or decline the general terms and conditions, and confirm that you are still ok to do
+<p>You must now validate/accept or decline the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">general terms and conditions</a>, as well as the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">code of conduct</a>, and confirm that you are still ok to do
     this presentation AS SOON AS POSSIBLE:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+    <br/>
+    ATTENTION: Only talks accepted via CFP website will be published in TDC website, so we ask you to do it as soon as possible.
+    Talks not accepted within 5 working days after this notification, will be cancelled and another one will take its place.
 </p>
 <h4>2. Your bio and picture</h4>
 <p>In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.</p>
