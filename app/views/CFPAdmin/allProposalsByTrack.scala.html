@@ -69,7 +69,11 @@
                                     <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
                                 </td>
                                 <td>
-                                    @tags.renderGravatar(proposal.mainSpeaker,showName = true, showPhoto = false)
+                                    @proposal.allSpeakers.map { s: Speaker =>
+                                        <a href="@routes.CFPAdmin.showSpeakerAndTalks(uuid)">
+                                            @s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small>
+                                        </a>
+                                    }
                                 </td>
                                 <td>
                                     @Messages(proposal.talkType.id)
