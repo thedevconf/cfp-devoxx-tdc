@@ -70,7 +70,7 @@
                                 </td>
                                 <td>
                                     @proposal.allSpeakers.map { s: Speaker =>
-                                        <a href="@routes.CFPAdmin.showSpeakerAndTalks(uuid)">
+                                        <a href="@routes.CFPAdmin.showSpeakerAndTalks(s.uuid)">
                                             @s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small>
                                         </a>
                                     }
