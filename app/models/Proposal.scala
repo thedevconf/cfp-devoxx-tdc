@@ -1072,5 +1072,22 @@ object Proposal {
         client.hset("Proposals", proposalId, json)
       })
   }
+  
+  /**
+    * returns true if a speaker has a proposal with state backup that has not been
+	* accepted or refused
+	*
+	*/
+  def existsUnconfirmedBackupForSpeaker(uuid:String): Boolean = Redis.pool.withClient {
+    implicit client =>
+	  val backupProposals = client.sinter(s"Proposals:ByAuthor:$uuid", s"Proposals:ByState:backup")
+	  if(backupProposals.nonEmpty) {
+		val confirmedProposals = client.smembers("BackupConfirmed")
+		confirmedProposals.intersect(backupProposals).size != backupProposals.size
+	  }
+	  else {
+		false
+	  }
+  }
 
 }

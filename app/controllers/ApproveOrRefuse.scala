@@ -123,7 +123,8 @@ object ApproveOrRefuse extends SecureCFPController {
   def allBackupByTrack(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       val notifiedProposals = Event.notifiedBackupProposals()
-      Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse(""),notifiedProposals))
+      val confirmedProposals = Event.confirmedBackupProposals()
+      Ok(views.html.ApproveOrRefuse.allBackupByTrack(ApprovedProposal.allBackup(),trackId.getOrElse(""),notifiedProposals,confirmedProposals))
   }
 
   def notifyApprove(talkType: String, proposalId: String) = SecuredAction(IsMemberOf("admin")) {
@@ -201,9 +202,10 @@ object ApproveOrRefuse extends SecureCFPController {
       import org.apache.commons.lang3.RandomStringUtils
       val allMyProposals = Proposal.allMyProposals(request.webuser.uuid)
       val cssrf = RandomStringUtils.randomAlphanumeric(24)
+      val confirmedBackups = Event.confirmedBackupProposals()
 
       val (accepted, rejected) = allMyProposals.partition(p => p.state == ProposalState.APPROVED || p.state == ProposalState.DECLINED || p.state == ProposalState.ACCEPTED || p.state == ProposalState.BACKUP)
-      Ok(views.html.ApproveOrRefuse.acceptOrRefuseTalks(accepted, rejected.filter(_.state == ProposalState.REJECTED), cssrf))
+      Ok(views.html.ApproveOrRefuse.acceptOrRefuseTalks(accepted, rejected.filter(_.state == ProposalState.REJECTED),confirmedBackups,cssrf))
         .withSession(request.session.+(("CSSRF", Crypt.sha1(cssrf))))
   }
 
@@ -250,16 +252,19 @@ object ApproveOrRefuse extends SecureCFPController {
                     }
                   }
                   case "backup" => {
-                    val validMsg = "Speaker has set the status of this proposal to BACKUP"
+                    val validMsg = "Speaker has accepted this proposal as a BACKUP"
                     Comment.saveCommentForSpeaker(proposalId, request.webuser.uuid, validMsg)
                     ZapActor.actor ! SendMessageToCommitte(request.webuser.uuid, p, validMsg)
-                    Proposal.backup(request.webuser.uuid, proposalId)
+                    Event.confirmBackupProposal(proposalId)
                   }
                   case other => play.Logger.error("Invalid choice for ApproveOrRefuse doAcceptOrRefuseTalk for proposalId " + proposalId + " choice=" + choice)
                 }
 
-
-                Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("success" -> Messages("ar.choiceRecorded", proposalId, choice))
+				if(choice != "backup") {
+					Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("success" -> Messages("ar.choiceRecorded", proposalId, choice))
+                } else {
+					Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("success" -> Messages("ar.backupConfirmed", proposalId))
+				}
               }
               case other => Redirect(routes.ApproveOrRefuse.showAcceptOrRefuseTalks()).flashing("error" -> "Hmmm not a good idea to try to update someone else proposal... this event has been logged.")
             }

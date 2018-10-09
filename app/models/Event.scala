@@ -139,6 +139,14 @@ object Event {
     client =>
       client.smembers("NotifiedBackupProposals")
   }
-
-
+  
+  def confirmBackupProposal(proposalId: String): Unit = Redis.pool.withClient {
+    client =>
+      client.sadd("BackupConfirmed", proposalId)
+  }
+  
+  def confirmedBackupProposals():Set[String] = Redis.pool.withClient {
+   client =>
+      client.smembers("BackupConfirmed")
+  }
 }

@@ -1,4 +1,4 @@
-@(approvedProposals: List[Proposal], rejectedProposals:List[Proposal], cssrf:String)(implicit lang: Lang, flash: Flash, req: RequestHeader)
+@(approvedProposals: List[Proposal], rejectedProposals:List[Proposal], confirmedBackups: Set[String],cssrf:String)(implicit lang: Lang, flash: Flash, req: RequestHeader)
 
 @main("Please review your approved list of talks") {
 
@@ -89,9 +89,13 @@
                                                         <p>@Messages("ar.backup.warning1")</p>
                                                         <p>@Messages("ar.backup.warning2")</p>
                                                     </td>
-                                                    <td>
-                                                        <button name="dec" value="" disabled class="btn btn-sm btn-success"> @Messages("ar.IAccept")</button>
-                                                    </td>
+                                                    @if(confirmedBackups.contains(proposal.id)) {
+													   <td colspan="1"><button name="dec" value="" class="btn btn-sm btn-success" disabled> @Messages("accepted")</button></td>
+												    } else {
+                                                       <td>
+                                                         <button name="dec" value="backup" class="btn btn-sm btn-success"> @Messages("ar.IAccept")</button>
+                                                       </td>
+													}
                                                 }
 
                                                 @if(proposal.state==ProposalState.APPROVED) {
@@ -106,8 +110,11 @@
                                                     </td>
                                                 }
                                                 @if(proposal.state==ProposalState.BACKUP) {
-                                                    <td>
-                                                        <button name="dec" value="decline" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("ar.IDecline")</button>
+											        <td>
+												    @if(confirmedBackups.contains(proposal.id)) {
+													  <small>@Messages("ar.accepted.warning")</small><br>
+													}
+                                                      <button name="dec" value="decline" class="btn btn-sm btn-danger"><i class="icon-warning-sign"></i> @Messages("ar.IDecline")</button>
                                                     </td>
                                                 }
                                             }
