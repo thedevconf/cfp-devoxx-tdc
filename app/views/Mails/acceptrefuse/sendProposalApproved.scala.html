@@ -57,11 +57,11 @@
 </table>
 
 <h3>Bem-vindo ao @Messages("longYearlyName")</h3>
-<p>Olá, <?= nomePalestrantes ?>,</p>
+<p>Olá, @firstName,</p>
 <p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!</p>
 <p>Estamos muito contentes em anunciar que a sua palestra foi <strong>APROVADA</strong>:
     Título: <strong>@proposal.title</strong> <br/>
-    Trilha: <strong>  </strong> <br/>
+    Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
     Formato: <strong>@Messages(proposal.talkType.id)</strong></p>
 <br/>
 <h3>ATENÇÃO! Ações necessárias</h3>
