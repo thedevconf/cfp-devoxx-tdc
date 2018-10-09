@@ -356,11 +356,17 @@ object RestAPI extends Controller {
                                     "email" -> Json.toJson(speaker.email),
                                     "empresa" -> Json.toJson(speaker.company),
                                     "minibio" -> Json.toJson(speaker.bioAsHtml),
-                                    "twitter" -> Json.toJson(speaker.twitter),
                                     "foto" -> Json.toJson(speaker.avatarUrl),
                                     "blog" -> Json.toJson(speaker.blog),
+                                    "twitter" -> Json.toJson(speaker.twitter),
+                                    "linkedin" -> Json.toJson(speaker.linkedin),
+                                    "github" -> Json.toJson(speaker.github),
+                                    "facebook" -> Json.toJson(speaker.facebook),
+                                    "instagram" -> Json.toJson(speaker.instagram),
                                     "telefone" -> Json.toJson(speaker.phone),
                                     "genero" -> Json.toJson(speaker.gender),
+                                    "etnia" -> Json.toJson(speaker.race),
+                                    "deficiencia" -> Json.toJson(speaker.disability),
                                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                                   )
                                 }) // end palestrantes
@@ -413,11 +419,17 @@ object RestAPI extends Controller {
                     "email" -> Json.toJson(speaker.email),
                     "empresa" -> Json.toJson(speaker.company),
                     "minibio" -> Json.toJson(speaker.bioAsHtml),
-                    "twitter" -> Json.toJson(speaker.twitter),
                     "foto" -> Json.toJson(speaker.avatarUrl),
                     "blog" -> Json.toJson(speaker.blog),
+                    "twitter" -> Json.toJson(speaker.twitter),
+                    "linkedin" -> Json.toJson(speaker.linkedin),
+                    "github" -> Json.toJson(speaker.github),
+                    "facebook" -> Json.toJson(speaker.facebook),
+                    "instagram" -> Json.toJson(speaker.instagram),
                     "telefone" -> Json.toJson(speaker.phone),
                     "genero" -> Json.toJson(speaker.gender),
+                    "etnia" -> Json.toJson(speaker.race),
+                    "deficiencia" -> Json.toJson(speaker.disability),
                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                   )
                 })
@@ -466,11 +478,17 @@ object RestAPI extends Controller {
                     "email" -> Json.toJson(speaker.email),
                     "empresa" -> Json.toJson(speaker.company),
                     "minibio" -> Json.toJson(speaker.bioAsHtml),
-                    "twitter" -> Json.toJson(speaker.twitter),
                     "foto" -> Json.toJson(speaker.avatarUrl),
                     "blog" -> Json.toJson(speaker.blog),
+                    "twitter" -> Json.toJson(speaker.twitter),
+                    "linkedin" -> Json.toJson(speaker.linkedin),
+                    "github" -> Json.toJson(speaker.github),
+                    "facebook" -> Json.toJson(speaker.facebook),
+                    "instagram" -> Json.toJson(speaker.instagram),
                     "telefone" -> Json.toJson(speaker.phone),
                     "genero" -> Json.toJson(speaker.gender),
+                    "etnia" -> Json.toJson(speaker.race),
+                    "deficiencia" -> Json.toJson(speaker.disability),
                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                   )
                 })
