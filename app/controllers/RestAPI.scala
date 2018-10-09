@@ -367,6 +367,7 @@ object RestAPI extends Controller {
                                     "genero" -> Json.toJson(speaker.gender),
                                     "etnia" -> Json.toJson(speaker.race),
                                     "deficiencia" -> Json.toJson(speaker.disability),
+                                    "cracha" -> Json.toJson(speaker.tagName),
                                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                                   )
                                 }) // end palestrantes
@@ -430,6 +431,7 @@ object RestAPI extends Controller {
                     "genero" -> Json.toJson(speaker.gender),
                     "etnia" -> Json.toJson(speaker.race),
                     "deficiencia" -> Json.toJson(speaker.disability),
+                    "cracha" -> Json.toJson(speaker.tagName),
                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                   )
                 })
@@ -489,6 +491,7 @@ object RestAPI extends Controller {
                     "genero" -> Json.toJson(speaker.gender),
                     "etnia" -> Json.toJson(speaker.race),
                     "deficiencia" -> Json.toJson(speaker.disability),
+                    "cracha" -> Json.toJson(speaker.tagName),
                     "camiseta" -> Json.toJson(speaker.tshirtSize)
                   )
                 })
