@@ -851,6 +851,7 @@ ar.backup.warning2=Entretanto você pode recusar se não quiser manter esta pale
 ar.accepted.warning=Aviso: esta palestra foi aceita. Por favor contate a equipe do CFP antes de recusar
 ar.message.massnotifications=Os palestrantes para as palestras marcadas foram notificados
 ar.message.massnotifications.error=Ocorreu um erro no envio de notificações
+ar.backupConfirmed=Você confirmou que aceita ministrar a palestra {0} como backup
 
 sw.proposal.title=Título
 sw.proposal.talkType=Tipo de apresentação

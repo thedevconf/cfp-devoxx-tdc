@@ -1,4 +1,4 @@
-@(allProposals:List[models.Proposal], trackId:String, notifiedProposals: Set[String])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(allProposals:List[models.Proposal], trackId:String, notifiedProposals: Set[String], confirmedProposals: Set[String])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @import ConferenceDescriptor.ConferenceTracks.{ALL => AllTracks}
 @import helper.twitterBootstrap._
@@ -90,6 +90,9 @@
                                         @Messages(proposal.state.code)
                                     </td>
                                     <td>
+									@if(confirmedProposals.contains(proposal.id)){
+                                        <small>@Messages("backoffice.allproposals.speaker.accepted")</small>
+                                    }else {
                                         @if(notifiedProposals.contains(proposal.id)) {
                                             <a href="@routes.ApproveOrRefuse.notifyBackup(trackId, proposal.id)"
                                                title='@Messages("backoffice.allproposals.backup.notifyagain.tooltip")'
@@ -103,6 +106,7 @@
                                                 <i class="icon-envelope"></i>@Messages("backoffice.allproposals.backup.notify")
                                             </a>
                                         }
+                                    }
                                     </td>
                                 </tr>
                             }

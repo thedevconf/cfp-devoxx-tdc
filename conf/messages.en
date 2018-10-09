@@ -851,6 +851,7 @@ ar.backup.warning2=However you can decline if you don't want to keep this talk a
 ar.accepted.warning=Warning: this talk has been accepted. Please contact the CFP team before you decline
 ar.message.massnotifications=Notified speakers for the selected proposals
 ar.message.massnotifications.error=There was an error sending the notifications
+ar.backupConfirmed=You have accepted proposal {0} as a Backup
 
 sw.proposal.title=Title
 sw.proposal.talkType=Type of presentation

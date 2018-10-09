@@ -52,8 +52,9 @@ object CallForPaper extends SecureCFPController {
           val hasApproved = Proposal.countByProposalState(uuid, ProposalState.APPROVED) > 0
           val hasAccepted = Proposal.countByProposalState(uuid, ProposalState.ACCEPTED) > 0
           val needsToAcceptTermAndCondition = Speaker.needsToAccept(uuid) && (hasAccepted || hasApproved)
+		      val hasUnconfirmedBackup = Proposal.existsUnconfirmedBackupForSpeaker(uuid)
 
-          (needsToAcceptTermAndCondition, hasApproved, hasAccepted) match {
+          (needsToAcceptTermAndCondition, hasApproved || hasUnconfirmedBackup, hasAccepted) match {
             case (true, _, _) => Redirect(routes.ApproveOrRefuse.acceptTermsAndConditions())
             case (false, true, _) => Redirect(routes.ApproveOrRefuse.doAcceptOrRefuseTalk()).flashing("success" -> Messages("please.check.approved"))
             case other => {
