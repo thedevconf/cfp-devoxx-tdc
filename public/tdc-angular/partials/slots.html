@@ -30,7 +30,8 @@
         <span class="label label-default">{{talk.state.code}}</span>
         <div class="label label-info">{{talk.lang}}</div>
         <div class="label label-warning">{{talk.track.id}}</div>
-
+        <div class="label label-primary">{{talk.summary}}</div>
+		
         <div class="label label-success">{{talk.mainSpeaker}}</div>
         <div class="label label-success btn-sm">{{talk.secondarySpeaker}}</div>
         <div ng-repeat="otherSpeaker in talk.otherSpeakers" class="label label-success btn-sm">
@@ -54,6 +55,7 @@
             <span class="proposalTitle">{{proposal.title}}</span>
             <div class="label label-default">{{proposal.talkType.label}}</div>
             <span class="label label-default">{{proposal.state.code}}</span>
+            <span class="label label-primary">{{proposal.summary}}</span>
             <div class="label label-success">{{proposal.mainSpeaker}}</div>
             <div class="label label-success btn-sm">{{proposal.secondarySpeaker}}</div>
             <div ng-repeat="otherSpeaker in proposal.otherSpeakers" class="label label-success btn-sm">
