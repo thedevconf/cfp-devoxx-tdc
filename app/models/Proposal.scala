@@ -1080,14 +1080,14 @@ object Proposal {
 	*/
   def existsUnconfirmedBackupForSpeaker(uuid:String): Boolean = Redis.pool.withClient {
     implicit client =>
-	  val backupProposals = client.sinter(s"Proposals:ByAuthor:$uuid", s"Proposals:ByState:backup")
-	  if(backupProposals.nonEmpty) {
-		val confirmedProposals = client.smembers("BackupConfirmed")
-		confirmedProposals.intersect(backupProposals).size != backupProposals.size
-	  }
-	  else {
-		false
-	  }
+      import collection.JavaConverters._
+      val backupProposals = client.sinter(s"Proposals:ByAuthor:$uuid", s"Proposals:ByState:backup", "NotifiedBackupProposals").asScala
+      if(backupProposals.nonEmpty) {
+        val confirmedProposals = client.smembers("BackupConfirmed")
+        confirmedProposals.intersect(backupProposals).size != backupProposals.size
+	    } else {
+		    false
+	    }
   }
 
 }
