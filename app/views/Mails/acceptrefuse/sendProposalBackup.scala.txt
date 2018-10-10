@@ -13,9 +13,11 @@ Formato: (tempo de palestra conforme combinado com os coordenadores)
 ATENÇÃO! Ações necessárias
 --------------------------
 1. Aceitar ou recusar
-A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra for aprovada.
-Caso você não queira manter esta palestra como backup, pode declinar através do link:
-  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks
+Você deve agora validar/aceitar ou recusar os termos e condições de participação, assim como o código de conduta, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:
+  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
+ATENÇÃO: A palestra foi aprovada como backup, mas precisa de sua confirmação mesmo assim. Além disso, você será notificado posteriormente se a palestra for aprovada.
 
 2. Cortesia para palestrante backup
 Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha.
@@ -36,13 +38,13 @@ Por favor, não responda este email. Envie qualquer comentário através do web 
 possível para responder rapidamente.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 Para fazer a sua apresentação, disponibilizamos um template em PowerPoint (uso não obrigatório):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt
 
 6. Compartilhe o evento
 Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
   http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
 E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
-  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais
 
 Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
 
@@ -64,9 +66,12 @@ Format: <strong>@Messages(proposal.talkType.id) (or how it was agreed with the c
 ATTENTION! Required actions
 ---------------------------
 1. Accept or decline
-Your talk has been approved as backup. That means you will be notified later if your talk is approved.
-In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
- @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks()
+You must now validate/accept or decline the general terms and conditions, as well as the code of conduct, and confirm that you are still ok to do
+    this presentation AS SOON AS POSSIBLE:
+ @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+  http://www.thedevelopersconference.com.br/aceite
+  http://www.thedevelopersconference.com.br/conduta
+ATTENTION: The talk was approved as backup, but needs your confirmation anyway. In addition, you will be notified later if the talk is approved.
 
 2. Reward for Backup Speaker
 In case you accept that your talk stay as backup, we offer you a free pass for this track.
@@ -87,13 +92,13 @@ Please, do not respond to this email. Send any comment through the web interface
 to respond quickly.
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt
+  https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt
 
 6. Share the event
 If you use social networks, take this opportunity to invite you to enjoy ours:
   http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
 And to help us with the event, go to the digital banners page of our website:
-  http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais
+  http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais
 
 We remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
 

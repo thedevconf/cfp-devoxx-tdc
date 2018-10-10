@@ -62,14 +62,17 @@
 <p>Estamos muito contentes em anunciar que a sua palestra foi marcada como <strong>BACKUP</strong> :<br/>
     Título: <strong>@proposal.title</strong> <br/>
     Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
-    Formato: <strong>tempo de palestra conforme combinado com os coordenadores</strong>
+    Formato: <strong>@Messages(proposal.talkType.id)</strong>
 </p>
 <br/>
 <h3>ATENÇÃO! Ações necessárias</h3>
 <h4>1. Aceitar ou recusar</h4>
-<p>A palestra foi aprovada como backup. Isso significa que você será notificado posteriormente se a palestra for aprovada.
-    Caso você não queira manter esta palestra como backup, pode declinar através do link:<br/>
-    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
+<p>Você deve agora validar/aceitar ou recusar os
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">termos e condições de participação</a>, assim como o
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">código de conduta</a>, e confirmar que você concorda em ser backup o MAIS RÁPIDO POSSÍVEL:<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+    <br/>
+    <b>ATENÇÃO</b>: A palestra foi aprovada como backup, mas precisa de sua confirmação mesmo assim. Além disso, você será notificado posteriormente se a palestra for aprovada.
 </p>
 <h4>2. Cortesia para palestrante backup</h4>
 <p>Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha. </p>
@@ -78,7 +81,7 @@
 <p>Para ser palestrante backup, precisamos muito do seu comprometimento. Muitas vezes a palestra backup é acionada
 bem antes do início do evento devido a eventual desistência de um palestrante aprovado, mas no dia do evento
 também podem ocorrer desistências, atrasos, ou outras ocorrências que impossibilitam a apresentação da palestra que estava na grade,
-e, a função do backup é muito importante, pois você fará a sua palestra e todos os dados serão atualizados na grade.
+e a função do backup é muito importante, pois você fará a sua palestra e todos os dados serão atualizados na grade.
 Por isto é importante já trabalhar na apresentação de sua palestra e acreditar que poderá apresentá-la no dia.</p>
 
 <h4>4. Sua minibio e foto</h4>
@@ -88,13 +91,13 @@ Por isto é importante já trabalhar na apresentação de sua palestra e acredit
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>Para fazer a sua apresentação, disponibilizamos um
-    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
+    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
 <h4>6. Compartilhe o evento</h4>
 <p>Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> e no
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
 <p>E para ajudar-nos na divulgação do evento, acesse a
-    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais" title="Divulgue o TDC">página de banners digitais</a> do nosso site.</p>
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais" title="Divulgue o TDC">página de banners digitais</a> do nosso site.</p>
 <br/>
 <p>Lembramos que o evento <strong>NÃO</strong> cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.</p>
 <br/>
@@ -169,9 +172,13 @@ Por isto é importante já trabalhar na apresentação de sua palestra e acredit
 <br/>
 <h3>ATTENTION! Required actions</h3>
 <h4>1. Accept or decline</h4>
-<p>Your talk has been approved as backup. That means you will be notified later if your talk is approved.
-    In case you do NOT want to keep your talk as backup, you can decline accessing this link:<br/>
-    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptOrRefuseTalks</a>
+<p>You must now validate/accept or decline the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">general terms and conditions</a>, as well as the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">code of conduct</a>, and confirm that you are still ok to do
+    this presentation AS SOON AS POSSIBLE:<br/>
+    <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
+    <br/>
+    ATTENTION: The talk was approved as backup, but needs your confirmation anyway. In addition, you will be notified later if the talk is approved.
 </p>
 <h4>2. Reward for Backup Speaker</h4>
 <p>In case you accept that your talk stay as backup, we offer you a free pass for this track.</p>
@@ -179,7 +186,7 @@ Por isto é importante já trabalhar na apresentação de sua palestra e acredit
 <h4>3. Commitment</h4>
 <p>To be a backup speaker, we really need your commitment. Often the backup talk is requested well before the event
 starts due to the possible drop-out of an approved speaker, but on the day of the event can also occur dropouts, delays,
-or other occurrences that make it impossible to present the talk that was in the grid, and, the backup function is very
+or other occurrences that make it impossible to present the talk that was in the grid, and the backup function is very
 important because you will give your speech and all data will be updated in the grid.
 That is why it is important to work on the presentation of your lecture and believe that you can present it on the day.</p>
 
@@ -190,13 +197,13 @@ That is why it is important to work on the presentation of your lecture and beli
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>To prepare your presentation, we provide a
-    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
+    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
 <h4>6. Share the event</h4>
 <p>If you use social networks, take this opportunity to invite you to enjoy our
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> and
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
 <p>And to help us with the event, go to the
-    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais" title="Divulgue o @Messages("longYearlyName")">digital banners page</a> of our website.</p>
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais" title="Divulgue o @Messages("longYearlyName")">digital banners page</a> of our website.</p>
 <br/>
 <p>We remind that the event does <strong>NOT</strong> cover travel costs, accommodation and meals of the speakers.</p>
 <br/>
