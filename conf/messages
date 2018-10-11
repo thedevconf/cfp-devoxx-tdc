@@ -1610,9 +1610,10 @@ attic.other.title=Outros
 attic.bt.delete.invited=Remover status [Convidado] de todos os palestrantes
 attic.bt.delete.events=Remover todos os eventos e histórico
 attic.bt.delete.events.explanation=Eventos são um log de todas as ações e atualizações executadas pelos palestrantes e pela equipe.
-attic.bt.reset.notifications=Reiniciar a lista de palestrantes notificados (aprovados e recusados)
+attic.bt.reset.notifications=Reiniciar a lista de palestrantes notificados (backup)
 attic.bt.reset.trackleaders=Limpar os coordenadores das trilhas
 attic.bt.reset.schedules=Limpar toda a programação de grades das trilhas
+attic.bt.reset.backup.confirmations=Limpar todas as confirmações de palestras backup
 attic.msg.prune.deleted={0} palestras excluidas
 attic.msg.prune.draft={0} palestras rascunho excluidas
 attic.msg.archive.talk={0} palestras arquivadas
@@ -1621,6 +1622,7 @@ attic.msg.delete.events=Log de eventos removido
 attic.msg.reset.notifications=Todas as notificacoes foram removidas
 attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
 attic.msg.reset.schedules=Removida toda a programação de grades das trilhas
+attic.msg.reset.backup.confirmations=Removidas todas as confirmações de palestras backup
 
 #Proposal Edit by admin
 btn.proposal.edit = Editar

@@ -47,8 +47,7 @@
         <div ng-show="slot.stadium" class="label label-warning">
             Stadium
         </div>
-        <div ng-repeat="proposal in slot.proposals">
-            <hr class="tdc">
+        <div ng-repeat="proposal in slot.proposals" class="talk sponsor-{{proposal.sponsorTalk}}">
             <span class="label label-default">{{$index + 1}}</span>
             <button ng-show="!blocked" class="btn btn-xs btn-danger" ng-click="deallocate(slot.id,$index)"><i class="icon-remove"></i> remove
             </button>
