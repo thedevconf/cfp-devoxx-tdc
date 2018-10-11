@@ -132,4 +132,9 @@ object Event {
       client.smembers("BackupConfirmed")
   }
 
+  def resetBackupConfirmations() = Redis.pool.withClient{
+    client=>
+      client.del("BackupConfirmed")
+  }
+
 }

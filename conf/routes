@@ -308,6 +308,7 @@ POST          /cfpadmin/attic/resetNotified                                     
 POST          /cfpadmin/attic/resetEvents                                       controllers.Attic.resetEvents()
 POST          /cfpadmin/attic/resetTrackLeaders                                 controllers.Attic.resetTrackLeaders()
 POST          /cfpadmin/attic/resetSchedules                                    controllers.Attic.resetSchedules()
+POST          /cfpadmin/attic/resetBackupConfirmations                          controllers.Attic.resetBackupConfirmations()
 
 # Golden ticket admin
 GET           /admin/goldenTickets                                              controllers.GoldenTicketAdminController.showAll()

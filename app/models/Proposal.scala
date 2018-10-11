@@ -682,6 +682,7 @@ object Proposal {
       tx.srem(s"Proposals:ByAuthor:${proposal.mainSpeaker}", proposal.id)
       tx.srem(s"Proposals:ByState:${proposal.state.code}", proposal.id)
       tx.srem(s"Proposals:ByTrack:${proposal.track.id}", proposal.id)
+      tx.srem("BackupConfirmed",proposal.id)
       tx.hdel("Proposals:TrackForProposal", proposal.id)
       // 2nd speaker
       proposal.secondarySpeaker.map {

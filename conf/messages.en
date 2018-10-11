@@ -1603,6 +1603,7 @@ attic.bt.delete.events.explanation=Events is a log of all actions such as votes,
 attic.bt.reset.notifications=Reset the list of notified Speakers (backup)
 attic.bt.reset.trackleaders=Reset the Trackleaders
 attic.bt.reset.schedules=Reset Schedules
+attic.bt.reset.backup.confirmations=Reset all backup confirmations
 attic.msg.prune.deleted={0} Deleted moved to Attic
 attic.msg.prune.draft={0} Draft deleted
 attic.msg.archive.talk={0} archived
@@ -1611,6 +1612,7 @@ attic.msg.delete.events=Events log flushed.
 attic.msg.reset.notifications=All Notified collections have been deleted.
 attic.msg.reset.trackleaders=All trackleaders reset
 attic.msg.reset.schedules=All schedules reset
+attic.msg.reset.backup.confirmations=All backup confirmations reset
 
 #Proposal Edit by admin
 btn.proposal.edit = Edit
