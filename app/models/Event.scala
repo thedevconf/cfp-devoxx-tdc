@@ -107,27 +107,9 @@ object Event {
       }
   }
 
-  def speakerNotified(speaker: Speaker, allApproved: Set[Proposal], allRejected: Set[Proposal], allBackups: Set[Proposal]) = Redis.pool.withClient {
-    client =>
-      client.sadd("NotifiedSpeakers", speaker.uuid)
-      // Pas de backup et rien d'approuvé
-      if (allApproved.isEmpty && allBackups.isEmpty && allRejected.nonEmpty) {
-        client.sadd("Notified:RefusedSpeakers", speaker.uuid)
-      }
-      if (allApproved.nonEmpty) {
-        client.sadd("Notified:ApprovedSpeakers", speaker.uuid)
-      }
-      if (allApproved.isEmpty && allBackups.nonEmpty) {
-        client.sadd("Notified:BackupSpeakers", speaker.uuid)
-      }
-  }
-
   def resetSpeakersNotified() = Redis.pool.withClient{
     client=>
-      client.del("NotifiedSpeakers")
-      client.del("Notified:RefusedSpeakers")
-      client.del("Notified:ApprovedSpeakers")
-      client.del("Notified:BackupSpeakers")
+      client.del("NotifiedBackupProposals")
   }
 
   def backupNotificationSent(proposal: Proposal): Unit = Redis.pool.withClient {
@@ -149,4 +131,5 @@ object Event {
    client =>
       client.smembers("BackupConfirmed")
   }
+
 }

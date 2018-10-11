@@ -92,7 +92,7 @@ object Attic extends SecureCFPController {
   }
 
   /**
-   * Reset the list of notifed speakers.
+   * Reset the list of notified speakers.
    */
   def resetNotified() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
