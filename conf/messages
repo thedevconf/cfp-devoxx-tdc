@@ -1646,7 +1646,8 @@ fineUploader.msg.squareError=`A foto deve ser quadrada. Esta foto tem $'{'width'
 uploadPicture.msg.error.missing=Arquivo ausente
 uploadPicture.msg.error.general=Erro ao submeter o arquivo
 
-
+#REST API
+api.loadschedule.error=Agendamento inconsistente. Provavelmente alguma palestra agendada foi recusada ou rejeitada
 
 #CallForTracks
 callfortracks.registration.title=Cadastro de Trilhas

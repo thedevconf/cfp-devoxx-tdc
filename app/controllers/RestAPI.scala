@@ -336,9 +336,11 @@ object RestAPI extends Controller {
       val scheduledIds = saved.slots.flatMap(slot => slot.proposals)
       val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == track && scheduledIds.contains(p.id))
 
-      val fullSlots:List[FullTDCSlot] = saved.slots.map(slot => FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id => proposals.find(_.id == id).get)))
-
-      val result = Map("trilha" -> Json.toJson(track),
+      //tries to read all the proposals but an error can be generated if the track is invalid
+      //because the trackleader has rejected a proposal but has not removed it from the schedule
+      try {
+        val fullSlots:List[FullTDCSlot] = saved.slots.map(slot => FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id => proposals.find(_.id == id).get)))
+        val result = Map("trilha" -> Json.toJson(track),
                         "slots" -> Json.toJson(fullSlots.map{slot =>
                           Map(
                             "id" -> Json.toJson(slot.id),
@@ -375,9 +377,15 @@ object RestAPI extends Controller {
                             }) //end proposals
                           )
                         })//end slots
-      )
-
-      Ok(Json.toJson(result)).as(JSON)
+        )
+        Ok(Json.toJson(result)).as(JSON)
+      } catch {
+        case e:Exception => {
+          val result = Map("reason" -> Json.toJson(e.getClass.getName),
+                            "message" -> Json.toJson(Messages("api.loadschedule.error")))
+          InternalServerError(Json.toJson(result)).as(JSON)
+        }
+      }
     }).getOrElse(NotFound(s"Track $track has no schedule"))
   
   }
