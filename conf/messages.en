@@ -1656,6 +1656,9 @@ fineUploader.msg.squareError=`The picture must be square. This picture is $'{'wi
 uploadPicture.msg.error.missing=Missing file
 uploadPicture.msg.error.general=Error parsing form data
 
+#REST API
+api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was rejected by the trackleader but is still in the schedulling.
+
 #CallForTracks
 callfortracks.registration.title=Track Registration
 callfortracks.registration.description.text=Choose the registration type, that can be track and trackleader or Workshop/TDC4Kids (3 hours)
