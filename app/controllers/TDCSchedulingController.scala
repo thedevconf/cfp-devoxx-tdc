@@ -101,6 +101,7 @@ object TDCSchedulingController extends SecureCFPController {
           val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
           val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
           val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
+          val company:String = mainWebuser.flatMap(_.company.map(_.toLowerCase.capitalize)).getOrElse("")
 
           // Transform speakerUUID to Speaker name, this simplify Angular Code
           p.copy(
@@ -108,7 +109,7 @@ object TDCSchedulingController extends SecureCFPController {
             , secondarySpeaker = secWebuser.map(_.cleanName)
             , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
             , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
-            , summary = ""
+            , summary = company //uses the summary field to inform the company for the proposal 
             , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
             , state = ProposalState(Messages(p.state.code))
           )

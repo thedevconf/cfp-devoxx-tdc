@@ -92,7 +92,7 @@ object Attic extends SecureCFPController {
   }
 
   /**
-   * Reset the list of notifed speakers.
+   * Reset the list of notified speakers.
    */
   def resetNotified() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
@@ -126,4 +126,14 @@ object Attic extends SecureCFPController {
       TDCScheduleConfiguration.deleteAll()
       Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.schedules")))
   }
+
+  /**
+    * Reset the list of confirmations for backup proposals.
+    */
+  def resetBackupConfirmations() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      Event.resetBackupConfirmations()
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.backup.confirmations")))
+  }
+
 }

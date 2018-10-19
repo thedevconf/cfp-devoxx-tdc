@@ -682,6 +682,7 @@ object Proposal {
       tx.srem(s"Proposals:ByAuthor:${proposal.mainSpeaker}", proposal.id)
       tx.srem(s"Proposals:ByState:${proposal.state.code}", proposal.id)
       tx.srem(s"Proposals:ByTrack:${proposal.track.id}", proposal.id)
+      tx.srem("BackupConfirmed",proposal.id)
       tx.hdel("Proposals:TrackForProposal", proposal.id)
       // 2nd speaker
       proposal.secondarySpeaker.map {
@@ -1080,14 +1081,14 @@ object Proposal {
 	*/
   def existsUnconfirmedBackupForSpeaker(uuid:String): Boolean = Redis.pool.withClient {
     implicit client =>
-	  val backupProposals = client.sinter(s"Proposals:ByAuthor:$uuid", s"Proposals:ByState:backup")
-	  if(backupProposals.nonEmpty) {
-		val confirmedProposals = client.smembers("BackupConfirmed")
-		confirmedProposals.intersect(backupProposals).size != backupProposals.size
-	  }
-	  else {
-		false
-	  }
+      import collection.JavaConverters._
+      val backupProposals = client.sinter(s"Proposals:ByAuthor:$uuid", s"Proposals:ByState:backup", "NotifiedBackupProposals").asScala
+      if(backupProposals.nonEmpty) {
+        val confirmedProposals = client.smembers("BackupConfirmed")
+        confirmedProposals.intersect(backupProposals).size != backupProposals.size
+	    } else {
+		    false
+	    }
   }
 
 }
