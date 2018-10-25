@@ -799,7 +799,7 @@ leaderboard.compute=Computing stats
 admin.sp.accepted=Accepted
 admin.sp.approved=Approved
 admin.sp.refused=Refused
-admin.sp.rejected=Rejected
+admin.sp.rejected=Not Approved
 admin.sp.approved.txt=This talk has been approved by the Program committee.
 admin.sp.accepted.txt=This talk has been accepted. Either during the final decision, or because it''s a sponsor talk or a speaker on the wishlist.
 btn.abstention=Vote 0 for this talk
@@ -831,7 +831,7 @@ accept.term.checked=Please check this box if you agree with the Terms and Condit
 
 acceptedProposals.title=List of accepted/refused proposals for {0}
 ar.approved=Approved proposals
-ar.rejected=Refused proposals
+ar.rejected=Not Approved proposals
 ar.noneApproved=We are very sorry to inform you that none of your proposals have been accepted.
 ar.pleaseAccept=Please confirm for each accepted proposal, that you accept to present this talk. If you co-present a talk with another speaker, it''s also possible that your co-speaker has already accepted to present.
 ar.IAccept=I accept to present this talk
@@ -1358,9 +1358,9 @@ backoffice.allproposals.approved.notifyagain=Notify again
 backoffice.allproposals.approved.notify.tooltip=Send an email and change the state to APPROVED (Async)
 backoffice.allproposals.approved.notifyagain.tooltip=Send an email again (Async)
 backoffice.allproposals.speaker.accepted=Speaker has accepted
-backoffice.allproposals.rejected.warning=If proposal's state = REJECTED then the speaker has been notified.
-backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to REJECTED (Async)
-backoffice.allproposals.rejected.notify.link=Notify refused
+backoffice.allproposals.rejected.warning=If proposal's state = NOT APPROVED then the speaker has been notified.
+backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to NOT APPROVED (Async)
+backoffice.allproposals.rejected.notify.link=Notify not approved
 backoffice.allproposals.rejected.notify.all.link=Notify all selected
 backoffice.allproposals.backup.notify.all.link=Notify all selected
 backoffice.allproposals.approved.notify.all.link=Notify all selected
@@ -1449,11 +1449,11 @@ allMyVotes.votes.column.speakers=Speakers
 
 allVotes.tab=All votes
 allVotes.button.cancel.approve=Cancel approve
-allVotes.button.cancel.refuse=Cancel refuse
+allVotes.button.cancel.refuse=Cancel not approve
 allVotes.button.approve=Pre-Approve
-allVotes.button.refuse=Pre-Refuse
+allVotes.button.refuse=Pre-Not-Approve
 allVotes.button.backup=Mark Backup
-allVotes.button.remove=Remove from refused list
+allVotes.button.remove=Remove from not approved list
 
 allVotes.button.all=All
 allVotes.button.recompute=Recompute total and votes
@@ -1570,7 +1570,7 @@ draft=draft
 deleted=deleted
 submitted=submitted
 approved=approved
-rejected=rejected
+rejected=not approved
 accepted=accepted
 backup=backup
 declined=declined
@@ -1582,7 +1582,7 @@ draft.caps=DRAFT
 deleted.caps=DELETED
 submitted.caps=SUBMITTED
 approved.caps=APPROVED
-rejected.caps=REJECTED
+rejected.caps=NOT APPROVED
 accepted.caps=ACCEPTED
 backup.caps=BACKUP
 declined.caps=DECLINED
@@ -1657,7 +1657,7 @@ uploadPicture.msg.error.missing=Missing file
 uploadPicture.msg.error.general=Error parsing form data
 
 #REST API
-api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was rejected by the trackleader but is still in the schedulling.
+api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was not approved by the trackleader but is still in the schedulling.
 
 #CallForTracks
 callfortracks.registration.title=Track Registration
