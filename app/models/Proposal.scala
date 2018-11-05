@@ -1076,9 +1076,9 @@ object Proposal {
   
   /**
     * returns true if a speaker has a proposal with state backup that has not been
-	* accepted or refused
-	*
-	*/
+    * accepted or refused
+    *
+   */
   def existsUnconfirmedBackupForSpeaker(uuid:String): Boolean = Redis.pool.withClient {
     implicit client =>
       import collection.JavaConverters._
@@ -1086,9 +1086,21 @@ object Proposal {
       if(backupProposals.nonEmpty) {
         val confirmedProposals = client.smembers("BackupConfirmed")
         confirmedProposals.intersect(backupProposals).size != backupProposals.size
-	    } else {
-		    false
-	    }
+      } else {
+        false
+      }
+  }
+  
+  /**
+    * returns all proposals for the selected track
+    */
+  def allByTrack(trackId:String): List[Proposal] = Redis.pool.withClient {
+    client =>
+      val allProposalIDs = client.smembers(s"Proposals:ByTrack:$trackId")
+      client.hmget("Proposals", allProposalIDs).map {
+        json =>
+          Json.parse(json).as[Proposal]
+      }
   }
 
 }

@@ -1,6 +1,7 @@
 @(totalSpeakers: Long, totalProposals: Long, totalReviews: Long, totalVotes: Long, totalNoVotes: Long, mostVoted: Option[(String, String)]
     , totalSubmittedByTrack: Map[String, Int], totalAcceptedByTrack: Map[String, Int], totalApprovedSpeakers:Long, totalRefusedSpeakers:Long
-    , allApprovedByTrack:Map[String,Int], totalByState:List[(String,Int)])(implicit lang: Lang, flash: Flash, req: RequestHeader)
+    , allApprovedByTrack:Map[String,Int], totalByState:List[(String,Int)]
+    , allProposalStatesByTrack:Map[String,LeaderboardProposalStates])(implicit lang: Lang, flash: Flash, req: RequestHeader)
 
 @main(Messages("leaderboard.tab")) {
     <div class="row">
@@ -87,81 +88,38 @@
 
                     <div class="clearfix"></div>
 
-
-                    <div class="col-md-4">
-                        <h3>@Messages("leaderboard.section.submitted.bytrack")</h3>
-                        @if(totalSubmittedByTrack.nonEmpty){
-                            @defining(totalSubmittedByTrack.map(_._2).max){maxValue=>
-                            @totalSubmittedByTrack.map(pair => (Messages(pair._1+".leaderboard"),pair._2)).toSeq.sortBy(_._1).map{case(track,total)=>
-                                <span class="label label-info">@total</span> @track
-                                    <!-- acesso somente habilitado para superusers -->
-                                    @if(SecureCFPController.hasAccessToAdmin(req)){
-                                        <a href="@routes.CFPAdmin.allProposalsByTrack(Option(track))"><i class="icon-arrow-right"></i></a>
-                                    }
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
-                                        <span class="sr-only">@track</span>
-                                    </div>
-                                </div>
+                    <div class="col-md-12">
+                        <h3>@Messages("leaderboard.section.proposals.bytrack")</h3>
+                        <table class="table table-bordered table-striped table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>@Messages("leaderboard.columns.track")</th>
+                                    <th>@Messages("submitted")</th>
+                                    <th>@Messages("approved")</th>
+                                    <th>@Messages("accepted")</th>
+                                    <th>@Messages("declined")</th>
+                                    <th>@Messages("rejected")</th>
+                                    <th>@Messages("backup")</th>
+                                    <th>@Messages("leaderboard.columns.total")</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @allProposalStatesByTrack.map(pair => (Messages(pair._1+".label"),pair._2)).toSeq.sortBy(_._1).map { case (track,stats) =>
+                                <tr>
+                                    <td>@track</td>
+                                    <td>@stats.submitted</td>
+                                    <td>@stats.approved</td>
+                                    <td>@stats.accepted</td>
+                                    <td>@stats.declined</td>
+                                    <td>@stats.rejected</td>
+                                    <td>@stats.backup</td>
+                                    <td>@stats.total</td>
+                                 </tr>
                             }
-                            }
-                        }
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="col-md-4">
-                        <h3>@Messages("leaderboard.section.approved.bytrack")</h3>
-                        @if(allApprovedByTrack.nonEmpty) {
-                            @defining(allApprovedByTrack.map(_._2).max){maxValue=>
-                                @allApprovedByTrack.map(pair => (Messages(pair._1),pair._2)).toSeq.sortBy(_._1).map{case(track,total)=>
-                                    <span class="label label-info">@total</span>@track
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
-                                            <span class="sr-only">@track</span>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                        }
-                    </div>
-
-                     <div class="col-md-4">
-                        <h3>@Messages("leaderboard.section.accepted.bytrack")</h3>
-                         @if(totalAcceptedByTrack.nonEmpty){
-                            @defining(totalAcceptedByTrack.map(_._2).max){maxValue=>
-                                @totalAcceptedByTrack.map(pair => (Messages(pair._1),pair._2)).toSeq.sortBy(_._1).map{case(track,total)=>
-                                    <span class="label label-info">@total</span> @track
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" aria-valuenow="@((total*100)/maxValue)" aria-valuemin="0" aria-valuemax="100" style="width:@((total*100)/maxValue)%;">
-                                            <span class="sr-only">@track</span>
-                                        </div>
-                                    </div>
-                                }
-                            }
-                         }
-                     </div>
-
-<!-- @**
-                  <div class="col-md-4">
-                      <h3>@Messages("leaderboard.section.top.reviewer")</h3>
-                      @bestReviewer.filter(_._2.toInt>0).map { br =>
-                          @tags.renderGravatar(br._1)
-                          <small>@br._2 talks reviewed.</small>
-                      }
-                  </div>
-                  <div class="col-md-4">
-                      <h3>@Messages("leaderboard.section.lazy")</h3>
-                      @lazyOnes.map { wr =>
-                          @tags.renderGravatar(wr._1)
-                          <small>@wr._2 talk@if(wr._2.toInt > 1) {s} reviewed.</small>
-                      }
-                  </div>
-                  <div class="col-md-4">
-                      <h3>@Messages("leaderboard.section.more.stats")</h3>
-                      <small><a href="@routes.CFPAdmin.allReviewersAndStats()" class="btn btn-sm btn-primary">@Messages("leaderboard.btn.see.reviewers")</a></small>
-                  </div>
-
-                  <div class="clearfix"></div>
-**@ -->
                 </div>
             </div>
         </div>

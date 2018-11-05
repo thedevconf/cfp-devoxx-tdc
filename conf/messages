@@ -1491,12 +1491,15 @@ leaderboard.section.accepted.bytrack=Aceitas por Trilha
 leaderboard.section.submitted.bytype=Submetidas por Tipo
 leaderboard.section.approved.bytype=Aprovadas por Tipo
 leaderboard.section.proposals.bystate=Propostas por Status
+leaderboard.section.proposals.bytrack=Propostas por Trilha
 leaderboard.label.accepted.byspeaker=Palestra aceita por um palestrante
 leaderboard.columns.type=Tipo de palestra
 leaderboard.columns.received=Propostas recebidas
 leaderboard.columns.slots=Total de slots
 leaderboard.columns.approved=Propostas aprovadas
 leaderboard.columns.toallocate=Falta alocar
+leaderboard.columns.track=Trilha
+leaderboard.columns.total=Total
 leaderboard.approved.bytype=submissões aprovadas para
 leaderboard.accepted.bytype=submissões aceitas para
 

@@ -253,6 +253,8 @@ object CFPAdmin extends SecureCFPController {
 
       val totalByState:List[(String,Int)] = Leaderboard.totalByState()
 
+      val allProposalStatesByTrack:Map[String,LeaderboardProposalStates] = Leaderboard.allProposalStatesByTrack()
+
       Ok(
         views.html.CFPAdmin.leaderBoard(
           totalSpeakers, totalProposals, totalReviews, totalWithVotes,
@@ -262,7 +264,8 @@ object CFPAdmin extends SecureCFPController {
           totalApprovedSpeakers,
           totalRefusedSpeakers,
           totalApprovedByTrack,
-          totalByState
+          totalByState,
+          allProposalStatesByTrack
         )
       )
   }

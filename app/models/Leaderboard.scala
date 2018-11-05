@@ -24,6 +24,19 @@
 package models
 
 import library.Redis
+import play.api.libs.json.{Json,JsValue}
+
+case class LeaderboardProposalStates (submitted:Int
+     ,approved:Int
+     ,accepted:Int
+     ,declined:Int
+     ,rejected:Int
+     ,backup:Int
+     ,total:Int)
+
+object LeaderboardProposalStates {
+  implicit val leaderboardProposalStatesFormat = Json.format[LeaderboardProposalStates]
+}
 
 /**
  * Leaderboard for stats, used by ZapActor.
@@ -115,25 +128,14 @@ object Leaderboard {
           tx.hset("Leaderboard:totalAcceptedByTrack", track.label, total.toString)
       }
 
-/*
-      Review.bestReviewer().map {
-        bestReviewer =>
-          tx.set("Leaderboard:bestReviewer:uuid", bestReviewer._1)
-          tx.set("Leaderboard:bestReviewer:score", bestReviewer._2.toString())
-      }.getOrElse{
-        tx.del("Leaderboard:bestReviewer:uuid")
-        tx.del("Leaderboard:bestReviewer:score")
+      //Proposals State by track
+      import LeaderboardProposalStates.leaderboardProposalStatesFormat
+      val allProposalStatesByTrack = computeProposalStatesByTrack()  
+      tx.del("Leaderboard:proposalStatesByTrack")
+      allProposalStatesByTrack.map {
+        case (track, stats) =>
+          tx.hset("Leaderboard:proposalStatesByTrack", track, Json.toJson(stats).toString)
       }
-
-      Review.worstReviewer().map{
-        worstReviewer =>
-          tx.set("Leaderboard:worstReviewer:uuid", worstReviewer._1)
-          tx.set("Leaderboard:worstReviewer:score", worstReviewer._2.toString())
-      }.getOrElse{
-        tx.del("Leaderboard:worstReviewer:uuid")
-        tx.del("Leaderboard:worstReviewer:score")
-      }
-*/
 
      tx.exec()
   }
@@ -253,5 +255,69 @@ object Leaderboard {
 
   def totalRefusedSpeakers():Long={
     getFromRedis("Leaderboard:totalRefusedSpeakers")
+  }
+  
+  /*
+   * returns a map with the Track as a key and a tuple with the sum of proposals by state in the folloging order
+   * (submitted,approved,accepted,declined,rejected,backup)
+   */
+  private def computeProposalStatesByTrack(): Map[String,LeaderboardProposalStates] = {
+    val allProposalsByTrack:Map[Track,List[Proposal]] = Proposal.allActiveProposals().groupBy(_.track)
+    val allTracks = ConferenceDescriptor.ConferenceTracks.ALL.map( track => {
+      if(allProposalsByTrack.isDefinedAt(track)) {
+        val currentTrackProposals = allProposalsByTrack(track)
+        val totalProposalsByState = currentTrackProposals.groupBy(_.state)
+        (track.id,
+          LeaderboardProposalStates(totalProposalsByState.applyOrElse(ProposalState.SUBMITTED,returnEmptyList).size,
+            totalProposalsByState.applyOrElse(ProposalState.APPROVED,returnEmptyList).size,
+            totalProposalsByState.applyOrElse(ProposalState.ACCEPTED,returnEmptyList).size,
+            totalProposalsByState.applyOrElse(ProposalState.DECLINED,returnEmptyList).size,
+            totalProposalsByState.applyOrElse(ProposalState.REJECTED,returnEmptyList).size,
+            totalProposalsByState.applyOrElse(ProposalState.BACKUP,returnEmptyList).size,
+            currentTrackProposals.size))
+      } else {
+        (track.id,LeaderboardProposalStates(0,0,0,0,0,0,0))
+      }
+    })
+    allTracks.toMap
+  }
+
+  /*
+   * returns a map with the Track as a key and a tuple with the sum of proposals by state in the folloging order
+   * (submitted,approved,accepted,declined,rejected,backup)
+   *
+   * It doesn't work as is now because the data in the Proposals:ByTrack set in Redis is incorrect
+   *
+   * TODO Fix the application so the set Proposals:ByTrack contains the correct data
+   */
+  private def allProposalStatesByTrackDebug(): Map[String,(Int,Int,Int,Int,Int,Int,Int)] = {
+    val allTracks = ConferenceDescriptor.ConferenceTracks.ALL.map( track => {
+      val allProposalsByTrack = Proposal.allByTrack(track.id)
+      val totalProposalsByState = allProposalsByTrack.groupBy(_.state)
+
+      (track.id,
+        (totalProposalsByState.applyOrElse(ProposalState.SUBMITTED,returnEmptyList).size,
+          totalProposalsByState.applyOrElse(ProposalState.APPROVED,returnEmptyList).size,
+          totalProposalsByState.applyOrElse(ProposalState.ACCEPTED,returnEmptyList).size,
+          totalProposalsByState.applyOrElse(ProposalState.DECLINED,returnEmptyList).size,
+          totalProposalsByState.applyOrElse(ProposalState.REJECTED,returnEmptyList).size,
+          totalProposalsByState.applyOrElse(ProposalState.BACKUP,returnEmptyList).size,
+          allProposalsByTrack.size))
+    })
+    allTracks.toMap
+  }
+
+  private def returnEmptyList(param:Any) = Nil
+  
+  /*
+   * reads the last computed value for the proposal states by track
+   */
+  def allProposalStatesByTrack(): Map[String,LeaderboardProposalStates] = Redis.pool.withClient {
+    implicit client =>
+      import LeaderboardProposalStates.leaderboardProposalStatesFormat
+      client.hgetAll("Leaderboard:proposalStatesByTrack").map {
+        case (track, stats) =>
+          (track, Json.parse(stats).as[LeaderboardProposalStates])
+      }
   }
 }

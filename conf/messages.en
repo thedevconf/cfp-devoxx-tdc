@@ -1491,12 +1491,15 @@ leaderboard.section.accepted.bytrack=Accepted by Track
 leaderboard.section.submitted.bytype=Submitted by Type
 leaderboard.section.approved.bytype=Approved by Type
 leaderboard.section.proposals.bystate=Proposals by State
+leaderboard.section.proposals.bytrack=Proposals by Track
 leaderboard.label.accepted.byspeaker=Talk accepted by a speaker
 leaderboard.columns.type=Proposal type
 leaderboard.columns.received=Proposal received
 leaderboard.columns.slots=Total slots
 leaderboard.columns.approved=Proposal approved
 leaderboard.columns.toallocate=To allocate
+leaderboard.columns.track=Track
+leaderboard.columns.total=Total
 leaderboard.approved.bytype=approved submissions for
 leaderboard.accepted.bytype=accepted submissions for
 
