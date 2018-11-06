@@ -58,16 +58,17 @@
 
 <h3>Bem-vindo ao @Messages("longYearlyName")</h3>
 <p>Olá, @firstName,</p>
-<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de propostas!</p>
-<p>Estamos muito contentes em anunciar que a sua palestra foi <strong>APROVADA</strong> :<br/>
+<p>Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!</p>
+<p>Estamos muito contentes em anunciar que a sua palestra foi <strong>APROVADA</strong>:
     Título: <strong>@proposal.title</strong> <br/>
     Trilha: <strong>@Messages(proposal.track.label)</strong> <br/>
-    Formato: <strong>tempo de palestra conforme combinado com os coordenadores</strong>
-</p>
+    Formato: <strong>@Messages(proposal.talkType.id)</strong></p>
 <br/>
 <h3>ATENÇÃO! Ações necessárias</h3>
 <h4>1. Aceitar ou recusar</h4>
-<p>Você deve agora validar ou recusar os termos e condições, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:<br/>
+<p>Você deve agora validar/aceitar ou recusar os
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">termos e condições de participação</a>, assim como o
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">código de conduta</a>, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
     <br/>
     <b>ATENÇÃO</b>: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
@@ -80,7 +81,7 @@
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>Para fazer a sua apresentação, disponibilizamos um
-    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
+    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt" title="Clique para baixar o template de apresentação do TheDevConf">template em PowerPoint</a> (uso não obrigatório).</p>
 <h4>4. Cortesia para palestrantes</h4>
 <p>Você gostaria de participar de outras trilhas do evento?
     Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
@@ -91,7 +92,7 @@
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> e no
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
 <p>E para ajudar-nos na divulgação do evento, acesse a
-    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais" title="Divulgue o TDC">página de banners digitais</a> do nosso site.</p>
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais" title="Divulgue o TDC">página de banners digitais</a> do nosso site.</p>
 <br/>
 <p>Lembramos que o evento <strong>NÃO</strong> cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.</p>
 <br/>
@@ -156,22 +157,23 @@
 </table>
 
 
-<p>Hi, @firstName,</p>
+<p>Hi, <?= nomePalestrantes ?>,</p>
 <p>Thanks again for your submission! The result was amazing, we have received hundreds of submissions!</p>
-<p>We're glad to inform you that your proposal has been <strong>APPROVED</strong>:<br/>
+<p>We're glad to inform you that your proposal has been <strong>APPROVED</strong>:
     Title: <strong>@proposal.title</strong> <br/>
-    Track: <strong> @Messages(proposal.track.label)</strong> <br/>
-    Format: <strong>talk time as agreed with the coordinators</strong>
-</p>
+    Track: <strong>  </strong> <br/>
+    Format: <strong>@Messages(proposal.talkType.id)</strong></p>
 <br/>
 <h3>ATTENTION! Required actions</h3>
 <h4>1. Accept or decline</h4>
-<p>You must now validate or decline the general terms and conditions, and confirm that you are still ok to do
+<p>You must now validate/accept or decline the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/aceite">general terms and conditions</a>, as well as the
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/conduta">code of conduct</a>, and confirm that you are still ok to do
     this presentation AS SOON AS POSSIBLE:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
     <br/>
-    <b>ATTENTION</b>: Only accepted talks by the CFP system will be published on the website, so we ask you to do it as soon as possible.
-    The talks not accepted within 5 working days from this notification will be canceled and another one will take its place.
+    ATTENTION: Only talks accepted via CFP website will be published in TDC website, so we ask you to do it as soon as possible.
+    Talks not accepted within 5 working days after this notification, will be cancelled and another one will take its place.
 </p>
 <h4>2. Your bio and picture</h4>
 <p>In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.</p>
@@ -180,7 +182,7 @@
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 <p>To prepare your presentation, we provide a
-    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2017/arquivos/template-TDC2017.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
+    <a target="_blank" href="https://s3-sa-east-1.amazonaws.com/thedevconf/2018/arquivos/template-TDC2018.ppt" title="Clique para baixar o template de apresentação do TheDevConf">PowerPoint template</a> (not mandatory).</p>
 <h4>4. Reward for Speakers</h4>
 <p>Would you like to participate in other event tracks?
     All speakers are entitled to 1 track a day beyond that which will deliver his talk.
@@ -190,7 +192,7 @@
     <a target="_blank" href="http://facebook.com/TheDevelopersConference">Facebook</a> and
     <a target="_blank" href="http://twitter.com/TheDevConf">Twitter</a>. </p>
 <p>And to help us with the event, go to the
-    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2017/banners-digitais" title="Divulgue o @Messages("longYearlyName")">digital banners page</a> of our website.</p>
+    <a target="_blank" href="http://www.thedevelopersconference.com.br/tdc/2018/banners-digitais" title="Divulgue o @Messages("longYearlyName")">digital banners page</a> of our website.</p>
 <br/>
 <p>We remind that the event does <strong>NOT</strong> cover travel costs, accommodation and meals of the speakers.</p>
 <br/>

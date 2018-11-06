@@ -209,55 +209,68 @@ object ConferenceDescriptor {
     val AGILE = Track("agile", "agile.label")
     val AGILECOACH = Track("agilecoach", "agilecoach.label")
     val ANALISE = Track("analise", "analise.label")
-    val ANDROID = Track("android", "android.label")
+    val ANDROID = Track("androidkotlin", "androidkotlin.label")
     val ARDUINO = Track("arduino", "arduino.label")
+    val ARQUITDADOS = Track("arquitetdados", "arquitetdados.label")
     val ARQUITJAVA = Track("arquitetjava", "arquitetjava.label")
-    val ARQUITPHP = Track("arquitetphp", "arquitetphp.label")
+    val ARQUITNET = Track("arquitetnet", "arquitetnet.label")
 
     val BIGDATA = Track("bigdata", "bigdata.label")
-    val BANCODADOS = Track("banco", "banco.label")
     val BLOCKCHAIN = Track("blockchain", "blockchain.label")
+
+    val CARREIRA = Track("carreira", "carreira.label")
     val CHATBOTS = Track("chatbots", "chatbots.label")
     val CLOUD = Track("cloud", "cloud.label")
-    val COMPUTACAOCOGN = Track("computacao", "computacao.label")
     val CONTAINERS = Track("containers", "containers.label")
 
     val DATASCIENCE = Track("datascience", "datascience.label")
+    val DELPHI = Track("delphi", "delphi.label")
     val DTHINKING = Track("dthinking", "dthinking.label")
     val DEVOPS = Track("devops", "devops.label")
+    val DEVOPSTOOLS = Track("devopstools", "devopstools.label")
     val DEVTEST = Track("devtest", "devtest.label")
+    val DESIGNCODIGO = Track("designcodigo", "designcodigo.label")
 
+    val EXTREMEPROG = Track("extremeprog", "extremeprog.label")
+
+    val GAMESREALIDADE = Track("gamesrealidade", "gamesrealidade.label")
     val GESTAOPROD = Track("gestaoprod", "gestaoprod.label")
-    val GAMES = Track("games", "games.label")
     val GOLANG = Track("golang", "golang.label")
 
-    val INFRAAGIL = Track("infraagil", "infraagil.label")
+    val INOVACAO = Track("inovacao", "inovacao.label")
+    val INTELARTIF = Track("intelartif", "intelartif.label")
     val IOS = Track("ios", "ios.label")
     val IOT = Track("iot", "iot.label")
 
     val JAVA = Track("java", "java.label")
     val JAVASCRIPT = Track("javascript", "javascript.label")
 
+    val KANBAN = Track("kanban", "kanban.label")
+
     val MACHINE = Track("machine", "machine.label")
     val MANAGEMENT = Track("management", "management.label")
-    val MARKETING = Track("marketing", "marketing.label")
     val MICROSERVICES = Track("microservices", "microservices.label")
 
     val NODEJS = Track("nodejs", "nodejs.label")
     val NOSQL = Track("nosql", "nosql.label")
-    val PFUNCIONAL = Track("pfuncional", "pfuncional.label")
+
+    val PYTHON = Track("python", "python.label")
+
+    val RUBY = Track("ruby", "ruby.label")
 
     val TESTES = Track("testes", "testes.label")
     val TRANSFDIGITAL = Track("transfdigital", "transfdigital.label")
     val UXDESIGN = Track("uxdesign", "uxdesign.label")
-    val WEB = Track("web", "web.label")
+    val WEBFRONTEND = Track("webfrontend", "webfrontend.label")
     val WOMEN = Track("women", "women.label")
-    val XAMARIN = Track("xamarin", "xamarin.label")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
-      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
-      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
-      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    //val UNIVERSITY = Track("university", "university.label")
+
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
+      ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GAMESREALIDADE, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, RUBY, TESTES,
+      TRANSFDIGITAL, UXDESIGN, WEBFRONTEND, WOMEN)
 
   }
 
@@ -269,55 +282,68 @@ object ConferenceDescriptor {
     val AGILE = TrackDesc(ConferenceTracks.AGILE.id, "/assets/tdc2016poa/images/icon_agile.png", "track.agile.title", "track.agile.desc")
     val AGILECOACH = TrackDesc(ConferenceTracks.AGILECOACH.id, "/assets/tdc2016poa/images/icon_agilecoach.png", "track.agilecoach.title", "track.agilecoach.desc")
     val ANALISE = TrackDesc(ConferenceTracks.ANALISE.id, "/assets/tdc2016poa/images/icon_analise.png", "track.analise.title", "track.analise.desc")
-    val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_android.png", "track.android.title", "track.android.desc")
+    val ANDROID = TrackDesc(ConferenceTracks.ANDROID.id, "/assets/tdc2016poa/images/icon_androidkotlin.png", "track.androidkotlin.title", "track.androidkotlin.desc")
     val ARDUINO = TrackDesc(ConferenceTracks.ARDUINO.id, "/assets/tdc2016poa/images/icon_arduino.png", "track.arduino.title", "track.arduino.desc")
+    val ARQUITDADOS = TrackDesc(ConferenceTracks.ARQUITDADOS.id, "/assets/tdc2016poa/images/icon_arquitetdados.png", "track.arquitetdados.title", "track.arquitetdados.desc")
     val ARQUITJAVA = TrackDesc(ConferenceTracks.ARQUITJAVA.id, "/assets/tdc2016poa/images/icon_arquitetjava.png", "track.arquitetjava.title", "track.arquitetjava.desc")
-    val ARQUITPHP = TrackDesc(ConferenceTracks.ARQUITPHP.id, "/assets/tdc2016poa/images/icon_arquitetphp.png", "track.arquitetphp.title", "track.arquitetphp.desc")
+    val ARQUITNET = TrackDesc(ConferenceTracks.ARQUITNET.id, "/assets/tdc2016poa/images/icon_arquitetnet.png", "track.arquitetnet.title", "track.arquitetnet.desc")
 
-    val BANCODADOS = TrackDesc(ConferenceTracks.BANCODADOS.id, "/assets/tdc2016poa/images/icon_bd.png", "track.banco.title", "track.banco.desc")
     val BIGDATA = TrackDesc(ConferenceTracks.BIGDATA.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.bigdata.title", "track.bigdata.desc")
     val BLOCKCHAIN = TrackDesc(ConferenceTracks.BLOCKCHAIN.id, "/assets/tdc2016poa/images/icon_bigdata.png", "track.blockchain.title", "track.blockchain.desc")
+
+    val CARREIRA = TrackDesc(ConferenceTracks.CARREIRA.id, "/assets/tdc2016poa/images/icon_carreira.png", "track.carreira.title", "track.carreira.desc")
     val CHATBOTS = TrackDesc(ConferenceTracks.CHATBOTS.id, "/assets/tdc2016poa/images/icon_chatbots.png", "track.chatbots.title", "track.chatbots.desc")
     val CLOUD = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.cloud.title", "track.cloud.desc")
-    val COMPUTACAOCOGN = TrackDesc(ConferenceTracks.COMPUTACAOCOGN.id, "/assets/tdc2016poa/images/icon_computacao.png", "track.computacao.title", "track.computacao.desc")
     val CONTAINERS = TrackDesc(ConferenceTracks.CLOUD.id, "/assets/tdc2016poa/images/icon_cloud.png", "track.containers.title", "track.containers.desc")
 
     val DATASCIENCE = TrackDesc(ConferenceTracks.DATASCIENCE.id, "/assets/tdc2016poa/images/icon_datascience.png", "track.datascience.title", "track.datascience.desc")
+    val DELPHI = TrackDesc(ConferenceTracks.DELPHI.id, "/assets/tdc2016poa/images/icon_delphi.png", "track.delphi.title", "track.delphi.desc")
     val DEVOPS = TrackDesc(ConferenceTracks.DEVOPS.id, "/assets/tdc2016poa/images/icon_devops.png", "track.devops.title", "track.devops.desc")
+    val DEVOPSTOOLS = TrackDesc(ConferenceTracks.DEVOPSTOOLS.id, "/assets/tdc2016poa/images/icon_devops.png", "track.devopstools.title", "track.devopstools.desc")
     val DEVTEST = TrackDesc(ConferenceTracks.DEVTEST.id, "/assets/tdc2016poa/images/icon_devtest.png", "track.devtest.title", "track.devtest.desc")
     val DTHINKING = TrackDesc(ConferenceTracks.DTHINKING.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.dthinking.title", "track.dthinking.desc")
+    val DESIGNCODIGO = TrackDesc(ConferenceTracks.DESIGNCODIGO.id, "/assets/tdc2016poa/images/icon_dthinking.png", "track.designcodigo.title", "track.designcodigo.desc")
 
+    val EXTREMEPROG = TrackDesc(ConferenceTracks.EXTREMEPROG.id, "/assets/tdc2016poa/images/icon_xp.png", "track.extremeprog.title", "track.extremeprog.desc")
+
+    val GAMESREALIDADE = TrackDesc(ConferenceTracks.GAMESREALIDADE.id, "/assets/tdc2016poa/images/icon_gamesrealidade.png", "track.gamesrealidade.title", "track.gamesrealidade.desc")
     val GESTAOPROD = TrackDesc(ConferenceTracks.GESTAOPROD.id, "/assets/tdc2016poa/images/icon_gestaoprod.png", "track.gestaoprod.title", "track.gestaoprod.desc")
-    val GAMES = TrackDesc(ConferenceTracks.GAMES.id, "/assets/tdc2016poa/images/icon_games.png", "track.games.title", "track.games.desc")
     val GOLANG = TrackDesc(ConferenceTracks.GOLANG.id, "/assets/tdc2016poa/images/icon_golang.png", "track.golang.title", "track.golang.desc")
+
+    val INOVACAO = TrackDesc(ConferenceTracks.INOVACAO.id, "/assets/tdc2016poa/images/icon_inovacao.png", "track.inovacao.title", "track.inovacao.desc")
+    val INTELARTIF = TrackDesc(ConferenceTracks.INTELARTIF.id, "/assets/tdc2016poa/images/icon_intelartif.png", "track.intelartif.title", "track.intelartif.desc")
+    val IOS = TrackDesc(ConferenceTracks.IOS.id, "/assets/tdc2016poa/images/icon_ios.png", "track.ios.title", "track.ios.desc")
+    val IOT = TrackDesc(ConferenceTracks.IOT.id, "/assets/tdc2016poa/images/icon_iot.png", "track.iot.title", "track.iot.desc")
 
     val JAVA = TrackDesc(ConferenceTracks.JAVA.id, "/assets/tdc2016poa/images/icon_java.png", "track.java.title", "track.java.desc")
     val JAVASCRIPT = TrackDesc(ConferenceTracks.JAVASCRIPT.id, "/assets/tdc2016poa/images/icon_javascript.png", "track.javascript.title", "track.javascript.desc")
 
-    val INFRAAGIL = TrackDesc(ConferenceTracks.INFRAAGIL.id, "/assets/tdc2016poa/images/icon_infraagil.png", "track.infraagil.title", "track.infraagil.desc")
-    val IOS = TrackDesc(ConferenceTracks.IOS.id, "/assets/tdc2016poa/images/icon_ios.png", "track.ios.title", "track.ios.desc")
-    val IOT = TrackDesc(ConferenceTracks.IOT.id, "/assets/tdc2016poa/images/icon_iot.png", "track.iot.title", "track.iot.desc")
+    val KANBAN = TrackDesc(ConferenceTracks.KANBAN.id, "/assets/tdc2016poa/images/icon_kanban.png", "track.kanban.title", "track.kanban.desc")
 
     val MACHINE = TrackDesc(ConferenceTracks.MACHINE.id, "/assets/tdc2016poa/images/icon_machine.png", "track.machine.title", "track.machine.desc")
     val MANAGEMENT = TrackDesc(ConferenceTracks.MANAGEMENT.id, "/assets/tdc2016poa/images/icon_management.png", "track.management.title", "track.management.desc")
-    val MARKETING = TrackDesc(ConferenceTracks.MARKETING.id, "/assets/tdc2016poa/images/icon_marketing.png", "track.marketing.title", "track.marketing.desc")
     val MICROSERVICES = TrackDesc(ConferenceTracks.MICROSERVICES.id, "/assets/tdc2016poa/images/icon_bd.png", "track.microservices.title", "track.microservices.desc")
 
     val NODEJS = TrackDesc(ConferenceTracks.NODEJS.id, "/assets/tdc2016poa/images/icon_nodejs.png", "track.nodejs.title", "track.nodejs.desc")
     val NOSQL = TrackDesc(ConferenceTracks.NOSQL.id, "/assets/tdc2016poa/images/icon_nosql.png", "track.nosql.title", "track.nosql.desc")
-    val PFUNCIONAL = TrackDesc(ConferenceTracks.PFUNCIONAL.id, "/assets/tdc2016poa/images/icon_pfuncional.png", "track.pfuncional.title", "track.pfuncional.desc")
+
+    val PYTHON = TrackDesc(ConferenceTracks.PYTHON.id, "/assets/tdc2016poa/images/icon_python.png", "track.python.title", "track.python.desc")
+
+    val RUBY = TrackDesc(ConferenceTracks.RUBY.id, "/assets/tdc2016poa/images/icon_ruby.png", "track.ruby.title", "track.ruby.desc")
 
     val TESTES = TrackDesc(ConferenceTracks.TESTES.id, "/assets/tdc2016poa/images/icon_testes.png", "track.testes.title", "track.testes.desc")
     val TRANSFDIGITAL = TrackDesc(ConferenceTracks.TRANSFDIGITAL.id, "/assets/tdc2016poa/images/icon_transfdigital.png", "track.transfdigital.title", "track.transfdigital.desc")
     val UXDESIGN = TrackDesc(ConferenceTracks.UXDESIGN.id, "/assets/tdc2016poa/images/icon_uxdesign.png", "track.uxdesign.title", "track.uxdesign.desc")
-    val WEB = TrackDesc(ConferenceTracks.WEB.id, "/assets/tdc2016poa/images/icon_web.png", "track.web.title", "track.web.desc")
+    val WEBFRONTEND = TrackDesc(ConferenceTracks.WEBFRONTEND.id, "/assets/tdc2016poa/images/icon_web.png", "track.webfrontend.title", "track.webfrontend.desc")
     val WOMEN = TrackDesc(ConferenceTracks.WOMEN.id, "/assets/tdc2016poa/images/icon_women.png", "track.women.title", "track.women.desc")
-    val XAMARIN = TrackDesc(ConferenceTracks.XAMARIN.id, "/assets/tdc2016poa/images/icon_xamarin.png", "track.xamarin.title", "track.xamarin.desc")
 
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITJAVA, ARQUITPHP,
-      BANCODADOS, BIGDATA, BLOCKCHAIN, CHATBOTS, CLOUD, COMPUTACAOCOGN, CONTAINERS, DATASCIENCE, DTHINKING, DEVTEST,
-      DEVOPS, GAMES, GESTAOPROD, GOLANG, INFRAAGIL, IOS, IOT, JAVA, JAVASCRIPT, MACHINE, MANAGEMENT, MARKETING,
-      MICROSERVICES, NODEJS, NOSQL, PFUNCIONAL, TESTES, TRANSFDIGITAL, UXDESIGN, WEB, WOMEN, XAMARIN)
+    //val UNIVERSITY = TrackDesc(ConferenceTracks.UNIVERSITY.id, "/assets/tdc2016poa/images/icon_university.png", "track.university.title", "track.university.desc")
+
+    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
+      ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
+      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GAMESREALIDADE, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
+      IOS, IOT, JAVA, JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, RUBY, TESTES,
+      TRANSFDIGITAL, UXDESIGN, WEBFRONTEND, WOMEN)
 
     def findTrackDescFor(t: Track): TrackDesc = {
       ALL.find(_.id == t.id).getOrElse(DOTNET)
@@ -776,14 +802,14 @@ object ConferenceDescriptor {
 
   def dateRange(from: DateTime, to: DateTime, step: Period): Iterator[DateTime]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
 
-  val fromDay = new DateTime().withYear(2017).withMonthOfYear(11).withDayOfMonth(8)
-  val toDay = new DateTime().withYear(2017).withMonthOfYear(11).withDayOfMonth(11)
+  val fromDay = new DateTime().withYear(2018).withMonthOfYear(12).withDayOfMonth(5)
+  val toDay = new DateTime().withYear(2018).withMonthOfYear(12).withDayOfMonth(8)
 
   // TODO You might want to start here and configure first, your various Conference Elements
   def current() = ConferenceDescriptor(
-    eventCode = "TDC2017POA",
+    eventCode = "TDC2018POA",
     // You will need to update conf/routes files with this code if modified
-    confUrlCode = "tdc2017poa",
+    confUrlCode = "tdc2018poa",
     frLangEnabled = false,
     fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
     committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
@@ -791,21 +817,21 @@ object ConferenceDescriptor {
     bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
     conferenceUrls = ConferenceUrls(
       faq = "http://cfp-poa.thedevconf.com.br/faq",
-      registration = "http://thedevconf.com.br/tdc/2017/inscricoes",
+      registration = "http://thedevconf.com.br/tdc/2018/inscricoes",
       confWebsite = "http:/thedevconf.com.br",
       cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br")
     ),
     timing = ConferenceTiming(
-      datesI18nKey = "8 a 11 de Novembro de 2017",
+      datesI18nKey = "5 a 8 de Dezembro de 2018",
       speakersPassDuration = 4,
       preferredDayEnabled = true,
-      firstDayFr = "8 november",
-      firstDayEn = "november 8th",
-      datesFr = "du 8 au 11 november 2017",
-      datesEn = "November 8th to 11th, 2017",
-      cfpOpenedOn = DateTime.parse("2017-08-18T08:00:00-03:00"),
-      cfpClosedOn = DateTime.parse("2017-09-03T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2017-09-11T00:00:00-03:00"),
+      firstDayFr = "5 december",
+      firstDayEn = "december 5th",
+      datesFr = "du 5 au 8 december 2018",
+      datesEn = "December 5th to 8th, 2018",
+      cfpOpenedOn = DateTime.parse("2018-09-12T16:30:00-03:00"),
+      cfpClosedOn = DateTime.parse("2018-10-01T23:59:59-03:00"),
+      scheduleAnnouncedOn = DateTime.parse("2018-10-08T00:00:00-03:00"),
       days=dateRange(fromDay,toDay,new Period().withDays(1))
     ),
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
