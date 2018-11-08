@@ -805,7 +805,7 @@ object Proposal {
   }
 
   /**
-    * Load all proposals except ARCHIVED and DELETED
+    * Load all proposals except ARCHIVED and DELETED, and fills the proposals with their states
     */
   def allActiveProposals(): List[Proposal] = Redis.pool.withClient {
     implicit client =>
@@ -1099,7 +1099,9 @@ object Proposal {
       val allProposalIDs = client.smembers(s"Proposals:ByTrack:$trackId")
       client.hmget("Proposals", allProposalIDs).map {
         json =>
-          Json.parse(json).as[Proposal]
+          val proposal = Json.parse(json).as[Proposal]
+          val proposalState = findProposalState(proposal.id)
+          proposal.copy(state = proposalState.getOrElse(ProposalState.UNKNOWN))
       }
   }
 

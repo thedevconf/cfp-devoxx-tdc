@@ -282,31 +282,6 @@ object Leaderboard {
     allTracks.toMap
   }
 
-  /*
-   * returns a map with the Track as a key and a tuple with the sum of proposals by state in the folloging order
-   * (submitted,approved,accepted,declined,rejected,backup)
-   *
-   * It doesn't work as is now because the data in the Proposals:ByTrack set in Redis is incorrect
-   *
-   * TODO Fix the application so the set Proposals:ByTrack contains the correct data
-   */
-  private def allProposalStatesByTrackDebug(): Map[String,(Int,Int,Int,Int,Int,Int,Int)] = {
-    val allTracks = ConferenceDescriptor.ConferenceTracks.ALL.map( track => {
-      val allProposalsByTrack = Proposal.allByTrack(track.id)
-      val totalProposalsByState = allProposalsByTrack.groupBy(_.state)
-
-      (track.id,
-        (totalProposalsByState.applyOrElse(ProposalState.SUBMITTED,returnEmptyList).size,
-          totalProposalsByState.applyOrElse(ProposalState.APPROVED,returnEmptyList).size,
-          totalProposalsByState.applyOrElse(ProposalState.ACCEPTED,returnEmptyList).size,
-          totalProposalsByState.applyOrElse(ProposalState.DECLINED,returnEmptyList).size,
-          totalProposalsByState.applyOrElse(ProposalState.REJECTED,returnEmptyList).size,
-          totalProposalsByState.applyOrElse(ProposalState.BACKUP,returnEmptyList).size,
-          allProposalsByTrack.size))
-    })
-    allTracks.toMap
-  }
-
   private def returnEmptyList(param:Any) = Nil
   
   /*
