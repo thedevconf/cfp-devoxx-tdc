@@ -1103,4 +1103,15 @@ object Proposal {
       }
   }
 
+  /**
+    * removes a proposal from the corresponding set of proposals by track
+    *
+    * @param proposalId
+    * @param trackId
+    */
+  def removeFromTrack(proposalId:String, trackId:String): Unit = Redis.pool.withClient {
+    client =>
+      client.srem(s"Proposals:ByTrack:$trackId",proposalId)
+  }
+
 }

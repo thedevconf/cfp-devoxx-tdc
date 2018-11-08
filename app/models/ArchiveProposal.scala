@@ -95,6 +95,9 @@ object ArchiveProposal {
     // Remove votes for this talk
     Review.archiveAllVotesOnProposal(proposalId)
 
+    //Removes the proposal from the list of proposals by track
+    Proposal.removeFromTrack(proposalId,proposal.track.id)
+
     // Save the proposal state in the Proposals collection before the state is changed to archived
     Proposal.saveState(proposal)
 
