@@ -294,7 +294,7 @@ class ZapActor extends Actor {
   }
 
   def doNotifyProfileUpdated(speaker: Speaker) = {
-    Mails.sendProfileUpdated(speaker)
+    TDCClient.updateSpeakerProfile(speaker)
   }
 
   def doUploadPresentation(proposalId: String, filename: String, uploadedBy: String) = {
