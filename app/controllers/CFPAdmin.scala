@@ -749,6 +749,7 @@ object CFPAdmin extends SecureCFPController {
               }
               Speaker.save(validSpeaker)
               Event.storeEvent(Event(validSpeaker.cleanName, request.webuser.uuid, "updated a speaker [" + validSpeaker.uuid + "]"))
+              TDCClient.updateSpeakerProfile(validSpeaker,Option(request.webuser.uuid))
               Redirect(routes.CFPAdmin.showSpeakerAndTalks(existingUUID)).flashing("success" -> "Profile updated")
             }
             case None => {

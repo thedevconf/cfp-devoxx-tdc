@@ -17,11 +17,14 @@ object TDCClient {
   /**
    * calls the TDC API to update the speaker profile
    */
-  def updateSpeakerProfile(speaker: Speaker): Unit = {
-    val jsonSpeaker = convertSpeakerToJson(speaker)
+  def updateSpeakerProfile(speaker: Speaker, caller:Option[String] = None): Unit = {
     val tokenFuture = obtainAPIToken()
     tokenFuture onComplete {
-      case Success(token) => callUpdateSpeaker(token,jsonSpeaker,speaker.uuid)
+      case Success(token) => {
+          val jsonSpeaker = convertSpeakerToJson(speaker)
+          val callerId = caller.getOrElse(speaker.uuid)
+          callUpdateSpeaker(token,jsonSpeaker,speaker.uuid,callerId)
+      }
       case Failure(e) => play.Logger.error(e.getMessage)
     }
   }
@@ -69,15 +72,15 @@ object TDCClient {
     }
   }
 
-  private def callUpdateSpeaker(token: String, body: JsValue, caller:String):Unit = {
+  private def callUpdateSpeaker(token: String, body: JsValue, speakerId:String, callerId:String):Unit = {
     val url = "https://api.globalcode.com.br/v1/system/palestrante"
     val wsCall = WS.url(url).withHeaders("Authorization" -> s"Bearer $token").put(body)
     wsCall.onComplete {
         case Success(response) => response.status match {
-           case 200 => Event.storeEvent(Event(caller, caller, Messages("api.tdc.updatespeaker.success")))
-           case other => {
-             play.Logger.error(Messages("api.tdc.updatespeaker.error",caller,other))
-             Event.storeEvent(Event(caller, caller, Messages("api.tdc.updatespeaker.error",caller,other)))
+           case 200 => Event.storeEvent(Event(speakerId, callerId, Messages("api.tdc.updatespeaker.success",speakerId)))
+           case anotherStatus => {
+             play.Logger.error(Messages("api.tdc.updatespeaker.error",speakerId,anotherStatus))
+             Event.storeEvent(Event(speakerId, callerId, Messages("api.tdc.updatespeaker.error",speakerId,anotherStatus)))
            }
         }
         case Failure(e) => play.Logger.error(e.getMessage)
