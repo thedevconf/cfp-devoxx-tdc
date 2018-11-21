@@ -1123,6 +1123,7 @@ mail.proposal_backup.subject=Sua proposta {1} foi marcada como backup na Trilha 
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Grade atualizada para trilha {0}
 mail.profile_updated.subject=O usuario {0} atualizou seus dados
+mail.schedule_publication.subject=Solicitada publicação de grade para trilha {0}
 
 proposal.audienceLevel=Nível da audiência
 proposal.demoLevel=Tipo de apresentação

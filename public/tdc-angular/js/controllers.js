@@ -24,7 +24,7 @@ adminController.controller('AdminController', function AdminController($rootScop
 });
 
 
-mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ScheduleService, flash) {
+mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ScheduleService, PublishingService,flash) {
 
     ScheduleService.get({id: $routeParams.id}, function (jsonObj) {
         // Left column, list of accepted proposal
@@ -102,5 +102,10 @@ mainController.controller('MainController', function MainController($rootScope, 
             }
         });
     };
+
+    $scope.requestPublication = function() {
+        PublishingService.save({trackId: $routeParams.id});
+        flash("Solicitação enviada");
+    }
 
 });

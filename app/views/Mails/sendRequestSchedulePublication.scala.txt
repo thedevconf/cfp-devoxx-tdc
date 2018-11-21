@@ -1,0 +1,9 @@
+@(track:Track)
+
+O coordenador da trilha @Messages(track.label) solicitou a publicação da grade no site do TDC.
+
+Favor executar a publicação assim que possivel.
+
+Obrigado,
+
+Equipe @Messages("longName")

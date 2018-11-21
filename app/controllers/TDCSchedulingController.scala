@@ -23,7 +23,7 @@
 
 package controllers
 
-import library.{UpdateScheduleStatus, SaveTDCSlots, ZapActor}
+import library.{UpdateScheduleStatus, SaveTDCSlots, ZapActor, RequestSchedulePublication}
 import models._
 import play.api.i18n.Messages
 import play.api.libs.json.Json
@@ -171,5 +171,16 @@ object TDCSchedulingController extends SecureCFPController {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
   }
+  
+  def requestPublication() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      request.body.asJson.map {json => 
+        val trackId = (json \ "trackId").as[String]
+        ZapActor.actor ! RequestSchedulePublication(trackId, request.webuser)
+        Ok("{\"status\":\"success\"}").as("application/json")
+      }.getOrElse {
+        BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
+      }
+  }  
 
 }

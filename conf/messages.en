@@ -1123,6 +1123,7 @@ mail.proposal_backup.subject=Your proposal {1} has been marked as backup on Trac
 mail.speaker_cfp_results.subject=Call for Paper {0}
 mail.schedule_updated.subject=Schedule updated for track {0}
 mail.profile_updated.subject=User {0} profile has been updated
+mail.schedule_publication.subject=Schedule publication requested for track {0}
 
 proposal.audienceLevel=Audience level
 proposal.demoLevel=Type of presentation

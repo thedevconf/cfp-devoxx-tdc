@@ -376,5 +376,20 @@ object Mails {
       views.html.Mails.goldenticket.sendGoldenTicketEmail(invitedWebuser, gt).toString()
     )
   }
+  
+  def sendRequestSchedulePublication(track: Track) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val subject: String = Messages("mail.schedule_publication.subject", Messages(track.label))
+
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(committeeEmail)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.sendRequestSchedulePublication(track).toString(),
+      views.html.Mails.sendRequestSchedulePublication(track).toString()
+    )
+  }
 
 }

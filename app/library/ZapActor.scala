@@ -88,6 +88,8 @@ case class ProfileUpdated(speaker:Speaker)
 
 case class UploadPresentation(proposalId:String, filename:String, uploadedBy:String)
 
+case class RequestSchedulePublication(trackId:String, requestedBy: Webuser)
+
 // Defines an actor (no failover strategy here)
 object ZapActor {
   val actor = Akka.system.actorOf(Props[ZapActor])
@@ -118,6 +120,7 @@ class ZapActor extends Actor {
     case UpdateScheduleStatus(trackId, status) => doUpdateScheduleStatus (trackId, status)
     case ProfileUpdated(speaker) => doNotifyProfileUpdated(speaker)
     case UploadPresentation(proposalId,filename,uploadedBy) => doUploadPresentation(proposalId, filename,uploadedBy)
+	case RequestSchedulePublication(trackId,requestedBy) => doRequestSchedulePublication(trackId,requestedBy)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -307,5 +310,10 @@ class ZapActor extends Actor {
       case e:Exception =>
         Event.storeEvent(Event(proposalId, uploadedBy, s"Error uploading presentation for track $trackId : ${e.getMessage}"))
     }
+  }
+  
+  def doRequestSchedulePublication(trackId: String, requestedBy: Webuser) = {
+     Event.storeEvent(Event(trackId, requestedBy.uuid, s"Request for the organization to publish schedule for track $trackId"))
+     Mails.sendRequestSchedulePublication(Track.parse(trackId))
   }
 }
