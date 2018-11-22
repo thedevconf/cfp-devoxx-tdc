@@ -1149,6 +1149,17 @@ constraint.max=Valor máximo : {0}
 constraint.maxLength=Tamanho máximo : {0}
 constraint.min=Tamanho mínimo : {0}
 constraint.minLength=Tamanho mínimo : {0}
+constraint.twitter=https://twitter.com/
+constraint.twitter.error=URL inválida para Twitter
+constraint.linkedin=https://www.linkedin.com/in/
+constraint.linkedin.error=URL inválida para LinkedIn
+constraint.github=https://github.com/
+constraint.github.error=URL inválida para GitHub
+constraint.facebook=https://www.facebook.com/
+constraint.facebook.error=URL inválida para Facebook
+constraint.instagram=https://www.instagram.com/
+constraint.instagram.error=URL inválida para Instagram
+
 day-mercredi=Wednesday
 day-vendredi=Friday
 error.email=Endereço de email inválido

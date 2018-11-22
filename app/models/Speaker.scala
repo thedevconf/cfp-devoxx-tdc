@@ -326,5 +326,3 @@ object Speaker {
 
 
 }
-
-case class SocialMedia(twitter:Option[String],linkedIn:Option[String],github:Option[String],facebook:Option[String],instagram:Option[String])

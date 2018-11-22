@@ -26,6 +26,7 @@ package controllers
 import library.search.ElasticSearch
 import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation, S3}
 import models._
+import models.SocialMedia._
 import org.apache.commons.lang3.StringUtils
 import play.api.cache.Cache
 import play.api.data.Forms._
@@ -127,11 +128,11 @@ object CallForPaper extends SecureCFPController {
     "race" -> optional(text),
     "disability" -> optional(text),
     "socialMedia" -> mapping(
-        "twitter" -> optional(text),
-        "linkedIn" -> optional(text),
-        "github" -> optional(text),
-        "facebook" -> optional(text),
-        "instagram" -> optional(text)
+        "twitter" -> optional(text.verifying(twitterURL)),
+        "linkedIn" -> optional(text.verifying(linkedInURL)),
+        "github" -> optional(text.verifying(githubURL)),
+        "facebook" -> optional(text.verifying(facebookURL)),
+        "instagram" -> optional(text.verifying(instagramURL))
       )(SocialMedia.apply)(SocialMedia.unapply)
   )(Speaker.createSpeaker)(Speaker.unapplyForm))
 
@@ -152,7 +153,7 @@ object CallForPaper extends SecureCFPController {
         updatedSpeaker => {
           Webuser.updateNames(uuid, updatedSpeaker.firstName.getOrElse("?"), updatedSpeaker.name.getOrElse("?"))
           Speaker.update(uuid, updatedSpeaker)
-          ZapActor.actor ! ProfileUpdated(updatedSpeaker.copy(uuid=uuid))
+          //ZapActor.actor ! ProfileUpdated(updatedSpeaker.copy(uuid=uuid))
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> "Profile saved")
         }
       )

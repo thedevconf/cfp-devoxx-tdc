@@ -4,6 +4,7 @@ import library.search.ElasticSearch
 import library.{ComputeLeaderboard, ComputeVotesAndScore, SendMessageInternal, SendMessageToSpeaker, _}
 import models.Review._
 import models._
+import models.SocialMedia._
 import org.apache.commons.lang3.StringUtils
 import play.api.data.Forms._
 import play.api.data._
@@ -700,11 +701,11 @@ object CFPAdmin extends SecureCFPController {
     "race2" -> optional(text),
     "disability2" -> optional(text),
     "socialMedia" -> mapping(
-        "twitter2" -> optional(text),
-        "linkedIn2" -> optional(text),
-        "github2" -> optional(text),
-        "facebook2" -> optional(text),
-        "instagram2" -> optional(text)
+        "twitter2" -> optional(text.verifying(twitterURL)),
+        "linkedIn2" -> optional(text.verifying(linkedInURL)),
+        "github2" -> optional(text.verifying(githubURL)),
+        "facebook2" -> optional(text.verifying(facebookURL)),
+        "instagram2" -> optional(text.verifying(instagramURL))
       )(SocialMedia.apply)(SocialMedia.unapply)
   )(Speaker.createOrEditSpeaker)(Speaker.unapplyFormEdit))
 

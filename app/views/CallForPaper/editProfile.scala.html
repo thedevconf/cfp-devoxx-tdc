@@ -40,11 +40,11 @@
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
 			@helper.textarea(speakerForm("qualifications"), 'cols -> 60, 'rows -> 5, 'class->"form-control")
             @helper.inputText(speakerForm("company"))						
-            @helper.inputText(speakerForm("socialMedia.twitter"), 'placeholder -> "@nickname")
-            @helper.inputText(speakerForm("socialMedia.linkedIn"), 'size -> 60, 'class->"form-control")
-            @helper.inputText(speakerForm("socialMedia.github"), 'size -> 60, 'class->"form-control")
-            @helper.inputText(speakerForm("socialMedia.facebook"), 'size -> 60, 'class->"form-control")
-            @helper.inputText(speakerForm("socialMedia.instagram"), 'size -> 60, 'class->"form-control")
+            @helper.inputText(speakerForm("socialMedia.twitter"), 'size -> 60, 'class->"form-control", 'placeholder -> "https://twitter.com/")
+            @helper.inputText(speakerForm("socialMedia.linkedIn"), 'size -> 60, 'class->"form-control", 'placeholder -> "https://www.linkedin.com/in/")
+            @helper.inputText(speakerForm("socialMedia.github"), 'size -> 60, 'class->"form-control", 'placeholder -> "https://github.com/")
+            @helper.inputText(speakerForm("socialMedia.facebook"), 'size -> 60, 'class->"form-control", 'placeholder -> "https://www.facebook.com/")
+            @helper.inputText(speakerForm("socialMedia.instagram"), 'size -> 60, 'class->"form-control", 'placeholder -> "https://www.instagram.com/")
             @helper.inputText(speakerForm("blog"), 'size -> 60, 'class->"form-control")
 
             @helper.select(field = speakerForm("lang"), options = Proposal.langs, 'class -> "form-control")
