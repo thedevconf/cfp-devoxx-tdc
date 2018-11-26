@@ -153,7 +153,7 @@ object CallForPaper extends SecureCFPController {
         updatedSpeaker => {
           Webuser.updateNames(uuid, updatedSpeaker.firstName.getOrElse("?"), updatedSpeaker.name.getOrElse("?"))
           Speaker.update(uuid, updatedSpeaker)
-          //ZapActor.actor ! ProfileUpdated(updatedSpeaker.copy(uuid=uuid))
+          ZapActor.actor ! ProfileUpdated(updatedSpeaker.copy(uuid=uuid))
           Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> "Profile saved")
         }
       )
