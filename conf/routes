@@ -119,6 +119,7 @@ GET           /cfpadmin/reports/allSpeakers/acceptedTalks/all                   
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/export                controllers.CFPAdmin.allSpeakersWithAcceptedTalksForExport()
 GET			  /cfpadmin/reports/allSpeakers/gender								controllers.CFPAdmin.allSpeakersByGender()
 GET			  /cfpadmin/reports/allSpeakers/language							controllers.CFPAdmin.allSpeakersByLang(lang:Option[String] ?= None )
+GET           /cfpadmin/reports/allPresentations/uploaded/byTrack               controllers.CFPAdmin.allUploadedPresentationsByTrack()
 GET           /cfpadmin/allSpeakers/invited                                     controllers.InviteController.allInvitations()
 GET           /cfpadmin/allCFPWebusers                                          controllers.CFPAdmin.allCFPWebusers()
 POST          /cfpadmin/cfpWebusers/trackLeaders                                controllers.CFPAdmin.updateTrackLeaders()

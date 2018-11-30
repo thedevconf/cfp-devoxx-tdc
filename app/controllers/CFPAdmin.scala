@@ -881,34 +881,54 @@ object CFPAdmin extends SecureCFPController {
     */
   def allSpeakersByGender() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-	  val allSpeakers = Speaker.allSpeakers
-	  
-	  val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
-	  val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
-	  val refusedSpeakers = allRejectedIDs.diff(allApprovedIDs)
-	  val approvedSpeakers = allSpeakers.filter(s => allApprovedIDs.contains(s.uuid))
-	  val rejectedSpeakers = allSpeakers.filter(s => refusedSpeakers.contains(s.uuid))
-	  
-	  val speakersByTrackAndGender = Proposal.allAccepted()     		//all accepted proposals
-							  .groupBy(_.track)  						//proposals by track
-							  .mapValues( _.flatMap( _.allSpeakers)) 	//speakers by track 		
-							  .mapValues( _.groupBy(s => 
-										s.gender.getOrElse("empty"))
-										.withDefaultValue(List())) 		//speakers by gender by track
-										
-	  Ok(views.html.CFPAdmin.allSpeakersByGender(allSpeakers,approvedSpeakers,rejectedSpeakers,speakersByTrackAndGender))	
+      val allSpeakers = Speaker.allSpeakers
+      
+      val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
+      val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
+      val refusedSpeakers = allRejectedIDs.diff(allApprovedIDs)
+      val approvedSpeakers = allSpeakers.filter(s => allApprovedIDs.contains(s.uuid))
+      val rejectedSpeakers = allSpeakers.filter(s => refusedSpeakers.contains(s.uuid))
+      
+      val speakersByTrackAndGender = Proposal.allAccepted()             //all accepted proposals
+                              .groupBy(_.track)                         //proposals by track
+                              .mapValues( _.flatMap( _.allSpeakers))    //speakers by track 		
+                              .mapValues( _.groupBy(s => 
+                                        s.gender.getOrElse("empty"))
+                                        .withDefaultValue(List()))      //speakers by gender by track
+
+      Ok(views.html.CFPAdmin.allSpeakersByGender(allSpeakers,approvedSpeakers,rejectedSpeakers,speakersByTrackAndGender))	
   }
   /**
   * Shows report of speakers by language
   */
   def allSpeakersByLang(lang:Option[String]) = SecuredAction(IsMemberOf("admin")) {
-	implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-	  val proposals = Proposal.allActiveProposals()
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val proposals = Proposal.allActiveProposals()
       val allSpeakers = proposals.flatMap(_.allSpeakers).toSet
-	  val speakersByLang = allSpeakers.toList
-	                                  .sortBy(_.cleanName)
-									  .groupBy(_.cleanLang)
-	  Ok(views.html.CFPAdmin.allSpeakersByLang(speakersByLang,lang.getOrElse("")))
+      val speakersByLang = allSpeakers.toList
+                                      .sortBy(_.cleanName)
+                                      .groupBy(_.cleanLang)
+      Ok(views.html.CFPAdmin.allSpeakersByLang(speakersByLang,lang.getOrElse("")))
+  }
+  
+  /**
+  * Shows report of uploaded presentations
+  */
+  def allUploadedPresentationsByTrack() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val eventCode = ConferenceDescriptor.current().eventCode
+      val urls = S3.getUploadedPresentations(eventCode)
+      val pattern = raw".+/presentations/${eventCode}/(\w+)/(\w{3}-\d{4})_.+".r
+      
+	  val links:Map[Track,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
+        case pattern(track,talk) => (Track.parse(track),talk,url)
+      }).groupBy(_._1) //groups by track
+        .mapValues(_.map(tuple => (tuple._2,tuple._3))) //strips the track from the values list
+        .mapValues(_.groupBy(_._1).mapValues(_.map(_._2))) //groups by talk and strips it from the resulting list
+        .mapValues(_.map{ case(talk,listOfLinks) =>
+          (Proposal.findById(talk),listOfLinks)
+        }) //replaced the talk id with the proposal object
+        Ok(views.html.CFPAdmin.allUploadedPresentations(links))
   }
 }
 
