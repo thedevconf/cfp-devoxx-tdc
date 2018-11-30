@@ -12,8 +12,7 @@ import collection.JavaConverters._
 
 object S3 {
 
-  //val bucketName = "thedevconf"
-  val bucketName = "teste-cors-kleber"
+  val bucketName = "thedevconf"
   val presentationSourceDir = "/tmp/presentations/"
   val pictureSourceDir = "/tmp/photos/"
 
