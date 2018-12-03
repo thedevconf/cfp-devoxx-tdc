@@ -5,14 +5,15 @@ import java.io.File
 import com.amazonaws.services.s3.AmazonS3ClientBuilder
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.amazonaws.services.s3.model.CannedAccessControlList
+import com.amazonaws.services.s3.model.ListObjectsV2Result
+import com.amazonaws.services.s3.model.S3ObjectSummary
+import play.api.Play
 
-import com.amazonaws.services.s3.model.ListObjectsV2Result;
-import com.amazonaws.services.s3.model.S3ObjectSummary;
 import collection.JavaConverters._
 
 object S3 {
 
-  val bucketName = "thedevconf"
+  val bucketName = Play.current.configuration.getString("s3.bucket").getOrElse("thedevconf")
   val presentationSourceDir = "/tmp/presentations/"
   val pictureSourceDir = "/tmp/photos/"
 
