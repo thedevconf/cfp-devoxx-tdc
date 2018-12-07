@@ -164,16 +164,16 @@
                                         }else{
                                             @if(proposal.state==ProposalState.BACKUP){
                                                 <i class="icon-exclamation-sign"></i> Backup
-                                            }else{
+                                                <a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
+                                                    <i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
+                                                }else{
                                                     <small><a href="@routes.ApproveOrRefuse.backup(proposal.id)" class="btn btn-sm btn-warning">
                                                         @Messages("allVotes.button.backup")</a> </small>
                                             }
-											@if(!backupNotified) {
-												<a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
-													<i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
-												<a href="@routes.ApproveOrRefuse.doRefuse(proposal.id)" class="refuseBtn btn btn-sm btn-danger">
-													<i class="icon-thumbs-down"></i> @Messages("allVotes.button.refuse")</a>
-											}
+                                            @if(!backupNotified) {
+                                                <a href="@routes.ApproveOrRefuse.doRefuse(proposal.id)" class="refuseBtn btn btn-sm btn-danger">
+                                                    <i class="icon-thumbs-down"></i> @Messages("allVotes.button.refuse")</a>
+                                            }
                                         }
                                     }
                                 }
