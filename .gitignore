@@ -50,3 +50,4 @@ run.bat
 
 env.sh
 run-be.sh
+docker-compose.yml
