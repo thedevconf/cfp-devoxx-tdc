@@ -62,6 +62,9 @@
             <h4>Cron</h4>
             <a href="@routes.Backoffice.sendDraftReminder()" class="btn btn-sm btn-primary"><i class="icon-refresh"></i> Send a reminder to speakers for DRAFT</a>
 
+            <h4>@Messages("backoffice.attic")</h4>
+            <a href="@routes.Attic.atticHome()" class="btn btn-sm btn-danger"><i class="icon-trash"></i> @Messages("backoffice.attic.btn.cleanup")</a>
+			
         </div>
         </div>
     </div>

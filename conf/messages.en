@@ -1613,6 +1613,8 @@ error.message2.part3=and specify
 error.message2.part4=if you think this is not expected
 
 # Messages for the Attic page
+backoffice.attic=Database Maintenance
+backoffice.attic.btn.cleanup=Cleanup
 attic.title=Attic backoffice
 attic.alert=<strong>Warning :</strong>\
             <p>You are about to archive/to delete ALL proposals from your CFP.</p>\
@@ -1621,7 +1623,7 @@ attic.alert=<strong>Warning :</strong>\
 attic.talk.title=Talks
 attic.bt.prune.deleted=Prune deleted proposals
 attic.bt.prune.draft=Prune draft proposals
-attic.bt.archive.talk=Archive all {0}
+attic.bt.archive.talk=Archive all
 attic.other.title=Others
 attic.bt.delete.invited=Remove status [Invited] from all speakers
 attic.bt.delete.events=Delete all Events and history

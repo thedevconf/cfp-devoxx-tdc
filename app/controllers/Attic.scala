@@ -74,15 +74,10 @@ object Attic extends SecureCFPController {
   def doArchive() = SecuredAction(IsMemberOf("admin")).async {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       import scala.concurrent.ExecutionContext.Implicits.global
-      proposalTypeForm.bindFromRequest().fold(
-        hasErrors => Future.successful(BadRequest(views.html.Attic.atticHome())),
-        proposalType => {
-          Future(ArchiveProposal.archiveAll(proposalType)).map {
-            totalArchived =>
-              Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.archive.talk",totalArchived)))
-          }
+      Future(ArchiveProposal.archiveAll()).map {
+        totalArchived =>
+          Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.archive.talk",totalArchived)))
         }
-      )
   }
 
   def deleteInvitedSpeakers() = SecuredAction(IsMemberOf("admin")) {

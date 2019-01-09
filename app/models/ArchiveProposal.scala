@@ -47,6 +47,12 @@ object ArchiveProposal {
     }
   }
 
+  def archiveAll():Int = {
+    val total = for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL)
+        yield archiveAll(proposalType.id)
+    total.sum
+  }
+  
   def archiveAll(proposalTypeId: String):Int = {
     val proposalType = ConferenceDescriptor.ConferenceProposalTypes.valueOf(proposalTypeId)
     val ids=Proposal.allProposalIDsNotArchived

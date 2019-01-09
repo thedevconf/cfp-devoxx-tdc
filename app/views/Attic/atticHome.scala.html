@@ -38,12 +38,10 @@
                         <button type="submit" class="btn btn-primary" style="margin:0.25rem">@Messages("attic.bt.prune.draft")</button>
                     </form>
 
-                    @for(proposalType <- ConferenceDescriptor.ConferenceProposalTypes.ALL) {
-                        <form action="@routes.Attic.doArchive()" method="POST">
-                            <input type="hidden" name="proposalType" value="@proposalType.id"/>
-                            <button type="submit" class="btn btn-primary" style="margin:0.25rem">@Messages("attic.bt.archive.talk",Messages(proposalType.label))</button>
-                        </form>
-                    }
+                    <form action="@routes.Attic.doArchive()" method="POST">
+                        <button type="submit" class="btn btn-primary" style="margin:0.25rem">@Messages("attic.bt.archive.talk")</button>
+                    </form>
+
                     <h4>@Messages("attic.other.title")</h4>
                     <form action="@routes.Attic.deleteInvitedSpeakers()" method="POST">
                         <button type="submit" class="btn btn-warning" style="margin:0.25rem">@Messages("attic.bt.delete.invited")</button>
