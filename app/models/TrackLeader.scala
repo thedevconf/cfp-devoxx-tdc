@@ -38,11 +38,13 @@ import play.api.data.Forms._
 
 object TrackLeader {
 
+  val conferenceId = ConferenceDescriptor.current().eventCode	
+  
   def assign(trackId: String, webuserId: String) {
     if (Webuser.hasAccessToCFP(webuserId)) {
       Redis.pool.withClient {
         client =>
-          client.hset(s"TrackLeaders", trackId, webuserId)
+          client.hset(s"TrackLeaders:${conferenceId}:", trackId, webuserId)
       }
     }
   }
@@ -50,13 +52,13 @@ object TrackLeader {
   def unassign(trackId: String, webuserId: String) {
     Redis.pool.withClient {
       client =>
-        client.hdel(s"TrackLeaders", trackId)
+        client.hdel(s"TrackLeaders:${conferenceId}:", trackId)
     }
   }
 
   def isTrackLeader(trackId: String, webuserId: String): Boolean = Redis.pool.withClient {
     client =>
-      client.sismember(s"TrackLeaders:${trackId}", webuserId)
+      client.sismember(s"TrackLeaders:${conferenceId}:${trackId}", webuserId)
   }
 
   /*
@@ -64,7 +66,7 @@ object TrackLeader {
   */
   def findAll(trackId: String): Set[String] = Redis.pool.withClient {
     client =>
-      client.smembers(s"TrackLeaders:${trackId}")
+      client.smembers(s"TrackLeaders:${conferenceId}:${trackId}")
   }
 
   def updateAllTracks(mapsByTrack: Map[String, Seq[String]]) = Redis.pool.withClient{
@@ -74,10 +76,10 @@ object TrackLeader {
       case (trackId, seqUUIDs) =>
         Redis.pool.withClient {
           client =>
-            tx.del(s"TrackLeaders:${trackId}")
+            tx.del(s"TrackLeaders:${conferenceId}:${trackId}")
             seqUUIDs.filterNot(_ == "no_track_lead").foreach {
               uuid: String =>
-                tx.sadd(s"TrackLeaders:${trackId}", uuid)
+                tx.sadd(s"TrackLeaders:${conferenceId}:${trackId}", uuid)
             }
         }
     }
@@ -95,9 +97,9 @@ object TrackLeader {
   * cleans the trackleaders for all the tracks
   */
   def resetAll():Unit = Redis.pool.withClient{ client =>
-    val tracks = client.keys("TrackLeaders:*").toList
-	  if(!tracks.isEmpty) {
+    val tracks = client.keys(s"TrackLeaders:${conferenceId}:*").toList
+    if(!tracks.isEmpty) {
       client.del(tracks: _*)
-	  }
+    }
   }
 }

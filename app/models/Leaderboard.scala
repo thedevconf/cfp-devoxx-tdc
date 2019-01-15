@@ -44,6 +44,8 @@ object LeaderboardProposalStates {
  */
 object Leaderboard {
 
+  val conferenceId = ConferenceDescriptor.current().eventCode
+  
   def computeStats() = Redis.pool.withClient {
     implicit client =>
 
@@ -55,130 +57,130 @@ object Leaderboard {
 
       //Total of Speakers
       val totalSpeakers = Speaker.countAll()
-      tx.set("Leaderboard:totalSpeakers", totalSpeakers.toString())
+      tx.set(s"Leaderboard:$conferenceId:totalSpeakers", totalSpeakers.toString())
 
       //Total Approved Speakers
       val allApprovedIDs= ApprovedProposal.allApprovedSpeakerIDs()
       val totalApprovedSpeakers = allApprovedIDs.size
-      tx.set("Leaderboard:totalApprovedSpeakers", totalApprovedSpeakers.toString)
+      tx.set(s"Leaderboard:$conferenceId:totalApprovedSpeakers", totalApprovedSpeakers.toString)
 
       //Total Refused Speakers
       val allRejectedIDs= ApprovedProposal.allRefusedSpeakerIDs()
       val refusedSpeakers = allRejectedIDs.diff(allApprovedIDs)
       val totalRefusedSpeakers = refusedSpeakers.size
-      tx.set("Leaderboard:totalRefusedSpeakers", totalRefusedSpeakers.toString)
+      tx.set(s"Leaderboard:$conferenceId:totalRefusedSpeakers", totalRefusedSpeakers.toString)
 
       //Total Proposals
       val totalProposals = Proposal.countAll()
-      tx.set("Leaderboard:totalProposals", totalProposals.toString())
+      tx.set(s"Leaderboard:$conferenceId:totalProposals", totalProposals.toString())
 
       //Total Proposals with Votes
       val totalWithVotes = Review.countWithVotes()
-      tx.set("Leaderboard:totalWithVotes", totalWithVotes.toString())
+      tx.set(s"Leaderboard:$conferenceId:totalWithVotes", totalWithVotes.toString())
 
       //Total Proposals with No Votes
       val totalNoVotes = Review.countWithNoVotes()
-      tx.set("Leaderboard:totalNoVotes", totalNoVotes.toString())
+      tx.set(s"Leaderboard:$conferenceId:totalNoVotes", totalNoVotes.toString())
 
       //Total Reviews
       val totalReviews = Review.countAll()
-      tx.set("Leaderboard:totalVotes", totalReviews.toString())
+      tx.set(s"Leaderboard:$conferenceId:totalVotes", totalReviews.toString())
 
       // Proposal most reviewed
       val mostReviewed = Review.mostReviewed()
       mostReviewed.map{
         mr=>
-        tx.set("Leaderboard:mostReviewed:proposal", mr._1)
-        tx.set("Leaderboard:mostReviewed:score", mr._2.toString)
+        tx.set(s"Leaderboard:$conferenceId:mostReviewed:proposal", mr._1)
+        tx.set(s"Leaderboard:$conferenceId:mostReviewed:score", mr._2.toString)
       }.getOrElse{
-        tx.del("Leaderboard:mostReviewed:proposal")
-        tx.del("Leaderboard:mostReviewed:score")
+        tx.del(s"Leaderboard:$conferenceId:mostReviewed:proposal")
+        tx.del(s"Leaderboard:$conferenceId:mostReviewed:score")
       }
 
       // Proposals by state
       val totalByState = Proposal.allActiveProposals().groupBy(_.state.code).map(pair => (pair._1,pair._2.size))
-      tx.del("Leaderboard:totalByState")
+      tx.del(s"Leaderboard:$conferenceId:totalByState")
       totalByState.foreach {
         case (state: String, total: Int) =>
-          tx.hset("Leaderboard:totalByState", state, total.toString)
+          tx.hset(s"Leaderboard:$conferenceId:totalByState", state, total.toString)
       }
 
       //Proposals submitted by track
       val totalSubmittedByTrack = Proposal.totalSubmittedByTrack()
-      tx.del("Leaderboard:totalSubmittedByTrack")
+      tx.del(s"Leaderboard:$conferenceId:totalSubmittedByTrack")
       totalSubmittedByTrack.map {
         case (track: Track, total: Int) =>
-          tx.hset("Leaderboard:totalSubmittedByTrack", track.id, total.toString)
+          tx.hset(s"Leaderboard:$conferenceId:totalSubmittedByTrack", track.id, total.toString)
       }
 
       //Proposals approved by track
       val allApproved = ApprovedProposal.allApproved()
       val totalApprovedByTrack =  allApproved.groupBy(_.track.label).map(trackAndProposals=>(trackAndProposals._1,trackAndProposals._2.size))
-      tx.del("Leaderboard:totalApprovedByTrack")
+      tx.del(s"Leaderboard:$conferenceId:totalApprovedByTrack")
       totalApprovedByTrack.foreach {
         case (track: String, total: Int) =>
-          tx.hset("Leaderboard:totalApprovedByTrack", track, total.toString)
+          tx.hset(s"Leaderboard:$conferenceId:totalApprovedByTrack", track, total.toString)
       }
 
       //Proposals accepted by track
       val totalAcceptedByTrack = Proposal.totalAcceptedByTrack()
-      tx.del("Leaderboard:totalAcceptedByTrack")
+      tx.del(s"Leaderboard:$conferenceId:totalAcceptedByTrack")
       totalAcceptedByTrack.map {
         case (track: Track, total: Int) =>
-          tx.hset("Leaderboard:totalAcceptedByTrack", track.label, total.toString)
+          tx.hset(s"Leaderboard:$conferenceId:totalAcceptedByTrack", track.label, total.toString)
       }
 
       //Proposals State by track
       import LeaderboardProposalStates.leaderboardProposalStatesFormat
       val allProposalStatesByTrack = computeProposalStatesByTrack()  
-      tx.del("Leaderboard:proposalStatesByTrack")
+      tx.del(s"Leaderboard:$conferenceId:proposalStatesByTrack")
       allProposalStatesByTrack.map {
         case (track, stats) =>
-          tx.hset("Leaderboard:proposalStatesByTrack", track, Json.toJson(stats).toString)
+          tx.hset(s"Leaderboard:$conferenceId:proposalStatesByTrack", track, Json.toJson(stats).toString)
       }
 
      tx.exec()
   }
 
   def totalSpeakers():Long = {
-    getFromRedis("Leaderboard:totalSpeakers")
+    getFromRedis(s"Leaderboard:$conferenceId:totalSpeakers")
   }
 
   def totalProposals():Long = {
-    getFromRedis("Leaderboard:totalProposals")
+    getFromRedis(s"Leaderboard:$conferenceId:totalProposals")
   }
 
   def totalVotes():Long = {
-    getFromRedis("Leaderboard:totalVotes")
+    getFromRedis(s"Leaderboard:$conferenceId:totalVotes")
   }
 
   def totalWithVotes():Long = {
-    getFromRedis("Leaderboard:totalWithVotes")
+    getFromRedis(s"Leaderboard:$conferenceId:totalWithVotes")
   }
 
   def totalNoVotes():Long = {
-    getFromRedis("Leaderboard:totalNoVotes")
+    getFromRedis(s"Leaderboard:$conferenceId:totalNoVotes")
   }
 
   def mostReviewed():Option[(String,String)] = {
     Redis.pool.withClient {
       implicit client =>
-        for (proposalId <- client.get("Leaderboard:mostReviewed:proposal");
-             score <- client.get("Leaderboard:mostReviewed:score")) yield (proposalId, score)
+        for (proposalId <- client.get(s"Leaderboard:$conferenceId:mostReviewed:proposal");
+             score <- client.get(s"Leaderboard:$conferenceId:mostReviewed:score")) yield (proposalId, score)
     }
   }
 
   def bestReviewer():Option[(String,String)] = Redis.pool.withClient {
     implicit client =>
-      for (uuid <- client.get("Leaderboard:bestReviewer:uuid");
-           score <- client.get("Leaderboard:bestReviewer:score")) yield (uuid, score)
+      for (uuid <- client.get(s"Leaderboard:$conferenceId:bestReviewer:uuid");
+           score <- client.get(s"Leaderboard:$conferenceId:bestReviewer:score")) yield (uuid, score)
   }
 
   // Returns the Reviewer that did at least one review, but the fewest reviews.
   def worstReviewer():Option[(String,String)] = Redis.pool.withClient {
     implicit client =>
-      for (uuid <- client.get("Leaderboard:worstReviewer:uuid");
-           score <- client.get("Leaderboard:worstReviewer:score")) yield (uuid, score)
+      for (uuid <- client.get(s"Leaderboard:$conferenceId:worstReviewer:uuid");
+           score <- client.get(s"Leaderboard:$conferenceId:worstReviewer:score")) yield (uuid, score)
   }
 
   // Returns the user that has the lowest reviewed number of proposals and the full list of cfp user that did not
@@ -187,14 +189,14 @@ object Leaderboard {
     implicit client =>
      val lazyOneWithOneVote = worstReviewer()
       // Take CFP members, remove admin and remove all webuser that reviewed at least one
-     val otherThatHaveNoVotes  =  client.sdiff("Webuser:cfp", "Webuser:admin", "Computed:Reviewer:ReviewedOne" ).map(s=>(s,"0"))
+     val otherThatHaveNoVotes  =  client.sdiff("Webuser:cfp", "Webuser:admin", s"Computed:$conferenceId:Reviewer:ReviewedOne" ).map(s=>(s,"0"))
      val toReturn = (lazyOneWithOneVote.toSet ++ otherThatHaveNoVotes).toMap
     toReturn
   }
 
   def totalSubmittedByTrack():Map[String,Int] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalSubmittedByTrack").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalSubmittedByTrack").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
@@ -202,7 +204,7 @@ object Leaderboard {
 
   def totalSubmittedByType():Map[String,Int] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalSubmittedByType").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalSubmittedByType").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
@@ -210,7 +212,7 @@ object Leaderboard {
 
   def totalAcceptedByTrack():Map[String,Int] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalAcceptedByTrack").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalAcceptedByTrack").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
@@ -218,7 +220,7 @@ object Leaderboard {
 
   def totalAcceptedByType():Map[String,Int] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalAcceptedByType").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalAcceptedByType").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
@@ -226,7 +228,7 @@ object Leaderboard {
 
   def totalApprovedByTrack(): Map[String,Int] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalApprovedByTrack").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalApprovedByTrack").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }
@@ -234,7 +236,7 @@ object Leaderboard {
 
   def totalByState():List[(String,Int)] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("Leaderboard:totalByState").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:totalByState").map {
         case (key: String, value: String) =>
           (key, value.toInt)
       }.toList
@@ -246,15 +248,15 @@ object Leaderboard {
   }
 
   def totalApprovedSpeakers():Long ={
-      getFromRedis("Leaderboard:totalApprovedSpeakers")
+      getFromRedis(s"Leaderboard:$conferenceId:totalApprovedSpeakers")
   }
 
   def totalWithTickets():Long ={
-      getFromRedis("Leaderboard:totalWithTickets")
+      getFromRedis(s"Leaderboard:$conferenceId:totalWithTickets")
   }
 
   def totalRefusedSpeakers():Long={
-    getFromRedis("Leaderboard:totalRefusedSpeakers")
+    getFromRedis(s"Leaderboard:$conferenceId:totalRefusedSpeakers")
   }
   
   /*
@@ -290,7 +292,7 @@ object Leaderboard {
   def allProposalStatesByTrack(): Map[String,LeaderboardProposalStates] = Redis.pool.withClient {
     implicit client =>
       import LeaderboardProposalStates.leaderboardProposalStatesFormat
-      client.hgetAll("Leaderboard:proposalStatesByTrack").map {
+      client.hgetAll(s"Leaderboard:$conferenceId:proposalStatesByTrack").map {
         case (track, stats) =>
           (track, Json.parse(stats).as[LeaderboardProposalStates])
       }

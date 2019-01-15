@@ -136,6 +136,8 @@ case class Speaker(uuid: String
 
 object Speaker {
 
+  val conferenceId = ConferenceDescriptor.current().eventCode
+
   implicit val speakerFormat = Json.format[Speaker]
 
   val genders = Seq("M" -> "Masculino", "F" -> "Feminino" , "N" -> "Outro", "P" -> "Prefiro não responder")
@@ -319,7 +321,7 @@ object Speaker {
 
   def allThatDidNotAcceptedTerms(): Set[String] = Redis.pool.withClient {
     client =>
-      val allSpeakerIDs = client.keys("ApprovedSpeakers:*").map(s => s.substring("ApprovedSpeakers:".length))
+      val allSpeakerIDs = client.keys(s"ApprovedSpeakers:$conferenceId:*").map(s => s.substring(s"ApprovedSpeakers:$conferenceId:".length))
       val allThatAcceptedConditions = client.hkeys("TermsAndConditions")
       allSpeakerIDs.diff(allThatAcceptedConditions)
   }

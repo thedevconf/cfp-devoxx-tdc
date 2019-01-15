@@ -39,7 +39,8 @@ object TDCScheduleConfiguration {
 
   implicit val scheduleSavedFormat = Json.format[TDCScheduleSaved]
   implicit val scheduleConfigurationFormat = Json.format[TDCScheduleConfiguration]
-
+  val conferenceId = ConferenceDescriptor.current().eventCode	
+  
   def persist(trackId: String, slots: JsValue, createdBy: Webuser): Unit = Redis.pool.withClient {
     implicit client =>
       val tdcScheduleConfiguration = Json.toJson(Map(
@@ -47,7 +48,7 @@ object TDCScheduleConfiguration {
         "slots" -> slots))
       val json = tdcScheduleConfiguration.toString()
 
-      client.hset("ScheduleConfigurationByTrack", trackId, json)
+      client.hset(s"ScheduleConfigurationByTrack:${conferenceId}", trackId, json)
   }
 
   /**
@@ -57,18 +58,18 @@ object TDCScheduleConfiguration {
     */
   def allScheduledTracks(): Map[String,TDCScheduleSaved] = Redis.pool.withClient {
     implicit client =>
-      client.hgetAll("ScheduleConfigurationByTrack")
+      client.hgetAll(s"ScheduleConfigurationByTrack:${conferenceId}")
             .mapValues(json => Json.parse(json).as[TDCScheduleSaved])
   }
 
   def delete(trackId: String) = Redis.pool.withClient {
     implicit client =>
-      client.hdel("ScheduleConfigurationByTrack", trackId)
+      client.hdel(s"ScheduleConfigurationByTrack:${conferenceId}", trackId)
   }
 
   def loadScheduledConfiguration(trackId: String): Option[TDCScheduleSaved] = Redis.pool.withClient {
     implicit client =>
-      client.hget("ScheduleConfigurationByTrack", trackId).flatMap(json => {
+      client.hget(s"ScheduleConfigurationByTrack:${conferenceId}", trackId).flatMap(json => {
         val maybeScheduledConf = Json.parse(json).validate[TDCScheduleSaved]
         maybeScheduledConf.fold(errors => {
           play.Logger.of("models.TDCScheduleConfiguration").warn("Unable to reload a SlotConfiguration due to JSON error")
@@ -82,16 +83,16 @@ object TDCScheduleConfiguration {
 
   def deleteAll() = Redis.pool.withClient {
     implicit client =>
-      client.del("ScheduleConfigurationByTrack")
+      client.del(s"ScheduleConfigurationByTrack:${conferenceId}")
   }
 
   def updateStatus(trackId:String, status:Boolean) = Redis.pool.withClient {
     implicit client =>
-      val updatedSchedule = client.hget("ScheduleConfigurationByTrack",trackId)
+      val updatedSchedule = client.hget(s"ScheduleConfigurationByTrack:${conferenceId}",trackId)
                                   .map(Json.parse(_).as[TDCScheduleSaved].copy(blocked = Some(status)))
       updatedSchedule match {
         case Some(schedule) =>
-          client.hset("ScheduleConfigurationByTrack", trackId, Json.toJson(schedule).toString)
+          client.hset(s"ScheduleConfigurationByTrack:${conferenceId}", trackId, Json.toJson(schedule).toString)
         case None =>
           play.Logger.of("models.TDCScheduleConfiguration").warn(s"Unable to load a SlotConfiguration for the selected track $trackId")
       }

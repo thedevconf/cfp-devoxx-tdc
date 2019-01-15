@@ -38,38 +38,39 @@ case class Comment(proposalId: String, uuidAuthor: String, msg: String, eventDat
 object Comment {
 
   implicit val commentFormat = Json.format[Comment]
+  val conferenceId = ConferenceDescriptor.current().eventCode
 
   def saveCommentForSpeaker(proposalId: String, uuidAuthor: String, msg: String) = {
-    saveComment(s"Comments:ForSpeaker:$proposalId", proposalId, uuidAuthor, msg)
+    saveComment(s"Comments:$conferenceId:ForSpeaker:$proposalId", proposalId, uuidAuthor, msg)
   }
 
   def saveInternalComment(proposalId: String, uuidAuthor: String, msg: String) = {
-    saveComment(s"Comments:Internal:$proposalId", proposalId, uuidAuthor, msg)
+    saveComment(s"Comments:$conferenceId:Internal:$proposalId", proposalId, uuidAuthor, msg)
   }
 
   def allSpeakerComments(proposalId: String): List[Comment] = {
-    allComments(s"Comments:ForSpeaker:$proposalId", proposalId)
+    allComments(s"Comments:$conferenceId:ForSpeaker:$proposalId", proposalId)
   }
 
   def allInternalComments(proposalId: String): List[Comment] = {
-    allComments(s"Comments:Internal:$proposalId", proposalId)
+    allComments(s"Comments:$conferenceId:Internal:$proposalId", proposalId)
   }
 
   def countComments(proposalId: String): Long = Redis.pool.withClient {
     client =>
-      client.zcard(s"Comments:ForSpeaker:$proposalId").longValue
+      client.zcard(s"Comments:$conferenceId:ForSpeaker:$proposalId").longValue
   }
 
   def countInternalComments(proposalId: String): Long = Redis.pool.withClient {
     client =>
-      client.zcard(s"Comments:Internal:$proposalId").longValue
+      client.zcard(s"Comments:$conferenceId:Internal:$proposalId").longValue
   }
 
   def deleteAllComments(proposalId:String) = Redis.pool.withClient{
     client=>
       val tx=client.multi()
-      tx.del(s"Comments:ForSpeaker:$proposalId")
-      tx.del(s"Comments:Internal:$proposalId")
+      tx.del(s"Comments:$conferenceId:ForSpeaker:$proposalId")
+      tx.del(s"Comments:$conferenceId:Internal:$proposalId")
       tx.exec()
   }
 

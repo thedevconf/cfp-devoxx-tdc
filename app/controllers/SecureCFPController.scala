@@ -29,7 +29,7 @@ import models.{TrackLeader, Webuser}
 import play.api.i18n.Messages
 import play.api.libs.Crypto
 import play.api.libs.json.Json
-import play.api.mvc.{SimpleResult, _}
+import play.api.mvc.{Result, _}
 
 import scala.concurrent.Future
 
@@ -82,7 +82,7 @@ trait SecureCFPController extends Controller {
   protected val notAuthenticatedJson = Unauthorized(Json.toJson(Map("error" -> "Credentials required"))).as(JSON)
   protected val notAuthorizedJson = Forbidden(Json.toJson(Map("error" -> "Not authorized"))).as(JSON)
 
-  def notAuthenticatedResult[A](implicit request: Request[A]): Future[SimpleResult] = {
+  def notAuthenticatedResult[A](implicit request: Request[A]): Future[Result] = {
     Future.successful {
       render {
         case Accepts.Json() => notAuthenticatedJson
@@ -94,7 +94,7 @@ trait SecureCFPController extends Controller {
     }
   }
 
-  def notAuthorizedResult[A](implicit request: Request[A]): Future[SimpleResult] = {
+  def notAuthorizedResult[A](implicit request: Request[A]): Future[Result] = {
     Future.successful {
       render {
         case Accepts.Json() => notAuthorizedJson
@@ -139,7 +139,7 @@ trait SecureCFPController extends Controller {
 
     def invokeSecuredBlock[A](authorize: Option[Authorization],
                               request: Request[A],
-                              block: SecuredRequest[A] => Future[SimpleResult]): Future[SimpleResult] = {
+                              block: SecuredRequest[A] => Future[Result]): Future[Result] = {
       implicit val req = request
       val result = for (
         authenticator <- SecureCFPController.findAuthenticator;
@@ -157,7 +157,7 @@ trait SecureCFPController extends Controller {
       })
     }
 
-    def invokeBlock[A](request: Request[A], block: SecuredRequest[A] => Future[SimpleResult]) =
+    def invokeBlock[A](request: Request[A], block: SecuredRequest[A] => Future[Result]) =
       invokeSecuredBlock(authorize, request, block)
   }
 

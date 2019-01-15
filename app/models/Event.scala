@@ -47,21 +47,22 @@ case class Event(objRef: String, uuid: String, msg: String, date: Option[DateTim
 
 object Event {
   implicit val eventFormat = Json.format[Event]
+  val conferenceId = ConferenceDescriptor.current().eventCode
 
   def storeEvent(event: Event) = Redis.pool.withClient {
     client =>
       val jsEvent = Json.stringify(Json.toJson(event.copy(date = Some(new DateTime().toDateTime(DateTimeZone.forID("America/Sao_Paulo"))))))
       val tx = client.multi()
       val now = new Instant().getMillis
-      tx.zadd("Events:V2:", now, jsEvent)
-      tx.sadd("Events:V2:" + event.objRef, jsEvent)
-      tx.set("Events:LastUpdated:" + event.objRef, now.toString)
+      tx.zadd(s"Events:${conferenceId}:V2:", now, jsEvent)
+      tx.sadd(s"Events:${conferenceId}:V2:" + event.objRef, jsEvent)
+      tx.set(s"Events:${conferenceId}:LastUpdated:" + event.objRef, now.toString)
       tx.exec()
   }
 
   def loadEvents(items: Int, page: Int): List[Event] = Redis.pool.withClient {
     client =>
-      client.zrevrangeWithScores("Events:V2:", page * items, (page + 1) * items).flatMap {
+      client.zrevrangeWithScores(s"Events:${conferenceId}:V2:", page * items, (page + 1) * items).flatMap {
         case (json: String, date: Double) => {
           val maybeEvent = Json.parse(json).asOpt
           val dateVal = new Instant(date.toLong)
@@ -73,13 +74,13 @@ object Event {
   // Very fast O(1) operation
   def totalEvents() = Redis.pool.withClient {
     client =>
-      client.zcard("Events:V2:")
+      client.zcard(s"Events:${conferenceId}:V2:")
   }
 
   def resetEvents() = Redis.pool.withClient{
     client=>
-      client.del("Events:V2:")
-      val allEvents = client.keys("Events:*")
+      client.del(s"Events:${conferenceId}:V2:")
+      val allEvents = client.keys(s"Events:${conferenceId}:*")
       val tx=client.multi()
       allEvents.foreach{k:String=>
         tx.del(k)
@@ -93,7 +94,7 @@ object Event {
 
   def loadEventsForObjRef(objRef: String): List[Event] = Redis.pool.withClient {
     client =>
-      client.smembers(s"Events:V2:$objRef").flatMap {
+      client.smembers(s"Events:${conferenceId}:V2:$objRef").flatMap {
         json: String =>
           Json.parse(json).asOpt[Event]
       }.toList
@@ -101,7 +102,7 @@ object Event {
 
   def getMostRecentDateFor(objRef: String): Option[DateTime] = Redis.pool.withClient {
     client =>
-      client.get("Events:LastUpdated:" + objRef).map {
+      client.get(s"Events:${conferenceId}:LastUpdated:" + objRef).map {
         s =>
           new Instant().withMillis(s.toLong).toDateTime
       }
@@ -109,32 +110,32 @@ object Event {
 
   def resetSpeakersNotified() = Redis.pool.withClient{
     client=>
-      client.del("NotifiedBackupProposals")
+      client.del(s"NotifiedBackupProposals:${conferenceId}")
   }
 
   def backupNotificationSent(proposal: Proposal): Unit = Redis.pool.withClient {
     client =>
-      client.sadd("NotifiedBackupProposals", proposal.id)
+      client.sadd(s"NotifiedBackupProposals:${conferenceId}", proposal.id)
   }
 
   def notifiedBackupProposals():Set[String] = Redis.pool.withClient {
     client =>
-      client.smembers("NotifiedBackupProposals")
+      client.smembers(s"NotifiedBackupProposals:${conferenceId}")
   }
   
   def confirmBackupProposal(proposalId: String): Unit = Redis.pool.withClient {
     client =>
-      client.sadd("BackupConfirmed", proposalId)
+      client.sadd(s"BackupConfirmed:${conferenceId}", proposalId)
   }
   
   def confirmedBackupProposals():Set[String] = Redis.pool.withClient {
    client =>
-      client.smembers("BackupConfirmed")
+      client.smembers(s"BackupConfirmed:${conferenceId}")
   }
 
   def resetBackupConfirmations() = Redis.pool.withClient{
     client=>
-      client.del("BackupConfirmed")
+      client.del(s"BackupConfirmed:${conferenceId}")
   }
 
 }

@@ -34,34 +34,35 @@ import library.Redis
 object Invitation {
 
   private val redisInvitation = "Invitations"
+  val conferenceId = s":${ConferenceDescriptor.current().eventCode}"
 
   def inviteSpeaker(speakerId: String, invitedBy: String) = Redis.pool.withClient {
     implicit client =>
-      client.hset(redisInvitation, speakerId, invitedBy)
+      client.hset(redisInvitation+conferenceId, speakerId, invitedBy)
   }
 
   def isInvited(speakerId: String): Boolean = Redis.pool.withClient {
     implicit client =>
-      client.hexists(redisInvitation, speakerId)
+      client.hexists(redisInvitation+conferenceId, speakerId)
   }
 
   def invitedBy(speakerId: String): Option[String] = Redis.pool.withClient {
     implicit client =>
-      client.hget(redisInvitation, speakerId)
+      client.hget(redisInvitation+conferenceId, speakerId)
   }
 
   def all=Redis.pool.withClient{
     implicit client=>
-      client.hkeys(redisInvitation)
+      client.hkeys(redisInvitation+conferenceId)
   }
 
   def removeInvitation(speakerId:String)=Redis.pool.withClient {
     implicit client =>
-      client.hdel(redisInvitation, speakerId)
+      client.hdel(redisInvitation+conferenceId, speakerId)
   }
 
   def deleteAll()=Redis.pool.withClient{
     implicit client=>
-    client.del(redisInvitation)
+    client.del(redisInvitation+conferenceId)
   }
 }

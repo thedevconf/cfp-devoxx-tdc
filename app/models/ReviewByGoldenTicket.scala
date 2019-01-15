@@ -92,9 +92,10 @@ object ReviewByGoldenTicket {
 
   def allProposalsNotReviewed(reviewerUUID: String): List[Proposal] = Redis.pool.withClient {
     implicit client =>
-      val allProposalIDsForReview = client.sdiff(s"Proposals:ByState:${ProposalState.SUBMITTED.code}",
-        "ApprovedById:",
-        "RefusedById:",
+      val conferenceId = ConferenceDescriptor.current().eventCode
+      val allProposalIDsForReview = client.sdiff(s"Proposals:$conferenceId:ByState:${ProposalState.SUBMITTED.code}",
+        s"ApprovedById:$conferenceId",
+        s"RefusedById:$conferenceId",
         s"ReviewGT:Reviewed:ByAuthor:$reviewerUUID"
       )
       Proposal.loadProposalByIDs(allProposalIDsForReview, ProposalState.SUBMITTED)
@@ -205,7 +206,7 @@ object ReviewByGoldenTicket {
       Webuser.allCFPWebusers().map {
         webuser: Webuser =>
           val uuid = webuser.uuid
-          val total = client.sdiff(s"ReviewGT:Reviewed:ByAuthor:$uuid", "Proposals:ByState:" + ProposalState.DELETED.code, "Proposals:ByState:" + ProposalState.ARCHIVED.code, "Proposals:ByState:" + ProposalState.DRAFT.code, "Proposals:ByState:" + ProposalState.DECLINED.code)
+          val total = client.sdiff(s"ReviewGT:Reviewed:ByAuthor:$uuid", s"Proposals:$conferenceId:ByState:" + ProposalState.DELETED.code, s"Proposals:$conferenceId:ByState:" + ProposalState.ARCHIVED.code, s"Proposals:$conferenceId:ByState:" + ProposalState.DRAFT.code, s"Proposals:$conferenceId:ByState:" + ProposalState.DECLINED.code)
           (uuid, total.size)
       }
   }
@@ -355,9 +356,9 @@ object ReviewByGoldenTicket {
       val allVoted = client.hgetAll("GT:Computed:Reviewer:Total").map {
         case (uuid: String, totalPoints: String) =>
           val nbrOfTalksReviewed = client.sdiff(s"ReviewGT:Reviewed:ByAuthor:$uuid",
-            "Proposals:ByState:" + ProposalState.DELETED.code,
-            "Proposals:ByState:" + ProposalState.ARCHIVED.code,
-            "Proposals:ByState:" + ProposalState.DRAFT.code).size
+            s"Proposals:$conferenceId:ByState:" + ProposalState.DELETED.code,
+            s"Proposals:$conferenceId:ByState:" + ProposalState.ARCHIVED.code,
+            s"Proposals:$conferenceId:ByState:" + ProposalState.DRAFT.code).size
           (uuid, totalPoints.toInt, nbrOfTalksReviewed)
       }
 
@@ -374,9 +375,9 @@ object ReviewByGoldenTicket {
     client =>
       client.sdiff(s"ReviewGT:Reviewed:ByAuthor:$firstUUID",
         s"ReviewGT:Reviewed:ByAuthor:$secondUUID",
-        "Proposals:ByState:" + ProposalState.DELETED.code,
-        "Proposals:ByState:" + ProposalState.ARCHIVED.code,
-        "Proposals:ByState:" + ProposalState.DRAFT.code)
+        s"Proposals:$conferenceId:ByState:" + ProposalState.DELETED.code,
+        s"Proposals:$conferenceId:ByState:" + ProposalState.ARCHIVED.code,
+        s"Proposals:$conferenceId:ByState:" + ProposalState.DRAFT.code)
   }
 
 

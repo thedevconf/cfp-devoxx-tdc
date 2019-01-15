@@ -403,7 +403,7 @@ object CFPAdmin extends SecureCFPController {
           Proposal.loadAndParseProposals(reviews.keySet)
                   .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,requesterUUID))
 
-	    val notifiedBackups = Event.notifiedBackupProposals()
+      val notifiedBackups = Event.notifiedBackupProposals()
       val listOfProposals = reviews.flatMap {
         case (proposalId, scoreAndVotes) =>
           val maybeProposal = allProposals.get(proposalId)
