@@ -167,7 +167,9 @@
                                                 <a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
                                                     <i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
                                                 }else{
-                                                    <small><a href="@routes.ApproveOrRefuse.backup(proposal.id)" class="btn btn-sm btn-warning">
+                                                <a href="@routes.ApproveOrRefuse.doApprove(proposal.id)" class="approveBtn btn btn-sm btn-success">
+                                                    <i class="icon-thumbs-up"></i> @Messages("allVotes.button.approve")</a>
+                                                <small><a href="@routes.ApproveOrRefuse.backup(proposal.id)" class="btn btn-sm btn-warning">
                                                         @Messages("allVotes.button.backup")</a> </small>
                                             }
                                             @if(!backupNotified) {
