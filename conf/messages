@@ -129,6 +129,9 @@ audienceLevel.help=Por favor, indique o nível da audiência requerido para sua 
 publicationAuthorized=Permite disponibilizar slides da sua apresentação e que seja gravada e publicada no site? 
 publicationAuthorized.checkbox=Sim, autorizo a gravação da minha palestra e disponibilização dos slides da minha apresentação.
 
+meetupInterest=Tem interesse em apresentar a palestra em algum meetup ou grupo de usuários?
+meetupInterest.checkbox=Sim, tenho interesse em apresentar esta palestra em algum meetup ou grupo de usuários.
+
 privateMessage=Mensagem para os coordenadores da trilha, motivação para sua apresentação
 privateMessage.help=Escreva aqui qualquer detalhe importante sobre sua apresentação que os coordenadores devem saber. Você também pode incluir aqui a URL para seus slides ou um link para uma palestra online sua.
 sponsorTalk=Esta é uma apresentação de patrocinador?
@@ -1138,6 +1141,11 @@ d4.label=Sem slides e código
 proposal.publicationAuthorized=Filmagem e publicação de slides da apresentação autorizados?
 proposal.authorization.false=Não
 proposal.authorization.true=Sim
+
+proposal.meetupInterest=Tem interesse em apresentar a palestra em meetups ou grupos de usuários?
+proposal.meetupInterest.false=Não
+proposal.meetupInterest.true=Sim
+
 
 msg_pub=Envie uma mensagem para o palestrante
 email_pub=Seu endereço de email

@@ -129,6 +129,9 @@ audienceLevel.help=Please, indicate the required audience level for your talk:\
 publicationAuthorized=Do you allow your presentation slides to be made available and your talk to be recorded and published? 
 publicationAuthorized.checkbox=Yes, I authorize the recording of my talk and the publication of the presentation slides.
 
+meetupInterest=Are you interested in presenting this talk in a meetup or user group meeting?
+meetupInterest.checkbox=Yes, I am interested in presenting this talk in a meetup or user group meeting.
+
 privateMessage=Message for the program committee, motivation for your presentation
 privateMessage.help=Write here any important details about your presentation, that the program committee should know. You can also set here the URL to your slides, or a link to an existing online talk for example on Youtube or Vimeo.
 sponsorTalk=Is this a sponsor presentation?
@@ -1138,6 +1141,10 @@ d4.label=No slides & code
 proposal.publicationAuthorized=Recording of talk and publication of presentation slides authorized?
 proposal.authorization.false=No
 proposal.authorization.true=Yes
+
+proposal.meetupInterest=Has interest in presenting this talk at meetups or user groups meetings?
+proposal.meetupInterest.false=No
+proposal.meetupInterest.true=Yes
 
 msg_pub=Send a message to the speaker
 email_pub=Your email address

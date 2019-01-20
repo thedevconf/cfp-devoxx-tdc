@@ -61,7 +61,11 @@
                             <tr>
                                 <th>@Messages("proposal.publicationAuthorized")</th>
                                 <td>@Messages("proposal.authorization."+proposal.publicationAuthorized.getOrElse(false))</td>
-                            </tr>							
+                            </tr>
+                            <tr>
+                                <th>@Messages("proposal.meetupInterest")</th>
+                                <td>@Messages("proposal.meetupInterest."+proposal.meetupInterest.getOrElse(false))</td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-bordered">
