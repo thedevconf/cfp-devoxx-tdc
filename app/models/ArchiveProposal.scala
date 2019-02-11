@@ -119,10 +119,16 @@ object ArchiveProposal {
       tx.sadd(s"ArchivedById:${conferenceCode}", proposal.id.toString)
       tx.sadd(s"Archived:${conferenceCode}" + proposal.talkType.id, proposal.id.toString)
       tx.sadd(s"ArchivedSpeakers:${conferenceCode}:" + proposal.mainSpeaker, proposal.id.toString)
-      proposal.secondarySpeaker.map(secondarySpeaker => tx.sadd(s"ArchivedSpeakers:${conferenceCode}:" + secondarySpeaker, proposal.id.toString))
+      tx.sadd(s"Proposals:ByAuthor:${proposal.mainSpeaker}", proposal.id.toString)
+      proposal.secondarySpeaker.map{secondarySpeaker => {
+          tx.sadd(s"ArchivedSpeakers:${conferenceCode}:" + secondarySpeaker, proposal.id.toString)
+          tx.sadd(s"Proposals:ByAuthor:$secondarySpeaker", proposal.id.toString)
+        }
+      }
       proposal.otherSpeakers.foreach {
         otherSpeaker: String =>
           tx.sadd(s"ArchivedSpeakers:${conferenceCode}:" + otherSpeaker, proposal.id.toString)
+          tx.sadd(s"Proposals:ByAuthor:$otherSpeaker", proposal.id.toString)
       }
       tx.exec()
   }

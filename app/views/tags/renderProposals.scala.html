@@ -1,7 +1,7 @@
 @(proposals: Map[String, Proposal], currentUser: String, speakerId: String = "")(implicit lang: Lang,req: RequestHeader)
 
 
-@defining(proposals.values.partition(_.state.code==ProposalState.ARCHIVED.code)) { case (archivedProposals, notArchived) =>
+@defining(proposals.values.partition(_.event!=ConferenceDescriptor.current().eventCode)) { case (archivedProposals, notArchived) =>
 
 @******************************************** Proposals for this conference **************************************************@
 
