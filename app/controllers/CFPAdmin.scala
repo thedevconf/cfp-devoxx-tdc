@@ -83,6 +83,28 @@ object CFPAdmin extends SecureCFPController {
       }
   }
 
+  /**
+   * Shows a view for an archived proposal
+  */ 
+  def openArchivedProposal(proposalId: String) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val uuid = request.webuser.uuid
+      Proposal.findArchivedById(proposalId) match {
+        case Some(proposal) => {
+          if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(proposal.track.id,uuid)) {
+            val speakerDiscussion = Nil
+            val internalDiscussion = Nil
+            val maybeMyVote = None
+            val proposalsByAuths = allProposalByProposal(proposal)
+            Ok(views.html.CFPAdmin.showProposal(proposal, proposalsByAuths, speakerDiscussion, internalDiscussion, messageForm, messageForm, voteForm, maybeMyVote, uuid))
+          } else {
+            Redirect(routes.Application.index()).flashing("error" -> "Not Authorized")
+          }
+        }
+        case None => NotFound("Proposal not found").as("text/html")
+      }
+  }
+  
   private def allProposalByProposal(proposal: Proposal): Map[String, Map[String, models.Proposal]] = {
     val authorIds: List[String] = proposal.mainSpeaker :: proposal.secondarySpeaker.toList ::: proposal.otherSpeakers
     authorIds.map {

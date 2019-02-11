@@ -6,9 +6,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3><i class="icon-signin"></i> @Messages("admin.proposal") @proposal.event</h3>
-                    <a class="btn btn-sm btn-primary" href="@routes.CFPAdmin.history(proposal.id)">@Messages("btn.proposal.history")</a>
-                    @if(SecureCFPController.hasAccessToAdmin(req) && proposal.event == ConferenceDescriptor.current().eventCode) {
+                    @if(proposal.event == ConferenceDescriptor.current().eventCode) {
+                      <a class="btn btn-sm btn-primary" href="@routes.CFPAdmin.history(proposal.id)">@Messages("btn.proposal.history")</a>
+                      @if(SecureCFPController.hasAccessToAdmin(req)) {
                         <a class="btn btn-sm btn-danger" href="@routes.CFPAdmin.editProposal(proposal.id)">@Messages("btn.proposal.edit")</a>
+                      }
                     }
                 </div>
 

@@ -512,13 +512,23 @@ object Proposal {
     "otherSpeakers" -> list(text)
   ))
 
-  def findById(proposalId: String): Option[Proposal] = Redis.pool.withClient {
+  /*
+   * Loads an archived proposal from the database. The difference from the usual findById is that the proposal contains its own state, so
+   * it is not necessary to load it from the Proposals:ByState collections
+   */
+  def findArchivedById(proposalId: String): Option[Proposal] = Redis.pool.withClient {
     client =>
       for (proposalJson <- client.hget("Proposals", proposalId);
            proposal <- Json.parse(proposalJson).asOpt[Proposal]) yield proposal
-//           realState <- findProposalState(proposal.id)) yield {
-//        proposal.copy(state = realState)
-//      }
+  }
+  
+  def findById(proposalId: String): Option[Proposal] = Redis.pool.withClient {
+    client =>
+      for (proposalJson <- client.hget("Proposals", proposalId);
+           proposal <- Json.parse(proposalJson).asOpt[Proposal];
+           realState <- findProposalState(proposal.id)) yield {
+        proposal.copy(state = realState)
+	  }
   }
 
   def findProposalState(proposalId: String): Option[ProposalState] = Redis.pool.withClient {

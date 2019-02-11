@@ -105,7 +105,7 @@
             @archivedProposals.toList.sortBy(_.event).map { proposal: Proposal =>
                 <tr class="renderProposal_@proposal.state.code">
                     <td>@proposal.event</td>
-                    <td><a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a></td>
+                    <td><a href="@routes.CFPAdmin.openArchivedProposal(proposal.id)">@proposal.title</a></td>
                     <td>
                         @tags.renderProposalState(proposal.state)
                     </td>
