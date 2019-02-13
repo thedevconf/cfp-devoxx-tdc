@@ -1655,6 +1655,8 @@ attic.msg.reset.notifications=Todas as notificacoes foram removidas
 attic.msg.reset.trackleaders=Removidos todos os coordenadores das trilhas
 attic.msg.reset.schedules=Removida toda a programação de grades das trilhas
 attic.msg.reset.backup.confirmations=Removidas todas as confirmações de palestras backup
+attic.bt.reset.areas=Limpar todas as áreas de trilhas
+attic.msg.reset.areas=Removidas todas as áreas de trilhas
 
 #Proposal Edit by admin
 btn.proposal.edit = Editar
@@ -1692,6 +1694,18 @@ uploadPicture.msg.error.general=Erro ao submeter o arquivo
 api.loadschedule.error=Agendamento inconsistente. Provavelmente alguma palestra agendada foi recusada ou rejeitada
 api.tdc.updatespeaker.success=Chamada api de atualização de dados com sucesso para palestrante {0}
 api.tdc.updatespeaker.error=Erro ao invocar a api de atualização de dados de palestrante {0} - Status {1}
+
+#Area management
+backoffice.area=Serviço de gerenciamento de áreas
+backoffice.area.description=Este serviço permite a criação e edição de áreas de trilhas
+backoffice.area.btn.management=Gerenciar áreas
+backoffice.area.title=Configure as áreas
+backoffice.area.columns.name=Nome da área
+backoffice.area.columns.tracks=Trilhas
+backoffice.area.notrack=Nenhuma trilha
+backoffice.area.btn.new=Criar nova área
+backoffice.area.form.title=Dados da área
+backoffice.area.msg.updated=Lista de áreas atualizada
 
 #CallForTracks
 callfortracks.registration.title=Cadastro de Trilhas

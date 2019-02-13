@@ -131,7 +131,6 @@ GET           /cfpadmin/help                                                    
 GET           /cfpadmin/speaker/incidents/new                                   controllers.CFPAdmin.addIncident(speakerId: String)
 POST          /cfpadmin/speaker/incidents                                       controllers.CFPAdmin.saveIncident()
 
-
 GET           /cfpadmin/setPreferredDay                                         controllers.CFPAdmin.setPreferredDay(proposalId:String, day:String)
 GET           /cfpadmin/resetPreferredDay                                       controllers.CFPAdmin.resetPreferredDay(proposalId:String)
 
@@ -150,6 +149,12 @@ POST          /admin/deleteSpeaker/:speakerUUIDToDelete                         
 GET           /admin/cleanUpVotesIfUserWasDeleted                               controllers.Backoffice.cleanUpVotesIfUserWasDeleted
 GET           /admin/deleteAllVotes                                             controllers.Backoffice.deleteVotesForPropal(proposalId:String)
 GET           /admin/submittedByDate                                            controllers.Backoffice.submittedByDate()
+
+# Admin track area management
+GET           /admin/area                                                       controllers.Backoffice.allTrackAreas()
+POST          /admin/area/tracks                                                controllers.Backoffice.updateTracksForAreas()
+GET           /admin/area/newOrEdit                                             controllers.Backoffice.newOrEditArea(id:Option[String])
+POST          /admin/area                                                       controllers.Backoffice.saveArea()
 
 # Authenticate and admin as a regular user
 GET           /admin/authenticateAs/:uuid                                       controllers.Backoffice.authenticateAs(uuid:String)
@@ -312,6 +317,7 @@ POST          /cfpadmin/attic/resetEvents                                       
 POST          /cfpadmin/attic/resetTrackLeaders                                 controllers.Attic.resetTrackLeaders()
 POST          /cfpadmin/attic/resetSchedules                                    controllers.Attic.resetSchedules()
 POST          /cfpadmin/attic/resetBackupConfirmations                          controllers.Attic.resetBackupConfirmations()
+POST          /cfpadmin/attic/resetAreas                                        controllers.Attic.resetTrackAreas()
 
 # Golden ticket admin
 GET           /admin/goldenTickets                                              controllers.GoldenTicketAdminController.showAll()

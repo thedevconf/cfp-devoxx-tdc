@@ -54,17 +54,21 @@
             <a href="@routes.CFPAdmin.allWebusers()" class="btn btn-sm btn-primary"><i class="icon-user"></i> @Messages("admin.btn.webuser")</a>
             <a href="@routes.CFPAdmin.allCFPWebusers()" class="btn btn-sm btn-primary"><i class="icon-user-md"></i> @Messages("admin.btn.tracklead")</a>
             <a href="@routes.Backoffice.allAdminUsers()" class="btn btn-sm btn-danger"
-								title='@Messages("admin.btn.backoffice.tooltip")'><i class="icon-suitcase"></i> @Messages("admin.btn.backoffice")</a>
-			
+               title='@Messages("admin.btn.backoffice.tooltip")'><i class="icon-suitcase"></i> @Messages("admin.btn.backoffice")</a>
+
             <h4>@Messages("backoffice.events.log.title")</h4>
             <a href="@routes.CFPAdmin.eventLog()" class="btn btn-sm btn-primary"><i class="icon-stackexchange"></i> @Messages("admin.btn.events")</a>
 
             <h4>Cron</h4>
             <a href="@routes.Backoffice.sendDraftReminder()" class="btn btn-sm btn-primary"><i class="icon-refresh"></i> Send a reminder to speakers for DRAFT</a>
 
+            <h4>@Messages("backoffice.area")</h4>
+            <p>@Messages("backoffice.area.description")</p>
+            <a href="@routes.Backoffice.allTrackAreas()" class="btn btn-sm btn-primary"><i class="icon-bar-chart"></i> @Messages("backoffice.area.btn.management")</a>
+
             <h4>@Messages("backoffice.attic")</h4>
             <a href="@routes.Attic.atticHome()" class="btn btn-sm btn-danger"><i class="icon-trash"></i> @Messages("backoffice.attic.btn.cleanup")</a>
-			
+
         </div>
         </div>
     </div>

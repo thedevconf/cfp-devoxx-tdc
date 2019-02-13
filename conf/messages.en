@@ -1648,6 +1648,8 @@ attic.msg.reset.notifications=All Notified collections have been deleted.
 attic.msg.reset.trackleaders=All trackleaders reset
 attic.msg.reset.schedules=All schedules reset
 attic.msg.reset.backup.confirmations=All backup confirmations reset
+attic.bt.reset.areas=Reset the track areas
+attic.msg.reset.areas=Reset the areas
 
 #Proposal Edit by admin
 btn.proposal.edit = Edit
@@ -1685,6 +1687,19 @@ uploadPicture.msg.error.general=Error parsing form data
 api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was not approved by the trackleader but is still in the schedulling.
 api.tdc.updatespeaker.success=Update Speaker API call successfull for speaker {0}
 api.tdc.updatespeaker.error=Error calling Speaker TDC API for speaker {0} - Status {1}
+
+#Area management
+backoffice.area=Area service
+backoffice.area.description=This service allows areas to be created and updated
+backoffice.area.btn.management=Manage Areas
+backoffice.area.title=Configure the areas
+backoffice.area.columns.name=Area name
+backoffice.area.columns.tracks=Tracks
+backoffice.area.notrack=No tracks
+backoffice.area.btn.new=Create new area
+backoffice.area.form.title=Enter the area data
+backoffice.area.msg.updated=Areas updated
+
 
 #CallForTracks
 callfortracks.registration.title=Track Registration

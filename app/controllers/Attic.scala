@@ -131,4 +131,13 @@ object Attic extends SecureCFPController {
       Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.backup.confirmations")))
   }
 
+   /**
+    * Reset the list of track areas
+    */
+  def resetTrackAreas() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      TrackArea.resetAll()
+      Redirect(routes.Attic.atticHome()).flashing(("success", Messages("attic.msg.reset.areas")))
+  }
+  
 }
