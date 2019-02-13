@@ -1595,6 +1595,7 @@ allUploadedPresentations.warning.notalk=Nenhuma apresentação encontrada
 allUploadedPresentations.columns.talk=Palestra
 allUploadedPresentations.columns.links=Links
 allUploadedPresentations.notFound=Apresentação não encontrada
+reports.allTalksByArea.title=Todas as palestras por área
 
 draft=rascunho
 deleted=excluída

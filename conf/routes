@@ -113,6 +113,7 @@ GET           /cfpadmin/allWebusers                                             
 GET           /cfpadmin/reports                                                 controllers.CFPAdmin.reportsHome()
 GET           /cfpadmin/reports/talks/byCompany                                 controllers.CFPAdmin.allTalksByCompany()
 GET           /cfpadmin/reports/talks/stadium                                   controllers.CFPAdmin.allStadiumTalks()
+GET           /cfpadmin/reports/talks/byArea                                    controllers.CFPAdmin.allTalksByArea()
 GET           /cfpadmin/reports/allSpeakers/approvedTalks                       controllers.CFPAdmin.allSpeakersWithApprovedTalks()
 GET           /cfpadmin/reports/allSpeakers/approvedTalks/byCompany             controllers.CFPAdmin.allApprovedSpeakersByCompany(showQuickiesAndBof:Boolean ?=false)
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/forgetToAccept        controllers.CFPAdmin.allSpeakersThatForgetToAccept()

@@ -942,7 +942,7 @@ object CFPAdmin extends SecureCFPController {
       val urls = S3.getUploadedPresentations(eventCode)
       val pattern = raw".+/presentations/${eventCode}/(\w+)/(\w{3}-\d{4})_.+".r
       
-	  val links:Map[Track,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
+      val links:Map[Track,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
         case pattern(track,talk) => (Track.parse(track),talk,url)
       }).groupBy(_._1) //groups by track
         .mapValues(_.map(tuple => (tuple._2,tuple._3))) //strips the track from the values list
@@ -951,6 +951,26 @@ object CFPAdmin extends SecureCFPController {
           (Proposal.findById(talk),listOfLinks)
         }) //replaced the talk id with the proposal object
         Ok(views.html.CFPAdmin.allUploadedPresentations(links))
+  }
+  
+  /**
+  * Shows report of all talks by area
+  */
+  def allTalksByArea = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val allProposalIds = Proposal.allProposalIDsNotDeleted
+      val groupedProposals:Map[Track,List[Proposal]] = Proposal.loadAndParseProposals(allProposalIds)
+                                                               .values
+                                                               .toList
+                                                               .groupBy(_.track)
+
+      val allTrackAreas:Map[TrackArea,Map[Track,List[Proposal]]] = 
+                          TrackArea.allAreas()
+                                   .map(trackArea => (trackArea,groupedProposals.filterKeys(trackArea.tracks.contains(_))))
+                                   .toMap
+  
+
+      Ok(views.html.CFPAdmin.allTalksByArea(allTrackAreas))      
   }
 }
 

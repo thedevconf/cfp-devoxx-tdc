@@ -575,7 +575,9 @@ object Proposal {
     implicit client =>
       proposalIDsForCurrentConference(client.hgetAll("Proposals"))
   }
-
+  /**
+  * returns all the ids of proposals that are not deleted or archived
+  */
   def allProposalIDsNotDeleted: Set[String] = Redis.pool.withClient {
     implicit client =>
       val allProposalIDs = proposalIDsForCurrentConference(client.hgetAll("Proposals"))

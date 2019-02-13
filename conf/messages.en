@@ -1588,6 +1588,7 @@ allUploadedPresentations.warning.notalk=There is no uploaded presentation
 allUploadedPresentations.columns.talk=Talks
 allUploadedPresentations.columns.links=Links
 allUploadedPresentations.notFound=Presentation not found
+reports.allTalksByArea.title=All talks by area
 
 draft=draft
 deleted=deleted
