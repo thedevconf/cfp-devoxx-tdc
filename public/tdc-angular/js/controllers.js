@@ -24,7 +24,7 @@ adminController.controller('AdminController', function AdminController($rootScop
 });
 
 
-mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ScheduleService, PublishingService,flash) {
+mainController.controller('MainController', function MainController($rootScope, $scope, $routeParams, ScheduleService, PublishingService, NotificationService, flash) {
 
     ScheduleService.get({id: $routeParams.id}, function (jsonObj) {
         // Left column, list of accepted proposal
@@ -108,4 +108,9 @@ mainController.controller('MainController', function MainController($rootScope, 
         flash("Solicitação enviada");
     }
 
+    $scope.requestUnlocking = function() {
+        NotificationService.save({trackId: $routeParams.id});
+        flash("Solicitação enviada");
+    }	
+	
 });

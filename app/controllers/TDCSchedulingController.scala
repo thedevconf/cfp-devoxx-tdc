@@ -23,7 +23,7 @@
 
 package controllers
 
-import library.{UpdateScheduleStatus, SaveTDCSlots, ZapActor, RequestSchedulePublication}
+import library.{UpdateScheduleStatus, SaveTDCSlots, ZapActor, RequestSchedulePublication, RequestToUnlockSchedule}
 import models._
 import play.api.i18n.Messages
 import play.api.libs.json.Json
@@ -182,5 +182,19 @@ object TDCSchedulingController extends SecureCFPController {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
   }  
-
+  /**
+  * sends an email requesting that the schedule be unlocked so the trackleaders can make updates
+  */
+  def requestNotification() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      request.body.asJson.map {json => 
+        val trackId = (json \ "trackId").as[String]
+        ZapActor.actor ! RequestToUnlockSchedule(trackId, request.webuser)
+        Ok("{\"status\":\"success\"}").as("application/json")
+      }.getOrElse {
+        BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
+      }
+  }
+  
+  
 }

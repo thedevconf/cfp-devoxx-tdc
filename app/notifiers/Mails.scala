@@ -42,6 +42,7 @@ object Mails {
   lazy val committeeEmail = ConferenceDescriptor.current().committeeEmail
   lazy val bugReportRecipient = ConferenceDescriptor.current().bugReportRecipient
   lazy val bcc = ConferenceDescriptor.current().bccEmail
+  lazy val trackleadersEmail = ConferenceDescriptor.current().trackleadersEmail
 
   //TODO FIXME - allow customization of Lang
   implicit val lang = Lang("pt")
@@ -392,4 +393,20 @@ object Mails {
     )
   }
 
+ 
+  def doRequestToUnlockSchedule(track: Track) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val subject: String = Messages("mail.unlock_schedule.subject", Messages(track.label))
+
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(trackleadersEmail)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.sendRequestToUnlockSchedule(track).toString(),
+      views.html.Mails.sendRequestToUnlockSchedule(track).toString()
+    )
+  } 
+ 
 }

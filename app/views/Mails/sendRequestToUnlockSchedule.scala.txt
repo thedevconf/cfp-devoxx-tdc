@@ -1,0 +1,9 @@
+@(track:Track)
+
+O coordenador da trilha @Messages(track.label) solicitou o desbloqueio da grade no site do TDC.
+
+Favor executar o desbloqueio assim que possivel.
+
+Obrigado,
+
+Equipe @Messages("longName")

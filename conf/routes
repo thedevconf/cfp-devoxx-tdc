@@ -274,7 +274,7 @@ DELETE        /cfpadmin/scheduling/schedules/:trackId                           
 GET           /cfpadmin/scheduling/schedules                                    controllers.TDCSchedulingController.allScheduledTracks()
 PUT           /cfpadmin/scheduling/schedules/:trackId                           controllers.TDCSchedulingController.updateStatus(trackId:String)
 POST          /cfpadmin/scheduling/schedules/publicationRequest                 controllers.TDCSchedulingController.requestPublication()
-
+POST          /cfpadmin/scheduling/schedules/notificationRequest                controllers.TDCSchedulingController.requestNotification()
 
 # API for AngularJS
 GET           /schedulling/slots                                                controllers.SchedullingController.slots(confType:String)

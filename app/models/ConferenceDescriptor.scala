@@ -102,7 +102,8 @@ case class ConferenceDescriptor(eventCode: String,
                                 locale: List[Locale],
                                 localisation: String,
                                 notifyProposalSubmitted:Boolean,
-                                maxProposalSummaryCharacters:Int=1200
+                                maxProposalSummaryCharacters:Int=1200,
+								trackleadersEmail: String
                                )
 
 object ConferenceDescriptor {
@@ -807,7 +808,7 @@ object ConferenceDescriptor {
 
   // TODO You might want to start here and configure first, your various Conference Elements
   def current() = ConferenceDescriptor(
-    eventCode = "TDC2018POA",
+    eventCode = "TDC2019FLP",
     // You will need to update conf/routes files with this code if modified
     confUrlCode = "tdc2018poa",
     frLangEnabled = false,
@@ -841,6 +842,7 @@ object ConferenceDescriptor {
     , "UniRitter, Porto Alegre, RS"
     , notifyProposalSubmitted = false // Do not send an email for each talk submitted for France
     , 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
+	, trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br")
   )
 
   // It has to be a def, not a val, else it is not re-evaluated

@@ -12,3 +12,7 @@ remoteServices.factory('PublishingService', function($resource){
     return $resource('/cfpadmin/scheduling/schedules/publicationRequest/',{id:"@id"});
 });
 
+remoteServices.factory('NotificationService', function($resource){
+    return $resource('/cfpadmin/scheduling/schedules/notificationRequest/',{id:"@id"});
+});
+
