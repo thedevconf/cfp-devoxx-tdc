@@ -94,65 +94,72 @@ object TDCSchedulingController extends SecureCFPController {
 
       import TDCScheduleConfiguration.scheduleConfigurationFormat
 
-      //Loads all the proposals for the track
-      val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == trackId)
-      val proposalsWithSpeaker = proposals.map {
-        p: Proposal =>
-          val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
-          val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
-          val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
-          val company:String = mainWebuser.flatMap(_.company.map(_.toLowerCase.capitalize)).getOrElse("")
+      //checks if the user has authorization to read the schedule for the track (is admin or trackleader of the track)
+      val uuid = request.webuser.uuid
+      if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(trackId, uuid)) {
 
-          // Transform speakerUUID to Speaker name, this simplify Angular Code
-          p.copy(
-            mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
-            , secondarySpeaker = secWebuser.map(_.cleanName)
-            , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
-            , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
-            , summary = company //uses the summary field to inform the company for the proposal 
-            , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
-            , state = ProposalState(Messages(p.state.code))
-          )
-      }
+        //Loads all the proposals for the track
+        val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == trackId)
+        val proposalsWithSpeaker = proposals.map {
+          p: Proposal =>
+            val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
+            val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
+            val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
+            val company:String = mainWebuser.flatMap(_.company.map(_.toLowerCase.capitalize)).getOrElse("")
 
-      //Loads a scheduled configuration for the track if it already exists
-      val maybeScheduledConfiguration = TDCScheduleConfiguration.loadScheduledConfiguration(trackId)
+            // Transform speakerUUID to Speaker name, this simplify Angular Code
+            p.copy(
+              mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
+              , secondarySpeaker = secWebuser.map(_.cleanName)
+              , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
+              , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
+              , summary = company //uses the summary field to inform the company for the proposal 
+              , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
+              , state = ProposalState(Messages(p.state.code))
+            )
+        }
 
-      val jsonResult = maybeScheduledConfiguration match {
-        case None =>
-          Json.toJson(Map(
-            "approvedTalks" -> Json.toJson(proposalsWithSpeaker)
-          ))
-        case Some(config) =>
-          val selectedIds = config.slots.flatMap(slot => slot.proposals)
-          val (scheduledProposals,availableProposals) = proposalsWithSpeaker.partition(p => selectedIds.contains(p.id))
+        //Loads a scheduled configuration for the track if it already exists
+        val maybeScheduledConfiguration = TDCScheduleConfiguration.loadScheduledConfiguration(trackId)
 
-          val fullSlots:List[FullTDCSlot] = config.slots.map(slot =>
-            FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id =>
-              scheduledProposals.find(_.id == id).getOrElse({
-                //for the case when the trackleader removes the approval of a scheduled proposal
-                val p = Proposal.findById(id).get
-                val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
-                val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
-                val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
-                p.copy(mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
-                  , secondarySpeaker = secWebuser.map(_.cleanName)
-                  , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
-                  , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
-                  , summary = ""
-                  , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
-                  , state = ProposalState(Messages(p.state.code))
-                )
-              }))))
+        val jsonResult = maybeScheduledConfiguration match {
+          case None =>
+            Json.toJson(Map(
+              "approvedTalks" -> Json.toJson(proposalsWithSpeaker)
+            ))
+          case Some(config) =>
+            val selectedIds = config.slots.flatMap(slot => slot.proposals)
+            val (scheduledProposals,availableProposals) = proposalsWithSpeaker.partition(p => selectedIds.contains(p.id))
 
-          val fullSchedule = TDCScheduleConfiguration(trackId,fullSlots,config.blocked)
+            val fullSlots:List[FullTDCSlot] = config.slots.map(slot =>
+              FullTDCSlot(slot.id, slot.stadium, slot.proposals.map(id =>
+                scheduledProposals.find(_.id == id).getOrElse({
+                  //for the case when the trackleader removes the approval of a scheduled proposal
+                  val p = Proposal.findById(id).get
+                  val mainWebuser = Speaker.findByUUID(p.mainSpeaker)
+                  val secWebuser = p.secondarySpeaker.flatMap(Speaker.findByUUID)
+                  val oSpeakers = p.otherSpeakers.map(Speaker.findByUUID)
+                  p.copy(mainSpeaker = mainWebuser.map(_.cleanName).getOrElse("")
+                    , secondarySpeaker = secWebuser.map(_.cleanName)
+                    , otherSpeakers = oSpeakers.flatMap(s => s.map(_.cleanName))
+                    , talkType = p.talkType.copy(label = Messages(p.talkType.label+".simple"))
+                    , summary = ""
+                    , privateMessage = if (p.state == ProposalState.ACCEPTED) "OK" else ""
+                    , state = ProposalState(Messages(p.state.code))
+                  )
+                }))))
 
-          Json.toJson(Map(
-            "approvedTalks" -> Json.toJson(availableProposals)
-            ,"fullSchedule" -> Json.toJson(fullSchedule)
-          ))
-      }
-      Ok(Json.stringify(jsonResult)).as("application/json")
+            val fullSchedule = TDCScheduleConfiguration(trackId,fullSlots,config.blocked)
+
+            Json.toJson(Map(
+              "approvedTalks" -> Json.toJson(availableProposals)
+              ,"fullSchedule" -> Json.toJson(fullSchedule)
+            ))
+        }
+        Ok(Json.stringify(jsonResult)).as("application/json")
+     } else {
+        Unauthorized("{\"status\":\"unauthorized\"}").as("application/json")
+     }
   }
 
   /**
