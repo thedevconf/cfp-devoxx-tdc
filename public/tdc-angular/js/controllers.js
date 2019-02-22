@@ -42,6 +42,10 @@ mainController.controller('MainController', function MainController($rootScope, 
             $scope.slots = jsonObj["fullSchedule"].slots;
         }
         $scope.blocked = jsonObj["fullSchedule"].blocked
+
+    }, function(error) {
+          $scope.disableButtons = true
+		  flash("error","Unauthorized")
     });
 
     $rootScope.$on('dropEvent', function (evt, dragged, dropped) {

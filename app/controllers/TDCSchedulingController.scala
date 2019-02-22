@@ -46,13 +46,17 @@ object TDCSchedulingController extends SecureCFPController {
 
   def saveSchedule(trackId: String) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-
-      request.body.asJson.map {
-        json =>
-          ZapActor.actor ! SaveTDCSlots(trackId, json, request.webuser)
-          Ok("{\"status\":\"success\"}").as("application/json")
-      }.getOrElse {
-        BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
+      val uuid = request.webuser.uuid
+      if(hasAuthorizationToManageTrack(uuid,trackId)) {
+        request.body.asJson.map {
+          json =>
+            ZapActor.actor ! SaveTDCSlots(trackId, json, request.webuser)
+            Ok("{\"status\":\"success\"}").as("application/json")
+        }.getOrElse {
+          BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
+        }
+      } else {
+        Unauthorized("{\"status\":\"unauthorized\"}").as("application/json")
       }
   }
 
@@ -96,7 +100,7 @@ object TDCSchedulingController extends SecureCFPController {
 
       //checks if the user has authorization to read the schedule for the track (is admin or trackleader of the track)
       val uuid = request.webuser.uuid
-      if(Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(trackId, uuid)) {
+      if(hasAuthorizationToManageTrack(uuid,trackId)) {
 
         //Loads all the proposals for the track
         val proposals = ApprovedProposal.allApproved().filter(p => p.track.id == trackId)
@@ -183,8 +187,13 @@ object TDCSchedulingController extends SecureCFPController {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asJson.map {json => 
         val trackId = (json \ "trackId").as[String]
-        ZapActor.actor ! RequestSchedulePublication(trackId, request.webuser)
-        Ok("{\"status\":\"success\"}").as("application/json")
+        val uuid = request.webuser.uuid
+        if(hasAuthorizationToManageTrack(uuid,trackId)) {
+          ZapActor.actor ! RequestSchedulePublication(trackId, request.webuser)
+          Ok("{\"status\":\"success\"}").as("application/json")
+        } else {
+          Unauthorized("{\"status\":\"unauthorized\"}").as("application/json")
+        }
       }.getOrElse {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
@@ -196,11 +205,20 @@ object TDCSchedulingController extends SecureCFPController {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asJson.map {json => 
         val trackId = (json \ "trackId").as[String]
-        ZapActor.actor ! RequestToUnlockSchedule(trackId, request.webuser)
-        Ok("{\"status\":\"success\"}").as("application/json")
+        val uuid = request.webuser.uuid
+        if(hasAuthorizationToManageTrack(uuid,trackId)) {      	
+          ZapActor.actor ! RequestToUnlockSchedule(trackId, request.webuser)
+          Ok("{\"status\":\"success\"}").as("application/json")
+        } else {
+          Unauthorized("{\"status\":\"unauthorized\"}").as("application/json")	  
+        }
       }.getOrElse {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
+  }
+  
+  private def hasAuthorizationToManageTrack(uuid:String, trackId:String):Boolean = {
+    Webuser.hasAccessToAdmin(uuid) | TrackLeader.isTrackLeader(trackId, uuid)
   }
   
   
