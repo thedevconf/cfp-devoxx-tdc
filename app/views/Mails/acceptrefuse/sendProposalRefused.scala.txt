@@ -4,7 +4,7 @@ Olá, @firstName,
 
 Agradecemos mais uma vez a submissão da sua palestra!
 
-Lamentamos informar que INFELIZMENTE a sua palestra NÃO foi APROVADA:
+Lamentamos informar que INFELIZMENTE a sua palestra NÃO foi SELECIONADA:
     Título: @proposal.title
     Trilha: @Messages(proposal.track.label)
 
@@ -28,7 +28,7 @@ Equipe @Messages("longYearlyName")
 
 Hi, @firstName,
 
-We're sorry to inform you that your proposal was NOT APPROVED,keep in mind that
+We're sorry to inform you that your proposal was NOT SELECTED,keep in mind that
 we received hundreds of proposals and the available slots are very limited.
 
 Proposition title : @proposal.title, Track: @Messages(proposal.track.label).
