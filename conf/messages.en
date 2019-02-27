@@ -214,6 +214,11 @@ track.agilecoach.desc=Agile coaching transformando times e organizações
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
+track.agileeagilecoach.title=Agile e Agile Coaching
+track.agileeagilecoach.desc=Agile coaching transformando times e organizações
+agileeagilecoach.label=Agile e Agile Coaching
+agileeagilecoach.leaderboard=Agile e Agile Coaching
+
 track.analise.title=Análise de Negócios
 track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
 analise.label=Análise de Negócios
@@ -284,6 +289,11 @@ track.bigdata.desc=We strongly believe in data, we love data, we are data driven
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
+track.bigdataenosql.title=BigData e NoSQL
+track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
+bigdataenosql.label=BigData e NoSQL
+bigdataenosql.leaderboard=BigData e NoSQL
+
 track.beginners.title=Beginners
 track.beginners.desc=
 beginners.label=Beginners
@@ -308,6 +318,11 @@ track.cloud.title=Cloud Computing
 track.cloud.desc=Caminhando nas nuvens sem turbulências!
 cloud.label=Cloud Computing
 cloud.leaderboard=Cloud Computing
+
+track.cloudecontainers.title=Cloud e Containers
+track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
+cloudecontainers.label=Cloud e Containers
+cloudecontainers.leaderboard=Cloud e Containers
 
 track.computacao.title=Computação Cognitiva
 track.computacao.desc=
@@ -384,6 +399,11 @@ track.frameworksjs.desc=
 frameworksjs.label=Frameworks JavaScript
 frameworksjs.leaderboard=Frameworks JavaScript
 
+track.frontend.title=Front-end
+track.frontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+frontend.label=Front-end
+frontend.leaderboard=Front-end
+
 track.games.title=Games
 track.games.desc=
 games.label=Games
@@ -424,6 +444,11 @@ track.intelartif.desc=A inteligência artificial poderá revolucionar a humanida
 intelartif.label=Inteligência Artificial
 intelartif.leaderboard=Inteligência Artificial
 
+track.intelartifemachine.title=Inteligência Artificial e Machine Learning
+track.intelartifemachine.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+intelartifemachine.label=Inteligência Artificial e Machine Learning
+intelartifemachine.leaderboard=Inteligência Artificial e Machine Learning
+
 track.iot.title=Internet das Coisas
 track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
 iot.label=Internet das Coisas
@@ -453,6 +478,11 @@ track.javascript.title=JavaScript
 track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
+
+track.javascriptenodejs.title=JavaScript e Node.js
+track.javascriptenodejs.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+javascriptenodejs.label=JavaScript e Node.js
+javascriptenodejs.leaderboard=JavaScript e Node.js
 
 track.kanban.title=Kanban e Lean
 track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
