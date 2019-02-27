@@ -78,10 +78,15 @@ object ApproveOrRefuse extends SecureCFPController {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       Proposal.findById(proposalId).map {
         proposal =>
-          val confType: String = proposal.talkType.id
-          ApprovedProposal.cancelApprove(proposal)
-          Event.storeEvent(Event(proposalId, request.webuser.uuid, s"Cancel Approved on ${Messages(proposal.talkType.id)} [${proposal.title}] in track [${Messages(proposal.track.id)}]"))
-          Future.successful(Redirect(routes.CFPAdmin.allVotes(proposal.talkType.id, Some(confType))).flashing("success" -> s"Talk ${proposal.id} has been removed from Approved list."))
+          if(!TDCScheduleConfiguration.isScheduled(proposal.track.id,proposal.id)) {
+            val confType: String = proposal.talkType.id
+            ApprovedProposal.cancelApprove(proposal)
+            Event.storeEvent(Event(proposalId, request.webuser.uuid, s"Cancel Approved on ${Messages(proposal.talkType.id)} [${proposal.title}] in track [${Messages(proposal.track.id)}]"))
+            Future.successful(Redirect(routes.CFPAdmin.allVotes(proposal.talkType.id, Some(confType))).flashing("success" -> s"Talk ${proposal.id} has been removed from Approved list."))
+          } else {
+            Event.storeEvent(Event(proposalId, request.webuser.uuid, s"Attempt to cancel approval of scheduled talk ${Messages(proposal.talkType.id)} [${proposal.title}] in track [${Messages(proposal.track.id)}]"))
+            Future.successful(Redirect(routes.CFPAdmin.allVotes("all", None)).flashing("error" -> "Talk is blocked because it has already been published"))
+          }
       }.getOrElse {
         Future.successful(Redirect(routes.CFPAdmin.allVotes("all", None)).flashing("error" -> "Talk not found"))
       }

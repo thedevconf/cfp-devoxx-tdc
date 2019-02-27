@@ -65,6 +65,8 @@
             <small>@Messages("allVotes.warning1")</small>
             <br/>
             <small>@Messages("allVotes.warning2")</small>
+			<p class="label label-danger">@Messages("allVotes.warning3")</p>
+			<p></p>
         </div>
 
         <div class="col-md-12">
@@ -155,8 +157,12 @@
                             <td>
                                 @if(proposal.state==ProposalState.SUBMITTED || proposal.state==ProposalState.BACKUP){
                                     @if(approved){
+                                        @if(TDCScheduleConfiguration.isScheduled(proposal.track.id,proposal.id)) {
+                                           <i class="icon-exclamation-sign"></i> @Messages("allVotes.scheduled")
+                                        } else {
                                         <a href="@routes.ApproveOrRefuse.cancelApprove(proposal.id)" class="cancelAcceptBtn btn btn-sm btn-danger">
                                             <i class="icon-remove"></i> @Messages("allVotes.button.cancel.approve")</a>
+                                        }
                                     }else{
                                         @if(refused){
                                             <a href="@routes.ApproveOrRefuse.cancelRefuse(proposal.id)" class="cancelRefuseBtn btn btn-sm btn-danger">

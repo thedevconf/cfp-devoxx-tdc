@@ -97,5 +97,14 @@ object TDCScheduleConfiguration {
           play.Logger.of("models.TDCScheduleConfiguration").warn(s"Unable to load a SlotConfiguration for the selected track $trackId")
       }
   }
-
+  
+  /**
+  * returns if a talk is part of a schedule
+  */
+  def isScheduled(trackId:String, talkId:String):Boolean = {
+     val savedSchedule = loadScheduledConfiguration(trackId)
+     savedSchedule.map { schedule =>
+       !schedule.slots.filter(slot => slot.proposals.contains(talkId)).isEmpty
+     }.getOrElse(false)
+  }
 }
