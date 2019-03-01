@@ -36,7 +36,7 @@ import play.api.data.Forms._
 import play.api.data.validation.Constraints._
 import play.api.i18n.Messages
 import play.api.libs.Crypto
-import play.api.libs.json.Json
+import play.api.libs.json.{Json,JsValue}
 import play.api.libs.ws._
 import play.api.mvc._
 import play.api.Play.current
@@ -464,11 +464,6 @@ object Authentication extends Controller {
   // See LinkedIn documentation https://developer.linkedin.com/documents/authentication
   /**
     * Makes request for Authorization Code
-    *
-    * PS: Uses legacy OAuth URL
-    *
-    * @param visitor
-    * @return
     */
   def linkedinLogin(visitor: Boolean) = Action {
     implicit request =>
@@ -476,7 +471,7 @@ object Authentication extends Controller {
         clientId: String =>
           val redirectUri = routes.Authentication.callbackLinkedin().absoluteURL()
           val state = new BigInteger(130, new SecureRandom()).toString(32)
-          val linkedinUrl = "https://www.linkedin.com/uas/oauth2/authorization?client_id=" + clientId + "&scope=r_basicprofile%20r_emailaddress&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
+          val linkedinUrl = "https://www.linkedin.com/oauth/v2/authorization?client_id=" + clientId + "&scope=r_liteprofile%20r_emailaddress&state=" + Crypto.sign(state) + "&redirect_uri=" + redirectUri + "&response_type=code"
           Redirect(linkedinUrl).withSession("state" -> state)
       }.getOrElse {
         InternalServerError("linkedin.client_id is not set in application.conf")
@@ -500,7 +495,7 @@ object Authentication extends Controller {
                           clientSecret <- Play.current.configuration.getString("linkedin.client_secret")) yield (clientId, clientSecret)
           auth.map {
             case (clientId, clientSecret) => {
-              val url = "https://www.linkedin.com/uas/oauth2/accessToken"
+              val url = "https://www.linkedin.com/oauth/v2/accessToken"
               val redirect_uri = routes.Authentication.callbackLinkedin().absoluteURL()
               val wsCall = WS.url(url).withHeaders(("Accept" -> "application/json"), ("Content-Type" -> "application/x-www-form-urlencoded"))
                 .post(Map("client_id" -> Seq(clientId), "client_secret" -> Seq(clientSecret), "code" -> Seq(code), "grant_type" -> Seq("authorization_code"), "redirect_uri" -> Seq(redirect_uri)))
@@ -531,6 +526,16 @@ object Authentication extends Controller {
       })
   }
 
+private def extractLinkedInLocale(localizedJson: JsValue): String = {
+    val language = localizedJson.\("preferredLocale").\("language").asOpt[String]
+        val country = localizedJson.\("preferredLocale").\("country").asOpt[String]
+    (language,country) match {
+        case (Some(lang),Some(coun)) => s"${lang}_${coun}"
+        case (Some(lang),None) => lang
+        case _ => ""
+    }
+}
+
   /**
     * Uses the Access Token to request the user information.
     *
@@ -543,60 +548,81 @@ object Authentication extends Controller {
       request.session.get("linkedin_token").map {
         access_token =>
           //for Linkedin profile
-          val url = "https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,picture-url,summary,site-standard-profile-request)?format=json&oauth2_access_token=" + access_token
+          val url = "https://api.linkedin.com/v2/me?projection=(firstName,lastName,profilePicture(displayImage~:playableStreams))&oauth2_access_token=" + access_token
 
           val futureResult = WS.url(url).withHeaders(
             "User-agent" -> ("CFP " + ConferenceDescriptor.current().conferenceUrls.cfpHostname),
             "Accept" -> "application/json"
           ).get()
 
-          futureResult.map {
+         futureResult.flatMap {
             result =>
               result.status match {
                 case 200 => {
                   val json = Json.parse(result.body)
-                  val email = json.\("emailAddress").as[String]
-                  val firstName = json.\("firstName").asOpt[String]
-                  val lastName = json.\("lastName").asOpt[String]
-                  val photo = json.\("pictureUrl").asOpt[String]
-                  val summary = json.\("summary").asOpt[String]
-                  val linkedIn = json.\("siteStandardProfileRequest").\("url").asOpt[String]
+                  val locale = extractLinkedInLocale(json.\("firstName"))
+                  val firstName = json.\("firstName").\("localized").\(locale).asOpt[String]
+                  val lastName = json.\("lastName").\("localized").\(locale).asOpt[String]
+                  val photo = json.\("profilePicture").\("displayImage~").\\("identifier")(0).asOpt[String]
+                  
+                  val emailUrl = "https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))&oauth2_access_token=" + access_token
 
-                  // Try to lookup the speaker
-                  Webuser.findByEmail(email).map {
-                    w =>
-                      val cookie = createCookie(w)
-                      Redirect(routes.CallForPaper.homeForSpeaker()).flashing("warning" -> Messages("cfp.reminder.proposals")).withSession("uuid" -> w.uuid).withCookies(cookie)
-                  }.getOrElse {
-                    val defaultValues =
-							Speaker(uuid = "xxx"
-								   , email = email 
-								   , name = lastName
-								   , bio = summary.getOrElse("?")
-								   , lang = None
-								   , twitter = None
-								   , avatarUrl = photo
-								   , company = None
-								   , blog = None
-								   , firstName = firstName
-								   , qualifications = Option("No experience")
-								   , phone = None
-								   , gender = None
-								   , tshirtSize = None
-								   , linkedIn = linkedIn
-								   , github = None
-								   , tagName = None
-								   , facebook = None
-								   , instagram = None
-								   , race = None
-								   , disability = None
-								  )
-                    Ok(views.html.Authentication.confirmImport(importSpeakerForm.fill(defaultValues)))
-                  }
+                  val futureEmailResult = WS.url(emailUrl ).withHeaders(
+                    "User-agent" -> ("CFP " + ConferenceDescriptor.current().conferenceUrls.cfpHostname),
+                    "Accept" -> "application/json"
+                  ).get()
+
+                  futureEmailResult.map {
+                    emailResult =>
+                      emailResult.status match {
+                        case 200 => {
+                          val emailJson = Json.parse(emailResult.body)
+                          val email = emailJson.\\("emailAddress")(0).as[String]
+
+                          // Try to lookup the speaker
+                          Webuser.findByEmail(email).map {
+                            w =>
+                              val cookie = createCookie(w)
+                              Redirect(routes.CallForPaper.homeForSpeaker()).flashing("warning" -> Messages("cfp.reminder.proposals")).withSession("uuid" -> w.uuid).withCookies(cookie)
+                          }.getOrElse {
+                            val defaultValues =
+                              Speaker(uuid = "xxx"
+                                     , email = email
+                                     , name = lastName
+                                     , bio = "?"
+                                     , lang = None
+                                     , twitter = None
+                                     , avatarUrl = photo
+                                     , company = None
+                                     , blog = None
+                                     , firstName = firstName
+                                     , qualifications = Option("No experience")
+                                     , phone = None
+                                     , gender = None
+                                     , tshirtSize = None
+                                     , linkedIn = None
+                                     , github = None
+                                     , tagName = None
+                                     , facebook = None
+                                     , instagram = None
+                                     , race = None
+                                     , disability = None
+                              )
+                            Ok(views.html.Authentication.confirmImport(importSpeakerForm.fill(defaultValues)))
+                          }
+                        }
+                        case other => {
+                          play.Logger.error("Unable to complete call for LinkedIn email " + emailResult.status + " " + emailResult.statusText + " " + emailResult.body)
+                          BadRequest("Unable to complete the LinkedIn User Email API call")
+                        }
+                      } // end of emailResult pattern matching
+                  } // end of futureEmailResult map
                 }
                 case other => {
-                  play.Logger.error("Unable to complete call " + result.status + " " + result.statusText + " " + result.body)
-                  BadRequest("Unable to complete the LinkedIn User API call")
+                  Future.successful {
+                    play.Logger.error("Unable to complete call " + result.status + " " + result.statusText + " " + result.body)
+                    BadRequest("Unable to complete the LinkedIn User API call")
+                  }
                 }
               }
           }
