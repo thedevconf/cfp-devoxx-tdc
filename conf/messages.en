@@ -1416,6 +1416,7 @@ backoffice.events.log.title=Event Log
 admin.btn.events=View Log
 
 allproposals.submitted={0} submitted proposals
+allproposals.submitted.noproposal= You already voted for all proposals in this track. There are no new proposals at this moment
 allproposals.submitted.bytrack=All submitted proposals for track
 allproposals.submitted.bytype=All submitted proposals for type
 allproposals.submitted.tab=All submitted proposals
