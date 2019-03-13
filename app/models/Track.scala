@@ -24,6 +24,10 @@
 package models
 
 import play.api.libs.json.Json
+import library.Redis
+import play.api.data.Forms._
+import play.api.data._
+import org.apache.commons.lang3.RandomStringUtils
 
 /**
  * A Track is a general topic (Java, Architecture, Security)
@@ -31,27 +35,86 @@ import play.api.libs.json.Json
  * Author: nicolas martignole
  * Created: 06/11/2013 01:41
  */
-case class Track(id: String, label: String)
+case class Track(id: String, label: String, primaryKey: Option[String] = None)
 
 object Track {
-  implicit val trackFormat = Json.format[Track]
+    implicit val trackFormat = Json.format[Track]
 
-  val UNKNOWN=Track("unknown", "unknown.label")
+    val conferenceId = ConferenceDescriptor.current().eventCode
+	
+    val UNKNOWN=Track("unknown", "unknown.label")
 
-  val all = ConferenceDescriptor.ConferenceTracks.ALL
+    val all = ConferenceDescriptor.ConferenceTracks.ALL
 
-  val allAsIdsAndLabels:Seq[(String,String)] = all.map(a=>(a.id,a.label)).toSeq.sorted
+    val allAsIdsAndLabels:Seq[(String,String)] = all.map(a=>(a.id,a.label)).toSeq.sorted
 
-  val allIDs=ConferenceDescriptor.ConferenceTracks.ALL.map(_.id)
+    val allIDs=ConferenceDescriptor.ConferenceTracks.ALL.map(_.id)
 
+    val trackForm = Form(
+      mapping(
+        "trackId" -> nonEmptyText,
+        "trackLabel" -> nonEmptyText,
+        "primaryKey" -> optional(text)
+      ) (createFromForm)(fillForm)
+    )
 
-  // Compute diff between two Set of Track then returns a ready-to-use list of id/label
-  def diffFrom(otherTracks:Set[Track]):Seq[(String,String)] ={
-    val diffSet = ConferenceDescriptor.ConferenceTracks.ALL.toSet.diff(otherTracks)
-    diffSet.map(a=>(a.id,a.label)).toSeq.sorted
-  }
+    def createFromForm(trackId:String, label:String, primaryKey: Option[String]) = {
+      Track(trackId,label,Option(primaryKey.getOrElse(generateId())))
+    }
+
+    def fillForm(track:Track) = {
+      Option((track.id,track.label,track.primaryKey))
+    }
+
+    // Compute diff between two Set of Track then returns a ready-to-use list of id/label
+    def diffFrom(otherTracks:Set[Track]):Seq[(String,String)] ={
+      val diffSet = ConferenceDescriptor.ConferenceTracks.ALL.toSet.diff(otherTracks)
+      diffSet.map(a=>(a.id,a.label)).toSeq.sorted
+    }
   
-  def parse(session:String):Track={
-    ConferenceDescriptor.ConferenceTracks.ALL.find(t => t.id == session).getOrElse(UNKNOWN)
-  }
+    def parse(session:String):Track={
+      ConferenceDescriptor.ConferenceTracks.ALL.find(t => t.id == session).getOrElse(UNKNOWN)
+    }
+  
+    /**
+     * Loads all the tracks from the database
+     */
+    def allTracks():List[Track] = Redis.pool.withClient {
+      client =>
+        client.hgetAll(s"Tracks:$conferenceId")
+              .values
+              .map(Json.parse(_).as[Track])
+              .toList
+    }
+    /**
+     * loads the specified track from the database
+     */
+    def load(primaryKey: String): Option[Track] = Redis.pool.withClient {
+      client => {
+        val optTrack = client.hget(s"Tracks:$conferenceId", primaryKey)
+        optTrack.map(Json.parse(_).as[Track])
+      }
+    }
+
+
+    /**
+     * saves a track in the database, generating the id if needed
+     */
+    def save(track:Track) = Redis.pool.withClient {
+      client => {
+        val json = Json.toJson(track).toString()
+        client.hset(s"Tracks:$conferenceId", track.primaryKey.get, json)
+      }
+    }
+
+    private def generateId(): String = Redis.pool.withClient {
+      implicit client =>
+        val newId = s"T${RandomStringUtils.randomAlphabetic(3).toUpperCase}"
+        if (client.hexists(s"Tracks:$conferenceId", newId)) {
+          play.Logger.of("Track").warn(s"Track ID collision with $newId")
+          generateId()
+        } else {
+          newId
+        }
+    }
 }

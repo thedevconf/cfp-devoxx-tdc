@@ -379,7 +379,7 @@ object Backoffice extends SecureCFPController {
   } 
 
   /**
-  * lists all the track areas
+  * opens the track area form page
   */
   def newOrEditArea(areaId:Option[String]) = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
@@ -395,7 +395,7 @@ object Backoffice extends SecureCFPController {
   }
 
   /**
-  * lists all the track areas
+  * saves an area
   */
   def saveArea() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>

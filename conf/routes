@@ -119,8 +119,8 @@ GET           /cfpadmin/reports/allSpeakers/approvedTalks/byCompany             
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/forgetToAccept        controllers.CFPAdmin.allSpeakersThatForgetToAccept()
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/all                   controllers.CFPAdmin.allSpeakersWithAcceptedTalks()
 GET           /cfpadmin/reports/allSpeakers/acceptedTalks/export                controllers.CFPAdmin.allSpeakersWithAcceptedTalksForExport()
-GET			  /cfpadmin/reports/allSpeakers/gender								controllers.CFPAdmin.allSpeakersByGender()
-GET			  /cfpadmin/reports/allSpeakers/language							controllers.CFPAdmin.allSpeakersByLang(lang:Option[String] ?= None )
+GET           /cfpadmin/reports/allSpeakers/gender                              controllers.CFPAdmin.allSpeakersByGender()
+GET           /cfpadmin/reports/allSpeakers/language                            controllers.CFPAdmin.allSpeakersByLang(lang:Option[String] ?= None )
 GET           /cfpadmin/reports/allPresentations/uploaded/byTrack               controllers.CFPAdmin.allUploadedPresentationsByTrack()
 GET           /cfpadmin/allSpeakers/invited                                     controllers.InviteController.allInvitations()
 GET           /cfpadmin/allCFPWebusers                                          controllers.CFPAdmin.allCFPWebusers()
@@ -140,7 +140,7 @@ POST          /cfpadmin/saveNewSpeaker                                          
 
 GET           /admin                                                            controllers.Backoffice.homeBackoffice()
 GET           /admin/webusers/switch                                            controllers.Backoffice.switchCFPAdmin(uuid:String)
-GET	          /admin/allAdminUsers												controllers.Backoffice.allAdminUsers()
+GET	          /admin/allAdminUsers                                              controllers.Backoffice.allAdminUsers()
 GET           /admin/adminusers/switch                                          controllers.Backoffice.switchBackoffice(uuid:String)
 GET           /admin/proposals/all                                              controllers.Backoffice.allProposals(proposalId:Option[String] ?=None)
 GET           /admin/proposals/declined                                         controllers.Backoffice.showAllDeclined()
@@ -156,6 +156,11 @@ GET           /admin/area                                                       
 POST          /admin/area/tracks                                                controllers.Backoffice.updateTracksForAreas()
 GET           /admin/area/newOrEdit                                             controllers.Backoffice.newOrEditArea(id:Option[String])
 POST          /admin/area                                                       controllers.Backoffice.saveArea()
+
+# Admin conference data management
+GET           /admin/conference/tracks                                          controllers.ConferenceController.allTracks()
+GET           /admin/conference/tracks/newOrEdit                                controllers.ConferenceController.newOrEditTrack(id:Option[String])
+POST          /admin/conference/tracks                                          controllers.ConferenceController.saveTrack()
 
 # Authenticate and admin as a regular user
 GET           /admin/authenticateAs/:uuid                                       controllers.Backoffice.authenticateAs(uuid:String)

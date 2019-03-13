@@ -1,0 +1,51 @@
+@(allTracks:List[Track])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@import helper.twitterBootstrap._
+@import org.apache.commons.lang3.StringUtils
+
+@main(Messages("backoffice.area.title")){
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3><i class="icon-bar-chart"></i> @Messages("backoffice.conferences.tracks.title")</h3>
+                <a class="btn btn-sm btn-primary" href="@routes.ConferenceController.newOrEditTrack(None)">@Messages("backoffice.conferences.tracks.btn.new")</a>
+            </div>
+
+            <div class="panel-body">
+            @if(flash.get("error").isDefined) {
+            <div class="alert alert-danger alert-dismissable">
+            <strong>Error :</strong>
+            @flash.get("error").get
+            </div>
+            }
+            @if(flash.get("success").isDefined) {
+            <div class="alert alert-success alert-dismissable">
+            @flash.get("success").get
+            </div>
+            }
+            @if(!allTracks.isEmpty) {
+              <table class="table table-striped table-bordered table-condensed">
+                  <thead>
+                      <tr>
+                          <th>@Messages("backoffice.conferences.track.columns.name")</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                          @allTracks.map{ track =>
+                          <tr>
+                              <td><a href="@routes.ConferenceController.newOrEditTrack(track.primaryKey)">@Messages(track.label)</a></td>
+                          </tr>
+                          }
+                  </tbody>
+              </table>
+            } else {
+              <p>@Messages("backoffice.conferences.track.notrack")</p>
+            }
+            <a href="@routes.Backoffice.homeBackoffice()" class="btn btn-default">@Messages("backoffice.allCFPwebusers.btn.back")</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+}

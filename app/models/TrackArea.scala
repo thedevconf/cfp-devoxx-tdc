@@ -40,8 +40,8 @@ object TrackArea {
         }
     }
     /**
-	* Loads all the track areas from the database
-	*/
+     * Loads all the track areas from the database
+     */
     def allAreas():Iterable[TrackArea] = Redis.pool.withClient {
       client =>
         client.hgetAll(s"TrackAreas:$conferenceId")

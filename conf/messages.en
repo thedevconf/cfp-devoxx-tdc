@@ -1467,6 +1467,16 @@ backoffice.allCFPwebusers.columns.track=Track name
 backoffice.allCFPwebusers.columns.leader=Track leader
 backoffice.allCFPwebusers.btn.save=Save the full list
 backoffice.allCFPwebusers.btn.back=Go back to Backoffice
+backoffice.conferences=Conference management service
+backoffice.conferences.description=This service allows the creation of each conferences specific data
+backoffice.conferences.btn.tracks=Tracks
+backoffice.conferences.tracks.title=Configure the tracks
+backoffice.conferences.tracks.btn.new=Create a new track
+backoffice.conferences.track.columns.name=Name
+backoffice.conference.track.form.title=Track data
+backoffice.conferences.track.notrack=No tracks available
+trackId=Id
+trackLabel=Label
 
 showAcceptTerms.title=Terms and Conditions
 showAcceptTerms.subtitle1=Please read and accept
@@ -1475,6 +1485,7 @@ showAcceptTerms.warning=Version in Portuguese and English
 showAcceptTerms.button.validate=Validate
 showAcceptTerms.button.decline=Decline
 showAcceptTerms.warning=Warning! To be able to accept or decline a talk you must first accept the terms and conditions!
+
 
 allMyVotes.tab=All my votes
 allMyVotes.yourVotes=Your votes

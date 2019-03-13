@@ -1474,6 +1474,16 @@ backoffice.allCFPwebusers.columns.track=Nome da Trilha
 backoffice.allCFPwebusers.columns.leader=Líder da Trilha
 backoffice.allCFPwebusers.btn.save=Gravar a lista completa
 backoffice.allCFPwebusers.btn.back=Voltar para Backoffice
+backoffice.conferences=Serviço de gerenciamento de conferências
+backoffice.conferences.description=Este serviço permite a criação e edição dos dados específicos de cada conferência
+backoffice.conferences.btn.tracks=Trilhas
+backoffice.conferences.tracks.title=Configure as trilhas
+backoffice.conferences.tracks.btn.new=Criar nova trilha
+backoffice.conferences.track.columns.name=Nome
+backoffice.conference.track.form.title=Dados da trilha
+backoffice.conferences.track.notrack=Nenhuma trilha cadastrada
+trackId=Id
+trackLabel=Label
 
 showAcceptTerms.title=Termos e Condições
 showAcceptTerms.subtitle1=Por favor leia e aceite
