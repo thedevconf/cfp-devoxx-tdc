@@ -11,7 +11,6 @@ import play.api.data._
 import play.api.libs.json.Json
 import play.api.mvc.Action
 import play.api.i18n.Messages
-import models.TrackArea._
 
 /**
   * Backoffice actions, for maintenance and validation.
@@ -353,60 +352,5 @@ object Backoffice extends SecureCFPController {
       }.getOrElse {
         NotFound("Webuser not found")
       }
-  }
-
-  /**
-   * lists all the track areas
-   */
-  def allTrackAreas() = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      val allAreas = TrackArea.allAreas().toList.sortBy(_.description)
-      Ok(views.html.Backoffice.showTrackAreas(allAreas))
-  } 
-
-  /**
-   * Saves a track area
-   */
-  def updateTracksForAreas() = SecuredAction(IsMemberOf("admin")) {
-    implicit req: SecuredRequest[play.api.mvc.AnyContent] =>
-       req.request.body.asFormUrlEncoded.map {
-        tracksByArea =>
-          TrackArea.updateAllAreas(tracksByArea)
-          Redirect(routes.Backoffice.allTrackAreas).flashing("success" -> Messages("backoffice.area.msg.updated"))
-      }.getOrElse {
-        Redirect(routes.Backoffice.allTrackAreas).flashing("error" -> "No value received")
-      }
-  } 
-
-  /**
-  * opens the track area form page
-  */
-  def newOrEditArea(areaId:Option[String]) = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      areaId match {
-        case Some(id) => 
-          val optionArea = TrackArea.load(id)
-          optionArea.map{ area =>
-            val form = areaForm.fill(area)
-            Ok(views.html.Backoffice.editTrackArea(form))
-          }.getOrElse(NotFound("Area not found").as("text/html"))	
-        case None => Ok(views.html.Backoffice.editTrackArea(areaForm))
-      }
-  }
-
-  /**
-  * saves an area
-  */
-  def saveArea() = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      areaForm.bindFromRequest.fold(
-        invalidForm => BadRequest(views.html.Backoffice.editTrackArea(invalidForm)),
-        trackArea => {
-          TrackArea.save(trackArea)	
-          Redirect(routes.Backoffice.allTrackAreas)
-        }  
-      )
   }  
-
-  
 }

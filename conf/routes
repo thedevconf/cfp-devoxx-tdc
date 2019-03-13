@@ -152,10 +152,10 @@ GET           /admin/deleteAllVotes                                             
 GET           /admin/submittedByDate                                            controllers.Backoffice.submittedByDate()
 
 # Admin track area management
-GET           /admin/area                                                       controllers.Backoffice.allTrackAreas()
-POST          /admin/area/tracks                                                controllers.Backoffice.updateTracksForAreas()
-GET           /admin/area/newOrEdit                                             controllers.Backoffice.newOrEditArea(id:Option[String])
-POST          /admin/area                                                       controllers.Backoffice.saveArea()
+GET           /admin/area                                                       controllers.ConferenceController.allTrackAreas()
+POST          /admin/area/tracks                                                controllers.ConferenceController.updateTracksForAreas()
+GET           /admin/area/newOrEdit                                             controllers.ConferenceController.newOrEditArea(id:Option[String])
+POST          /admin/area                                                       controllers.ConferenceController.saveArea()
 
 # Admin conference data management
 GET           /admin/conference/tracks                                          controllers.ConferenceController.allTracks()

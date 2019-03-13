@@ -21,7 +21,7 @@
           </div>
         }
 
-        @helper.form(action = routes.Backoffice.saveArea) {
+        @helper.form(action = routes.ConferenceController.saveArea) {
             <input type="hidden" name="areaId" value='@areaForm("areaId").value'>
             @helper.inputText(areaForm("description"), 'class->"form-control")
             <button class="btn btn-success" type="submit">@Messages("sw.incidents.form.bt.save")</button>
