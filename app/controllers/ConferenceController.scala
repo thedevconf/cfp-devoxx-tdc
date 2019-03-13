@@ -1,8 +1,9 @@
 package controllers
 
-import models.{ConferenceDescriptor,Track,TrackArea}
+import models.{ConferenceDescriptor,Track,TrackArea,TDCConference}
 import models.Track._
 import models.TrackArea._
+import models.TDCConference._
 import play.api.i18n.Messages
 
 /**
@@ -49,58 +50,96 @@ object ConferenceController extends SecureCFPController {
           }  
         )
     }
-  /**
-   * lists all the track areas
-   */
-  def allTrackAreas() = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      val allAreas = TrackArea.allAreas().toList.sortBy(_.description)
-      Ok(views.html.Backoffice.showTrackAreas(allAreas))
-  } 
+    /**
+     * lists all the track areas
+     */
+    def allTrackAreas() = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        val allAreas = TrackArea.allAreas().toList.sortBy(_.description)
+        Ok(views.html.Backoffice.showTrackAreas(allAreas))
+    } 
 
-  /**
-   * Saves a track area
-   */
-  def updateTracksForAreas() = SecuredAction(IsMemberOf("admin")) {
-    implicit req: SecuredRequest[play.api.mvc.AnyContent] =>
-       req.request.body.asFormUrlEncoded.map {
-        tracksByArea =>
-          TrackArea.updateAllAreas(tracksByArea)
-          Redirect(routes.ConferenceController.allTrackAreas).flashing("success" -> Messages("backoffice.area.msg.updated"))
-      }.getOrElse {
-        Redirect(routes.ConferenceController.allTrackAreas).flashing("error" -> "No value received")
-      }
-  } 
+    /**
+     * Saves a track area
+     */
+    def updateTracksForAreas() = SecuredAction(IsMemberOf("admin")) {
+      implicit req: SecuredRequest[play.api.mvc.AnyContent] =>
+         req.request.body.asFormUrlEncoded.map {
+          tracksByArea =>
+            TrackArea.updateAllAreas(tracksByArea)
+            Redirect(routes.ConferenceController.allTrackAreas).flashing("success" -> Messages("backoffice.area.msg.updated"))
+        }.getOrElse {
+          Redirect(routes.ConferenceController.allTrackAreas).flashing("error" -> "No value received")
+        }
+    } 
 
-  /**
-  * opens the track area form page
-  */
-  def newOrEditArea(areaId:Option[String]) = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      areaId match {
-        case Some(id) => 
-          val optionArea = TrackArea.load(id)
-          optionArea.map{ area =>
-            val form = areaForm.fill(area)
-            Ok(views.html.Backoffice.editTrackArea(form))
-          }.getOrElse(NotFound("Area not found").as("text/html"))	
-        case None => Ok(views.html.Backoffice.editTrackArea(areaForm))
-      }
-  }
+    /**
+    * opens the track area form page
+    */
+    def newOrEditArea(areaId:Option[String]) = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        areaId match {
+          case Some(id) => 
+            val optionArea = TrackArea.load(id)
+            optionArea.map{ area =>
+              val form = areaForm.fill(area)
+              Ok(views.html.Backoffice.editTrackArea(form))
+            }.getOrElse(NotFound("Area not found").as("text/html"))	
+          case None => Ok(views.html.Backoffice.editTrackArea(areaForm))
+        }
+    }
 
-  /**
-  * saves an area
-  */
-  def saveArea() = SecuredAction(IsMemberOf("admin")) {
-    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      areaForm.bindFromRequest.fold(
-        invalidForm => BadRequest(views.html.Backoffice.editTrackArea(invalidForm)),
-        trackArea => {
-          TrackArea.save(trackArea)	
-          Redirect(routes.ConferenceController.allTrackAreas)
-        }  
-      )
-  }  
+    /**
+    * saves an area
+    */
+    def saveArea() = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        areaForm.bindFromRequest.fold(
+          invalidForm => BadRequest(views.html.Backoffice.editTrackArea(invalidForm)),
+          trackArea => {
+            TrackArea.save(trackArea)	
+            Redirect(routes.ConferenceController.allTrackAreas)
+          }  
+        )
+    }  
 
+    /**
+     * lists all the conferences
+     */
+    def allConferences() = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        val allConferences = TDCConference.allConferences.sortBy(_.eventCode)
+        Ok(views.html.Backoffice.showAllConferences(allConferences))
+    }
+
+    /**
+     * opens the conference form
+     */
+    def newOrEditConference(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        trackId match {
+          case Some(eventCode) => 
+            val optionConference = TDCConference.load(eventCode)
+            optionConference.map{ conference =>
+              val form = conferenceForm.fill(conference)
+              Ok(views.html.Backoffice.editConference(form))
+            }.getOrElse(NotFound("Conference not found").as("text/html"))	
+          case None => Ok(views.html.Backoffice.editConference(conferenceForm))
+        }
+    }
+
+    /**
+     * saves a conference in the database
+     */
+    def saveConference() = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        conferenceForm.bindFromRequest.fold(
+          invalidForm => BadRequest(views.html.Backoffice.editConference(invalidForm)),
+          conference => {
+            TDCConference.save(conference)
+            Redirect(routes.ConferenceController.allConferences)
+          }  
+        )
+    }
 
 }

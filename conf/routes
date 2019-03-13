@@ -161,6 +161,10 @@ POST          /admin/area                                                       
 GET           /admin/conference/tracks                                          controllers.ConferenceController.allTracks()
 GET           /admin/conference/tracks/newOrEdit                                controllers.ConferenceController.newOrEditTrack(id:Option[String])
 POST          /admin/conference/tracks                                          controllers.ConferenceController.saveTrack()
+GET           /admin/conferences                                                controllers.ConferenceController.allConferences()
+GET           /admin/conferences/newOrEdit                                      controllers.ConferenceController.newOrEditConference(id:Option[String])
+POST          /admin/conferences/                                               controllers.ConferenceController.saveConference()
+
 
 # Authenticate and admin as a regular user
 GET           /admin/authenticateAs/:uuid                                       controllers.Backoffice.authenticateAs(uuid:String)

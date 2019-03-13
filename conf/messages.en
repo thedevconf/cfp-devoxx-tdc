@@ -1477,6 +1477,13 @@ backoffice.conference.track.form.title=Track data
 backoffice.conferences.track.notrack=No tracks available
 trackId=Id
 trackLabel=Label
+backoffice.conferences.btn=Conferences
+backoffice.conferences.title=Configure the conferences
+backoffice.conferences.btn.new=Create a new conference
+backoffice.conferences.columns.name=Event Code
+backoffice.conference.form.title=Conference data
+backoffice.conferences.noconference=No conference available
+eventCode=Event Code
 
 showAcceptTerms.title=Terms and Conditions
 showAcceptTerms.subtitle1=Please read and accept

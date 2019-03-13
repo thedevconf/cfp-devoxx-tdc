@@ -86,8 +86,6 @@ object TrackArea {
         val tx = client.multi()
         tracksByArea.foreach {
           case (areaId, trackIds) =>
-//            Redis.pool.withClient {
-//              client =>
 				val oldArea = load(areaId).getOrElse(TrackArea(areaId,"",Nil))
 				var newTracks:List[Track] = Nil
 			    tx.del(s"TrackAreas:${conferenceId}:${areaId}")
@@ -98,7 +96,6 @@ object TrackArea {
 				val newArea = oldArea.copy(tracks = newTracks)
                 val json = Json.toJson(newArea).toString()
                 tx.hset(s"TrackAreas:$conferenceId", newArea.id, json)				
-//            }
         }
         tx.exec()
       }

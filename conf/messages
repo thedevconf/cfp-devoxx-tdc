@@ -1484,6 +1484,13 @@ backoffice.conference.track.form.title=Dados da trilha
 backoffice.conferences.track.notrack=Nenhuma trilha cadastrada
 trackId=Id
 trackLabel=Label
+backoffice.conferences.btn=Conferências
+backoffice.conferences.title=Configure as conferências
+backoffice.conferences.btn.new=Criar nova conferência
+backoffice.conferences.columns.name=Código do Evento
+backoffice.conference.form.title=Dados da conferência
+backoffice.conferences.noconference=Nenhuma conferência cadastrada
+eventCode=Código do Evento
 
 showAcceptTerms.title=Termos e Condições
 showAcceptTerms.subtitle1=Por favor leia e aceite
