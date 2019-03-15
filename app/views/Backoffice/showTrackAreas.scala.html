@@ -41,7 +41,7 @@
                                 <select data-placeholder= "--- @Messages("backoffice.area.notrack")---" class="chosen-select" id="@trackArea.id" name="@trackArea.id" multiple>
                                         <option value="no_track">--- @Messages("backoffice.area.notrack")---</option>
                                          @ConferenceDescriptor.ConferenceTracks.ALL.map { track =>
-                                           <option @if(trackArea.tracks.contains(track)){ selected } value="@track.id"> @Messages(track.label) </option>
+                                           <option @if(trackArea.tracks.contains(track)){ selected } value="@track.primaryKey"> @Messages(track.label) </option>
                                          }
                                 </select>
                             </div>
