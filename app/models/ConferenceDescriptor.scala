@@ -154,75 +154,7 @@ object ConferenceDescriptor {
 
   // Configure here all your Conference's tracks.
   object ConferenceTracks {
-
-    val DOTNET = Track("dotnet", "dotnet.label")
-    val ACESSIBILIDADE = Track("acessibilidade", "acessibilidade.label")
-    val AGILE = Track("agile", "agile.label")
-    val AGILECOACH = Track("agilecoach", "agilecoach.label")
-    val ANALISE = Track("analise", "analise.label")
-    val ANDROID = Track("androidkotlin", "androidkotlin.label")
-    val ARDUINO = Track("arduino", "arduino.label")
-    val ARQUITDADOS = Track("arquitetdados", "arquitetdados.label")
-    val ARQUITJAVA = Track("arquitetjava", "arquitetjava.label")
-    val ARQUITNET = Track("arquitetnet", "arquitetnet.label")
-
-    val BIGDATA = Track("bigdata", "bigdata.label")
-    val BLOCKCHAIN = Track("blockchain", "blockchain.label")
-
-    val CARREIRA = Track("carreira", "carreira.label")
-    val CHATBOTS = Track("chatbots", "chatbots.label")
-    val CLOUD = Track("cloud", "cloud.label")
-    val CONTAINERS = Track("containers", "containers.label")
-
-    val DATASCIENCE = Track("datascience", "datascience.label")
-    val DELPHI = Track("delphi", "delphi.label")
-    val DTHINKING = Track("dthinking", "dthinking.label")
-    val DEVOPS = Track("devops", "devops.label")
-    val DEVOPSTOOLS = Track("devopstools", "devopstools.label")
-    val DEVTEST = Track("devtest", "devtest.label")
-    val DESIGNCODIGO = Track("designcodigo", "designcodigo.label")
-
-    val EXTREMEPROG = Track("extremeprog", "extremeprog.label")
-
-    val GAMESREALIDADE = Track("gamesrealidade", "gamesrealidade.label")
-    val GESTAOPROD = Track("gestaoprod", "gestaoprod.label")
-    val GOLANG = Track("golang", "golang.label")
-
-    val INOVACAO = Track("inovacao", "inovacao.label")
-    val INTELARTIF = Track("intelartif", "intelartif.label")
-    val IOS = Track("ios", "ios.label")
-    val IOT = Track("iot", "iot.label")
-
-    val JAVA = Track("java", "java.label")
-    val JAVASCRIPT = Track("javascript", "javascript.label")
-
-    val KANBAN = Track("kanban", "kanban.label")
-
-    val MACHINE = Track("machine", "machine.label")
-    val MANAGEMENT = Track("management", "management.label")
-    val MICROSERVICES = Track("microservices", "microservices.label")
-
-    val NODEJS = Track("nodejs", "nodejs.label")
-    val NOSQL = Track("nosql", "nosql.label")
-
-    val PYTHON = Track("python", "python.label")
-
-    val RUBY = Track("ruby", "ruby.label")
-
-    val TESTES = Track("testes", "testes.label")
-    val TRANSFDIGITAL = Track("transfdigital", "transfdigital.label")
-    val UXDESIGN = Track("uxdesign", "uxdesign.label")
-    val WEBFRONTEND = Track("webfrontend", "webfrontend.label")
-    val WOMEN = Track("women", "women.label")
-
-    //val UNIVERSITY = Track("university", "university.label")
-
-    val ALL = List(DOTNET, ACESSIBILIDADE, AGILE, AGILECOACH, ANALISE, ANDROID, ARDUINO, ARQUITDADOS, ARQUITJAVA,
-      ARQUITNET, BIGDATA, BLOCKCHAIN, CARREIRA, CHATBOTS, CLOUD, CONTAINERS, DATASCIENCE, DELPHI, DESIGNCODIGO,
-      DTHINKING, DEVOPS, DEVOPSTOOLS, DEVTEST, EXTREMEPROG, GAMESREALIDADE, GESTAOPROD, GOLANG, INOVACAO, INTELARTIF,
-      IOS, IOT, JAVA, JAVASCRIPT, KANBAN, MACHINE, MANAGEMENT, MICROSERVICES, NODEJS, NOSQL, PYTHON, RUBY, TESTES,
-      TRANSFDIGITAL, UXDESIGN, WEBFRONTEND, WOMEN)
-
+    def ALL = Track.allTracks().sortBy(_.id)
   }
 
   // TODO If you want to use the Devoxx Scheduler, you can describe here the list of rooms, with capacity for seats
