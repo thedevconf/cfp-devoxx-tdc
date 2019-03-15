@@ -115,15 +115,12 @@
                 <p>@Messages("theme.track")</p>
                 <table class="table table-bordered table-striped">
                     <tbody>
-                        @for(track <- ConferenceDescriptor.ConferenceTracksDescription.ALL) {
-                            <tr>
-                                <!--
-                                <td><img src="@Messages(track.imgSrc)" style="height:30px; width:30px" /></td>
-                                -->
-                                <td>@Messages(track.i18nTitleProp)</td>
-                                <td>@Messages(track.i18nDescProp)</td>
-                            </tr>
-                        }
+                    @for(track <- ConferenceDescriptor.ConferenceTracks.ALL) {
+                    <tr>
+                        <td>@Messages(s"track.${track.id}.title")</td>
+                        <td>@Messages(s"track.${track.id}.desc")</td>
+                    </tr>
+                    }
                     </tbody>
                 </table>
             </div>

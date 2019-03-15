@@ -81,15 +81,6 @@ object ArchiveProposal {
         ApprovedProposal.cancelApprove(approvedProposal)
     }
 
-    // Some talks with an original talkType of "conf" have been updated to "hack"
-    // but the Approved list of talk was not updated, so I have to add this hack
-    // in order to be sure to cleanup the Approved:* collections
-    ApprovedProposal._loadApprovedCategoriesForTalk(proposal).map{
-      talkType:String=>
-        archiveApprovedProposal(proposal)
-        ApprovedProposal.cancelApprove(proposal)
-    }
-
     Some(proposal).filter(ApprovedProposal.isRefused).map {
       approvedProposal: Proposal =>
         ApprovedProposal.cancelRefuse(approvedProposal)

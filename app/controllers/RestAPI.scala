@@ -842,14 +842,14 @@ object RestAPI extends Controller {
     implicit request =>
 
       val ifNoneMatch = request.headers.get(IF_NONE_MATCH)
-      val allTracks = ConferenceDescriptor.ConferenceTracksDescription.ALL.map {
-        trackDesc =>
+      val allTracks = ConferenceDescriptor.ConferenceTracks.ALL.map {
+        track =>
           Json.toJson {
             Map(
-              "id" -> Json.toJson(trackDesc.id)
-              , "imgsrc" -> Json.toJson(trackDesc.imgSrc)
-              , "title" -> Json.toJson(Messages(trackDesc.i18nTitleProp))
-              , "description" -> Json.toJson(Messages(trackDesc.i18nDescProp))
+              "id" -> Json.toJson(track.id)
+              , "imgsrc" -> Json.toJson(s"/assets/tdc2016poa/images/icon_${track.id}.png")
+              , "title" -> Json.toJson(Messages(s"track.${track.id}.title"))
+              , "description" -> Json.toJson(Messages(s"track.${track.id}.desc"))
             )
           }
       }

@@ -44,12 +44,6 @@ object Track {
 	
     val UNKNOWN=Track("unknown", "unknown.label")
 
-    val all = ConferenceDescriptor.ConferenceTracks.ALL
-
-    val allAsIdsAndLabels:Seq[(String,String)] = all.map(a=>(a.id,a.label)).toSeq.sorted
-
-    val allIDs=ConferenceDescriptor.ConferenceTracks.ALL.map(_.id)
-
     val trackForm = Form(
       mapping(
         "trackId" -> nonEmptyText,
@@ -66,16 +60,14 @@ object Track {
       Option((track.id,track.label,track.primaryKey))
     }
 
-    // Compute diff between two Set of Track then returns a ready-to-use list of id/label
-    def diffFrom(otherTracks:Set[Track]):Seq[(String,String)] ={
-      val diffSet = ConferenceDescriptor.ConferenceTracks.ALL.toSet.diff(otherTracks)
-      diffSet.map(a=>(a.id,a.label)).toSeq.sorted
-    }
-  
     def parse(session:String):Track={
-      ConferenceDescriptor.ConferenceTracks.ALL.find(t => t.id == session).getOrElse(UNKNOWN)
+      load(session).getOrElse(UNKNOWN)
     }
-  
+
+    def allIDs= allTracks.map(_.id)
+
+    def allAsIdsAndLabels:Seq[(String,String)] = allTracks.map(a=>(a.id,a.label)).toSeq.sorted
+
     /**
      * Loads all the tracks from the database
      */
