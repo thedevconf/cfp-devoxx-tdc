@@ -46,7 +46,7 @@
   
                 @tags.selectI18N(field = newProposal("talkType"), options=ProposalType.allForCombos,  '_default->Messages("combo.select"), 'class->"form-control")
 
-                @tags.selectI18N(field = newProposal("track"), options=Track.allAsIdsAndLabels.filterNot(_._1==Track.UNKNOWN.id),'_default->Messages("combo.select"),  'class->"form-control")
+                @tags.selectI18N(field = newProposal("track"), options=Track.allAsPrimaryKeysAndLabels.filterNot(_._1==Track.UNKNOWN.id),'_default->Messages("combo.select"),  'class->"form-control")
                 @tags.selectI18N(field = newProposal("audienceLevel"), options=ProposalType.audienceLevels,'_default->Messages("combo.select"),  'class->"form-control")
                 @tags.selectI18N(field = newProposal("demoLevel"), options=ProposalType.demoLevels,'_default->Messages("combo.select"),  'class->"form-control")
 

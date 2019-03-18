@@ -66,7 +66,7 @@ object Track {
 
     def allIDs= allTracks.map(_.id)
 
-    def allAsIdsAndLabels:Seq[(String,String)] = allTracks.map(a=>(a.id,a.label)).toSeq.sorted
+    def allAsPrimaryKeysAndLabels:Seq[(String,String)] = allTracks.map(a=>(a.primaryKey.getOrElse(""),a.label)).toSeq.sortBy(_._2)
 
     /**
      * Loads all the tracks from the database

@@ -139,7 +139,7 @@ case class Proposal(id: String,
                     userGroup: Option[Boolean],
                     wishlisted: Option[Boolean] = None,
                     presentationUploaded: Option[Boolean] = None,
-					          publicationAuthorized: Option[Boolean] = None,
+                    publicationAuthorized: Option[Boolean] = None,
                     meetupInterest: Option[Boolean] = None) {
 
   def escapedTitle: String = title match {
@@ -312,7 +312,7 @@ object Proposal {
   def unapplyProposalForm(p: Proposal): Option[(Option[String], String, String, Option[String], List[String], String, String, String, String,
     Boolean, String, Option[String], Option[Boolean], Boolean, Boolean)] = {
     Option((Option(p.id), p.lang, p.title, p.secondarySpeaker, p.otherSpeakers, p.talkType.id, p.audienceLevel, p.summary, p.privateMessage,
-      p.sponsorTalk, p.track.id, p.demoLevel, p.userGroup, p.publicationAuthorized.getOrElse(false), p.meetupInterest.getOrElse(false)))
+      p.sponsorTalk, p.track.primaryKey.getOrElse(""), p.demoLevel, p.userGroup, p.publicationAuthorized.getOrElse(false), p.meetupInterest.getOrElse(false)))
   }
 
   def changeTrack(uuid: String, proposal: Proposal) = Redis.pool.withClient {
