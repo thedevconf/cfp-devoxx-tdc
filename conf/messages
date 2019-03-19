@@ -1746,6 +1746,8 @@ uploadPicture.msg.error.general=Erro ao submeter o arquivo
 api.loadschedule.error=Agendamento inconsistente. Provavelmente alguma palestra agendada foi recusada ou rejeitada
 api.tdc.updatespeaker.success=Chamada api de atualização de dados com sucesso para palestrante {0}
 api.tdc.updatespeaker.error=Erro ao invocar a api de atualização de dados de palestrante {0} - Status {1}
+api.tdc.updateproposal.success=Chamada api de atualização de dados com sucesso para palestra {0}
+api.tdc.updateproposal.error=Erro ao invocar a api de atualização de dados de palestra {0} - Status {1}
 
 #Area management
 backoffice.area=Serviço de gerenciamento de áreas

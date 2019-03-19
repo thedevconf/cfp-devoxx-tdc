@@ -1738,8 +1738,11 @@ uploadPicture.msg.error.general=Error parsing form data
 
 #REST API
 api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was not approved by the trackleader but is still in the schedulling.
-api.tdc.updatespeaker.success=Update Speaker API call successfull for speaker {0}
+api.tdc.updatespeaker.success=Update Speaker API call successful for speaker {0}
 api.tdc.updatespeaker.error=Error calling Speaker TDC API for speaker {0} - Status {1}
+api.tdc.updateproposal.success=Update Proposal API call successful for proposal {0}
+api.tdc.updateproposal.error=Error calling Proposal TDC API for proposal {0} - Status {1}
+
 
 #Area management
 backoffice.area=Area service

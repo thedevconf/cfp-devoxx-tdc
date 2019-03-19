@@ -24,7 +24,7 @@
 package controllers
 
 import library.search.ElasticSearch
-import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation, S3}
+import library.{NotifyProposalSubmitted, ProfileUpdated, SendMessageToCommitte, ZapActor, UploadPresentation, S3, ApprovedProposalUpdated}
 import models._
 import models.SocialMedia._
 import org.apache.commons.lang3.StringUtils
@@ -225,6 +225,11 @@ object CallForPaper extends SecureCFPController {
               // Then because the editor becomes mainSpeaker, we have to update the secondary and otherSpeaker
               Proposal.save(uuid, Proposal.setMainSpeaker(updatedProposal, uuid), existingProposal.state)
               Event.storeEvent(Event(proposal.id, uuid, "Updated proposal " + proposal.id + " with current state [" + existingProposal.state.code + "]"))
+              
+              // Notifies the TDC application if the state of the proposal is approved or accepted to keep the TDC site in sync with the cfp
+              if(existingProposal.state == ProposalState.APPROVED || existingProposal.state == ProposalState.ACCEPTED) {
+                ZapActor.actor ! ApprovedProposalUpdated(updatedProposal)
+              }
               Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved2"))
             }
             case other => {

@@ -1,6 +1,6 @@
 package library
 
-import models.{Speaker,Event}
+import models.{Speaker,Event,Proposal}
 import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.{WS, WSAuthScheme}
 import play.api.Play
@@ -29,6 +29,21 @@ object TDCClient {
     }
   }
 
+  
+  /**
+   * calls the TDC API to update the talk
+   */
+  def updateApprovedProposal(proposal: Proposal, caller:Option[String] = None): Unit = {
+    val tokenFuture = obtainAPIToken()
+    tokenFuture onComplete {
+      case Success(token) => {
+          val jsonSpeaker = convertProposalToJson(proposal)
+          val callerId = caller.getOrElse(proposal.mainSpeaker)
+          callUpdateApprovedProposal(token,jsonSpeaker,proposal.id,callerId)
+      }
+      case Failure(e) => play.Logger.error(e.getMessage)
+    }
+  }
 
   private def convertSpeakerToJson(speaker:Speaker):JsValue = {
     Json.toJson(Map(
@@ -51,6 +66,17 @@ object TDCClient {
     ))
   }
 
+   private def convertProposalToJson(proposal:Proposal):JsValue = {
+    Json.toJson(Map(
+      "id" -> Json.toJson(proposal.id),
+      "titulo" -> Json.toJson(proposal.title),
+      "descricao" -> Json.toJson(proposal.summary),
+      "urlApresentacao" -> Json.toJson(""),
+      "urlDemo" -> Json.toJson(""),
+      "urlCodigo" -> Json.toJson("")
+    ))
+  } 
+  
   private def obtainAPIToken():Future[String] = {
     val url = "https://api.globalcode.com.br/v1/oauth2/token"
     val auth:Option[(String,String)] = for (clientId <- Play.current.configuration.getString("tdc.client_id");
@@ -87,4 +113,21 @@ object TDCClient {
     }
   }
 
+  private def callUpdateApprovedProposal(token: String, body: JsValue, proposalId:String, callerId:String):Unit = {
+    val url = "https://api.globalcode.com.br/v1/system/palestra"
+	println(body)
+
+    val wsCall = WS.url(url).withHeaders("Authorization" -> s"Bearer $token").put(body)
+    wsCall.onComplete {
+        case Success(response) => response.status match {
+           case 200 => Event.storeEvent(Event(proposalId, callerId, Messages("api.tdc.updateproposal.success",proposalId)))
+           case anotherStatus => {
+             play.Logger.error(Messages("api.tdc.updateproposal.error",proposalId,anotherStatus))
+             Event.storeEvent(Event(proposalId, callerId, Messages("api.tdc.updateproposal.error",proposalId,anotherStatus)))
+           }
+        }
+        case Failure(e) => play.Logger.error(e.getMessage)
+    }
+  }  
+  
 }

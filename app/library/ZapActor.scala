@@ -86,6 +86,8 @@ case class UpdateScheduleStatus(trackId: String, blocked: Boolean)
 
 case class ProfileUpdated(speaker:Speaker)
 
+case class ApprovedProposalUpdated(proposal:Proposal)
+
 case class UploadPresentation(proposalId:String, filename:String, uploadedBy:String)
 
 case class RequestSchedulePublication(trackId:String, requestedBy: Webuser)
@@ -124,6 +126,7 @@ class ZapActor extends Actor {
     case UploadPresentation(proposalId,filename,uploadedBy) => doUploadPresentation(proposalId, filename,uploadedBy)
     case RequestSchedulePublication(trackId,requestedBy) => doRequestSchedulePublication(trackId,requestedBy)
     case RequestToUnlockSchedule(trackId,requestedBy) => doRequestToUnlockSchedule(trackId,requestedBy)
+    case ApprovedProposalUpdated(proposal) => doNotifyApprovedProposalUpdated(proposal)
     case other => play.Logger.of("application.ZapActor").error("Received an invalid actor message: " + other)
   }
 
@@ -301,6 +304,10 @@ class ZapActor extends Actor {
 
   def doNotifyProfileUpdated(speaker: Speaker) = {
     TDCClient.updateSpeakerProfile(speaker)
+  }
+  
+  def doNotifyApprovedProposalUpdated(proposal: Proposal) = {
+    TDCClient.updateApprovedProposal(proposal)
   }
 
   def doUploadPresentation(proposalId: String, filename: String, uploadedBy: String) = {

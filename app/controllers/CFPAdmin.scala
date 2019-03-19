@@ -509,6 +509,12 @@ object CFPAdmin extends SecureCFPController {
               val updatedProposal = proposal.copy(mainSpeaker = existingProposal.mainSpeaker, secondarySpeaker = existingProposal.secondarySpeaker, otherSpeakers = existingProposal.otherSpeakers)
               Proposal.save(updatedProposal.mainSpeaker, updatedProposal, existingProposal.state)
               Event.storeEvent(Event(proposal.id, uuid, "Edited proposal " + proposal.id + " with current state [" + existingProposal.state.code + "]"))
+
+              // Notifies the TDC application if the state of the proposal is approved or accepted to keep the TDC site in sync with the cfp
+              if(existingProposal.state == ProposalState.APPROVED || existingProposal.state == ProposalState.ACCEPTED) {
+                ZapActor.actor ! ApprovedProposalUpdated(updatedProposal)
+              }
+  
               Redirect(routes.CallForPaper.homeForSpeaker()).flashing("success" -> Messages("saved2"))
             }
             case None => NotFound("Proposal not found").as("text/html")
