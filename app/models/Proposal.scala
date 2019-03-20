@@ -1161,3 +1161,5 @@ object Proposal {
   }
 
 }
+
+case class ProposalURLs(presentationURL:Option[String], demoURL:Option[String], codeURL:Option[String])

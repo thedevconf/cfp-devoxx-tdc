@@ -311,11 +311,16 @@ class ZapActor extends Actor {
   }
 
   def doUploadPresentation(proposalId: String, filename: String, uploadedBy: String) = {
-    val trackId = Proposal.findProposalTrack(proposalId).map(_.id).getOrElse("")
+    val optProposal = Proposal.findById(proposalId)
+    val trackId = optProposal.map(_.track).map(_.id).getOrElse("")
     val eventCode = ConferenceDescriptor.current().eventCode
     try {
-      S3.uploadPresentation(eventCode, trackId, filename)
+      val proposal = optProposal.get
+      val presentationUrl = S3.uploadPresentation(eventCode, trackId, filename)
       Event.storeEvent(Event(proposalId, uploadedBy, s"Uploaded presentation for track $trackId"))
+      if(proposal.state == ProposalState.APPROVED || proposal.state == ProposalState.ACCEPTED) {
+        TDCClient.updatePresentation(proposal, uploadedBy, ProposalURLs(Option(presentationUrl),None,None) )
+      }
     } catch {
       case e:Exception =>
         Event.storeEvent(Event(proposalId, uploadedBy, s"Error uploading presentation for track $trackId : ${e.getMessage}"))

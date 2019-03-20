@@ -23,6 +23,7 @@ object S3 {
     val putObject = new PutObjectRequest(bucketName,key,new File(presentationSourceDir + filename))
                         .withCannedAcl(CannedAccessControlList.PublicRead)
     s3.putObject(putObject)
+    s"https://s3-sa-east-1.amazonaws.com/$bucketName/$key"
   }
   
   def uploadPicture(userId:String, filename:String):String = {

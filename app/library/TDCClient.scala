@@ -1,6 +1,6 @@
 package library
 
-import models.{Speaker,Event,Proposal}
+import models.{Speaker,Event,Proposal,ProposalURLs}
 import play.api.libs.json.{JsValue, Json}
 import play.api.libs.ws.{WS, WSAuthScheme}
 import play.api.Play
@@ -12,6 +12,12 @@ import scala.concurrent.Future
 import scala.util.{Failure, Success}
 
 object TDCClient {
+  /**
+   * calls the TDC API to update the presentation of the talk
+   */
+  def updatePresentation(proposal: Proposal, uploadedBy: String, urls: ProposalURLs):Unit = {
+    updateApprovedProposal(proposal,Option(uploadedBy), Option(urls))
+  }
 
 
   /**
@@ -33,13 +39,13 @@ object TDCClient {
   /**
    * calls the TDC API to update the talk
    */
-  def updateApprovedProposal(proposal: Proposal, caller:Option[String] = None): Unit = {
+  def updateApprovedProposal(proposal: Proposal, caller:Option[String] = None, urls: Option[ProposalURLs] = None): Unit = {
     val tokenFuture = obtainAPIToken()
     tokenFuture onComplete {
       case Success(token) => {
-          val jsonSpeaker = convertProposalToJson(proposal)
+          val jsonProposal = convertProposalToJson(proposal, urls)
           val callerId = caller.getOrElse(proposal.mainSpeaker)
-          callUpdateApprovedProposal(token,jsonSpeaker,proposal.id,callerId)
+          callUpdateApprovedProposal(token,jsonProposal,proposal.id,callerId)
       }
       case Failure(e) => play.Logger.error(e.getMessage)
     }
@@ -66,14 +72,14 @@ object TDCClient {
     ))
   }
 
-   private def convertProposalToJson(proposal:Proposal):JsValue = {
+   private def convertProposalToJson(proposal:Proposal, optionUrls: Option[ProposalURLs]):JsValue = {
     Json.toJson(Map(
       "id" -> Json.toJson(proposal.id),
       "titulo" -> Json.toJson(proposal.title),
       "descricao" -> Json.toJson(proposal.summary),
-      "urlApresentacao" -> Json.toJson(""),
-      "urlDemo" -> Json.toJson(""),
-      "urlCodigo" -> Json.toJson("")
+      "urlApresentacao" -> Json.toJson(optionUrls.map(urls => urls.presentationURL.getOrElse("")).getOrElse("")),
+      "urlDemo" -> Json.toJson(optionUrls.map(urls => urls.demoURL.getOrElse("")).getOrElse("")),
+      "urlCodigo" -> Json.toJson(optionUrls.map(urls => urls.codeURL.getOrElse("")).getOrElse(""))
     ))
   } 
   
@@ -115,8 +121,6 @@ object TDCClient {
 
   private def callUpdateApprovedProposal(token: String, body: JsValue, proposalId:String, callerId:String):Unit = {
     val url = "https://api.globalcode.com.br/v1/system/palestra"
-	println(body)
-
     val wsCall = WS.url(url).withHeaders("Authorization" -> s"Bearer $token").put(body)
     wsCall.onComplete {
         case Success(response) => response.status match {
