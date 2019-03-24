@@ -303,21 +303,6 @@ object Mails {
     )
   }
 
-  def sendResultToSpeaker(speaker: Speaker, listOfApprovedProposals: Set[Proposal], listOfRefusedProposals: Set[Proposal]) = {
-    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.speaker_cfp_results.subject", Messages("longYearlyName"))
-    emailer.setSubject(subject)
-    emailer.addFrom(from)
-    emailer.addRecipient(speaker.email)
-    bcc.map(bccEmail => emailer.addBcc(bccEmail))
-
-    emailer.setCharset("utf-8")
-    emailer.send(
-      views.txt.Mails.acceptrefuse.sendResultToSpeaker(speaker, listOfApprovedProposals, listOfRefusedProposals).toString(),
-      views.html.Mails.acceptrefuse.sendResultToSpeaker(speaker, listOfApprovedProposals, listOfRefusedProposals).toString()
-    )
-  }
-
   def sendInvitationForSpeaker(speakerEmail: String, message: String, requestId: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
     val shortYearlyName = Messages("shortYearlyName")

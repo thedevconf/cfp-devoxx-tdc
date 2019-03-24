@@ -35,7 +35,7 @@ object ApprovedProposal {
   val conferenceId = ConferenceDescriptor.current().eventCode	
 
   def elasticSearchIndex():String={
-    "proposals_"+ConferenceDescriptor.current().confUrlCode
+    "proposals_"+ConferenceDescriptor.current().eventCode.toLowerCase()
   }
 
   def countApproved(talkType: String): Long = Redis.pool.withClient {

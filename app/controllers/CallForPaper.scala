@@ -370,10 +370,6 @@ object CallForPaper extends SecureCFPController {
       maybeProposal match {
         case Some(proposal) => {
           Proposal.submit(uuid, proposalId)
-          if(ConferenceDescriptor.current().notifyProposalSubmitted) {
-            // This generates too mmany emails for France and is useless
-            ZapActor.actor ! NotifyProposalSubmitted(uuid, proposal)
-          }
           Redirect(routes.CallForPaper.homeForSpeaker).flashing("success" -> Messages("talk.submitted"))
         }
         case None => {

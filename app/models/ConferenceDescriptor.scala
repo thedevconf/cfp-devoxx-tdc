@@ -91,8 +91,6 @@ object ProposalConfiguration {
 }
 
 case class ConferenceDescriptor(eventCode: String,
-                                confUrlCode: String,
-                                frLangEnabled: Boolean,
                                 fromEmail: String,
                                 committeeEmail: String,
                                 bccEmail: Option[String],
@@ -105,9 +103,8 @@ case class ConferenceDescriptor(eventCode: String,
                                 conferenceSponsor: ConferenceSponsor,
                                 locale: List[Locale],
                                 localisation: String,
-                                notifyProposalSubmitted:Boolean,
                                 maxProposalSummaryCharacters:Int=1200,
-								trackleadersEmail: String
+                                trackleadersEmail: String
                                )
 
 object ConferenceDescriptor {
@@ -199,9 +196,6 @@ object ConferenceDescriptor {
   // TODO You might want to start here and configure first, your various Conference Elements
   def current() = ConferenceDescriptor(
     eventCode = "TDC2019FLP",
-    // You will need to update conf/routes files with this code if modified
-    confUrlCode = "tdc2018poa",
-    frLangEnabled = false,
     fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
     committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
     bccEmail = Play.current.configuration.getString("mail.bcc"),
@@ -228,11 +222,10 @@ object ConferenceDescriptor {
     hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
     hashTag = "#TheDevConf",
     conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF)
-    ,  List(new Locale("pt","BR"))
-    , "UniRitter, Porto Alegre, RS"
-    , notifyProposalSubmitted = false // Do not send an email for each talk submitted for France
-    , 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
-	, trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br")
+    , locale = List(new Locale("pt","BR"))
+    , localisation = "UniRitter, Porto Alegre, RS"
+    , maxProposalSummaryCharacters = 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
+	  , trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br")
   )
 
   // It has to be a def, not a val, else it is not re-evaluated
