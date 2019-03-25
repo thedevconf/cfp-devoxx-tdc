@@ -1483,7 +1483,17 @@ backoffice.conferences.btn.new=Create a new conference
 backoffice.conferences.columns.name=Event Code
 backoffice.conference.form.title=Conference data
 backoffice.conferences.noconference=No conference available
+backoffice.conferences.btn.back=Back
 eventCode=Event Code
+cfpOpenDate=Opening date for CFP
+cfpCloseDate=Closing date for CFP
+scheduleAnnouncedOn=Aproved Talks announced on
+startDate=Conference start
+endDate=Conference End
+conferenceTitle=Title
+conferenceSubtitle=Subtitle
+localisation=Local
+registrationUrl=Registration URL
 
 showAcceptTerms.title=Terms and Conditions
 showAcceptTerms.subtitle1=Please read and accept

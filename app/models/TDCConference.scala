@@ -1,12 +1,25 @@
 package models
 
+import java.util.Date
+
 import library.Redis
 import play.api.data.Forms._
 import play.api.data._
 import play.api.libs.json.Json
+import org.joda.time.LocalDate
 
 case class TDCConference (
-	eventCode:String
+  eventCode:String,
+  title:String,
+  shortTitle:String,
+  localisation:String,
+  cfpOpenDate:LocalDate,
+  cfpCloseDate:LocalDate,
+  scheduleAnnouncedOn:LocalDate,
+  startDate:LocalDate,
+  endDate:LocalDate,
+  registrationUrl:String,
+  scheduleUrl:String
 )
 
 object TDCConference {
@@ -15,16 +28,30 @@ object TDCConference {
 
     val conferenceForm = Form(
       mapping(
-        "eventCode" -> nonEmptyText
+        "eventCode" -> nonEmptyText,
+        "conferenceTitle" -> nonEmptyText,
+        "conferenceShortTitle" -> nonEmptyText,
+        "localisation" -> nonEmptyText,
+        "cfpOpenDate" -> jodaLocalDate("dd/MM/yyyy"),
+        "cfpCloseDate" -> jodaLocalDate("dd/MM/yyyy"),
+        "scheduleAnnouncedOn" -> jodaLocalDate("dd/MM/yyyy"),
+        "startDate" -> jodaLocalDate("dd/MM/yyyy"),
+        "endDate" -> jodaLocalDate("dd/MM/yyyy"),
+        "registrationUrl" -> nonEmptyText,
+        "scheduleUrl" -> nonEmptyText
       ) (createFromForm)(fillForm)
     )
 
-    def createFromForm(eventCode:String) = {
-      TDCConference(eventCode)
+    def createFromForm(eventCode:String, title:String, shortTitle:String, localisation:String
+                       ,cfpOpenDate:LocalDate, cfpCloseDate:LocalDate, scheduleAnnouncedOn:LocalDate, startDate:LocalDate, endDate:LocalDate
+                       , registrationUrl:String, scheduleUrl:String) = {
+      TDCConference(eventCode,title, shortTitle, localisation,cfpOpenDate,cfpCloseDate,scheduleAnnouncedOn,startDate,endDate,registrationUrl, scheduleUrl)
     }
 
     def fillForm(conference:TDCConference) = {
-      Option((conference.eventCode))
+      Option((conference.eventCode,conference.title, conference.shortTitle, conference.localisation
+                ,conference.cfpOpenDate,conference.cfpCloseDate,conference.scheduleAnnouncedOn,conference.startDate,conference.endDate
+                ,conference.registrationUrl, conference.scheduleUrl))
     }
 
     /**

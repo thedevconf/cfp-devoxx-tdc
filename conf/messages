@@ -1490,7 +1490,17 @@ backoffice.conferences.btn.new=Criar nova conferência
 backoffice.conferences.columns.name=Código do Evento
 backoffice.conference.form.title=Dados da conferência
 backoffice.conferences.noconference=Nenhuma conferência cadastrada
+backoffice.conferences.btn.back=Voltar
 eventCode=Código do Evento
+cfpOpenDate=Data de abertura do CFP
+cfpCloseDate=Data de fechamento do CFP
+scheduleAnnouncedOn=Publicação de Palestras
+startDate=Inicio do Evento
+endDate=Fim do Evento
+conferenceTitle=Titulo
+conferenceSubtitle=Subtitulo
+localisation=Local
+registrationUrl=URL para inscrição
 
 showAcceptTerms.title=Termos e Condições
 showAcceptTerms.subtitle1=Por favor leia e aceite

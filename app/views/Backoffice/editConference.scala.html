@@ -21,11 +21,40 @@
           </div>
         }
         @helper.form(action = routes.ConferenceController.saveConference) {
-            @if(conferenceForm("eventCode").value.isEmpty) {
-                @helper.inputText(conferenceForm("eventCode"), 'class->"form-control")
+            @if(conferenceForm("eventCode").value.map( _ == "").getOrElse(true)) {
+                @helper.inputText(conferenceForm("eventCode"), 'class->"form-control", 'placeholder->"Ex: TDC2018POA")
             } else {
                 @helper.inputText(conferenceForm("eventCode"), 'class->"form-control", 'readonly->"true")
             }
+            @helper.inputText(conferenceForm("conferenceTitle"), 'class->"form-control", 'placeholder->"Ex: TDC 2018 Porto Alegre ")
+            @helper.inputText(conferenceForm("conferenceShortTitle"), 'class->"form-control", 'placeholder->"Ex: TDC 2018 POA")
+            @helper.inputText(conferenceForm("localisation"), 'class->"form-control", 'placeholder->"Ex: UniRitter, Porto Alegre, RS")
+            <h4>Datas</h4>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        @helper.inputText(conferenceForm("cfpOpenDate"), 'class->"form-control")
+                    </div>
+                    <div class="col-md-6">
+                        @helper.inputText(conferenceForm("cfpCloseDate"), 'class->"form-control")
+                    </div>
+                </div>
+                @helper.inputText(conferenceForm("scheduleAnnouncedOn"), 'class->"form-control")
+                <div class="row">
+                    <div class="col-md-6">
+                        @helper.inputText(conferenceForm("startDate"), 'class->"form-control")
+                    </div>
+                    <div class="col-md-6">
+                        @helper.inputText(conferenceForm("endDate"), 'class->"form-control")
+                    </div>
+                </div>
+            </div>
+            <h4>Urls</h4>
+            <div class="container">
+                @helper.inputText(conferenceForm("registrationUrl"), 'class->"form-control", 'placeholder->"Ex: http://thedevconf.com.br/tdc/2018/inscricoes")
+                @helper.inputText(conferenceForm("scheduleUrl"), 'class->"form-control", 'placeholder->"Ex: http://www.thedevelopersconference.com.br/tdc/2018/portoalegre/trilhas")
+            </div>
+            <a href="@routes.ConferenceController.allConferences" class="btn btn-default">@Messages("backoffice.conferences.btn.back")</a>
             <button class="btn btn-success" type="submit">@Messages("sw.incidents.form.bt.save")</button>
         }
     </div>
