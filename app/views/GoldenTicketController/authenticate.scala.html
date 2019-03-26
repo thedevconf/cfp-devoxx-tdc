@@ -2,13 +2,13 @@
 
 @import helper.twitterBootstrap._
 
-@main(Messages("cfp.title")){
+@main(ConferenceDescriptor.current().naming.shortTitle + " CFP"){
             <div class="bs-docs-section clearfix">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="page-header">
                             <h2><img src="@routes.Assets.at(path="/public",file="images/ticket_admin.jpg")" alt="Ticket"><br> CFP for Golden ticket
-                            <small>@Messages("longYearlyName"), @Messages(ConferenceDescriptor.current().timing.datesI18nKey)</small></h2>
+                            <small>@ConferenceDescriptor.current().naming.title, @Messages("CONF.dates",ConferenceDescriptor.current().startDate, ConferenceDescriptor.current.endDate)</small></h2>
                         </div>
                     </div>
                     <div class="col-md-12">

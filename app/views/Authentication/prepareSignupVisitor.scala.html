@@ -2,7 +2,7 @@
 
 @import helper.twitterBootstrap._
 
-@mainVisitor(Messages("longYearlyName")+ " - " + Messages("signup.title")) {
+@mainVisitor(ConferenceDescriptor.current().naming.title+ " - " + Messages("signup.title")) {
 
 <div class="row">
     <div class="col-md-12 page-header">
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-8">
 
-        <p>@Messages("visitor.signup.txt1", Messages("longYearlyName"))</p>
+        <p>@Messages("visitor.signup.txt1", ConferenceDescriptor.current().naming.title)</p>
 
         @if(flash.get("error").isDefined){
             <div class="alert alert-danger">
@@ -27,12 +27,6 @@
             <p>@Messages("visitor.signup.txt2")</p>
             <button class="btn btn-success" type="submit">@Messages("signup")</button>
         }
-    </div>
-
-    <div class="col-md-4">
-        <h3><i class="icon-external-link-sign"></i> @Html(Messages("register.withopenid"))</h3>
-        <p>@Html(Messages("home.txt2"))</p>
-        <a class="btn btn-default" href="@routes.Authentication.githubLogin(visitor=true)" title="Sign-in with your Github profile to @Messages("shortName")"><i class="icon-github-sign"></i> Github</a>
     </div>
 </div>
 }

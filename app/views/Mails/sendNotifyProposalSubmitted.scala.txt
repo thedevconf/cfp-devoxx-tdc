@@ -12,4 +12,4 @@ Por favor, use este link para revisar e votar para esta palestra :
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposalId)
 
 Obrigado,
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP

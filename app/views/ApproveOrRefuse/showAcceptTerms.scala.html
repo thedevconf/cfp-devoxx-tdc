@@ -1,12 +1,12 @@
 @(formAccept: Form[Boolean])(implicit lang: Lang, flash: Flash, req: RequestHeader)
 
-@main("Accept or refuse "+ Messages("shortName")+" terms") {
+@main(Messages("showAcceptTerms.title")) {
 
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1><i class="icon-bullhorn"></i>@Messages("longName") : @Messages("showAcceptTerms.title")</h1>
+                    <h1><i class="icon-bullhorn"></i>@ConferenceDescriptor.current().naming.shortTitle CFP : @Messages("showAcceptTerms.title")</h1>
                 </div>
 
                 <div class="panel-body">
@@ -32,7 +32,7 @@
 
                             <p class="error">@Messages("showAcceptTerms.warning")</p>
 
-                            <p>@Messages("showAcceptTerms.subtitle1") @Messages("longName") - @Messages("showAcceptTerms.subtitle2") :</p>
+                            <p>@Messages("showAcceptTerms.subtitle1") @ConferenceDescriptor.current().naming.shortTitle CFP - @Messages("showAcceptTerms.subtitle2") :</p>
 
                             <div class="input-group">
 <b>@Messages("showAcceptTerms.warning") :</b>
@@ -40,10 +40,10 @@
 
     English version below
 
-    @Messages("longName") - Termos e Condições de participação
+    @ConferenceDescriptor.current().naming.shortTitle CFP - Termos e Condições de participação
 
 ------------------------------------------------------------------------------
-Em meu nome e de minha empresa/organização ("Organização"), e em consideração a minha participação no Evento, eu concedo ao TDC (e seus contratantes designados), e seus subsidiários e afiliados sobre comum controle ("TDC") as seguintes permissões em conexão com o @Messages("longYearlyName"), que está agendado para acontecer de @ConferenceDescriptor.current().timing.datesI18nKey (o "Evento"):
+Em meu nome e de minha empresa/organização ("Organização"), e em consideração a minha participação no Evento, eu concedo ao TDC (e seus contratantes designados), e seus subsidiários e afiliados sobre comum controle ("TDC") as seguintes permissões em conexão com o @ConferenceDescriptor.current().naming.title, que está agendado para acontecer de @ConferenceDescriptor.current().timing.datesI18nKey (o "Evento"):
 
 - Permissão para usar meu nome, material biográfico, imagem, e retrato (doravante coletivamente referido como o meu "Imagem") com o propósito de divulgar minha apresentação e/ou participação no Evento (minha "Apresentação").
 - Permissão para fazer gravações de som e visuais da minha Apresentação (as "Gravações").
@@ -61,7 +61,7 @@ Comprometo-me em cada uma das minhas apresentações em cumprir rigorosamente os
 
 -------------------------------------------------------------------------------
 
-On behalf of myself and my company/organisation, ("Organisation") and in consideration of my participation in the Event, I grant TDC (and its designated contractors), and its subsidiaries and affiliates under common control ("TDC") the following permissions in connection with @Messages("longYearlyName"), which are scheduled to take place @ConferenceDescriptor.current().timing.datesEn (the "Event"):
+On behalf of myself and my company/organisation, ("Organisation") and in consideration of my participation in the Event, I grant TDC (and its designated contractors), and its subsidiaries and affiliates under common control ("TDC") the following permissions in connection with @ConferenceDescriptor.current().naming.title, which are scheduled to take place @ConferenceDescriptor.current().timing.datesEn (the "Event"):
 
 - Permission to use my name, biographic material, likeness, and portrait (hereinafter collectively referred to as my "Likeness") for the purpose of publicising my presentation(s) at/participation in the Event (my "Presentation").
 - Permission to make sound and visual recordings of my Presentation (the "Recordings").

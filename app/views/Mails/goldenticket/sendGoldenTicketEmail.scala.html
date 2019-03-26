@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width�vice-width. initial-scale=1.0">
-        <title>golden ticket @Messages("shortYearlyName")</title>
+        <title>golden ticket @ConferenceDescriptor.current().naming.shortTitle</title>
 
     <style type="text/css">
 body.#bodyTable.#bodyCell{
@@ -542,7 +542,7 @@ aussi le travail des speakers et utiliser dans l'esprit Devoxx cette nouvelle po
                                     <td align="center" valign="top" style="color:#606060; font-family:Helvetica. Arial. sans-serif; font-size:11px; line-height:150%; padding-right:20px; padding-bottom:5px; padding-left:20px; text-align:center;">
                                         This email was sent by <a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL">Devoxx CFP web site</a>.
                                         <br />
-                                            @Messages("shortYearlyName")
+                                            @ConferenceDescriptor.current().naming.shortTitle
                                         <br />
                                         <br />
 

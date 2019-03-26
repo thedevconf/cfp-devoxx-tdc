@@ -14,4 +14,4 @@ Por favor, use este link para responder diretamente para a mensagem :
 
 Obrigado,
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP

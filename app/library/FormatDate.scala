@@ -23,7 +23,7 @@
 
 package library
 
-import org.joda.time.{Period, PeriodType, DateTime}
+import org.joda.time.{Period, PeriodType, LocalDate, DateTime}
 import org.joda.time.format.{DateTimeFormat, PeriodFormat, PeriodFormatterBuilder}
 import org.ocpsoft.prettytime.PrettyTime
 import play.api.i18n.{Messages, Lang}
@@ -45,7 +45,7 @@ object FormatDate {
     }.getOrElse("Unknown")
   }
 
-  def jodaFullDateFormat(date: DateTime, lang: Lang): String = {
+  def jodaFullDateFormat(date: LocalDate, lang: Lang): String = {
     DateTimeFormat.fullDate().withLocale(lang.toLocale).print(date)
   }
 }

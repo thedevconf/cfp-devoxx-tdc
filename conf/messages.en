@@ -1,18 +1,7 @@
 # -----------------
 # Main conference details
-CONF.title=TDC Porto Alegre 2018
-CONF.subtitle=POA
-CONF.dates=December 5 to 8, 2018
+CONF.dates={1,date,MMMM} {0,date,d} to {1,date,d}, {1,date,yyyy}
 
-# Equivalent to ConferenceNaming
-shortYearlyName=TDC 2018 POA
-longYearlyName=TDC 2018 Porto Alegre
-shortName=TDC Porto Alegre
-longName=TDC 2018 POA CFP
-longSplittedName_whiteStart=TDC
-longSplittedName_colored=2018
-longSplittedName_whiteEnd=POA
-cfp.title=TDC 2018 POA CFP
 # -----------------
 login.error=Invalid email or password
 menu.home=Home
@@ -30,6 +19,13 @@ signup=Sign-up
 index.method1=Sign-in
 index.method2=Authenticate with OpenID
 index.txt2=Use one of the following social service, this is simpler and you won''t have to remember another password. If your profile does not yet exist, it will be created automatically.
+signin.github.title=Sign-in with your Github profile to CFP
+signin.google.title=Sign-in with your Google account to CFP
+signin.linkedin.title=Sign-in with your LinkedIn profile to CFP
+signup.github.title=Sign-up with your Github profile to CFP
+signup.google.title=Sign-up with your Google account to CFP
+signup.linkedin.title=Sign-up with your LinkedIn profile to CFP
+
 company=Your company
 bio=A short bio
 socialMedia.twitter=Your twitter handle
@@ -68,9 +64,7 @@ disclaimer=and using Devoxx CFP application
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
-banner.link=/assets/images/tdc2018poa-banner-call4papers.png
 index.program.text=Complete schedule
-index.program.link=http://www.thedevelopersconference.com.br/tdc/2018/portoalegre/trilhas
 
 # CFP Home page
 your.profile=Your profile
@@ -181,16 +175,15 @@ cfp.reminder.proposals=Do not forget to submit your Draft
 cfp.program=Program announced :
 cfp.program.date=from {0}
 video.title=Videos
-video.tag=Review TDC 2015''s videos on
+video.tag=Review TDC's videos on
 call4workshops.title=Workshops
 call4workshops.tag=We are still accepting proposals for workshops on
-call4workshops.link=http://www.thedevelopersconference.com.br/tdc/2018/call4workshops
+call4workshops.link=http://www.thedevelopersconference.com.br/tdc/call4workshops
 agenda.title=Agenda
 theme.title=Tracks
-theme.track=List of tracks for TDC 2018 POA:
+theme.track=List of tracks for {0}:
 track.title=Title
 track.description=Description
-appel.conf.dates=TDC 2018 Porto Alegre, 5th-8th December 2018
 
 # Tracks
 
@@ -1050,11 +1043,6 @@ sw.show.thu=Thursday
 sw.show.thursday=Thursday
 sw.show.fri=Friday
 sw.show.friday=Friday
-sw.show.title.mon=Monday, 18th April 2018
-sw.show.title.tue=Tuesday, 19th April 2018
-sw.show.title.wed=Wednesday, 20th April 2018
-sw.show.title.thu=Thursday, 21st April 2018
-sw.show.title.fri=Friday, 22nd April 2018
 
 sw.horaires=Schedule
 sw.breakfast=Welcome and Breakfast
@@ -1199,8 +1187,7 @@ error.invalid=Invalid value
 hack.label=Hackaton
 lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
-menu.blog=Site TDC
-signup.long=Register as a speaker on TDC POA CFP
+signup.long=Register as a speaker on TDC CFP
 sw.all.hack=Hackatons
 #approved=Speaker approved
 cstory=Session de live coding Code-story
@@ -1300,7 +1287,7 @@ gt.intro.1=This is the full list of Proposals. You can sort by Proposal title, b
 gt.intro.2=If needed, you can also
 gt.reviewYourVotes=review your Votes
 gt.intro.3=while the CFP is open.
-gt.special.need=If you have a specific speaker you would love to see present at TDC POA, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
+gt.special.need=If you have a specific speaker you would love to see present at TDC, drop an email to organizacao@thedevelopersconference.com.br and we’ll do our best to get them there.
 gt.todo=Your todo list size:
 
 gt.yourVotes=Your votes
@@ -1491,9 +1478,10 @@ scheduleAnnouncedOn=Aproved Talks announced on
 startDate=Conference start
 endDate=Conference End
 conferenceTitle=Title
-conferenceSubtitle=Subtitle
+conferenceShortTitle=Subtitle
 localisation=Local
 registrationUrl=Registration URL
+scheduleUrl=Program visualization
 
 showAcceptTerms.title=Terms and Conditions
 showAcceptTerms.subtitle1=Please read and accept
@@ -1559,7 +1547,7 @@ leaderboard.label.refresh=Trigger a refresh now
 leaderboard.label.speakers=speakers
 leaderboard.label.approved.speakers=approved speakers
 leaderboard.label.refused.speakers=refused speakers
-leaderboard.label.withpass=with a TDC POA Pass
+leaderboard.label.withpass=with a TDC Pass
 leaderboard.label.proposals=proposals
 leaderboard.label.proposals.withvote=proposals with vote
 leaderboard.label.proposals.novote=proposals with no vote (incl.Draft)

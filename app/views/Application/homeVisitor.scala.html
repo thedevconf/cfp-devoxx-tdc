@@ -8,11 +8,11 @@
                     <div class="col-md-12">
                         <div class="page-header">
                             <h2><i class="icon-user"></i> @Messages("home.visitor.title")<br> <small>
-                            @Messages("longYearlyName"), @Messages(ConferenceDescriptor.current().timing.datesI18nKey)</small></h2>
+                                @ConferenceDescriptor.current().naming.title, @Messages("CONF.dates",ConferenceDescriptor.current().startDate, ConferenceDescriptor.current.endDate)</small></h2>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <p>@Messages("home.welcome.txt", Messages("longYearlyName"))</p>
+                        <p>@Messages("home.welcome.txt", ConferenceDescriptor.current().naming.title)</p>
 
                         @if(flash.get("error").isDefined) {
                             <div class="alert alert-danger alert-dismissable">
@@ -41,11 +41,11 @@
 
                                 <h4><i class="icon-external-link-sign"></i> @Html(Messages("index.method2"))</h4>
                                 <p>@Html(Messages("index.txt2"))</p>
-                                <p><a class="btn btn-default" href="@routes.Authentication.githubLogin(visitor=true)" title="Sign-in with your Github profile to @Messages("shortName")"><i class="icon-github-sign"></i>
+                                <p><a class="btn btn-default" href="@routes.Authentication.githubLogin(visitor=true)" title="@Messages("signin.github.title")"><i class="icon-github-sign"></i>
                                     Github</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.googleLogin(visitor=true)" title="Sign-in with your Google account to @Messages("shortName")"><i class="icon-google-plus-sign"></i>
+                                    <a class="btn btn-default" href="@routes.Authentication.googleLogin(visitor=true)" title="@Messages("signin.google.title")"><i class="icon-google-plus-sign"></i>
                                         Google</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin(visitor=true)" title="Sign-in with your LinkedIn profile to @Messages("shortName")"><i class="icon-linkedin-sign"></i>
+                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin(visitor=true)" title="@Messages("signin.linkedin.title")"><i class="icon-linkedin-sign"></i>
                                         LinkedIn</a>
                                 </p>
                             </div>
@@ -57,14 +57,14 @@
                                 <h3><i class="icon-user"></i> @Html(Messages("visitor.register"))</h3>
                             </div>
                             <div class="panel-body">
-                                <p>@Html(Messages("visitor.index.signup2", Messages("longName")))</p>
+                                <p>@Html(Messages("visitor.index.signup2", ConferenceDescriptor.current().naming.shortTitle + " CFP"))</p>
                                 <a class="btn btn-default" href="@routes.Authentication.prepareSignup(visitor=true)">@Messages("index.signup.btn")</a>
                                 <p>@Html(Messages("index.signup3"))</p>
-                                <p><a class="btn btn-default" href="@routes.Authentication.githubLogin(visitor=true)" title="Sign-in with your Github profile to @Messages("shortName")"><i class="icon-github-sign"></i>
+                                <p><a class="btn btn-default" href="@routes.Authentication.githubLogin(visitor=true)" title="@Messages("signup.github.title")"><i class="icon-github-sign"></i>
                                     Github</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.googleLogin(visitor=true)" title="Sign-in with your Google account to @Messages("shortName")"><i class="icon-google-plus-sign"></i>
+                                    <a class="btn btn-default" href="@routes.Authentication.googleLogin(visitor=true)" title="@Messages("signup.google.title")")"><i class="icon-google-plus-sign"></i>
                                         Google</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin(visitor=true)" title="Sign-in with your LinkedIn profile to @Messages("shortName")"><i class="icon-linkedin-sign"></i>
+                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin(visitor=true)" title="@Messages("signup.linkedin.title")"><i class="icon-linkedin-sign"></i>
                                         LinkedIn</a>
                                 </p>
                             </div>

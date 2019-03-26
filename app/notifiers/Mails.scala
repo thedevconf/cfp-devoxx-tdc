@@ -50,7 +50,7 @@ object Mails {
   def sendResetPasswordLink(email: String, resetUrl: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
     val timestamp: String = new DateTime().toDateTime(DateTimeZone.forID("America/Sao_Paulo")).toString("HH:mm dd/MM")
-    val subject:String = Messages("mail.reset_password_link.subject",timestamp,Messages("longName"))
+    val subject:String = Messages("mail.reset_password_link.subject",timestamp,ConferenceDescriptor.current().naming.shortTitle+" CFP")
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(email)
@@ -62,7 +62,7 @@ object Mails {
 
   def sendAccessCode(email: String, code: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject:String = Messages("mail.access_code.subject", Messages("longName"))
+    val subject:String = Messages("mail.access_code.subject", ConferenceDescriptor.current().naming.shortTitle+" CFP")
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(email)
@@ -76,7 +76,7 @@ object Mails {
 
   def sendWeCreatedAnAccountForYou(email: String, firstname: String, tempPassword: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.account_created.subject", Messages("longName"))
+    val subject: String = Messages("mail.account_created.subject", ConferenceDescriptor.current().naming.shortTitle+" CFP")
     emailer.setSubject(subject)
     emailer.addFrom(from)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
@@ -87,7 +87,7 @@ object Mails {
 
   def sendValidateYourEmail(email: String, validationLink: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val conferenceName=Messages("longName")
+    val conferenceName=ConferenceDescriptor.current().naming.shortTitle+" CFP"
     val subject: String = Messages("mail.email_validation.subject", conferenceName)
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -221,11 +221,11 @@ object Mails {
   def sendReminderForDraft(speaker: Webuser, proposals: List[Proposal]) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
     if (proposals.size == 1) {
-      val subject: String = Messages("mail.draft_single_reminder.subject", Messages("longYearlyName"))
+      val subject: String = Messages("mail.draft_single_reminder.subject", ConferenceDescriptor.current().naming.title)
       emailer.setSubject(subject)
     }
     if (proposals.size > 1) {
-      val subject: String = Messages("mail.draft_multiple_reminder.subject", proposals.size, Messages("longYearlyName"))
+      val subject: String = Messages("mail.draft_multiple_reminder.subject", proposals.size, ConferenceDescriptor.current().naming.title)
       emailer.setSubject(subject)
     }
     emailer.addFrom(from)
@@ -305,7 +305,7 @@ object Mails {
 
   def sendInvitationForSpeaker(speakerEmail: String, message: String, requestId: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val shortYearlyName = Messages("shortYearlyName")
+    val shortYearlyName = ConferenceDescriptor.current().naming.shortTitle
     emailer.setSubject(s"$shortYearlyName special request")
     emailer.addFrom(from)
     emailer.addRecipient(speakerEmail)
@@ -351,7 +351,7 @@ object Mails {
 
   def sendGoldenTicketEmail(invitedWebuser: Webuser, gt: GoldenTicket) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.goldenticket.subject", Messages("shortYearlyName"))
+    val subject: String = Messages("mail.goldenticket.subject", ConferenceDescriptor.current().naming.shortTitle)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(invitedWebuser.email)

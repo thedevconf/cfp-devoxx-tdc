@@ -6,7 +6,7 @@
         <h1>@Messages("created.title")</h1>
         <p>@Messages("created.text1")</p>
         <p>@Messages("created.text2")</p>
-        <p>@Messages("created.text3", Messages("longName"))</p>
+        <p>@Messages("created.text3", ConferenceDescriptor.current().naming.shortTitle + " CFP")</p>
     </div>
 </div>
 }

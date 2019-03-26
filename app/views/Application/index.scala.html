@@ -1,14 +1,14 @@
 @()(implicit lang: Lang, flash: Flash, req:RequestHeader)
 @import library.FormatDate
 
-@main(Messages("cfp.title")){
+@main(ConferenceDescriptor.current().naming.shortTitle + " CFP"){
 <div class="container">
     <div class="bs-docs-section clearfix">
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="page-header">
                     <h2><i class="icon-comment-alt"></i> @Messages("appel.conf")<br> <small>
-                        @Messages("appel.conf.dates")</small></h2>
+                        @ConferenceDescriptor.current().naming.title, @Messages("CONF.dates",ConferenceDescriptor.current().startDate, ConferenceDescriptor.current.endDate)</small></h2>
                 </div>
             </div>
                 @if(flash.get("error").isDefined) {
@@ -27,8 +27,8 @@
                     </div>
                 }
             <div class="col-md-12 col-sm-12">
-                <img src="@Messages("banner.link")" alt="@Messages("cfp.title")">
-                <h3><a href="@Messages("index.program.link")"><i class="icon-arrow-right"></i> @Messages("index.program.text")</a></h3>
+                <img src="/assets/images/@(ConferenceDescriptor.current().eventCode.toLowerCase)-banner-call4papers.png" alt="@ConferenceDescriptor.current().naming.shortTitle CFP">
+                <h3><a href="@ConferenceDescriptor.current().conferenceUrls.schedule"><i class="icon-arrow-right"></i> @Messages("index.program.text")</a></h3>
                 <hr>
             </div>
 
@@ -112,7 +112,7 @@
 
             <div class="col-md-12 col-sm-12">
                 <h3><i class="icon-book"></i> @Messages("theme.title")</h3>
-                <p>@Messages("theme.track")</p>
+                <p>@Messages("theme.track",ConferenceDescriptor.current().naming.title)</p>
                 <table class="table table-bordered table-striped">
                     <tbody>
                     @for(track <- ConferenceDescriptor.ConferenceTracks.ALL) {

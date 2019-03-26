@@ -1,9 +1,10 @@
 package models
 
-import java.util.Locale
+import java.util.{Date, Locale}
 
-import org.joda.time.{Period, DateTime, DateTimeZone}
+import org.joda.time.{LocalDate, Period}
 import play.api.Play
+import play.api.i18n.{Lang, Messages}
 
 /**
   * ConferenceDescriptor.
@@ -19,7 +20,7 @@ import play.api.Play
 
 
 // USAGE: Used only inside this file
-case class ConferenceUrls(faq: String, registration: String,confWebsite: String, cfpHostname: String){
+case class ConferenceUrls(registration: String,confWebsite: String, cfpHostname: String, schedule: String){
     def cfpURL:String={
     if(Play.current.configuration.getBoolean("cfp.activateHTTPS").getOrElse(false)){
       s"https://$cfpHostname"
@@ -34,16 +35,11 @@ case class ConferenceUrls(faq: String, registration: String,confWebsite: String,
 // USAGE: used only inside this file
 case class ConferenceTiming(
                              datesI18nKey: String,
-                             speakersPassDuration: Integer,
-                             preferredDayEnabled: Boolean,
-                             firstDayFr: String,
-                             firstDayEn: String,
-                             datesFr: String,
                              datesEn: String,
-                             cfpOpenedOn: DateTime,
-                             cfpClosedOn: DateTime,
-                             scheduleAnnouncedOn: DateTime,
-                             days:Iterator[DateTime]
+                             cfpOpenedOn: LocalDate,
+                             cfpClosedOn: LocalDate,
+                             scheduleAnnouncedOn: LocalDate,
+                             days:Iterator[LocalDate]
                            )
 //USAGE: only inside this file
 case class ConferenceSponsor(showSponsorProposalCheckbox: Boolean, sponsorProposalType: ProposalType = ProposalType.UNKNOWN)
@@ -90,6 +86,14 @@ object ProposalConfiguration {
   }
 }
 
+case class ConferenceNaming(title:String, shortTitle:String) {
+  private val longSplittedName = shortTitle.split("(\\s)+")
+  val longName = s"$shortTitle CFP"
+  val longSplittedName_whiteStart = longSplittedName(0)
+  val longSplittedName_colored = longSplittedName(1)
+  val longSplittedName_whiteEnd = longSplittedName(2)
+}
+
 case class ConferenceDescriptor(eventCode: String,
                                 fromEmail: String,
                                 committeeEmail: String,
@@ -104,7 +108,10 @@ case class ConferenceDescriptor(eventCode: String,
                                 locale: List[Locale],
                                 localisation: String,
                                 maxProposalSummaryCharacters:Int=1200,
-                                trackleadersEmail: String
+                                trackleadersEmail: String,
+                                naming: ConferenceNaming,
+                                startDate: Date,
+                                endDate: Date
                                )
 
 object ConferenceDescriptor {
@@ -188,45 +195,47 @@ object ConferenceDescriptor {
     }
   }
 
-  def dateRange(from: DateTime, to: DateTime, step: Period): Iterator[DateTime]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
-
-  val fromDay = new DateTime().withYear(2018).withMonthOfYear(12).withDayOfMonth(5)
-  val toDay = new DateTime().withYear(2018).withMonthOfYear(12).withDayOfMonth(8)
+  def dateRange(from: LocalDate, to: LocalDate, step: Period): Iterator[LocalDate]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
 
   // TODO You might want to start here and configure first, your various Conference Elements
-  def current() = ConferenceDescriptor(
-    eventCode = "TDC2019FLP",
-    fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
-    committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
-    bccEmail = Play.current.configuration.getString("mail.bcc"),
-    bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
-    conferenceUrls = ConferenceUrls(
-      faq = "http://cfp-poa.thedevconf.com.br/faq",
-      registration = "http://thedevconf.com.br/tdc/2018/inscricoes",
-      confWebsite = "http:/thedevconf.com.br",
-      cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br")
-    ),
-    timing = ConferenceTiming(
-      datesI18nKey = "5 a 8 de Dezembro de 2018",
-      speakersPassDuration = 4,
-      preferredDayEnabled = true,
-      firstDayFr = "5 december",
-      firstDayEn = "december 5th",
-      datesFr = "du 5 au 8 december 2018",
-      datesEn = "December 5th to 8th, 2018",
-      cfpOpenedOn = DateTime.parse("2018-09-12T16:30:00-03:00"),
-      cfpClosedOn = DateTime.parse("2018-10-01T23:59:59-03:00"),
-      scheduleAnnouncedOn = DateTime.parse("2018-10-08T00:00:00-03:00"),
-      days=dateRange(fromDay,toDay,new Period().withDays(1))
-    ),
-    hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
-    hashTag = "#TheDevConf",
-    conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF)
-    , locale = List(new Locale("pt","BR"))
-    , localisation = "UniRitter, Porto Alegre, RS"
-    , maxProposalSummaryCharacters = 700 // 1200 // French developers tends to be a bit verbose... we need extra space :-)
-	  , trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br")
-  )
+  def current() = {
+    val event = "TDC2019FLP"
+    val conference = TDCConference.load(event).getOrElse(defaultConference)
+    ConferenceDescriptor(
+      eventCode = conference.eventCode,
+      fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
+      committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
+      bccEmail = Play.current.configuration.getString("mail.bcc"),
+      bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
+      conferenceUrls = ConferenceUrls(
+        registration = conference.registrationUrl,
+        confWebsite = "http:/thedevconf.com.br",
+        cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br"),
+        schedule = conference.scheduleUrl
+      ),
+      timing = ConferenceTiming(
+        datesI18nKey = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate()),
+        datesEn = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate())(Lang("en")),
+        cfpOpenedOn = conference.cfpOpenDate,
+        cfpClosedOn = conference.cfpCloseDate,
+        scheduleAnnouncedOn = conference.scheduleAnnouncedOn,
+        days = dateRange(conference.startDate, conference.endDate, new Period().withDays(1))
+      ),
+      hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
+      hashTag = "#TheDevConf",
+      conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF),
+      locale = List(new Locale("pt", "BR")),
+      localisation = conference.localisation,
+      maxProposalSummaryCharacters = 700,
+      trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
+      naming = ConferenceNaming(
+        title = conference.title,
+        shortTitle = conference.shortTitle
+      ),
+      startDate = conference.startDate.toDate(),
+      endDate = conference.endDate.toDate()
+    )
+  }
 
   // It has to be a def, not a val, else it is not re-evaluated
   def isCFPOpen: Boolean = {
@@ -239,4 +248,18 @@ object ConferenceDescriptor {
 
   def isHTTPSEnabled = Play.current.configuration.getBoolean("cfp.activateHTTPS").getOrElse(false)
 
+  private val defaultConference = TDCConference(
+    eventCode = "",
+    title = "",
+    shortTitle = "TDC 20xx XXX",
+    localisation = "",
+    cfpOpenDate = LocalDate.now(),
+    cfpCloseDate = LocalDate.now(),
+    scheduleAnnouncedOn = LocalDate.now(),
+    startDate= LocalDate.now(),
+    endDate= LocalDate.now(),
+    registrationUrl = "",
+    scheduleUrl = ""
+  )
 }
+

@@ -1,8 +1,8 @@
 @(resetUrl:String)
 
-Você esqueceu seu access code do @Messages("longName")?
+Você esqueceu seu access code do @ConferenceDescriptor.current().naming.shortTitle CFP?
 -------------------------------------------
-Alguém pediu para regerar sua senha do @Messages("longName"). Se foi você, por favor leia as instruções abaixo. Se não foi, você pode desconsiderar este email e nada de ruim ocorrerá.
+Alguém pediu para regerar sua senha do @ConferenceDescriptor.current().naming.shortTitle CFP. Se foi você, por favor leia as instruções abaixo. Se não foi, você pode desconsiderar este email e nada de ruim ocorrerá.
 
 Por favor, acesse este link = @Html(resetUrl)
 
@@ -10,13 +10,13 @@ Não queremos guardar sua senha super secreta, que pode ser a mesma da sua conta
 Preferimos gerar um access code randômico para você.  
 Nós também encorajamos você a usar um dos nosos provedores de OpenID como Github, LinkedIn ou Google+. Mais simples, mais seguro, e é show de bola!
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 ------------------------------------------------------------------------------
 
-Did you forget your @Messages("longName") access code?
+Did you forget your @ConferenceDescriptor.current().naming.shortTitle CFP access code?
 -------------------------------------------
-Someone asked to reset your @Messages("longName") password. If it was you, please read the instructions below. If it wasn't, you can disregard this emails and no evil will be done.
+Someone asked to reset your @ConferenceDescriptor.current().naming.shortTitle CFP password. If it was you, please read the instructions below. If it wasn't, you can disregard this emails and no evil will be done.
 
 Please visit this link = @Html(resetUrl)
 
@@ -24,4 +24,4 @@ We don't want to store your super secret password, that might be the same one as
 We prefer to generate a random access code for your.
 We also encourage you to use one of our OpenID's providers like Github, LinkedIn or Google+. Simpler, more secure, that just rocks!
 
-@Messages("longName") team
+@ConferenceDescriptor.current().naming.shortTitle CFP team

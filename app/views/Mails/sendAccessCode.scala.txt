@@ -1,7 +1,7 @@
 @(email:String, code:String)
 
 ------------------------------------------------------------------------------
-                      Bem-vindo(a) ao @Messages("longName")!
+                      Bem-vindo(a) ao @ConferenceDescriptor.current().naming.shortTitle CFP!
 ------------------------------------------------------------------------------
 Criamos um access code para você (não queremos guardar nenhuma de suas senhas aqui).
 
@@ -10,11 +10,11 @@ Criamos um access code para você (não queremos guardar nenhuma de suas senhas 
 
 Se quiser reportar uma ocorrência, por favor use @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 ------------------------------------------------------------------------------
 
-Welcome to @Messages("longName")!
+Welcome to @ConferenceDescriptor.current().naming.shortTitle CFP!
 
 We created an access code for you (we really don't want to store any of your password here).
 
@@ -23,6 +23,6 @@ We created an access code for you (we really don't want to store any of your pas
 
 If you want to report an issue, please use @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()
 
-The @Messages("longName") team
+The @ConferenceDescriptor.current().naming.shortTitle CFP team
 
 ------------------------------------------------------------------------------

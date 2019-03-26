@@ -2,10 +2,10 @@
 
 Caro(a) @firstName
 
-Bem-vindo(a) ao @Messages("longName") CFP (Call4Papers)
+Bem-vindo(a) ao @ConferenceDescriptor.current().naming.shortTitle CFP CFP (Call4Papers)
 
-Para sua comodidade, criamos uma conta para você no @Messages("longName"). Esta conta permitirá que você acesse seu perfil e suas submissões.
-Para acessar seu painel de palestrante no @Messages("longName"), por favor clique no link abaixo.
+Para sua comodidade, criamos uma conta para você no @ConferenceDescriptor.current().naming.shortTitle CFP. Esta conta permitirá que você acesse seu perfil e suas submissões.
+Para acessar seu painel de palestrante no @ConferenceDescriptor.current().naming.shortTitle CFP, por favor clique no link abaixo.
 
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.index()
 
@@ -14,16 +14,16 @@ Para acessar seu painel de palestrante no @Messages("longName"), por favor cliqu
 
 Um abraço,
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 ------------------------------------------------------------------------------
 
 Dear @firstName
 
-Welcome to @Messages("longName") CFP (Call4Papers)
+Welcome to @ConferenceDescriptor.current().naming.shortTitle CFP CFP (Call4Papers)
 
-As a convenience to you, we have created an account for you on @Messages("longName"). This account will enable to you access your profile and your submissions.
-To access your @Messages("longName") speaker dashboard, please click in the link below.
+As a convenience to you, we have created an account for you on @ConferenceDescriptor.current().naming.shortTitle CFP. This account will enable to you access your profile and your submissions.
+To access your @ConferenceDescriptor.current().naming.shortTitle CFP speaker dashboard, please click in the link below.
 
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.index()
 
@@ -32,4 +32,4 @@ To access your @Messages("longName") speaker dashboard, please click in the link
 
 Best regards
 
-The @Messages("longName") team
+The @ConferenceDescriptor.current().naming.shortTitle CFP team

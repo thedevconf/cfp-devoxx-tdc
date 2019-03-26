@@ -6,4 +6,4 @@ Favor executar a publicação assim que possivel.
 
 Obrigado,
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP

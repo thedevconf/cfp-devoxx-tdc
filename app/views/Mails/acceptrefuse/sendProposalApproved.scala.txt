@@ -1,11 +1,11 @@
 @(firstName:String, proposal:models.Proposal)(implicit lang: Lang)
 ----------------------------------------------------------------------------------------------------------------------
-Bem-vindo ao @Messages("longYearlyName")
+Bem-vindo ao @ConferenceDescriptor.current().naming.title
 ----------------------------------------------------------------------------------------------------------------------
 Olá, @firstName,
 
 Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
-Estamos muito contentes em informar que a sua proposta para o @Messages("longYearlyName") foi APROVADA :
+Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi APROVADA :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
 Formato: @Messages(proposal.talkType.id)
@@ -47,10 +47,10 @@ Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimen
 
 Atenciosamente,
 
-Equipe @Messages("longYearlyName")
+Equipe @ConferenceDescriptor.current().naming.title
 
 ----------------------------------------------------------------------------------------------------------------------
-Welcome to @Messages("longYearlyName")
+Welcome to @ConferenceDescriptor.current().naming.title
 ----------------------------------------------------------------------------------------------------------------------
 Hi, @firstName,
 
@@ -97,4 +97,4 @@ We remind that the event does NOT cover travel costs, accommodation and meals of
 
 Best regards,
 
-The @Messages("longYearlyName") team
+The @ConferenceDescriptor.current().naming.title team

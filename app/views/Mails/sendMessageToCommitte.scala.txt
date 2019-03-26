@@ -18,4 +18,4 @@ Clique ou abra este link para responder diretamente para a mensagem :
 @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CFPAdmin.openForReview(proposal.id)
 
 Obrigado,
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP

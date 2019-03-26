@@ -1,7 +1,7 @@
 @(message:String,requestId:String)
 
 --------------------------------------------------
-                @Messages("longYearlyName")
+                @ConferenceDescriptor.current().naming.title
 --------------------------------------------------
 
 @message
@@ -18,7 +18,7 @@ Se você ficou interessado e gostaria de propor uma palestra :
   Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
 
 Obrigado,
-Equipe Equipe @Messages("longName")
+Equipe Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 --------------------------------------------------
 
@@ -36,5 +36,5 @@ If you are interested and you would like to propose a talk :
   Please, visit this URL : @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Wishlist.speakerDeclineRequest(requestId)
 
 Thanks,
-The Equipe @Messages("longName") team.
+The Equipe @ConferenceDescriptor.current().naming.shortTitle CFP team.
 

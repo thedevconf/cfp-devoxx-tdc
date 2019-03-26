@@ -2,7 +2,7 @@
 
 @import helper.twitterBootstrap._
 
-@main(Messages("longYearlyName")+ " - " + Messages("signup.title")) {
+@main(ConferenceDescriptor.current().naming.title+ " - " + Messages("signup.title")) {
 
 <div class="row">
     <div class="col-md-12 page-header">
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-8">
 
-        <p>@Messages("signup.txt1", Messages("longYearlyName"))</p>
+        <p>@Messages("signup.txt1", ConferenceDescriptor.current().naming.title)</p>
 
         @if(flash.get("error").isDefined){
             <div class="alert alert-danger">
@@ -28,14 +28,5 @@
             <button class="btn btn-success" type="submit">@Messages("signup")</button>
         }
     </div>
-<!-- Desabilitado cadastro com redes sociais - TODO - Habilitar cadastro
-    <div class="col-md-4">
-        <h3><i class="icon-external-link-sign"></i> @Html(Messages("register.withopenid"))</h3>
-        <p>@Html(Messages("home.txt2"))</p>
-        <a class="btn btn-default" href="@routes.Authentication.githubLogin()" title="Sign-in with your Github profile to @Messages("shortName")"><i class="icon-github-sign"></i> Github</a>
-        <a class="btn btn-default" href="@routes.Authentication.googleLogin()" title="Sign-in with your Google account to @Messages("shortName")"><i class="icon-google-plus-sign"></i> Google</a>
-        <a class="btn btn-default" href="@routes.Authentication.linkedinLogin()" title="Sign-in with your LinkedIn profile to @Messages("shortName")"><i class="icon-google-plus-sign"></i> LinkedIn</a>
-    </div>
--->
 </div>
 }

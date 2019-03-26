@@ -4,7 +4,7 @@ Caro(a) @firstName
 
 O CFP vai fechar em: @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")
 
-Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @Messages("longName").
+Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @ConferenceDescriptor.current().naming.shortTitle CFP.
 Você deve submeter uma palestra para revisão na sua seção privada do CFP, desta forma os coordenadores poderão revisar e votar na sua proposta.
 
 @proposals.map{proposal=>
@@ -15,7 +15,7 @@ Se você não quer receber esta mensagem, você também pode mover as propostas 
 
 Obrigado !
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 =============================================================================
 
@@ -23,7 +23,7 @@ Dear @firstName
 
 CFP will be closed on @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")
 
-We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName").
+We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @ConferenceDescriptor.current().naming.shortTitle CFP.
 You must submit a talk for review on your private CFP section, so that the program committee can review and vote for your proposal.
 
 @proposals.map{proposal=>
@@ -34,6 +34,6 @@ If you don't want to receive this message, you can also move the draft proposals
 
 Thanks!
 
-The @Messages("longName") team
+The @ConferenceDescriptor.current().naming.shortTitle CFP team
 
 -----

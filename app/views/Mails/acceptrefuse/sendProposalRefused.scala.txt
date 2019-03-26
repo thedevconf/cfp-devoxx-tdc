@@ -22,7 +22,7 @@ o código promocional válido por 10 dias.
 
 Atenciosamente,
 
-Equipe @Messages("longYearlyName")
+Equipe @ConferenceDescriptor.current().naming.title
 
 ----------------------------------------------------------------------------------------------------------------
 
@@ -39,4 +39,4 @@ Hopefully we can still welcome you at the event, registration details:
 @ConferenceDescriptor.current().conferenceUrls.registration
 
 Kind regards,
-The @Messages("longYearlyName") team
+The @ConferenceDescriptor.current().naming.title team

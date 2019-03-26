@@ -1,7 +1,7 @@
 @(email:String, code:String)
 
 <hr>
-<h3>Bem-vindo ao @Messages("longName")!</h3>
+<h3>Bem-vindo ao @ConferenceDescriptor.current().naming.shortTitle CFP!</h3>
 <hr>
 <p>Criamos um access code para você (não queremos guardar nenhuma de suas senhas aqui).</p>
 <p>Seu login é <strong>@email</strong></p>
@@ -9,11 +9,11 @@
 <p></p>
 <p>Se quiser reportar uma ocorrência, por favor use <a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()">esta página no nosso web site</a>.</p>
 <p></p>
-<p>Equipe @Messages("longName")</p>
+<p>Equipe @ConferenceDescriptor.current().naming.shortTitle CFP</p>
 <br/>
 <hr>
 <br/>
-<h3>Welcome to @Messages("longName")!</h3>
+<h3>Welcome to @ConferenceDescriptor.current().naming.shortTitle CFP!</h3>
 <hr>
 <p>We created an access code for you (we really don't want to store any of your password here)</p>
 <p>Your login is <strong>@email</strong></p>
@@ -21,6 +21,6 @@
 <br/>
 <p>If you want to report an issue, please use <a href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.Application.bugReport()">this page on our web site</a>.</p>
 <br/>
-<p>The @Messages("longName") team</p>
+<p>The @ConferenceDescriptor.current().naming.shortTitle CFP team</p>
 <br/>
 <hr>

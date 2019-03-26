@@ -20,7 +20,7 @@ Não responda este email, por favor use o website do CFP.
 
 Obrigado,
 
-Equipe @Messages("longName")
+Equipe @ConferenceDescriptor.current().naming.shortTitle CFP
 
 ------------------------------------------------------------------------------
 
@@ -44,4 +44,4 @@ Do not reply to this email, please use the CFP website.
 
 Thanks
 
-The @Messages("longName") team.
+The @ConferenceDescriptor.current().naming.shortTitle CFP team.

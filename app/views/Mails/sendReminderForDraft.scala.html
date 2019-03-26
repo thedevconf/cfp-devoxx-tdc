@@ -3,7 +3,7 @@
     <p>Caro(a) @firstName</p>
     <br>
     <p><strong>O CFP vai fechar em: @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")</strong></p>
-    <p>Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @Messages("longName").
+    <p>Gostaríamos de informar que você tem @proposals.size proposta@if(proposals.size>1){s} com status "Rascunho" no @ConferenceDescriptor.current().naming.shortTitle CFP.
     Você deve submeter uma palestra para revisão na sua seção privada do CFP, desta forma os coordenadores poderão revisar e votar na sua proposta.</p>
     <br>
     @proposals.map{proposal=>
@@ -14,7 +14,7 @@
     
     <p>Obrigado !</p>
     <br>
-    Equipe @Messages("longName")<br>
+    Equipe @ConferenceDescriptor.current().naming.shortTitle CFP<br>
     <br>
     <hr>
     <br>
@@ -22,7 +22,7 @@
 <p>Dear @firstName</p>
 <br>
 <p><strong>CFP will be closed on @ConferenceDescriptor.current().timing.cfpClosedOn.toString("EEEE dd/MM/YYYY HH:mm")</strong></p>
-<p>We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @Messages("longName").
+<p>We'd like to inform you that you have @proposals.size proposal@if(proposals.size>1){s} with status set to "Draft" on @ConferenceDescriptor.current().naming.shortTitle CFP.
 You must submit a talk for review on your private CFP section, so that the program committee can review and vote for your proposal.</p>
 
 @proposals.map{proposal=>
@@ -33,4 +33,4 @@ You must submit a talk for review on your private CFP section, so that the progr
 <br>
 <p>Thanks!</p>
 
-<p>The @Messages("longName") team</p>
+<p>The @ConferenceDescriptor.current().naming.shortTitle CFP team</p>

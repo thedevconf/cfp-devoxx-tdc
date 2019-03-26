@@ -525,7 +525,7 @@ object RestAPI extends Controller {
       // So I need to do a temporary filter
       // val proposals = ApprovedProposal.allApproved().filterNot(_.event==eventCode).toList.sortBy(_.title)
 
-      val stupidEventCode = Messages("longYearlyName") // Because the value in the DB for Devoxx BE 2015 is not valid
+      val stupidEventCode = ConferenceDescriptor.current().naming.title // Because the value in the DB for Devoxx BE 2015 is not valid
     val proposals = ApprovedProposal.allApproved().filter(_.event == stupidEventCode).toList.sortBy(_.title)
 
       val etag = proposals.hashCode.toString
@@ -1074,7 +1074,7 @@ object UserAgentActionAndAllowOrigin extends ActionBuilder[Request] with play.ap
         }
       }
     }.getOrElse {
-      Future.successful(play.api.mvc.Results.Forbidden("User-Agent is required to interact with " + Messages("longName") + " API"))
+      Future.successful(play.api.mvc.Results.Forbidden("User-Agent is required to interact with " + ConferenceDescriptor.current().naming.shortTitle + " CFP API"))
     }
 
   }
@@ -1094,13 +1094,13 @@ object Conference {
 
   def currentConference(implicit req: RequestHeader) = Conference(
     ConferenceDescriptor.current().eventCode,
-    Messages("longYearlyName") + ", " + Messages(ConferenceDescriptor.current().timing.datesI18nKey),
+    ConferenceDescriptor.current().naming.title + ","+ Messages("CONF.dates",ConferenceDescriptor.current().startDate, ConferenceDescriptor.current.endDate),
     ConferenceDescriptor.current().locale.map(_.toString),
     ConferenceDescriptor.current().localisation,
     Link(
       routes.RestAPI.showConference(ConferenceDescriptor.current().eventCode).absoluteURL(),
       routes.RestAPI.profile("conference").absoluteURL(),
-      "See more details about " + Messages("longYearlyName")
+      "See more details about " + ConferenceDescriptor.current().naming.title
     ))
 
   def all(implicit req: RequestHeader) = {
