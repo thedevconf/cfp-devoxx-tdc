@@ -111,7 +111,8 @@ case class ConferenceDescriptor(eventCode: String,
                                 trackleadersEmail: String,
                                 naming: ConferenceNaming,
                                 startDate: Date,
-                                endDate: Date
+                                endDate: Date,
+                                isCfpOpen: Boolean
                                )
 
 object ConferenceDescriptor {
@@ -233,13 +234,14 @@ object ConferenceDescriptor {
         shortTitle = conference.shortTitle
       ),
       startDate = conference.startDate.toDate(),
-      endDate = conference.endDate.toDate()
+      endDate = conference.endDate.toDate(),
+      isCfpOpen = conference.cfpOpen.getOrElse(false)
     )
   }
 
   // It has to be a def, not a val, else it is not re-evaluated
   def isCFPOpen: Boolean = {
-    Play.current.configuration.getBoolean("cfp.isOpen").getOrElse(false)
+    current().isCfpOpen
   }
 
   def isGoldenTicketActive:Boolean = Play.current.configuration.getBoolean("goldenTicket.active").getOrElse(false)

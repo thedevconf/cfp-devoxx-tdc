@@ -1468,6 +1468,11 @@ backoffice.conferences.btn=Conferences
 backoffice.conferences.title=Configure the conferences
 backoffice.conferences.btn.new=Create a new conference
 backoffice.conferences.columns.name=Event Code
+backoffice.conferences.columns.actions=Actions
+backoffice.conferences.btn.openCfp=Open CFP
+backoffice.conferences.btn.closeCfp=Close CFP
+backoffice.conferences.error.noconference=No conference found with id {0}
+
 backoffice.conference.form.title=Conference data
 backoffice.conferences.noconference=No conference available
 backoffice.conferences.btn.back=Back

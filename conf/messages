@@ -1475,6 +1475,11 @@ backoffice.conferences.btn=Conferências
 backoffice.conferences.title=Configure as conferências
 backoffice.conferences.btn.new=Criar nova conferência
 backoffice.conferences.columns.name=Código do Evento
+backoffice.conferences.columns.actions=Ações
+backoffice.conferences.btn.openCfp=Abrir CFP
+backoffice.conferences.btn.closeCfp=Fechar CFP
+backoffice.conferences.error.noconference=Nenhuma conferência encontrada com o id {0}
+
 backoffice.conference.form.title=Dados da conferência
 backoffice.conferences.noconference=Nenhuma conferência cadastrada
 backoffice.conferences.btn.back=Voltar

@@ -164,6 +164,7 @@ POST          /admin/conference/tracks                                          
 GET           /admin/conferences                                                controllers.ConferenceController.allConferences()
 GET           /admin/conferences/newOrEdit                                      controllers.ConferenceController.newOrEditConference(id:Option[String])
 POST          /admin/conferences/                                               controllers.ConferenceController.saveConference()
+GET           /admin/conferences/:conferenceId                                  controllers.ConferenceController.openCallForPapers(conferenceId:String,open:Boolean)
 
 
 # Authenticate and admin as a regular user
