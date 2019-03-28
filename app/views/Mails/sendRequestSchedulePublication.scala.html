@@ -1,6 +1,6 @@
-@(track:Track)
+@(trackId:String)
 
-<p>O coordenador da trilha <strong>@Messages(track.label)</strong> solicitou a publicação da grade no site do TDC</p>
+<p>O coordenador da trilha <strong>@Messages(s"${trackId}.label")</strong> solicitou a publicação da grade no site do TDC</p>
 
 <p>Favor executar a publicação assim que possivel.</p>
 <br>

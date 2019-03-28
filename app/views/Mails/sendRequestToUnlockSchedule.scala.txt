@@ -1,6 +1,6 @@
-@(track:Track)
+@(trackId:String)
 
-O coordenador da trilha @Messages(track.label) solicitou o desbloqueio da grade no site do TDC.
+O coordenador da trilha @Messages(s"${trackId}.label") solicitou o desbloqueio da grade no site do TDC.
 
 Favor executar o desbloqueio assim que possivel.
 

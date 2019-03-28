@@ -60,8 +60,8 @@ object Track {
       Option((track.id,track.label,track.primaryKey))
     }
 
-    def parse(session:String):Track={
-      load(session).getOrElse(UNKNOWN)
+    def parse(primaryKey:String):Track={
+      load(primaryKey).getOrElse(UNKNOWN)
     }
 
     def allIDs= allTracks.map(_.id)

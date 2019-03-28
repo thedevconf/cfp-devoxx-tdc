@@ -318,9 +318,9 @@ object Mails {
     )
   }
 
-  def sendScheduleUpdated(track: Track, author: String) = {
+  def sendScheduleUpdated(trackId: String, author: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.schedule_updated.subject", Messages(track.label))
+    val subject: String = Messages("mail.schedule_updated.subject", Messages(s"${trackId}.label"))
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -328,8 +328,8 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
-      views.txt.Mails.sendScheduleUpdated(track,author).toString(),
-      views.html.Mails.sendScheduleUpdated(track,author).toString()
+      views.txt.Mails.sendScheduleUpdated(trackId,author).toString(),
+      views.html.Mails.sendScheduleUpdated(trackId,author).toString()
     )
   }
 
@@ -363,9 +363,9 @@ object Mails {
     )
   }
   
-  def sendRequestSchedulePublication(track: Track) = {
+  def sendRequestSchedulePublication(trackId: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.schedule_publication.subject", Messages(track.label))
+    val subject: String = Messages("mail.schedule_publication.subject", Messages(s"${trackId}.label"))
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -373,15 +373,15 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
-      views.txt.Mails.sendRequestSchedulePublication(track).toString(),
-      views.html.Mails.sendRequestSchedulePublication(track).toString()
+      views.txt.Mails.sendRequestSchedulePublication(trackId).toString(),
+      views.html.Mails.sendRequestSchedulePublication(trackId).toString()
     )
   }
 
  
-  def doRequestToUnlockSchedule(track: Track) = {
+  def doRequestToUnlockSchedule(trackId: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.unlock_schedule.subject", Messages(track.label))
+    val subject: String = Messages("mail.unlock_schedule.subject", Messages(s"${trackId}.label"))
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -389,8 +389,8 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
-      views.txt.Mails.sendRequestToUnlockSchedule(track).toString(),
-      views.html.Mails.sendRequestToUnlockSchedule(track).toString()
+      views.txt.Mails.sendRequestToUnlockSchedule(trackId).toString(),
+      views.html.Mails.sendRequestToUnlockSchedule(trackId).toString()
     )
   } 
  
