@@ -1455,6 +1455,22 @@ backoffice.allwebusers.btn.authenticate=Autenticar
 backoffice.allwebusers.btn.remove=Remover do CFP
 backoffice.allwebusers.btn.add=Adicionar ao CFP
 backoffice.allwebusers.nouser=Não há nenhum usuário
+
+#Webusers JavaScript Table
+backoffice.allwebusers.table.emptyTable=Nenhum dado disponivel na tabela
+backoffice.allwebusers.table.info=Mostrando {0} a {1} de {2} usuarios
+backoffice.allwebusers.table.infoEmpty=Mostrando 0 a 0 de 0 usuarios
+backoffice.allwebusers.table.infoFiltered=(filtrado de um total de {0} usuarios)
+backoffice.allwebusers.table.lengthMenu=Mostrar {0} usuarios
+backoffice.allwebusers.table.loadingRecords=Carregando...
+backoffice.allwebusers.table.processing=Processando...
+backoffice.allwebusers.table.search=Buscar:
+backoffice.allwebusers.table.zeroRecords=Nenhum usuario encontrado
+backoffice.allwebusers.table.paginate.first=Primeiro
+backoffice.allwebusers.table.paginate.last=Ultimo
+backoffice.allwebusers.table.paginate.next=Proximo
+backoffice.allwebusers.table.paginate.previous=Anterior
+
 backoffice.allCFPwebusers.title=Configure o líder de trilha
 backoffice.allCFPwebusers.noleader=Nenhum Líder de Trilha
 backoffice.allCFPwebusers.columns.track=Nome da Trilha

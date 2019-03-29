@@ -1448,6 +1448,22 @@ backoffice.allwebusers.btn.authenticate=Authenticate
 backoffice.allwebusers.btn.remove=Remove from CFP
 backoffice.allwebusers.btn.add=Add to CFP
 backoffice.allwebusers.nouser=There is no webuser
+
+#Webusers JavaScript Table
+backoffice.allwebusers.table.emptyTable=No data available in table
+backoffice.allwebusers.table.info=Showing {0} to {1} of {2} entries
+backoffice.allwebusers.table.infoEmpty=Showing 0 to 0 of 0 entries
+backoffice.allwebusers.table.infoFiltered=(filtered from {0} total entries)
+backoffice.allwebusers.table.lengthMenu=Show {0} entries
+backoffice.allwebusers.table.loadingRecords=Loading...
+backoffice.allwebusers.table.processing=Processing...
+backoffice.allwebusers.table.search=Search:
+backoffice.allwebusers.table.zeroRecords=No matching records found
+backoffice.allwebusers.table.paginate.first=First
+backoffice.allwebusers.table.paginate.last=Last
+backoffice.allwebusers.table.paginate.next=Next
+backoffice.allwebusers.table.paginate.previous=Previous
+
 backoffice.allCFPwebusers.title=Configure track leader
 backoffice.allCFPwebusers.noleader=No Track Leader
 backoffice.allCFPwebusers.columns.track=Track name

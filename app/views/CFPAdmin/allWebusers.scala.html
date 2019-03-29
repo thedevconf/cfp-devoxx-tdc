@@ -1,6 +1,10 @@
 @(speakers:List[Webuser])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @main("CFP Admin webuser") {
+
+<script type="text/javascript" charset="utf-8" language="javascript" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+
 <div class="row">
     <div class="col-lg-offset-4 col-md-4">
         <h2><i class="icon-thumbs-up-alt"></i> CFP Admin</h2>
@@ -28,7 +32,7 @@
         </div>
         <div class="panel-body">
             @if(speakers.nonEmpty){
-            <table class="table table-bordered table-strippted">
+            <table id="allWebusers" class="compact cell-border order-column">
                 <thead>
                     <tr>
                         <th>@Messages("backoffice.allwebusers.columns.name")</th>
@@ -69,4 +73,33 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+ $(document).ready(function() {
+
+    $('#allWebusers').DataTable({
+		"ordering": false,
+		"pageLength": 75,
+		"lengthMenu": [[10, 25, 50, 75, 100, -1], [10,25, 50, 75,100, "Todos"]],
+		"stateSave": true,
+		"language": {
+			"emptyTable": "@Messages("backoffice.allwebusers.table.emptyTable")",
+			"info": "@Messages("backoffice.allwebusers.table.info","_START_","_END_","_TOTAL_")",
+			"infoEmpty": "@Messages("backoffice.allwebusers.table.infoEmpty")",
+			"infoFiltered": "@Messages("backoffice.allwebusers.table.infoFiltered","_MAX_")",
+			"lengthMenu": "@Messages("backoffice.allwebusers.table.lengthMenu","_MENU_")",
+			"loadingRecords": "@Messages("backoffice.allwebusers.table.loadingRecords")",
+			"processing": "@Messages("backoffice.allwebusers.table.processing")",
+			"search": "@Messages("backoffice.allwebusers.table.search")",
+			"zeroRecords": "@Messages("backoffice.allwebusers.table.zeroRecords")",
+			"paginate": {
+				"first":"@Messages("backoffice.allwebusers.table.paginate.first")",
+				"last":"@Messages("backoffice.allwebusers.table.paginate.last")",
+				"next":"@Messages("backoffice.allwebusers.table.paginate.next")",
+				"previous":"@Messages("backoffice.allwebusers.table.paginate.previous")"
+			}
+		}
+	});
+ 
+} );
+</script>
 }
