@@ -65,12 +65,12 @@
 					<a href="@routes.CFPAdmin.allProposalsByTrack(Option(proposal.track.id))">@Messages(proposal.track.label)</a>
                                     </td>
                                     <td>
-                                        @tags.renderGravatar(proposal.mainSpeaker)
+                                        @tags.renderGravatar(proposal.mainSpeaker, showName=true, showPhoto=false)
                                         @proposal.secondarySpeaker.map { sc =>
-                                            @tags.renderGravatar(sc)
+                                            @tags.renderGravatar(sc, showName=true, showPhoto=false)
                                         }
                                         @proposal.otherSpeakers.map { s =>
-                                            @tags.renderGravatar(s)
+                                            @tags.renderGravatar(s, showName=true, showPhoto=false)
                                         }
                                     </td>
                                     <td>@Messages(proposal.talkType.id)</td>
