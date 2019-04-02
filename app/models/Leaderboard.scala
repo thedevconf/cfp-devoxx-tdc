@@ -264,10 +264,10 @@ object Leaderboard {
    * (submitted,approved,accepted,declined,rejected,backup)
    */
   private def computeProposalStatesByTrack(): Map[String,LeaderboardProposalStates] = {
-    val allProposalsByTrack:Map[Track,List[Proposal]] = Proposal.allActiveProposals().groupBy(_.track)
+    val allProposalsByTrack:Map[String,List[Proposal]] = Proposal.allActiveProposals().groupBy(_.track.id)
     val allTracks = ConferenceDescriptor.ConferenceTracks.ALL.map( track => {
-      if(allProposalsByTrack.isDefinedAt(track)) {
-        val currentTrackProposals = allProposalsByTrack(track)
+      if(allProposalsByTrack.isDefinedAt(track.id)) {
+        val currentTrackProposals = allProposalsByTrack(track.id)
         val totalProposalsByState = currentTrackProposals.groupBy(_.state)
         (track.id,
           LeaderboardProposalStates(totalProposalsByState.applyOrElse(ProposalState.SUBMITTED,returnEmptyList).size,
