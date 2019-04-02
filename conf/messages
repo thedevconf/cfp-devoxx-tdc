@@ -188,32 +188,38 @@ track.description=Descrição
 # Trilhas
 
 track.dotnet.title=.NET
-track.dotnet.desc=Explore o .NET, do console a nuvem
+#track.dotnet.desc=Explore o .NET, do console a nuvem
+track.dotnet.desc=
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.acessibilidade.title=Acessibilidade
-track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+#track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+track.acessibilidade.desc=
 acessibilidade.label=Acessibilidade
 acessibilidade.leaderboard=Acessibilidade
 
 track.agile.title=Agile
-track.agile.desc=O que? Como? E.. mais importante.. Por quê?
+#track.agile.desc=O que? Como? E.. mais importante.. Por quê?
+track.agile.desc=
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=Agile coaching transformando times e organizações
+#track.agilecoach.desc=Agile coaching transformando times e organizações
+track.agilecoach.desc=
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
 track.agileeagilecoach.title=Agile e Agile Coaching
-track.agileeagilecoach.desc=Agile coaching transformando times e organizações
+#track.agileeagilecoach.desc=Agile coaching transformando times e organizações
+track.agileeagilecoach.desc=
 agileeagilecoach.label=Agile e Agile Coaching
 agileeagilecoach.leaderboard=Agile e Agile Coaching
 
 track.analise.title=Análise de Negócios
-track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
+#track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
+track.analise.desc=
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
@@ -223,12 +229,14 @@ android.label=Android
 android.leaderboard=Android
 
 track.androidkotlin.title=Android e Kotlin
-track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
+#track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
+track.androidkotlin.desc=
 androidkotlin.label=Android
 androidkotlin.leaderboard=Android
 
 track.arduino.title=Arduino e Makers
-track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
+#track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
+track.arduino.desc=
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
@@ -243,7 +251,8 @@ arquitetcorp.label=Arquitetura Corporativa
 arquitetcorp.leaderboard=Arquitetura Corporativa
 
 track.arquitetnet.title=Arquitetura .NET
-track.arquitetnet.desc=Do monólito ao infinito
+#track.arquitetnet.desc=Do monólito ao infinito
+track.arquitetnet.desc=
 arquitetnet.label=Arquitetura .NET
 arquitetnet.leaderboard=Arquitetura .NET
 
@@ -253,7 +262,8 @@ arquitetdotnet.label=Arquitetura .NET
 arquitetdotnet.leaderboard=Arquitetura .NET
 
 track.arquitetdados.title=Arquitetura de Dados
-track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
+#track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
+track.arquitetdados.desc=
 arquitetdados.label=Arquitetura de Dados
 arquitetdados.leaderboard=Arquitetura de Dados
 
@@ -263,7 +273,8 @@ arquitetempres.label=Arquitetura Empresarial
 arquitetempres.leaderboard=Arquitetura Empresarial
 
 track.arquitetjava.title=Arquitetura Java
-track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
+#track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
+track.arquitetjava.desc=
 arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
@@ -278,12 +289,14 @@ banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
+#track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
+track.bigdata.desc=
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
 track.bigdataenosql.title=BigData e NoSQL
-track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
+#track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
+track.bigdataenosql.desc=
 bigdataenosql.label=BigData e NoSQL
 bigdataenosql.leaderboard=BigData e NoSQL
 
@@ -293,9 +306,15 @@ beginners.label=Beginners
 beginners.leaderboard=Beginners
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=Uma Revolução muito além de tecnologia, a grande possível de uma revolução social!
+#track.blockchain.desc=Uma Revolução muito além de tecnologia, a grande possível de uma revolução social!
+track.blockchain.desc=
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
+
+track.businessagility.title=Business Agility
+track.businessagility.desc=
+businessagility.label=Business Agility
+businessagility.leaderboard=Business Agility
 
 track.carreira.title=Carreira
 track.carreira.desc=
@@ -303,19 +322,27 @@ carreira.label=Carreira
 carreira.leaderboard=Carreira
 
 track.chatbots.title=ChatBots
-track.chatbots.desc=Chatbots e o futuro das interações conversacionais
+#track.chatbots.desc=Chatbots e o futuro das interações conversacionais
+track.chatbots.desc=
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
 track.cloud.title=Cloud Computing
-track.cloud.desc=Caminhando nas nuvens sem turbulências!
+#track.cloud.desc=Caminhando nas nuvens sem turbulências!
+track.cloud.desc=
 cloud.label=Cloud Computing
 cloud.leaderboard=Cloud Computing
 
 track.cloudecontainers.title=Cloud e Containers
-track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
+#track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
+track.cloudecontainers.desc=
 cloudecontainers.label=Cloud e Containers
 cloudecontainers.leaderboard=Cloud e Containers
+
+track.cloudstack.title=Cloud / Cloud Stack Collab
+track.cloudstack.desc=
+cloudstack.label=Cloud / Cloud Stack Collab
+cloudstack.leaderboard=Cloud / Cloud Stack Collab
 
 track.computacao.title=Computação Cognitiva
 track.computacao.desc=
@@ -323,42 +350,55 @@ computacao.label=Computação Cognitiva
 computacao.leaderboard=Computação Cognitiva
 
 track.containers.title=Containers
-track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
+#track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
+track.containers.desc=
 containers.label=Containers
 containers.leaderboard=Containers
 
+track.customersuccess.title=Customer Success
+track.customersuccess.desc=
+customersuccess.label=Customer Success
+customersuccess.leaderboard=Customer Success
+
 track.datascience.title=Data Science
-track.datascience.desc=Dados estão transformando negócios em toda parte.
+#track.datascience.desc=Dados estão transformando negócios em toda parte.
+track.datascience.desc=
 datascience.label=Data Science
 datascience.leaderboard=Data Science
 
 track.delphi.title=Delphi
-track.delphi.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
+#track.delphi.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
+track.delphi.desc=
 delphi.label=Delphi
 delphi.leaderboard=Delphi
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=Compartilhando experiência de desenvolvimentos centrado no usuário através de Design Thinking e métodos adjacentes
+#track.dthinking.desc=Compartilhando experiência de desenvolvimentos centrado no usuário através de Design Thinking e métodos adjacentes
+track.dthinking.desc=
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
 track.designcodigo.title=Design de Código
-track.designcodigo.desc=Desenhando seu código para excelência.
+#track.designcodigo.desc=Desenhando seu código para excelência.
+track.designcodigo.desc=
 designcodigo.label=Design de Código
 designcodigo.leaderboard=Design de Código
 
 track.devops.title=DevOps
-track.devops.desc=Maximizando a integração entre equipes para entregar valor
+#track.devops.desc=Maximizando a integração entre equipes para entregar valor
+track.devops.desc=
 devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.devopstools.title=DevOps Tools
-track.devopstools.desc=O DevOps é definido atualmente pela sigla CALMS.
+#track.devopstools.desc=O DevOps é definido atualmente pela sigla CALMS.
+track.devopstools.desc=
 devopstools.label=DevOps Tools
 devopstools.leaderboard=DevOps Tools
 
 track.devtest.title=DevTest
-track.devtest.desc=Porque qualidade é responsabilidade de todos
+#track.devtest.desc=Porque qualidade é responsabilidade de todos
+track.devtest.desc=
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
@@ -378,7 +418,8 @@ empreende.label=Empreendedorismo
 empreende.leaderboard=Empreendedorismo
 
 track.extremeprog.title=Extreme Programming
-track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
+#track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
+track.extremeprog.desc=
 extremeprog.label=Extreme Programming
 extremeprog.leaderboard=Extreme Programming
 
@@ -393,7 +434,7 @@ frameworksjs.label=Frameworks JavaScript
 frameworksjs.leaderboard=Frameworks JavaScript
 
 track.frontend.title=Front-end
-track.frontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+track.frontend.desc=
 frontend.label=Front-end
 frontend.leaderboard=Front-end
 
@@ -403,17 +444,20 @@ games.label=Games
 games.leaderboard=Games
 
 track.gamesrealidade.title=Games e Realidade Aumentada
-track.gamesrealidade.desc=O futuro dos jogos no Brasil!
+#track.gamesrealidade.desc=O futuro dos jogos no Brasil!
+track.gamesrealidade.desc=
 gamesrealidade.label=Games e Realidade Aumentada
 gamesrealidade.leaderboard=Games e Realidade Aumentada
 
 track.gestaoprod.title=Gestão de Produtos
-track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
+#track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
+track.gestaoprod.desc=
 gestaoprod.label=Gestão de Produtos
 gestaoprod.leaderboard=Gestão de Produtos
 
 track.golang.title=Go
-track.golang.desc=A internet é feita em Go
+#track.golang.desc=A internet é feita em Go
+track.golang.desc=
 golang.label=Go
 golang.leaderboard=Go
 
@@ -428,32 +472,37 @@ infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
 track.inovacao.title=Inovação
-track.inovacao.desc=Inovação, tendências e futurismo
+#track.inovacao.desc=Inovação, tendências e futurismo
+track.inovacao.desc=
 inovacao.label=Inovação
 inovacao.leaderboard=Inovação
 
 track.intelartif.title=Inteligência Artificial
-track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+#track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+track.intelartif.desc=
 intelartif.label=Inteligência Artificial
 intelartif.leaderboard=Inteligência Artificial
 
 track.intelartifemachine.title=Inteligência Artificial e Machine Learning
-track.intelartifemachine.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+track.intelartifemachine.desc=
 intelartifemachine.label=Inteligência Artificial e Machine Learning
 intelartifemachine.leaderboard=Inteligência Artificial e Machine Learning
 
 track.iot.title=Internet das Coisas
-track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
+#track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
+track.iot.desc=
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=O maravilhoso mundo mágico da Apple.
+#track.ios.desc=O maravilhoso mundo mágico da Apple.
+track.ios.desc=
 ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+#track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+track.java.desc=
 java.label=Java
 java.leaderboard=Java
 
@@ -468,17 +517,19 @@ javacorp.label=Java Enterprise
 javacorp.leaderboard=Java Enterprise
 
 track.javascript.title=JavaScript
-track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+#track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+track.javascript.desc=
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
 track.javascriptenodejs.title=JavaScript e Node.js
-track.javascriptenodejs.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+track.javascriptenodejs.desc=
 javascriptenodejs.label=JavaScript e Node.js
 javascriptenodejs.leaderboard=JavaScript e Node.js
 
 track.kanban.title=Kanban e Lean
-track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
+#track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
+track.kanban.desc=
 kanban.label=Kanban e Lean
 kanban.leaderboard=Kanban e Lean
 
@@ -492,15 +543,22 @@ track.linux.desc=
 linux.label=Linux Embarcado
 linux.leaderboard=Linux Embarcado
 
+track.loungediversidade.title=Lounge +Diversidade
+track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
+loungediversidade.label=Lounge +Diversidade
+loungediversidade.leaderboard=Lounge +Diversidade
+
 track.machine.title=Machine Learning
-track.machine.desc=Future with Machine Learning
+#track.machine.desc=Future with Machine Learning
+track.machine.desc=
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
 track.management.title=Management 3.0 e Gestão Ágil
-track.management.desc=Inovação, Liderança e Gestão
-management.label=Management 3.0
-management.leaderboard=Management 3.0
+#track.management.desc=Inovação, Liderança e Gestão
+track.management.desc=
+management.label=Management 3.0 e Gestão Ágil
+management.leaderboard=Management 3.0 e Gestão Ágil
 
 track.marketing.title=Marketing Digital e Growth Hacking
 track.marketing.desc=
@@ -508,9 +566,15 @@ marketing.label=Marketing Digital e Growth Hacking
 marketing.leaderboard=Marketing Digital e Growth Hacking
 
 track.microservices.title=Microservices
-track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
+#track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
+track.microservices.desc=
 microservices.label=Microservices
 microservices.leaderboard=Microservices
+
+track.mobileandroidios.title=Mobile, Android e iOS
+track.mobileandroidios.desc=
+mobileandroidios.label=Mobile, Android e iOS
+mobileandroidios.leaderboard=Mobile, Android e iOS
 
 track.mobile.title=Mobile
 track.mobile.desc=
@@ -523,12 +587,14 @@ modernweb.label=Modern Web
 modernweb.leaderboard=Modern Web
 
 track.nodejs.title=Node.js
-track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
+#track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
+track.nodejs.desc=
 nodejs.label=Node.js
 nodejs.leaderboard=Node.js
 
 track.nosql.title=NoSQL
-track.nosql.desc=NoSQL, no Limits, lots of Fun!
+#track.nosql.desc=NoSQL, no Limits, lots of Fun!
+track.nosql.desc=
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
@@ -548,7 +614,8 @@ pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.python.title=Python
-track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
+#track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
+track.python.desc=
 python.label=Python
 python.leaderboard=Python
 
@@ -568,7 +635,7 @@ requisitos.label=Requisitos Ágeis
 requisitos.leaderboard=Requisitos Ágeis
 
 track.ruby.title=Ruby
-track.ruby.desc=Lapidando código e a comunidade
+track.ruby.desc=
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
@@ -581,6 +648,11 @@ track.seguranca.title=Segurança
 track.seguranca.desc=
 seguranca.label=Segurança
 seguranca.leaderboard=Segurança
+
+track.softwaresecurity.title=Software Security
+track.softwaresecurity.desc=
+softwaresecurity.label=Software Security
+softwaresecurity.leaderboard=Software Security
 
 track.serverless.title=Serverless
 track.serverless.desc=
@@ -598,14 +670,21 @@ startups.label=Startups
 startups.leaderboard=Startups
 
 track.testes.title=Testes
-track.testes.desc=Qualidade de Software como princípio
+#track.testes.desc=Qualidade de Software como princípio
+track.testes.desc=
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
+#track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
+track.transfdigital.desc=
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
+
+track.transdiginovacao.title=Transformação Digital e Inovação
+track.transdiginovacao.desc=
+transdiginovacao.label=Transformação Digital e Inovação
+transdiginovacao.leaderboard=Transformação Digital e Inovação
 
 track.university.title=University
 track.university.desc=
@@ -613,7 +692,8 @@ university.label=University
 university.leaderboard=University
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=O usuário quer experiências extraordinárias que sejam úteis, funcionais e desejáveis.
+#track.uxdesign.desc=O usuário quer experiências extraordinárias que sejam úteis, funcionais e desejáveis.
+track.uxdesign.desc=
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
 
@@ -623,12 +703,14 @@ web.label=Web
 web.leaderboard=Web
 
 track.webfrontend.title=Web / Front-end
-track.webfrontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+#track.webfrontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+track.webfrontend.desc=
 webfrontend.label=Web / Front-end
 webfrontend.leaderboard=Web / Front-end
 
 track.women.title=TDC4Women
-track.women.desc=Uma trilha feita por mulheres para todas as pessoas
+#track.women.desc=Uma trilha feita por mulheres para todas as pessoas
+track.women.desc=
 women.label=TDC4Women
 women.leaderboard=TDC4Women
 

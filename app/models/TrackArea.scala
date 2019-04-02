@@ -12,7 +12,7 @@ object TrackArea {
 
     implicit val areaFormat = Json.format[TrackArea]
 
-    val conferenceId = ConferenceDescriptor.current().eventCode
+    def conferenceId = ConferenceDescriptor.current().eventCode
 
     val areaForm = Form(
       mapping(

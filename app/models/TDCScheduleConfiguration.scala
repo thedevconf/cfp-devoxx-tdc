@@ -39,7 +39,7 @@ object TDCScheduleConfiguration {
 
   implicit val scheduleSavedFormat = Json.format[TDCScheduleSaved]
   implicit val scheduleConfigurationFormat = Json.format[TDCScheduleConfiguration]
-  val conferenceId = ConferenceDescriptor.current().eventCode	
+  def conferenceId = ConferenceDescriptor.current().eventCode
   
   def persist(trackId: String, slots: JsValue, createdBy: Webuser): Unit = Redis.pool.withClient {
     implicit client =>

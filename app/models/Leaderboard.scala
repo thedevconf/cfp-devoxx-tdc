@@ -44,7 +44,7 @@ object LeaderboardProposalStates {
  */
 object Leaderboard {
 
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
   
   def computeStats() = Redis.pool.withClient {
     implicit client =>

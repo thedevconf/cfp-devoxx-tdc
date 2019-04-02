@@ -38,7 +38,7 @@ import play.api.data.Forms._
 
 object TrackLeader {
 
-  val conferenceId = ConferenceDescriptor.current().eventCode	
+  def conferenceId = ConferenceDescriptor.current().eventCode
   
   def assign(trackId: String, webuserId: String) {
     if (Webuser.hasAccessToCFP(webuserId)) {

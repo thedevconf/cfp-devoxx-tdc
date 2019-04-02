@@ -40,7 +40,7 @@ case class Track(id: String, label: String, primaryKey: Option[String] = None)
 object Track {
     implicit val trackFormat = Json.format[Track]
 
-    val conferenceId = ConferenceDescriptor.current().eventCode
+    def conferenceId = ConferenceDescriptor.current().eventCode
 	
     val UNKNOWN=Track("unknown", "unknown.label")
 

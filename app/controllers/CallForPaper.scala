@@ -47,7 +47,7 @@ object CallForPaper extends SecureCFPController {
   def homeForSpeaker = SecuredAction {
     implicit request =>
       val uuid = request.webuser.uuid
-	  Ok(views.html.Authentication.confirmImport(speakerForm))
+      Ok(views.html.Authentication.confirmImport(speakerForm))
       Speaker.findByUUID(uuid).map {
         speaker: Speaker =>
           val hasApproved = Proposal.countByProposalState(uuid, ProposalState.APPROVED) > 0
@@ -60,7 +60,7 @@ object CallForPaper extends SecureCFPController {
             case (false, true, _) => Redirect(routes.ApproveOrRefuse.doAcceptOrRefuseTalk()).flashing("success" -> Messages("please.check.approved"))
             case other => {
               val allProposals = Proposal.allMyProposals(uuid)
-			        val archivedProposals = Proposal.allMyArchivedProposals(uuid)
+              val archivedProposals = Proposal.allMyArchivedProposals(uuid)
               val ratings = if(hasAccepted||hasApproved){
                 Rating.allRatingsForTalks(allProposals)
               }else{
@@ -85,28 +85,28 @@ object CallForPaper extends SecureCFPController {
     implicit request =>
       val w = request.webuser
       val defaultValues = 
-			Speaker(uuid = "xxx"
-			   , email = w.email 
-			   , name = Option(w.lastName)
-			   , bio = StringUtils.abbreviate("...", 750)
-			   , lang = None
-			   , twitter = None
-			   , avatarUrl = None
-			   , company = None
-			   , blog = None
-			   , firstName = Option(w.firstName)
-			   , qualifications = Option("No experience")
-			   , phone = None
-			   , gender = None
-			   , tshirtSize = None
-			   , linkedIn = None
-			   , github = None
-			   , tagName = None
-			   , facebook = None
-			   , instagram = None
-			   , race = None
-			   , disability = None
-			  )
+            Speaker(uuid = "xxx"
+               , email = w.email 
+               , name = Option(w.lastName)
+               , bio = StringUtils.abbreviate("...", 750)
+               , lang = None
+               , twitter = None
+               , avatarUrl = None
+               , company = None
+               , blog = None
+               , firstName = Option(w.firstName)
+               , qualifications = Option("No experience")
+               , phone = None
+               , gender = None
+               , tshirtSize = None
+               , linkedIn = None
+               , github = None
+               , tagName = None
+               , facebook = None
+               , instagram = None
+               , race = None
+               , disability = None
+            )
       Ok(views.html.Authentication.confirmImport(Authentication.importSpeakerForm.fill(defaultValues)))
   }
 
@@ -497,17 +497,17 @@ object CallForPaper extends SecureCFPController {
 
         data.file("qqfile").map{ picture =>
           picture.ref.moveTo(new File(S3.pictureSourceDir + picture.filename),replace = true)
-		  val avatarUrl = S3.uploadPicture(userId,picture.filename)
-		  Event.storeEvent(Event(userId, request.webuser.uuid, "Photo uploaded"))		  
+          val avatarUrl = S3.uploadPicture(userId,picture.filename)
+          Event.storeEvent(Event(userId, request.webuser.uuid, "Photo uploaded"))		  
           Ok(s"""{
-			"success":true,
-			"avatarUrl": "${avatarUrl}"
-			}""")
+            "success":true,
+            "avatarUrl": "${avatarUrl}"
+            }""")
         }.getOrElse{
           BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.missing")}"}""")
         }
       }.getOrElse {
-	    BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.general")}"}""")
+        BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.general")}"}""")
       }
   }
 
@@ -520,13 +520,13 @@ object CallForPaper extends SecureCFPController {
       val uuid = request.webuser.uuid
       Proposal.findById(proposalId) match {
         case Some(proposal) => {
-			val authorIds: List[String] = proposal.mainSpeaker :: proposal.secondarySpeaker.toList ::: proposal.otherSpeakers
-			//checks whether the user is one of the authors of the proposal
-			if(authorIds.contains(uuid)) {
-				Ok(views.html.CallForPaper.showArchivedProposal(proposal))
-			} else {
-				Redirect(routes.CallForPaper.homeForSpeaker).flashing("error" -> Messages("msg.unauthorized"))
-			}
+            val authorIds: List[String] = proposal.mainSpeaker :: proposal.secondarySpeaker.toList ::: proposal.otherSpeakers
+            //checks whether the user is one of the authors of the proposal
+            if(authorIds.contains(uuid)) {
+                Ok(views.html.CallForPaper.showArchivedProposal(proposal))
+            } else {
+                Redirect(routes.CallForPaper.homeForSpeaker).flashing("error" -> Messages("msg.unauthorized"))
+            }
         }
         case None => NotFound("Proposal not found").as("text/html")
       }

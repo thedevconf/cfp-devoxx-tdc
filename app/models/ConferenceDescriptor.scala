@@ -198,11 +198,21 @@ object ConferenceDescriptor {
 
   def dateRange(from: LocalDate, to: LocalDate, step: Period): Iterator[LocalDate]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
 
-  // TODO You might want to start here and configure first, your various Conference Elements
+  private var selectedDescriptor:Option[ConferenceDescriptor] = None
+  
   def current() = {
-    val event = "TDC2019FLP"
+    if(selectedDescriptor.isEmpty) {
+      selectConference("TDC2019FLP")	
+    } 
+    selectedDescriptor.get
+  }
+
+  /**
+   * changes the current active conference
+   */
+  def selectConference(event:String) = {
     val conference = TDCConference.load(event).getOrElse(defaultConference)
-    ConferenceDescriptor(
+    selectedDescriptor = Option(ConferenceDescriptor(
       eventCode = conference.eventCode,
       fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
       committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
@@ -236,9 +246,9 @@ object ConferenceDescriptor {
       startDate = conference.startDate.toDate(),
       endDate = conference.endDate.toDate(),
       isCfpOpen = conference.cfpOpen.getOrElse(false)
-    )
+    )) 
   }
-
+  
   // It has to be a def, not a val, else it is not re-evaluated
   def isCFPOpen: Boolean = {
     current().isCfpOpen
