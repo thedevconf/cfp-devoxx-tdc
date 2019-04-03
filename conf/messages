@@ -1748,6 +1748,14 @@ allUploadedPresentations.columns.talk=Palestra
 allUploadedPresentations.columns.links=Links
 allUploadedPresentations.notFound=Apresentação não encontrada
 reports.allTalksByArea.title=Todas as palestras por área
+reports.allApprovedTalksRecordingNotAllowed.title=Palestras aprovadas que não podem ser gravadas
+allApprovedTalksRecordingNotAllowed.tab=Palestras sem gravação
+allApprovedTalksRecordingNotAllowed.talks=palestras
+allApprovedTalksRecordingNotAllowed.columns.name=Titulo
+allApprovedTalksRecordingNotAllowed.columns.track=Trilha
+allApprovedTalksRecordingNotAllowed.columns.speakers=Palestrantes
+allApprovedTalksRecordingNotAllowed.warning.notalk=Nenhuma palestra encontrada
+
 
 draft=rascunho
 deleted=excluída

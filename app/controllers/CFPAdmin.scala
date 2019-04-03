@@ -978,6 +978,17 @@ object CFPAdmin extends SecureCFPController {
 
       Ok(views.html.CFPAdmin.allTalksByArea(allTrackAreas))      
   }
+
+  /**
+    * Show report with all talks that have been approved but can't be recorded. This report is important
+    * to select the talks for the Stadium track, since this track is recorded.
+    */
+  def allApprovedTalksRecordingNotAllowed() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val allApprovedTalks = ApprovedProposal.allApproved()
+                                             .filter(talk => !talk.publicationAuthorized.getOrElse(false))
+      Ok(views.html.CFPAdmin.allTalksRecordingNotAllowed(allApprovedTalks.toList))
+  }
 }
 
 
