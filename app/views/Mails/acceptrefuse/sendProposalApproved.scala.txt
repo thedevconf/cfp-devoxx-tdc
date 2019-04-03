@@ -5,7 +5,7 @@ Bem-vindo ao @ConferenceDescriptor.current().naming.title
 Olá, @firstName,
 
 Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
-Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi APROVADA :
+Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi SELECIONADA :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
 Formato: @Messages(proposal.talkType.id)
