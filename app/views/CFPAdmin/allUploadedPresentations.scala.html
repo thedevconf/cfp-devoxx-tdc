@@ -1,4 +1,4 @@
-@(proposals:Map[Track,Map[Option[Proposal],List[String]]])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(proposals:Map[String,Map[Option[Proposal],List[String]]])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 
 @import helper._
 
@@ -45,9 +45,9 @@
                     </thead>
                     <tbody>
 
-                        @proposals.toList.sortBy(pair=> Messages(pair._1.label)).map { case (track, props) =>
+                        @proposals.toList.sortBy(pair=> Messages(s"${pair._1}.label")).map { case (trackId, props) =>
                             <tr>
-                                <th colspan="5">@Messages(track.label)</th>
+                                <th colspan="5">@Messages(s"${trackId}.label")</th>
                             </tr>
                             @props.map {case (proposal,links) =>
                             <tr>

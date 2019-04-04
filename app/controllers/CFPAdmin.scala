@@ -948,8 +948,8 @@ object CFPAdmin extends SecureCFPController {
       val urls = S3.getUploadedPresentations(eventCode)
       val pattern = raw".+/presentations/${eventCode}/(\w+)/(\w{3}-\d{4})_.+".r
       
-      val links:Map[Track,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
-        case pattern(track,talk) => (Track.parse(track),talk,url)
+      val links:Map[String,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
+        case pattern(trackId,talk) => (trackId,talk,url)
       }).groupBy(_._1) //groups by track
         .mapValues(_.map(tuple => (tuple._2,tuple._3))) //strips the track from the values list
         .mapValues(_.groupBy(_._1).mapValues(_.map(_._2))) //groups by talk and strips it from the resulting list
