@@ -138,8 +138,8 @@ object ConferenceController extends SecureCFPController {
           conference => {
             TDCConference.save(conference)
 
-            //needed to update the selected descriptor with the changes in the database
-            ConferenceDescriptor.selectConference(conference.eventCode)
+            //need to reset the selected descriptor in the cache
+            ConferenceDescriptor.clearCache(conference.eventCode)
 
             Redirect(routes.ConferenceController.allConferences)
           }  
@@ -155,8 +155,8 @@ object ConferenceController extends SecureCFPController {
       optConference.map( oldConference => {
         TDCConference.save(oldConference.copy(cfpOpen = Option(open)))
 
-        //needed to update the selected descriptor with the changes in the database
-        ConferenceDescriptor.selectConference(conferenceId)
+        //need to reset the selected descriptor in the cache
+        ConferenceDescriptor.clearCache(conferenceId)
 
         val allConferences = TDCConference.allConferences.sortBy(_.eventCode)
         Ok(views.html.Backoffice.showAllConferences(allConferences))
@@ -172,7 +172,7 @@ object ConferenceController extends SecureCFPController {
   def selectConference(conferenceId:String) = SecuredAction {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
      ConferenceDescriptor.selectConference(conferenceId)
-     Redirect(routes.CallForPaper.homeForSpeaker())
+     Redirect(routes.CallForPaper.homeForSpeaker()).withSession("eventCode" -> conferenceId)
   }
 
 }
