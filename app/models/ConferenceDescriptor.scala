@@ -240,7 +240,7 @@ object ConferenceDescriptor {
         ),
         hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
         hashTag = "#TheDevConf",
-        conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF),
+        conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = false, sponsorProposalType = ConferenceProposalTypes.CONF),
         locale = List(new Locale("pt", "BR")),
         localisation = conference.localisation,
         maxProposalSummaryCharacters = 700,
