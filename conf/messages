@@ -1755,6 +1755,7 @@ allApprovedTalksRecordingNotAllowed.columns.name=Titulo
 allApprovedTalksRecordingNotAllowed.columns.track=Trilha
 allApprovedTalksRecordingNotAllowed.columns.speakers=Palestrantes
 allApprovedTalksRecordingNotAllowed.warning.notalk=Nenhuma palestra encontrada
+allSponsors.tab=Palestras de patrocinadores
 
 
 draft=rascunho

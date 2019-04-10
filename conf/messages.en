@@ -1723,6 +1723,7 @@ allUploadedPresentations.columns.links=Links
 allUploadedPresentations.notFound=Presentation not found
 reports.allTalksByArea.title=All talks by area
 reports.allApprovedTalksRecordingNotAllowed.title=All selected talks that can't be recorded
+allSponsors.tab=Sponsor talks
 
 draft=draft
 deleted=deleted
