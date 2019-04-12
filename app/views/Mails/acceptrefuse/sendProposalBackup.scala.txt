@@ -19,8 +19,11 @@ Você deve agora validar/aceitar ou recusar os termos e condições de participa
   http://www.thedevelopersconference.com.br/conduta
 ATENÇÃO: A palestra foi selecionada como backup, mas precisa de sua confirmação mesmo assim. Além disso, você será notificado posteriormente se a palestra for selecionada para apresentação.
 
-2. Cortesia para palestrante backup
-Caso você aceite que sua palestra fique como backup, oferecemos uma inscrição gratuita para esta trilha.
+2. Cortesia para palestrantes
+Você gostaria de participar de outras trilhas do evento?
+Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
+Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
+Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido.
 
 3. Comprometimento
 Para ser palestrante backup, precisamos muito do seu comprometimento. Muitas vezes a palestra backup é acionada
@@ -73,8 +76,10 @@ You must now validate/accept or decline the general terms and conditions, as wel
   http://www.thedevelopersconference.com.br/conduta
 ATTENTION: The talk was approved as backup, but needs your confirmation anyway. In addition, you will be notified later if the talk is approved.
 
-2. Reward for Backup Speaker
-In case you accept that your talk stay as backup, we offer you a free pass for this track.
+2. Reward for Speakers
+Would you like to participate in other event tracks?
+All speakers are entitled to 1 track a day beyond that which will deliver his talk.
+We recommend that you register as soon as you receive your code because many tracks sell out fast.
 
 3. Commitment
 To be a backup speaker, we really need your commitment. Often the backup talk is requested well before the event

@@ -82,7 +82,7 @@ to respond quickly.
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2019/arquivos/template-TDC2019.ppt
 
-4. Reward for Speakers</h4>
+4. Reward for Speakers
 Would you like to participate in other event tracks?
 All speakers are entitled to 1 track a day beyond that which will deliver his talk.
 We recommend that you register as soon as you receive your code because many tracks sell out fast.
