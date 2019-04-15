@@ -50,6 +50,16 @@ object ConferenceController extends SecureCFPController {
           }  
         )
     }
+
+    /**
+     * deletes a track from the database
+     */
+    def deleteTrack(trackPrimaryKey: String) = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        Track.delete(trackPrimaryKey)
+        Redirect(routes.ConferenceController.allTracks)
+    }
+
     /**
      * lists all the track areas
      */

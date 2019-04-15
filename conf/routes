@@ -162,6 +162,7 @@ POST          /admin/area                                                       
 GET           /admin/conference/tracks                                          controllers.ConferenceController.allTracks()
 GET           /admin/conference/tracks/newOrEdit                                controllers.ConferenceController.newOrEditTrack(id:Option[String])
 POST          /admin/conference/tracks                                          controllers.ConferenceController.saveTrack()
+GET           /admin/conference/tracks/delete/:trackKey                         controllers.ConferenceController.deleteTrack(trackKey:String)
 GET           /admin/conferences                                                controllers.ConferenceController.allConferences()
 GET           /admin/conferences/newOrEdit                                      controllers.ConferenceController.newOrEditConference(id:Option[String])
 POST          /admin/conferences/                                               controllers.ConferenceController.saveConference()

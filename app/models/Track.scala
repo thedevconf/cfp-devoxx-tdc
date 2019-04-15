@@ -99,6 +99,15 @@ object Track {
       }
     }
 
+    /**
+     * deletes a track from the database
+     */
+    def delete(primaryKey:String) = Redis.pool.withClient {
+      client => {
+        client.hdel(s"Tracks:$conferenceId", primaryKey)
+      }
+    }
+
     private def generateId(): String = Redis.pool.withClient {
       implicit client =>
         val newId = s"T${RandomStringUtils.randomAlphabetic(3).toUpperCase}"

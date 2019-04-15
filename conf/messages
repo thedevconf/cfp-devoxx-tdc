@@ -1584,6 +1584,7 @@ backoffice.conferences.description=Este serviço permite a criação e edição 
 backoffice.conferences.btn.tracks=Trilhas
 backoffice.conferences.tracks.title=Configure as trilhas
 backoffice.conferences.tracks.btn.new=Criar nova trilha
+backoffice.conferences.tracks.btn.delete=Excluir
 backoffice.conferences.track.columns.name=Nome
 backoffice.conference.track.form.title=Dados da trilha
 backoffice.conferences.track.notrack=Nenhuma trilha cadastrada

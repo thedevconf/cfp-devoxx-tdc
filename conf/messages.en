@@ -1562,6 +1562,7 @@ backoffice.conferences.description=This service allows the creation of each conf
 backoffice.conferences.btn.tracks=Tracks
 backoffice.conferences.tracks.title=Configure the tracks
 backoffice.conferences.tracks.btn.new=Create a new track
+backoffice.conferences.tracks.btn.delete=Delete
 backoffice.conferences.track.columns.name=Name
 backoffice.conference.track.form.title=Track data
 backoffice.conferences.track.notrack=No tracks available
