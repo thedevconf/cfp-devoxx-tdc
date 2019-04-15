@@ -240,6 +240,11 @@ track.arduino.desc=
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
 
+track.arduinomakersimpr3d.title=Arduino, Makers e Impressão 3D
+track.arduinomakersimpr3d.desc=
+arduinomakersimpr3d.label=Arduino, Makers e Impressão 3D
+arduinomakersimpr3d.leaderboard=Arduino, Makers e Impressão 3D
+
 track.arquitetura.title=Arquitetura
 track.arquitetura.desc=
 arquitetura.label=Arquitetura
@@ -333,6 +338,11 @@ track.cloudecontainers.title=Cloud e Containers
 track.cloudecontainers.desc=
 cloudecontainers.label=Cloud e Containers
 cloudecontainers.leaderboard=Cloud e Containers
+
+track.cloudstack.title=Cloud Stack Collab
+track.cloudstack.desc=
+cloudstack.label=Cloud Stack Collab
+cloudstack.leaderboard=Cloud Stack Collab
 
 track.computacao.title=Computação Cognitiva
 track.computacao.desc=
@@ -533,6 +543,11 @@ track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
 loungediversidade.label=Lounge +Diversidade
 loungediversidade.leaderboard=Lounge +Diversidade
 
+track.loungediversidadecarreiras.title=Lounge +Diversidade e Carreiras
+track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibilidade e Racial e Carreiras
+loungediversidadecarreiras.label=Lounge +Diversidade e Carreiras
+loungediversidadecarreiras.leaderboard=Lounge +Diversidade e Carreiras
+
 track.machine.title=Machine Learning
 #track.machine.desc=Future with Machine Learning
 track.machine.desc=
@@ -544,6 +559,11 @@ track.management.title=Management 3.0 e Gestão Ágil
 track.management.desc=
 management.label=Management 3.0 e Gestão Ágil
 management.leaderboard=Management 3.0 e Gestão Ágil
+
+track.management30.title=Management 3.0
+track.management30.desc=
+management30.label=Management 3.0
+management30.leaderboard=Management 3.0
 
 track.marketing.title=Marketing Digital e Growth Hacking
 track.marketing.desc=
@@ -628,6 +648,11 @@ track.rust.title=Rust
 track.rust.desc=
 rust.label=Rust
 rust.leaderboard=Rust
+
+track.saude40.title=Saúde 4.0
+track.saude40.desc=
+saude40.label=Saúde 4.0
+saude40.leaderboard=Saúde 4.0
 
 track.seguranca.title=Segurança
 track.seguranca.desc=
