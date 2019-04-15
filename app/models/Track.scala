@@ -47,17 +47,17 @@ object Track {
     val trackForm = Form(
       mapping(
         "trackId" -> nonEmptyText,
-        "trackLabel" -> nonEmptyText,
+        "trackLabel" -> optional(text),
         "primaryKey" -> optional(text)
       ) (createFromForm)(fillForm)
     )
 
-    def createFromForm(trackId:String, label:String, primaryKey: Option[String]) = {
-      Track(trackId,label,Option(primaryKey.getOrElse(generateId())))
+    def createFromForm(trackId:String, label:Option[String], primaryKey: Option[String]) = {
+      Track(trackId,label.getOrElse(s"$trackId.label"),Option(primaryKey.getOrElse(generateId())))
     }
 
     def fillForm(track:Track) = {
-      Option((track.id,track.label,track.primaryKey))
+      Option((track.id,Option(track.label),track.primaryKey))
     }
 
     def parse(primaryKey:String):Track={

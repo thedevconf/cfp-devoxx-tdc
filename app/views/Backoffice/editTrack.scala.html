@@ -22,8 +22,12 @@
         }
 
         @helper.form(action = routes.ConferenceController.saveTrack) {
-            @helper.inputText(trackForm("trackId"), 'class->"form-control")
-            @helper.inputText(trackForm("trackLabel"), 'class->"form-control")
+            @if(trackForm("trackId").value.map( _ == "").getOrElse(true)) {
+                @helper.inputText(trackForm("trackId"), 'class->"form-control")
+            } else {
+                @helper.inputText(trackForm("trackId"), 'class->"form-control", 'readonly->"true")
+            }		
+            <input type='hidden' name='trackLabel' value='@trackForm("trackLabel").value' />
             <input type='hidden' name='primaryKey' value='@trackForm("primaryKey").value' />
             <button class="btn btn-success" type="submit">@Messages("sw.incidents.form.bt.save")</button>
         }

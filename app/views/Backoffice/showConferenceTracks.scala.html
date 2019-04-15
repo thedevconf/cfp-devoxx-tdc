@@ -35,7 +35,7 @@
                   <tbody>
                           @allTracks.map{ track =>
                           <tr>
-                              <td><a href="@routes.ConferenceController.newOrEditTrack(track.primaryKey)">@Messages(track.label)</a></td>
+                              <td><a href="@routes.ConferenceController.newOrEditTrack(track.primaryKey)">@Messages(s"${track.id}.label")</a></td>
                               <td><a class="btn btn-sm btn-danger" href="@routes.ConferenceController.deleteTrack(track.primaryKey.getOrElse(""))">@Messages("backoffice.conferences.tracks.btn.delete")</a></td>
                           </tr>
                           }
