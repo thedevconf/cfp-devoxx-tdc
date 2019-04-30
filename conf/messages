@@ -669,6 +669,11 @@ track.seguranca.desc=
 seguranca.label=Segurança
 seguranca.leaderboard=Segurança
 
+track.segurancaecripto.title=Segurança e Criptografia
+track.segurancaecripto.desc=
+segurancaecripto.label=Segurança e Criptografia
+segurancaecripto.leaderboard=Segurança e Criptografia
+
 track.softwaresecurity.title=Software Security
 track.softwaresecurity.desc=
 softwaresecurity.label=Software Security
