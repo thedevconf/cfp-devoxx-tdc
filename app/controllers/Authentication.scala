@@ -563,8 +563,7 @@ private def extractLinkedInLocale(localizedJson: JsValue): String = {
                   val locale = extractLinkedInLocale(json.\("firstName"))
                   val firstName = json.\("firstName").\("localized").\(locale).asOpt[String]
                   val lastName = json.\("lastName").\("localized").\(locale).asOpt[String]
-                  val photo = json.\("profilePicture").\("displayImage~").\\("identifier")(0).asOpt[String]
-                  
+
                   val emailUrl = "https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))&oauth2_access_token=" + access_token
 
                   val futureEmailResult = WS.url(emailUrl ).withHeaders(
@@ -592,7 +591,7 @@ private def extractLinkedInLocale(localizedJson: JsValue): String = {
                                      , bio = "?"
                                      , lang = None
                                      , twitter = None
-                                     , avatarUrl = photo
+                                     , avatarUrl = None
                                      , company = None
                                      , blog = None
                                      , firstName = firstName
