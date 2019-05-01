@@ -74,7 +74,7 @@ object TDCClient {
 
    private def convertProposalToJson(proposal:Proposal, optionUrls: Option[ProposalURLs]):JsValue = {
     Json.toJson(Map(
-      "id" -> Json.toJson(proposal.id),
+      "idNoCfp" -> Json.toJson(proposal.id),
       "titulo" -> Json.toJson(proposal.title),
       "descricao" -> Json.toJson(proposal.summary),
       "urlApresentacao" -> Json.toJson(optionUrls.map(urls => urls.presentationURL.getOrElse("")).getOrElse("")),
