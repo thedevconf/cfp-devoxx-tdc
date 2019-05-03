@@ -60,7 +60,7 @@ object TDCClient {
       "empresa" -> Json.toJson(speaker.company.getOrElse("")),
       "etnia" -> Json.toJson(speaker.race.getOrElse("")),
       "deficiencia" -> Json.toJson(speaker.disability.getOrElse("")),
-      "genero" -> Json.toJson(speaker.gender.getOrElse("")),
+      "genero" -> Json.toJson(speaker.gender.getOrElse("P")),
       "url_foto" -> Json.toJson(speaker.avatarUrl.getOrElse("")),
       "tamanho_camiseta" -> Json.toJson(speaker.tshirtSize.map("BÁSICA "+_).getOrElse("")),
       "twitter" -> Json.toJson(speaker.twitter.getOrElse("")),
