@@ -137,6 +137,10 @@ sponsorTalk.help=Do not tick this checkbox if your company is not a sponsor of t
 #Platinum and Gold sponsors can submit one Conference talk which we will accept as part of their sponsorship.
 sponsorTalk.checkbox=Yes, this is a sponsor/exhibitor talk
 
+noPaidCosts=Courtesy for Speakers
+noPaidCosts.help=All selected speakers receive a personal and non-transferable promocode to sign up for 1 track per day of the event.
+noPaidCosts.help1=But we remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
+
 helpAndTips=More info
 moreSpeakerLater=You can add one more speaker later, once the proposal is submitted.
 btn.home=Back to home without saving

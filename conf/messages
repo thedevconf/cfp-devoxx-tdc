@@ -137,6 +137,10 @@ sponsorTalk.help=Não marque este checkbox se a sua empresa não é patrocinador
 # Patrocinadores Diamond podem submeter uma palestra que será aceita como parte de sua cota de patrocínio.
 sponsorTalk.checkbox=Sim, esta é uma palestra de patrocinador
 
+noPaidCosts=Cortesia para palestrantes
+noPaidCosts.help=Todos palestrantes selecionados recebem um código promocional, pessoal e intransferível, para se inscreverem em 1 trilha por dia do evento.
+noPaidCosts.help1=Mas lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
+
 helpAndTips=Mais informações
 moreSpeakerLater=Você pode incluir mais um palestrante depois, assim que a proposta for submetida.
 btn.home=Voltar para a home sem gravar
