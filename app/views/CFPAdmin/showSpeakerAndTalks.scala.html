@@ -109,11 +109,23 @@
                                 }.getOrElse("")</td>
                         </tr>
 						<tr>
-                            <td><i class="icon-phone"></i> Telefone</td>
+                            <td><i class="icon-phone"></i> @Messages("phone")</td>
                             <td>@speaker.phone.getOrElse("")</td>
                         </tr>
                         <tr>
                             <td><i class="icon-envelope"></i> Email </td><td>@speaker.email</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-phone"></i> @Messages("gender")</td>
+                            <td>@speaker.gender.getOrElse("")</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-phone"></i> @Messages("race")</td>
+                            <td>@speaker.race.getOrElse("")</td>
+                        </tr>
+                        <tr>
+                            <td><i class="icon-phone"></i> @Messages("disability")</td>
+                            <td>@speaker.disability.getOrElse("")</td>
                         </tr>
                     </tbody>
                 </table>
