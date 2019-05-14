@@ -221,13 +221,13 @@ object ConferenceDescriptor {
       val newDescriptor = ConferenceDescriptor(
         eventCode = conference.eventCode,
         fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
-        committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
+        committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
         bccEmail = Play.current.configuration.getString("mail.bcc"),
-        bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
+        bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("cfp@thedevelopersconference.com.br"),
         conferenceUrls = ConferenceUrls(
           registration = conference.registrationUrl,
           confWebsite = "http:/thedevconf.com.br",
-          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br"),
+          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-flp.thedevconf.com.br"),
           schedule = conference.scheduleUrl
         ),
         timing = ConferenceTiming(
@@ -244,7 +244,7 @@ object ConferenceDescriptor {
         locale = List(new Locale("pt", "BR")),
         localisation = conference.localisation,
         maxProposalSummaryCharacters = 700,
-        trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
+        trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("organizacao@thedevelopersconference.com.br"),
         naming = ConferenceNaming(
           title = conference.title,
           shortTitle = conference.shortTitle
