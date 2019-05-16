@@ -381,7 +381,7 @@ object Mails {
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
-    emailer.addRecipient(committeeEmail)
+    emailer.addRecipient(trackleadersEmail)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
