@@ -223,6 +223,7 @@ object ConferenceDescriptor {
         fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
         committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
         bccEmail = Play.current.configuration.getString("mail.bcc"),
+        trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
         bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("cfp@thedevelopersconference.com.br"),
         conferenceUrls = ConferenceUrls(
           registration = conference.registrationUrl,
@@ -244,7 +245,6 @@ object ConferenceDescriptor {
         locale = List(new Locale("pt", "BR")),
         localisation = conference.localisation,
         maxProposalSummaryCharacters = 700,
-        trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
         naming = ConferenceNaming(
           title = conference.title,
           shortTitle = conference.shortTitle
