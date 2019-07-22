@@ -694,6 +694,18 @@ track.startups.desc=
 startups.label=Startups
 startups.leaderboard=Startups
 
+track.tdc4kids.title=TDC4Kids
+#track.tdc4kids.desc=
+track.tdc4kids.desc=
+tdc4kids.label=TDC4Kids
+tdc4kids.leaderboard=TDC4Kids
+
+track.tdcinspire.title=TDC Inspire
+#track.tdcinspire.desc=
+track.tdcinspire.desc=
+tdcinspire.label=TDC Inspire
+tdcinspire.leaderboard=TDC Inspire
+
 track.testes.title=Testes
 #track.testes.desc=Qualidade de Software como princípio
 track.testes.desc=
