@@ -411,6 +411,11 @@ track.education.desc=
 education.label=Education
 education.leaderboard=Education
 
+track.education40.title=Education 4.0
+track.education40.desc=
+education40.label=Education 4.0
+education40.leaderboard=Education 4.0
+
 track.empreende.title=Empreendedorismo
 track.empreende.desc=
 empreende.label=Empreendedorismo
@@ -475,6 +480,12 @@ track.inovacao.title=Inovação
 track.inovacao.desc=
 inovacao.label=Inovação
 inovacao.leaderboard=Inovação
+
+track.inovacaosocialempreend.title=Inovação Social e Empreendedorismo
+#track.inovacaosocialempreend.desc=Inovação Social e Empreendedorismo
+track.inovacaosocialempreend.desc=
+inovacaosocialempreend.label=Inovação Social e Empreendedorismo
+inovacaosocialempreend.leaderboard=Inovação Social e Empreendedorismo
 
 track.intelartif.title=Inteligência Artificial
 #track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
@@ -710,6 +721,12 @@ track.uxdesign.title=UX Design
 track.uxdesign.desc=
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
+
+track.uxdesignthinking.title=UX e Design Thinking
+#track.uxdesignthinking.desc=
+track.uxdesignthinking.desc=
+uxdesignthinking.label=UX e Design Thinking
+uxdesignthinking.leaderboard=UX e Design Thinking
 
 track.web.title=Web
 track.web.desc=
