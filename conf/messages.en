@@ -320,6 +320,11 @@ track.blockchain.desc=
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
 
+track.businessagility.title=Business Agility
+track.businessagility.desc=
+businessagility.label=Business Agility
+businessagility.leaderboard=Business Agility
+
 track.carreira.title=Carreira
 track.carreira.desc=
 carreira.label=Carreira
@@ -358,6 +363,11 @@ track.containers.title=Containers
 track.containers.desc=
 containers.label=Containers
 containers.leaderboard=Containers
+
+track.customersuccess.title=Customer Success
+track.customersuccess.desc=
+customersuccess.label=Customer Success
+customersuccess.leaderboard=Customer Success
 
 track.datascience.title=Data Science
 #track.datascience.desc=Dados estão transformando negócios em toda parte.
@@ -447,11 +457,11 @@ track.games.desc=
 games.label=Games
 games.leaderboard=Games
 
-track.gamesrealidade.title=Games e Realidade Aumentada
+track.gamesrealidade.title=Games. Realidade Virtual e Aumentada
 #track.gamesrealidade.desc=O futuro dos jogos no Brasil!
 track.gamesrealidade.desc=
-gamesrealidade.label=Games e Realidade Aumentada
-gamesrealidade.leaderboard=Games e Realidade Aumentada
+gamesrealidade.label=Games. Realidade Virtual e Aumentada
+gamesrealidade.leaderboard=Games. Realidade Virtual e Aumentada
 
 track.gestaoprod.title=Gestão de Produtos
 #track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
@@ -679,6 +689,11 @@ track.segurancaecripto.desc=
 segurancaecripto.label=Segurança e Criptografia
 segurancaecripto.leaderboard=Segurança e Criptografia
 
+track.softwaresecurity.title=Software Security
+track.softwaresecurity.desc=
+softwaresecurity.label=Software Security
+softwaresecurity.leaderboard=Software Security
+
 track.serverless.title=Serverless
 track.serverless.desc=
 serverless.label=Serverless
@@ -695,14 +710,12 @@ startups.label=Startups
 startups.leaderboard=Startups
 
 track.tdc4kids.title=TDC4Kids
-#track.tdc4kids.desc=
-track.tdc4kids.desc=
+track.tdc4kids.desc=Oficinas mão na massa, aprendizado, tecnologia e crianças
 tdc4kids.label=TDC4Kids
 tdc4kids.leaderboard=TDC4Kids
 
 track.tdcinspire.title=TDC Inspire
-#track.tdcinspire.desc=
-track.tdcinspire.desc=
+track.tdcinspire.desc=Hackday para jovens, terceiro ano do ensino médio, escola pública
 tdcinspire.label=TDC Inspire
 tdcinspire.leaderboard=TDC Inspire
 

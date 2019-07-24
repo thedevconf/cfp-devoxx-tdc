@@ -710,14 +710,12 @@ startups.label=Startups
 startups.leaderboard=Startups
 
 track.tdc4kids.title=TDC4Kids
-#track.tdc4kids.desc=
-track.tdc4kids.desc=
+track.tdc4kids.desc=Oficinas mão na massa, aprendizado, tecnologia e crianças
 tdc4kids.label=TDC4Kids
 tdc4kids.leaderboard=TDC4Kids
 
 track.tdcinspire.title=TDC Inspire
-#track.tdcinspire.desc=
-track.tdcinspire.desc=
+track.tdcinspire.desc=Hackday para jovens, terceiro ano do ensino médio, escola pública
 tdcinspire.label=TDC Inspire
 tdcinspire.leaderboard=TDC Inspire
 
@@ -781,7 +779,6 @@ track.xp.title=XP
 track.xp.desc=
 xp.label=XP
 xp.leaderboard=XP
-
 
 # confirm import
 confirm.import.title=Criar seu perfil de Palestrante
