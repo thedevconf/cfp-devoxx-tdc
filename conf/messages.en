@@ -563,6 +563,11 @@ track.linux.desc=
 linux.label=Linux Embarcado
 linux.leaderboard=Linux Embarcado
 
+track.diversidade.title=Diversidade
+track.diversidade.desc=
+diversidade.label=Diversidade
+diversidade.leaderboard=Diversidade
+
 track.loungediversidade.title=Lounge +Diversidade
 track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
 loungediversidade.label=Lounge +Diversidade
