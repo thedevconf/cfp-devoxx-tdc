@@ -50,6 +50,16 @@ object ConferenceController extends SecureCFPController {
           }  
         )
     }
+
+    /**
+     * deletes a track from the database
+     */
+    def deleteTrack(trackPrimaryKey: String) = SecuredAction(IsMemberOf("admin")) {
+      implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+        Track.delete(trackPrimaryKey)
+        Redirect(routes.ConferenceController.allTracks)
+    }
+
     /**
      * lists all the track areas
      */
@@ -115,15 +125,15 @@ object ConferenceController extends SecureCFPController {
     /**
      * opens the conference form
      */
-    def newOrEditConference(trackId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
+    def newOrEditConference(conferenceId: Option[String]) = SecuredAction(IsMemberOf("admin")) {
       implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-        trackId match {
+        conferenceId match {
           case Some(eventCode) => 
             val optionConference = TDCConference.load(eventCode)
             optionConference.map{ conference =>
               val form = conferenceForm.fill(conference)
               Ok(views.html.Backoffice.editConference(form))
-            }.getOrElse(NotFound("Conference not found").as("text/html"))	
+            }.getOrElse(NotFound(Messages("backoffice.conferences.error.noconference",conferenceId))).as("text/html")
           case None => Ok(views.html.Backoffice.editConference(conferenceForm))
         }
     }
@@ -137,9 +147,42 @@ object ConferenceController extends SecureCFPController {
           invalidForm => BadRequest(views.html.Backoffice.editConference(invalidForm)),
           conference => {
             TDCConference.save(conference)
+
+            //need to reset the selected descriptor in the cache
+            ConferenceDescriptor.clearCache(conference.eventCode)
+
             Redirect(routes.ConferenceController.allConferences)
           }  
         )
     }
+
+  /**
+   * opens or closes the call for papers for the conference
+   */
+  def openCallForPapers(conferenceId:String, open:Boolean) = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val optConference = TDCConference.load(conferenceId)
+      optConference.map( oldConference => {
+        TDCConference.save(oldConference.copy(cfpOpen = Option(open)))
+
+        //need to reset the selected descriptor in the cache
+        ConferenceDescriptor.clearCache(conferenceId)
+
+        val allConferences = TDCConference.allConferences.sortBy(_.eventCode)
+        Ok(views.html.Backoffice.showAllConferences(allConferences))
+      }).getOrElse(
+        Ok(views.html.Backoffice.showAllConferences(TDCConference.allConferences.sortBy(_.eventCode)))
+          .flashing("error" -> Messages("backoffice.conferences.error.noconference",conferenceId))
+      )
+  }
+  
+  /**
+   * selects the active conference
+   */
+  def selectConference(conferenceId:String) = SecuredAction {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+     ConferenceDescriptor.selectConference(conferenceId)
+     Redirect(routes.CallForPaper.homeForSpeaker()).withSession("eventCode" -> conferenceId)
+  }
 
 }

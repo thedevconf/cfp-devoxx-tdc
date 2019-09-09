@@ -47,7 +47,7 @@ case class Event(objRef: String, uuid: String, msg: String, date: Option[DateTim
 
 object Event {
   implicit val eventFormat = Json.format[Event]
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   def storeEvent(event: Event) = Redis.pool.withClient {
     client =>

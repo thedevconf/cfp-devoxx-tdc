@@ -38,7 +38,7 @@ case class Comment(proposalId: String, uuidAuthor: String, msg: String, eventDat
 object Comment {
 
   implicit val commentFormat = Json.format[Comment]
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   def saveCommentForSpeaker(proposalId: String, uuidAuthor: String, msg: String) = {
     saveComment(s"Comments:$conferenceId:ForSpeaker:$proposalId", proposalId, uuidAuthor, msg)

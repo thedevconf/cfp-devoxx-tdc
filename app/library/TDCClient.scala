@@ -60,7 +60,7 @@ object TDCClient {
       "empresa" -> Json.toJson(speaker.company.getOrElse("")),
       "etnia" -> Json.toJson(speaker.race.getOrElse("")),
       "deficiencia" -> Json.toJson(speaker.disability.getOrElse("")),
-      "genero" -> Json.toJson(speaker.gender.getOrElse("")),
+      "genero" -> Json.toJson(speaker.gender.getOrElse("P")),
       "url_foto" -> Json.toJson(speaker.avatarUrl.getOrElse("")),
       "tamanho_camiseta" -> Json.toJson(speaker.tshirtSize.map("BÁSICA "+_).getOrElse("")),
       "twitter" -> Json.toJson(speaker.twitter.getOrElse("")),
@@ -74,7 +74,7 @@ object TDCClient {
 
    private def convertProposalToJson(proposal:Proposal, optionUrls: Option[ProposalURLs]):JsValue = {
     Json.toJson(Map(
-      "id" -> Json.toJson(proposal.id),
+      "idNoCfp" -> Json.toJson(proposal.id),
       "titulo" -> Json.toJson(proposal.title),
       "descricao" -> Json.toJson(proposal.summary),
       "urlApresentacao" -> Json.toJson(optionUrls.map(urls => urls.presentationURL.getOrElse("")).getOrElse("")),

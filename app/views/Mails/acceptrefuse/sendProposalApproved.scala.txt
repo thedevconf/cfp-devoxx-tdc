@@ -5,7 +5,7 @@ Bem-vindo ao @ConferenceDescriptor.current().naming.title
 Olá, @firstName,
 
 Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
-Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi APROVADA :
+Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi SELECIONADA :
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
 Formato: @Messages(proposal.talkType.id)
@@ -82,7 +82,7 @@ to respond quickly.
 To prepare your presentation, we provide a PowerPoint template (not mandatory):
   https://s3-sa-east-1.amazonaws.com/thedevconf/2019/arquivos/template-TDC2019.ppt
 
-4. Reward for Speakers</h4>
+4. Reward for Speakers
 Would you like to participate in other event tracks?
 All speakers are entitled to 1 track a day beyond that which will deliver his talk.
 We recommend that you register as soon as you receive your code because many tracks sell out fast.

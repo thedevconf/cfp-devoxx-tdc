@@ -186,7 +186,7 @@ object Proposal {
 
   val HttpUrl = "((([A-Za-z]{3,9}:(?:\\/\\/)?)(?:[-;:&=\\+\\$,\\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\\+\\$,\\w]+@)[A-Za-z0-9.-]+)((?:\\/[\\+~%\\/.\\w-_]*)?\\??(?:[-\\+=&;%@.\\w_]*)#?(?:[\\w]*))?)".r
 
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   def isSpeaker(proposalId: String, uuid: String): Boolean = Redis.pool.withClient {
     implicit client =>
@@ -528,7 +528,7 @@ object Proposal {
            proposal <- Json.parse(proposalJson).asOpt[Proposal];
            realState <- findProposalState(proposal.id)) yield {
         proposal.copy(state = realState)
-	  }
+      }
   }
 
   def findProposalState(proposalId: String): Option[ProposalState] = Redis.pool.withClient {
@@ -613,8 +613,7 @@ object Proposal {
 
   def allDrafts(): List[Proposal] = Redis.pool.withClient {
     implicit client =>
-      //val allProposalIds = client.smembers(s"Proposals:$conferenceId:ByState:" + ProposalState.DRAFT.code)
-	  val allProposalIds = client.smembers(s"Proposals:ByState:" + ProposalState.DRAFT.code)
+      val allProposalIds = client.smembers(s"Proposals:$conferenceId:ByState:" + ProposalState.DRAFT.code)
       client.hmget("Proposals", allProposalIds).flatMap {
         proposalJson: String =>
           Json.parse(proposalJson).asOpt[Proposal].map(_.copy(state = ProposalState.DRAFT))
@@ -699,8 +698,7 @@ object Proposal {
 
   def allDeleted(): List[Proposal] = Redis.pool.withClient {
     implicit client =>
-      //val allProposalIds = client.smembers(s"Proposals:$conferenceId:ByState:" + ProposalState.DELETED.code)
-	  val allProposalIds = client.smembers(s"Proposals:ByState:" + ProposalState.DELETED.code)
+      val allProposalIds = client.smembers(s"Proposals:$conferenceId:ByState:" + ProposalState.DELETED.code)
       client.hmget("Proposals", allProposalIds).flatMap {
         proposalJson: String =>
           Json.parse(proposalJson).asOpt[Proposal].map(_.copy(state = ProposalState.DELETED))
@@ -714,37 +712,28 @@ object Proposal {
   def destroy(proposal: Proposal, eraseAllData:Boolean = true) = Redis.pool.withClient {
     implicit client =>
       val tx = client.multi()
-//      tx.srem(s"Proposals:$conferenceId:ByAuthor:${proposal.mainSpeaker}", proposal.id)
-//      tx.srem(s"Proposals:$conferenceId:ByState:${proposal.state.code}", proposal.id)
-//      tx.srem(s"Proposals:$conferenceId:ByTrack:${proposal.track.id}", proposal.id)
-//      tx.srem(s"BackupConfirmed:$conferenceId",proposal.id)
-      tx.srem(s"Proposals:ByAuthor:${proposal.mainSpeaker}", proposal.id)
-      tx.srem(s"Proposals:ByState:${proposal.state.code}", proposal.id)
-      tx.srem(s"Proposals:ByTrack:${proposal.track.id}", proposal.id)
-      tx.srem(s"BackupConfirmed",proposal.id)	  
+      tx.srem(s"Proposals:$conferenceId:ByAuthor:${proposal.mainSpeaker}", proposal.id)
+      tx.srem(s"Proposals:$conferenceId:ByState:${proposal.state.code}", proposal.id)
+      tx.srem(s"Proposals:$conferenceId:ByTrack:${proposal.track.id}", proposal.id)
+      tx.srem(s"BackupConfirmed:$conferenceId",proposal.id)
       tx.hdel("Proposals:TrackForProposal", proposal.id)
       // 2nd speaker
       proposal.secondarySpeaker.map {
         secondarySpeaker =>
-//          tx.srem(s"Proposals:$conferenceId:ByAuthor:" + secondarySpeaker, proposal.id)
-		  tx.srem(s"Proposals:ByAuthor:" + secondarySpeaker, proposal.id)
+          tx.srem(s"Proposals:$conferenceId:ByAuthor:" + secondarySpeaker, proposal.id)
       }
       // other speaker
       proposal.otherSpeakers.map {
         otherSpeaker =>
-//          tx.srem(s"Proposals:$conferenceId:ByAuthor:" + otherSpeaker, proposal.id)
-		  tx.srem(s"Proposals:ByAuthor:" + otherSpeaker, proposal.id)
+          tx.srem(s"Proposals:$conferenceId:ByAuthor:" + otherSpeaker, proposal.id)
       }
       tx.hdel("Proposal:SubmittedDate", proposal.id)
       if (eraseAllData) {
         tx.hdel("Proposals", proposal.id)
       }
       if (proposal.id != "") {
-//        tx.del(s"Events:$conferenceId:V2:${proposal.id}")
-//        tx.del(s"Events:$conferenceId:LastUpdated:${proposal.id}")
         tx.del(s"Events:$conferenceId:V2:${proposal.id}")
         tx.del(s"Events:$conferenceId:LastUpdated:${proposal.id}")
-		
       }
       tx.exec()
 
@@ -1017,8 +1006,8 @@ object Proposal {
       oldSpeakerId.map {
         speakerId =>
           tx.srem(s"Proposals:$conferenceId:ByAuthor:$speakerId", proposalId)
-		      tx.srem(s"ApprovedSpeakers:$conferenceId:$speakerId", proposalId)
-		      tx.srem(s"RefusedSpeakers:$conferenceId:$speakerId", proposalId)
+          tx.srem(s"ApprovedSpeakers:$conferenceId:$speakerId", proposalId)
+          tx.srem(s"RefusedSpeakers:$conferenceId:$speakerId", proposalId)
       }
       newSpeakerId.map {
         speakerId =>

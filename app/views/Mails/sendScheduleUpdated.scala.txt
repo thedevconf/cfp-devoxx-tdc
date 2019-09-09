@@ -1,9 +1,9 @@
-@(track:Track, author:String)
+@(trackId:String, author:String)
 
-A grade da trilha @Messages(track.label) foi atualizada por @author
+A grade da trilha @Messages(s"${trackId}.label") foi atualizada por @author
 
 Por favor, use este link acessar a grade alterada:
-@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.TDCSchedulingController.index#/slots/@track.id
+@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.TDCSchedulingController.index#/slots/@trackId
 
 Obrigado,
 

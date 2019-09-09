@@ -67,18 +67,16 @@ object TDCSchedulingController extends SecureCFPController {
   def allScheduledTracks() = SecuredAction(IsMemberOf("admin")) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
 
-      val tracks:List[(Track,Boolean)] = TDCScheduleConfiguration.allScheduledTracks().toList
+      val tracks:List[(String,Boolean)] = TDCScheduleConfiguration.allScheduledTracks().toList
                   .map{case (trackId,schedule) => {
-                    val track = Track.parse(trackId)
-                    val updatedTrack = track.copy(label = Messages(track.label))
-                    (updatedTrack,schedule.blocked.getOrElse(false))
+                    (trackId,schedule.blocked.getOrElse(false))
                   }}
       val json = Json.toJson(Map(
                               "scheduledTracks" ->
-                                    Json.toJson(tracks.map{case (track,blocked) =>
+                                    Json.toJson(tracks.map{case (id,blocked) =>
                                         Map(
-                                          "id" -> Json.toJson(track.id),
-                                          "label" -> Json.toJson(track.label),
+                                          "id" -> Json.toJson(id),
+                                          "label" -> Json.toJson(Messages(s"$id.label")),
                                           "blocked" -> Json.toJson(blocked)
                                         )
                                     })

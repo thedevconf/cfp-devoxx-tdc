@@ -34,7 +34,7 @@ import library.Redis
 object Invitation {
 
   private val redisInvitation = "Invitations"
-  val conferenceId = s":${ConferenceDescriptor.current().eventCode}"
+  def conferenceId = s":${ConferenceDescriptor.current().eventCode}"
 
   def inviteSpeaker(speakerId: String, invitedBy: String) = Redis.pool.withClient {
     implicit client =>

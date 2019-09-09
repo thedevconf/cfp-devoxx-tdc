@@ -40,7 +40,7 @@ case class Review(reviewer: String, proposalId: String, vote: Int, date: DateTim
 
 object Review {
 
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   // We use 4 different Redis objects
   // 1) a SET to keep an history of all proposals we voted for

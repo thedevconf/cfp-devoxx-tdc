@@ -948,8 +948,8 @@ object CFPAdmin extends SecureCFPController {
       val urls = S3.getUploadedPresentations(eventCode)
       val pattern = raw".+/presentations/${eventCode}/(\w+)/(\w{3}-\d{4})_.+".r
       
-      val links:Map[Track,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
-        case pattern(track,talk) => (Track.parse(track),talk,url)
+      val links:Map[String,Map[Option[Proposal],List[String]]] = urls.map(url => url match {
+        case pattern(trackId,talk) => (trackId,talk,url)
       }).groupBy(_._1) //groups by track
         .mapValues(_.map(tuple => (tuple._2,tuple._3))) //strips the track from the values list
         .mapValues(_.groupBy(_._1).mapValues(_.map(_._2))) //groups by talk and strips it from the resulting list
@@ -977,6 +977,17 @@ object CFPAdmin extends SecureCFPController {
   
 
       Ok(views.html.CFPAdmin.allTalksByArea(allTrackAreas))      
+  }
+
+  /**
+    * Show report with all talks that have been approved but can't be recorded. This report is important
+    * to select the talks for the Stadium track, since this track is recorded.
+    */
+  def allApprovedTalksRecordingNotAllowed() = SecuredAction(IsMemberOf("admin")) {
+    implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
+      val allApprovedTalks = ApprovedProposal.allApproved()
+                                             .filter(talk => !talk.publicationAuthorized.getOrElse(false))
+      Ok(views.html.CFPAdmin.allTalksRecordingNotAllowed(allApprovedTalks.toList))
   }
 }
 

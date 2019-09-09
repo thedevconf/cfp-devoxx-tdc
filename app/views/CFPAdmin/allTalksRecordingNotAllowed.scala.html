@@ -1,0 +1,71 @@
+@(proposals:List[Proposal])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@main(Messages("allApprovedTalksRecordingNotAllowed.tab")) {
+<div class="row">
+    <div class="col-lg-offset-4 col-md-4">
+        <h2><i class="icon-thumbs-up-alt"></i> CFP Admin</h2>
+    </div>
+    <div class="clearfix"></div>
+
+    @if(flash.get("error").isDefined){
+        <div class="alert alert-danger alert-dismissable col-md-12">
+            <strong>Error :</strong>
+            @flash.get("error").get
+        </div>
+    }
+    @if(flash.get("success").isDefined){
+        <div class="alert alert-success alert-dismissable col-md-12">
+            @flash.get("success").get
+        </div>
+    }
+
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>@Messages("reports.allApprovedTalksRecordingNotAllowed.title")</h3>
+                <h4></h4>
+                <span class="label label-info">@proposals.size @Messages("allApprovedTalksRecordingNotAllowed.talks")</span>
+            </div>
+            <div class="panel-footer">
+               <a href="@routes.CFPAdmin.reportsHome()" class="btn btn-sm btn-primary"><i class="icon-table"></i> @Messages("admin.btn.reports")</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">		
+        <div class="panel-body">
+
+            @if(proposals.nonEmpty){
+            <table class="table table-bordered table-strippted">
+                <thead>
+                    <tr>
+                        <th>@Messages("allApprovedTalksRecordingNotAllowed.columns.name")</th>
+                        <th>@Messages("allApprovedTalksRecordingNotAllowed.columns.track")</th>
+                        <th>@Messages("allApprovedTalksRecordingNotAllowed.columns.speakers")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @proposals.sortBy(_.track.id).map{ proposal: Proposal =>
+                    <tr>
+                       <td>
+                           <a href="@routes.CFPAdmin.openForReview(proposal.id)">@proposal.title</a>
+                       </td>
+                        <td>
+                            @Messages(proposal.track.label)
+                        </td>
+                        <td>
+                            @proposal.allSpeakers.map { s: Speaker =>
+                                <a href="@routes.CFPAdmin.showSpeakerAndTalks(s.uuid)" class="label label-default">@s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small></a>
+                            }
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            }else{
+                <p>@Messages("allApprovedTalksRecordingNotAllowed.warning.notalk")</p>
+            }
+        </div>
+        </div>
+    </div>
+</div>
+}

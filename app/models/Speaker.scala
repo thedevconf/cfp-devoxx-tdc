@@ -136,7 +136,7 @@ case class Speaker(uuid: String
 
 object Speaker {
 
-  val conferenceId = ConferenceDescriptor.current().eventCode
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   implicit val speakerFormat = Json.format[Speaker]
 

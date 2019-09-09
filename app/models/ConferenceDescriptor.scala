@@ -111,7 +111,8 @@ case class ConferenceDescriptor(eventCode: String,
                                 trackleadersEmail: String,
                                 naming: ConferenceNaming,
                                 startDate: Date,
-                                endDate: Date
+                                endDate: Date,
+                                isCfpOpen: Boolean
                                )
 
 object ConferenceDescriptor {
@@ -197,50 +198,78 @@ object ConferenceDescriptor {
 
   def dateRange(from: LocalDate, to: LocalDate, step: Period): Iterator[LocalDate]      =Iterator.iterate(from)(_.plus(step)).takeWhile(!_.isAfter(to))
 
-  // TODO You might want to start here and configure first, your various Conference Elements
+  private var selectedDescriptor:Option[ConferenceDescriptor] = None
+  
+  import scala.collection.mutable.Map
+  private val conferenceCache:Map[String,ConferenceDescriptor] = Map.empty
+  
   def current() = {
-    val event = "TDC2019FLP"
-    val conference = TDCConference.load(event).getOrElse(defaultConference)
-    ConferenceDescriptor(
-      eventCode = conference.eventCode,
-      fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
-      committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
-      bccEmail = Play.current.configuration.getString("mail.bcc"),
-      bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("tdc@thedevelopersconference.com.br"),
-      conferenceUrls = ConferenceUrls(
-        registration = conference.registrationUrl,
-        confWebsite = "http:/thedevconf.com.br",
-        cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br"),
-        schedule = conference.scheduleUrl
-      ),
-      timing = ConferenceTiming(
-        datesI18nKey = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate()),
-        datesEn = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate())(Lang("en")),
-        cfpOpenedOn = conference.cfpOpenDate,
-        cfpClosedOn = conference.cfpCloseDate,
-        scheduleAnnouncedOn = conference.scheduleAnnouncedOn,
-        days = dateRange(conference.startDate, conference.endDate, new Period().withDays(1))
-      ),
-      hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
-      hashTag = "#TheDevConf",
-      conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = true, sponsorProposalType = ConferenceProposalTypes.CONF),
-      locale = List(new Locale("pt", "BR")),
-      localisation = conference.localisation,
-      maxProposalSummaryCharacters = 700,
-      trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
-      naming = ConferenceNaming(
-        title = conference.title,
-        shortTitle = conference.shortTitle
-      ),
-      startDate = conference.startDate.toDate(),
-      endDate = conference.endDate.toDate()
-    )
+    if(selectedDescriptor.isEmpty) {
+      selectConference("TDC2019FLP")	
+    } 
+    selectedDescriptor.get
   }
 
+  /**
+   * changes the current active conference
+   */
+  def selectConference(event:String):Unit = {
+    if(conferenceCache.isDefinedAt(event)) {
+      selectedDescriptor = Option(conferenceCache(event))
+    } else {
+      val conference = TDCConference.load(event).getOrElse(defaultConference)
+      val newDescriptor = ConferenceDescriptor(
+        eventCode = conference.eventCode,
+        fromEmail = Play.current.configuration.getString("mail.from").getOrElse("organizacao@thedevelopersconference.com.br"),
+        committeeEmail = Play.current.configuration.getString("mail.committee.email").getOrElse("organizacao@thedevelopersconference.com.br"),
+        bccEmail = Play.current.configuration.getString("mail.bcc"),
+        trackleadersEmail = Play.current.configuration.getString("mail.trackleaders.email").getOrElse("coordenadores@thedevelopersconference.com.br"),
+        bugReportRecipient = Play.current.configuration.getString("mail.bugreport.recipient").getOrElse("cfp@thedevelopersconference.com.br"),
+        conferenceUrls = ConferenceUrls(
+          registration = conference.registrationUrl,
+          confWebsite = "http:/thedevconf.com.br",
+          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-flp.thedevconf.com.br"),
+          schedule = conference.scheduleUrl
+        ),
+        timing = ConferenceTiming(
+          datesI18nKey = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate()),
+          datesEn = Messages("CONF.dates",conference.startDate.toDate(),conference.endDate.toDate())(Lang("en")),
+          cfpOpenedOn = conference.cfpOpenDate,
+          cfpClosedOn = conference.cfpCloseDate,
+          scheduleAnnouncedOn = conference.scheduleAnnouncedOn,
+          days = dateRange(conference.startDate, conference.endDate, new Period().withDays(1))
+        ),
+        hosterName = "AWS", hosterWebsite = "http://aws.amazon.com/",
+        hashTag = "#TheDevConf",
+        conferenceSponsor = ConferenceSponsor(showSponsorProposalCheckbox = false, sponsorProposalType = ConferenceProposalTypes.CONF),
+        locale = List(new Locale("pt", "BR")),
+        localisation = conference.localisation,
+        maxProposalSummaryCharacters = 700,
+        naming = ConferenceNaming(
+          title = conference.title,
+          shortTitle = conference.shortTitle
+        ),
+        startDate = conference.startDate.toDate(),
+        endDate = conference.endDate.toDate(),
+        isCfpOpen = conference.cfpOpen.getOrElse(false)
+      )
+      selectedDescriptor = Option(newDescriptor)
+      conferenceCache += ( event -> newDescriptor )
+    }
+  }
+  
   // It has to be a def, not a val, else it is not re-evaluated
   def isCFPOpen: Boolean = {
-    Play.current.configuration.getBoolean("cfp.isOpen").getOrElse(false)
+    current().isCfpOpen
   }
+
+  /**
+   * removes the selected conference configuration from the conference cache
+   */
+   def clearCache(eventCode:String) = {
+      selectedDescriptor = None
+      conferenceCache -= eventCode
+   }
 
   def isGoldenTicketActive:Boolean = Play.current.configuration.getBoolean("goldenTicket.active").getOrElse(false)
 

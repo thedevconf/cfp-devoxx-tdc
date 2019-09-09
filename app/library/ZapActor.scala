@@ -295,7 +295,7 @@ class ZapActor extends Actor {
   def doSaveTDCSlots(trackId: String, slots: JsValue, createdBy: Webuser): Unit = {
     TDCScheduleConfiguration.persist(trackId, slots, createdBy)
     Event.storeEvent(Event(trackId, createdBy.uuid, s"Updated track scheduling for track $trackId"))
-    Mails.sendScheduleUpdated(Track.parse(trackId),createdBy.cleanName)
+    Mails.sendScheduleUpdated(trackId,createdBy.cleanName)
   }
 
   def doUpdateScheduleStatus(trackId:String, status:Boolean) = {
@@ -329,11 +329,11 @@ class ZapActor extends Actor {
   
   def doRequestSchedulePublication(trackId: String, requestedBy: Webuser) = {
      Event.storeEvent(Event(trackId, requestedBy.uuid, s"Request for the organization to publish schedule for track $trackId"))
-     Mails.sendRequestSchedulePublication(Track.parse(trackId))
+     Mails.sendRequestSchedulePublication(trackId)
   }
 
   def doRequestToUnlockSchedule(trackId: String, requestedBy: Webuser) = {
      Event.storeEvent(Event(trackId, requestedBy.uuid, s"Request for the organization to unlock schedule for track $trackId"))
-     Mails.doRequestToUnlockSchedule(Track.parse(trackId))
+     Mails.doRequestToUnlockSchedule(trackId)
   }
 }

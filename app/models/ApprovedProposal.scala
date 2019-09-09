@@ -32,7 +32,7 @@ import collection.JavaConverters._
  */
 object ApprovedProposal {
 
-  val conferenceId = ConferenceDescriptor.current().eventCode	
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
   def elasticSearchIndex():String={
     "proposals_"+ConferenceDescriptor.current().eventCode.toLowerCase()

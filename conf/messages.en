@@ -63,7 +63,7 @@ avatarUrl=URL to your latest profile photo
 home.txt2=Use one of the following social service, this is simpler and you won''t have to remember another password. If your profile does not yet exist, it will be created automatically.
 format.boolean=
 hosted.on=Hosted on
-disclaimer=and using Devoxx CFP application
+disclaimer= using Devoxx CFP application customized for TDC. See our project on
 logged.in=Logged as
 logout=Logout
 logout.closeMessage=and close your session
@@ -140,6 +140,10 @@ sponsorTalk.help=Do not tick this checkbox if your company is not a sponsor of t
 #Platinum and Gold sponsors can submit one Conference talk which we will accept as part of their sponsorship.
 sponsorTalk.checkbox=Yes, this is a sponsor/exhibitor talk
 
+noPaidCosts=Courtesy for Speakers
+noPaidCosts.help=All selected speakers receive a personal and non-transferable promocode to sign up for 1 track per day of the event.
+noPaidCosts.help1=But we remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
+
 helpAndTips=More info
 moreSpeakerLater=You can add one more speaker later, once the proposal is submitted.
 btn.home=Back to home without saving
@@ -188,35 +192,41 @@ theme.track=List of tracks for {0}:
 track.title=Title
 track.description=Description
 
-# Tracks
+# Trilhas
 
 track.dotnet.title=.NET
-track.dotnet.desc=Explore o .NET, do console a nuvem
+#track.dotnet.desc=Explore o .NET, do console a nuvem
+track.dotnet.desc=
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
 track.acessibilidade.title=Acessibilidade
-track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+#track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
+track.acessibilidade.desc=
 acessibilidade.label=Acessibilidade
 acessibilidade.leaderboard=Acessibilidade
 
 track.agile.title=Agile
-track.agile.desc=O que? Como? E.. mais importante.. Por quê?
+#track.agile.desc=O que? Como? E.. mais importante.. Por quê?
+track.agile.desc=
 agile.label=Agile
 agile.leaderboard=Agile
 
 track.agilecoach.title=Agile Coaching
-track.agilecoach.desc=Agile coaching transformando times e organizações
+#track.agilecoach.desc=Agile coaching transformando times e organizações
+track.agilecoach.desc=
 agilecoach.label=Agile Coaching
 agilecoach.leaderboard=Agile Coaching
 
 track.agileeagilecoach.title=Agile e Agile Coaching
-track.agileeagilecoach.desc=Agile coaching transformando times e organizações
+#track.agileeagilecoach.desc=Agile coaching transformando times e organizações
+track.agileeagilecoach.desc=
 agileeagilecoach.label=Agile e Agile Coaching
 agileeagilecoach.leaderboard=Agile e Agile Coaching
 
 track.analise.title=Análise de Negócios
-track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
+#track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
+track.analise.desc=
 analise.label=Análise de Negócios
 analise.leaderboard=Análise de Negócios
 
@@ -226,14 +236,21 @@ android.label=Android
 android.leaderboard=Android
 
 track.androidkotlin.title=Android e Kotlin
-track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
+#track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
+track.androidkotlin.desc=
 androidkotlin.label=Android
 androidkotlin.leaderboard=Android
 
 track.arduino.title=Arduino e Makers
-track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
+#track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
+track.arduino.desc=
 arduino.label=Arduino e Makers
 arduino.leaderboard=Arduino e Makers
+
+track.arduinomakersimpr3d.title=Arduino, Makers e Impressão 3D
+track.arduinomakersimpr3d.desc=
+arduinomakersimpr3d.label=Arduino, Makers e Impressão 3D
+arduinomakersimpr3d.leaderboard=Arduino, Makers e Impressão 3D
 
 track.arquitetura.title=Arquitetura
 track.arquitetura.desc=
@@ -246,7 +263,8 @@ arquitetcorp.label=Arquitetura Corporativa
 arquitetcorp.leaderboard=Arquitetura Corporativa
 
 track.arquitetnet.title=Arquitetura .NET
-track.arquitetnet.desc=Do monólito ao infinito
+#track.arquitetnet.desc=Do monólito ao infinito
+track.arquitetnet.desc=
 arquitetnet.label=Arquitetura .NET
 arquitetnet.leaderboard=Arquitetura .NET
 
@@ -256,7 +274,8 @@ arquitetdotnet.label=Arquitetura .NET
 arquitetdotnet.leaderboard=Arquitetura .NET
 
 track.arquitetdados.title=Arquitetura de Dados
-track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
+#track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
+track.arquitetdados.desc=
 arquitetdados.label=Arquitetura de Dados
 arquitetdados.leaderboard=Arquitetura de Dados
 
@@ -266,7 +285,8 @@ arquitetempres.label=Arquitetura Empresarial
 arquitetempres.leaderboard=Arquitetura Empresarial
 
 track.arquitetjava.title=Arquitetura Java
-track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
+#track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
+track.arquitetjava.desc=
 arquitetjava.label=Arquitetura Java
 arquitetjava.leaderboard=Arquitetura Java
 
@@ -281,12 +301,14 @@ banco.label=Banco de Dados
 banco.leaderboard=Banco de Dados
 
 track.bigdata.title=BigData
-track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
+#track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
+track.bigdata.desc=
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
 track.bigdataenosql.title=BigData e NoSQL
-track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
+#track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
+track.bigdataenosql.desc=
 bigdataenosql.label=BigData e NoSQL
 bigdataenosql.leaderboard=BigData e NoSQL
 
@@ -296,9 +318,15 @@ beginners.label=Beginners
 beginners.leaderboard=Beginners
 
 track.blockchain.title=BlockChain
-track.blockchain.desc=Uma Revolução muito além de tecnologia, a grande possível de uma revolução social!
+#track.blockchain.desc=Uma Revolução muito além de tecnologia, a grande possível de uma revolução social!
+track.blockchain.desc=
 blockchain.label=BlockChain
 blockchain.leaderboard=BlockChain
+
+track.businessagility.title=Business Agility
+track.businessagility.desc=
+businessagility.label=Business Agility
+businessagility.leaderboard=Business Agility
 
 track.carreira.title=Carreira
 track.carreira.desc=
@@ -306,19 +334,27 @@ carreira.label=Carreira
 carreira.leaderboard=Carreira
 
 track.chatbots.title=ChatBots
-track.chatbots.desc=Chatbots e o futuro das interações conversacionais
+#track.chatbots.desc=Chatbots e o futuro das interações conversacionais
+track.chatbots.desc=
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
 track.cloud.title=Cloud Computing
-track.cloud.desc=Caminhando nas nuvens sem turbulências!
+#track.cloud.desc=Caminhando nas nuvens sem turbulências!
+track.cloud.desc=
 cloud.label=Cloud Computing
 cloud.leaderboard=Cloud Computing
 
 track.cloudecontainers.title=Cloud e Containers
-track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
+#track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
+track.cloudecontainers.desc=
 cloudecontainers.label=Cloud e Containers
 cloudecontainers.leaderboard=Cloud e Containers
+
+track.cloudstack.title=Cloud Stack Collab
+track.cloudstack.desc=
+cloudstack.label=Cloud Stack Collab
+cloudstack.leaderboard=Cloud Stack Collab
 
 track.computacao.title=Computação Cognitiva
 track.computacao.desc=
@@ -326,42 +362,55 @@ computacao.label=Computação Cognitiva
 computacao.leaderboard=Computação Cognitiva
 
 track.containers.title=Containers
-track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
+#track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
+track.containers.desc=
 containers.label=Containers
 containers.leaderboard=Containers
 
+track.customersuccess.title=Customer Success
+track.customersuccess.desc=
+customersuccess.label=Customer Success
+customersuccess.leaderboard=Customer Success
+
 track.datascience.title=Data Science
-track.datascience.desc=Dados estão transformando negócios em toda parte.
+#track.datascience.desc=Dados estão transformando negócios em toda parte.
+track.datascience.desc=
 datascience.label=Data Science
 datascience.leaderboard=Data Science
 
 track.delphi.title=Delphi
-track.delphi.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
+#track.delphi.desc=Um código, todos os dispositivos: Rapid Application Development para desktop, mobile e IoT.
+track.delphi.desc=
 delphi.label=Delphi
 delphi.leaderboard=Delphi
 
 track.dthinking.title=Design Thinking
-track.dthinking.desc=Compartilhando experiência de desenvolvimentos centrado no usuário através de Design Thinking e métodos adjacentes
+#track.dthinking.desc=Compartilhando experiência de desenvolvimentos centrado no usuário através de Design Thinking e métodos adjacentes
+track.dthinking.desc=
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
 track.designcodigo.title=Design de Código
-track.designcodigo.desc=Desenhando seu código para excelência.
+#track.designcodigo.desc=Desenhando seu código para excelência.
+track.designcodigo.desc=
 designcodigo.label=Design de Código
 designcodigo.leaderboard=Design de Código
 
 track.devops.title=DevOps
-track.devops.desc=Maximizando a integração entre equipes para entregar valor
+#track.devops.desc=Maximizando a integração entre equipes para entregar valor
+track.devops.desc=
 devops.label=DevOps
 devops.leaderboard=DevOps
 
 track.devopstools.title=DevOps Tools
-track.devopstools.desc=O DevOps é definido atualmente pela sigla CALMS.
+#track.devopstools.desc=O DevOps é definido atualmente pela sigla CALMS.
+track.devopstools.desc=
 devopstools.label=DevOps Tools
 devopstools.leaderboard=DevOps Tools
 
 track.devtest.title=DevTest
-track.devtest.desc=Porque qualidade é responsabilidade de todos
+#track.devtest.desc=Porque qualidade é responsabilidade de todos
+track.devtest.desc=
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
@@ -375,13 +424,19 @@ track.education.desc=
 education.label=Education
 education.leaderboard=Education
 
+track.education40.title=Education 4.0
+track.education40.desc=
+education40.label=Education 4.0
+education40.leaderboard=Education 4.0
+
 track.empreende.title=Empreendedorismo
 track.empreende.desc=
 empreende.label=Empreendedorismo
 empreende.leaderboard=Empreendedorismo
 
 track.extremeprog.title=Extreme Programming
-track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
+#track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
+track.extremeprog.desc=
 extremeprog.label=Extreme Programming
 extremeprog.leaderboard=Extreme Programming
 
@@ -396,7 +451,7 @@ frameworksjs.label=Frameworks JavaScript
 frameworksjs.leaderboard=Frameworks JavaScript
 
 track.frontend.title=Front-end
-track.frontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+track.frontend.desc=
 frontend.label=Front-end
 frontend.leaderboard=Front-end
 
@@ -405,18 +460,21 @@ track.games.desc=
 games.label=Games
 games.leaderboard=Games
 
-track.gamesrealidade.title=Games e Realidade Aumentada
-track.gamesrealidade.desc=O futuro dos jogos no Brasil!
-gamesrealidade.label=Games e Realidade Aumentada
-gamesrealidade.leaderboard=Games e Realidade Aumentada
+track.gamesrealidade.title=Games, Realidade Virtual e Aumentada
+#track.gamesrealidade.desc=O futuro dos jogos no Brasil!
+track.gamesrealidade.desc=
+gamesrealidade.label=Games, Realidade Virtual e Aumentada
+gamesrealidade.leaderboard=Games, Realidade Virtual e Aumentada
 
 track.gestaoprod.title=Gestão de Produtos
-track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
+#track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
+track.gestaoprod.desc=
 gestaoprod.label=Gestão de Produtos
 gestaoprod.leaderboard=Gestão de Produtos
 
 track.golang.title=Go
-track.golang.desc=A internet é feita em Go
+#track.golang.desc=A internet é feita em Go
+track.golang.desc=
 golang.label=Go
 golang.leaderboard=Go
 
@@ -431,32 +489,43 @@ infraagil.label=Infraestrutura Ágil
 infraagil.leaderboard=Infraestrutura Ágil
 
 track.inovacao.title=Inovação
-track.inovacao.desc=Inovação, tendências e futurismo
+#track.inovacao.desc=Inovação, tendências e futurismo
+track.inovacao.desc=
 inovacao.label=Inovação
 inovacao.leaderboard=Inovação
 
+track.inovacaosocialempreend.title=Inovação Social e Empreendedorismo
+#track.inovacaosocialempreend.desc=Inovação Social e Empreendedorismo
+track.inovacaosocialempreend.desc=
+inovacaosocialempreend.label=Inovação Social e Empreendedorismo
+inovacaosocialempreend.leaderboard=Inovação Social e Empreendedorismo
+
 track.intelartif.title=Inteligência Artificial
-track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+#track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+track.intelartif.desc=
 intelartif.label=Inteligência Artificial
 intelartif.leaderboard=Inteligência Artificial
 
 track.intelartifemachine.title=Inteligência Artificial e Machine Learning
-track.intelartifemachine.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
+track.intelartifemachine.desc=
 intelartifemachine.label=Inteligência Artificial e Machine Learning
 intelartifemachine.leaderboard=Inteligência Artificial e Machine Learning
 
 track.iot.title=Internet das Coisas
-track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
+#track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
+track.iot.desc=
 iot.label=Internet das Coisas
 iot.leaderboard=Internet das Coisas
 
 track.ios.title=iOS
-track.ios.desc=O maravilhoso mundo mágico da Apple.
+#track.ios.desc=O maravilhoso mundo mágico da Apple.
+track.ios.desc=
 ios.label=iOS
 ios.leaderboard=iOS
 
 track.java.title=Java
-track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+#track.java.desc=Venha conhecer as principais novidades da linguagem e da plataforma Java
+track.java.desc=
 java.label=Java
 java.leaderboard=Java
 
@@ -471,17 +540,19 @@ javacorp.label=Java Enterprise
 javacorp.leaderboard=Java Enterprise
 
 track.javascript.title=JavaScript
-track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+#track.javascript.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+track.javascript.desc=
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
 track.javascriptenodejs.title=JavaScript e Node.js
-track.javascriptenodejs.desc=Venha se divertir e atualizar o seu conhecimento de JavaScript!
+track.javascriptenodejs.desc=
 javascriptenodejs.label=JavaScript e Node.js
 javascriptenodejs.leaderboard=JavaScript e Node.js
 
 track.kanban.title=Kanban e Lean
-track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
+#track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
+track.kanban.desc=
 kanban.label=Kanban e Lean
 kanban.leaderboard=Kanban e Lean
 
@@ -495,15 +566,37 @@ track.linux.desc=
 linux.label=Linux Embarcado
 linux.leaderboard=Linux Embarcado
 
+track.diversidade.title=Diversidade
+track.diversidade.desc=
+diversidade.label=Diversidade
+diversidade.leaderboard=Diversidade
+
+track.loungediversidade.title=Lounge +Diversidade
+track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
+loungediversidade.label=Lounge +Diversidade
+loungediversidade.leaderboard=Lounge +Diversidade
+
+track.loungediversidadecarreiras.title=Lounge +Diversidade e Carreiras
+track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibilidade e Racial e Carreiras
+loungediversidadecarreiras.label=Lounge +Diversidade e Carreiras
+loungediversidadecarreiras.leaderboard=Lounge +Diversidade e Carreiras
+
 track.machine.title=Machine Learning
-track.machine.desc=Future with Machine Learning
+#track.machine.desc=Future with Machine Learning
+track.machine.desc=
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
 track.management.title=Management 3.0 e Gestão Ágil
-track.management.desc=Inovação, Liderança e Gestão
-management.label=Management 3.0
-management.leaderboard=Management 3.0
+#track.management.desc=Inovação, Liderança e Gestão
+track.management.desc=
+management.label=Management 3.0 e Gestão Ágil
+management.leaderboard=Management 3.0 e Gestão Ágil
+
+track.management30.title=Management 3.0
+track.management30.desc=
+management30.label=Management 3.0
+management30.leaderboard=Management 3.0
 
 track.marketing.title=Marketing Digital e Growth Hacking
 track.marketing.desc=
@@ -511,9 +604,15 @@ marketing.label=Marketing Digital e Growth Hacking
 marketing.leaderboard=Marketing Digital e Growth Hacking
 
 track.microservices.title=Microservices
-track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
+#track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
+track.microservices.desc=
 microservices.label=Microservices
 microservices.leaderboard=Microservices
+
+track.mobileandroidios.title=Mobile, Android e iOS
+track.mobileandroidios.desc=
+mobileandroidios.label=Mobile, Android e iOS
+mobileandroidios.leaderboard=Mobile, Android e iOS
 
 track.mobile.title=Mobile
 track.mobile.desc=
@@ -526,12 +625,14 @@ modernweb.label=Modern Web
 modernweb.leaderboard=Modern Web
 
 track.nodejs.title=Node.js
-track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
+#track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
+track.nodejs.desc=
 nodejs.label=Node.js
 nodejs.leaderboard=Node.js
 
 track.nosql.title=NoSQL
-track.nosql.desc=NoSQL, no Limits, lots of Fun!
+#track.nosql.desc=NoSQL, no Limits, lots of Fun!
+track.nosql.desc=
 nosql.label=NoSQL
 nosql.leaderboard=NoSQL
 
@@ -551,7 +652,8 @@ pfuncional.label=Programação Funcional
 pfuncional.leaderboard=Programação Funcional
 
 track.python.title=Python
-track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
+#track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
+track.python.desc=
 python.label=Python
 python.leaderboard=Python
 
@@ -571,7 +673,7 @@ requisitos.label=Requisitos Ágeis
 requisitos.leaderboard=Requisitos Ágeis
 
 track.ruby.title=Ruby
-track.ruby.desc=Lapidando código e a comunidade
+track.ruby.desc=
 ruby.label=Ruby
 ruby.leaderboard=Ruby
 
@@ -580,10 +682,25 @@ track.rust.desc=
 rust.label=Rust
 rust.leaderboard=Rust
 
+track.saude40.title=Saúde 4.0
+track.saude40.desc=
+saude40.label=Saúde 4.0
+saude40.leaderboard=Saúde 4.0
+
 track.seguranca.title=Segurança
 track.seguranca.desc=
 seguranca.label=Segurança
 seguranca.leaderboard=Segurança
+
+track.segurancaecripto.title=Segurança e Criptografia
+track.segurancaecripto.desc=
+segurancaecripto.label=Segurança e Criptografia
+segurancaecripto.leaderboard=Segurança e Criptografia
+
+track.softwaresecurity.title=Software Security
+track.softwaresecurity.desc=
+softwaresecurity.label=Software Security
+softwaresecurity.leaderboard=Software Security
 
 track.serverless.title=Serverless
 track.serverless.desc=
@@ -600,15 +717,32 @@ track.startups.desc=
 startups.label=Startups
 startups.leaderboard=Startups
 
+track.tdc4kids.title=TDC4Kids
+track.tdc4kids.desc=Oficinas mão na massa, aprendizado, tecnologia e crianças
+tdc4kids.label=TDC4Kids
+tdc4kids.leaderboard=TDC4Kids
+
+track.tdcinspire.title=TDC Inspire
+track.tdcinspire.desc=Hackday para jovens, terceiro ano do ensino médio, escola pública
+tdcinspire.label=TDC Inspire
+tdcinspire.leaderboard=TDC Inspire
+
 track.testes.title=Testes
-track.testes.desc=Qualidade de Software como princípio
+#track.testes.desc=Qualidade de Software como princípio
+track.testes.desc=
 testes.label=Testes
 testes.leaderboard=Testes
 
 track.transfdigital.title=Transformação Digital
-track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
+#track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
+track.transfdigital.desc=
 transfdigital.label=Transformação Digital
 transfdigital.leaderboard=Transformação Digital
+
+track.transdiginovacao.title=Transformação Digital e Inovação
+track.transdiginovacao.desc=
+transdiginovacao.label=Transformação Digital e Inovação
+transdiginovacao.leaderboard=Transformação Digital e Inovação
 
 track.university.title=University
 track.university.desc=
@@ -616,9 +750,16 @@ university.label=University
 university.leaderboard=University
 
 track.uxdesign.title=UX Design
-track.uxdesign.desc=O usuário quer experiências extraordinárias que sejam úteis, funcionais e desejáveis.
+#track.uxdesign.desc=O usuário quer experiências extraordinárias que sejam úteis, funcionais e desejáveis.
+track.uxdesign.desc=
 uxdesign.label=UX Design
 uxdesign.leaderboard=UX Design
+
+track.uxdesignthinking.title=UX e Design Thinking
+#track.uxdesignthinking.desc=
+track.uxdesignthinking.desc=
+uxdesignthinking.label=UX e Design Thinking
+uxdesignthinking.leaderboard=UX e Design Thinking
 
 track.web.title=Web
 track.web.desc=
@@ -626,12 +767,14 @@ web.label=Web
 web.leaderboard=Web
 
 track.webfrontend.title=Web / Front-end
-track.webfrontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+#track.webfrontend.desc=Venha conhecer as novidades no desenvolvimento web e front-end
+track.webfrontend.desc=
 webfrontend.label=Web / Front-end
 webfrontend.leaderboard=Web / Front-end
 
 track.women.title=TDC4Women
-track.women.desc=Uma trilha feita por mulheres para todas as pessoas
+#track.women.desc=Uma trilha feita por mulheres para todas as pessoas
+track.women.desc=
 women.label=TDC4Women
 women.leaderboard=TDC4Women
 
@@ -826,10 +969,10 @@ admin.btn.sponsor=VIP view on proposals
 leaderboard.compute=Computing stats
 
 admin.sp.accepted=Accepted
-admin.sp.approved=Approved
+admin.sp.approved=Selected
 admin.sp.refused=Refused
-admin.sp.rejected=Not Approved
-admin.sp.approved.txt=This talk has been approved by the Program committee.
+admin.sp.rejected=Not Selected
+admin.sp.approved.txt=This talk has been selected by the Program committee.
 admin.sp.accepted.txt=This talk has been accepted. Either during the final decision, or because it''s a sponsor talk or a speaker on the wishlist.
 btn.abstention=Vote 0 for this talk
 remove.sponsorFlag=Remove the sponsor''s flag
@@ -861,7 +1004,7 @@ accept.term.checked=Please check this box if you agree with the Terms and Condit
 acceptedProposals.title=List of accepted/refused proposals for {0}
 ar.approved=Selected proposals
 ar.rejected=Not Selected proposals
-ar.noneApproved=We are very sorry to inform you that none of your proposals have been accepted.
+ar.noneApproved=We are very sorry to inform you that none of your proposals have been selected.
 ar.pleaseAccept=Please confirm for each accepted proposal, that you accept to present this talk. If you co-present a talk with another speaker, it''s also possible that your co-speaker has already accepted to present.
 ar.IAccept=I accept to present this talk
 ar.IDecline=I decline and I will not present this talk
@@ -941,7 +1084,7 @@ amd=Après-midi des Décideurs
 sw.proposal.speaker=Presented by
 admin.btn.changeState=Change one proposal state
 
-sw.talkType.warn=List of talks approved by the program committe and accepted by each speaker
+sw.talkType.warn=List of talks selected by the program committe and accepted by each speaker
 sw.showDetails=See details
 sw.home=Home
 sw.all.uni=All Universities
@@ -1192,7 +1335,7 @@ lg_alter.label=Alternate languages on the JVM
 lgaltern.label=Alternate languages on the JVM
 signup.long=Register as a speaker on TDC CFP
 sw.all.hack=Hackatons
-#approved=Speaker approved
+#approved=Speaker selected
 cstory=Session de live coding Code-story
 day-jeudi=Thursday
 #declined=Speaker declined
@@ -1241,7 +1384,7 @@ tagRenderRow-chgt=Short break
 tagRenderRow-meet=Soirée Meet & Greet
 
 please.check.approved=Please, review the list of selected Proposals, then select accept or decline for each Talk.
-proposal.approved.noVotes=Approved proposal - no more votes
+proposal.approved.noVotes=Selected proposal - no more votes
 tag.proposal.youVoted=Your vote
 qualifications.otherproposals=Other proposals from this speaker
 qualifications.empty=Speaker did not yet entered its speaking skills/qualifications
@@ -1389,12 +1532,12 @@ backoffice.allproposals.columns.actions=Change current status
 backoffice.allproposals.columns.notify=Notify
 backoffice.allproposals.approved.notify=Notify
 backoffice.allproposals.approved.notifyagain=Notify again
-backoffice.allproposals.approved.notify.tooltip=Send an email and change the state to APPROVED (Async)
+backoffice.allproposals.approved.notify.tooltip=Send an email and change the state to SELECTED (Async)
 backoffice.allproposals.approved.notifyagain.tooltip=Send an email again (Async)
 backoffice.allproposals.speaker.accepted=Speaker has accepted
-backoffice.allproposals.rejected.warning=If proposal's state = NOT APPROVED then the speaker has been notified.
-backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to NOT APPROVED (Async)
-backoffice.allproposals.rejected.notify.link=Notify not approved
+backoffice.allproposals.rejected.warning=If proposal's state = NOT SELECTED then the speaker has been notified.
+backoffice.allproposals.rejected.notify.tooltip=Send an email and change the state to NOT SELECTED (Async)
+backoffice.allproposals.rejected.notify.link=Notify not selected
 backoffice.allproposals.rejected.notify.all.link=Notify all selected
 backoffice.allproposals.backup.notify.all.link=Notify all selected
 backoffice.allproposals.approved.notify.all.link=Notify all selected
@@ -1420,7 +1563,7 @@ backoffice.allproposals.sponsor.title=Sponsors talks
 backoffice.allproposals.sponsor.subtitle=Proposals from Sponsor or Exhibitor
 backoffice.allproposals.sponsor.talks=talks
 backoffice.allproposals.sponsor.message=Private message
-backoffice.allproposals.subtitle.approved=approved
+backoffice.allproposals.subtitle.approved=selected
 backoffice.allproposals.subtitle.refused=refused
 backoffice.allproposals.subtitle.proposal=proposal
 backoffice.notification.accepted.title=Accepted talks notification service
@@ -1429,10 +1572,10 @@ backoffice.notification.refused.title=Refused talks notification service
 backoffice.notification.refused.text=This service lets you search for a talk, then send a notification to the speaker
 backoffice.notification.title=Talks notification service
 backoffice.notification.label.backup=Backup
-backoffice.notification.label.approved=Approved
+backoffice.notification.label.approved=Selected
 backoffice.notification.label.refused=Refused
 backoffice.notification.backup.title=Notify Backup
-backoffice.notification.approved.title=Notify Approved
+backoffice.notification.approved.title=Notify Selected
 backoffice.notification.refused.title=Notify Refused
 backoffice.notification.header.all=All Tracks
 backoffice.allproposals.subtitle.backup= backup
@@ -1451,6 +1594,22 @@ backoffice.allwebusers.btn.authenticate=Authenticate
 backoffice.allwebusers.btn.remove=Remove from CFP
 backoffice.allwebusers.btn.add=Add to CFP
 backoffice.allwebusers.nouser=There is no webuser
+
+#Webusers JavaScript Table
+backoffice.allwebusers.table.emptyTable=No data available in table
+backoffice.allwebusers.table.info=Showing {0} to {1} of {2} entries
+backoffice.allwebusers.table.infoEmpty=Showing 0 to 0 of 0 entries
+backoffice.allwebusers.table.infoFiltered=(filtered from {0} total entries)
+backoffice.allwebusers.table.lengthMenu=Show {0} entries
+backoffice.allwebusers.table.loadingRecords=Loading...
+backoffice.allwebusers.table.processing=Processing...
+backoffice.allwebusers.table.search=Search:
+backoffice.allwebusers.table.zeroRecords=No matching records found
+backoffice.allwebusers.table.paginate.first=First
+backoffice.allwebusers.table.paginate.last=Last
+backoffice.allwebusers.table.paginate.next=Next
+backoffice.allwebusers.table.paginate.previous=Previous
+
 backoffice.allCFPwebusers.title=Configure track leader
 backoffice.allCFPwebusers.noleader=No Track Leader
 backoffice.allCFPwebusers.columns.track=Track name
@@ -1462,6 +1621,7 @@ backoffice.conferences.description=This service allows the creation of each conf
 backoffice.conferences.btn.tracks=Tracks
 backoffice.conferences.tracks.title=Configure the tracks
 backoffice.conferences.tracks.btn.new=Create a new track
+backoffice.conferences.tracks.btn.delete=Delete
 backoffice.conferences.track.columns.name=Name
 backoffice.conference.track.form.title=Track data
 backoffice.conferences.track.notrack=No tracks available
@@ -1471,13 +1631,18 @@ backoffice.conferences.btn=Conferences
 backoffice.conferences.title=Configure the conferences
 backoffice.conferences.btn.new=Create a new conference
 backoffice.conferences.columns.name=Event Code
+backoffice.conferences.columns.actions=Actions
+backoffice.conferences.btn.openCfp=Open CFP
+backoffice.conferences.btn.closeCfp=Close CFP
+backoffice.conferences.error.noconference=No conference found with id {0}
+
 backoffice.conference.form.title=Conference data
 backoffice.conferences.noconference=No conference available
 backoffice.conferences.btn.back=Back
 eventCode=Event Code
 cfpOpenDate=Opening date for CFP
 cfpCloseDate=Closing date for CFP
-scheduleAnnouncedOn=Aproved Talks announced on
+scheduleAnnouncedOn=Selected Talks announced on
 startDate=Conference start
 endDate=Conference End
 conferenceTitle=Title
@@ -1512,12 +1677,12 @@ allMyVotes.votes.column.track=Track
 allMyVotes.votes.column.speakers=Speakers
 
 allVotes.tab=All votes
-allVotes.button.cancel.approve=Cancel approve
-allVotes.button.cancel.refuse=Cancel not approve
-allVotes.button.approve=Pre-Approve
-allVotes.button.refuse=Pre-Not-Approve
+allVotes.button.cancel.approve=Cancel selection
+allVotes.button.cancel.refuse=Cancel not selection
+allVotes.button.approve=Pre-Select
+allVotes.button.refuse=Pre-Not-Select
 allVotes.button.backup=Mark Backup
-allVotes.button.remove=Remove from not approved list
+allVotes.button.remove=Remove from not selected list
 
 allVotes.button.all=All
 allVotes.button.recompute=Recompute total and votes
@@ -1526,7 +1691,7 @@ allVotes.warning1=All proposals with at least one vote.
 allVotes.warning2=If you just created a proposal and it's not listed here : please add a vote and click recalculate button above.
 allVotes.warning3=PS: It is not possible to change the status of a scheduled talk. To accomplish that you will need first to remove the talk from the schedule of the track.
 allVotes.scheduled=Scheduled
-allVotes.label.approved=approved
+allVotes.label.approved=selected
 allVotes.label.declined=declined
 allVotes.label.remaining=remaining
 allVotes.columns.average=Average
@@ -1548,7 +1713,7 @@ leaderboard.tab=Leaderboard
 leaderboard.title=Leaderboard
 leaderboard.label.refresh=Trigger a refresh now
 leaderboard.label.speakers=speakers
-leaderboard.label.approved.speakers=approved speakers
+leaderboard.label.approved.speakers=selected speakers
 leaderboard.label.refused.speakers=refused speakers
 leaderboard.label.withpass=with a TDC Pass
 leaderboard.label.proposals=proposals
@@ -1562,21 +1727,21 @@ leaderboard.section.top.reviewer=Top Reviewer
 leaderboard.section.lazy=The Lazy One's
 leaderboard.section.more.stats=More stats
 leaderboard.section.submitted.bytrack=Submitted by Track
-leaderboard.section.approved.bytrack=Approved by Track
+leaderboard.section.approved.bytrack=Selected by Track
 leaderboard.section.accepted.bytrack=Accepted by Track
 leaderboard.section.submitted.bytype=Submitted by Type
-leaderboard.section.approved.bytype=Approved by Type
+leaderboard.section.approved.bytype=Selected by Type
 leaderboard.section.proposals.bystate=Proposals by State
 leaderboard.section.proposals.bytrack=Proposals by Track
 leaderboard.label.accepted.byspeaker=Talk accepted by a speaker
 leaderboard.columns.type=Proposal type
 leaderboard.columns.received=Proposal received
 leaderboard.columns.slots=Total slots
-leaderboard.columns.approved=Proposal approved
+leaderboard.columns.approved=Proposal selected
 leaderboard.columns.toallocate=To allocate
 leaderboard.columns.track=Track
 leaderboard.columns.total=Total
-leaderboard.approved.bytype=approved submissions for
+leaderboard.approved.bytype=selected submissions for
 leaderboard.accepted.bytype=accepted submissions for
 
 allSpeakers.tab=All Speakers
@@ -1593,12 +1758,12 @@ allSpeakers.columns.company=Company
 allSpeakers.columns.email=email
 allSpeakers.columns.actions=Actions
 allSpeakers.warning.nospeaker=There is no speaker
-allSpeakers.warning.nospeaker.approved=There is no approved speaker
+allSpeakers.warning.nospeaker.approved=There is no selected speaker
 allSpeakers.warning.notalk=No talks found
-allSpeakers.warning.notalk.approved=There is no approved talk
-allSpeakers.allSpeakersWithApprovedTalks.title=All speakers with an approved talk
-allSpeakers.allApprovedSpeakersByCompany.title=All speakers with approved talks by company
-allSpeakers.allSpeakersThatForgetToAccept.title=All speakers that haven't yet ACCEPTED to present an approved talk
+allSpeakers.warning.notalk.approved=There is no selected talk
+allSpeakers.allSpeakersWithApprovedTalks.title=All speakers with an selected talk
+allSpeakers.allApprovedSpeakersByCompany.title=All speakers with selected talks by company
+allSpeakers.allSpeakersThatForgetToAccept.title=All speakers that haven't yet ACCEPTED to present a selected talk
 allSpeakers.allSpeakersWithAcceptedTalks.title=All speakers with an accepted talk (including Quickies and BOF)
 allSpeakers.allSpeakersWithAcceptedTalksAndBadge.title=All speakers with an accepted talk and a speaker badge
 allSpeakers.allSpeakersWithAcceptedTalksForExport.title=All speakers with an accepted talk, classified by ProposalType
@@ -1608,14 +1773,14 @@ allSpeakers.link.talk=See talk
 allSpeakers.link.talks=See talks
 allSpeakers.title.talks=Talks by company
 allSpeakers.title.speakers=Speakers by company
-allSpeakers.allSpeakersThatForgetToAccept.subtitle=Talk that we approved, for which the speaker did not accept to present yet
+allSpeakers.allSpeakersThatForgetToAccept.subtitle=Talk that we selected, for which the speaker did not accept to present yet
 allSpeakers.allSpeakersWithAcceptedTalksAndBadge.subtitle=Primary or secondary speaker, with a speaker badge; CFP or Red Coat not included; No Quickies or BOF
 allSpeakers.allSpeakersWithAcceptedTalksForExport.subtitle=Classified by talks, where the speaker is either primary or secondary speaker.
 allSpeakers.invited.title=All Invited Speakers
 allSpeakers.allSpeakersByGender.title=All speakers by gender
 allSpeakers.allSpeakersByGender.section.all=All speakers registered in all events
-allSpeakers.allSpeakersByGender.section.approvedSpeakers=Approved Speakers on this event
-allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Rejected Speakers on this event
+allSpeakers.allSpeakersByGender.section.approvedSpeakers=Selected Speakers on this event
+allSpeakers.allSpeakersByGender.section.rejectedSpeakers=Speakers not selected on this event
 allSpeakers.allSpeakersByLang.title=All speakers by language
 allSpeakers.allSpeakersByLang.page.title=Speakers by language
 allSpeakers.allSpeakersByLang.help=To filter by language click on the desired option below
@@ -1642,12 +1807,14 @@ allUploadedPresentations.columns.talk=Talks
 allUploadedPresentations.columns.links=Links
 allUploadedPresentations.notFound=Presentation not found
 reports.allTalksByArea.title=All talks by area
+reports.allApprovedTalksRecordingNotAllowed.title=All selected talks that can't be recorded
+allSponsors.tab=Sponsor talks
 
 draft=draft
 deleted=deleted
 submitted=submitted
-approved=approved
-rejected=not approved
+approved=selected
+rejected=not selected
 accepted=accepted
 backup=backup
 declined=declined
@@ -1658,8 +1825,8 @@ unknown=unknown
 draft.caps=DRAFT
 deleted.caps=DELETED
 submitted.caps=SUBMITTED
-approved.caps=APPROVED
-rejected.caps=NOT APPROVED
+approved.caps=SELECTED
+rejected.caps=NOT SELECTED
 accepted.caps=ACCEPTED
 backup.caps=BACKUP
 declined.caps=DECLINED
@@ -1738,7 +1905,7 @@ uploadPicture.msg.error.missing=Missing file
 uploadPicture.msg.error.general=Error parsing form data
 
 #REST API
-api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was not approved by the trackleader but is still in the schedulling.
+api.loadschedule.error=Invalid Scheduling. Probably there is a talk that was not selected by the trackleader but is still in the schedulling.
 api.tdc.updatespeaker.success=Update Speaker API call successful for speaker {0}
 api.tdc.updatespeaker.error=Error calling Speaker TDC API for speaker {0} - Status {1}
 api.tdc.updateproposal.success=Update Proposal API call successful for proposal {0}

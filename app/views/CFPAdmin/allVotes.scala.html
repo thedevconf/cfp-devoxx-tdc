@@ -141,9 +141,9 @@
                             <td>
                                 @proposal.allSpeakers.map { s: Speaker =>
                                     @if(models.Invitation.isInvited(s.uuid)){
-                                      <span class="label label-warning"><i class="icon-glass"></i> @s.cleanName <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                                      <a href="@routes.CFPAdmin.showSpeakerAndTalks(s.uuid)" class="label label-warning"><i class="icon-glass"></i> @s.cleanName <small>[@s.company.map(_.toLowerCase.capitalize)]</small></a>
                                     }else{
-                                        <span class="label label-default">@s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small></span>
+                                        <a href="@routes.CFPAdmin.showSpeakerAndTalks(s.uuid)" class="label label-default">@s.cleanName  <small>[@s.company.map(_.toLowerCase.capitalize)]</small></a>
                                     }
                                 }
                             </td>

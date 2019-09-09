@@ -40,28 +40,28 @@ case class Track(id: String, label: String, primaryKey: Option[String] = None)
 object Track {
     implicit val trackFormat = Json.format[Track]
 
-    val conferenceId = ConferenceDescriptor.current().eventCode
+    def conferenceId = ConferenceDescriptor.current().eventCode
 	
     val UNKNOWN=Track("unknown", "unknown.label")
 
     val trackForm = Form(
       mapping(
         "trackId" -> nonEmptyText,
-        "trackLabel" -> nonEmptyText,
+        "trackLabel" -> optional(text),
         "primaryKey" -> optional(text)
       ) (createFromForm)(fillForm)
     )
 
-    def createFromForm(trackId:String, label:String, primaryKey: Option[String]) = {
-      Track(trackId,label,Option(primaryKey.getOrElse(generateId())))
+    def createFromForm(trackId:String, label:Option[String], primaryKey: Option[String]) = {
+      Track(trackId,label.getOrElse(s"$trackId.label"),Option(primaryKey.getOrElse(generateId())))
     }
 
     def fillForm(track:Track) = {
-      Option((track.id,track.label,track.primaryKey))
+      Option((track.id,Option(track.label),track.primaryKey))
     }
 
-    def parse(session:String):Track={
-      load(session).getOrElse(UNKNOWN)
+    def parse(primaryKey:String):Track={
+      load(primaryKey).getOrElse(UNKNOWN)
     }
 
     def allIDs= allTracks.map(_.id)
@@ -96,6 +96,15 @@ object Track {
       client => {
         val json = Json.toJson(track).toString()
         client.hset(s"Tracks:$conferenceId", track.primaryKey.get, json)
+      }
+    }
+
+    /**
+     * deletes a track from the database
+     */
+    def delete(primaryKey:String) = Redis.pool.withClient {
+      client => {
+        client.hdel(s"Tracks:$conferenceId", primaryKey)
       }
     }
 

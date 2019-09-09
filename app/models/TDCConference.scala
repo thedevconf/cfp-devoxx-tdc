@@ -19,7 +19,8 @@ case class TDCConference (
   startDate:LocalDate,
   endDate:LocalDate,
   registrationUrl:String,
-  scheduleUrl:String
+  scheduleUrl:String,
+  cfpOpen: Option[Boolean] = None
 )
 
 object TDCConference {

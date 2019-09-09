@@ -117,7 +117,8 @@ object Mails {
 
   def sendMessageToSpeakers(fromWebuser: Webuser, toWebuser: Webuser, proposal: Proposal, msg: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.cfp_message_to_speaker.subject", proposal.id, Messages(proposal.track.label), ConferenceDescriptor.current().eventCode)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.cfp_message_to_speaker.subject", proposal.id, Messages(proposal.track.label), eventCode)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
@@ -154,7 +155,8 @@ object Mails {
 
   def sendMessageToCommitte(fromWebuser: Webuser, proposal: Proposal, msg: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.speaker_message_to_cfp.subject", Messages(proposal.track.label), proposal.id, fromWebuser.cleanName)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.speaker_message_to_cfp.subject", Messages(proposal.track.label), proposal.id, fromWebuser.cleanName)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
@@ -180,7 +182,8 @@ object Mails {
 
   def sendNotifyProposalSubmitted(fromWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.notify_proposal.subject", fromWebuser.cleanName, proposal.title)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.notify_proposal.subject", fromWebuser.cleanName, proposal.title)
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -195,7 +198,8 @@ object Mails {
 
   def postInternalMessage(fromWebuser: Webuser, proposal: Proposal, msg: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    emailer.setSubject(s"[PRIVATE][${proposal.title}]")
+    val eventCode = ConferenceDescriptor.current().eventCode
+    emailer.setSubject(s"[$eventCode PRIVATE][${proposal.title}]")
     emailer.addFrom(from)
     emailer.addRecipient(committeeEmail)
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
@@ -220,12 +224,13 @@ object Mails {
 
   def sendReminderForDraft(speaker: Webuser, proposals: List[Proposal]) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val eventCode = ConferenceDescriptor.current().eventCode
     if (proposals.size == 1) {
-      val subject: String = Messages("mail.draft_single_reminder.subject", ConferenceDescriptor.current().naming.title)
+      val subject: String = s"[$eventCode] " + Messages("mail.draft_single_reminder.subject", ConferenceDescriptor.current().naming.title)
       emailer.setSubject(subject)
     }
     if (proposals.size > 1) {
-      val subject: String = Messages("mail.draft_multiple_reminder.subject", proposals.size, ConferenceDescriptor.current().naming.title)
+      val subject: String = s"[$eventCode] " + Messages("mail.draft_multiple_reminder.subject", proposals.size, ConferenceDescriptor.current().naming.title)
       emailer.setSubject(subject)
     }
     emailer.addFrom(from)
@@ -241,7 +246,8 @@ object Mails {
 
   def sendProposalApproved(toWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.proposal_approved.subject", Messages(proposal.track.label), proposal.id)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.proposal_approved.subject", Messages(proposal.track.label), proposal.id)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(toWebuser.email)
@@ -263,7 +269,8 @@ object Mails {
 
   def sendProposalRefused(toWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.proposal_refused.subject", Messages(proposal.track.label), proposal.title)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.proposal_refused.subject", Messages(proposal.track.label), proposal.title)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(toWebuser.email)
@@ -284,7 +291,8 @@ object Mails {
 
   def sendProposalBackup(toWebuser: Webuser, proposal: Proposal) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.proposal_backup.subject", Messages(proposal.track.label), proposal.title)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.proposal_backup.subject", Messages(proposal.track.label), proposal.title)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(toWebuser.email)
@@ -318,9 +326,10 @@ object Mails {
     )
   }
 
-  def sendScheduleUpdated(track: Track, author: String) = {
+  def sendScheduleUpdated(trackId: String, author: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.schedule_updated.subject", Messages(track.label))
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.schedule_updated.subject", Messages(s"${trackId}.label"))
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -328,14 +337,15 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
-      views.txt.Mails.sendScheduleUpdated(track,author).toString(),
-      views.html.Mails.sendScheduleUpdated(track,author).toString()
+      views.txt.Mails.sendScheduleUpdated(trackId,author).toString(),
+      views.html.Mails.sendScheduleUpdated(trackId,author).toString()
     )
   }
 
   def sendProfileUpdated(speaker: Speaker) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.profile_updated.subject", speaker.cleanName)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.profile_updated.subject", speaker.cleanName)
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -351,7 +361,8 @@ object Mails {
 
   def sendGoldenTicketEmail(invitedWebuser: Webuser, gt: GoldenTicket) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.goldenticket.subject", ConferenceDescriptor.current().naming.shortTitle)
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.goldenticket.subject", ConferenceDescriptor.current().naming.shortTitle)
     emailer.setSubject(subject)
     emailer.addFrom(from)
     emailer.addRecipient(invitedWebuser.email)
@@ -363,25 +374,10 @@ object Mails {
     )
   }
   
-  def sendRequestSchedulePublication(track: Track) = {
+  def sendRequestSchedulePublication(trackId: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.schedule_publication.subject", Messages(track.label))
-
-    emailer.setSubject(subject)
-    emailer.addFrom(from)
-    emailer.addRecipient(committeeEmail)
-    bcc.map(bccEmail => emailer.addBcc(bccEmail))
-    emailer.setCharset("utf-8")
-    emailer.send(
-      views.txt.Mails.sendRequestSchedulePublication(track).toString(),
-      views.html.Mails.sendRequestSchedulePublication(track).toString()
-    )
-  }
-
- 
-  def doRequestToUnlockSchedule(track: Track) = {
-    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
-    val subject: String = Messages("mail.unlock_schedule.subject", Messages(track.label))
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.schedule_publication.subject", Messages(s"${trackId}.label"))
 
     emailer.setSubject(subject)
     emailer.addFrom(from)
@@ -389,8 +385,25 @@ object Mails {
     bcc.map(bccEmail => emailer.addBcc(bccEmail))
     emailer.setCharset("utf-8")
     emailer.send(
-      views.txt.Mails.sendRequestToUnlockSchedule(track).toString(),
-      views.html.Mails.sendRequestToUnlockSchedule(track).toString()
+      views.txt.Mails.sendRequestSchedulePublication(trackId).toString(),
+      views.html.Mails.sendRequestSchedulePublication(trackId).toString()
+    )
+  }
+
+ 
+  def doRequestToUnlockSchedule(trackId: String) = {
+    val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
+    val eventCode = ConferenceDescriptor.current().eventCode
+    val subject: String = s"[$eventCode] " + Messages("mail.unlock_schedule.subject", Messages(s"${trackId}.label"))
+
+    emailer.setSubject(subject)
+    emailer.addFrom(from)
+    emailer.addRecipient(trackleadersEmail)
+    bcc.map(bccEmail => emailer.addBcc(bccEmail))
+    emailer.setCharset("utf-8")
+    emailer.send(
+      views.txt.Mails.sendRequestToUnlockSchedule(trackId).toString(),
+      views.html.Mails.sendRequestToUnlockSchedule(trackId).toString()
     )
   } 
  

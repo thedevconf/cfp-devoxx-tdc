@@ -29,12 +29,20 @@
                   <thead>
                       <tr>
                           <th>@Messages("backoffice.conferences.columns.name")</th>
+                          <th>@Messages("backoffice.conferences.columns.actions")</th>
                       </tr>
                   </thead>
                   <tbody>
                           @allConferences.map{ conference =>
                           <tr>
-                              <td><a href="@routes.ConferenceController.newOrEditConference(Option(conference.eventCode))">@conference.eventCode</a></td>
+                              <td><a href="@routes.ConferenceController.newOrEditConference(Option(conference.eventCode))">@conference.eventCode</a>
+								  <!--a class="btn btn-sm btn-primary" href="@routes.ConferenceController.selectConference(conference.eventCode)">Selecionar</a-->
+							  </td>  
+                              @if(!conference.cfpOpen.getOrElse(false)) {
+                                <td><a class="btn btn-sm btn-primary" href="@routes.ConferenceController.openCallForPapers(conference.eventCode,true)">@Messages("backoffice.conferences.btn.openCfp")</a></td>
+                              } else {
+                                <td><a class="btn btn-sm btn-danger" href="@routes.ConferenceController.openCallForPapers(conference.eventCode,false)">@Messages("backoffice.conferences.btn.closeCfp")</a></td>
+                              }
                           </tr>
                           }
                   </tbody>

@@ -34,7 +34,9 @@
             @if(play.api.Play.current.mode==play.api.Mode.Dev){
                 <div class="ribbon-wrapper-red"><div class="ribbon-red">DEV</div></div>
             }else {
+                <!--
                 <div class="ribbon-wrapper-red"><div class="ribbon-red">BETA</div></div>
+                -->
             }
             <a href="/" class="navbar-brand">@ConferenceDescriptor.current().naming.longSplittedName_whiteStart<span class="yl">@ConferenceDescriptor.current().naming.longSplittedName_colored</span> @ConferenceDescriptor.current().naming.longSplittedName_whiteEnd CFP</a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -92,7 +94,7 @@
             <li><a href="@routes.Application.home()"><i class="icon-home"></i> @Messages("login")</a></li>
         }
         <small><i class="icon-bullhorn"></i> @ConferenceDescriptor.current().naming.shortTitle CFP Call for Papers <!-- TODO <a href="https://github.com/nicmarti/cfp-devoxx/issues"><i class="icon-bug"></i> Report an issue</a--> </small><br>
-        <small><i class="icon-cloud-upload"></i> @Messages("hosted.on") <a href="@ConferenceDescriptor.current().hosterWebsite">@ConferenceDescriptor.current().hosterName</a> @Messages("disclaimer") </small>
+        <small><i class="icon-cloud-upload"></i> @Messages("hosted.on") <a href="@ConferenceDescriptor.current().hosterWebsite">@ConferenceDescriptor.current().hosterName</a> @Messages("disclaimer") <a href="https://github.com/thedevconf/cfp-devoxx-tdc" target="_blank">Github</a>.</small>
     </div>
   </div>
 </footer>
