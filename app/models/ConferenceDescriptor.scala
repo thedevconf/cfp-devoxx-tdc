@@ -205,7 +205,7 @@ object ConferenceDescriptor {
   
   def current() = {
     if(selectedDescriptor.isEmpty) {
-      selectConference("TDC2019FLP")	
+      selectConference("TDC2019POA")
     } 
     selectedDescriptor.get
   }
@@ -228,7 +228,7 @@ object ConferenceDescriptor {
         conferenceUrls = ConferenceUrls(
           registration = conference.registrationUrl,
           confWebsite = "http:/thedevconf.com.br",
-          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-flp.thedevconf.com.br"),
+          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br"),
           schedule = conference.scheduleUrl
         ),
         timing = ConferenceTiming(
@@ -280,7 +280,7 @@ object ConferenceDescriptor {
   private val defaultConference = TDCConference(
     eventCode = "",
     title = "",
-    shortTitle = "TDC 20xx XXX",
+    shortTitle = "TDC 2019 POA",
     localisation = "",
     cfpOpenDate = LocalDate.now(),
     cfpCloseDate = LocalDate.now(),
