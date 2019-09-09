@@ -15,14 +15,7 @@
                             <td>
                             @if(speaker.avatarUrl.isEmpty) {
                                 <div class="media">
-                                        <img class="media-object"
-                                        src="http://www.gravatar.com/avatar/@Webuser.gravatarHash(webuser.email)?s=75"
-                                        alt="@webuser.firstName @webuser.lastName"
-                                        title="This is you" />
-                                    <div class="media-body">
-                                        <small>@Html(Messages("profile.gravatar")) <a href="http://www.gravatar.com" target="_blank">
-                                            Gravatar.com</a> @Html(Messages("profile.gravatar2")) @speaker.email. </small>
-                                    </div>
+                                  <img alt="Identicon Gravatar" src="https://www.gravatar.com/avatar/00000000000000000000000000000000">
                                 </div>
                             } else {
                                 <div class="media">
