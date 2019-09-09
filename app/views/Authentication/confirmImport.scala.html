@@ -27,8 +27,8 @@
             @helper.inputText(formWebuser("email") , 'size->50, 'length->50)
             @helper.inputText(formWebuser("firstName"))
             @helper.inputText(formWebuser("lastName"))
-			@helper.inputText(formWebuser("tagName"),'size->50)
-			@helper.inputText(formWebuser("phone"))
+			      @helper.inputText(formWebuser("tagName"),'size->50)
+			      @helper.inputText(formWebuser("phone"))
             @helper.textarea(formWebuser("bio"), 'cols -> 80, 'rows -> 5)
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
 			@helper.textarea(formWebuser("qualifications"), 'cols -> 80, 'rows -> 3, 'placeholder -> "No experience")
@@ -41,7 +41,10 @@
             @helper.inputText(formWebuser("blog"), 'size -> 60, 'placeholder -> "http://www.yourblog.com/")
 
             @helper.select(field = formWebuser("lang"), options = Proposal.langs, 'class -> "form-control")
+            @helper.select(field = formWebuser("country"), options = Speaker.countries, 'class -> "form-control")
+            @helper.inputText(field = formWebuser("state"), 'class -> "form-control")
 
+	    @helper.inputText(field = formWebuser("city"), 'class -> "form-control")
             @helper.select(field = formWebuser("gender"), options = Speaker.genders, 'class -> "form-control", '_default -> Messages("select.gender"))
             @helper.select(field = formWebuser("race"), options = Speaker.races, 'class -> "form-control", '_default -> Messages("select.race"))
             @helper.select(field = formWebuser("disability"), options = Speaker.disabilities, 'class -> "form-control", '_default -> Messages("select.disability"))
@@ -61,7 +64,7 @@
                     @helper.inputText(formWebuser("avatarUrl"), 'size -> 80)
                 }
                 <div class="btn-block">
-                            <button type="submit" class="btn btn-success">@Messages("confirm.import.save")</button>
+                  <button type="submit" class="btn btn-success">@Messages("confirm.import.save")</button>
                 </div>
             }
     </div>
