@@ -41,10 +41,11 @@
             @helper.inputText(formWebuser("blog"), 'size -> 60, 'placeholder -> "http://www.yourblog.com/")
 
             @helper.select(field = formWebuser("lang"), options = Proposal.langs, 'class -> "form-control")
-            @helper.select(field = formWebuser("country"), options = Speaker.countries, 'class -> "form-control")
-            @helper.inputText(field = formWebuser("state"), 'class -> "form-control")
 
-	    @helper.inputText(field = formWebuser("city"), 'class -> "form-control")
+            @helper.select(field = formWebuser("location.country"), options = Speaker.countries, 'class -> "form-control")
+            @helper.inputText(field = formWebuser("location.state"), 'class -> "form-control")
+	        @helper.inputText(field = formWebuser("location.city"), 'class -> "form-control")
+
             @helper.select(field = formWebuser("gender"), options = Speaker.genders, 'class -> "form-control", '_default -> Messages("select.gender"))
             @helper.select(field = formWebuser("race"), options = Speaker.races, 'class -> "form-control", '_default -> Messages("select.race"))
             @helper.select(field = formWebuser("disability"), options = Speaker.disabilities, 'class -> "form-control", '_default -> Messages("select.disability"))
