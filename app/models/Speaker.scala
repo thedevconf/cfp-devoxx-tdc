@@ -151,24 +151,24 @@ object Speaker {
       (JsPath \ "email").format[String] and
       (JsPath \ "name").format[Option[String]] and
       (JsPath \ "bio").format[Option[String]] and
-      (JsonPath \ "lang").format[Option[String]] and
-      (JsonPath \ "twitter").format[Option[String]] and
-      (JsonPath \ "avatarUrl").format[Option[String]] and
-      (JsonPath \ "company").format[Option[String]] and
-      (JsonPath \ "blog").format[Option[String]] and
-      (JsonPath \ "firstName").format[Option[String]] and
-      (JsonPath \ "qualifications").format[Option[String]] and
-      (JsonPath \ "phone").format[Option[String]] and
-      (JsonPath \ "location").format[Location] and
-      (JsonPath \ "gender").format[Option[String]] and
-      (JsonPath \ "tshirtSize").format[Option[String]] and
-      (JsonPath \ "linkedIn").format[Option[String]] and
-      (JsonPath \ "github").format[Option[String]] and
-      (JsonPath \ "tagName").format[Option[String]] and
-      (JsonPath \ "facebook").format[Option[String]] and
-      (JsonPath \ "instagram").format[Option[String]] and
-      (JsonPath \ "race").format[Option[String]] and
-      (JsonPath \ "disability").format[Option[String]]
+      (JsPath \ "lang").format[Option[String]] and
+      (JsPath \ "twitter").format[Option[String]] and
+      (JsPath \ "avatarUrl").format[Option[String]] and
+      (JsPath \ "company").format[Option[String]] and
+      (JsPath \ "blog").format[Option[String]] and
+      (JsPath \ "firstName").format[Option[String]] and
+      (JsPath \ "qualifications").format[Option[String]] and
+      (JsPath \ "phone").format[Option[String]] and
+      (JsPath \ "location").format[Location] and
+      (JsPath \ "gender").format[Option[String]] and
+      (JsPath \ "tshirtSize").format[Option[String]] and
+      (JsPath \ "linkedIn").format[Option[String]] and
+      (JsPath \ "github").format[Option[String]] and
+      (JsPath \ "tagName").format[Option[String]] and
+      (JsPath \ "facebook").format[Option[String]] and
+      (JsPath \ "instagram").format[Option[String]] and
+      (JsPath \ "race").format[Option[String]] and
+      (JsPath \ "disability").format[Option[String]]
   )(Speaker.apply, unlift(Speaker.unapply))
 
   val countries = Seq(
