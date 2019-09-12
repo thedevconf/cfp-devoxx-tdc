@@ -151,20 +151,20 @@ object Speaker {
       (JsPath \ "email").format[String] and
       (JsPath \ "name").format[Option[String]] and
       (JsPath \ "bio").format[Option[String]] and
-      (JsonPath \ "lang").format[Option[String] and
-      (JsonPath \ "twitter").format[Option[String] and
-      (JsonPath \ "avatarUrl").format[Option[String] and
-      (JsonPath \ "company").format[Option[String] and
-      (JsonPath \ "blog").format[Option[String] and
-      (JsonPath \ "firstName").format[Option[String] and
-      (JsonPath \ "qualifications").format[Option[String] and
-      (JsonPath \ "phone").format[Option[String] and
+      (JsonPath \ "lang").format[Option[String]] and
+      (JsonPath \ "twitter").format[Option[String]] and
+      (JsonPath \ "avatarUrl").format[Option[String]] and
+      (JsonPath \ "company").format[Option[String]] and
+      (JsonPath \ "blog").format[Option[String]] and
+      (JsonPath \ "firstName").format[Option[String]] and
+      (JsonPath \ "qualifications").format[Option[String]] and
+      (JsonPath \ "phone").format[Option[String]] and
       (JsonPath \ "location").format[Location] and
-      (JsonPath \ "gender").format[Option[String] and
-      (JsonPath \ "tshirtSize").format[Option[String] and
-      (JsonPath \ "linkedIn").format[Option[String] and
-      (JsonPath \ "github").format[Option[String] and
-      (JsonPath \ "tagName").format[Option[String] and
+      (JsonPath \ "gender").format[Option[String]] and
+      (JsonPath \ "tshirtSize").format[Option[String]] and
+      (JsonPath \ "linkedIn").format[Option[String]] and
+      (JsonPath \ "github").format[Option[String]] and
+      (JsonPath \ "tagName").format[Option[String]] and
       (JsonPath \ "facebook").format[Option[String] and
       (JsonPath \ "instagram").format[Option[String] and
       (JsonPath \ "race").format[Option[String] and
