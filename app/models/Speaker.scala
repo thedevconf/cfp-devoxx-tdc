@@ -28,6 +28,7 @@ import library.{Benchmark, Redis, ZapJson}
 import org.apache.commons.lang3.StringUtils
 import org.joda.time.{DateTime, Instant}
 import play.api.libs.json._
+import play.api.libs.functional.syntax._
 import play.twirl.api.HtmlFormat
 
 /**
@@ -99,7 +100,6 @@ case class Speaker(uuid: String
       }
   }
 
-
   def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
 
   def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
@@ -140,13 +140,37 @@ object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
 
-  implicit val locationReads: Reads[Location] = (
-    (JsPath \ "country").read[String] and
-      (JsPath \ "state").read[String] and
-        (JsPath \ "city")read[String]
-    )(Location.apply _)
+  implicit val locationFormat: Format[Location] = (
+    (JsPath \ "country").format[String] and
+      (JsPath \ "state").format[String] and
+      (JsPath \ "city").format[String]
+    )(Location.apply, unlift(Location.unapply))
 
-  implicit val speakerFormat = Json.format[Speaker]
+  implicit val speakerFormat = Format[Speaker] = (
+    (JsPath \ "uuid").format[String] and
+      (JsPath \ "email").format[String] and
+      (JsPath \ "name").format[Option[String]] and
+      (JsPath \ "bio").format[Option[String]] and
+      (JsonPath \ "lang").format[Option[String] and
+      (JsonPath \ "twitter").format[Option[String] and
+      (JsonPath \ "avatarUrl").format[Option[String] and
+      (JsonPath \ "company").format[Option[String] and
+      (JsonPath \ "blog").format[Option[String] and
+      (JsonPath \ "firstName").format[Option[String] and
+      (JsonPath \ "qualifications").format[Option[String] and
+      (JsonPath \ "phone").format[Option[String] and
+      (JsonPath \ "location").format[Location] and
+      (JsonPath \ "gender").format[Option[String] and
+      (JsonPath \ "tshirtSize").format[Option[String] and
+      (JsonPath \ "linkedIn").format[Option[String] and
+      (JsonPath \ "github").format[Option[String] and
+      (JsonPath \ "tagName").format[Option[String] and
+      (JsonPath \ "facebook").format[Option[String] and
+      (JsonPath \ "instagram").format[Option[String] and
+      (JsonPath \ "race").format[Option[String] and
+      (JsonPath \ "disability").format[Option[String]
+
+  )(Speaker.apply, unlift(Speaker.unapply))
 
   val countries = Seq(
     "AF" -> "Afghanistan",
