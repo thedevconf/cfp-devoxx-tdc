@@ -165,10 +165,10 @@ object Speaker {
       (JsonPath \ "linkedIn").format[Option[String]] and
       (JsonPath \ "github").format[Option[String]] and
       (JsonPath \ "tagName").format[Option[String]] and
-      (JsonPath \ "facebook").format[Option[String] and
-      (JsonPath \ "instagram").format[Option[String] and
-      (JsonPath \ "race").format[Option[String] and
-      (JsonPath \ "disability").format[Option[String]
+      (JsonPath \ "facebook").format[Option[String]] and
+      (JsonPath \ "instagram").format[Option[String]] and
+      (JsonPath \ "race").format[Option[String]] and
+      (JsonPath \ "disability").format[Option[String]]
   )(Speaker.apply, unlift(Speaker.unapply))
 
   val countries = Seq(
