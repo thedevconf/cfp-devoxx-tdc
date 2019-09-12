@@ -146,7 +146,7 @@ object Speaker {
       (JsPath \ "city").format[String]
     )(Location.apply, unlift(Location.unapply))
 
-  implicit val speakerFormat = Format[Speaker] = (
+  implicit val speakerFormat: Format[Speaker] = (
     (JsPath \ "uuid").format[String] and
       (JsPath \ "email").format[String] and
       (JsPath \ "name").format[Option[String]] and
@@ -169,7 +169,6 @@ object Speaker {
       (JsonPath \ "instagram").format[Option[String] and
       (JsonPath \ "race").format[Option[String] and
       (JsonPath \ "disability").format[Option[String]
-
   )(Speaker.apply, unlift(Speaker.unapply))
 
   val countries = Seq(
