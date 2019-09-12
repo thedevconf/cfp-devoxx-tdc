@@ -143,7 +143,7 @@ object Speaker {
   implicit val locationReads: Reads[Location] = (
     (JsPath \ "country").read[String] and
       (JsPath \ "state").read[String] and
-        (JsPath \ "city")read[String]
+        (JsPath \ "city").read[String]
     )(Location.apply _)
 
   implicit val speakerFormat = Json.format[Speaker]
@@ -412,7 +412,6 @@ object Speaker {
     Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone), gender, tshirtSize,
       socialMedia.linkedIn, socialMedia.github, Option(tagname), socialMedia.facebook, socialMedia.instagram, race, disability)
   }
-
 
   def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
 					      company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
