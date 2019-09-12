@@ -27,7 +27,7 @@ import com.github.rjeschke.txtmark.Processor
 import library.{Benchmark, Redis, ZapJson}
 import org.apache.commons.lang3.StringUtils
 import org.joda.time.{DateTime, Instant}
-import play.api.libs.json.Json
+import play.api.libs.json._
 import play.twirl.api.HtmlFormat
 
 /**
@@ -38,6 +38,7 @@ import play.twirl.api.HtmlFormat
  * Author: nicolas martignole
  * Created: 28/09/2013 11:01
  */
+case class Location(country: String, state: String, city: String)
 case class Speaker(uuid: String
                    , email: String
                    , name: Option[String]
@@ -50,6 +51,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
+                   , location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
                    , linkedIn: Option[String]
@@ -137,6 +139,12 @@ case class Speaker(uuid: String
 object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
+
+  implicit val locationReads: Reads[Location] = (
+    (JsPath \ "country").read[String] and
+      (JsPath \ "state").read[String] and
+        (JsPath \ "city")read[String]
+    )(Location.apply _)
 
   implicit val speakerFormat = Json.format[Speaker]
 
@@ -445,7 +453,7 @@ object Speaker {
 	  s.phone, s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
 	  SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
-  
+
   def save(speaker: Speaker) = Redis.pool.withClient {
     client =>
       val jsonSpeaker = Json.stringify(Json.toJson(speaker))
