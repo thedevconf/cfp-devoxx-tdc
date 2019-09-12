@@ -140,12 +140,6 @@ object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
 
-  implicit val locationReads: Reads[Location] = (
-    (JsPath \ "country").read[String] and
-      (JsPath \ "state").read[String] and
-        (JsPath \ "city").read[String]
-    )(Location.apply _)
-
   implicit val speakerFormat = Json.format[Speaker]
 
   val countries = Seq(
