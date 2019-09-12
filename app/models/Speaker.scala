@@ -430,17 +430,19 @@ object Speaker {
 
   def createSpeaker(webuserUUID:String, email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
                     company: Option[String], blog: Option[String], firstName: String,
-                    qualifications: String, phone: String, gender: Option[String], tshirtSize: Option[String],
+                    qualifications: String, phone: String, country: String, state: String, city: String, gender: Option[String], tshirtSize: Option[String],
                     tagname: String, race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
-    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone), gender, tshirtSize,
+    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone), Location(country, state, city), gender, tshirtSize,
       socialMedia.linkedIn, socialMedia.github, Option(tagname), socialMedia.facebook, socialMedia.instagram, race, disability)
   }
 
 
-  def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
-					      company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
-                          qualifications: String, phone: Option[String], gender: Option[String], tshirtSize: Option[String],
-						  tagName: String,race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
+  def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String],
+                          avatarUrl: Option[String], company: Option[String], blog: Option[String],
+                          firstName: String, acceptTerms: Boolean, qualifications: String, phone: Option[String],
+                          country: String, state: String, city: String, gender: Option[String], tshirtSize: Option[String],
+                          tagName: String, race: Option[String], disability: Option[String],
+                          socialMedia: SocialMedia): Speaker = {
     uuid match {
       case None =>
         val newUUID = Webuser.generateUUID(email)
@@ -449,9 +451,10 @@ object Speaker {
         } else {
           refuseTerms(newUUID)
         }
-        Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-				, company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
-				, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
+        Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl,
+          company, blog, Option(firstName), Option(qualifications), phone, Locatin(country, state, city),
+          gender, tshirtSize, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook,
+          socialMedia.instagram, race, disability)
       case Some(validUuid) =>
         if (acceptTerms) {
           doAcceptTerms(validUuid)
