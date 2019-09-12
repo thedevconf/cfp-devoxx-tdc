@@ -51,7 +51,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
-                   , location: Location
+//                   , location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
                    , linkedIn: Option[String]
