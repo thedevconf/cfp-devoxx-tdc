@@ -139,7 +139,7 @@ case class Speaker(uuid: String
 object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
-  val implicit speakerFormat = Json.format[Speaker]
+  implicit val speakerFormat = Json.format[Speaker]
 /*
   implicit val locationFormat: Format[Location] = (
     (JsPath \ "country").format[String] and
