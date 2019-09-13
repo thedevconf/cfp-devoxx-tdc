@@ -98,7 +98,7 @@ case class Speaker(uuid: String
       } else {
         trimmed
       }
-  }
+  }HfmWrrFqWtvPCbgV
 
   def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
 
@@ -172,7 +172,7 @@ object Speaker {
     )(Speaker.apply _)
 
   implicit val speakerWrites: Writes[Speaker] = (
-    (JsPath \ "uuid").write[String] and
+    (JsPath \ 'uuid).write[String] and
       (JsPath \ "email").write[String] and
       (JsPath \ "name").writeNullable[String] and
       (JsPath \ "bio").write[String] and
@@ -195,6 +195,8 @@ object Speaker {
       (JsPath \ "race").writeNullable[String] and
       (JsPath \ "disability").writeNullable[String]
     )(unlift(Speaker.unapply))
+
+    implicit val speakerFormat = Json.format[Speaker]
 
 /*  implicit val speakerFormat: Format[Speaker] = (
     (JsPath \ "uuid").format[String] and
