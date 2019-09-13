@@ -485,7 +485,9 @@ object Speaker {
                     //country: String, state: String, city: String,
                     gender: Option[String], tshirtSize: Option[String],
                     tagname: String, race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
-    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone), /*Location(country, state, city)*/, gender, tshirtSize,
+    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone),
+      //Location(country, state, city),
+      gender, tshirtSize,
       socialMedia.linkedIn, socialMedia.github, Option(tagname), socialMedia.facebook, socialMedia.instagram, race, disability)
   }
 
