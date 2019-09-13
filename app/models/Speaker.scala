@@ -503,7 +503,7 @@ object Speaker {
           refuseTerms(newUUID)
         }
         Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl,
-          company, blog, Option(firstName), Option(qualifications), phone, Location(country, state, city),
+          company, blog, Option(firstName), Option(qualifications), phone, /*Location(country, state, city)*/,
           gender, tshirtSize, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook,
           socialMedia.instagram, race, disability)
       case Some(validUuid) =>
@@ -513,7 +513,7 @@ object Speaker {
           refuseTerms(validUuid)
         }
         Speaker(validUuid, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-				, company, blog, Option(firstName), Option(qualifications), phone, Location(country, state, city), gender, tshirtSize
+				, company, blog, Option(firstName), Option(qualifications), phone, /*Location(country, state, city)*/, gender, tshirtSize
 				, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
     }
 
