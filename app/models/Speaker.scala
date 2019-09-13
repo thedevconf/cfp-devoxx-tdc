@@ -64,82 +64,6 @@ case class Speaker(uuid: String
                    , disability: Option[String]
                   ) {
 
-  def cleanName: String = {
-    firstName.getOrElse("").capitalize + name.map(n => " " + n).getOrElse("").capitalize
-  }
-
-  def cleanShortName: String = {
-    firstName.map(_.charAt(0)).getOrElse("") + name.map(n => "." + n).getOrElse("")
-  }
-
-  def urlName: String = {
-    StringUtils.stripAccents(cleanName).replaceAll(" ", "_").toLowerCase
-  }
-
-  def cleanLang: String = lang.map {
-    l =>
-      val cleanL = if (l.contains(",")) {
-        l.substring(0, l.indexOf(","))
-      } else {
-        l.toLowerCase
-      }
-      if (cleanL.contains("-")) {
-        cleanL.substring(0, l.indexOf("-"))
-      } else {
-        cleanL
-      }
-  }.getOrElse("pt")
-
-  def cleanTwitter: Option[String] = twitter.map {
-    tw =>
-      val trimmed = tw.trim()
-      if (!trimmed.startsWith("@")) {
-        "@" + trimmed
-      } else {
-        trimmed
-      }
-  }HfmWrrFqWtvPCbgV
-
-  def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
-
-  def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
-
-  def hasGithub = StringUtils.trimToEmpty(github.getOrElse("")).nonEmpty
-
-  def hasFacebook = StringUtils.trimToEmpty(facebook.getOrElse("")).nonEmpty
-
-  def hasInstagram = StringUtils.trimToEmpty(instagram.getOrElse("")).nonEmpty
-
-  def hasBio = StringUtils.trimToEmpty(bio).nonEmpty
-
-  def hasCompany = StringUtils.trimToEmpty(company.getOrElse("")).nonEmpty
-
-  def hasAvatar = StringUtils.trimToEmpty(avatarUrl.getOrElse("")).nonEmpty
-
-  def hasBlog = StringUtils.trimToEmpty(blog.getOrElse("")).nonEmpty
-
-  lazy val bioAsHtml: String = {
-    val escapedHtml = HtmlFormat.escape(bio).body // escape HTML code and JS
-    val processedMarkdownTest = Processor.process(StringUtils.trimToEmpty(escapedHtml).trim()) // Then do markdown processing
-    processedMarkdownTest
-  }
-
-  def hasPhone = StringUtils.trimToEmpty(phone.getOrElse("")).nonEmpty
-
-  def hasGender = StringUtils.trimToEmpty(gender.getOrElse("")).nonEmpty
-
-  def hasRace = StringUtils.trimToEmpty(race.getOrElse("")).nonEmpty
-
-  def hasDisability = StringUtils.trimToEmpty(disability.getOrElse("")).nonEmpty
-
-  def hasTshirtSize = StringUtils.trimToEmpty(tshirtSize.getOrElse("")).nonEmpty
-
-}
-
-object Speaker {
-
-  def conferenceId = ConferenceDescriptor.current().eventCode
-
   implicit val locationFormat: Format[Location] = (
     (JsPath \ "country").format[String] and
       (JsPath \ "state").format[String] and
@@ -196,7 +120,82 @@ object Speaker {
       (JsPath \ "disability").writeNullable[String]
     )(unlift(Speaker.unapply))
 
-    implicit val speakerFormat = Json.format[Speaker]
+
+  def cleanName: String = {
+    firstName.getOrElse("").capitalize + name.map(n => " " + n).getOrElse("").capitalize
+  }
+
+  def cleanShortName: String = {
+    firstName.map(_.charAt(0)).getOrElse("") + name.map(n => "." + n).getOrElse("")
+  }
+
+  def urlName: String = {
+    StringUtils.stripAccents(cleanName).replaceAll(" ", "_").toLowerCase
+  }
+
+  def cleanLang: String = lang.map {
+    l =>
+      val cleanL = if (l.contains(",")) {
+        l.substring(0, l.indexOf(","))
+      } else {
+        l.toLowerCase
+      }
+      if (cleanL.contains("-")) {
+        cleanL.substring(0, l.indexOf("-"))
+      } else {
+        cleanL
+      }
+  }.getOrElse("pt")
+
+  def cleanTwitter: Option[String] = twitter.map {
+    tw =>
+      val trimmed = tw.trim()
+      if (!trimmed.startsWith("@")) {
+        "@" + trimmed
+      } else {
+        trimmed
+      }
+  }
+
+  def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
+
+  def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
+
+  def hasGithub = StringUtils.trimToEmpty(github.getOrElse("")).nonEmpty
+
+  def hasFacebook = StringUtils.trimToEmpty(facebook.getOrElse("")).nonEmpty
+
+  def hasInstagram = StringUtils.trimToEmpty(instagram.getOrElse("")).nonEmpty
+
+  def hasBio = StringUtils.trimToEmpty(bio).nonEmpty
+
+  def hasCompany = StringUtils.trimToEmpty(company.getOrElse("")).nonEmpty
+
+  def hasAvatar = StringUtils.trimToEmpty(avatarUrl.getOrElse("")).nonEmpty
+
+  def hasBlog = StringUtils.trimToEmpty(blog.getOrElse("")).nonEmpty
+
+  lazy val bioAsHtml: String = {
+    val escapedHtml = HtmlFormat.escape(bio).body // escape HTML code and JS
+    val processedMarkdownTest = Processor.process(StringUtils.trimToEmpty(escapedHtml).trim()) // Then do markdown processing
+    processedMarkdownTest
+  }
+
+  def hasPhone = StringUtils.trimToEmpty(phone.getOrElse("")).nonEmpty
+
+  def hasGender = StringUtils.trimToEmpty(gender.getOrElse("")).nonEmpty
+
+  def hasRace = StringUtils.trimToEmpty(race.getOrElse("")).nonEmpty
+
+  def hasDisability = StringUtils.trimToEmpty(disability.getOrElse("")).nonEmpty
+
+  def hasTshirtSize = StringUtils.trimToEmpty(tshirtSize.getOrElse("")).nonEmpty
+
+}
+
+object Speaker {
+
+  def conferenceId = ConferenceDescriptor.current().eventCode
 
 /*  implicit val speakerFormat: Format[Speaker] = (
     (JsPath \ "uuid").format[String] and
