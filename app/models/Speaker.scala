@@ -138,6 +138,8 @@ case class Speaker(uuid: String
 
 object Speaker {
 
+  implicit val config = JsonConfiguration(optionHandlers = OptionHandlers.WritesNull)
+
   def conferenceId = ConferenceDescriptor.current().eventCode
 
   implicit val locationFormat: Format[Location] = (
