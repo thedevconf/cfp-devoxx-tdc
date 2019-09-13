@@ -138,8 +138,6 @@ case class Speaker(uuid: String
 
 object Speaker {
 
-  implicit val config = JsonConfiguration(optionHandlers = OptionHandlers.WritesNull)
-
   def conferenceId = ConferenceDescriptor.current().eventCode
 
   implicit val locationFormat: Format[Location] = (
@@ -148,31 +146,81 @@ object Speaker {
       (JsPath \ "city").format[String]
     )(Location.apply, unlift(Location.unapply))
 
-  implicit val speakerFormat: Format[Speaker] = (
+  implicit val speakerReads: Reads[Speaker] = (
+    (JsPath \ "uuid").read[String] and
+      (JsPath \ "email").read[String] and
+      (JsPath \ "name").readNullable[String] and
+      (JsPath \ "bio").readNullable[String] and
+      (JsPath \ "lang").readNullable[String] and
+      (JsPath \ "twitter").readNullable[String] and
+      (JsPath \ "avatarUrl").readNullable[String] and
+      (JsPath \ "company").readNullable[String] and
+      (JsPath \ "blog").readNullable[String] and
+      (JsPath \ "firstName").readNullable[String] and
+      (JsPath \ "qualifications").readNullable[String] and
+      (JsPath \ "phone").readNullable[String] and
+      (JsPath \ "location").read[Location] and
+      (JsPath \ "gender").readNullable[String] and
+      (JsPath \ "tshirtSize").readNullable[String] and
+      (JsPath \ "linkedIn").readNullable[String] and
+      (JsPath \ "github").readNullable[String] and
+      (JsPath \ "tagName").readNullable[String] and
+      (JsPath \ "facebook").readNullable[String] and
+      (JsPath \ "instagram").readNullable[String] and
+      (JsPath \ "race").readNullable[String] and
+      (JsPath \ "disability").readNullable[String]
+    )(Speaker.apply _)
+
+  implicit val speakerWrites: Writes[Speaker] = (
+    (JsPath \ "uuid").write[String] and
+      (JsPath \ "email").write[String] and
+      (JsPath \ "name").writeNullable[String] and
+      (JsPath \ "bio").writeNullable[String] and
+      (JsPath \ "lang").writeNullable[String] and
+      (JsPath \ "twitter").writeNullable[String] and
+      (JsPath \ "avatarUrl").writeNullable[String] and
+      (JsPath \ "company").writeNullable[String] and
+      (JsPath \ "blog").writeNullable[String] and
+      (JsPath \ "firstName").writeNullable[String] and
+      (JsPath \ "qualifications").writeNullable[String] and
+      (JsPath \ "phone").writeNullable[String] and
+      (JsPath \ "location").write[Location] and
+      (JsPath \ "gender").writeNullable[String] and
+      (JsPath \ "tshirtSize").writeNullable[String] and
+      (JsPath \ "linkedIn").writeNullable[String] and
+      (JsPath \ "github").writeNullable[String] and
+      (JsPath \ "tagName").writeNullable[String] and
+      (JsPath \ "facebook").writeNullable[String] and
+      (JsPath \ "instagram").writeNullable[String] and
+      (JsPath \ "race").writeNullable[String] and
+      (JsPath \ "disability").writeNullable[String]
+    )(unlift(Speaker.unapply))
+
+/*  implicit val speakerFormat: Format[Speaker] = (
     (JsPath \ "uuid").format[String] and
       (JsPath \ "email").format[String] and
-      (JsPath \ "name").format[Option[String]] and
-      (JsPath \ "bio").format[Option[String]] and
-      (JsPath \ "lang").format[Option[String]] and
-      (JsPath \ "twitter").format[Option[String]] and
-      (JsPath \ "avatarUrl").format[Option[String]] and
-      (JsPath \ "company").format[Option[String]] and
-      (JsPath \ "blog").format[Option[String]] and
-      (JsPath \ "firstName").format[Option[String]] and
-      (JsPath \ "qualifications").format[Option[String]] and
-      (JsPath \ "phone").format[Option[String]] and
+      (JsPath \ "name").readNullable[String] and
+      (JsPath \ "bio").readNullable[String] and
+      (JsPath \ "lang").readNullable[String] and
+      (JsPath \ "twitter").readNullable[String] and
+      (JsPath \ "avatarUrl").readNullable[String] and
+      (JsPath \ "company").readNullable[String] and
+      (JsPath \ "blog").readNullable[String] and
+      (JsPath \ "firstName").readNullable[String] and
+      (JsPath \ "qualifications").readNullable[String] and
+      (JsPath \ "phone").readNullable[String] and
       (JsPath \ "location").format[Location] and
-      (JsPath \ "gender").format[Option[String]] and
-      (JsPath \ "tshirtSize").format[Option[String]] and
-      (JsPath \ "linkedIn").format[Option[String]] and
-      (JsPath \ "github").format[Option[String]] and
-      (JsPath \ "tagName").format[Option[String]] and
-      (JsPath \ "facebook").format[Option[String]] and
-      (JsPath \ "instagram").format[Option[String]] and
-      (JsPath \ "race").format[Option[String]] and
-      (JsPath \ "disability").format[Option[String]]
+      (JsPath \ "gender").readNullable[String] and
+      (JsPath \ "tshirtSize").readNullable[String] and
+      (JsPath \ "linkedIn").readNullable[String] and
+      (JsPath \ "github").readNullable[String] and
+      (JsPath \ "tagName").readNullable[String] and
+      (JsPath \ "facebook").readNullable[String] and
+      (JsPath \ "instagram").readNullable[String] and
+      (JsPath \ "race").readNullable[String] and
+      (JsPath \ "disability").readNullable[String]
   )(Speaker.apply, unlift(Speaker.unapply))
-
+*/
   val countries = Seq(
     "AF" -> "Afghanistan",
     "AL" -> "Albania",
