@@ -150,7 +150,7 @@ object Speaker {
     (JsPath \ "uuid").read[String] and
       (JsPath \ "email").read[String] and
       (JsPath \ "name").readNullable[String] and
-      (JsPath \ "bio").readNullable[String] and
+      (JsPath \ "bio").read[String] and
       (JsPath \ "lang").readNullable[String] and
       (JsPath \ "twitter").readNullable[String] and
       (JsPath \ "avatarUrl").readNullable[String] and
@@ -175,7 +175,7 @@ object Speaker {
     (JsPath \ "uuid").write[String] and
       (JsPath \ "email").write[String] and
       (JsPath \ "name").writeNullable[String] and
-      (JsPath \ "bio").writeNullable[String] and
+      (JsPath \ "bio").write[String] and
       (JsPath \ "lang").writeNullable[String] and
       (JsPath \ "twitter").writeNullable[String] and
       (JsPath \ "avatarUrl").writeNullable[String] and
