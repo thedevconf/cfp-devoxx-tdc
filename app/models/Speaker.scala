@@ -52,7 +52,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
-                   , location: Location
+                   //, location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
                    , linkedIn: Option[String]
@@ -63,63 +63,6 @@ case class Speaker(uuid: String
                    , race: Option[String]
                    , disability: Option[String]
                   ) {
-
-  implicit val locationFormat: Format[Location] = (
-    (JsPath \ "country").format[String] and
-      (JsPath \ "state").format[String] and
-      (JsPath \ "city").format[String]
-    )(Location.apply, unlift(Location.unapply))
-
-  implicit val speakerReads: Reads[Speaker] = (
-    (JsPath \ "uuid").read[String] and
-      (JsPath \ "email").read[String] and
-      (JsPath \ "name").readNullable[String] and
-      (JsPath \ "bio").read[String] and
-      (JsPath \ "lang").readNullable[String] and
-      (JsPath \ "twitter").readNullable[String] and
-      (JsPath \ "avatarUrl").readNullable[String] and
-      (JsPath \ "company").readNullable[String] and
-      (JsPath \ "blog").readNullable[String] and
-      (JsPath \ "firstName").readNullable[String] and
-      (JsPath \ "qualifications").readNullable[String] and
-      (JsPath \ "phone").readNullable[String] and
-      (JsPath \ "location").read[Location] and
-      (JsPath \ "gender").readNullable[String] and
-      (JsPath \ "tshirtSize").readNullable[String] and
-      (JsPath \ "linkedIn").readNullable[String] and
-      (JsPath \ "github").readNullable[String] and
-      (JsPath \ "tagName").readNullable[String] and
-      (JsPath \ "facebook").readNullable[String] and
-      (JsPath \ "instagram").readNullable[String] and
-      (JsPath \ "race").readNullable[String] and
-      (JsPath \ "disability").readNullable[String]
-    )(Speaker.apply _)
-
-  implicit val speakerWrites: Writes[Speaker] = (
-    (JsPath \ 'uuid).write[String] and
-      (JsPath \ "email").write[String] and
-      (JsPath \ "name").writeNullable[String] and
-      (JsPath \ "bio").write[String] and
-      (JsPath \ "lang").writeNullable[String] and
-      (JsPath \ "twitter").writeNullable[String] and
-      (JsPath \ "avatarUrl").writeNullable[String] and
-      (JsPath \ "company").writeNullable[String] and
-      (JsPath \ "blog").writeNullable[String] and
-      (JsPath \ "firstName").writeNullable[String] and
-      (JsPath \ "qualifications").writeNullable[String] and
-      (JsPath \ "phone").writeNullable[String] and
-      (JsPath \ "location").write[Location] and
-      (JsPath \ "gender").writeNullable[String] and
-      (JsPath \ "tshirtSize").writeNullable[String] and
-      (JsPath \ "linkedIn").writeNullable[String] and
-      (JsPath \ "github").writeNullable[String] and
-      (JsPath \ "tagName").writeNullable[String] and
-      (JsPath \ "facebook").writeNullable[String] and
-      (JsPath \ "instagram").writeNullable[String] and
-      (JsPath \ "race").writeNullable[String] and
-      (JsPath \ "disability").writeNullable[String]
-    )(unlift(Speaker.unapply))
-
 
   def cleanName: String = {
     firstName.getOrElse("").capitalize + name.map(n => " " + n).getOrElse("").capitalize
@@ -196,8 +139,65 @@ case class Speaker(uuid: String
 object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
+  val implicit speakerFormat = Json.format[Speaker]
+/*
+  implicit val locationFormat: Format[Location] = (
+    (JsPath \ "country").format[String] and
+      (JsPath \ "state").format[String] and
+      (JsPath \ "city").format[String]
+    )(Location.apply, unlift(Location.unapply))
 
-/*  implicit val speakerFormat: Format[Speaker] = (
+  implicit val speakerReads: Reads[Speaker] = (
+    (JsPath \ "uuid").read[String] and
+      (JsPath \ "email").read[String] and
+      (JsPath \ "name").readNullable[String] and
+      (JsPath \ "bio").read[String] and
+      (JsPath \ "lang").readNullable[String] and
+      (JsPath \ "twitter").readNullable[String] and
+      (JsPath \ "avatarUrl").readNullable[String] and
+      (JsPath \ "company").readNullable[String] and
+      (JsPath \ "blog").readNullable[String] and
+      (JsPath \ "firstName").readNullable[String] and
+      (JsPath \ "qualifications").readNullable[String] and
+      (JsPath \ "phone").readNullable[String] and
+      (JsPath \ "location").read[Location] and
+      (JsPath \ "gender").readNullable[String] and
+      (JsPath \ "tshirtSize").readNullable[String] and
+      (JsPath \ "linkedIn").readNullable[String] and
+      (JsPath \ "github").readNullable[String] and
+      (JsPath \ "tagName").readNullable[String] and
+      (JsPath \ "facebook").readNullable[String] and
+      (JsPath \ "instagram").readNullable[String] and
+      (JsPath \ "race").readNullable[String] and
+      (JsPath \ "disability").readNullable[String]
+    )(Speaker.apply _)
+
+  implicit val speakerWrites: Writes[Speaker] = (
+    (JsPath \ 'uuid).write[String] and
+      (JsPath \ "email").write[String] and
+      (JsPath \ "name").writeNullable[String] and
+      (JsPath \ "bio").write[String] and
+      (JsPath \ "lang").writeNullable[String] and
+      (JsPath \ "twitter").writeNullable[String] and
+      (JsPath \ "avatarUrl").writeNullable[String] and
+      (JsPath \ "company").writeNullable[String] and
+      (JsPath \ "blog").writeNullable[String] and
+      (JsPath \ "firstName").writeNullable[String] and
+      (JsPath \ "qualifications").writeNullable[String] and
+      (JsPath \ "phone").writeNullable[String] and
+      (JsPath \ "location").write[Location] and
+      (JsPath \ "gender").writeNullable[String] and
+      (JsPath \ "tshirtSize").writeNullable[String] and
+      (JsPath \ "linkedIn").writeNullable[String] and
+      (JsPath \ "github").writeNullable[String] and
+      (JsPath \ "tagName").writeNullable[String] and
+      (JsPath \ "facebook").writeNullable[String] and
+      (JsPath \ "instagram").writeNullable[String] and
+      (JsPath \ "race").writeNullable[String] and
+      (JsPath \ "disability").writeNullable[String]
+    )(unlift(Speaker.unapply))
+*/
+  /*  implicit val speakerFormat: Format[Speaker] = (
     (JsPath \ "uuid").format[String] and
       (JsPath \ "email").format[String] and
       (JsPath \ "name").readNullable[String] and

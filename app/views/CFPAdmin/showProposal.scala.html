@@ -54,11 +54,11 @@
                         <tbody>
                             <tr>
                                 <th>@Messages("proposal.audienceLevel")</th>
-                                <td>@Messages(proposal.audienceLevel+".label")</td>
+                                <td>@proposal.audienceLevel.map(d => @Messages(d + ".label")</td>
                             </tr>
                             <tr>
                                 <th>@Messages("proposal.demoLevel")</th>
-                                <td>@proposal.demoLevel.map(d=> Messages(d+".label"))</td>
+                                <td>@proposal.demoLevel.map(d=> @Messages(d+".label"))</td>
                             </tr>
                             <tr>
                                 <th>@Messages("proposal.publicationAuthorized")</th>
