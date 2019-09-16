@@ -25,24 +25,10 @@ package controllers
 import java.math.BigInteger
 import java.security.SecureRandom
 
-import models._
-import notifiers.Mails
+import javax.tools.DocumentationTool.Location
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.lang3.StringUtils
-import play.api.Play
-import play.api.data.Form
-import play.api.data.Forms._
-import play.api.data.validation.Constraints._
-import play.api.i18n.Messages
-import play.api.libs.Crypto
-import play.api.libs.json.{Json,JsValue}
-import play.api.libs.ws._
-import play.api.mvc._
-import play.api.Play.current
-
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
 
 /**
   * Signup and Signin.
@@ -210,7 +196,7 @@ object Authentication extends Controller {
       "city" -> nonEmptyText,
       "state" -> nonEmptyText,
       "country" -> optional(text)
-    ),
+    )(Location.apply)(Location.unapply),
 	  "gender" -> optional(text),
 	  "tshirtSize" -> optional(text),
 	  "tagName" -> nonEmptyText(maxLength = 50),
