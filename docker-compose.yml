@@ -5,7 +5,7 @@ services:
     expose:
       - 9200
   redis:
-    container_name: cfp-devoxx_redis
+    container_name: cfp-devoxx-tdc_redis
     image : redis:2.8.21
     expose:
       - 6379
@@ -16,7 +16,7 @@ services:
     volumes:
       - .:/app:rw
     ports:
-      - "9000:9000"
+      - "9000:8080"
     links:
       - elasticsearch
       - redis
