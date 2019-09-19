@@ -1,4 +1,4 @@
-@(allVotes:List[(models.Proposal,(models.Review.Score, models.Review.TotalVoter, models.Review.TotalAbst, models.Review.AverageNote, models.Review.StandardDev), Double, Long, Boolean)])(implicit lang: Lang, flash: Flash, req:RequestHeader)
+@(allVotes:List[(models.Proposal,(models.Review.Score, models.Review.TotalVoter, models.Review.TotalAbst, models.Review.AverageNote, models.Review.StandardDev), Boolean)])(implicit lang: Lang, flash: Flash, req:RequestHeader)
 @import models.Review.Score
 @import models.Review.TotalVoter
 @import models.Review.TotalAbst
