@@ -412,7 +412,7 @@ object CFPAdmin extends SecureCFPController {
 
   def allVotes(confType: String, track: Option[String]) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-      HfmWrrFqWtvPCbgV
+
       val requesterUUID = request.webuser.uuid
 
       val reviews: Map[String, (Score, TotalVoter, TotalAbst, AverageNote, StandardDev)] = Review.allVotes()
