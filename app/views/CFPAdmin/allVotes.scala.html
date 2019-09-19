@@ -105,11 +105,6 @@
                                @average.n
                             }
                             </td>
-<!-- comentada coluna de GoldenTicket
-                            <td>
-                                <small>@gtScore by @gtVoteCast <i class="icon-user"></i></small>
-                            </td>
--->
                             <td  class="number_table">
                             @defining(voteAndTotalVotes._2) { totalVoters:TotalVoter =>
                               @totalVoters.i
@@ -120,11 +115,6 @@
                                 @totalAbstentions.i
                             }
                             </td>
-<!-- comentada coluna de media de votos do comite considerando GoldenTicket
-                            <td  class="number_table">
-                           @library.Stats.average(List(gtScore,voteAndTotalVotes._4.n))
-                            </td>
--->
                             <td>
                                 <a href="@routes.CFPAdmin.openForReview(proposal.id)" target="@proposal.id"><small>@proposal.title</small></a>
             @if(proposal.sponsorTalk){
