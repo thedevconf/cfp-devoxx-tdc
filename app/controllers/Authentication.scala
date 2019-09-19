@@ -1,41 +1,55 @@
 /**
-  * The MIT License (MIT)
-  *
-  * Copyright (c) 2013 Association du Paris Java User Group.
-  *
-  * Permission is hereby granted, free of charge, to any person obtaining a copy of
-  * this software and associated documentation files (the "Software"), to deal in
-  * the Software without restriction, including without limitation the rights to
-  * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-  * the Software, and to permit persons to whom the Software is furnished to do so,
-  * subject to the following conditions:
-  *
-  * The above copyright notice and this permission notice shall be included in all
-  * copies or substantial portions of the Software.
-  *
-  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-  * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-  * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-  */
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2013 Association du Paris Java User Group.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 package controllers
 
 import java.math.BigInteger
 import java.security.SecureRandom
 
-import javax.tools.DocumentationTool.Location
+import models._
+import notifiers.Mails
 import org.apache.commons.codec.binary.Base64
 import org.apache.commons.codec.digest.DigestUtils
 import org.apache.commons.lang3.StringUtils
+import play.api.Play
+import play.api.data.Form
+import play.api.data.Forms._
+import play.api.data.validation.Constraints._
+import play.api.i18n.Messages
+import play.api.libs.Crypto
+import play.api.libs.json.{Json,JsValue}
+import play.api.libs.ws._
+import play.api.mvc._
+import play.api.Play.current
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.Future
 
 /**
-  * Signup and Signin.
-  *
-  * Author: nicolas martignole
-  * Created: 27/09/2013 09:59
-  */
+ * Signup and Signin.
+ *
+ * Author: nicolas martignole
+ * Created: 27/09/2013 09:59
+ */
 object Authentication extends Controller {
   val loginForm = Form(tuple("email" -> (email verifying nonEmpty), "password" -> nonEmptyText))
 
@@ -181,35 +195,30 @@ object Authentication extends Controller {
   }
   //TODO Unify the importSpeakerForm with speakerForm from CallForPaper controller
   val importSpeakerForm = Form(mapping(
-	  "uuid" -> ignored("xxx"),
-	  "email" -> (email verifying nonEmpty),
-	  "lastName" -> nonEmptyText(maxLength = 25),
-	  "bio" -> nonEmptyText(maxLength = 750),
-	  "lang" -> optional(text),
-	  "avatarUrl" -> optional(text),
-	  "company" -> optional(text),
-	  "blog" -> optional(text),
-	  "firstName" -> nonEmptyText(maxLength = 25),
-	  "qualifications" -> nonEmptyText(maxLength = 750),
-	  "phone" -> nonEmptyText,
-    "location" -> mapping(
-      "city" -> nonEmptyText,
-      "state" -> nonEmptyText,
-      "country" -> optional(text)
-    )(Location.apply)(Location.unapply),
-	  "gender" -> optional(text),
-	  "tshirtSize" -> optional(text),
-	  "tagName" -> nonEmptyText(maxLength = 50),
-	  "race" -> optional(text),
-	  "disability" -> optional(text),
-	  "socialMedia" -> mapping(
-		  "twitter" -> optional(text),
-		  "linkedIn" -> optional(text),
-		  "github" -> optional(text),
-		  "facebook" -> optional(text),
-		  "instagram" -> optional(text)
-	    )(SocialMedia.apply)(SocialMedia.unapply)
-    )(Speaker.createSpeaker)(Speaker.unapplyForm))
+    "uuid" -> ignored("xxx"),
+    "email" -> (email verifying nonEmpty),
+    "lastName" -> nonEmptyText(maxLength = 25),
+    "bio" -> nonEmptyText(maxLength = 750),
+    "lang" -> optional(text),
+    "avatarUrl" -> optional(text),
+    "company" -> optional(text),
+    "blog" -> optional(text),
+    "firstName" -> nonEmptyText(maxLength = 25),
+    "qualifications" -> nonEmptyText(maxLength = 750),
+    "phone" -> nonEmptyText,
+    "gender" -> optional(text),
+    "tshirtSize" -> optional(text),
+    "tagName" -> nonEmptyText(maxLength = 50),
+    "race" -> optional(text),
+    "disability" -> optional(text),
+    "socialMedia" -> mapping(
+      "twitter" -> optional(text),
+      "linkedIn" -> optional(text),
+      "github" -> optional(text),
+      "facebook" -> optional(text),
+      "instagram" -> optional(text)
+    )(SocialMedia.apply)(SocialMedia.unapply)
+  )(Speaker.createSpeaker)(Speaker.unapplyForm))
 
   val newWebuserForm: Form[Webuser] = Form(
     mapping(
@@ -306,30 +315,30 @@ object Authentication extends Controller {
                           Ok(views.html.Authentication.confirmImportVisitor(newWebuserForm.fill(newWebuser)))
 
                         } else {
-			              val defaultValues = 
-							Speaker(uuid = "xxx"
-								   , email = emailS 
-								   , name = Option(lastName)
-								   , bio = StringUtils.abbreviate(bioS, 750)
-								   , lang = None
-								   , twitter = None
-								   , avatarUrl = avatarUrl
-								   , company = company
-								   , blog = blog
-								   , firstName = Option(firstName)
-								   , qualifications = Option("No experience")
-								   , phone = Option(phone)
-								   , gender = gender
-								   , tshirtSize = tshirtSize
-								   , linkedIn = None
-								   , github = github
-								   , tagName = None
-								   , facebook = None
-								   , instagram = None
-								   , race = None
-								   , disability = None
-								  )
-							
+                          val defaultValues =
+                            Speaker(uuid = "xxx"
+                              , email = emailS
+                              , name = Option(lastName)
+                              , bio = StringUtils.abbreviate(bioS, 750)
+                              , lang = None
+                              , twitter = None
+                              , avatarUrl = avatarUrl
+                              , company = company
+                              , blog = blog
+                              , firstName = Option(firstName)
+                              , qualifications = Option("No experience")
+                              , phone = Option(phone)
+                              , gender = gender
+                              , tshirtSize = tshirtSize
+                              , linkedIn = None
+                              , github = github
+                              , tagName = None
+                              , facebook = None
+                              , instagram = None
+                              , race = None
+                              , disability = None
+                            )
+
                           Ok(views.html.Authentication.confirmImport(importSpeakerForm.fill(defaultValues)))
                         }
                       }
@@ -454,8 +463,8 @@ object Authentication extends Controller {
 
   // See LinkedIn documentation https://developer.linkedin.com/documents/authentication
   /**
-    * Makes request for Authorization Code
-    */
+   * Makes request for Authorization Code
+   */
   def linkedinLogin(visitor: Boolean) = Action {
     implicit request =>
       Play.current.configuration.getString("linkedin.client_id").map {
@@ -470,10 +479,10 @@ object Authentication extends Controller {
   }
 
   /**
-    * Validates the state returned from LinkedIn to avoid CSRF attacks and exchanges the authorization code for an access token
-    *
-    * @return
-    */
+   * Validates the state returned from LinkedIn to avoid CSRF attacks and exchanges the authorization code for an access token
+   *
+   * @return
+   */
   def callbackLinkedin = Action.async {
     implicit request =>
       oauthForm.bindFromRequest.fold(invalidForm => {
@@ -517,23 +526,23 @@ object Authentication extends Controller {
       })
   }
 
-private def extractLinkedInLocale(localizedJson: JsValue): String = {
+  private def extractLinkedInLocale(localizedJson: JsValue): String = {
     val language = localizedJson.\("preferredLocale").\("language").asOpt[String]
-        val country = localizedJson.\("preferredLocale").\("country").asOpt[String]
+    val country = localizedJson.\("preferredLocale").\("country").asOpt[String]
     (language,country) match {
-        case (Some(lang),Some(coun)) => s"${lang}_${coun}"
-        case (Some(lang),None) => lang
-        case _ => ""
+      case (Some(lang),Some(coun)) => s"${lang}_${coun}"
+      case (Some(lang),None) => lang
+      case _ => ""
     }
-}
+  }
 
   /**
-    * Uses the Access Token to request the user information.
-    *
-    * Shows the user page or creates a new user.
-    *
-    * @return
-    */
+   * Uses the Access Token to request the user information.
+   *
+   * Shows the user page or creates a new user.
+   *
+   * @return
+   */
   def createFromLinkedin = Action.async {
     implicit request =>
       request.session.get("linkedin_token").map {
@@ -546,7 +555,7 @@ private def extractLinkedInLocale(localizedJson: JsValue): String = {
             "Accept" -> "application/json"
           ).get()
 
-         futureResult.flatMap {
+          futureResult.flatMap {
             result =>
               result.status match {
                 case 200 => {
@@ -577,26 +586,26 @@ private def extractLinkedInLocale(localizedJson: JsValue): String = {
                           }.getOrElse {
                             val defaultValues =
                               Speaker(uuid = "xxx"
-                                     , email = email
-                                     , name = lastName
-                                     , bio = "?"
-                                     , lang = None
-                                     , twitter = None
-                                     , avatarUrl = None
-                                     , company = None
-                                     , blog = None
-                                     , firstName = firstName
-                                     , qualifications = Option("No experience")
-                                     , phone = None
-                                     , gender = None
-                                     , tshirtSize = None
-                                     , linkedIn = None
-                                     , github = None
-                                     , tagName = None
-                                     , facebook = None
-                                     , instagram = None
-                                     , race = None
-                                     , disability = None
+                                , email = email
+                                , name = lastName
+                                , bio = "?"
+                                , lang = None
+                                , twitter = None
+                                , avatarUrl = None
+                                , company = None
+                                , blog = None
+                                , firstName = firstName
+                                , qualifications = Option("No experience")
+                                , phone = None
+                                , gender = None
+                                , tshirtSize = None
+                                , linkedIn = None
+                                , github = None
+                                , tagName = None
+                                , facebook = None
+                                , instagram = None
+                                , race = None
+                                , disability = None
                               )
                             Ok(views.html.Authentication.confirmImport(importSpeakerForm.fill(defaultValues)))
                           }
@@ -713,29 +722,29 @@ private def extractLinkedInLocale(localizedJson: JsValue): String = {
                       val cookie = createCookie(w)
                       Redirect(routes.CallForPaper.homeForSpeaker()).flashing("warning" -> Messages("cfp.reminder.proposals")).withSession("uuid" -> w.uuid).withCookies(cookie)
                   }.getOrElse {
-                    val defaultValues = 
-							Speaker(uuid = "xxx"
-								   , email = email 
-								   , name = lastName
-								   , bio = ""
-								   , lang = None
-								   , twitter = None
-								   , avatarUrl = photo
-								   , company = None
-								   , blog = blog
-								   , firstName = firstName
-								   , qualifications = Option("No experience")
-								   , phone = None
-								   , gender = None
-								   , tshirtSize = None
-								   , linkedIn = None
-								   , github = None
-								   , tagName = None
-								   , facebook = None
-								   , instagram = None
-								   , race = None
-								   , disability = None
-								  )	
+                    val defaultValues =
+                      Speaker(uuid = "xxx"
+                        , email = email
+                        , name = lastName
+                        , bio = ""
+                        , lang = None
+                        , twitter = None
+                        , avatarUrl = photo
+                        , company = None
+                        , blog = blog
+                        , firstName = firstName
+                        , qualifications = Option("No experience")
+                        , phone = None
+                        , gender = None
+                        , tshirtSize = None
+                        , linkedIn = None
+                        , github = None
+                        , tagName = None
+                        , facebook = None
+                        , instagram = None
+                        , race = None
+                        , disability = None
+                      )
                     Ok(views.html.Authentication.confirmImport(importSpeakerForm.fill(defaultValues)))
                   }
                 }
