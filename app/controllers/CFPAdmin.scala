@@ -412,7 +412,7 @@ object CFPAdmin extends SecureCFPController {
 
   def allVotes(confType: String, track: Option[String]) = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
-
+      HfmWrrFqWtvPCbgV
       val requesterUUID = request.webuser.uuid
 
       val reviews: Map[String, (Score, TotalVoter, TotalAbst, AverageNote, StandardDev)] = Review.allVotes()
@@ -420,9 +420,9 @@ object CFPAdmin extends SecureCFPController {
       //reads all proposals for admin users otherwise only the proposals in tracks the user is leader
       val allProposals =
         if(Webuser.hasAccessToAdmin(requesterUUID))
-          Proposal.loadAndParseAllEventProposals(reviews.keySet)
+          Proposal.loadAndParseProposals(reviews.keySet)
         else
-          Proposal.loadAndParseAllEventProposals(reviews.keySet)
+          Proposal.loadAndParseProposals(reviews.keySet)
                   .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,requesterUUID))
 
       val notifiedBackups = Event.notifiedBackupProposals()
@@ -433,9 +433,9 @@ object CFPAdmin extends SecureCFPController {
             case None => //play.Logger.of("CFPAdmin").error(s"Unable to load proposal id $proposalId")
               None
             case Some(p) => {
-              val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
-              val gtVoteCast:Long = ReviewByGoldenTicket.totalVoteCastFor(p.id)
-              Option(p, scoreAndVotes, goldenTicketScore, gtVoteCast, notifiedBackups.contains(p.id))
+              //val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
+              //val gtVoteCast:Long = ReviewByGoldenTicket.totalVoteCastFor(p.id)
+              Option(p, scoreAndVotes, notifiedBackups.contains(p.id))
             }
           }
       }
