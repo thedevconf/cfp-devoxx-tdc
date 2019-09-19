@@ -420,9 +420,9 @@ object CFPAdmin extends SecureCFPController {
       //reads all proposals for admin users otherwise only the proposals in tracks the user is leader
       val allProposals =
         if(Webuser.hasAccessToAdmin(requesterUUID))
-          Proposal.loadAndParseProposals(reviews.keySet)
+          Proposal.loadAndParseAllEventProposals(reviews.keySet)
         else
-          Proposal.loadAndParseProposals(reviews.keySet)
+          Proposal.loadAndParseAllEventProposals(reviews.keySet)
                   .filter(tupla => TrackLeader.isTrackLeader(tupla._2.track.id,requesterUUID))
 
       val notifiedBackups = Event.notifiedBackupProposals()
