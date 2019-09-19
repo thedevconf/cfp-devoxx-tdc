@@ -28,7 +28,6 @@ import library.{Benchmark, Redis, ZapJson}
 import org.apache.commons.lang3.StringUtils
 import org.joda.time.{DateTime, Instant}
 import play.api.libs.json._
-import play.api.libs.functional.syntax._
 import play.twirl.api.HtmlFormat
 
 /**
@@ -52,7 +51,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
-                   //, location: Location
+                   //                   , location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
                    , linkedIn: Option[String]
@@ -100,6 +99,7 @@ case class Speaker(uuid: String
       }
   }
 
+
   def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
 
   def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
@@ -139,89 +139,9 @@ case class Speaker(uuid: String
 object Speaker {
 
   def conferenceId = ConferenceDescriptor.current().eventCode
+
   implicit val speakerFormat = Json.format[Speaker]
-/*
-  implicit val locationFormat: Format[Location] = (
-    (JsPath \ "country").format[String] and
-      (JsPath \ "state").format[String] and
-      (JsPath \ "city").format[String]
-    )(Location.apply, unlift(Location.unapply))
 
-  implicit val speakerReads: Reads[Speaker] = (
-    (JsPath \ "uuid").read[String] and
-      (JsPath \ "email").read[String] and
-      (JsPath \ "name").readNullable[String] and
-      (JsPath \ "bio").read[String] and
-      (JsPath \ "lang").readNullable[String] and
-      (JsPath \ "twitter").readNullable[String] and
-      (JsPath \ "avatarUrl").readNullable[String] and
-      (JsPath \ "company").readNullable[String] and
-      (JsPath \ "blog").readNullable[String] and
-      (JsPath \ "firstName").readNullable[String] and
-      (JsPath \ "qualifications").readNullable[String] and
-      (JsPath \ "phone").readNullable[String] and
-      (JsPath \ "location").read[Location] and
-      (JsPath \ "gender").readNullable[String] and
-      (JsPath \ "tshirtSize").readNullable[String] and
-      (JsPath \ "linkedIn").readNullable[String] and
-      (JsPath \ "github").readNullable[String] and
-      (JsPath \ "tagName").readNullable[String] and
-      (JsPath \ "facebook").readNullable[String] and
-      (JsPath \ "instagram").readNullable[String] and
-      (JsPath \ "race").readNullable[String] and
-      (JsPath \ "disability").readNullable[String]
-    )(Speaker.apply _)
-
-  implicit val speakerWrites: Writes[Speaker] = (
-    (JsPath \ 'uuid).write[String] and
-      (JsPath \ "email").write[String] and
-      (JsPath \ "name").writeNullable[String] and
-      (JsPath \ "bio").write[String] and
-      (JsPath \ "lang").writeNullable[String] and
-      (JsPath \ "twitter").writeNullable[String] and
-      (JsPath \ "avatarUrl").writeNullable[String] and
-      (JsPath \ "company").writeNullable[String] and
-      (JsPath \ "blog").writeNullable[String] and
-      (JsPath \ "firstName").writeNullable[String] and
-      (JsPath \ "qualifications").writeNullable[String] and
-      (JsPath \ "phone").writeNullable[String] and
-      (JsPath \ "location").write[Location] and
-      (JsPath \ "gender").writeNullable[String] and
-      (JsPath \ "tshirtSize").writeNullable[String] and
-      (JsPath \ "linkedIn").writeNullable[String] and
-      (JsPath \ "github").writeNullable[String] and
-      (JsPath \ "tagName").writeNullable[String] and
-      (JsPath \ "facebook").writeNullable[String] and
-      (JsPath \ "instagram").writeNullable[String] and
-      (JsPath \ "race").writeNullable[String] and
-      (JsPath \ "disability").writeNullable[String]
-    )(unlift(Speaker.unapply))
-*/
-  /*  implicit val speakerFormat: Format[Speaker] = (
-    (JsPath \ "uuid").format[String] and
-      (JsPath \ "email").format[String] and
-      (JsPath \ "name").readNullable[String] and
-      (JsPath \ "bio").readNullable[String] and
-      (JsPath \ "lang").readNullable[String] and
-      (JsPath \ "twitter").readNullable[String] and
-      (JsPath \ "avatarUrl").readNullable[String] and
-      (JsPath \ "company").readNullable[String] and
-      (JsPath \ "blog").readNullable[String] and
-      (JsPath \ "firstName").readNullable[String] and
-      (JsPath \ "qualifications").readNullable[String] and
-      (JsPath \ "phone").readNullable[String] and
-      (JsPath \ "location").format[Location] and
-      (JsPath \ "gender").readNullable[String] and
-      (JsPath \ "tshirtSize").readNullable[String] and
-      (JsPath \ "linkedIn").readNullable[String] and
-      (JsPath \ "github").readNullable[String] and
-      (JsPath \ "tagName").readNullable[String] and
-      (JsPath \ "facebook").readNullable[String] and
-      (JsPath \ "instagram").readNullable[String] and
-      (JsPath \ "race").readNullable[String] and
-      (JsPath \ "disability").readNullable[String]
-  )(Speaker.apply, unlift(Speaker.unapply))
-*/
   val countries = Seq(
     "AF" -> "Afghanistan",
     "AL" -> "Albania",
@@ -470,35 +390,27 @@ object Speaker {
   val races = Seq("branco" -> "Branco(a)", "indigena" -> "Indígena", "mestico" -> "Mestiço(a)", "negro" -> "Negro(a)", "oriental" -> "Oriental", "nao sei" -> "Não Sei", "prefiro nao responder" -> "Prefiro não responder")
 
   val disabilities = Seq("nao" -> "Não"
-						,"deficiencia visual cego" -> "Sim - deficiência visual, cego"
-						,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão"
-						,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial"
-						,"deficiencia auditiva total" -> "Sim - deficiência auditiva total"
-						,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial"
-						,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante")
+    ,"deficiencia visual cego" -> "Sim - deficiência visual, cego"
+    ,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão"
+    ,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial"
+    ,"deficiencia auditiva total" -> "Sim - deficiência auditiva total"
+    ,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial"
+    ,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante")
 
   val sizes = Seq(("P", "P"), ("M","M"), ("G","G"), ("GG","GG"), ("XGG","XGG"), ("XXGG","XXGG"))
 
   def createSpeaker(webuserUUID:String, email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
                     company: Option[String], blog: Option[String], firstName: String,
-                    qualifications: String, phone: String,
-                    country: String, state: String, city: String,
-                    gender: Option[String], tshirtSize: Option[String],
+                    qualifications: String, phone: String, gender: Option[String], tshirtSize: Option[String],
                     tagname: String, race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
-    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone),
-      Location(country, state, city),
-      gender, tshirtSize,
+    Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company, blog, Some(firstName), Option(qualifications), Option(phone), gender, tshirtSize,
       socialMedia.linkedIn, socialMedia.github, Option(tagname), socialMedia.facebook, socialMedia.instagram, race, disability)
   }
 
-
-  def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String],
-                          avatarUrl: Option[String], company: Option[String], blog: Option[String],
-                          firstName: String, acceptTerms: Boolean, qualifications: String, phone: Option[String],
-                          country: String, state: String, city: String,
-                          gender: Option[String], tshirtSize: Option[String],
-                          tagName: String, race: Option[String], disability: Option[String],
-                          socialMedia: SocialMedia): Speaker = {
+  def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
+                          company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
+                          qualifications: String, phone: Option[String], gender: Option[String], tshirtSize: Option[String],
+                          tagName: String,race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
     uuid match {
       case None =>
         val newUUID = Webuser.generateUUID(email)
@@ -507,11 +419,9 @@ object Speaker {
         } else {
           refuseTerms(newUUID)
         }
-        Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl,
-          company, blog, Option(firstName), Option(qualifications), phone,
-          Location(country, state, city),
-          gender, tshirtSize, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook,
-          socialMedia.instagram, race, disability)
+        Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
+          , company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
+          , socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
       case Some(validUuid) =>
         if (acceptTerms) {
           doAcceptTerms(validUuid)
@@ -519,10 +429,8 @@ object Speaker {
           refuseTerms(validUuid)
         }
         Speaker(validUuid, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-				, company, blog, Option(firstName), Option(qualifications), phone,
-          Location(country, state, city),
-          gender, tshirtSize
-				, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
+          , company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
+          , socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
     }
 
   }
@@ -535,8 +443,8 @@ object Speaker {
 
   def unapplyFormEdit(s: Speaker): Option[(Option[String], String, String, String, Option[String], Option[String], Option[String], Option[String], String, Boolean, String, Option[String], Option[String], Option[String], String, Option[String],Option[String], SocialMedia)] = {
     Some((Option(s.uuid), s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), needsToAccept(s.uuid) == false, s.qualifications.getOrElse("No experience"),
-	  s.phone, s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
-	  SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
+      s.phone, s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
+      SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
   def save(speaker: Speaker) = Redis.pool.withClient {
@@ -645,12 +553,12 @@ object Speaker {
 
       val allSpeakers = Benchmark.measure(() =>
         client.hmget("Speaker", speakerIDs).flatMap {
-        json: String =>
-          Json.parse(json).validate[Speaker].fold(invalid => {
-            play.Logger.error("Speaker error. " + ZapJson.showError(invalid))
-            None
-          }, validSpeaker => Some(validSpeaker))
-      },"allSpeakers")
+          json: String =>
+            Json.parse(json).validate[Speaker].fold(invalid => {
+              play.Logger.error("Speaker error. " + ZapJson.showError(invalid))
+              None
+            }, validSpeaker => Some(validSpeaker))
+        },"allSpeakers")
       allSpeakers
   }
 
