@@ -122,21 +122,18 @@ object CallForPaper extends SecureCFPController {
     "firstName" -> nonEmptyText(maxLength = 25),
     "qualifications" -> nonEmptyText(maxLength = 750),
     "phone" -> nonEmptyText,
-    "city" -> nonEmptyText,
-    "state" -> nonEmptyText,
-    "country" -> optional(text),
     "gender" -> optional(text),
     "tshirtSize" -> optional(text),
     "tagName" -> nonEmptyText(maxLength = 50),
     "race" -> optional(text),
     "disability" -> optional(text),
     "socialMedia" -> mapping(
-        "twitter" -> optional(text.verifying(twitterURL)),
-        "linkedIn" -> optional(text.verifying(linkedInURL)),
-        "github" -> optional(text.verifying(githubURL)),
-        "facebook" -> optional(text.verifying(facebookURL)),
-        "instagram" -> optional(text.verifying(instagramURL))
-      )(SocialMedia.apply)(SocialMedia.unapply)
+      "twitter" -> optional(text.verifying(twitterURL)),
+      "linkedIn" -> optional(text.verifying(linkedInURL)),
+      "github" -> optional(text.verifying(githubURL)),
+      "facebook" -> optional(text.verifying(facebookURL)),
+      "instagram" -> optional(text.verifying(instagramURL))
+    )(SocialMedia.apply)(SocialMedia.unapply)
   )(Speaker.createSpeaker)(Speaker.unapplyForm))
 
   def editProfile = SecuredAction {
