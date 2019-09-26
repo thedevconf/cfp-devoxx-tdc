@@ -48,11 +48,6 @@
             @helper.inputText(speakerForm("blog"), 'size -> 60, 'class->"form-control")
 
             @helper.select(field = speakerForm("lang"), options = Proposal.langs, 'class -> "form-control")
-            @*
-                @helper.select(field = speakerForm("location.country"), options = Speaker.countries, 'class -> "form-control")
-                @helper.inputText(field = speakerForm("location.state"), 'class -> "form-control")
-                @helper.inputText(field = speakerForm("location.city"), 'class -> "form-control")
-            *@
             @helper.select(field = speakerForm("gender"), options = Speaker.genders, 'class -> "form-control", '_default -> Messages("select.gender"))
             @helper.select(field = speakerForm("race"), options = Speaker.races, 'class -> "form-control", '_default -> Messages("select.race"))
             @helper.select(field = speakerForm("disability"), options = Speaker.disabilities, 'class -> "form-control", '_default -> Messages("select.disability"))
