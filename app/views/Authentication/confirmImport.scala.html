@@ -32,7 +32,7 @@
             @helper.textarea(formWebuser("bio"), 'cols -> 80, 'rows -> 5)
             <i class="icon-text-width"></i> : <span id="charsremain"></span>
 			@helper.textarea(formWebuser("qualifications"), 'cols -> 80, 'rows -> 3, 'placeholder -> "No experience")
-			@helper.inputText(formWebuser("company"))			
+			@helper.inputText(formWebuser("company"))
             @helper.inputText(formWebuser("socialMedia.twitter"), 'placeholder -> "@nickname")
             @helper.inputText(formWebuser("socialMedia.linkedIn"), 'size -> 60)
             @helper.inputText(formWebuser("socialMedia.github"), 'size -> 60)
@@ -42,9 +42,9 @@
 
             @helper.select(field = formWebuser("lang"), options = Proposal.langs, 'class -> "form-control")
 
-            @helper.select(field = formWebuser("location.country"), options = Speaker.countries, 'class -> "form-control")
+          <!--  @helper.select(field = formWebuser("location.country"), options = Speaker.countries, 'class -> "form-control")
             @helper.inputText(field = formWebuser("location.state"), 'class -> "form-control")
-	        @helper.inputText(field = formWebuser("location.city"), 'class -> "form-control")
+	        @helper.inputText(field = formWebuser("location.city"), 'class -> "form-control") -->
 
             @helper.select(field = formWebuser("gender"), options = Speaker.genders, 'class -> "form-control", '_default -> Messages("select.gender"))
             @helper.select(field = formWebuser("race"), options = Speaker.races, 'class -> "form-control", '_default -> Messages("select.race"))
