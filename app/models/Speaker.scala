@@ -51,7 +51,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
-//                   , location: Location
+                   //                   , location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
                    , linkedIn: Option[String]
@@ -390,12 +390,12 @@ object Speaker {
   val races = Seq("branco" -> "Branco(a)", "indigena" -> "Indígena", "mestico" -> "Mestiço(a)", "negro" -> "Negro(a)", "oriental" -> "Oriental", "nao sei" -> "Não Sei", "prefiro nao responder" -> "Prefiro não responder")
 
   val disabilities = Seq("nao" -> "Não"
-						,"deficiencia visual cego" -> "Sim - deficiência visual, cego"
-						,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão"
-						,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial"
-						,"deficiencia auditiva total" -> "Sim - deficiência auditiva total"
-						,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial"
-						,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante")
+    ,"deficiencia visual cego" -> "Sim - deficiência visual, cego"
+    ,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão"
+    ,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial"
+    ,"deficiencia auditiva total" -> "Sim - deficiência auditiva total"
+    ,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial"
+    ,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante")
 
   val sizes = Seq(("P", "P"), ("M","M"), ("G","G"), ("GG","GG"), ("XGG","XGG"), ("XXGG","XXGG"))
 
@@ -407,10 +407,11 @@ object Speaker {
       socialMedia.linkedIn, socialMedia.github, Option(tagname), socialMedia.facebook, socialMedia.instagram, race, disability)
   }
 
+
   def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
-					      company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
+                          company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
                           qualifications: String, phone: Option[String], gender: Option[String], tshirtSize: Option[String],
-						  tagName: String,race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
+                          tagName: String,race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
     uuid match {
       case None =>
         val newUUID = Webuser.generateUUID(email)
@@ -420,8 +421,8 @@ object Speaker {
           refuseTerms(newUUID)
         }
         Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-				, company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
-				, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
+          , company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
+          , socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
       case Some(validUuid) =>
         if (acceptTerms) {
           doAcceptTerms(validUuid)
@@ -429,8 +430,8 @@ object Speaker {
           refuseTerms(validUuid)
         }
         Speaker(validUuid, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-				, company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
-				, socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
+          , company, blog, Option(firstName), Option(qualifications), phone, gender, tshirtSize
+          , socialMedia.linkedIn, socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
     }
 
   }
@@ -443,8 +444,8 @@ object Speaker {
 
   def unapplyFormEdit(s: Speaker): Option[(Option[String], String, String, String, Option[String], Option[String], Option[String], Option[String], String, Boolean, String, Option[String], Option[String], Option[String], String, Option[String],Option[String], SocialMedia)] = {
     Some((Option(s.uuid), s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), needsToAccept(s.uuid) == false, s.qualifications.getOrElse("No experience"),
-	  s.phone, s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
-	  SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
+      s.phone, s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
+      SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
   def save(speaker: Speaker) = Redis.pool.withClient {
@@ -553,12 +554,12 @@ object Speaker {
 
       val allSpeakers = Benchmark.measure(() =>
         client.hmget("Speaker", speakerIDs).flatMap {
-        json: String =>
-          Json.parse(json).validate[Speaker].fold(invalid => {
-            play.Logger.error("Speaker error. " + ZapJson.showError(invalid))
-            None
-          }, validSpeaker => Some(validSpeaker))
-      },"allSpeakers")
+          json: String =>
+            Json.parse(json).validate[Speaker].fold(invalid => {
+              play.Logger.error("Speaker error. " + ZapJson.showError(invalid))
+              None
+            }, validSpeaker => Some(validSpeaker))
+        },"allSpeakers")
       allSpeakers
   }
 

@@ -263,6 +263,7 @@ object RestAPI extends Controller {
                   "company" -> speaker.company.map(u => Json.toJson(u.trim())).getOrElse(JsNull),
                   "lang" -> speaker.lang.map(u => Json.toJson(u.trim())).getOrElse(Json.toJson("pt")),
                   "bio" -> Json.toJson(speaker.bio),
+                  "email" -> Json.toJson(speaker.email),
                   "bioAsHtml" -> Json.toJson(speaker.bioAsHtml),
                   "twitter" -> speaker.cleanTwitter.map(Json.toJson(_)).getOrElse(JsNull),
                   "acceptedTalks" -> Json.toJson(updatedTalks)
@@ -611,7 +612,14 @@ object RestAPI extends Controller {
                     "blog" -> Json.toJson(speaker.blog),
                     "phone" -> Json.toJson(speaker.phone),
                     "gender" -> Json.toJson(speaker.gender),
-                    "tshirtSize" -> Json.toJson(speaker.tshirtSize)
+                    "tshirtSize" -> Json.toJson(speaker.tshirtSize),
+                    "linkedIn" -> Json.toJson(speaker.linkedIn),
+                    "github" -> Json.toJson(speaker.github),
+                    "cracha" -> Json.toJson(speaker.tagName),
+                    "facebook" -> Json.toJson(speaker.facebook),
+                    "instagram" -> Json.toJson(speaker.instagram),
+                    "race" -> Json.toJson(speaker.race),
+                    "disability" -> Json.toJson(speaker.disability)
                   )
                 })
               )

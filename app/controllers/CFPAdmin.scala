@@ -433,9 +433,9 @@ object CFPAdmin extends SecureCFPController {
             case None => //play.Logger.of("CFPAdmin").error(s"Unable to load proposal id $proposalId")
               None
             case Some(p) => {
-              val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
-              val gtVoteCast:Long = ReviewByGoldenTicket.totalVoteCastFor(p.id)
-              Option(p, scoreAndVotes, goldenTicketScore, gtVoteCast, notifiedBackups.contains(p.id))
+              //val goldenTicketScore:Double = ReviewByGoldenTicket.averageScore(p.id)
+              //val gtVoteCast:Long = ReviewByGoldenTicket.totalVoteCastFor(p.id)
+              Option(p, scoreAndVotes, notifiedBackups.contains(p.id))
             }
           }
       }

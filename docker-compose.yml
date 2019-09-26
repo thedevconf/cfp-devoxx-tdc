@@ -1,8 +1,27 @@
-elasticsearch:
- image: elasticsearch
- ports:
-   - "9200:9200"
-redis:
- image : redis:2.8.21
- ports:
-   - "6379:6379"
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:6.5.4
+    expose:
+      - 9200
+  redis:
+    container_name: cfp-devoxx-tdc_redis
+    image : redis:2.8.21
+    expose:
+      - 6379
+  play:
+    build:
+      context: .
+      dockerfile: play.dockerfile
+    volumes:
+      - .:/app:rw
+    ports:
+      - "9000:8080"
+    links:
+      - elasticsearch
+      - redis
+    working_dir: /app
+    stdin_open: true
+    env_file:
+      - run.env
+    command: play run
