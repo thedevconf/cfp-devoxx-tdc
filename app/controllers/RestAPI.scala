@@ -612,7 +612,7 @@ object RestAPI extends Controller {
                     "blog" -> Json.toJson(speaker.blog),
                     "phone" -> Json.toJson(speaker.phone),
                     "gender" -> Json.toJson(speaker.gender),
-                    "tshirtSize" -> Json.toJson(speaker.tshirtSize)
+                    "tshirtSize" -> Json.toJson(speaker.tshirtSize),
                     "linkedIn" -> Json.toJson(speaker.linkedIn),
                     "github" -> Json.toJson(speaker.github),
                     "cracha" -> Json.toJson(speaker.tagName),
