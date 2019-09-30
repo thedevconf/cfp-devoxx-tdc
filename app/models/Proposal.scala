@@ -854,9 +854,9 @@ object Proposal {
       }.filter(isFromCurrentEvent(_))
   }
 
-  def allAchivedProposals(): List[Proposal] = Redis.pool.withClient {
+  def allAchivedProposals(eventCode: String): List[Proposal] = Redis.pool.withClient {
     implicit client =>
-      val archivedProposals = client.smembers(s"Proposals:$conferenceId:ByState:${ProposalState.ARCHIVED.code}")
+      val archivedProposals = client.smembers(s"Proposals:$eventCode:ByState:${ProposalState.ARCHIVED.code}")
 
       client.hmget("Proposals", archivedProposals).map {
         json =>

@@ -577,7 +577,7 @@ object RestAPI extends Controller {
   def showAllArchivedTalks(eventCode: String) = UserAgentActionAndAllowOrigin {
     implicit request =>
 
-      val proposals: List[Proposal] = Proposal.allAchivedProposals()
+      val proposals: List[Proposal] = Proposal.allAchivedProposals(eventCode)
 
       val proposalsAndSpeakers: List[(Proposal, List[Speaker])] =
         proposals.map(proposal => (proposal, proposal.allSpeakers))
