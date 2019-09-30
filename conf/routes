@@ -272,6 +272,7 @@ GET           /api/conferences/:eventCode/approvedTalks/:track                  
 GET           /api/conferences/:eventCode/backupTalks                           controllers.RestAPI.showAllBackupTalks(eventCode:String)
 GET           /api/conferences/:eventCode/allTalks                              controllers.RestAPI.showAllTalks(eventCode:String)
 GET           /api/conferences/:eventCode/allTalksPlain                         controllers.RestAPI.showAllTalksPlain(eventCode:String)
+GET           /api/conferences/:eventCode/allArchivedTalks                      controllers.RestAPI.showAllArchivedTalks(eventCode: String)
 
 GET           /api/profile/:docName                                             controllers.RestAPI.profile(docName:String)
 
