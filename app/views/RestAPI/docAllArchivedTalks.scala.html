@@ -1,0 +1,88 @@
+@()(implicit lang: Lang, flash: Flash, req:RequestHeader)
+
+@api("proposalType") {
+<div class="row">
+    <div class="col-md-12">
+        <h1>@ConferenceDescriptor.current().naming.shortTitle API</h1>
+        <hr>
+        <h3>Documentation for "talks"</h3>
+
+        <p>Returns the list of All Archived Talks</p>
+
+        <h4>Sample:</h4>
+        <code>
+            curl -H "Accept: application/json" <a href="@routes.RestAPI.showAllArchivedTalks(Conference.currentConference.eventCode).absoluteURL()">@routes.RestAPI.showAllArchivedTalks(Conference.currentConference.eventCode).absoluteURL()</a>
+        </code>
+        <br/>
+
+        <h4>Result:</h4>
+        <code>
+                <pre>
+[
+                    {"palestrantes":
+                        [{  "github": "https://github.com/hugoestevam",
+                            "email": "hugoestevamrl@gmail.com",
+                            "empresa": null,
+                            "tshirtSize":"GG",
+                            "blog":"https://plus.google.com/118432184085815968785",
+                            "facebook":null,
+                            "minibio":
+                            "<p>Há mais de 10 anos atua no mercado de TI com maior ênfase em projetos na área de
+                            desenvolvimento de software. Analista, Programador, Professor, Pesquisador, Aluno, Pai,
+                            Artilheiro Nato, não necessariamente nessa ordem ... atualmente está se arriscando em
+                            palestrar em eventos.</p>\n",
+                            "race":"branco",
+                            "disability":"nao",
+                            "twitter":"@hugoestevam",
+                            "instagram":null,
+                            "foto":"https://lh6.googleusercontent.com/-7uijs06H3aQ/AAAAAAAAAAI/AAAAAAAAAJM/rPp9vRlZsHg/photo.jpg",
+                            "nome":"HUGO ESTEVAM LONGO",
+                            "linkedIn":"https://www.linkedin.com/in/hugoestevam/",
+                            "phone":"49991335337",
+                            "cracha":"Hugo Estevam Longo",
+                            "gender":"M"},
+                        {
+                            "github":"https://github.com/GuiToniello",
+                            "email":"guilherme.toniello@ndd.com.br",
+                            "empresa":"NDD",
+                            "tshirtSize":"M",
+                            "blog":"https://twitter.com/guitoniello",
+                            "facebook":"https://www.facebook.com/guilherme.toniello",
+                            "minibio":
+                            "<p>Bacharel em Sistemas de Informação, atua no desenvolvimento de sistemas web e distribuídos,
+                            desenvolvendo sistemas e pesquisando nessa área pelo setor de PD&amp;i  da NDD, empresa especializada
+                            em docs eletrônicos e software para outsourcing de impressão, com mais de 1 bilhão de páginas
+                            processadas pela NDD. Participa ativamente de treinamentos, eventos e cursos.</p>\n",
+                            "race":"branco",
+                            "disability":"nao",
+                            "twitter":"https://twitter.com/guitoniello",
+                            "instagram":"https://www.instagram.com/guitoniello/",
+                            "foto":"https://media.licdn.com/dms/image/C4E03AQEnnkRJ3HfA4Q/profile-displayphoto-shrink_100_100/0?e=1555545600&v=beta&t=I2zTrDjOdqpvcrPWCFWLoxhUDzrFxDLX1LeuBlVEQ9g",
+                            "nome":"Guilherme Toniello",
+                            "linkedIn":"https://www.linkedin.com/in/guilherme-toniello/",
+                            "phone":"49 9 8832-9708","cracha":"Guilherme Toniello","gender":"M"}],
+                            "descricao":
+                                "<p>Nos últimos anos, estamos acompanhando os benefícios significativos de uma das maiores
+                                buzzwords de mercado: Microsserviços!!!  Entretanto, essa prática é aplicada largamente em
+                                serviços Back-end, e com isso encontramos muitas equipes criando verdadeiros monolitos de
+                                front-end - um único, grande e abrangente aplicativo de navegador. Nessa abordagem, o aplicativo
+                                da Web é dividido em serviços e cada serviço é de propriedade de uma equipe diferente. Isso
+                                garante que todos os serviços sejam desenvolvidos, testados e implantados independentemente de
+                                outros serviços. Essa palestra abordará as várias técnicas para recombinar os serviços -  sempre
+                                visando manter uma experiência de usuário coesa.</p>\n",
+                            "tipo":"Short talk (25 min)",
+                            "id":"AHT-5451",
+                            "status":"archived",
+                            "trilha":"Arquitetura .NET",
+                            "titulo":"Como Aplicamos Micro FrontEnds em Nosso Lab (Um Case NDD)"
+                    }
+]
+
+                </pre>
+
+        </code>
+    </div>
+</div>
+</div>
+
+}
