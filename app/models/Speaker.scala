@@ -36,7 +36,7 @@ import play.twirl.api.HtmlFormat
  * Webuser is the "technical" and internal web user representation.
  *
  * Author: nicolas martignole
- * Created: 28/09/2013 11:01
+ * Created: 28/09/2013 11:01HfmWrrFqWtvPCbgV
  */
 case class Location(country: Option[String], state: Option[String], city: Option[String])
 object Location {
@@ -289,7 +289,6 @@ object Location {
     }.toSeq
 }
 
-
 case class Speaker(uuid: String
                    , email: String
                    , name: Option[String]
@@ -438,7 +437,7 @@ object Speaker {
           refuseTerms(newUUID)
         }
         Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-          , company, blog, Option(firstName), Option(qualifications), phone, cpf, location.city, location.state,
+          , company, blog, Option(firstName), Option(qualifications), phone, cpf, location.city, location.state
           , location.country, gender, tshirtSize, socialMedia.linkedIn, socialMedia.github, Option(tagName)
           , socialMedia.facebook, socialMedia.instagram, race, disability)
       case Some(validUuid) =>
