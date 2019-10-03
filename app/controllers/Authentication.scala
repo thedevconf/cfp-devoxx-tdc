@@ -206,6 +206,13 @@ object Authentication extends Controller {
     "firstName" -> nonEmptyText(maxLength = 25),
     "qualifications" -> nonEmptyText(maxLength = 750),
     "phone" -> nonEmptyText,
+    "cpf" -> optional(text),
+    "country" -> nonEmptyText,
+    "location" -> mapping(
+      "city" -> optional(text),
+      "state" -> optional(text),
+      "country" -> optional(text)
+    )(Location.apply)(Location.unapply),
     "gender" -> optional(text),
     "tshirtSize" -> optional(text),
     "tagName" -> nonEmptyText(maxLength = 50),
@@ -328,6 +335,7 @@ object Authentication extends Controller {
                               , firstName = Option(firstName)
                               , qualifications = Option("No experience")
                               , phone = Option(phone)
+                              , cpf = None
                               , gender = gender
                               , tshirtSize = tshirtSize
                               , linkedIn = None
@@ -387,7 +395,8 @@ object Authentication extends Controller {
         futureMaybeWebuser.map {
           webuser =>
             val uuid = Webuser.saveAndValidateWebuser(webuser) // it is generated
-            Speaker.save(Speaker.createSpeaker(uuid, email, webuser.lastName, "", None, Some("http://www.gravatar.com/avatar/" + Webuser.gravatarHash(webuser.email)), None, None, webuser.firstName, "No experience", "", None, None, "", None, None
+            Speaker.save(
+              Speaker.createSpeaker(uuid, email, webuser.lastName, "", None, Some("http://www.gravatar.com/avatar/" + Webuser.gravatarHash(webuser.email)), None, None, webuser.firstName, "No experience", "", None, None, "", None, None
               , SocialMedia(None, None, None, None,None)))
             Mails.sendAccessCode(webuser.email, webuser.password)
             Redirect(routes.CallForPaper.editProfile()).flashing("success" -> ("Your account has been validated. Your new access code is " + webuser.password + " (case-sensitive)")).withSession("uuid" -> webuser.uuid)
