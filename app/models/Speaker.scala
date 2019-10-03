@@ -301,7 +301,7 @@ case class Speaker(uuid: String
                    , firstName: Option[String]
                    , qualifications: Option[String]
                    , phone: Option[String]
-                   , cpf: Option [String]
+                   //, cpf: Option [String]
                    , location: Location
                    , gender: Option[String]
                    , tshirtSize: Option[String]
@@ -412,18 +412,21 @@ object Speaker {
   def createSpeaker(webuserUUID:String, email: String, name: String,
                     bio: String, lang: Option[String], avatarUrl: Option[String],
                     company: Option[String], blog: Option[String], firstName: String,
-                    qualifications: String, phone: String, cpf: Option[String], location: Location,
+                    qualifications: String, phone: String, //cpf: Option[String]
+                    location: Location,
                     gender: Option[String], tshirtSize: Option[String], tagname: String,
                     race: Option[String], disability: Option[String], socialMedia: SocialMedia): Speaker = {
     Speaker(webuserUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl, company,
-      blog, Some(firstName), Option(qualifications), Option(phone), Option(cpf), Location(location.city, location.state,
-      location.country), gender, tshirtSize, socialMedia.linkedIn, socialMedia.github, Option(tagname),
+      blog, Some(firstName), Option(qualifications), Option(phone), //Option(cpf),
+      Location(location.city, location.state, location.country), gender, tshirtSize,
+      socialMedia.linkedIn, socialMedia.github, Option(tagname),
       socialMedia.facebook, socialMedia.instagram, race, disability)
   }
 
   def createOrEditSpeaker(uuid: Option[String], email: String, name: String, bio: String, lang: Option[String], avatarUrl: Option[String],
                           company: Option[String], blog: Option[String], firstName: String, acceptTerms: Boolean,
-                          qualifications: String, phone: Option[String], cpf: Option[String], location: Location,
+                          qualifications: String, phone: Option[String], //cpf: Option[String],
+                          location: Location,
                           gender: Option[String], tshirtSize: Option[String], tagName: String, race: Option[String],
                           disability: Option[String], socialMedia: SocialMedia): Speaker = {
     uuid match {
@@ -435,7 +438,7 @@ object Speaker {
           refuseTerms(newUUID)
         }
         Speaker(newUUID, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-          , company, blog, Option(firstName), Option(qualifications), phone, cpf
+          , company, blog, Option(firstName), Option(qualifications), phone//, cpf
           , Location(location.city, location.state, location.country), gender, tshirtSize
           , socialMedia.linkedIn, socialMedia.github, Option(tagName)
           , socialMedia.facebook, socialMedia.instagram, race, disability)
@@ -446,7 +449,7 @@ object Speaker {
           refuseTerms(validUuid)
         }
         Speaker(validUuid, email.trim().toLowerCase, Option(name), bio, lang, socialMedia.twitter, avatarUrl
-          , company, blog, Option(firstName), Option(qualifications), phone, cpf
+          , company, blog, Option(firstName), Option(qualifications), phone//, cpf
           , Location(location.city, location.state, location.country), gender, tshirtSize, socialMedia.linkedIn
           , socialMedia.github, Option(tagName), socialMedia.facebook, socialMedia.instagram, race, disability)
     }
@@ -455,13 +458,15 @@ object Speaker {
 
   def unapplyForm(s: Speaker): Option[(String, String, String, String, Option[String], Option[String], Option[String], Option[String], String, String, String, Option[String], Option[String], String, Option[String], Option[String], SocialMedia)] = {
     Some(("xxx",s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), s.qualifications.getOrElse("No experience"),
-      s.phone.getOrElse(""), s.cpf.getOrElse(""), Location(s.location.city, s.location.state, s.location.country),
+      s.phone.getOrElse(""), //s.cpf.getOrElse("")
+      , Location(s.location.city, s.location.state, s.location.country),
       s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability, SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
   def unapplyFormEdit(s: Speaker): Option[(Option[String], String, String, String, Option[String], Option[String], Option[String], Option[String], String, Boolean, String, Option[String], Option[String], Option[String], String, Option[String],Option[String], SocialMedia)] = {
     Some((Option(s.uuid), s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), needsToAccept(s.uuid) == false, s.qualifications.getOrElse("No experience"),
-      s.phone, s.cpf, Location(s.location.city, s.location.state, s.location.country), s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
+      s.phone, //s.cpf
+      , Location(s.location.city, s.location.state, s.location.country), s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
       SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
