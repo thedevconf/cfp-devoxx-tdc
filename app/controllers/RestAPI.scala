@@ -63,7 +63,7 @@ object RestAPI extends Controller {
         case "approved" => Ok(views.html.RestAPI.docApprovedByTrack())
         case "backup" => Ok(views.html.RestAPI.docAllBackup())
         case "all-talks" => Ok(views.html.RestAPI.docAllTalks())
-        case "all-archived-talks" => Ok(views.html.RestAPI.docAllArchivedTalks())
+        case "all-archived-speakers" => Ok(views.html.RestAPI.docAllArchivedTalks())
         case other => NotFound("Sorry, no documentation for this profile")
       }
   }
@@ -597,11 +597,6 @@ object RestAPI extends Controller {
               val speakers = par._2
               Map(
                 "id" -> Json.toJson(proposal.id),
-                "trilha" -> Json.toJson(Messages(proposal.track.label)),
-                "titulo" -> Json.toJson(proposal.title),
-                "tipo" -> Json.toJson(Messages(proposal.talkType.label)),
-                "status" -> Json.toJson(Messages(proposal.state.code)),
-                "descricao" -> Json.toJson(proposal.summaryAsHtml),
                 "palestrantes" -> Json.toJson(speakers.map { speaker =>
                   Map(
                     "nome" -> Json.toJson(speaker.cleanName),
@@ -630,7 +625,7 @@ object RestAPI extends Controller {
           val jsonObject = Json.toJson(listaJson)
 
           Ok(jsonObject).as(JSON).withHeaders(ETAG -> etag,
-            "Links" -> ("<" + routes.RestAPI.profile("all-archived-talks").absoluteURL() + ">; rel=\"profile\""))
+            "Links" -> ("<" + routes.RestAPI.profile("all-archived-speakers").absoluteURL() + ">; rel=\"profile\""))
 
         }
       }
