@@ -36,7 +36,7 @@ import play.twirl.api.HtmlFormat
  * Webuser is the "technical" and internal web user representation.
  *
  * Author: nicolas martignole
- * Created: 28/09/2013 11:01HfmWrrFqWtvPCbgV
+ * Created: 28/09/2013 11:01
  */
 case class Location(country: Option[String], state: Option[String], city: Option[String])
 object Location {
