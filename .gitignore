@@ -47,6 +47,7 @@ run.sh
 run-uk.sh
 run-fr.sh
 run.bat
+run.env
 
 env.sh
 run-be.sh
