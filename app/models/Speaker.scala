@@ -458,15 +458,15 @@ object Speaker {
 
   def unapplyForm(s: Speaker): Option[(String, String, String, String, Option[String], Option[String], Option[String], Option[String], String, String, String, Option[String], Option[String], String, Option[String], Option[String], SocialMedia)] = {
     Some(("xxx",s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), s.qualifications.getOrElse("No experience"),
-      s.phone.getOrElse(""), //s.cpf.getOrElse("")
-      , Location(s.location.city, s.location.state, s.location.country),
+      s.phone.getOrElse(""), //s.cpf.getOrElse(""),
+      Location(s.location.city, s.location.state, s.location.country),
       s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability, SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
-  def unapplyFormEdit(s: Speaker): Option[(Option[String], String, String, String, Option[String], Option[String], Option[String], Option[String], String, Boolean, String, Option[String], Option[String], Option[String], String, Option[String],Option[String], SocialMedia)] = {
+  def unapplyFormEdit(s: Speaker): Option[(Option[String], String, String, String, Option[String], Option[String], Option[String], Option[String], String, Boolean, String, Option[String], Location, Option[String], Option[String], String, Option[String],Option[String], SocialMedia)] = {
     Some((Option(s.uuid), s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), needsToAccept(s.uuid) == false, s.qualifications.getOrElse("No experience"),
-      s.phone, //s.cpf
-      , Location(s.location.city, s.location.state, s.location.country), s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
+      s.phone, //s.cpf,
+      Location(s.location.city, s.location.state, s.location.country), s.gender, s.tshirtSize, s.tagName.getOrElse(""), s.race, s.disability,
       SocialMedia(s.twitter, s.linkedIn, s.github, s.facebook,s.instagram)))
   }
 
