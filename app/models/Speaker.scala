@@ -350,7 +350,6 @@ case class Speaker(uuid: String
       }
   }
 
-
   def hasTwitter = StringUtils.trimToEmpty(twitter.getOrElse("")).nonEmpty
 
   def hasLinkedIn = StringUtils.trimToEmpty(linkedIn.getOrElse("")).nonEmpty
@@ -456,7 +455,7 @@ object Speaker {
 
   }
 
-  def unapplyForm(s: Speaker): Option[(String, String, String, String, Option[String], Option[String], Option[String], Option[String], String, String, String, Option[String], Option[String], String, Option[String], Option[String], SocialMedia)] = {
+  def unapplyForm(s: Speaker): Option[(String, String, String, String, Option[String], Option[String], Option[String], Option[String], String, String, String, Location, Option[String], Option[String], String, Option[String], Option[String], SocialMedia)] = {
     Some(("xxx",s.email, s.name.getOrElse(""), s.bio, s.lang, s.avatarUrl, s.company, s.blog, s.firstName.getOrElse(""), s.qualifications.getOrElse("No experience"),
       s.phone.getOrElse(""), //s.cpf.getOrElse(""),
       Location(s.location.city, s.location.state, s.location.country),

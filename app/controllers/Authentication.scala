@@ -334,7 +334,8 @@ object Authentication extends Controller {
                               , firstName = Option(firstName)
                               , qualifications = Option("No experience")
                               , phone = Option(phone)
-                              , cpf = None
+                              //, cpf = None
+                              , location = Option[Location]
                               , gender = gender
                               , tshirtSize = tshirtSize
                               , linkedIn = None
