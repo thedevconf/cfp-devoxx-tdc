@@ -206,8 +206,7 @@ object Authentication extends Controller {
     "firstName" -> nonEmptyText(maxLength = 25),
     "qualifications" -> nonEmptyText(maxLength = 750),
     "phone" -> nonEmptyText,
-    "cpf" -> optional(text),
-    "country" -> nonEmptyText,
+    //"cpf" -> optional(text),
     "location" -> mapping(
       "city" -> optional(text),
       "state" -> optional(text),
