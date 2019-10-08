@@ -723,6 +723,11 @@ object CFPAdmin extends SecureCFPController {
     "acceptTermsConditions" -> boolean,
     "qualifications2" -> nonEmptyText(maxLength = 750),
     "phone" -> optional(text),
+    "location" -> mapping(
+      "city" -> optional(text),
+      "state" -> optional(text),
+      "country" -> optional(text)
+    )
     "gender2" -> optional(text),
     "tshirtSize2" -> optional(text),
     "tagName" -> nonEmptyText(maxLength = 50),

@@ -97,7 +97,7 @@ object CallForPaper extends SecureCFPController {
                , firstName = Option(w.firstName)
                , qualifications = Option("No experience")
                , phone = None
-               , location = Option(w.location)
+               , location = None
                , gender = None
                , tshirtSize = None
                , linkedIn = None
