@@ -396,8 +396,9 @@ object Authentication extends Controller {
           webuser =>
             val uuid = Webuser.saveAndValidateWebuser(webuser) // it is generated
             Speaker.save(
-              Speaker.createSpeaker(uuid, email, webuser.lastName, "", None, Some("http://www.gravatar.com/avatar/" + Webuser.gravatarHash(webuser.email)), None, None, webuser.firstName, "No experience", "", None, None, "", None, None
-              , SocialMedia(None, None, None, None,None)))
+              Speaker.createSpeaker(uuid, email, webuser.lastName, "", None, Some("http://www.gravatar.com/avatar/" + Webuser.gravatarHash(webuser.email)),
+                None, None, webuser.firstName, "No experience", "", None, Location(None, None, None), "", None, None, None, None,
+                SocialMedia(None, None, None, None,None)))
             Mails.sendAccessCode(webuser.email, webuser.password)
             Redirect(routes.CallForPaper.editProfile()).flashing("success" -> ("Your account has been validated. Your new access code is " + webuser.password + " (case-sensitive)")).withSession("uuid" -> webuser.uuid)
         }.getOrElse {
