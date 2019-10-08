@@ -727,7 +727,7 @@ object CFPAdmin extends SecureCFPController {
       "city" -> optional(text),
       "state" -> optional(text),
       "country" -> optional(text)
-    )
+    ),
     "gender2" -> optional(text),
     "tshirtSize2" -> optional(text),
     "tagName" -> nonEmptyText(maxLength = 50),
