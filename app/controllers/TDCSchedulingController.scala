@@ -180,8 +180,11 @@ object TDCSchedulingController extends SecureCFPController {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
   }
-  
-  def requestPublication() = SecuredAction(IsMemberOf("admin")) {
+
+  /**
+    * sends an email requesting that the schedule be published to the TDC website
+    */
+  def requestPublication() = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asJson.map {json => 
         val trackId = (json \ "trackId").as[String]
@@ -195,11 +198,12 @@ object TDCSchedulingController extends SecureCFPController {
       }.getOrElse {
         BadRequest("{\"status\":\"expecting json data\"}").as("application/json")
       }
-  }  
+  }
+
   /**
   * sends an email requesting that the schedule be unlocked so the trackleaders can make updates
   */
-  def requestNotification() = SecuredAction(IsMemberOf("admin")) {
+  def requestNotification() = SecuredAction(IsMemberOfGroups(List("cfp","admin"))) {
     implicit request: SecuredRequest[play.api.mvc.AnyContent] =>
       request.body.asJson.map {json => 
         val trackId = (json \ "trackId").as[String]
