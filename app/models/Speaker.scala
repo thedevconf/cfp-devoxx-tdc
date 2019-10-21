@@ -385,7 +385,7 @@ object Speaker {
     "ZM" -> "Zambia",
     "ZW" -> "Zimbabwe")
 
-  val genders = Seq("M" -> "Masculino", "F" -> "Feminino" , "N" -> "Outro", "P" -> "Prefiro não responder")
+  val genders = Seq("M" -> "Masculino", "F" -> "Feminino", "O" -> "Outro", "P" -> "Prefiro não responder", "N" -> "Indefinido")
 
   val races = Seq("branco" -> "Branco(a)", "indigena" -> "Indígena", "mestico" -> "Mestiço(a)", "negro" -> "Negro(a)", "oriental" -> "Oriental", "nao sei" -> "Não Sei", "prefiro nao responder" -> "Prefiro não responder")
 
