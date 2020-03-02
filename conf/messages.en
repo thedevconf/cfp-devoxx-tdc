@@ -241,6 +241,12 @@ track.androidkotlin.desc=
 androidkotlin.label=Android e Kotlin
 androidkotlin.leaderboard=Android e Kotlin
 
+track.api.title=API
+#track.api.desc=
+track.api.desc=
+api.label=API
+api.leaderboard=API
+
 track.arduino.title=Arduino e Makers
 #track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
 track.arduino.desc=
@@ -570,6 +576,12 @@ track.diversidade.title=Diversidade
 track.diversidade.desc=
 diversidade.label=Diversidade
 diversidade.leaderboard=Diversidade
+
+track.lgpd.title=LGPD
+#track.lgpd.desc=
+track.lgpd.desc=
+lgpd.label=LGPD
+lgpd.leaderboard=LGPD
 
 track.loungediversidade.title=Lounge +Diversidade
 track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
