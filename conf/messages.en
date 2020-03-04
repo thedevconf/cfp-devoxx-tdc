@@ -451,6 +451,11 @@ track.fintech.desc=
 fintech.label=Fintech
 fintech.leaderboard=Fintech
 
+track.flutter.title=Flutter
+track.flutter.desc=
+flutter.label=Flutter
+flutter.leaderboard=Flutter
+
 track.frameworksjs.title=Frameworks JavaScript
 track.frameworksjs.desc=
 frameworksjs.label=Frameworks JavaScript
