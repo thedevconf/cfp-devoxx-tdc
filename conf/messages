@@ -402,6 +402,11 @@ track.designcodigo.desc=
 designcodigo.label=Design de Código
 designcodigo.leaderboard=Design de Código
 
+track.designcodigoexp.title=Design de Código e XP
+track.designcodigoexp.desc=
+designcodigoexp.label=Design de Código e XP
+designcodigoexp.leaderboard=Design de Código e XP
+
 track.devops.title=DevOps
 #track.devops.desc=Maximizando a integração entre equipes para entregar valor
 track.devops.desc=
