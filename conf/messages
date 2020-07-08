@@ -603,6 +603,11 @@ track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibilidade e Racial e
 loungediversidadecarreiras.label=Lounge +Diversidade e Carreiras
 loungediversidadecarreiras.leaderboard=Lounge +Diversidade e Carreiras
 
+track.loungediversidadeacessibilidade.title=Lounge +Diversidade e Acessibilidade
+track.loungediversidadeacessibilidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
+loungediversidadeacessibilidade.label=Lounge +Diversidade e Acessibilidade
+loungediversidadeacessibilidade.leaderboard=Lounge +Diversidade e Acessibilidade
+
 track.machine.title=Machine Learning
 #track.machine.desc=Future with Machine Learning
 track.machine.desc=
