@@ -200,11 +200,11 @@ track.dotnet.desc=
 dotnet.label=.NET
 dotnet.leaderboard=.NET
 
-track.acessibilidade.title=Acessibilidade
+track.acessibilidade.title=Acessibility
 #track.acessibilidade.desc=Ao remover barreiras para conectar pessoas, criaremos uma ponte para a igualdade
 track.acessibilidade.desc=
-acessibilidade.label=Acessibilidade
-acessibilidade.leaderboard=Acessibilidade
+acessibilidade.label=Acessibility
+acessibilidade.leaderboard=Acessibility
 
 track.agile.title=Agile
 #track.agile.desc=O que? Como? E.. mais importante.. Por quê?
@@ -224,22 +224,22 @@ track.agileeagilecoach.desc=
 agileeagilecoach.label=Agile e Agile Coaching
 agileeagilecoach.leaderboard=Agile e Agile Coaching
 
-track.analise.title=Análise de Negócios
+track.analise.title=Business Analysis
 #track.analise.desc=Em cenários cada vez mais complexos, a análise de negócios pode ser a luz para gerar o máximo valor com o mínimo investimento.
 track.analise.desc=
-analise.label=Análise de Negócios
-analise.leaderboard=Análise de Negócios
+analise.label=Business Analysis
+analise.leaderboard=Business Analysis
 
 track.android.title=Android
 track.android.desc=
 android.label=Android
 android.leaderboard=Android
 
-track.androidkotlin.title=Android e Kotlin
+track.androidkotlin.title=Android and Kotlin
 #track.androidkotlin.desc=Domine a plataforma que domina o mundo e a linguagem que um dia irá dominar
 track.androidkotlin.desc=
-androidkotlin.label=Android e Kotlin
-androidkotlin.leaderboard=Android e Kotlin
+androidkotlin.label=Android and Kotlin
+androidkotlin.leaderboard=Android and Kotlin
 
 track.api.title=API
 #track.api.desc=
@@ -247,26 +247,26 @@ track.api.desc=
 api.label=API
 api.leaderboard=API
 
-track.arduino.title=Arduino e Makers
+track.arduino.title=Arduino and Makers
 #track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
 track.arduino.desc=
-arduino.label=Arduino e Makers
-arduino.leaderboard=Arduino e Makers
+arduino.label=Arduino and Makers
+arduino.leaderboard=Arduino and Makers
 
-track.arduinomakersimpr3d.title=Arduino, Makers e Impressão 3D
+track.arduinomakersimpr3d.title=Arduino, Makers and 3D Printing
 track.arduinomakersimpr3d.desc=
-arduinomakersimpr3d.label=Arduino, Makers e Impressão 3D
-arduinomakersimpr3d.leaderboard=Arduino, Makers e Impressão 3D
+arduinomakersimpr3d.label=Arduino, Makers and 3D Printing
+arduinomakersimpr3d.leaderboard=Arduino, Makers and 3D Printing
 
-track.arquitetura.title=Arquitetura
+track.arquitetura.title=Architecture
 track.arquitetura.desc=
 arquitetura.label=Arquitetura
 arquitetura.leaderboard=Arquitetura
 
-track.arquitetcorp.title=Arquitetura Corporativa
+track.arquitetcorp.title=Corporate Architecture
 track.arquitetcorp.desc=
-arquitetcorp.label=Arquitetura Corporativa
-arquitetcorp.leaderboard=Arquitetura Corporativa
+arquitetcorp.label=Corporate Architecture
+arquitetcorp.leaderboard=Corporate Architecture
 
 track.arquitetnet.title=Arquitetura .NET
 #track.arquitetnet.desc=Do monólito ao infinito
@@ -274,37 +274,37 @@ track.arquitetnet.desc=
 arquitetnet.label=Arquitetura .NET
 arquitetnet.leaderboard=Arquitetura .NET
 
-track.arquitetdotnet.title=Arquitetura .NET
+track.arquitetdotnet.title=.NET Architecture
 track.arquitetdotnet.desc=
-arquitetdotnet.label=Arquitetura .NET
-arquitetdotnet.leaderboard=Arquitetura .NET
+arquitetdotnet.label=.NET Architecture
+arquitetdotnet.leaderboard=.NET Architecture
 
-track.arquitetdados.title=Arquitetura de Dados
+track.arquitetdados.title=Data Architecture
 #track.arquitetdados.desc=Discutir e compartilhar experiências sobre arquitetura de dados RDBMS e NoSQL
 track.arquitetdados.desc=
-arquitetdados.label=Arquitetura de Dados
-arquitetdados.leaderboard=Arquitetura de Dados
+arquitetdados.label=Data Architecture
+arquitetdados.leaderboard=Data Architecture
 
-track.arquitetempres.title=Arquitetura Empresarial
+track.arquitetempres.title=Enterprise Architecture
 track.arquitetempres.desc=
-arquitetempres.label=Arquitetura Empresarial
-arquitetempres.leaderboard=Arquitetura Empresarial
+arquitetempres.label=Enterprise Architecture
+arquitetempres.leaderboard=Enterprise Architecture
 
-track.arquitetjava.title=Arquitetura Java
+track.arquitetjava.title=Java Architecture
 #track.arquitetjava.desc=Venha conhecer as novidades e tendências de arquitetura java para alavancar seus projetos.
 track.arquitetjava.desc=
-arquitetjava.label=Arquitetura Java
-arquitetjava.leaderboard=Arquitetura Java
+arquitetjava.label=Java Architecture
+arquitetjava.leaderboard=Java Architecture
 
-track.arquitetphp.title=Arquitetura PHP
+track.arquitetphp.title=PHP Architecture
 track.arquitetphp.desc=
-arquitetphp.label=Arquitetura PHP
-arquitetphp.leaderboard=Arquitetura PHP
+arquitetphp.label=PHP Architecture
+arquitetphp.leaderboard=PHP Architecture
 
-track.banco.title=Banco de Dados
+track.banco.title=Database
 track.banco.desc=
-banco.label=Banco de Dados
-banco.leaderboard=Banco de Dados
+banco.label=Database
+banco.leaderboard=Database
 
 track.bigdata.title=BigData
 #track.bigdata.desc=We strongly believe in data, we love data, we are data driven.
@@ -312,11 +312,11 @@ track.bigdata.desc=
 bigdata.label=BigData
 bigdata.leaderboard=BigData
 
-track.bigdataenosql.title=BigData e NoSQL
+track.bigdataenosql.title=BigData and NoSQL
 #track.bigdataenosql.desc=We strongly believe in data, we love data, we are data driven.
 track.bigdataenosql.desc=
-bigdataenosql.label=BigData e NoSQL
-bigdataenosql.leaderboard=BigData e NoSQL
+bigdataenosql.label=BigData and NoSQL
+bigdataenosql.leaderboard=BigData and NoSQL
 
 track.beginners.title=Beginners
 track.beginners.desc=
@@ -334,10 +334,10 @@ track.businessagility.desc=
 businessagility.label=Business Agility
 businessagility.leaderboard=Business Agility
 
-track.carreira.title=Carreira
+track.carreira.title=Career
 track.carreira.desc=
-carreira.label=Carreira
-carreira.leaderboard=Carreira
+carreira.label=Career
+carreira.leaderboard=Career
 
 track.chatbots.title=ChatBots
 #track.chatbots.desc=Chatbots e o futuro das interações conversacionais
@@ -351,21 +351,21 @@ track.cloud.desc=
 cloud.label=Cloud Computing
 cloud.leaderboard=Cloud Computing
 
-track.cloudecontainers.title=Cloud e Containers
+track.cloudecontainers.title=Cloud and Containers
 #track.cloudecontainers.desc=Caminhando nas nuvens sem turbulências!
 track.cloudecontainers.desc=
-cloudecontainers.label=Cloud e Containers
-cloudecontainers.leaderboard=Cloud e Containers
+cloudecontainers.label=Cloud and Containers
+cloudecontainers.leaderboard=Cloud and Containers
 
 track.cloudstack.title=Cloud Stack Collab
 track.cloudstack.desc=
 cloudstack.label=Cloud Stack Collab
 cloudstack.leaderboard=Cloud Stack Collab
 
-track.computacao.title=Computação Cognitiva
+track.computacao.title=Cognitive Computing
 track.computacao.desc=
-computacao.label=Computação Cognitiva
-computacao.leaderboard=Computação Cognitiva
+computacao.label=Cognitive Computing
+computacao.leaderboard=Cognitive Computing
 
 track.containers.title=Containers
 #track.containers.desc=Containers! É uma revolução em andamento que está modificando de como desenvolver, entregar e manter sistemas.
@@ -396,16 +396,16 @@ track.dthinking.desc=
 dthinking.label=Design Thinking
 dthinking.leaderboard=Design Thinking
 
-track.designcodigo.title=Design de Código
+track.designcodigo.title=Code Design
 #track.designcodigo.desc=Desenhando seu código para excelência.
 track.designcodigo.desc=
-designcodigo.label=Design de Código
-designcodigo.leaderboard=Design de Código
+designcodigo.label=Code Design
+designcodigo.leaderboard=Code Design
 
-track.designcodigoexp.title=Design de Código e XP
+track.designcodigoexp.title=Code Design and XP
 track.designcodigoexp.desc=
-designcodigoexp.label=Design de Código e XP
-designcodigoexp.leaderboard=Design de Código e XP
+designcodigoexp.label=Code Design and XP
+designcodigoexp.leaderboard=Code Design and XP
 
 track.devops.title=DevOps
 #track.devops.desc=Maximizando a integração entre equipes para entregar valor
@@ -425,10 +425,15 @@ track.devtest.desc=
 devtest.label=DevTest
 devtest.leaderboard=DevTest
 
-track.dinamicas.title=Dinâmicas e Facilitações
+track.diversidade.title=Diversity
+track.diversidade.desc=
+diversidade.label=Diversity
+diversidade.leaderboard=Diversity
+
+track.dinamicas.title=Dynamics and Facilitations
 track.dinamicas.desc=
-dinamicas.label=Dinâmicas e Facilitações
-dinamicas.leaderboard=Dinâmicas e Facilitações
+dinamicas.label=Dynamics and Facilitations
+dinamicas.leaderboard=Dynamics and Facilitations
 
 track.education.title=Education
 track.education.desc=
@@ -440,10 +445,10 @@ track.education40.desc=
 education40.label=Education 4.0
 education40.leaderboard=Education 4.0
 
-track.empreende.title=Empreendedorismo
+track.empreende.title=Entrepreneurship
 track.empreende.desc=
-empreende.label=Empreendedorismo
-empreende.leaderboard=Empreendedorismo
+empreende.label=Entrepreneurship
+empreende.leaderboard=Entrepreneurship
 
 track.extremeprog.title=Extreme Programming
 #track.extremeprog.desc=Princípios, valores e práticas para manter/evoluir software um software com qualidade
@@ -476,17 +481,17 @@ track.games.desc=
 games.label=Games
 games.leaderboard=Games
 
-track.gamesrealidade.title=Games, Realidade Virtual e Aumentada
+track.gamesrealidade.title=Games, Virtual and Augmented Reality
 #track.gamesrealidade.desc=O futuro dos jogos no Brasil!
 track.gamesrealidade.desc=
-gamesrealidade.label=Games, Realidade Virtual e Aumentada
-gamesrealidade.leaderboard=Games, Realidade Virtual e Aumentada
+gamesrealidade.label=Games, Virtual and Augmented Reality
+gamesrealidade.leaderboard=Games, Virtual and Augmented Reality
 
-track.gestaoprod.title=Gestão de Produtos
+track.gestaoprod.title=Product Management
 #track.gestaoprod.desc=Para criar e evoluir produtos que as pessoas amam
 track.gestaoprod.desc=
-gestaoprod.label=Gestão de Produtos
-gestaoprod.leaderboard=Gestão de Produtos
+gestaoprod.label=Product Management
+gestaoprod.leaderboard=Product Management
 
 track.golang.title=Go
 #track.golang.desc=A internet é feita em Go
@@ -494,44 +499,44 @@ track.golang.desc=
 golang.label=Go
 golang.leaderboard=Go
 
-track.impressao.title=Impressão 3D
+track.impressao.title=3D Printing
 track.impressao.desc=
-impressao.label=Impressão 3D
-impressao.leaderboard=Impressão 3D
+impressao.label=3D Printing
+impressao.leaderboard=3D Printing
 
-track.infraagil.title=Infraestrutura Ágil
+track.infraagil.title=Agile Infrastructure
 track.infraagil.desc=
-infraagil.label=Infraestrutura Ágil
-infraagil.leaderboard=Infraestrutura Ágil
+infraagil.label=Agile Infrastructure
+infraagil.leaderboard=Agile Infrastructure
 
-track.inovacao.title=Inovação
+track.inovacao.title=Innovation
 #track.inovacao.desc=Inovação, tendências e futurismo
 track.inovacao.desc=
-inovacao.label=Inovação
-inovacao.leaderboard=Inovação
+inovacao.label=Innovation
+inovacao.leaderboard=Innovation
 
-track.inovacaosocialempreend.title=Inovação Social e Empreendedorismo
-#track.inovacaosocialempreend.desc=Inovação Social e Empreendedorismo
+track.inovacaosocialempreend.title=Social Innovation and Entrepreneurship
+#track.inovacaosocialempreend.desc=Social Innovation and Entrepreneurship
 track.inovacaosocialempreend.desc=
-inovacaosocialempreend.label=Inovação Social e Empreendedorismo
-inovacaosocialempreend.leaderboard=Inovação Social e Empreendedorismo
+inovacaosocialempreend.label=Social Innovation and Entrepreneurship
+inovacaosocialempreend.leaderboard=Social Innovation and Entrepreneurship
 
-track.intelartif.title=Inteligência Artificial
+track.intelartif.title=Artificial Intelligence
 #track.intelartif.desc=A inteligência artificial poderá revolucionar a humanidade como nunca se ouviu falar antes.
 track.intelartif.desc=
-intelartif.label=Inteligência Artificial
-intelartif.leaderboard=Inteligência Artificial
+intelartif.label=Artificial Intelligence
+intelartif.leaderboard=Artificial Intelligence
 
-track.intelartifemachine.title=Inteligência Artificial e Machine Learning
+track.intelartifemachine.title=Artificial Intelligence and Machine Learning
 track.intelartifemachine.desc=
-intelartifemachine.label=Inteligência Artificial e Machine Learning
-intelartifemachine.leaderboard=Inteligência Artificial e Machine Learning
+intelartifemachine.label=Artificial Intelligence and Machine Learning
+intelartifemachine.leaderboard=Artificial Intelligence and Machine Learning
 
-track.iot.title=Internet das Coisas
+track.iot.title=Internet of Things
 #track.iot.desc=Já vivemos num mundo conectado à Internet, agora esse mundo passa a ser integrado as nossas coisas do dia-a-dia. Se algo poderá ser conectado à Internet, será!
 track.iot.desc=
-iot.label=Internet das Coisas
-iot.leaderboard=Internet das Coisas
+iot.label=Internet of Things
+iot.leaderboard=Internet of Things
 
 track.ios.title=iOS
 #track.ios.desc=O maravilhoso mundo mágico da Apple.
@@ -561,31 +566,26 @@ track.javascript.desc=
 javascript.label=JavaScript
 javascript.leaderboard=JavaScript
 
-track.javascriptenodejs.title=JavaScript e Node.js
+track.javascriptenodejs.title=JavaScript and Node.js
 track.javascriptenodejs.desc=
-javascriptenodejs.label=JavaScript e Node.js
-javascriptenodejs.leaderboard=JavaScript e Node.js
+javascriptenodejs.label=JavaScript and Node.js
+javascriptenodejs.leaderboard=JavaScript and Node.js
 
-track.kanban.title=Kanban e Lean
+track.kanban.title=Kanban and Lean
 #track.kanban.desc=A busca da eficiência e eficácia utilizando o pensamento Lean (Enxuto) e a visão de fluxo do Kanban.
 track.kanban.desc=
-kanban.label=Kanban e Lean
-kanban.leaderboard=Kanban e Lean
+kanban.label=Kanban and Lean
+kanban.leaderboard=Kanban and Lean
 
 track.kotlin.title=Kotlin
 track.kotlin.desc=
 kotlin.label=Kotlin
 kotlin.leaderboard=Kotlin
 
-track.linux.title=Linux Embarcado
+track.linux.title=Linux Embedded
 track.linux.desc=
-linux.label=Linux Embarcado
-linux.leaderboard=Linux Embarcado
-
-track.diversidade.title=Diversidade
-track.diversidade.desc=
-diversidade.label=Diversidade
-diversidade.leaderboard=Diversidade
+linux.label=Linux Embedded
+linux.leaderboard=Linux Embedded
 
 track.lgpd.title=LGPD
 #track.lgpd.desc=
@@ -593,20 +593,20 @@ track.lgpd.desc=
 lgpd.label=LGPD
 lgpd.leaderboard=LGPD
 
-track.loungediversidade.title=Lounge +Diversidade
-track.loungediversidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
-loungediversidade.label=Lounge +Diversidade
-loungediversidade.leaderboard=Lounge +Diversidade
+track.loungediversidade.title=Lounge +Diversity
+track.loungediversidade.desc=Women, LGBTQIA+, Acessibility and Racial
+loungediversidade.label=Lounge +Diversity
+loungediversidade.leaderboard=Lounge +Diversity
 
-track.loungediversidadecarreiras.title=Lounge +Diversidade e Carreiras
-track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibilidade e Racial e Carreiras
-loungediversidadecarreiras.label=Lounge +Diversidade e Carreiras
-loungediversidadecarreiras.leaderboard=Lounge +Diversidade e Carreiras
+track.loungediversidadecarreiras.title=Lounge +Diversity and Career
+track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibility and Racial and Career
+loungediversidadecarreiras.label=Lounge +Diversity and Career
+loungediversidadecarreiras.leaderboard=Lounge +Diversity and Career
 
-track.loungediversidadeacessibilidade.title=Lounge +Diversidade e Acessibilidade
-track.loungediversidadeacessibilidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
-loungediversidadeacessibilidade.label=Lounge +Diversidade e Acessibilidade
-loungediversidadeacessibilidade.leaderboard=Lounge +Diversidade e Acessibilidade
+track.loungediversidadeacessibilidade.title=Lounge +Diversity and Acessibility
+track.loungediversidadeacessibilidade.desc=Women, LGBTQIA+, Acessibility and Racial
+loungediversidadeacessibilidade.label=Lounge +Diversity and Acessibility
+loungediversidadeacessibilidade.leaderboard=Lounge +Diversity and Acessibility
 
 track.machine.title=Machine Learning
 #track.machine.desc=Future with Machine Learning
@@ -614,21 +614,21 @@ track.machine.desc=
 machine.label=Machine Learning
 machine.leaderboard=Machine Learning
 
-track.management.title=Management 3.0 e Gestão Ágil
+track.management.title=Management 3.0 and Agile Management
 #track.management.desc=Inovação, Liderança e Gestão
 track.management.desc=
-management.label=Management 3.0 e Gestão Ágil
-management.leaderboard=Management 3.0 e Gestão Ágil
+management.label=Management 3.0 and Agile Management
+management.leaderboard=Management 3.0 and Agile Management
 
 track.management30.title=Management 3.0
 track.management30.desc=
 management30.label=Management 3.0
 management30.leaderboard=Management 3.0
 
-track.marketing.title=Marketing Digital e Growth Hacking
+track.marketing.title=Digital Marketing and Growth Hacking
 track.marketing.desc=
-marketing.label=Marketing Digital e Growth Hacking
-marketing.leaderboard=Marketing Digital e Growth Hacking
+marketing.label=Digital Marketing and Growth Hacking
+marketing.leaderboard=Digital Marketing and Growth Hacking
 
 track.microservices.title=Microservices
 #track.microservices.desc=Os desafios da arquitetura de Microservices posto em prática.
@@ -636,10 +636,10 @@ track.microservices.desc=
 microservices.label=Microservices
 microservices.leaderboard=Microservices
 
-track.mobileandroidios.title=Mobile, Android e iOS
+track.mobileandroidios.title=Mobile, Android and iOS
 track.mobileandroidios.desc=
-mobileandroidios.label=Mobile, Android e iOS
-mobileandroidios.leaderboard=Mobile, Android e iOS
+mobileandroidios.label=Mobile, Android and iOS
+mobileandroidios.leaderboard=Mobile, Android and iOS
 
 track.mobile.title=Mobile
 track.mobile.desc=
@@ -673,10 +673,10 @@ track.phpessencial.desc=
 phpessencial.label=PHP Essencial
 phpessencial.leaderboard=PHP Essencial
 
-track.pfuncional.title=Programação Funcional
+track.pfuncional.title=Functional Programming
 track.pfuncional.desc=
-pfuncional.label=Programação Funcional
-pfuncional.leaderboard=Programação Funcional
+pfuncional.label=Functional Programming
+pfuncional.leaderboard=Functional Programming
 
 track.python.title=Python
 #track.python.desc=Venha descobrir as infinitas áreas e possibilidades com Python
@@ -689,20 +689,20 @@ track.raddelphic.desc=
 raddelphic.label=RAD: Delphi_C++
 raddelphic.leaderboard=RAD: Delphi_C++
 
-track.realidade.title=Realidade Virtual e Aumentada
+track.realidade.title=Virtual and Augmented Reality
 track.realidade.desc=
-realidade.label=Realidade Virtual e Aumentada
-realidade.leaderboard=Realidade Virtual e Aumentada
+realidade.label=Virtual and Augmented Reality
+realidade.leaderboard=Virtual and Augmented Reality
 
-track.requisitos.title=Requisitos Ágeis
+track.requisitos.title=Agile Requirements
 track.requisitos.desc=
-requisitos.label=Requisitos Ágeis
-requisitos.leaderboard=Requisitos Ágeis
+requisitos.label=Agile Requirements
+requisitos.leaderboard=Agile Requirements
 
-track.rhagil.title=RH Ágil
+track.rhagil.title=Agile HR
 track.rhagil.desc=
-rhagil.label=RH Ágil
-rhagil.leaderboard=RH Ágil
+rhagil.label=Agile HR
+rhagil.leaderboard=Agile HR
 
 track.ruby.title=Ruby
 track.ruby.desc=
@@ -714,20 +714,20 @@ track.rust.desc=
 rust.label=Rust
 rust.leaderboard=Rust
 
-track.saude40.title=Saúde 4.0
+track.saude40.title=Health 4.0
 track.saude40.desc=
-saude40.label=Saúde 4.0
-saude40.leaderboard=Saúde 4.0
+saude40.label=Health 4.0
+saude40.leaderboard=Health 4.0
 
-track.seguranca.title=Segurança
+track.seguranca.title=Security
 track.seguranca.desc=
-seguranca.label=Segurança
-seguranca.leaderboard=Segurança
+seguranca.label=Security
+seguranca.leaderboard=Security
 
-track.segurancaecripto.title=Segurança e Criptografia
+track.segurancaecripto.title=Security and Cryptography
 track.segurancaecripto.desc=
-segurancaecripto.label=Segurança e Criptografia
-segurancaecripto.leaderboard=Segurança e Criptografia
+segurancaecripto.label=Security and Cryptography
+segurancaecripto.leaderboard=Security and Cryptography
 
 track.softwaresecurity.title=Software Security
 track.softwaresecurity.desc=
@@ -759,22 +759,22 @@ track.tdcinspire.desc=Hackday para jovens, terceiro ano do ensino médio, escola
 tdcinspire.label=TDC Inspire
 tdcinspire.leaderboard=TDC Inspire
 
-track.testes.title=Testes
+track.testes.title=Tests
 #track.testes.desc=Qualidade de Software como princípio
 track.testes.desc=
-testes.label=Testes
-testes.leaderboard=Testes
+testes.label=Tests
+testes.leaderboard=Tests
 
-track.transfdigital.title=Transformação Digital
+track.transfdigital.title=Digital Transformation
 #track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
 track.transfdigital.desc=
-transfdigital.label=Transformação Digital
-transfdigital.leaderboard=Transformação Digital
+transfdigital.label=Digital Transformation
+transfdigital.leaderboard=Digital Transformation
 
-track.transdiginovacao.title=Transformação Digital e Inovação
+track.transdiginovacao.title=Digital Transformation and Innovation
 track.transdiginovacao.desc=
-transdiginovacao.label=Transformação Digital e Inovação
-transdiginovacao.leaderboard=Transformação Digital e Inovação
+transdiginovacao.label=Digital Transformation and Innovation
+transdiginovacao.leaderboard=Digital Transformation and Innovation
 
 track.university.title=University
 track.university.desc=
