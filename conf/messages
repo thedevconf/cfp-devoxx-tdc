@@ -820,6 +820,16 @@ track.xp.desc=
 xp.label=XP
 xp.leaderboard=XP
 
+track.futuredevelopment.title=The Future of Development
+track.futuredevelopment.desc=Alguns exemplos de tópicos que estamos olhando nesta trilha: Languages, APIs, Testing, DevOps, Cloud, Containers, AI/ML, Web, Mobile, Security
+futuredevelopment.label=The Future of Development
+futuredevelopment.leaderboard=The Future of Development
+
+track.futurearchitecture.title=The Future of Architecture
+track.futurearchitecture.desc=Alguns exemplos de tópicos que estamos olhando nesta trilha: Agile, Architectures, Microservices, Product creation, Design thinking, Lean processes, Digital transformation, Data Science, UX, Management
+futurearchitecture.label=The Future of Architecture
+futurearchitecture.leaderboard=The Future of Architecture
+
 # confirm import
 confirm.import.title=Criar seu perfil de Palestrante
 confirm.import.save=Gravar
