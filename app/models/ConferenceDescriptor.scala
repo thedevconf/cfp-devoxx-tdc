@@ -123,12 +123,10 @@ object ConferenceDescriptor {
   object ConferenceProposalTypes {
 
     val CONF = ProposalType(id = "pbig", label = "palestradebate.label")
-
     val BOF = ProposalType(id = "pmeia", label = "meiapalestra.label")
-
     val QUICK = ProposalType(id = "pmini", label = "minipalestra.label")
-
     val IGNITE= ProposalType(id = "prel", label = "relampago.label")
+    val ONLINE = ProposalType(id = "ponline", label = "palestraonline.label")
 
     val ALL = List(CONF, BOF, QUICK)
 
@@ -137,6 +135,7 @@ object ConferenceDescriptor {
       case "pmeia" => BOF
       case "pmini" => QUICK
       //case "prel" => IGNITE
+      //case "ponline" => ONLINE
     }
 
   }
@@ -149,9 +148,11 @@ object ConferenceDescriptor {
       chosablePreferredDay = true)
     val BOF = ProposalConfiguration(id = "pmeia", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-microphone",
       chosablePreferredDay = true)
-    val QUICK = ProposalConfiguration(id = "pmini", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-microphone",
+    val QUICK = ProposalConfiguration(id = "pmini", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-fast-forward",
       chosablePreferredDay = true)
     val IGNITE = ProposalConfiguration(id = "prel", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-fast-forward",
+      chosablePreferredDay = true)
+    val ONLINE = ProposalConfiguration(id = "ponline", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-microphone",
       chosablePreferredDay = true)
 
     val ALL = List(CONF, BOF, QUICK )
