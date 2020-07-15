@@ -168,6 +168,8 @@ minipalestra.label=Mini talk (15 min)
 minipalestra.label.simple=15 min
 relampago.label=Lightning talk (5 min)
 relampago.label.simple=5 min
+palestraonline.label=Online talk (35 min)
+palestraonline.label.simple=35 min
 
 # Bug report
 Issue.report=Report an issue
@@ -1109,6 +1111,7 @@ pbig=Talk or Debate (50 min)
 pmeia=Short talk (25 min)
 pmini=Mini Talk (15 min)
 prel=Lightning Talk (5 min)
+ponline=Online talk (35 min)
 
 conf=Conference
 uni=University

@@ -168,6 +168,8 @@ minipalestra.label=Mini palestra (15 min)
 minipalestra.label.simple=15 min
 relampago.label=Palestra relâmpago (5 min)
 relampago.label.simple=5 min
+palestraonline.label=Palestra online (35 min)
+palestraonline.label.simple=35 min
 
 # Bug report
 Issue.report=Reportar uma ocorrência
@@ -1109,6 +1111,7 @@ pbig=Palestra ou Debate (50 min)
 pmeia=Palestra curta (25 min)
 pmini=Mini palestra (15 min)
 prel=Palestra relâmpago (5 min)
+ponline=Palestra online (35 min)
 
 conf=Conference
 uni=University
