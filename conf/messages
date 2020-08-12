@@ -736,6 +736,11 @@ track.softwaresecurity.desc=
 softwaresecurity.label=Software Security
 softwaresecurity.leaderboard=Software Security
 
+track.softwaresecurityelgpd.title=Software Security e LGPD
+track.softwaresecurityelgpd.desc=
+softwaresecurityelgpd.label=Software Security e LGPD
+softwaresecurityelgpd.leaderboard=Software Security e LGPD
+
 track.serverless.title=Serverless
 track.serverless.desc=
 serverless.label=Serverless
