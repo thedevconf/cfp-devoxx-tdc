@@ -134,8 +134,8 @@ object ConferenceDescriptor {
       case "pbig" => CONF
       case "pmeia" => BOF
       case "pmini" => QUICK
-      //case "prel" => IGNITE
-      //case "ponline" => ONLINE
+      case "prel" => IGNITE
+      case "ponline" => ONLINE
     }
 
   }
