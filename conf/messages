@@ -868,7 +868,11 @@ editProfile.save=Gravar
 
 conduct=Código de conduta
 conduct.help=Queremos te avisar que o #TheDevConf também respeita um código de conduta e que nós levamos isto a sério, então por favor leia o texto nesta página:
-conduct.link=http://thedevconf.com.br/conduta
+conduct.link=https://thedevconf.com/conduta
+
+privacy=Política de Privacidade
+privacy.help=Conheça a política de privacidade do #TheDevConf e saiba como seus dados são tratados por nós com responsabilidade a seguir:
+privacy.link=https://thedevconf.com/privacidade
 
 # Home
 table.pres.title=Título
