@@ -39,8 +39,8 @@
     <logger name="net.sf.ehcache" level="WARN"/>
     <logger name="org.apache.commons.pool" level="INFO"/>
 
-    <root level="ERROR">
-        <!--appender-ref ref="STDOUT"/-->
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
 

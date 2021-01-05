@@ -77,6 +77,9 @@ GET           /login/google                                                     
 GET           /googleoauth2callback                                             controllers.Authentication.callbackGoogle
 POST          /googleoauth2callback                                             controllers.Authentication.callbackGoogle
 
+# New Google Sign In
+POST          /gtokensignin                                                      controllers.Authentication.googleTokensignin
+
 GET           /bug                                                              controllers.Application.bugReport
 POST          /bug/new                                                          controllers.Application.submitIssue()
 

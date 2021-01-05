@@ -44,6 +44,13 @@ import play.api.Play.current
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier
+import com.google.api.client.json.jackson2.JacksonFactory 
+import com.google.api.client.http.javanet.NetHttpTransport
+import java.util.Collections
+
 /**
  * Signup and Signin.
  *
@@ -768,6 +775,65 @@ object Authentication extends Controller {
       , secure = ConferenceDescriptor.isHTTPSEnabled
       , httpOnly = true)
   }
+  
+  lazy val transport = new NetHttpTransport()
+  lazy val jsonFactory = new JacksonFactory()
+  lazy val googleClientId = Play.current.configuration.getString("google.client_id").getOrElse("")
+  lazy val audience = Collections.singletonList(googleClientId)
+  lazy val verifier = new GoogleIdTokenVerifier.Builder(transport,jsonFactory).setAudience(audience).build()
+  
+  def googleTokensignin = Action {
+    implicit request => {
+      val body: AnyContent = request.body
+      val textBody: Option[String] = body.asText
+      val otoken = textBody
+      play.Logger.info("Google Sign-in with token "+otoken.map(t=>t.toString).getOrElse("NO TOKEN"))
+      
+      val result:play.api.mvc.Result = otoken.map { idTokenString =>
+        // (Receive idTokenString by HTTPS POST)
+        var res:play.api.mvc.Result = BadRequest("Unable to complete the Google Sign In")  
+        val idToken = verifier.verify(idTokenString)
+        if (idToken != null) {
+          val payload = idToken.getPayload()
+          // Print user identifier
+          val userId = payload.getSubject();
+          play.Logger.info("User ID: " + userId)
+
+          // Get profile information from payload
+          val email = payload.getEmail();
+          val sname = payload.get("name").toString
+          val name = Option(sname)
+          val pictureUrl = Option(payload.get("picture").toString)
+          val locale = Option(payload.get("locale").toString)
+          val sfamilyName = payload.get("family_name").toString
+          val familyName = Option(sfamilyName)
+          val givenName = Option(payload.get("given_name").toString)
+          val user = Webuser.findByEmail(email)
+          
+          res = user match {
+              case Some(w) => {
+                val cookie = createCookie(w)
+                val w_uuid = w.uuid
+                play.Logger.info("Google Sign-in successful with existing profile ["+w_uuid+"].")
+                Ok("").withSession("uuid" -> w_uuid).withCookies(cookie);
+              }
+              case None => {
+                play.Logger.info("Google Sign-in successful with new profile.")
+                val newWebuser = Webuser.createSpeaker(email, sname, sfamilyName)
+                Webuser.saveAndValidateWebuser(newWebuser)
+                val cookie = createCookie(newWebuser)
+                val w_uuid = newWebuser.uuid
+                play.Logger.info("New profile saved and validated ["+w_uuid+"]. Ready to go /home.")
+                Ok("").withSession("uuid" -> w_uuid).withCookies(cookie);
+              }
+          }
+        } 
+        res
+      }.getOrElse(BadRequest("No token for the Google Sign In"))
+      result
+    }
+  }
+  
 }
 
 case class GoogleToken(access_token: String, token_type: String, expires_in: Long, id_token: String)

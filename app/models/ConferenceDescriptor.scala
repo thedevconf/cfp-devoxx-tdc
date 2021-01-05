@@ -280,8 +280,8 @@ object ConferenceDescriptor {
 
   private val defaultConference = TDCConference(
     eventCode = "",
-    title = "",
-    shortTitle = "TDC 2019 POA",
+    title = "TDC Development Environment",
+    shortTitle = "TDC 202X ED0",
     localisation = "",
     cfpOpenDate = LocalDate.now(),
     cfpCloseDate = LocalDate.now(),
