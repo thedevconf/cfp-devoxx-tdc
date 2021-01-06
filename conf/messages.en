@@ -868,7 +868,11 @@ editProfile.save=Save
 
 conduct=Code of conduct
 conduct.help=We would like to let you know that #TheDevConf also respects a code of conduct and that we take this seriously, so please read the text on this page:
-conduct.link=http://thedevconf.com.br/conduta
+conduct.link=https://thedevconf.com/conduta
+
+privacy=Privacy Policy
+privacy.help=Know the #TheDevConf's privacy policy and learn how your data is handled by us with responsability below:
+privacy.link=https://thedevconf.com/privacidade
 
 # Home
 table.pres.title=Title
