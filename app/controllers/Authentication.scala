@@ -818,7 +818,7 @@ object Authentication extends Controller {
                 Ok("").withSession("uuid" -> w_uuid).withCookies(cookie);
               }
               case None => {
-                play.Logger.info("Google Sign-in successful with new profile.")
+                play.Logger.info("Google Sign-in successful with new profile.") 
                 val newWebuser = Webuser.createSpeaker(email, sname, sfamilyName)
                 Webuser.saveAndValidateWebuser(newWebuser)
                 val cookie = createCookie(newWebuser)
