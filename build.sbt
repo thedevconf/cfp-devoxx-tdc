@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
   , "commons-io" % "commons-io" % "2.4"
   , "commons-codec" % "commons-codec" % "1.10" // for new Base64 that has support for String
   , "org.ocpsoft.prettytime" % "prettytime" % "3.2.4.Final"
-  , "com.github.rjeschke" % "txtmark" % "0.13" // Used for Markdown in Proposal
+  , "com.github.rjeschke" % "txtmark" % "0.13" // Used for Markdown in Proposal 
   //, "org.scalamock" %% "scalamock-specs2-support" % "3.0.1" % "test"
   , "com.google.api-client" % "google-api-client" % "1.30.10"
   , "com.amazonaws" % "aws-java-sdk-s3" % "1.11.327"
