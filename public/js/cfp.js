@@ -52,19 +52,20 @@ $( document ).ready(function() {
       });
       
       function attachSignin(element) {
-        console.log("Attaching Sign In Element "+element.id);
-        auth2.attachClickHandler(element, {},
-          onSignIn, 
-          function(error) {
-            console.log(JSON.stringify(error, undefined, 2));
-          });
+        if(element){
+          console.log("Attaching Sign-In to element "+element.id);
+          auth2.attachClickHandler(element, {},
+            onSignIn, 
+            function(error) {
+              console.log(JSON.stringify(error, undefined, 2));
+            });
         }
+      }
       
       var sign_in_el = document.getElementById("btn-google-signin");
-      console.log("Attaching custom sign-ing element "+sign_in_el);
-      if(sign_in_el)
-        attachSignin(sign_in_el);
-      
+      attachSignin(sign_in_el);     
+      var sign_up_el = document.getElementById("btn-google-signup");
+      attachSignin(sign_up_el);
     });
   };
   
