@@ -128,7 +128,8 @@ object ConferenceDescriptor {
     val IGNITE= ProposalType(id = "prel", label = "relampago.label")
     val ONLINE = ProposalType(id = "ponline", label = "palestraonline.label")
 
-    val ALL = List(CONF, BOF, QUICK)
+    //val ALL = List(CONF, BOF, QUICK )
+    val ALL = List(ONLINE)
 
     def valueOf(id: String): ProposalType = id match {
       case "pbig" => CONF
@@ -155,7 +156,9 @@ object ConferenceDescriptor {
     val ONLINE = ProposalConfiguration(id = "ponline", slotsCount = 0, givesSpeakerFreeEntrance = true, freeEntranceDisplayed = true, htmlClass = "icon-microphone",
       chosablePreferredDay = true)
 
-    val ALL = List(CONF, BOF, QUICK )
+    //val ALL = List(CONF, BOF, QUICK )
+    val ALL = List(ONLINE)
+
   }
 
   // Configure here all your Conference's tracks.
@@ -206,7 +209,7 @@ object ConferenceDescriptor {
   
   def current() = {
     if(selectedDescriptor.isEmpty) {
-      selectConference("TDC2019POA")
+      selectConference("TDC2021ED1")
     } 
     selectedDescriptor.get
   }
@@ -229,7 +232,7 @@ object ConferenceDescriptor {
         conferenceUrls = ConferenceUrls(
           registration = conference.registrationUrl,
           confWebsite = "http:/thedevconf.com.br",
-          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-poa.thedevconf.com.br"),
+          cfpHostname = Play.current.configuration.getString("cfp.hostname").getOrElse("cfp-edicao1.thedevconf.com.br"),
           schedule = conference.scheduleUrl
         ),
         timing = ConferenceTiming(
@@ -280,8 +283,8 @@ object ConferenceDescriptor {
 
   private val defaultConference = TDCConference(
     eventCode = "",
-    title = "TDC Development Environment",
-    shortTitle = "TDC 202X ED0",
+    title = "",
+    shortTitle = "TDC 2021 1ª edição",
     localisation = "",
     cfpOpenDate = LocalDate.now(),
     cfpCloseDate = LocalDate.now(),
