@@ -721,6 +721,11 @@ track.saude40.desc=
 saude40.label=Saúde 4.0
 saude40.leaderboard=Saúde 4.0
 
+track.servicedesign.title=Service Design
+track.servicedesign.desc=
+servicedesign.label=Service Design
+servicedesign.leaderboard=Service Design
+
 track.seguranca.title=Segurança
 track.seguranca.desc=
 seguranca.label=Segurança
