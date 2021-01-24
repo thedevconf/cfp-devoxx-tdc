@@ -50,4 +50,6 @@ run.bat
 
 env.sh
 run-be.sh
-docker-compose.yml
+# docker-compose.yml
+
+nohup.out

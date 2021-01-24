@@ -2,23 +2,22 @@
 
 Olá, @firstName,
 
-Agradecemos mais uma vez a submissão da sua palestra!
+Agradecemos muito pela sua submissão!
+Recebemos centenas de palestras e como você sabe o @ConferenceDescriptor.current().naming.title será realizado em uma versão digital.
+Essa mudança no formato do evento reduziu consideravelmente o número de palestras selecionadas por trilha, fazendo com que muitos conteúdos que gostaríamos de selecionar ficassem de fora.
 
-Lamentamos informar que INFELIZMENTE a sua palestra NÃO foi SELECIONADA:
-    Título: @proposal.title
-    Trilha: @Messages(proposal.track.label)
+Lamentamos informar que INFELIZMENTE a sua palestra NÃO FOI SELECIONADA:
+Título: @proposal.title
+Trilha: @Messages(proposal.track.label)
 
-Recebemos centenas de propostas e os slots disponíveis são limitados.
+Esperamos que não haja desapontamento com o evento e agradecemos muito sua proposta.
+Não desanime, participe das próximas chamadas de trabalhos das edições do TheDevConf.
 
-Esperamos que não haja desapontamento com o evento e agradecemos seu investimento de tempo e energia para participar do
-Call4Papers. E também esperamos que participe da chamada de trabalhos das próximas edições do TheDevConf.
-
-A diretora geral do TDC, Yara Senger, gravou uma mensagem especialmente para você, assista clicando no link a seguir:
+A diretora geral do TDC, Yara Senger, gravou uma mensagem especialmente para você, assista no link a seguir:
 https://www.youtube.com/watch?v=tY-iFq-6WTI
 
 Considerando a sua participação no Call4Papers, manteremos o preço promocional da fase 1 das inscrições.
-Para isso, basta responder este e-mail, falando de quantas trilhas quer participar e receberá
-o código promocional válido por 10 dias.
+Para isso, basta responder este e-mail, falando de quantas trilhas quer participar e receberá o código promocional válido por 10 dias.
 
 Atenciosamente,
 
@@ -28,15 +27,16 @@ Equipe @ConferenceDescriptor.current().naming.title
 
 Hi, @firstName,
 
-We're sorry to inform you that your proposal was NOT SELECTED,keep in mind that
-we received hundreds of proposals and the available slots are very limited.
+Thank you a lot for your submission!
+We received hundreds of proposals and as you know @ConferenceDescriptor.current().naming.title will be held in a digital version.
+This change in the format has considerably reduced the number of selected talks per track, that way many contents that we would like to select were left out.
 
-Proposition title : @proposal.title, Track: @Messages(proposal.track.label).
+We're sorry to inform you that your proposal was NOT SELECTED:
+Title : @proposal.title
+Track: @Messages(proposal.track.label).
 
-We would like to thank you sincerely for your proposal.
-Hopefully we can still welcome you at the event, registration details:
+We hope there will be no disappointment with the event and we are very grateful for your proposal.
+Do not be discouraged, participate in the next Call4Papers from TheDevConf editions.
 
-@ConferenceDescriptor.current().conferenceUrls.registration
-
-Kind regards,
+Best regards,
 The @ConferenceDescriptor.current().naming.title team

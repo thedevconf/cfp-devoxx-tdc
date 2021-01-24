@@ -4,46 +4,41 @@ Bem-vindo ao @ConferenceDescriptor.current().naming.title
 ----------------------------------------------------------------------------------------------------------------------
 Olá, @firstName,
 
-Agradecemos mais uma vez a submissão da sua palestra! O resultado foi incrível, recebemos centenas de palestras!
-Estamos muito contentes em informar que a sua proposta para o @ConferenceDescriptor.current().naming.title foi SELECIONADA :
+Estamos muito contentes em informar que a sua palestra foi SELECIONADA:
 Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
-Formato: @Messages(proposal.talkType.id)
+Formato: 35 minutos•
+
+•IMPORTANTE: Vamos trabalhar apenas com palestras de 35 minutos, sem exceções, por isso pedimos que ajuste seu material e treine dentro deste tempo estipulado, nos ajudando assim a não acontecer atrasos na Trilha. Contamos com seu comprometimento! ;)
+
 
 ATENÇÃO! Ações necessárias
 --------------------------
 
 1. Aceitar ou recusar
-Você deve agora validar/aceitar ou recusar os termos e condições de participação, assim como o código de conduta, e confirmar que vai fazer esta apresentação o MAIS RÁPIDO POSSÍVEL:
-  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
-  http://www.thedevelopersconference.com.br/aceite
-  http://www.thedevelopersconference.com.br/conduta
-ATENÇÃO: Somente as palestras aceitas pelo sistema CFP serão publicadas no site, por isso pedimos que faça o quanto antes.
-As palestras não aceitas em até 5 dias úteis após esta notificação, serão canceladas e outra ocupará seu lugar.
+Para palestrar no TDC, você deve estar de acordo com os termos e condições de participação (https://thedevconf.com/aceite)
+e o código de conduta do evento (https://thedevconf.com/conduta).
+Confirme a sua participação através desse link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+Para ter a sua palestra publicada no site do TDC, é necessário aceitar sua aprovação no sistema CFP em até 5 dias úteis.
 
 2. Sua minibio e foto
-Caso não tenha preenchido o Call4Papers com todas as suas informações solicitadas, incluindo uma foto sua, pedimos a gentileza de fazê-lo neste momento.
+Para ter as suas informações completas no site do evento, preencha todos os campos, incluindo links e informações
+relevantes sobre você no seu perfil no Call4Papers. Não esqueça de incluir a sua foto.
 
 3. Questões sobre sua palestra
-Por favor, não responda este email. Envie qualquer comentário através do web site do CFP,
-e nossa equipe fará o possível para responder rapidamente.
+Por favor, não responda este email. Envie qualquer comentário através do web site do CFP
+e nossa equipe fará o possível para responder rapidamente:
   @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
-Para fazer a sua apresentação, disponibilizamos um  template em PowerPoint (uso não obrigatório):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2019/arquivos/template-TDC2019.ppt
+Caso queira, pode utilizar o template em Powerpoint do TDC que disponibilizamos em nosso site no menu “EXTRAS”.
 
 4. Cortesia para palestrantes
-Você gostaria de participar de outras trilhas do evento?
-Todos os palestrantes têm direito a 1 trilha por dia além daquela em que vai ministrar sua palestra.
-Você receberá o código promocional enviado pelo sistema e terá 10 dias para realizar a sua inscrição.
-Recomendamos que faça sua inscrição assim que receber seu código pois muitas trilhas lotam rápido.
+Como palestrante do @ConferenceDescriptor.current().naming.title você tem direito a 1 pacote intransferível de 2 Trilhas gratuitas. Além da Trilha em que você foi selecionado(a).
+BÔNUS: você ainda receberá 1 código com 4 pacotes cortesia para presentear 4 amigo(a)s de sua escolha.
+Ao aceitar palestrar no @ConferenceDescriptor.current().naming.title, você receberá as cortesias através do seu email (não é  automático).
 
 5. Compartilhe o evento
-Se você usa redes sociais, aproveitamos para te convidar a curtir as nossas:
-  http://facebook.com/TheDevelopersConference e http://twitter.com/TheDevConf
-E para ajudar-nos na divulgação do evento, acesse a página de banners digitais do nosso site:
-  http://www.thedevelopersconference.com.br/tdc/2019/banners-digitais
-
-Lembramos que o evento NÃO cobre os custos de deslocamento, hospedagem e alimentação dos palestrantes.
+Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no Facebook (https://facebook.com/TheDevelopersConference),
+Instagram (https://www.instagram.com/thedevconf/) e no Twitter (https://twitter.com/TheDevConf).
 
 Atenciosamente,
 
@@ -54,47 +49,42 @@ Welcome to @ConferenceDescriptor.current().naming.title
 ----------------------------------------------------------------------------------------------------------------------
 Hi, @firstName,
 
-Thanks again for your submission! The result was amazing, we have received hundreds of submissions!
-We're glad to inform you that your proposal has been APPROVED:
+We're glad to inform you that your talk has been SELECTED:
 Title: @proposal.title
-Track: @Messages(proposal.talkType.id)
-Format: @Messages(proposal.talkType.id)
+Track: @Messages(proposal.track.label)
+Format: 35 minutes•
+
+We will only work with 35-minute talks, without exceptions.
 
 ATTENTION! Required actions
 ---------------------------
 
 1. Accept or decline
-You must now validate/accept or decline the general terms and conditions, as well as the code of conduct, and confirm that you are still ok to do
-    this presentation AS SOON AS POSSIBLE:
- @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
-  http://www.thedevelopersconference.com.br/aceite
-  http://www.thedevelopersconference.com.br/conduta
-ATTENTION: Only talks accepted via CFP website will be published in TDC website, so we ask you to do it as soon as possible.
-Talks not accepted within 5 working days after this notification, will be cancelled and another one will take its place.
+To speak at TDC, you must comply whit the terms and conditions of participation (https://thedevconf.com/aceite)
+and the code of conduct of the event (https://thedevconf.com/conduta).
+Confirm your participation through this link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
+To have your talk published on TDC website, you must accept your approval in the CFP system within 5 business days.
 
 2. Your bio and picture
-In case you haven't filled all the information in your CFP profile, including a picture of yours, we kindly ask you to do it at this moment.
+To have your complete information on the event website, fill in all the fields, including links and relevant information
+about you on your Call4Papers profile. Don't forget to include your photo.
 
 3. Questions regarding your talk
-Please, do not respond to this email. Send any comment through the web interface, and our team will do its bests
-to respond quickly.
+Please, do not respond to this email. Send any comment through the web interface and our team will do its bests
+to respond quickly:
  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
-To prepare your presentation, we provide a PowerPoint template (not mandatory):
-  https://s3-sa-east-1.amazonaws.com/thedevconf/2019/arquivos/template-TDC2019.ppt
+If you want, you can use the TDC Powerpoint template that is available on our website in the menu “EXTRAS”.
 
 4. Reward for Speakers
-Would you like to participate in other event tracks?
-All speakers are entitled to 1 track a day beyond that which will deliver his talk.
-We recommend that you register as soon as you receive your code because many tracks sell out fast.
+As a @ConferenceDescriptor.current().naming.title speaker you are entitled to 1 package of 2 tracks.
+BONUS: you also receive 4 additional packages to give to 4 friends of your choice.
+Accepting a talk at @ConferenceDescriptor.current().naming.title, you will receive the courtesy via email. (not automatic)
 
 5. Share the event
-If you use social networks, take this opportunity to invite you to enjoy ours:
-  http://facebook.com/TheDevelopersConference and http://twitter.com/TheDevConf
-And to help us with the event, go to the digital banners page of our website:
-  http://www.thedevelopersconference.com.br/tdc/2019/banners-digitais
-
-We remind that the event does NOT cover travel costs, accommodation and meals of the speakers.
+If you use social networks, we take the opportunity to invite you to give your like in our page on Facebook
+(https://facebook.com/TheDevelopersConference), (https://www.instagram.com/thedevconf/) and Twitter (https://twitter.com/TheDevConf).
 
 Best regards,
 
 The @ConferenceDescriptor.current().naming.title team
+

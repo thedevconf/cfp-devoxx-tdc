@@ -40,7 +40,9 @@
                                 <p>@Html(Messages("index.txt2"))</p>
                                 <p>
                                     <a class="btn btn-default" href="@routes.Authentication.githubLogin()" title='@Messages("signin.github.title")'><i class="icon-github-sign"></i>
-                                    Github</a>
+                                    Github</a> 
+                                    
+                                    <!-- href="@routes.Authentication.googleLogin()"  -->
                                     <a id="btn-google-signin"
                                        class="btn btn-default"
                                        href="javascript:;" 
@@ -49,6 +51,7 @@
                                         Google</a>
                                     <a class="btn btn-default" href="@routes.Authentication.linkedinLogin()" title='@Messages("signin.linkedin.title")'><i class="icon-linkedin-sign"></i>
                                         LinkedIn</a>
+                                    
                                 </p>
                             </div>
                         </div>
@@ -64,6 +67,10 @@
                                 <p>@Html(Messages("index.signup3"))</p>
                                 <p><a class="btn btn-default" href="@routes.Authentication.githubLogin()" title='@Messages("signup.github.title")'><i class="icon-github-sign"></i>
                                     Github</a>
+                                    <!--
+                                    <a class="btn btn-default" href="@routes.Authentication.googleLogin()" title='@Messages("signup.google.title")'><i class="icon-google-plus-sign"></i>
+                                        Google</a>
+                                    -->
                                     <a id="btn-google-signup"
                                        class="btn btn-default"
                                        href="javascript:;" 
