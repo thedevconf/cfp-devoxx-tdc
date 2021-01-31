@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
   ,"redis.clients" % "jedis" % "2.1.0"
   ,"com.typesafe" %% "play-plugins-mailer" % "2.1.0"
   , "org.apache.commons" % "commons-lang3" % "3.1"
+  , "org.apache.commons" % "commons-csv" % "1.4"
   , "commons-io" % "commons-io" % "2.4"
   , "commons-codec" % "commons-codec" % "1.10" // for new Base64 that has support for String
   , "org.ocpsoft.prettytime" % "prettytime" % "3.2.4.Final"
