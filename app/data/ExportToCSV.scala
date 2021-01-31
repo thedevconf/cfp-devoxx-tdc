@@ -128,7 +128,7 @@ object ExportCSV extends App {
     val jedis = new Jedis(host, port )
     jedis.auth(password)
     val keys_java = jedis.keys("*")
-    val keys_set = keys_java.asScala
+    val keys_set = keys_java.asScala 
     val keys = keys_set.toList
     var index = 0
     var done = false
