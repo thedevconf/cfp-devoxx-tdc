@@ -54,11 +54,17 @@ object ExportCSV extends App {
   val PROPOSAL_EVENT = 0
   val PROPOSAL_CODE = 1
   val PROPOSAL_AUTHOR = 2
+  val PROPOSAL_TRACKS = 3
 
-  def getProposalRow(table: Table, eventCode: String, proposalCode: String) = {
+  def getProposalRow(db:DB, eventCode: String, proposalCode: String) = {
+    val table = getProposalsTable(db)
     val key = eventCode + KEY_SEP + proposalCode
     if (! table.contains(key)){
       val row = collection.mutable.Map[Int,String]()
+      row(PROPOSAL_EVENT) = eventCode
+      row(PROPOSAL_CODE) = proposalCode
+      row(PROPOSAL_AUTHOR) = "?AUTHOR?"
+      row(PROPOSAL_TRACKS) = "" 
       table += ( key -> row)
     }
     table(key)
@@ -66,22 +72,52 @@ object ExportCSV extends App {
 
   def ingestProposalByAuthor(jedis:Jedis, db: DB, key: String) = {
     val tokens = key.split(":")
-    if (tokens.size == 4){
-      println(s"Proposals:EVENT:ByAuthor:AUTHOR_UUUID [${key}]")
+    if (tokens.size == 4 && tokens(2) == "ByAuthor" ){
+      // println(s"OK Proposals:EVENT:ByAuthor:AUTHOR_UUUID [${key}]")
       val eventCode = tokens(1)
       val authorUUID = tokens(3)
-      val table = getProposalsTable(db)
       val smembers = jedis.smembers(key).asScala
       for (proposalCode <- smembers){
-        val proposalRow = getProposalRow(table,eventCode,proposalCode)
+        val proposalRow = getProposalRow(db,eventCode,proposalCode)
         proposalRow(PROPOSAL_AUTHOR) = authorUUID
       }
+    } else if (tokens.size == 3){
+      ignore()
+    } else {
+      println(s"??? Proposals [${key}]")
     }
   }
 
+  def ingestProposalByTrack(jedis:Jedis, db: DB, key: String) = {
+    val tokens = key.split(":")
+    if(tokens.size == 4){
+      val eventCode = tokens(1)
+      val trackCode = tokens(3)
+      val smembers = jedis.smembers(key).asScala
+      for (proposalCode <- smembers){
+        val proposalRow = getProposalRow(db,eventCode,proposalCode)
+        val proposalTracks = proposalRow.get(PROPOSAL_TRACKS).getOrElse(null)
+        if (proposalTracks.size > 0){
+          proposalRow(PROPOSAL_TRACKS) = s"$proposalTracks $trackCode"
+        }else {
+          proposalRow(PROPOSAL_TRACKS) = s"$trackCode"
+        }
+      }
+    }else {
+      println(s"? Proposals:EVENT_CODE:ByTrack... [$key]")
+    }
+  }
+
+  def ignore() = {}
+
   def ingestProposal(jedis:Jedis, db: DB, key: String) =
     key match {
+      case p if key.contains(":Dates:") => ignore() //zset of ?uuid
+      case p if key.contains(":Reviewed:ByProposal:") => ignore() //set of ?uuid
+      case p if key.contains(":Reviewed:ByAuthor:") => ignore() //set of ?uuid
+      case p if key.contains(":Votes:") => ignore() //set of ?uuid
       case p if key.contains(":ByAuthor:") => ingestProposalByAuthor(jedis, db , key)
+      case p if key.contains(":ByTrack:") => ingestProposalByTrack(jedis, db , key)
       case _ => println(s"PROPOSAL? [$key]")
   }
 
@@ -108,7 +144,9 @@ object ExportCSV extends App {
       val writer = new FileWriter(csvPath.toFile)
       val printer = new CSVPrinter(writer, CSVFormat.DEFAULT)
       for ( (key, row) <- table ){
-        val csvRow:java.lang.Iterable[String] = row.values.asJava
+        val sorted = row.toSeq.sortBy(_._1)
+        val iterable = sorted.map(_._2).asJava
+        val csvRow:java.lang.Iterable[String] = iterable
         printer.printRecord(csvRow)
       }
       printer.close()
