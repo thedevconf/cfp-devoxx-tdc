@@ -805,6 +805,17 @@ track.uxdesignthinking.desc=
 uxdesignthinking.label=UX e Design Thinking
 uxdesignthinking.leaderboard=UX e Design Thinking
 
+track.uxwriting.title=UX Writing
+track.uxwriting.desc=
+uxwriting.label=UX Writing
+uxwriting.leaderboard=UX Writing
+
+track.uidesign.title=UI Design de Interface
+track.uidesign.desc=
+uidesign.label=UI Design de Interface
+uidesign.leaderboard=UI Design de Interface
+
+
 track.web.title=Web
 track.web.desc=
 web.label=Web
