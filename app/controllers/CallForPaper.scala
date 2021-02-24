@@ -117,8 +117,11 @@ object CallForPaper extends SecureCFPController {
     implicit request =>
       val uuid = request.webuser.uuid
       Speaker.findByUUID(uuid).map {
-        speaker =>
-          Ok(views.html.CallForPaper.editProfile(speakerForm.fill(speaker), uuid))
+        speaker => {
+          val filledForm = speakerForm.fill(speaker)
+          play.Logger.debug("Loaded form data")
+          Ok(views.html.CallForPaper.editProfile(filledForm, uuid))
+        }
       }.getOrElse(Unauthorized("User not found"))
   }
 
@@ -473,17 +476,35 @@ object CallForPaper extends SecureCFPController {
         import java.io.File
 
         data.file("qqfile").map{ picture =>
-          picture.ref.moveTo(new File(S3.pictureSourceDir + picture.filename),replace = true)
+          var result = BadRequest(s"""{"success":false,"error":"Invalid changePicutre request."}""")
+          val picFileName = picture.filename
+          val picFile = S3.pictureSourceDir + picFileName
+          picture.ref.moveTo(new File(picFile),replace = true)
           val avatarUrl = S3.uploadPicture(userId,picture.filename)
-          Event.storeEvent(Event(userId, request.webuser.uuid, "Photo uploaded"))		  
-          Ok(s"""{
+          val webUserUUID = request.webuser.uuid
+          Event.storeEvent(Event(userId, webUserUUID, "Photo uploaded"))		  
+          play.Logger.info(s"Photo upload OK [${picFile}]")
+          Speaker.findByUUID(webUserUUID).map {
+            speaker => {
+             Speaker.update(webUserUUID,speaker.copy(avatarUrl = Option(avatarUrl)))
+             play.Logger.info(s"Speaker avatar updated to $avatarUrl")
+            }
+          }.getOrElse({
+            play.Logger.warn("Speaker data not found")
+          })
+          val bodyStr = s"""{
             "success":true,
             "avatarUrl": "${avatarUrl}"
-            }""")
+            }"""
+          // play.Logger.info(bodyStr)  
+          result = Ok(bodyStr)
+          result
         }.getOrElse{
+          play.Logger.info("Photo upload error: image missing  ")
           BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.missing")}"}""")
         }
       }.getOrElse {
+        play.Logger.info("Photo upload error: image missing  ")
         BadRequest(s"""{"success":false,"error":"${Messages("uploadPicture.msg.error.general")}"}""")
       }
   }
