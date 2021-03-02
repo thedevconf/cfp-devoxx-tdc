@@ -123,11 +123,15 @@
                 { "sType": "string"}
                 ]
         });
-        $('#checkAll').click({
-            $("input").filter(":checkbox").prop("checked",true)
+        $('#checkAll').click(function() {
+            $("input:checkbox").each(function() {
+                $(this).prop("checked",true);
+            });
         });
-        $('#uncheckAll').click({
-            $("input").filter(":checkbox").prop("checked",false)
+        $('#uncheckAll').click(function() {
+            $("input:checkbox").each(function() {
+                $(this).prop("checked",false);
+            });
         });
     } );
 </script>
