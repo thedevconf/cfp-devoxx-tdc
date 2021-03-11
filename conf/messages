@@ -605,10 +605,10 @@ track.loungediversidadecarreiras.desc=Women, LGBTQIA+, Acessibilidade e Racial e
 loungediversidadecarreiras.label=Lounge +Diversidade e Carreiras
 loungediversidadecarreiras.leaderboard=Lounge +Diversidade e Carreiras
 
-track.loungediversidadeacessibilidade.title=Lounge +Diversidade e Acessibilidade
+track.loungediversidadeacessibilidade.title=+Diversidade e Acessibilidade
 track.loungediversidadeacessibilidade.desc=Women, LGBTQIA+, Acessibilidade e Racial
-loungediversidadeacessibilidade.label=Lounge +Diversidade e Acessibilidade
-loungediversidadeacessibilidade.leaderboard=Lounge +Diversidade e Acessibilidade
+loungediversidadeacessibilidade.label=+Diversidade e Acessibilidade
+loungediversidadeacessibilidade.leaderboard=+Diversidade e Acessibilidade
 
 track.machine.title=Machine Learning
 #track.machine.desc=Future with Machine Learning
@@ -652,6 +652,11 @@ track.modernweb.title=Modern Web
 track.modernweb.desc=
 modernweb.label=Modern Web
 modernweb.leaderboard=Modern Web
+
+track.negociosimpactosocial.title=Negócios de Impacto Social
+track.negociosimpactosocial.desc=
+negociosimpactosocial.label=Negócios de Impacto Social
+negociosimpactosocial.leaderboard=Negócios de Impacto Social
 
 track.nodejs.title=Node.js
 #track.nodejs.desc=Javascript em alto desempenho e escalabilidade no servidor
@@ -772,10 +777,14 @@ tdcinspire.label=TDC Inspire
 tdcinspire.leaderboard=TDC Inspire
 
 track.testes.title=Testes
-#track.testes.desc=Qualidade de Software como princípio
 track.testes.desc=
 testes.label=Testes
 testes.leaderboard=Testes
+
+track.testesedevtest.title=Testes e DevTest
+track.testesedevtest.desc=
+testesedevtest.label=Testes e DevTest
+testesedevtest.leaderboard=Testes e DevTest
 
 track.transfdigital.title=Transformação Digital
 #track.transfdigital.desc=Facilite seus negócios e sua vida com transformação digital
