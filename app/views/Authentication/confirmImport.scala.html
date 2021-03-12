@@ -48,7 +48,7 @@
             @helper.select(field = formWebuser("tshirtSize"), options = Speaker.sizes, 'class -> "form-control", '_default -> Messages("select.tshirtSize"))
           <label>@Messages("avatarUrl.defined")</label>
           <input type="hidden" id="avatarUrl" name="avatarUrl" value="@formWebuser("avatarUrl").value" />
-          <p><img id="avatar" src="@formWebuser("avatarUrl").value" width="75" height="75"/></p>
+          <p><img id="avatar" src="@formWebuser("avatarUrl").value" width="75"/></p>
                 <div class="btn-block">
                   <button type="submit" class="btn btn-success">@Messages("confirm.import.save")</button>
                 </div>

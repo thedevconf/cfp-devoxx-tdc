@@ -12,10 +12,6 @@ import play.api.i18n.{Lang, Messages}
   * Idea behind this file is to try to collect all configurable parameters for a conference.
   *
   * For labels, please do customize messages and messages.fr
-  *
-  * Note from Nicolas : the first version of the CFP was much more "static" but hardly configurable.
-  *
-  * @author Frederic Camblor, BDX.IO 2014
   */
 
 
@@ -207,9 +203,11 @@ object ConferenceDescriptor {
   import scala.collection.mutable.Map
   private val conferenceCache:Map[String,ConferenceDescriptor] = Map.empty
   
+  val conferenceCode = sys.env.get("CFP_CONFCODE").getOrElse("CFPTDC")
+
   def current() = {
     if(selectedDescriptor.isEmpty) {
-      selectConference("TDC2021ED1")
+      selectConference(conferenceCode)
     } 
     selectedDescriptor.get
   }
