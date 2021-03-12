@@ -140,7 +140,8 @@ case class Proposal(id: String,
                     wishlisted: Option[Boolean] = None,
                     presentationUploaded: Option[Boolean] = None,
                     publicationAuthorized: Option[Boolean] = None,
-                    meetupInterest: Option[Boolean] = None) {
+                    meetupInterest: Option[Boolean] = None,
+                    privacyPolicyAware: Option[Boolean] = None) {
 
   def escapedTitle: String = title match {
     case null => ""
@@ -251,6 +252,7 @@ object Proposal {
     , "userGroup" -> optional(boolean)
     , "publicationAuthorized" -> boolean
     , "meetupInterest" -> boolean
+    , "privacyPolicyAware" -> boolean
   )(validateNewProposal)(unapplyProposalForm))
 
   def generateId(): String = Redis.pool.withClient {
@@ -278,7 +280,8 @@ object Proposal {
                           demoLevel: Option[String],
                           userGroup: Option[Boolean],
                           publicationAuthorized: Boolean,
-                          meetupInterest:Boolean): Proposal = {
+                          meetupInterest:Boolean,
+                          privacyPolicyAware:Boolean): Proposal = {
     Proposal(
       id.getOrElse(generateId()),
       ConferenceDescriptor.current().eventCode,
@@ -298,7 +301,8 @@ object Proposal {
       userGroup,
       wishlisted = None,
       publicationAuthorized = Option(publicationAuthorized),
-      meetupInterest = Option(meetupInterest)
+      meetupInterest = Option(meetupInterest),
+      privacyPolicyAware = Option(privacyPolicyAware)
     )
 
   }
@@ -312,7 +316,7 @@ object Proposal {
   def unapplyProposalForm(p: Proposal): Option[(Option[String], String, String, Option[String], List[String], String, String, String, String,
     Boolean, String, Option[String], Option[Boolean], Boolean, Boolean)] = {
     Option((Option(p.id), p.lang, p.title, p.secondarySpeaker, p.otherSpeakers, p.talkType.id, p.audienceLevel, p.summary, p.privateMessage,
-      p.sponsorTalk, p.track.primaryKey.getOrElse(""), p.demoLevel, p.userGroup, p.publicationAuthorized.getOrElse(false), p.meetupInterest.getOrElse(false)))
+      p.sponsorTalk, p.track.primaryKey.getOrElse(""), p.demoLevel, p.userGroup, p.publicationAuthorized.getOrElse(false), p.meetupInterest.getOrElse(false), p.privacyPolicyAware.getOrElse(false)))
   }
 
   def changeTrack(uuid: String, proposal: Proposal) = Redis.pool.withClient {

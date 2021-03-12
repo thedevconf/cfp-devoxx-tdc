@@ -50,6 +50,7 @@
                 @tags.selectI18N(field = newProposal("audienceLevel"), options=ProposalType.audienceLevels,'_default->Messages("combo.select"),  'class->"form-control")
                 @tags.selectI18N(field = newProposal("demoLevel"), options=ProposalType.demoLevels,'_default->Messages("combo.select"),  'class->"form-control")
 
+                @tags.checkboxI18N(newProposal("privacyPolicyAware"), 'text -> "privacyPolicyAware.checkbox")
 				@tags.checkboxI18N(newProposal("publicationAuthorized"), 'text -> "publicationAuthorized.checkbox")
                 @tags.checkboxI18N(newProposal("meetupInterest"), 'text -> "meetupInterest.checkbox")
 
@@ -82,6 +83,10 @@
                 <p><label>@Messages("sponsorTalk.help.title") : </label><br> @Messages("sponsorTalk.help")</p>
             }
             <p><label>@Messages("noPaidCosts") : </label><br> @Messages("noPaidCosts.help")</p>
+            <p><label>@Messages("privacy") : </label><br/>
+                @Messages("privacy.help")
+                <a href="@Messages("privacy.link")" target="new">@Messages("privacy.link")</a>
+            </p>
             <p><label>@Messages("conduct") : </label><br/>
                 @Messages("conduct.help")
                 <a href="@Messages("conduct.link")" target="new">@Messages("conduct.link")</a>

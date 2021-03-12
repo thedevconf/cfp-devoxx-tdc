@@ -1389,6 +1389,10 @@ proposal.meetupInterest=Has interest in presenting this talk at meetups or user 
 proposal.meetupInterest.false=No
 proposal.meetupInterest.true=Yes
 
+proposal.privacyPolicyAware=I am aware of the event's privacy policy
+proposal.privacyPolicyAware.false=No
+proposal.privacyPolicyAware.true=Yes
+
 msg_pub=Send a message to the speaker
 email_pub=Your email address
 email_pub2=Please confirm your email

@@ -1390,6 +1390,9 @@ proposal.meetupInterest=Tem interesse em apresentar a palestra em meetups ou gru
 proposal.meetupInterest.false=Não
 proposal.meetupInterest.true=Sim
 
+proposal.privacyPolicyAware=Estou ciente da política de privacidade do evento
+proposal.privacyPolicyAware.false=Não
+proposal.privacyPolicyAware.true=Sim
 
 msg_pub=Envie uma mensagem para o palestrante
 email_pub=Seu endereço de email
