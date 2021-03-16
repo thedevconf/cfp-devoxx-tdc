@@ -39,16 +39,12 @@
                                 <h4><i class="icon-external-link-sign"></i> @Html(Messages("index.method2"))</h4>
                                 <p>@Html(Messages("index.txt2"))</p>
                                 <p>
-                                    <a class="btn btn-default" href="@routes.Authentication.githubLogin()" title='@Messages("signin.github.title")'><i class="icon-github-sign"></i>
-                                    Github</a>
                                     <a id="btn-google-signin"
                                        class="btn btn-default"
                                        href="javascript:;" 
                                        title='@Messages("signin.google.title")'
                                        ><i class="icon-google-plus-sign"></i>
                                         Google</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin()" title='@Messages("signin.linkedin.title")'><i class="icon-linkedin-sign"></i>
-                                        LinkedIn</a>
                                 </p>
                             </div>
                         </div>
@@ -62,17 +58,12 @@
                                 <p>@Html(Messages("index.signup2", ConferenceDescriptor.current().naming.shortTitle + " CFP"))</p>
                                 <a class="btn btn-default" href="@routes.Authentication.prepareSignup()">@Messages("index.signup.btn")</a>
                                 <p>@Html(Messages("index.signup3"))</p>
-                                <p><a class="btn btn-default" href="@routes.Authentication.githubLogin()" title='@Messages("signup.github.title")'><i class="icon-github-sign"></i>
-                                    Github</a>
-                                    <a id="btn-google-signup"
+                                <p><a id="btn-google-signup"
                                        class="btn btn-default"
                                        href="javascript:;" 
                                        title='@Messages("signin.google.title")'
                                        ><i class="icon-google-plus-sign"></i>
-                                        Google</a>
-                                    <a class="btn btn-default" href="@routes.Authentication.linkedinLogin()" title='@Messages("signup.linkedin.title")'><i class="icon-linkedin-sign"></i>
-                                        LinkedIn</a>
-                                </p>
+                                        Google</a></p>
                             </div>
                         </div>
                     </div>

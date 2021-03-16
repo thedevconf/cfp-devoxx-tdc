@@ -58,10 +58,19 @@ object Global extends GlobalSettings {
   /**
     * 404 custom page, for Prod mode only
     */
+  /** ORIG
   override def onHandlerNotFound(request: RequestHeader) = {
     val viewO: Option[(RequestHeader, Option[Routes]) => HtmlFormat.Appendable] = Play.maybeApplication.map {
       case app if app.mode != Mode.Prod => views.html.defaultpages.devNotFound.f
       case app => views.html.notFound.f(_, _)(request)
+    }
+    Future.successful(NotFound(viewO.getOrElse(views.html.defaultpages.devNotFound.f)(request, Play.maybeApplication.flatMap(_.routes))))
+  }
+  **/
+  override def onHandlerNotFound(request: RequestHeader) = {
+    val viewO: Option[(RequestHeader, Option[Routes]) => play.twirl.api.HtmlFormat.Appendable] = Play.maybeApplication.map {
+      case app if app.mode != Mode.Prod => views.html.defaultpages.devNotFound.f
+      case app => views.html.notFound.apply(_, _)(request)
     }
     Future.successful(NotFound(viewO.getOrElse(views.html.defaultpages.devNotFound.f)(request, Play.maybeApplication.flatMap(_.routes))))
   }
