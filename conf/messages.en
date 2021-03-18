@@ -123,7 +123,7 @@ audienceLevel.help=Please, indicate the required audience level for your talk:\
 2- intermediate\
 3- experienced\
 
-publicationAuthorized=Do you allow your presentation slides to be made available and your talk to be recorded and published? 
+publicationAuthorized=Would you allow your presentation slides to be made available and your talk to be recorded and published? 
 publicationAuthorized.checkbox=Yes, I authorize the recording of my talk and the publication of the presentation slides.
 
 meetupInterest=Are you interested in presenting this talk in a meetup or user group meeting?
@@ -1389,9 +1389,10 @@ proposal.meetupInterest=Has interest in presenting this talk at meetups or user 
 proposal.meetupInterest.false=No
 proposal.meetupInterest.true=Yes
 
-proposal.privacyPolicyAware=I am aware of the event's privacy policy
-proposal.privacyPolicyAware.false=No
-proposal.privacyPolicyAware.true=Yes
+privacyPolicyAware=I am aware of the event privacy policy
+privacyPolicyAware.checkbox=Yes, agreed.
+privacyPolicyAware.false=No
+privacyPolicyAware.true=Yes
 
 msg_pub=Send a message to the speaker
 email_pub=Your email address

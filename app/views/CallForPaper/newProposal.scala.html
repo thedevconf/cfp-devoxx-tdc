@@ -139,9 +139,24 @@ $(document).ready(function($){
             @Html( "}" )
         }
     });
-
 });
 </script>
 
+<script>
+var btime = 250;
+$(document).ready(addFormValidation);
+
+function addFormValidation(){
+    $("form").submit(function(e){
+        privacyPolicyAware = $("#privacyPolicyAware").is(':checked');
+        if (! privacyPolicyAware){
+            e.preventDefault();
+            $("#privacyPolicyAware").focus();
+            $("#privacyPolicyAware").fadeOut(btime).fadeIn(btime)
+                                    .fadeOut(btime).fadeIn(btime);
+        }
+    });
+}
+</script>
 
 }
