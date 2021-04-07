@@ -249,6 +249,11 @@ track.api.desc=
 api.label=API
 api.leaderboard=API
 
+track.apisandmicroservices.title=APIs & Microservices
+track.apisandmicroservices.desc=
+apisandmicroservices.label=API & Microservices
+apisandmicroservices.leaderboard=API & Microservices
+
 track.arduino.title=Arduino and Makers
 #track.arduino.desc=Um trilha dedicada aos amantes de Arduino e suas criações!
 track.arduino.desc=
@@ -347,6 +352,11 @@ track.chatbots.desc=
 chatbots.label=ChatBots
 chatbots.leaderboard=ChatBots
 
+track.cloudanddevops.title=Cloud & DevOps
+track.cloudanddevops.desc=
+cloudanddevops.label=Cloud & DevOps
+cloudanddevops.leaderboard=Cloud & DevOps
+
 track.cloud.title=Cloud Computing
 #track.cloud.desc=Caminhando nas nuvens sem turbulências!
 track.cloud.desc=
@@ -379,6 +389,11 @@ track.customersuccess.title=Customer Success
 track.customersuccess.desc=
 customersuccess.label=Customer Success
 customersuccess.leaderboard=Customer Success
+
+track.data.title=Data
+track.data.desc=
+data.label=Data
+data.leaderboard=Data
 
 track.datascience.title=Data Science
 #track.datascience.desc=Dados estão transformando negócios em toda parte.
@@ -1390,7 +1405,7 @@ proposal.meetupInterest.false=No
 proposal.meetupInterest.true=Yes
 
 privacyPolicyAware=I am aware of the event privacy policy
-privacyPolicyAware.checkbox=Yes, agreed.
+privacyPolicyAware.checkbox=Yes
 privacyPolicyAware.false=No
 privacyPolicyAware.true=Yes
 
