@@ -136,7 +136,7 @@
                            class="btn btn-primary">@Messages("index.alert1.link")</a>.
                     </p>
 
-                } else if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conn") {
+                } else @if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conn") {
 
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
