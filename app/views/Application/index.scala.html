@@ -41,7 +41,7 @@
 
             </div>
 
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-5 col-sm-12">
                 <h3><i class="icon-calendar"></i> @Messages("agenda.title")</h3>
                 <p><strong>@Messages("cfp.opening") :</strong>  @FormatDate.jodaFullDateFormat(ConferenceDescriptor.current().timing.cfpOpenedOn, lang)</p>
                 <p><strong>@Messages("cfp.closing") :</strong>  @FormatDate.jodaFullDateFormat(ConferenceDescriptor.current().timing.cfpClosedOn, lang)</p>
@@ -81,7 +81,7 @@
                 @if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conx") {
 
                 <iframe width="400" height="227"
-                        src="https://www.youtube.com/embed/5RLg8mkz1D8"
+                        src="https://www.youtube.com/embed/aIt5N-0GFqs"
                         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
                 } else {
@@ -98,7 +98,7 @@
             <div class="clearfix">
             </div>
 
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-5 col-sm-5">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                     @if(ConferenceDescriptor.isCFPOpen) {
@@ -125,39 +125,37 @@
 
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
-                        <img src="/assets/images/en.png" alt="English language" align="right" />
+                        <img src="/assets/images/en.png" alt="English language"/>
                     </h3>
                     <p>
                         @Messages("index.alert1.text1")
                     </p>
                     <p>
                         @Messages("index.alert1.text2")
-                        <a href="https://cfp-connections.thedevconf.com.br"
-                           class="btn btn-primary">@Messages("index.alert1.link")</a>.
+                        <a href="https://cfp-connections.thedevconf.com.br">@Messages("index.alert1.link")</a>.
                     </p>
 
                 } else { @if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conn") {
 
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
-                        <img src="/assets/images/pt.png" alt="Língua Portuguesa" align="right" />
-                        <img src="/assets/images/en.png" alt="English language" align="right" />
+                        <img src="/assets/images/pt.png" alt="Língua Portuguesa"/>
+                        <img src="/assets/images/en.png" alt="English language"/>
                     </h3>
                     <p>
                         @Messages("index.alert2.text1")
                     </p>
                     <p>
                         @Messages("index.alert2.text2")
-                        <a href="https://cfp-intl.thedevconf.com.br"
-                        class="btn btn-primary">@Messages("index.alert1.link")</a>.
+                        <a href="https://cfp-intl.thedevconf.com.br">@Messages("index.alert1.link")</a>.
                     </p>
 
                 } else {
 
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
-                        <img src="/assets/images/pt.png" alt="Língua Portuguesa" align="right" />
-                        <img src="/assets/images/en.png" alt="English language" align="right" />
+                        <img src="/assets/images/pt.png" alt="Língua Portuguesa"/>
+                        <img src="/assets/images/en.png" alt="English language"/>
                     </h3>
                     <p>
                         @Messages("index.alert2.text1")
