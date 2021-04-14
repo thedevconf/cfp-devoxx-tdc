@@ -69,6 +69,13 @@ logout=Sair
 logout.closeMessage=e fechar sua sessão
 index.program.text=Programação Completa
 index.video.title=Vídeo: Dicas para o Call4Papers
+index.language=idioma
+index.alert.title=ATENÇÃO!
+index.alert1.text1=Para estas trilhas do evento, estamos aceitando submissões de palestras exclusivamente em inglês, visto que são direcionadas ao público estrangeiro.
+index.alert1.text2=Caso queira submeter para as trilhas nacionais com público brasileiro, em português ou inglês, por favor
+index.alert1.link=clique aqui
+index.alert2.text1=Para estas trilhas do evento, estamos aceitando submissões de palestras tanto em português como em inglês, visto que são direcionadas ao público brasileiro.
+index.alert2.text2=Caso queira submeter para as trilhas internacionais, em inglês somente, por favor
 
 # CFP Home page
 your.profile=Seu perfil
