@@ -57,14 +57,14 @@
 <div class="container">
 
      <div class="container" ng-app="cfpApp">
-     <h3>@Messages(scheduling.title)</h3>
+     <h3>@Messages("scheduling.title")</h3>
      @if(SecureCFPController.hasAccessToAdmin(req)){
-         <a class = "btn btn-primary btn-sm"href="#/saved">@Messages(scheduling.admin.grid)</a>
+         <a class = "btn btn-primary btn-sm"href="#/saved">@Messages("scheduling.admin.grid")</a>
      }
-      <h4>@Messages(scheduling.subtitle)</h4>
+      <h4>@Messages("scheduling.subtitle")</h4>
       <ul class="menu">
           @tracks.map { track =>
-            <li><a href="#/slots/@track.id">@Messages(scheduling.talk.link) @Messages(track.label)</a></li>
+            <li><a href="#/slots/@track.id">@Messages("scheduling.talk.link") @Messages(track.label)</a></li>
           }
     <!--
         <a href="/admin/sanitycheck "  class="btn btn-sm btn-primary"><i class="icon-medkit"></i> Sanity check for schedule</a>
