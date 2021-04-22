@@ -76,7 +76,7 @@ index.alert1.text2=If you want to submit to national tracks, for Brazilian audie
 index.alert1.link=click here
 index.alert2.text1=For these tracks of the event, we are accepting submissions of talks, in Portuguese or in English, since they are directed to the Brazilian public.
 index.alert2.text2=If you want to submit to international tracks, in English only, please
-index.warning.title=Attention
+index.warning.title=Warning
 index.warning.text=We are still receiving submissions for the following tracks
 
 # CFP Home page

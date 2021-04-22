@@ -51,6 +51,19 @@
                     <p><strong>@Messages("cfp.reminder") :</strong> <span class="label label-danger">@Messages("cfp.isClosed")</span> </p>
                 }
                 <p><strong>@Messages("cfp.program")</strong> @Messages("cfp.program.date", FormatDate.jodaFullDateFormat(ConferenceDescriptor.current().timing.scheduleAnnouncedOn, lang))</p>
+
+                <!-- área com aviso -->
+                @if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conn") {
+                    <br/>
+                    <h3><i class="icon-warning-sign"></i> @Messages("index.warning.title")!</h3>
+                    <p>@Messages("index.warning.text"):
+                        Android, Business Agility, Customer Success, Data Science, IA e Machine Learning,
+                        iOS, Internet das Coisas, Kotlin, LGPD, Software Security, UI Design
+                    </p>
+                }
+                <!-- -->
+
+
             </div>
 
 <!-------------------- area com link para videos
@@ -66,18 +79,6 @@
                 <p>@Messages("call4workshops.tag") <a href="http://www.thedevelopersconference.com.br/tdc/2016/call4workshops" target="new">@Messages("call4workshops.link")</a> </p>
             </div>
             -->
-
-            <!-- área com aviso -->
-            @if(ConferenceDescriptor.current().eventCode.toLowerCase=="tdc2021conn") {
-            <div class="col-md-5 col-sm-12">
-                <h3><i class="icon-warning-sign"></i> @Messages("index.warning.title")!</h3>
-                <p>@Messages("index.warning.text"):
-                    Android, Business Agility, Customer Success, Data Science, IA e Machine Learning,
-                    iOS, Internet das Coisas, Kotlin, LGPD, Software Security, UI Design
-                </p>
-            </div>
-            }
-            <!-- -->
 
             <!-- vídeo da Yara com dicas -->
             <div class="col-md-6 col-sm-12">
@@ -130,7 +131,7 @@
 
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
-                        <small>(@Messages("index.language"): <img src="/assets/images/en.png" alt="English language"/></small>
+                        <small>(@Messages("index.language"): <img src="/assets/images/en.png" alt="English language"/>)</small>
                     </h3>
                     <p>
                         @Messages("index.alert1.text1")
@@ -145,7 +146,7 @@
                     <h3>
                         <i class="icon-warning-sign"></i> @Messages("index.alert.title")
                         <small>(@Messages("index.language"): <img src="/assets/images/pt.png" alt="Língua Portuguesa"/>
-                        <img src="/assets/images/en.png" alt="English language"/></small>
+                        <img src="/assets/images/en.png" alt="English language"/>)</small>
                     </h3>
                     <p>
                         @Messages("index.alert2.text1")
