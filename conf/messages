@@ -76,6 +76,8 @@ index.alert1.text2=Caso queira submeter para as trilhas nacionais com público b
 index.alert1.link=clique aqui
 index.alert2.text1=Para estas trilhas do evento, estamos aceitando submissões de palestras, em português ou em inglês, visto que são direcionadas ao público brasileiro.
 index.alert2.text2=Caso queira submeter para as trilhas internacionais, em inglês somente, por favor
+index.warning.title=Atenção
+index.warning.text=Ainda estamos recebendo submissão para as seguintes trilhas
 
 # CFP Home page
 your.profile=Seu perfil
@@ -2041,6 +2043,22 @@ backoffice.area.notrack=Nenhuma trilha
 backoffice.area.btn.new=Criar nova área
 backoffice.area.form.title=Dados da área
 backoffice.area.msg.updated=Lista de áreas atualizada
+
+#Scheduling
+scheduling.title=Planejamento da grade de palestras
+scheduling.admin.grid=Administrar grades salvas
+scheduling.subtitle=Carregar palestras
+scheduling.talk.link=Palestras da trilha
+
+scheduling.save.allocation=Salvar alocação
+scheduling.ask.publication=Solicitar publicação
+scheduling.instruction=Arraste as palestras para o slot desejado na grade de programação
+scheduling.note=Nota: Utilize a tela maximizada para uma melhor experiência
+scheduling.talks.title=Palestras
+scheduling.schedule.title=Programação
+scheduling.allocation.note=Não alocadas
+scheduling.warning=A grade já foi publicada no site do TDC e por isso está bloqueada para alterações
+
 
 #CallForTracks
 callfortracks.registration.title=Cadastro de Trilhas

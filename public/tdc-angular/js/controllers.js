@@ -10,7 +10,7 @@ adminController.controller('AdminController', function AdminController($rootScop
     });
     $scope.deleteSchedule = function(track) {
         ScheduleService.delete({id:track.id},function(jsonObj) {
-            flash("Programação removida para " + track.label)
+            flash("Schedule removed for " + track.label)  // Programação removida para
             ScheduleService.get(function(jsonArray){
                            $scope.allScheduledTracks = jsonArray["scheduledTracks"];
             });
@@ -93,7 +93,7 @@ mainController.controller('MainController', function MainController($rootScope, 
             return {id: slot.id, proposals: slot.proposals.map(proposal => proposal.id), stadium: slot.stadium};
         });
         ScheduleService.save({trackId: $routeParams.id}, jsonSlots);
-        flash("Programação Salva");
+        flash("Schedule saved"); // Programação Salva
 
     };
 
@@ -109,12 +109,12 @@ mainController.controller('MainController', function MainController($rootScope, 
 
     $scope.requestPublication = function() {
         PublishingService.save({trackId: $routeParams.id});
-        flash("Solicitação enviada");
+        flash("Request sent");  // Solicitação enviada
     }
 
     $scope.requestUnlocking = function() {
         NotificationService.save({trackId: $routeParams.id});
-        flash("Solicitação enviada");
+        flash("Request sent"); // Solicitação enviada
     }	
 	
 });

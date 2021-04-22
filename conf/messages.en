@@ -76,6 +76,8 @@ index.alert1.text2=If you want to submit to national tracks, for Brazilian audie
 index.alert1.link=click here
 index.alert2.text1=For these tracks of the event, we are accepting submissions of talks, in Portuguese or in English, since they are directed to the Brazilian public.
 index.alert2.text2=If you want to submit to international tracks, in English only, please
+index.warning.title=Attention
+index.warning.text=We are still receiving submissions for the following tracks
 
 # CFP Home page
 your.profile=Your profile
@@ -2029,6 +2031,21 @@ backoffice.area.notrack=No tracks
 backoffice.area.btn.new=Create new area
 backoffice.area.form.title=Enter the area data
 backoffice.area.msg.updated=Areas updated
+
+#Scheduling
+scheduling.title=Planning the talk grid
+scheduling.admin.grid=Manage saved grids
+scheduling.subtitle=Load talks
+scheduling.talk.link=Talks of the track
+
+scheduling.save.allocation=Save allocation
+scheduling.ask.publication=Request publication
+scheduling.instruction=Drag the talks to the desired slot in the schedule grid
+scheduling.note=Note: Use the maximized screen for a better experience
+scheduling.talks.title=Talks
+scheduling.schedule.title=Schedule
+scheduling.allocation.note=Not allocated
+scheduling.warning=A grade já foi publicada no site do TDC e por isso está bloqueada para alterações
 
 
 #CallForTracks

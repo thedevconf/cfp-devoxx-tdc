@@ -1,29 +1,43 @@
 <div ng-show="!blocked" class="col-lg-12">
-    <button ng-show="!disableButtons" class="btn btn-success" ng-click="saveAllocation()">Salvar alocação</button>
-    <button ng-show="!disableButtons" class="btn btn-warning" ng-click="requestPublication()" title="Ao clicar este botão uma solicitação de publicação de trilha é enviada para a organização do evento">Solicitar publicação</button>
+    <button ng-show="!disableButtons" class="btn btn-success" ng-click="saveAllocation()">
+        Salvar alocação | Save allocation</button>
+    <button ng-show="!disableButtons" class="btn btn-warning" ng-click="requestPublication()"
+            title="Ao clicar este botão uma solicitação de publicação de trilha é enviada para a organização do evento">
+        Solicitar publicação | Request publishing</button>
     <flash-messages>
     </flash-messages>
 
-    <h5>Arraste as palestras para o slot desejado na grade de programação</h5>
-    <p>Nota : Utilize a tela maximizada para uma melhor experiência</p>
+    <h5>
+        Arraste as palestras para o slot desejado na grade de programação |
+        <em>Drag the talks to the desired slot in the schedule grid</em>
+    </h5>
+    <p>
+        Nota : Utilize a tela maximizada para uma melhor experiência |
+        <em>Note: Use the maximized screen for a better experience</em>
+    </p>
 </div>
 <div ng-show="blocked">
-    <div class="alert alert-danger alert-block"><i class="icon-warning-sign"></i>
-        A grade já foi publicada no site do TDC e por isso está bloqueada para alterações.
+    <div class="alert alert-danger alert-block">
+        <i class="icon-warning-sign"></i>
+        A grade já foi publicada no site do TDC e por isso está bloqueada para alterações. |
+        <em>The grid has already been published on TDC website and is therefore blocked for changes.</em>
     </div>
-	<button class="btn btn-warning" ng-click="requestUnlocking()" title="Ao clicar este botão uma solicitação de desbloqueio de trilha é enviada para a organização do evento">Solicitar desbloqueio</button>
+	<button class="btn btn-warning" ng-click="requestUnlocking()" title="">
+        Solicitar desbloqueio | Request unlock</button>
+    Ao clicar este botão uma solicitação de desbloqueio de trilha é enviada para a organização do evento |
+    <em>By clicking this button, a track unlock request is sent to the event organization team</em>
     <flash-messages>
     </flash-messages>
 </div>
 <div class="col-lg-6">
-    <h3>Palestras</h3>
+    <h3>Palestras | Talks</h3>
 </div>
 <div class="col-lg-6">
-    <h3>Programação</h3>
+    <h3>Programação | Schedule</h3>
 </div>
 
 <div class="col-lg-6 panel_talks">
-    <small>Não alocadas: {{approvedTalks.length}}</small>
+    <small>Não alocadas | Not allocated: {{approvedTalks.length}}</small>
     <div ng-repeat="talk in approvedTalks"
                class="talk sponsor-{{talk.sponsorTalk}}"
                drag="talk" dragStyle="columnDrag"
@@ -45,14 +59,16 @@
 
 <div class="col-lg-6 panel_slots">
     <div ng-repeat="slot in slots" class="slot" drop="slot" dropStyle="columnDrop">
-        <button ng-show="!blocked" ng-click="toggleStadium(slot.id)" class="label label-default" title="Clique aqui para marcar/desmarcar como Stadium">Slot {{slot.id }}</button>
+        <button ng-show="!blocked" ng-click="toggleStadium(slot.id)" class="label label-default"
+                title="Clique aqui para marcar/desmarcar como Stadium | Click to toggle as Stadium">Slot {{slot.id }}</button>
         <span ng-show="blocked" class="label label-default">Slot {{slot.id }}</span>
         <div ng-show="slot.stadium" class="label label-warning">
             Stadium
         </div>
         <div ng-repeat="proposal in slot.proposals" class="talk sponsor-{{proposal.sponsorTalk}}">
             <span class="label label-default">{{$index + 1}}</span>
-            <button ng-show="!blocked" class="btn btn-xs btn-danger" ng-click="deallocate(slot.id,$index)"><i class="icon-remove"></i> remove
+            <button ng-show="!blocked" class="btn btn-xs btn-danger" ng-click="deallocate(slot.id,$index)">
+                <i class="icon-remove"></i> remove
             </button>
             <span class="proposalTitle">{{proposal.title}}</span>
             <div class="label label-default">{{proposal.talkType.label}}</div>
@@ -64,7 +80,8 @@
                 {{otherSpeaker}}
             </div>
             <div ng-show="proposal.privateMessage !=='OK'">
-                <div class="alert alert-danger alert-block"><i class="icon-warning-sign"></i> Esta proposta ainda não foi aceita
+                <div class="alert alert-danger alert-block">
+                    <i class="icon-warning-sign"></i> Esta proposta ainda não foi aceita | This proposal has not been accepted yet
                 </div>
             </div>
         </div>

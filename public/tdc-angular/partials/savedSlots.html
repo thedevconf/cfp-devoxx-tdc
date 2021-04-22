@@ -1,6 +1,6 @@
 
 <div class="col-lg-12">
-    <h3>Grades salvas</h3>
+    <h3>Grades salvas | Saved Grids</h3>
 </div>
 
 <div class="col-lg-12">
@@ -8,16 +8,16 @@
 </flash-messages>
     <table class="table_talks">
         <tr>
-            <th>Trilha</th>
-            <th>Ações</th>
+            <th>Trilha | Track</th>
+            <th>Ações | Actions</th>
         </tr>
         <tr ng-repeat="track in allScheduledTracks | orderBy:'label'">
             <td>{{track.label}}</td>
             <td>
-                <a class="btn btn-xs btn-primary" href="#/slots/{{track.id}}"><i class="icon-edit-sign"></i> Editar</a>
-                <button class="btn btn-xs btn-danger" ng-click="deleteSchedule(track)"><i class="icon-trash"></i> Excluir</button>
-                <button ng-show="!track.blocked" class="btn btn-xs btn-warning" ng-click="toggleBlockedStatus(track)"><i class="icon-ban-circle"></i> Bloquear</button>
-                <button ng-show="track.blocked" class="btn btn-xs btn-success" ng-click="toggleBlockedStatus(track)"><i class="icon-play"></i> Desbloquear</button>
+                <a class="btn btn-xs btn-primary" href="#/slots/{{track.id}}"><i class="icon-edit-sign"></i> Editar | Edit</a>
+                <button class="btn btn-xs btn-danger" ng-click="deleteSchedule(track)"><i class="icon-trash"></i> Excluir | Delete </button>
+                <button ng-show="!track.blocked" class="btn btn-xs btn-warning" ng-click="toggleBlockedStatus(track)"><i class="icon-ban-circle"></i> Bloquear | Block</button>
+                <button ng-show="track.blocked" class="btn btn-xs btn-success" ng-click="toggleBlockedStatus(track)"><i class="icon-play"></i> Desbloquear | Unlock</button>
             </td>
         </tr>
     </table>
