@@ -278,7 +278,7 @@ GET           /api/conferences/:eventCode/allTalksPlain                         
 
 GET           /api/profile/:docName                                             controllers.RestAPI.profile(docName:String)
 
-GET           /api/k/:eventCode/:track                                 controllers.RestAPI.showScheduleByTrack(eventCode:String, track: String)
+GET           /api/scheduling/:eventCode/:track                                 controllers.RestAPI.showScheduleByTrack(eventCode:String, track: String)
 
 # Scheduling for TDC
 GET           /cfpadmin/scheduling                                              controllers.TDCSchedulingController.index
