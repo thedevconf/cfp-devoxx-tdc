@@ -44,8 +44,8 @@ object Mails {
   lazy val bcc = ConferenceDescriptor.current().bccEmail
   lazy val trackleadersEmail = ConferenceDescriptor.current().trackleadersEmail
 
-  //TODO FIXME - allow customization of Lang
-  implicit val lang = Lang("pt")
+  val cfpLang = sys.env.get("CFP_LANG").getOrElse("pt")
+  implicit val lang = Lang(cfpLang)
   
   def sendResetPasswordLink(email: String, resetUrl: String) = {
     val emailer = current.plugin[MailerPlugin].map(_.email).getOrElse(sys.error("Problem with the MailerPlugin"))
