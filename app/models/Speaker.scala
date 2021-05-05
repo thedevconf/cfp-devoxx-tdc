@@ -378,24 +378,34 @@ object Speaker {
     "VE" -> "Venezuela",
     "VN" -> "Viet Nam",
     "VG" -> "Virgin Islands, British",
-    "VI" -> "Virgin Islands, U.s.",
+    "VI" -> "Virgin Islands, U.S.",
     "WF" -> "Wallis And Futuna",
     "EH" -> "Western Sahara",
     "YE" -> "Yemen",
     "ZM" -> "Zambia",
     "ZW" -> "Zimbabwe")
 
-  val genders = Seq("M" -> "Masculino", "F" -> "Feminino", "O" -> "Outro", "P" -> "Prefiro não responder", "N" -> "Indefinido")
+  val genders = Seq("M" -> "Masculino / Male",
+    "F" -> "Feminino / Female",
+    "O" -> "Outro / Other",
+    "P" -> "Prefiro não responder / Rather not answer",
+    "N" -> "Indefinido / Undefined")
 
-  val races = Seq("branco" -> "Branco(a)", "indigena" -> "Indígena", "mestico" -> "Mestiço(a)", "negro" -> "Negro(a)", "oriental" -> "Oriental", "nao sei" -> "Não Sei", "prefiro nao responder" -> "Prefiro não responder")
+  val races = Seq("branco" -> "Branco(a) / White",
+    "indigena" -> "Indígena / Indigenous",
+    "mestico" -> "Mestiço(a) / Mixed",
+    "negro" -> "Negro(a) / Black",
+    "oriental" -> "Oriental / Asian",
+    "nao sei" -> "Não Sei / I don't know",
+    "prefiro nao responder" -> "Prefiro não responder / Rather not answer")
 
-  val disabilities = Seq("nao" -> "Não"
-    ,"deficiencia visual cego" -> "Sim - deficiência visual, cego"
-    ,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão"
-    ,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial"
-    ,"deficiencia auditiva total" -> "Sim - deficiência auditiva total"
-    ,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial"
-    ,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante")
+  val disabilities = Seq("nao" -> "Não / No"
+    ,"deficiencia visual cego" -> "Sim - deficiência visual, cego / Yes - visual impairment, blind"
+    ,"deficiencia visual baixa visao" -> "Sim - deficiência visual, baixa visão / Yes - visual impairment, low vision"
+    ,"deficiencia auditiva parcial" -> "Sim - deficiência auditiva parcial / Yes - partial hearing impairment"
+    ,"deficiencia auditiva total" -> "Sim - deficiência auditiva total / Yes - total hearing impairment"
+    ,"restricao de mobilidade parcial" -> "Sim - restrição de mobilidade parcial / Yes - partial mobility restriction"
+    ,"restricao de mobilidade cadeirante" -> "Sim - restrição de mobilidade cadeirante / Yes - mobility restriction, wheelchair")
 
   val sizes = Seq(("P", "P"), ("M","M"), ("G","G"), ("GG","GG"), ("XGG","XGG"), ("XXGG","XXGG"))
 
