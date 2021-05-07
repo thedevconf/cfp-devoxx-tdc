@@ -2,19 +2,22 @@
 
 Olá, @firstName,
 
-Agradecemos muito pela sua submissão!
-Recebemos centenas de palestras e como você sabe o @ConferenceDescriptor.current().naming.title será realizado em uma versão digital.
-Essa mudança no formato do evento reduziu consideravelmente o número de palestras selecionadas por trilha, fazendo com que muitos conteúdos que gostaríamos de selecionar ficassem de fora.
+Esperamos que esteja bem :)
 
-Lamentamos informar que INFELIZMENTE a sua palestra NÃO FOI SELECIONADA:
-Título: @proposal.title
-Trilha: @Messages(proposal.track.label)
+Primeiramente quero agradecer pelo tempo que dedicou para submeter sua palestra para o @ConferenceDescriptor.current().naming.title.
 
-Esperamos que não haja desapontamento com o evento e agradecemos muito sua proposta.
-Não desanime, participe das próximas chamadas de trabalhos das edições do TheDevConf.
+Recebemos muitas submissões para a trilha @Messages(proposal.track.label), mas nem todo o conteúdo pode ser absorvido. As pessoas coordenadoras, estruturam sempre uma jornada de conteúdo para o público, pautando palestras que estejam conectadas e alinhadas aos objetivos da trilha.
 
-Considerando a sua participação no Call4Papers, manteremos o preço promocional da fase 1 das inscrições.
-Para isso, basta responder este e-mail, falando de quantas trilhas quer participar e receberá o código promocional válido por 10 dias.
+Dessa forma sentimos muito em informar que a sua palestra NÃO FOI SELECIONADA:
+@proposal.title
+
+Assista a este vídeo: (https://www.youtube.com/watch?v=3S7KZV4L_nk&feature=youtu.be)
+
+Não desanime! Nós vamos te avisar por email sobre os próximos Call4Papers do TheDevConf. Queremos muito te ver palestrar no TDC numa próxima edição e agradecemos muito sua proposta!
+
+Antes de ir embora, queremos te presentear com um desconto para que possa participar do TDC em 1 Trilha com o valor de fase 1.
+Escolha a sua Trilha clicando aqui (https://inscricoes.globalcode.com.br/novaInscricao/tdc-2021-connections-online) e utilize o código promocional até dia 28/05:
+22EA057DB0A9BFB8B8D7D3D6AE682D780152660
 
 Atenciosamente,
 
@@ -24,16 +27,19 @@ Equipe @ConferenceDescriptor.current().naming.title
 
 Hi, @firstName,
 
-Thank you a lot for your submission!
-We received hundreds of proposals and as you know @ConferenceDescriptor.current().naming.title will be held in a digital version.
-This change in the format has considerably reduced the number of selected talks per track, that way many contents that we would like to select were left out.
+We hope you are well :)
 
-We're sorry to inform you that your proposal was NOT SELECTED:
-Title : @proposal.title
-Track: @Messages(proposal.track.label).
+First of all, we would like to thank you for the time you spent submitting your talk for the @ConferenceDescriptor.current().naming.title.
 
-We hope there will be no disappointment with the event and we are very grateful for your proposal.
-Do not be discouraged, participate in the next Call4Papers from TheDevConf editions.
+We received many submissions for the track @Messages(proposal.track.label), but not all content can be absorbed. The technical committee always structures a content journey for the audience, giving talks that are connected and aligned with the objectives of the track.
+
+That way we are sorry to inform you that your talk WAS NOT SELECTED:
+@proposal.title
+
+Don't be discouraged! We will let you know via email about the next Call4Papers for TheDevConf. We want to see you speak at TDC in an upcoming edition and we appreciate your proposal!
+
+Before leaving, we want to give you a discount so you can participate in 1 Track at TDC with the value ​​of phase 1. Choose your Track by clicking here (https://inscricoes.globalcode.com.br/novaInscricao/tdc-2021-connections-online) and use the promotional code to register until May 28th:
+22EA057DB0A9BFB8B8D7D3D6AE682D780152660
 
 Best regards,
 The @ConferenceDescriptor.current().naming.title team
