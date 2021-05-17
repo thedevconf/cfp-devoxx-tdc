@@ -54,6 +54,8 @@
     </tr>
 </table>
 
+<a href="#english" style="float:right; font-size:small;">english version below</a>
+
 <h3>Bem-vindo ao @ConferenceDescriptor.current().naming.title</h3>
 <p>Olá, @firstName,</p>
 <p>Estamos muito contentes em informar que a sua palestra foi <strong>SELECIONADA</strong>:<br/>
@@ -63,13 +65,13 @@
 </p>
 <p>
     <span style="color:red;">IMPORTANTE</span>: <b>Vamos trabalhar apenas com palestras de 35 minutos, sem exceções, </b>
-    por isso pedimos que ajuste seu material e treine dentro deste tempo estipulado, nos ajudando assim a não acontecer atrasos na Trilha. Contamos com seu comprometimento! ;)
+    por isso pedimos que ajuste seu material e treine dentro deste tempo estipulado, nos ajudando assim a não acontecer atrasos na Trilha.
 </p>
 
 <h3>ATENÇÃO! Ações necessárias</h3>
 
 <h4>1. Aceitar ou recusar</h4>
-<p>Para palestrar no TDC, você deve ler e estar ciente dos
+<p>Para palestrar no TDC, você deve estar ciente dos
     <a target="_blank" href="https://thedevconf.com/aceite">termos e condições de participação</a>, da
     <a target="_blank" href="https://thedevconf.com/tdc/2021/privacidade-palestrantes">política de privacidade</a> e do
     <a target="_blank" href="https://thedevconf.com/conduta">código de conduta</a> do evento.
@@ -77,22 +79,22 @@
     Confirme a sua participação através desse link:
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
     <br/>
-    Para ter a sua palestra publicada no site do TDC, é necessário aceitar sua aprovação no sistema CFP em até 5 dias úteis.
+    Para ter a sua palestra publicada no site do TDC, é necessário aceitar sua aprovação no sistema CFP em até 5 dias.
 </p>
 
 <h4>2. Sua minibio e foto</h4>
 <p>Para ter as suas informações completas no site do evento, preencha todos os campos, incluindo links e informações relevantes sobre você no seu perfil no Call4Papers. Não esqueça de incluir a sua foto.</p>
 
 <h4>3. Questões sobre sua palestra</h4>
-<p>Por favor, não responda este email. Envie qualquer comentário através do web site do CFP e nossa equipe fará o possível para responder rapidamente.<br/>
+<p>Por favor, não responda este email. <br/>
+    Envie qualquer comentário através do web site do CFP e nossa equipe fará o possível para responder rapidamente.<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 
 <h4>4. Cortesia para palestrantes</h4>
-<p>Como palestrante do @ConferenceDescriptor.current().naming.title você tem direito a 1 Passport Premium intransferível de 8 Trilhas gratuitas para serem usadas nas 3 edições de 2021 do jeito que preferir. Além da Trilha em que você foi selecionado(a).<br/>
-    <b>BÔNUS</b>: você ainda receberá 1 código com 2 pacotes cortesia para presentear até 2 amigo(a)s com 2 Trilhas (gratuitas) cada.<br/>
-    Ao aceitar palestrar no @ConferenceDescriptor.current().naming.title, você receberá as cortesias através do seu email (não é  automático).<br/>
-    <b>OBS.</b>: Se você já foi palestrante ou coordenador na edição anterior, não receberá outro Passport Premium, ok?
+<p>Como palestrante do @ConferenceDescriptor.current().naming.title você tem direito a 1 Connect Pass intransferível para participar de todas as Trilhas em inglês desta edição e além disso:<br/>
+    <b>BÔNUS</b>: você ainda receberá 1 código com 4 pacotes cortesia para presentear até 4 amigo(a)s com 2 Trilhas (gratuitas) cada.
+    Ao aceitar palestrar no @ConferenceDescriptor.current().naming.title, você receberá as cortesias através do seu email (não é  automático).
 </p>
 
 <h4>5. Compartilhe o evento</h4>
@@ -100,6 +102,7 @@
     <a target="_blank" href="https://facebook.com/TheDevelopersConference">Facebook</a>,
     <a target="_blank" href="https://www.instagram.com/thedevconf/">Instagram</a> e no
     <a target="_blank" href="https://twitter.com/TheDevConf">Twitter</a>. </p>
+
 <p>Atenciosamente,</p>
 <p><em>Equipe @ConferenceDescriptor.current().naming.title</em><br />
     <a target="_blank" href="http://www.thedevelopersconference.com.br" title="@ConferenceDescriptor.current().naming.title">thedevconf.com</a></p>
@@ -162,7 +165,7 @@
 </table>
 
 
-<p>Hi, @firstName,</p>
+<p id="english">Hi, @firstName,</p>
 <p>We're glad to inform you that your talk has been <strong>SELECTED</strong>:<br/>
     Title: <strong>@proposal.title</strong> <br/>
     Track: <strong>@Messages(proposal.track.label)</strong> <br/>
@@ -173,14 +176,15 @@
 <h3>ATTENTION! Required actions</h3>
 
 <h4>1. Accept or decline</h4>
-<p>To speak at TDC, you must comply whit the
-    <a target="_blank" href="https://thedevconf.com/aceite">terms and conditions of participation</a> and the
-    <a target="_blank" href="https://thedevconf.com/conduta">code of conduct</a>.
+<p>To speak at TDC, you must be aware of the
+    <a target="_blank" href="https://thedevconf.com/accept-terms">terms and conditions of participation</a>, the
+    <a target="_blank" href="https://thedevconf.com/tdc/2021/privacy-speakers"> privacy policy</a> and the
+    <a target="_blank" href="https://thedevconf.com/code-of-conduct">code of conduct</a>.
     <br/>
     Confirm your participation through this link:
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()</a>
     <br/>
-    To have your talk published on TDC website, you must accept your approval in the CFP system within 5 business days.
+    To have your talk published on TDC website, you must accept your approval in the CFP system within 5 days.
 </p>
 
 <h4>2. Your bio and picture</h4>
@@ -188,15 +192,15 @@
     about you on your Call4Papers profile. Don't forget to include your photo.</p>
 
 <h4>3. Questions regarding your talk</h4>
-<p>Please, do not respond to this email. Send any comment through the web interface and our team will do its best to respond quickly:<br/>
+<p>Please, do not respond to this email. <br/>
+    Send any comment through the web interface and our team will do its best to respond quickly:<br/>
     <a target="_blank" href="@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)">@ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)</a>
 </p>
 
 <h4>4. Reward for Speakers</h4>
-<p>As a @ConferenceDescriptor.current().naming.title speaker you are entitled to 1 non-transferable Passport Premium of 8 free tracks to be used in the 4 editions of 2021 the way you prefer. In addition to the Track you were selected on.<br/>
-    <b>BONUS</b>: you will also receive 1 code with 2 packages to present up to 2 friends with 2 (free) tracks each.<br/>
-    Accepting a talk at @ConferenceDescriptor.current().naming.title, you will receive the courtesy via email. (not automatic)<b/>
-    <b>OBS.</b>: If you were a speaker or coordinator in the previous edition, you won't receive another Passport Premium, ok?
+<p>As a @ConferenceDescriptor.current().naming.title speaker you are entitled to a Connect Pass to participate in all English Tracks we have at this edition, and:
+    <b>BONUS</b>: you will also receive a code that allows you to present up to 8 friends with 2 (free) tracks each.<br/>
+    Accepting a talk at @ConferenceDescriptor.current().naming.title, you will receive the courtesy via email. (not automatic)
 </p>
 
 <h4>5. Share the event</h4>
