@@ -400,6 +400,11 @@ track.customersuccess.desc=
 customersuccess.label=Customer Success
 customersuccess.leaderboard=Customer Success
 
+track.customerexperience.title=Customer Experience
+track.customerexperience.desc=
+customerexperience.label=Customer Experience
+customerexperience.leaderboard=Customer Experience
+
 track.data.title=Dados
 track.data.desc=
 data.label=Dados
@@ -785,6 +790,26 @@ track.smartcities.title=Smart Cities
 track.smartcities.desc=
 smartcities.label=Smart Cities
 smartcities.leaderboard=Smart Cities
+
+track.stadiumterca.title=Stadium Terça
+track.stadiumterca.desc=
+stadiumterca.label=Stadium Terça
+stadiumterca.leaderboard=Stadium Terça
+
+track.stadiumquarta.title=Stadium Quarta
+track.stadiumquarta.desc=
+stadiumquarta.label=Stadium Quarta
+stadiumquarta.leaderboard=Stadium Quarta
+
+track.stadiumquinta.title=Stadium Quinta
+track.stadiumquinta.desc=
+stadiumquinta.label=Stadium Quinta
+stadiumquinta.leaderboard=Stadium Quinta
+
+track.stadiumsexta.title=Stadium Sexta
+track.stadiumsexta.desc=
+stadiumsexta.label=Stadium Sexta
+stadiumsexta.leaderboard=Stadium Sexta
 
 track.startups.title=Startups
 track.startups.desc=
