@@ -557,7 +557,7 @@ object Proposal {
 
       var logMsg = new StringBuilder();
       var logCount = 0L;
-      thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
+      var result = thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
         logCount += 1;
         if( logCount % 500 == 0){
           play.Logger.warn(s"Could not find proposal state for $logCount")
@@ -565,6 +565,7 @@ object Proposal {
         None
       })
       play.Logger.warn(s"Could not find proposal state for $logMsg")
+      result
   }
 
   private def checkIsNotMember(client: Dress.Wrap, state: ProposalState, proposalId: String): Option[Boolean] = {
