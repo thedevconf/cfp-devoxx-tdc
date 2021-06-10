@@ -560,7 +560,7 @@ object Proposal {
       thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
         logCount += 1;
         if( logCount % 500 == 0){
-          play.Logger.warn(s"Could not find proposal state for $locCount")
+          play.Logger.warn(s"Could not find proposal state for $logCount")
         }
         None
       })
