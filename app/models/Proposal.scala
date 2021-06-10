@@ -555,10 +555,16 @@ object Proposal {
         isNotDeleted <- checkIsNotMember(client, ProposalState.CANCELED, proposalId).toRight(ProposalState.CANCELED).right
       ) yield ProposalState.UNKNOWN // If we reach this code, we could not find what was the proposal state
 
+      var logMsg = new StringBuilder();
+      var logCount = 0L;
       thisProposalState.fold(foundProposalState => Some(foundProposalState), notFound => {
-        play.Logger.warn(s"Could not find proposal state for $proposalId")
+        logCount += 1;
+        if( logCount % 500 == 0){
+          play.Logger.warn(s"Could not find proposal state for $locCount")
+        }
         None
       })
+      play.Logger.warn(s"Could not find proposal state for $logMsg")
   }
 
   private def checkIsNotMember(client: Dress.Wrap, state: ProposalState, proposalId: String): Option[Boolean] = {
