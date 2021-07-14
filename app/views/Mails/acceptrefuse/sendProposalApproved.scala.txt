@@ -10,7 +10,7 @@ Trilha:  @Messages(proposal.track.label)
 Título:  @proposal.title
 Formato: 35 minutos•
 
-•IMPORTANTE: Vamos trabalhar apenas com palestras de 35 minutos, sem exceções, por isso pedimos que ajuste seu material e treine dentro deste tempo estipulado, nos ajudando assim a não acontecer atrasos na Trilha.
+•IMPORTANTE: Vamos trabalhar apenas com palestras de 35 minutos nas Trilhas, por isso pedimos que ajuste seu material e treine dentro deste tempo estipulado, nos ajudando assim a não acontecer atrasos na programação.
 
 
 ATENÇÃO! Ações necessárias
@@ -20,26 +20,31 @@ ATENÇÃO! Ações necessárias
 Para palestrar no TDC, você deve estar ciente dos termos e condições de participação (https://thedevconf.com/aceite),
 da política de privacidade (https://thedevconf.com/tdc/2021/privacidade-palestrantes)
 e do código de conduta do evento (https://thedevconf.com/conduta).
-Confirme a sua participação através desse link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
-Para ter a sua palestra publicada no site do TDC, é necessário aceitar sua aprovação no sistema CFP em até 5 dias.
+
+Sua palestra será incluída na grade da Trilha, no site, junto com as demais palestras selecionadas e, caso você decline, iremos retirá-la em no máximo 2 dias úteis.
+Por favor, confirme ou recuse sua participação através deste link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
 
 2. Sua minibio e foto
 Para ter as suas informações completas no site do evento, preencha todos os campos, incluindo links e informações
-relevantes sobre você no seu perfil no Call4Papers. Não esqueça de incluir a sua foto.
+relevantes sobre você no seu perfil no Call4Papers. Não esqueça de incluir uma foto sua de alta qualidade.
 
-3. Questões sobre sua palestra
-Por favor, não responda este email.
-Envie qualquer comentário através do website do CFP e nossa equipe fará o possível para responder rapidamente:
-  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
-
-4. Cortesia para palestrantes
-Como palestrante do @ConferenceDescriptor.current().naming.title você tem direito a 1 Connect Pass intransferível para participar de todas as Trilhas em inglês desta edição e além disso:
-BÔNUS: você ainda receberá 1 código com 4 pacotes cortesia para presentear até 4 amigo(a)s com 2 Trilhas (gratuitas) cada.
+3. Cortesia para palestrantes
+Como palestrante do @ConferenceDescriptor.current().naming.title você ganha 1 Passport Premium, pacote anual composto por 8 Trilhas, para que assim posssa aproveitar ao máximo até o final do ano.
+BÔNUS: você ainda receberá 4 pacotes cortesia para presentear até 4 amigo(a)s com 2 Trilhas (gratuitas) cada.
 Ao aceitar palestrar no @ConferenceDescriptor.current().naming.title, você receberá as cortesias através do seu email (não é  automático).
+
+4. Comunicação com a Coordenação
+A organização irá criar um grupo com todos os coordenadores, palestrantes e painelistas da Trilha - mais próximo ao evento - para que possam se conhecer e interagir.
+O aplicativo utilizado será ao Telegram, por isso pedimos que já baixe o mesmo. A participação não será obrigatória, mas indicamos fortemente para que as informações estejam bem alinhadas entre todos.
 
 5. Compartilhe o evento
 Se você usa redes sociais, aproveitamos para te convidar a curtir nossa página no Facebook (https://facebook.com/TheDevelopersConference),
 Instagram (https://www.instagram.com/thedevconf/) e no Twitter (https://twitter.com/TheDevConf).
+
+6. Questões sobre sua palestra
+Por favor, não responda este email.
+Envie qualquer comentário através do website do CFP e nossa equipe fará o possível para responder rapidamente:
+  @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 
 Atenciosamente,
 
@@ -63,27 +68,32 @@ ATTENTION! Required actions
 1. Accept or decline
 To speak at TDC, you must be aware of the terms and conditions of participation (https://thedevconf.com/accept-terms),
 the privacy policy (https://thedevconf.com/tdc/2021/privacy-speakers)
-and the code of conduct of the event (https://thedevconf.com/code-of-conduct).
-Confirm your participation through this link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
-To have your talk published on TDC website, you must accept your approval in the CFP system within 5 days.
+and the code of conduct (https://thedevconf.com/code-of-conduct).
+
+Your talk will be included in the track program, on the website, together with all the other selected talks and, if you decline, we will remove it within a maximum of 2 days.
+Please, confirm your participation through this link: @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.ApproveOrRefuse.showAcceptTerms()
 
 2. Your bio and picture
 To have your complete information on the event website, fill in all the fields, including links and relevant information
-about you on your Call4Papers profile. Don't forget to include your photo.
+about you on your Call4Papers profile. Don't forget to include a high-quality photo of yours.
 
-3. Questions regarding your talk
-Please, do not respond to this email.
-Send any comment through the web interface and our team will do its bests to respond quickly:
- @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
-
-4. Reward for Speakers
-As a @ConferenceDescriptor.current().naming.title speaker you are entitled to a Connect Pass to participate in all English Tracks we have at this edition, and:
-BONUS: you will also receive a code that allows you to present up to 8 friends with 2 (free) tracks each.
+3. Free tickets for Speakers
+As a @ConferenceDescriptor.current().naming.title speaker you receive a Passport Premium, an annual package consisting of 8 tracks, so you can enjoy it until the end of the year, and:
+BONUS: you also receive a package that allows you to present up to 4 friends with 2 (free) tracks each.
 Accepting a talk at @ConferenceDescriptor.current().naming.title, you will receive the courtesy via email. (not automatic)
+
+4. Communication with the Committee
+The organization will create a group with all the coordinators, speakers and panelists of the Track - closer to the event - so you can meet and interact.
+We will use the Telegram app, that's why we ask you to download it right now. Participation is not mandatory, but we strongly recommend it.
 
 5. Share the event
 If you use social networks, we take the opportunity to invite you to give your like in our page on Facebook
 (https://facebook.com/TheDevelopersConference), (https://www.instagram.com/thedevconf/) and Twitter (https://twitter.com/TheDevConf).
+
+6. Questions regarding your talk
+Please, do not respond to this email.
+Send any comment through the web interface and our team will do its bests to respond quickly:
+ @ConferenceDescriptor.current().conferenceUrls.cfpURL@routes.CallForPaper.showCommentForProposal(proposal.id)
 
 Best regards,
 
